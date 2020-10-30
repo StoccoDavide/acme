@@ -825,30 +825,6 @@ namespace acme
       template quadix<T,3> rotate<T>(const T& rx, const T& ry, const T& rz, const quadix<T,3>& quadix, const point3d<T>& opoint);\
       template polygon<T,3> rotate<T>(const T& rx, const T& ry, const T& rz, const polygon<T,3>& polygon);\
       template polygon<T,3> rotate<T>(const T& rx, const T& ry, const T& rz, const polygon<T,3>& polygon, const point3d<T>& opoint);\
-      template void fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const T& x, const T& y, T& nx, T& ny);\
-      template void fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const T& x, const T& y, const T& ox, const T& oy, T& nx, T& ny);\
-      template point2d<T> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const point2d<T>& point);\
-      template point2d<T> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const point2d<T>& point, const point2d<T>& opoint);\
-      template segment<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const segment<T,2>& segment);\
-      template segment<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const segment<T,2>& segment, const point2d<T>& opoint);\
-      template triangle<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const triangle<T,2>& triangle);\
-      template triangle<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const triangle<T,2>& triangle, const point2d<T>& opoint);\
-      template quadix<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const quadix<T,2>& quadix);\
-      template quadix<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const quadix<T,2>& quadix, const point2d<T>& opoint);\
-      template polygon<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const polygon<T,2>& polygon);\
-      template polygon<T,2> fast_rotate<T>(const trig_luts<T>& lut, const int rotation_angle, const polygon<T,2>& polygon, const point2d<T>& opoint);\
-      template void fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const T&x, const T&y, const T&z, T& nx, T& ny, T& nz);\
-      template void fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const T&x, const T&y, const T&z, const T& ox, const T& oy, const T& oz, T& nx, T& ny, T& nz);\
-      template point3d<T> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const point3d<T>& point);\
-      template point3d<T> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const point3d<T>& point, const point3d<T>& opoint);\
-      template segment<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const segment<T,3>& segment);\
-      template segment<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const segment<T,3>& segment, const point3d<T>& opoint);\
-      template triangle<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const triangle<T,3>& triangle);\
-      template triangle<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const triangle<T,3>& triangle, const point3d<T>& opoint);\
-      template quadix<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const quadix<T,3>& quadix);\
-      template quadix<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const quadix<T,3>& quadix, const point3d<T>& opoint);\
-      template polygon<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const polygon<T,3>& polygon);\
-      template polygon<T,3> fast_rotate<T>(const trig_luts<T>& lut, const int rx, const int ry, const int rz, const polygon<T,3>& polygon, const point3d<T>& opoint);\
       template point2d<T> translate<T>(const T& dx, const T& dy, const point2d<T>& point);\
       template line<T,2> translate<T>(const T& dx, const T& dy, const line<T,2>& line);\
       template segment<T,2> translate<T>(const T& dx, const T& dy, const segment<T,2>& segment);\
@@ -1230,8 +1206,8 @@ namespace acme
       template polygon<T,D> make_polygon<T,D>(const triangle<T,D>& triangle);\
       template polygon<T,D> make_polygon<T,D>(const quadix<T,D>& quadix);
 
-   #define INSTANTIATE_ACME_MATH(T)                                \
-      template T sqr<T> (const T& val);                              \
+   #define INSTANTIATE_ACME_MATH(T)                                  \
+      template T sqr<T> (const T& value);                            \
       template T abs<T> (const T& value);                            \
       template T max<T> (const T& value1, const T& value2);          \
       template T min<T> (const T& value1, const T& value2);          \
@@ -1240,13 +1216,10 @@ namespace acme
       template T cos<T> (const T& value);                            \
       template T tan<T> (const T& value);                            \
       template T atan<T>(const T& value);                            \
-      template T approx_sin<T>(T angle);                             \
-      template T approx_cos<T>(T angle);                             \
-      template T approx_tan<T>(T angle);                             \
       template T clamp(const T& value, const T& low, const T& high); \
 
 
-   #define INSTANTIATE_ACME_UTILITIES_1(T)                                                 \
+   #define INSTANTIATE_ACME_UTILITIES_1(T)                                                   \
       template std::ostream& operator<< <T>(std::ostream& os, const point2d<T>& point);      \
       template std::ostream& operator<< <T>(std::ostream& os, const point3d<T>& point);      \
       template std::ostream& operator<< <T>(std::ostream& os, const ray<T,2>& ray);          \
@@ -1259,7 +1232,7 @@ namespace acme
       template std::ostream& operator<< <T>(std::ostream& os, const box<T,3>& box);          \
 
 
-   #define INSTANTIATE_ACME_UTILITIES_2(T,D)                                                 \
+   #define INSTANTIATE_ACME_UTILITIES_2(T,D)                                                   \
       template std::ostream& operator<< <T,D>(std::ostream& os, const segment<T,D>& segment);  \
       template std::ostream& operator<< <T,D>(std::ostream& os, const line<T,D>& line);        \
       template std::ostream& operator<< <T,D>(std::ostream& os, const triangle<T,D>& triangle);\

@@ -152,24 +152,6 @@ namespace acme
   inline T atan(const T &value //!< Input value
   );
 
-  //! Appoximate sine function [rad]
-  template <typename T>
-  inline T approx_sin(
-      T value //!< Input value
-  );
-
-  //! Appoximate cosine function [rad]
-  template <typename T>
-  inline T approx_cos(
-      T value //!< Input value
-  );
-
-  //! Appoximate tangent function [rad]
-  template <typename T>
-  inline T approx_tan(
-      T value //!< Input value
-  );
-
   //! Clamp function (returns the input value bounded between low and high values)
   template <typename T>
   inline T clamp(
