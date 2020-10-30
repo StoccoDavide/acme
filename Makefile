@@ -57,10 +57,10 @@ clean:
 	rm -rf $(OBJECTS)
 
 tests: $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test1.cc -o bin/test1 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc -o bin/test_math $(LIBS)
 
 run:
-	./bin/test1
+	./bin/test_math
 
 
 #

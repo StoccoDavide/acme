@@ -1,231 +1,189 @@
+///
+/// file: acme_math.hh
+///
+
 #ifndef INCLUDE_ACME_MATH
 #define INCLUDE_ACME_MATH
 
-
 #include <cmath>
 #include <limits>
-
+#include <algorithm>
 
 namespace acme
 {
 
-   typedef double Float; //!< Floating point number type
-   typedef int    Int;   //!< Integer number type
+  /*\
+   |   ____            _                            _              _       
+   |  | __ )  __ _ ___(_) ___    ___ ___  _ __  ___| |_ __ _ _ __ | |_ ___ 
+   |  |  _ \ / _` / __| |/ __|  / __/ _ \| '_ \/ __| __/ _` | '_ \| __/ __|
+   |  | |_) | (_| \__ \ | (__  | (_| (_) | | | \__ \ || (_| | | | | |_\__ \
+   |  |____/ \__,_|___/_|\___|  \___\___/|_| |_|___/\__\__,_|_| |_|\__|___/
+   |                                                                       
+  \*/
 
-   /*************[ Epsilon constants ]*************/
-   static const Float Epsilon_High      = 1.0E-16;
-   static const Float Epsilon_Medium    = 1.0E-10;
-   static const Float Epsilon_Low       = 1.0E-07;
-   static const Float Epsilon           = Epsilon_Medium;
-   static const Float Infinity          = std::numeric_limits<Float>::infinity();
+  typedef double Float; //!< real_typeing point number type
+  typedef int Int;      //!< int_typeeger number type
 
-   /********[ Random resolution constants ]********/
-   static const std::size_t RANDOM_RESOLUTION_INT = 1000000000;
-   static const double      RANDOM_RESOLUTION_FLT = RANDOM_RESOLUTION_INT * 1.0;
+  static const Float Epsilon_Machine = std::numeric_limits<Float>::epsilon(); //!< machine espilon \f$ \varepsilon \f$
+  static const Float Epsilon_High = 1.0E-16;                               //!< High precision epsilon constant
+  static const Float Epsilon_Medium = 1.0E-10;                             //!< Medium precision epsilon constant
+  static const Float Epsilon_Low = 1.0E-07;                                //!< Low precision epsilon constant
+  static const Float Epsilon = Epsilon_Medium;                             //!< Standard precision epsilon constant
+  static const Float Infinity = std::numeric_limits<Float>::infinity();    //!< Infinity constant
 
-   /********[                             ]********/
-   static const Float PI        = Float( 3.141592653589793238462643383279500);
-   static const Float PI2       = Float( 6.283185307179586476925286766559000);
-   static const Float PIDiv180  = Float( 0.017453292519943295769236907684886);
-   static const Float _180DivPI = Float(57.295779513082320876798154814105000);
+  static const Float PI = Float(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ value
+  static const Float PI2 = Float(6.283185307179586476925286766559000);        //!< \f$ 2\pi \f$ value
+  static const Float PIDiv180 = Float(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ value
+  static const Float _180DivPI = Float(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ value
 
+  /*\
+   |   __  __       _   _     
+   |  |  \/  | __ _| |_| |__  
+   |  | |\/| |/ _` | __| '_ \ 
+   |  | |  | | (_| | |_| | | |
+   |  |_|  |_|\__,_|\__|_| |_|
+   |                          
+  \*/
 
-   template <typename T> inline T sqr(const T& val);
-   template <typename T> inline T sqrt(const T& val);
-   template <typename T> inline T abs(const T& value);
-   template <typename T> inline T max(const T& value1, const T& value2);
-   template <typename T> inline T min(const T& value1, const T& value2);
-   template <typename T> inline T max(const T& value1, const T& value2, const T& value3);
-   template <typename T> inline T min(const T& value1, const T& value2, const T& value3);
-   template <typename T> inline T infinity();
+  //! Return infinity value
+  template <typename T>
+  inline T infinity();
 
-   template <typename T> inline T sin(const T& value);
-   template <typename T> inline T cos(const T& value);
-   template <typename T> inline T tan(const T& value);
-   template <typename T> inline T asin(const T& value);
-   template <typename T> inline T acos(const T& value);
-   template <typename T> inline T atan(const T& value);
-   template <typename T> inline T approx_sin(T angle);
-   template <typename T> inline T approx_cos(T angle);
-   template <typename T> inline T approx_tan(T angle);
+  //! Return epsilon value
+  template <typename T>
+  inline T epsilon();
 
-   template <typename T> inline T clamp(const T& value, const T& low, const T& high);
+  //! Return specific double-type epsilon value
+  template <>
+  inline double epsilon<double>();
 
-   template <typename T>
-   inline T sqr(const T& val)
-   {
-      return val * val;
-   }
+  template <>
+  //! Return specific float-type epsilon value
+  inline float epsilon<float>();
 
-   template <typename T>
-   inline T sqrt(const T& val)
-   {
-      return std::sqrt(val);
-   }
+  //! Square function
+  template <typename T>
+  inline T sqr(
+      const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T abs(const T& value)
-   {
-      return std::abs(value);
-   }
+  //! Square root function
+  template <typename T>
+  inline T sqrt(
+      const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T max(const T& value1, const T& value2)
-   {
-      return std::max<T>(value1,value2);
-   }
+  //! Absolute value function
+  template <typename T>
+  inline T abs(const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T min(const T& value1, const T& value2)
-   {
-      return std::min<T>(value1,value2);
-   }
+  //! Maximum between two values function
+  template <typename T>
+  inline T max(
+      const T &value1, //!< Input value 1
+      const T &value2  //!< Input value 2
+  );
 
-   template <typename T>
-   inline T max(const T& value1, const T& value2, const T& value3)
-   {
-      return max(value1,max(value2,value3));
-   }
+  //! Minimum between two values function
+  template <typename T>
+  inline T min(
+      const T &value1, //!< Input value 1
+      const T &value2  //!< Input value 2
 
-   template <typename T>
-   inline T min(const T& value1, const T& value2, const T& value3)
-   {
-      return min(value1,min(value2,value3));
-   }
+  );
 
-   template <typename T>
-   inline T infinity()
-   {
-      return std::numeric_limits<T>::infinity();
-   }
+  //! Maximum between three values function
+  template <typename T>
+  inline T max(
+      const T &value1, //!< Input value 1
+      const T &value2, //!< Input value 2
+      const T &value3  //!< Input value 3
+  );
 
-   template <typename T>
-   inline T sin(const T& value)
-   {
-      return std::sin(value);
-   }
+  //! Minimum between three values function
+  template <typename T>
+  inline T min(
+      const T &value1, //!< Input value 1
+      const T &value2, //!< Input value 2
+      const T &value3  //!< Input value 3
+  );
 
-   template <typename T>
-   inline T cos(const T& value)
-   {
-      return std::cos(value);
-   }
+  /*\
+   |   _____     _                                        _              
+   |  |_   _| __(_) __ _  ___  _ __   ___  _ __ ___   ___| |_ _ __ _   _ 
+   |    | || '__| |/ _` |/ _ \| '_ \ / _ \| '_ ` _ \ / _ \ __| '__| | | |
+   |    | || |  | | (_| | (_) | | | | (_) | | | | | |  __/ |_| |  | |_| |
+   |    |_||_|  |_|\__, |\___/|_| |_|\___/|_| |_| |_|\___|\__|_|   \__, |
+   |               |___/                                           |___/ 
+  \*/
 
-   template <typename T>
-   inline T tan(const T& value)
-   {
-      return std::tan(value);
-   }
+  //! Sine function [rad]
+  template <typename T>
+  inline const T sin(
+      const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T asin(const T& value)
-   {
-      return std::asin(value);
-   }
+  //! Cosine function [rad]
+  template <typename T>
+  inline T cos(
+      const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T acos(const T& value)
-   {
-      return std::acos(value);
-   }
+  //! Tangent function [rad]
+  template <typename T>
+  inline T tan(const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T atan(const T& value)
-   {
-      return std::atan(value);
-   }
+  //! Arcsine function [rad]
+  template <typename T>
+  inline T asin(
+      const T &value //!< Input value
+  );
 
-   template <typename T>
-   inline T approx_sin(T angle)
-   {
-      T final_sign = T(1.0);
+  //! Arccosine function [rad]
+  template <typename T>
+  inline T acos(
+      const T &value //!< Input value
+  );
 
-           if ((angle <= T(180.0)) && (angle >     90.0)) { angle = T(180.0) - angle;    final_sign = T( 1.0); }
-      else if ((angle <= T(270.0)) && (angle > T(180.0))) { angle = angle    - T(180.0); final_sign = T(-1.0); }
-      else if ((angle <= T(360.0)) && (angle > T(270.0))) { angle = T(360.0) - angle;    final_sign = T(-1.0); }
+  //! Arctangent function [rad]
+  template <typename T>
+  inline T atan(const T &value //!< Input value
+  );
 
-      angle *=  T(PI / 180.0);
-      T asqr = angle * angle;
-      T result = T(-2.39e-08);
-      result *= asqr;
-      result += T(2.7526e-06);
-      result *= asqr;
-      result -= T(1.98409e-04);
-      result *= asqr;
-      result += T(8.3333315e-03);
-      result *= asqr;
-      result -= T(1.666666664e-01);
-      result *= asqr;
-      result += T(1.0);
-      result *= angle;
+  //! Appoximate sine function [rad]
+  template <typename T>
+  inline T approx_sin(
+      T value //!< Input value
+  );
 
-      return result * final_sign;
-   }
+  //! Appoximate cosine function [rad]
+  template <typename T>
+  inline T approx_cos(
+      T value //!< Input value
+  );
 
-   template <typename T>
-   inline T approx_cos(T angle)
-   {
-      T final_sign = T(1.0);
+  //! Appoximate tangent function [rad]
+  template <typename T>
+  inline T approx_tan(
+      T value //!< Input value
+  );
 
-           if ((angle <= T(180.0)) && (angle >     90.0)) { angle = T(180.0) - angle;    final_sign = T(-1.0); }
-      else if ((angle <= T(270.0)) && (angle > T(180.0))) { angle = angle    - T(180.0); final_sign = T(-1.0); }
-      else if ((angle <= T(360.0)) && (angle > T(270.0))) { angle = T(360.0) - angle;    final_sign = T( 1.0); }
-
-      angle *=  T(PI / 180.0);
-      T asqr = angle * angle;
-      T result = T(-2.605e-07);
-      result *= asqr;
-      result += T(2.47609e-05);
-      result *= asqr;
-      result -= T(1.3888397e-03);
-      result *= asqr;
-      result += T(4.16666418e-02);
-      result *= asqr;
-      result -= T(4.999999963e-01);
-      result *= asqr;
-      result += T(1.0);
-
-      return result * final_sign;
-   }
-
-   template <typename T>
-   inline T approx_tan(T angle)
-   {
-      T final_sign = T(1.0);
-
-           if ((angle <= T(180.0)) && (angle >     90.0)) { angle = T(180.0) - angle;    final_sign = T(-1.0); }
-      else if ((angle <= T(270.0)) && (angle > T(180.0))) { angle = angle    - T(180.0); final_sign = T( 1.0); }
-      else if ((angle <= T(360.0)) && (angle > T(270.0))) { angle = T(360.0) - angle;    final_sign = T(-1.0); }
-
-      angle *=  T(PI / 180.0);
-      T asqr = angle * angle;
-      T result = T(9.5168091e-03);
-      result *= asqr;
-      result += T(2.900525e-03);
-      result *= asqr;
-      result += T(2.45650893e-02);
-      result *= asqr;
-      result += T(5.33740603e-02);
-      result *= asqr;
-      result += T(1.333923995e-01);
-      result *= asqr;
-      result += T(3.333314036e-01);
-      result *= asqr;
-      result += T(1.0);
-      result *= angle;
-
-      return result * final_sign;
-   }
-
-   template <typename T>
-   inline T clamp(const T& value, const T& low_end, const T& high_end)
-   {
-      if (value < low_end ) return low_end;
-      if (value > high_end) return high_end;
-
-      return value;
-   }
+  //! Clamp function (returns the input value bounded between low and high values)
+  template <typename T>
+  inline T clamp(
+      const T &value, //!< Input value
+      const T &low,   //!< Low end bound
+      const T &high   //!< High end bound
+  );
 
 } // namespace acme
 
+#include "acme_math.inl"
+
 #endif
+
+///
+/// eof: acme_math.hh
+///
