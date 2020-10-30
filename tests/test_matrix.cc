@@ -1,6 +1,7 @@
 #include <iostream>
 
-#include "acme_math.hh"
+#include "acme.hh"
+#include "acme_matrix.hh"
 
 int main(void)
 {
@@ -30,11 +31,6 @@ int main(void)
             << "Infinity (double) = " << Infinity_double << std::endl
             << "Infinity (acme)   = " << Infinity_acme << std::endl
             << std::endl;
-
-  // SINE TEST
-  double value = acme::PI;
-   std::cout << "SINE TEST" << std::endl
-             << "Sine(PI) = " << acme::sin(value) << std::endl;
 
   return 0;
 }

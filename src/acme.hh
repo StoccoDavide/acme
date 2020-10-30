@@ -1,6 +1,7 @@
 #ifndef INCLUDE_ACME
 #define INCLUDE_ACME
 
+
 #include <cstddef>
 #include <limits>
 #include <algorithm>
@@ -25,6 +26,7 @@ namespace acme
    |  |_____|_| |_|\__|_|\__|\__, |
    |                         |___/ 
   \*/
+  
   class entity
   {
   };
@@ -601,24 +603,6 @@ namespace acme
     inline std::size_t size() const { return PointCount; }
   };
 
-  enum eInclusion
-  {
-    eFully,
-    ePartially,
-    eOutside,
-    eUnknown
-  };
-
-  enum eTriangleType
-  {
-    etEquilateral,
-    etIsosceles,
-    etRight,
-    etScalene,
-    etObtuse,
-    etUnknown
-  };
-
   /**********[ Orientation constants ]**********/
   const int RightHandSide = -1;
   const int LeftHandSide = +1;
@@ -671,11 +655,13 @@ namespace acme
   typedef line<Float, 2> line2d;
   typedef triangle<Float, 2> triangle2d;
   typedef quadix<Float, 2> quadix2d;
+  typedef ray<Float, 2> ray2d;
 
   typedef segment<Float, 3> segment3d;
   typedef line<Float, 3> line3d;
   typedef triangle<Float, 3> triangle3d;
   typedef quadix<Float, 3> quadix3d;
+  typedef ray<Float, 3> ray3d;
 
   template <typename T>
   inline int orientation(const T &x1, const T &y1,

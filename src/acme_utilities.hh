@@ -7,7 +7,7 @@
 #include <vector>
 
 #include "acme.hh"
-#include "acme_matrix.hh"
+//#include "acme_matrix.hh"
 
 
 namespace acme
@@ -188,7 +188,7 @@ namespace acme
       return os;
    }
 
-   template <typename T, std::size_t M, std::size_t N>
+   /*template <typename T, std::size_t M, std::size_t N>
    inline std::ostream& operator<<(std::ostream& os, const matrix<T,M,N>& matrix)
    {
       for (std::size_t x = 0; x < M; x++)
@@ -202,8 +202,8 @@ namespace acme
       }
 
       return os;
-   }
-
+   }*/
+   
 } // namespace acme
 
 #endif

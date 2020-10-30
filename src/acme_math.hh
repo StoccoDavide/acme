@@ -22,7 +22,7 @@ namespace acme
   \*/
 
   typedef double Float; //!< real_typeing point number type
-  typedef int Int;      //!< int_typeeger number type
+  typedef int    Int;   //!< int_typeeger number type
 
   static const Float Epsilon_Machine = std::numeric_limits<Float>::epsilon(); //!< machine espilon \f$ \varepsilon \f$
   static const Float Epsilon_High = 1.0E-16;                               //!< High precision epsilon constant
@@ -119,9 +119,9 @@ namespace acme
   \*/
 
   //! Sine function [rad]
-  template <typename T>
-  inline const T sin(
-      const T &value //!< Input value
+   template <typename T>
+   inline T sin(
+     const T &value //!< Input value
   );
 
   //! Cosine function [rad]
