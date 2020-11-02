@@ -34,3 +34,6 @@
 # Visual Studio Code
 .vscode
 
+# Copy
+.copy
+

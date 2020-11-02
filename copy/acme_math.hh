@@ -22,14 +22,14 @@ namespace acme
   \*/
 
   typedef double Float; //!< real_typeing point number type
-  typedef int Int;      //!< int_typeeger number type
+  typedef int    Int;   //!< int_typeeger number type
 
   static const Float Epsilon_Machine = std::numeric_limits<Float>::epsilon(); //!< machine espilon \f$ \varepsilon \f$
-  static const Float Epsilon_High = 1.0E-16;                                  //!< High precision epsilon constant
-  static const Float Epsilon_Medium = 1.0E-10;                                //!< Medium precision epsilon constant
-  static const Float Epsilon_Low = 1.0E-07;                                   //!< Low precision epsilon constant
-  static const Float Epsilon = Epsilon_Medium;                                //!< Standard precision epsilon constant
-  static const Float Infinity = std::numeric_limits<Float>::infinity();       //!< Infinity constant
+  static const Float Epsilon_High = 1.0E-16;                               //!< High precision epsilon constant
+  static const Float Epsilon_Medium = 1.0E-10;                             //!< Medium precision epsilon constant
+  static const Float Epsilon_Low = 1.0E-07;                                //!< Low precision epsilon constant
+  static const Float Epsilon = Epsilon_Medium;                             //!< Standard precision epsilon constant
+  static const Float Infinity = std::numeric_limits<Float>::infinity();    //!< Infinity constant
 
   static const Float PI = Float(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ value
   static const Float PI2 = Float(6.283185307179586476925286766559000);        //!< \f$ 2\pi \f$ value
@@ -119,9 +119,9 @@ namespace acme
   \*/
 
   //! Sine function [rad]
-  template <typename T>
-  inline T sin(
-      const T &value //!< Input value
+   template <typename T>
+   inline T sin(
+     const T &value //!< Input value
   );
 
   //! Cosine function [rad]

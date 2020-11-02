@@ -1,8 +1,8 @@
 #include <iostream>
-
+#include <Eigen/Dense>
 
 #include "acme.hh"
-#include "acme_utilities.hh"
+//#include "acme_utilities.hh"
 #include "TicToc.hh"
 
 
@@ -16,8 +16,8 @@ int main(void)
   TicToc tictoc;
 
   // POINT TEST
-  acme::point3d<acme::Float> A = acme::make_point<acme::Float>(1.0, 0.0, 0.0);
-  acme::point3d<acme::Float> B = acme::make_point<acme::Float>(0.0, 1.0, 0.0);
+  acme::pointnd<acme::Float, 3> A(1.0, 0.0, 0.0); // = acme::make_point<acme::Float>(1.0, 0.0, 0.0);
+  /*acme::point3d<acme::Float> B = acme::make_point<acme::Float>(0.0, 1.0, 0.0);
   acme::point3d<acme::Float> C = acme::make_point<acme::Float>(0.0, 0.0, 1.0);
   acme::point3d<acme::Float> D = acme::make_point<acme::Float>(1.0, 1.0, 1.0);
   std::cout << "POINT TESTS" << std::endl
@@ -26,7 +26,19 @@ int main(void)
             << "Point C = " << C << std::endl 
             << std::endl;
 
-  // TRIANGLE TESTS
+  Eigen::Matrix<acme::Float, 3, 3> m;
+  m << 1, 2, 3,
+       4, 5, 6,
+       7, 8, 9;
+  acme::point3d<acme::Float> E = m*A;
+  
+  std::cout << "POINT TESTS" << std::endl
+            //<< "Point A = " << m*A << std::endl
+            //<< "Point B = " << m << std::endl
+            //<< "Point C = " << m << std::endl 
+            << std::endl;*/
+
+  /*/ TRIANGLE TESTS
   acme::triangle3d Triangle = acme::make_triangle<acme::Float>(A, B, C);
   std::cout << "TRIANGLE TESTS" << std::endl
             << "Triangle = " << Triangle << std::endl
@@ -60,7 +72,7 @@ int main(void)
   }
   tictoc.toc();
   std::cout << "Time tot = " << tictoc.elapsed_us() << "us" << std::endl
-            << "Time avg = " << tictoc.elapsed_us()/N << "us" << std::endl;
+            << "Time avg = " << tictoc.elapsed_us()/N << "us" << std::endl;*/
 
   return 0;
 }

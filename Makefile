@@ -6,7 +6,7 @@ OBJECTS       = $(patsubst src/%.cc, build/%.o, $(SOURCES))
 TESTS_SOURCES = $(wildcard tests/*.cc)
 INCLUDEDIRS   = -Isrc
 
-CXXFLAGS      = $(INCLUDEDIRS) #$(shell pkg-config --cflags eigen3) 
+CXXFLAGS      = $(INCLUDEDIRS) $(shell pkg-config --cflags eigen3) 
 LIBS          = 
 
 # check if the OS string contains 'Linux'
@@ -56,12 +56,12 @@ clean:
 	rm -rf $(OBJECTS)
 
 tests: $(OBJECTS) $(TESTS_SOURCES)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc  -o bin/test_math  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc  -o bin/test_math  $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_geometrical.cc  -o bin/test_geometrical $(LIBS)
 	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_matrix.cc -o bin/test_matrix $(LIBS)
 
 run:
-	./bin/test_math
+	#./bin/test_math
 	./bin/test_geometrical
 	#./bin/test_matrix
 
