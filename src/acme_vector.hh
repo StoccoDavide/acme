@@ -25,49 +25,49 @@ namespace acme
    |                                          
   \*/
 
-  template <typename T>
+  template <typename T = Float>
   class vector2d : public point2d<T>
   {
   public:
     vector2d(const T &value0 = T(0.0), const T &value1 = T(0.0))
     {
-      this->v[0] = value0;
-      this->v[1] = value1;
+      this->data[0] = value0;
+      this->data[1] = value1;
     }
 
     inline vector2d<T> &operator=(const vectornd<T, 2> &vector)
     {
-      this->v[0] = vector[0];
-      this->v[1] = vector[1];
+      this->data[0] = vector[0];
+      this->data[1] = vector[1];
       return *this;
     }
   };
 
   /*\
-   |                _            _____     _ 
-   |__   _____  ___| |_ ___  _ _|___ /  __| |
-   |\ \ / / _ \/ __| __/ _ \| '__||_ \ / _` |
-   | \ V /  __/ (__| || (_) | |  ___) | (_| |
-   |  \_/ \___|\___|\__\___/|_| |____/ \__,_|
-   |                                         
+   |                  _            _____     _ 
+   |  __   _____  ___| |_ ___  _ _|___ /  __| |
+   |  \ \ / / _ \/ __| __/ _ \| '__||_ \ / _` |
+   |   \ V /  __/ (__| || (_) | |  ___) | (_| |
+   |    \_/ \___|\___|\__\___/|_| |____/ \__,_|
+   |                                           
   \*/
 
-  template <typename T>
+  template <typename T = Float>
   class vector3d : public point3d<T>
   {
   public:
     vector3d(const T &value0 = T(0.0), const T &value1 = T(0.0), const T &value2 = T(0.0))
     {
-      this->v[0] = value0;
-      this->v[1] = value1;
-      this->v[2] = value2;
+      this->data[0] = value0;
+      this->data[1] = value1;
+      this->data[2] = value2;
     }
 
     inline vector3d<T> &operator=(const vectornd<T, 3> &vector)
     {
-      this->v[0] = vector[0];
-      this->v[1] = vector[1];
-      this->v[2] = vector[2];
+      this->data[0] = vector[0];
+      this->data[1] = vector[1];
+      this->data[2] = vector[2];
       return *this;
     }
   };
@@ -92,40 +92,38 @@ namespace acme
 
     vectornd(const T &v0)
     {
-      this->[0] = v0;
+      this->data[0] = v0;
     }
 
     vectornd(const T &v0, const T &v1)
     {
-      this->v[0] = v0;
-      this->v[1] = v1;
+      this->data[0] = v0;
+      this->data[1] = v1;
     }
 
     vectornd(const T &v0, const T &v1, const T &v2)
     {
-      this->v[0] = v0;
-      this->v[1] = v1;
-      this->v[2] = v2;
+      this->data[0] = v0;
+      this->data[1] = v1;
+      this->data[2] = v2;
     }
 
     vectornd(const T &v0, const T &v1, const T &v2, const T &v3)
     {
-      this->v[0] = v0;
-      this->v[1] = v1;
-      this->v[2] = v2;
-      this->v[3] = v3;
+      this->data[0] = v0;
+      this->data[1] = v1;
+      this->data[2] = v2;
+      this->data[3] = v3;
     }
 
     vectornd(const vectornd<T, D> &vector)
         : pointnd<T, D>()
     {
       for (std::size_t i = 0; i < D; ++i)
-        (this->v)[i] = vector[i];
+        (this->data)[i] = vector[i];
     }
   };
 
 } // namespace acme
-
-#include "acme.inl"
 
 #endif

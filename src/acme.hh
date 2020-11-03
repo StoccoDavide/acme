@@ -1,6 +1,9 @@
+///
+/// file: acme.hh
+///
+
 #ifndef INCLUDE_ACME
 #define INCLUDE_ACME
-
 
 #include <Eigen/Dense>
 #include <cstddef>
@@ -10,23 +13,19 @@
 #include <vector>
 #include <cassert>
 
-
 #include "acme_math.hh"
 #include "acme_point.hh"
-
+#include "acme_vector.hh"
+#include "acme_segment.hh"
+#include "acme_line.hh"
 
 namespace acme
 {
 
-  template <typename T, std::size_t D>
-  class point;
-
-  template <typename T>
-  inline point2d<T> make_point(const T &x, const T &y);
-
-
 } // namespace acme
 
-#include "acme.inl"
-
 #endif
+
+///
+/// eof: acme.hh
+///

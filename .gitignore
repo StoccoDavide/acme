@@ -32,8 +32,8 @@
 *.app
 
 # Visual Studio Code
-.vscode
+vscode
 
 # Copy
-.copy
+copy
 

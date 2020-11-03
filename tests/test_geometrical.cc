@@ -1,8 +1,7 @@
 #include <iostream>
-#include <Eigen/Dense>
 
 #include "acme.hh"
-//#include "acme_utilities.hh"
+#include "acme_utilities.hh"
 #include "TicToc.hh"
 
 
@@ -16,16 +15,24 @@ int main(void)
   TicToc tictoc;
 
   // POINT TEST
-  acme::pointnd<acme::Float, 3> A(1.0, 0.0, 0.0); // = acme::make_point<acme::Float>(1.0, 0.0, 0.0);
-  /*acme::point3d<acme::Float> B = acme::make_point<acme::Float>(0.0, 1.0, 0.0);
-  acme::point3d<acme::Float> C = acme::make_point<acme::Float>(0.0, 0.0, 1.0);
-  acme::point3d<acme::Float> D = acme::make_point<acme::Float>(1.0, 1.0, 1.0);
-  std::cout << "POINT TESTS" << std::endl
+  acme::pointnd<acme::Float, 3> A(1.0, 0.0, 0.0); 
+  acme::point3d<> B;
+  acme::pointnd<acme::Float, 3> C;
+  C=B;
+  B=C;
+
+  //acme::segmentnd<acme::Float, 3> seg(C, B);
+
+  // = acme::make_point<acme::Float>(1.0, 0.0, 0.0);
+  //acme::point3d<acme::Float> B = acme::make_point<acme::Float>(0.0, 1.0, 0.0);
+  //acme::point3d<acme::Float> C = acme::make_point<acme::Float>(0.0, 0.0, 1.0);
+  //acme::point3d<acme::Float> D = acme::make_point<acme::Float>(1.0, 1.0, 1.0);
+  /*std::cout << "POINT TESTS" << std::endl
             << "Point A = " << A << std::endl
             << "Point B = " << B << std::endl
             << "Point C = " << C << std::endl 
-            << std::endl;
-
+            << std::endl;*/
+/*
   Eigen::Matrix<acme::Float, 3, 3> m;
   m << 1, 2, 3,
        4, 5, 6,

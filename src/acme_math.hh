@@ -5,6 +5,20 @@
 #ifndef INCLUDE_ACME_MATH
 #define INCLUDE_ACME_MATH
 
+// Print acme errors
+#ifndef ACME_ERROR
+  #define ACME_ERROR(MSG) {                 \
+    std::ostringstream ost; ost << MSG;    \
+    throw std::runtime_error( ost.str() ); \
+  }
+#endif
+
+// Check for acme errors
+#ifndef ACME_ASSERT
+  #define ACME_ASSERT(COND,MSG) \
+    if ( !(COND) ) ACME_ERROR( MSG )
+#endif
+
 #include <cmath>
 #include <limits>
 #include <algorithm>
