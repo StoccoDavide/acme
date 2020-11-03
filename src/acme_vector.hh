@@ -1,127 +1,98 @@
 #ifndef INCLUDE_ACME_VECTOR
 #define INCLUDE_ACME_VECTOR
 
-#include "acme_math.hh"
+#include <Eigen/Dense>
 #include "acme_point.hh"
 
 namespace acme
 {
 
-  template <typename T, std::size_t D>
-  class vectornd;
-
-  template <typename T>
-  class vector2d;
-
-  template <typename T>
-  class vector3d;
-
   /*\
-   |                  _            ____     _ 
-   |  __   _____  ___| |_ ___  _ _|___ \ __| |
-   |  \ \ / / _ \/ __| __/ _ \| '__|__) / _` |
-   |   \ V /  __/ (__| || (_) | |  / __/ (_| |
-   |    \_/ \___|\___|\__\___/|_| |_____\__,_|
-   |                                          
+   |                  _             
+   |  __   _____  ___| |_ ___  _ __ 
+   |  \ \ / / _ \/ __| __/ _ \| '__|
+   |   \ V /  __/ (__| || (_) | |   
+   |    \_/ \___|\___|\__\___/|_|   
+   |                                
   \*/
 
-  template <typename T = Float>
-  class vector2d : public point2d<T>
+  //! ND vector class container
+  template <typename T = Float, std::size_t D = 3>
+  class vector : public point<T, D>
   {
   public:
-    vector2d(const T &value0 = T(0.0), const T &value1 = T(0.0))
-    {
-      this->data[0] = value0;
-      this->data[1] = value1;
-    }
+    //! Copy constructor
+    vector(const vector<T, D>&) = default;
 
-    inline vector2d<T> &operator=(const vectornd<T, 2> &vector)
-    {
-      this->data[0] = vector[0];
-      this->data[1] = vector[1];
-      return *this;
-    }
-  };
-
-  /*\
-   |                  _            _____     _ 
-   |  __   _____  ___| |_ ___  _ _|___ /  __| |
-   |  \ \ / / _ \/ __| __/ _ \| '__||_ \ / _` |
-   |   \ V /  __/ (__| || (_) | |  ___) | (_| |
-   |    \_/ \___|\___|\__\___/|_| |____/ \__,_|
-   |                                           
-  \*/
-
-  template <typename T = Float>
-  class vector3d : public point3d<T>
-  {
-  public:
-    vector3d(const T &value0 = T(0.0), const T &value1 = T(0.0), const T &value2 = T(0.0))
-    {
-      this->data[0] = value0;
-      this->data[1] = value1;
-      this->data[2] = value2;
-    }
-
-    inline vector3d<T> &operator=(const vectornd<T, 3> &vector)
-    {
-      this->data[0] = vector[0];
-      this->data[1] = vector[1];
-      this->data[2] = vector[2];
-      return *this;
-    }
-  };
-
-  /*\
-   |                  _                       _ 
-   |  __   _____  ___| |_ ___  _ __ _ __   __| |
-   |  \ \ / / _ \/ __| __/ _ \| '__| '_ \ / _` |
-   |   \ V /  __/ (__| || (_) | |  | | | | (_| |
-   |    \_/ \___|\___|\__\___/|_|  |_| |_|\__,_|
-   |                                            
-  \*/
-
-  template <typename T, std::size_t D>
-  class vectornd : public pointnd<T, D>
-  {
-  public:
-    vectornd()
+    //! Class constructor
+    vector() : point<T, D>()
     {
       this->clear();
     }
 
-    vectornd(const T &v0)
+    //! Class constructor for 1D vector
+    vector(
+        const T &v0 //!< Input value 0
+        ) : point<T, 1>(v0)
     {
-      this->data[0] = v0;
     }
 
-    vectornd(const T &v0, const T &v1)
+    //! Class constructor for 2D vector
+    vector(
+        const T &v0, //!< Input value 0
+        const T &v1  //!< Input value 1
+        ) : point<T, 2>(v0, v1)
     {
-      this->data[0] = v0;
-      this->data[1] = v1;
     }
 
-    vectornd(const T &v0, const T &v1, const T &v2)
+    //! Class constructor for 3D vector
+    vector(
+        const T &v0, //!< Input value 0
+        const T &v1, //!< Input value 1
+        const T &v2  //!< Input value 2
+        ) : point<T, 3>(v0, v1, v2)
     {
-      this->data[0] = v0;
-      this->data[1] = v1;
-      this->data[2] = v2;
     }
 
-    vectornd(const T &v0, const T &v1, const T &v2, const T &v3)
+    //! Class constructor for 4D vector
+    vector(
+        const T &v0, //!< Input value 0
+        const T &v1, //!< Input value 1
+        const T &v2, //!< Input value 2
+        const T &v3  //!< Input value 3
+        ) : point<T, 4>(v0, v1, v2, v3)
     {
-      this->data[0] = v0;
-      this->data[1] = v1;
-      this->data[2] = v2;
-      this->data[3] = v3;
     }
 
-    vectornd(const vectornd<T, D> &vector)
-        : pointnd<T, D>()
+    //! Class constructor
+    vector(
+        const point <T, D> &point //!< Input ND point
+        ) : point<T, D>(point)
     {
-      for (std::size_t i = 0; i < D; ++i)
-        (this->data)[i] = vector[i];
     }
+
+    //! Equality operator
+    inline vector<T, D> &operator=(
+        const vector<T, D> &vector //!< Input ND point
+    )
+    {
+      this->data = vector.data;
+      return *this;
+    }
+
+    //! Normalize vector
+    inline void normalize()
+    {
+      this->data.norm();
+    }
+
+    //! Return normalized vector
+    inline const vector<T,D> normalized()
+    const
+    {
+      return this->data.normalized();
+    }
+
   };
 
 } // namespace acme

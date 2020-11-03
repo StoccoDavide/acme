@@ -9,153 +9,99 @@
 
 namespace acme
 {
+
   template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const point2d<T> &point)
+  inline std::ostream &operator<<(std::ostream &os, const point<T, 2> &point)
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "(" << point.x() << "," << point.y() << ")";
-
+       << "(" << point[0] << "," << point[1] << ")";
     return os;
   }
 
   template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const point3d<T> &point)
+  inline std::ostream &operator<<(std::ostream &os, const point<T, 3> &point)
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "(" << point.x() << "," << point.y() << "," << point.z() << ")";
+       << "(" << point[0] << "," << point[1] << "," << point[2] << ")";
+    return os;
+  }
 
+  template <typename T>
+  inline std::ostream &operator<<(std::ostream &os, const vector<T, 2> &v)
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << v[0] << "," << v[1] << ")";
+    return os;
+  }
+
+  template <typename T>
+  inline std::ostream &operator<<(std::ostream &os, const vector<T, 3> &v)
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << v[0] << "," << v[1] << "," << v[2] << ")";
+    return os;
+  }
+
+  template <typename T>
+  inline std::ostream &operator<<(std::ostream &os, const ray<T, 2> &ray)
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << ray.origin()[0] << "," << ray.origin()[1] << "," << ray.direction()[0] << "," << ray.direction()[1] << ")";
+    return os;
+  }
+
+  template <typename T>
+  inline std::ostream &operator<<(std::ostream &os, const ray<T, 3> &ray)
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << ray.origin()[0] << "," << ray.origin()[1] << "," << ray.origin()[2] << ","
+       << ray.direction()[0] << "," << ray.direction()[1] << "," << ray.direction()[2] << ")";
     return os;
   }
 
   template <typename T, std::size_t D>
-  inline std::ostream &operator<<(std::ostream &os, const pointnd<T, D> &point)
+  inline std::ostream &operator<<(std::ostream &os, const segment<T, D> &segment)
   {
-    if (D == 2)
+    for (unsigned int i = 0; i < segment.size(); ++i)
     {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << point[0] << "," << point[1] << ","
-         << ")";
-      return os;
+      os << segment[i];
     }
-    else if (D == 3)
-    {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << point[0] << "," << point[1] << "," << point[2] << ")";
-      return os;
-    }
-    else
-    {
-      ACME_ERROR("acme::operator<<()\nDimensions of pointnd() must be in the interval [2,3].")
-    }
+    return os;
   }
 
+  template <typename T, std::size_t D>
+  inline std::ostream &operator<<(std::ostream &os, const triangle<T, D> &triangle)
+  {
+    for (unsigned int i = 0; i < triangle.size(); ++i)
+    {
+      os << triangle[i];
+    }
+
+    return os;
+  }
   /*
-   template <typename T>
-   inline std::ostream& operator<<(std::ostream& os, const vector2d<T>& v)
-   {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << v.x << "," << v.y << ")";
+    template <typename T, std::size_t D>
+  inline std::ostream &operator<<(std::ostream &os, const line<T, D> &line)
+  {
+    for (unsigned int i = 0; i < acme::line<T, D>::PointCount; ++i)
+    {
+      os << line[i];
+    }
 
-      return os;
-   }
-
-   template <typename T>
-   inline std::ostream& operator<<(std::ostream& os, const vector3d<T>& v)
-   {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << v.x << "," << v.y << "," << v.z << ")";
-
-      return os;
-   }
-
-   template <typename T>
-   inline std::ostream& operator<<(std::ostream& os, const ray<T,2>& ray)
-   {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << ray.origin.x << "," << ray.origin.y << "," << ray.direction.x << "," << ray.direction.y << ")";
-
-      return os;
-   }
-
-   template <typename T>
-   inline std::ostream& operator<<(std::ostream& os, const ray<T,3>& ray)
-   {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << ray.origin.x    << "," << ray.origin.y    << "," << ray.origin.z    << ","
-                << ray.direction.x << "," << ray.direction.y << "," << ray.direction.z << ")";
-
-      return os;
-   }
-
-   template <typename T, std::size_t Dimension>
-   inline std::ostream& operator<<(std::ostream& os, const pointnd<T,Dimension>& point)
-   {
-      os << "(";
-
-      for (std::size_t i = 0; i < Dimension - 1; ++i)
-      {
-         os << std::scientific
-            << std::showpoint
-            << std::setprecision(6)
-            << point[i] << ",";
-      }
-
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << point[Dimension - 1] << ")";
-
-      return os;
-   }
-
-   template <typename T, std::size_t Dimension>
-   inline std::ostream& operator<<(std::ostream& os, const segment<T,Dimension>& segment)
-   {
-      for (unsigned int i = 0; i < acme::segment<T,Dimension>::PointCount; ++i)
-      {
-         os << segment[i];
-      }
-
-      return os;
-   }
-
-   template <typename T, std::size_t Dimension>
-   inline std::ostream& operator<<(std::ostream& os, const line<T,Dimension>& line)
-   {
-      for (unsigned int i = 0; i < acme::line<T,Dimension>::PointCount; ++i)
-      {
-         os << line[i];
-      }
-
-      return os;
-   }
-
-   template <typename T, std::size_t Dimension>
-   inline std::ostream& operator<<(std::ostream& os, const triangle<T,Dimension>& triangle)
-   {
-      for (unsigned int i = 0; i < acme::triangle<T,Dimension>::PointCount; ++i)
-      {
-         os << triangle[i];
-      }
-
-      return os;
-   }
+    return os;
+  }
 
    template <typename T>
    inline std::ostream& operator<<(std::ostream& os, const rectangle<T>& rectangle)
@@ -168,10 +114,10 @@ namespace acme
       return os;
    }
 
-   template <typename T, std::size_t Dimension>
-   inline std::ostream& operator<<(std::ostream& os, const box<T,Dimension>& box)
+   template <typename T, std::size_t D>
+   inline std::ostream& operator<<(std::ostream& os, const box<T,D>& box)
    {
-      for (unsigned int i = 0; i < acme::box<T,Dimension>::PointCount; ++i)
+      for (unsigned int i = 0; i < acme::box<T,D>::PointCount; ++i)
       {
          os << box[i];
       }
@@ -179,10 +125,10 @@ namespace acme
       return os;
    }
 
-   template <typename T, std::size_t Dimension>
-   inline std::ostream& operator<<(std::ostream& os, const quadix<T,Dimension>& quadix)
+   template <typename T, std::size_t D>
+   inline std::ostream& operator<<(std::ostream& os, const quadix<T,D>& quadix)
    {
-      for (unsigned int i = 0; i < acme::quadix<T,Dimension>::PointCount; ++i)
+      for (unsigned int i = 0; i < acme::quadix<T,D>::PointCount; ++i)
       {
          os << quadix[i];
       }
@@ -196,7 +142,7 @@ namespace acme
       os << std::scientific
          << std::showpoint
          << std::setprecision(10)
-         << "(" << circle.x << "," << circle.y << "," << circle.radius << ")";
+         << "(" << circle[0] << "," << circle[1] << "," << circle.radius << ")";
 
       return os;
    }
@@ -207,7 +153,7 @@ namespace acme
       os << std::scientific
          << std::showpoint
          << std::setprecision(6)
-         << "(" << sphere.x << "," << sphere.y << "," << sphere.z << "," << sphere.radius << ")";
+         << "(" << sphere[0] << "," << sphere[1] << "," << sphere[2] << "," << sphere.radius << ")";
 
       return os;
    }

@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['define_5fpoint_5ftype',['define_point_type',['../d3/dea/classacme_1_1define__point__type.html',1,'acme']]],
-  ['define_5fpoint_5ftype_3c_20t_2c_202_20_3e',['define_point_type&lt; T, 2 &gt;',['../d2/dc6/classacme_1_1define__point__type_3_01_t_00_012_01_4.html',1,'acme']]],
-  ['define_5fpoint_5ftype_3c_20t_2c_203_20_3e',['define_point_type&lt; T, 3 &gt;',['../d2/ddf/classacme_1_1define__point__type_3_01_t_00_013_01_4.html',1,'acme']]],
-  ['define_5fsegment_5ftype',['define_segment_type',['../d7/d52/classacme_1_1define__segment__type.html',1,'acme']]],
-  ['define_5fsegment_5ftype_3c_20t_2c_202_20_3e',['define_segment_type&lt; T, 2 &gt;',['../d7/db4/classacme_1_1define__segment__type_3_01_t_00_012_01_4.html',1,'acme']]],
-  ['define_5fsegment_5ftype_3c_20t_2c_203_20_3e',['define_segment_type&lt; T, 3 &gt;',['../d5/dd9/classacme_1_1define__segment__type_3_01_t_00_013_01_4.html',1,'acme']]]
+  ['epsilon',['epsilon',['../db/d32/namespaceacme.html#a271df552fb3ed0b0552ec753f179b086',1,'acme']]],
+  ['epsilon_3c_20double_20_3e',['epsilon&lt; double &gt;',['../db/d32/namespaceacme.html#ac0dc78bf61c8c5c10b1825cf9e8c1290',1,'acme']]],
+  ['epsilon_3c_20float_20_3e',['epsilon&lt; float &gt;',['../db/d32/namespaceacme.html#aa51a72841e708a201a31ddfe592b990f',1,'acme']]]
 ];

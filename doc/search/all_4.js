@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['float',['Float',['../db/d32/namespaceacme.html#aebc1796778ad2c2ef830090c5738e56c',1,'acme']]]
+  ['infinity',['infinity',['../db/d32/namespaceacme.html#abaa8d891da65dcd3583b49a74a5070bf',1,'acme']]],
+  ['int',['Int',['../db/d32/namespaceacme.html#a2ad7da80dca2640a79a37d38e2b14eb8',1,'acme']]]
 ];

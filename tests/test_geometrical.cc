@@ -15,23 +15,35 @@ int main(void)
   TicToc tictoc;
 
   // POINT TEST
-  acme::pointnd<acme::Float, 3> A(1.0, 0.0, 0.0); 
-  acme::point3d<> B;
-  acme::pointnd<acme::Float, 3> C;
+  acme::point<acme::Float, 3> A(1.0, 0.0, 0.0); 
+  acme::point<> B(1.0, 0.0, 0.0);
+  acme::point<> D(1.0, 0.0, 0.0);
+  acme::point<acme::Float, 3> C;
   C=B;
-  B=C;
+  B=D;
 
-  //acme::segmentnd<acme::Float, 3> seg(C, B);
-
-  // = acme::make_point<acme::Float>(1.0, 0.0, 0.0);
-  //acme::point3d<acme::Float> B = acme::make_point<acme::Float>(0.0, 1.0, 0.0);
-  //acme::point3d<acme::Float> C = acme::make_point<acme::Float>(0.0, 0.0, 1.0);
-  //acme::point3d<acme::Float> D = acme::make_point<acme::Float>(1.0, 1.0, 1.0);
-  /*std::cout << "POINT TESTS" << std::endl
+  std::cout << "POINT TESTS" << std::endl
             << "Point A = " << A << std::endl
             << "Point B = " << B << std::endl
             << "Point C = " << C << std::endl 
-            << std::endl;*/
+            << "Point D = " << D << std::endl 
+            << std::endl;
+
+  acme::vector<acme::Float, 3> vec1;
+  acme::vector<acme::Float, 3> vec2(A);
+  std::cout << vec1 << std::endl  << std::endl;
+  vec1 = B;
+  std::cout << vec1 << std::endl  << std::endl;
+  
+
+  acme::segment<> seg(A, B);
+  std::cout << seg << std::endl << std::endl;
+
+  acme::ray<acme::Float, 3> ray;
+  std::cout << ray << std::endl << std::endl;
+  
+  //acme::triangle<acme::Float, 3> triangle;
+  //std::cout << triangle;
 /*
   Eigen::Matrix<acme::Float, 3, 3> m;
   m << 1, 2, 3,

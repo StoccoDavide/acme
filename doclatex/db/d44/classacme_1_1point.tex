@@ -2,6 +2,192 @@
 \label{classacme_1_1point}\index{acme\+::point$<$ T, D $>$@{acme\+::point$<$ T, D $>$}}
 
 
+ND point class container.  
+
+
+
+
+{\ttfamily \#include $<$acme\+\_\+point.\+hh$>$}
+
+
+
+Inheritance diagram for acme\+:\+:point$<$ T, D $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{de/d84/classacme_1_1point__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classacme_1_1point_acc181334f965fae46559815f996ae50c}\label{classacme_1_1point_acc181334f965fae46559815f996ae50c}} 
+\hyperlink{classacme_1_1point_acc181334f965fae46559815f996ae50c}{point} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{classacme_1_1point_ae1877073e915c45fba6ad5bbefc37f11}{point} (const T \&value0)
+\begin{DoxyCompactList}\small\item\em Class constructor for 1D point. \end{DoxyCompactList}\item 
+\hyperlink{classacme_1_1point_a83633e83dfae312248d0a01fc9291f2a}{point} (const T \&value0, const T \&value1)
+\begin{DoxyCompactList}\small\item\em Class constructor for 2D point. \end{DoxyCompactList}\item 
+\hyperlink{classacme_1_1point_a45d14bd173cd20cabc9a560ca5c443a3}{point} (const T \&value0, const T \&value1, const T \&value2)
+\begin{DoxyCompactList}\small\item\em Class constructor for 3D point. \end{DoxyCompactList}\item 
+\hyperlink{classacme_1_1point_a786ca3e2c1b683a55469a79a7a68f2a9}{point} (const T \&value0, const T \&value1, const T \&value2, const T \&value3)
+\begin{DoxyCompactList}\small\item\em Class constructor for 4D point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classacme_1_1point_a9d5898e4477a7ee90e199988c50c9ad4}\label{classacme_1_1point_a9d5898e4477a7ee90e199988c50c9ad4}} 
+\hyperlink{classacme_1_1point_a9d5898e4477a7ee90e199988c50c9ad4}{$\sim$point} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classacme_1_1point_a72a37be7ec9417b12eeec1a31ed0398b}\label{classacme_1_1point_a72a37be7ec9417b12eeec1a31ed0398b}} 
+void \hyperlink{classacme_1_1point_a72a37be7ec9417b12eeec1a31ed0398b}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clear vector data. \end{DoxyCompactList}\item 
+\hyperlink{classacme_1_1point}{point}$<$ T, D $>$ \& \hyperlink{classacme_1_1point_a86eae9e4a5cca7bb30cdc26a745e75c2}{operator=} (const \hyperlink{classacme_1_1point}{point}$<$ T, D $>$ \&\hyperlink{classacme_1_1point}{point})
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+T \& \hyperlink{classacme_1_1point_ac8fee17f41cb01f10ecb082921018155}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index)
+\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classacme_1_1point_a5e3a5ca9538fcdb337127d27fcecc2b6}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index) const
+\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classacme_1_1point_a7532a61c7031fddbef1ea217cd916c4c}\label{classacme_1_1point_a7532a61c7031fddbef1ea217cd916c4c}} 
+Eigen\+::\+Matrix$<$ T, D, 1 $>$ {\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$\newline
+class acme\+::point$<$ T, D $>$}
+
+ND point class container. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classacme_1_1point_ae1877073e915c45fba6ad5bbefc37f11}\label{classacme_1_1point_ae1877073e915c45fba6ad5bbefc37f11}} 
+\index{acme\+::point@{acme\+::point}!point@{point}}
+\index{point@{point}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+\hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::\hyperlink{classacme_1_1point}{point} (\begin{DoxyParamCaption}\item[{const T \&}]{value0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor for 1D point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classacme_1_1point_a83633e83dfae312248d0a01fc9291f2a}\label{classacme_1_1point_a83633e83dfae312248d0a01fc9291f2a}} 
+\index{acme\+::point@{acme\+::point}!point@{point}}
+\index{point@{point}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+\hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::\hyperlink{classacme_1_1point}{point} (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor for 2D point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+{\em value1} & Input value 1 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classacme_1_1point_a45d14bd173cd20cabc9a560ca5c443a3}\label{classacme_1_1point_a45d14bd173cd20cabc9a560ca5c443a3}} 
+\index{acme\+::point@{acme\+::point}!point@{point}}
+\index{point@{point}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+\hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::\hyperlink{classacme_1_1point}{point} (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1,  }\item[{const T \&}]{value2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor for 3D point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+{\em value1} & Input value 1 \\
+\hline
+{\em value2} & Input value 2 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classacme_1_1point_a786ca3e2c1b683a55469a79a7a68f2a9}\label{classacme_1_1point_a786ca3e2c1b683a55469a79a7a68f2a9}} 
+\index{acme\+::point@{acme\+::point}!point@{point}}
+\index{point@{point}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+\hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::\hyperlink{classacme_1_1point}{point} (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1,  }\item[{const T \&}]{value2,  }\item[{const T \&}]{value3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor for 4D point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+{\em value1} & Input value 1 \\
+\hline
+{\em value2} & Input value 2 \\
+\hline
+{\em value3} & Input value 3 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classacme_1_1point_a86eae9e4a5cca7bb30cdc26a745e75c2}\label{classacme_1_1point_a86eae9e4a5cca7bb30cdc26a745e75c2}} 
+\index{acme\+::point@{acme\+::point}!operator=@{operator=}}
+\index{operator=@{operator=}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+\hyperlink{classacme_1_1point}{point}$<$T, D$>$\& \hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classacme_1_1point}{point}$<$ T, D $>$ \&}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & Input ND point \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classacme_1_1point_ac8fee17f41cb01f10ecb082921018155}\label{classacme_1_1point_ac8fee17f41cb01f10ecb082921018155}} 
+\index{acme\+::point@{acme\+::point}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+T\& \hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexing operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Input index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classacme_1_1point_a5e3a5ca9538fcdb337127d27fcecc2b6}\label{classacme_1_1point_a5e3a5ca9538fcdb337127d27fcecc2b6}} 
+\index{acme\+::point@{acme\+::point}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!acme\+::point@{acme\+::point}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float, std\+::size\+\_\+t D = 3$>$ \\
+const T\& \hyperlink{classacme_1_1point}{acme\+::point}$<$ T, D $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexing operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Input index \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/acme.\+hh\end{DoxyCompactItemize}
+src/acme\+\_\+point.\+hh\end{DoxyCompactItemize}

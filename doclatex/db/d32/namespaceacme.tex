@@ -3,52 +3,16 @@
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{classacme_1_1define__point__type}{define\+\_\+point\+\_\+type}
-\begin{DoxyCompactList}\small\item\em Template class for automatic N-\/dimesional point instatiation. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1define__point__type_3_01_t_00_012_01_4}{define\+\_\+point\+\_\+type$<$ T, 2 $>$}
-\begin{DoxyCompactList}\small\item\em Template class for automatic 2-\/dimesional point instatiation. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1define__point__type_3_01_t_00_013_01_4}{define\+\_\+point\+\_\+type$<$ T, 3 $>$}
-\begin{DoxyCompactList}\small\item\em Template class for automatic 3-\/dimesional point instatiation. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1define__segment__type}{define\+\_\+segment\+\_\+type}
-\begin{DoxyCompactList}\small\item\em Template class for automatic N-\/dimesional segment instatiation. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1define__segment__type_3_01_t_00_012_01_4}{define\+\_\+segment\+\_\+type$<$ T, 2 $>$}
-\begin{DoxyCompactList}\small\item\em Template class for automatic 2-\/dimesional segment instatiation. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1define__segment__type_3_01_t_00_013_01_4}{define\+\_\+segment\+\_\+type$<$ T, 3 $>$}
-\begin{DoxyCompactList}\small\item\em Template class for automatic 3-\/dimesional segment instatiation. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1line2d}{line2d}
-\item 
-class \hyperlink{classacme_1_1line3d}{line3d}
-\item 
-class \hyperlink{classacme_1_1linend}{linend}
-\item 
 class \hyperlink{classacme_1_1point}{point}
-\item 
-class \hyperlink{classacme_1_1point2d}{point2d}
-\begin{DoxyCompactList}\small\item\em 2-\/dimensional point class container \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1point3d}{point3d}
-\begin{DoxyCompactList}\small\item\em 3-\/dimensional point class container \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1pointnd}{pointnd}
-\begin{DoxyCompactList}\small\item\em N-\/dimensional point class container. \end{DoxyCompactList}\item 
-class \hyperlink{classacme_1_1segment2d}{segment2d}
-\item 
-class \hyperlink{classacme_1_1segment3d}{segment3d}
-\item 
-class \hyperlink{classacme_1_1segmentnd}{segmentnd}
-\item 
+\begin{DoxyCompactList}\small\item\em ND point class container. \end{DoxyCompactList}\item 
+class \hyperlink{classacme_1_1ray}{ray}
+\begin{DoxyCompactList}\small\item\em ND ray class container. \end{DoxyCompactList}\item 
+class \hyperlink{classacme_1_1segment}{segment}
+\begin{DoxyCompactList}\small\item\em ND segment class container. \end{DoxyCompactList}\item 
 class \hyperlink{classacme_1_1triangle}{triangle}
-\item 
-class \hyperlink{classacme_1_1triangle2d}{triangle2d}
-\item 
-class \hyperlink{classacme_1_1triangle3d}{triangle3d}
-\item 
-class \hyperlink{classacme_1_1trianglend}{trianglend}
-\item 
-class \hyperlink{classacme_1_1vector2d}{vector2d}
-\item 
-class \hyperlink{classacme_1_1vector3d}{vector3d}
-\item 
-class \hyperlink{classacme_1_1vectornd}{vectornd}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ND triangle class container. \end{DoxyCompactList}\item 
+class \hyperlink{classacme_1_1vector}{vector}
+\begin{DoxyCompactList}\small\item\em ND vector class container. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,9 +24,6 @@ typedef int \hyperlink{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}{Int}
 \begin{DoxyCompactList}\small\item\em int\+\_\+typeeger number type \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{namespaceacme_ad33a71e74f2fb0963c2d73d9198c8b06}\label{namespaceacme_ad33a71e74f2fb0963c2d73d9198c8b06}} 
-{\footnotesize template$<$typename T $>$ }\\\hyperlink{classacme_1_1point2d}{point2d}$<$ T $>$ {\bfseries make\+\_\+point} (const T \&x, const T \&y)
 \item 
 \mbox{\Hypertarget{namespaceacme_abaa8d891da65dcd3583b49a74a5070bf}\label{namespaceacme_abaa8d891da65dcd3583b49a74a5070bf}} 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceacme_abaa8d891da65dcd3583b49a74a5070bf}{infinity} ()
@@ -104,21 +65,42 @@ typedef int \hyperlink{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}{Int}
 \begin{DoxyCompactList}\small\item\em Arctangent function \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceacme_a51ac298ca5ccfff9b9d71bfed9253131}{clamp} (const T \&value, const T \&low, const T \&high)
 \begin{DoxyCompactList}\small\item\em Clamp function (returns the input value bounded between low and high values) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespaceacme_ad995016916bb6f796ddf7a174879e8d8}\label{namespaceacme_ad995016916bb6f796ddf7a174879e8d8}} 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1point2d}{point2d}$<$ T $>$ \&\hyperlink{classacme_1_1point}{point})
+\mbox{\Hypertarget{namespaceacme_a2c79447f606dfc6a46352dcf4ab6a226}\label{namespaceacme_a2c79447f606dfc6a46352dcf4ab6a226}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1point}{point}$<$ T, 2 $>$ \&\hyperlink{classacme_1_1point}{point})
 \item 
-\mbox{\Hypertarget{namespaceacme_a7d1407d3553a741425be41161b98ea99}\label{namespaceacme_a7d1407d3553a741425be41161b98ea99}} 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1point3d}{point3d}$<$ T $>$ \&\hyperlink{classacme_1_1point}{point})
+\mbox{\Hypertarget{namespaceacme_af9cd10051c731a63bde1491f363fa627}\label{namespaceacme_af9cd10051c731a63bde1491f363fa627}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1point}{point}$<$ T, 3 $>$ \&\hyperlink{classacme_1_1point}{point})
 \item 
-\mbox{\Hypertarget{namespaceacme_a3190cea3db0f59885cfb2b62ec1b972a}\label{namespaceacme_a3190cea3db0f59885cfb2b62ec1b972a}} 
-{\footnotesize template$<$typename T , std\+::size\+\_\+t D$>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1pointnd}{pointnd}$<$ T, D $>$ \&\hyperlink{classacme_1_1point}{point})
+\mbox{\Hypertarget{namespaceacme_a247502a3b4f8bd373a9b38411f0f9ee4}\label{namespaceacme_a247502a3b4f8bd373a9b38411f0f9ee4}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1vector}{vector}$<$ T, 2 $>$ \&v)
+\item 
+\mbox{\Hypertarget{namespaceacme_a9def3b70c1e053fb3c935a8870897fc0}\label{namespaceacme_a9def3b70c1e053fb3c935a8870897fc0}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1vector}{vector}$<$ T, 3 $>$ \&v)
+\item 
+\mbox{\Hypertarget{namespaceacme_a7674e6862c0b4dc4ee053906f9ac000b}\label{namespaceacme_a7674e6862c0b4dc4ee053906f9ac000b}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1ray}{ray}$<$ T, 2 $>$ \&\hyperlink{classacme_1_1ray}{ray})
+\item 
+\mbox{\Hypertarget{namespaceacme_a8e4c4c5a2909a07c6be7cd9b341bfd6a}\label{namespaceacme_a8e4c4c5a2909a07c6be7cd9b341bfd6a}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1ray}{ray}$<$ T, 3 $>$ \&\hyperlink{classacme_1_1ray}{ray})
+\item 
+\mbox{\Hypertarget{namespaceacme_a57a1dda522f330fb40bb206dce427297}\label{namespaceacme_a57a1dda522f330fb40bb206dce427297}} 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t D$>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1segment}{segment}$<$ T, D $>$ \&\hyperlink{classacme_1_1segment}{segment})
+\item 
+\mbox{\Hypertarget{namespaceacme_a9e0b4489892523ceac270a9d7c8b932e}\label{namespaceacme_a9e0b4489892523ceac270a9d7c8b932e}} 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t D$>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classacme_1_1triangle}{triangle}$<$ T, D $>$ \&\hyperlink{classacme_1_1triangle}{triangle})
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 file\+: \hyperlink{acme_8hh_source}{acme.\+hh}
 
-file\+: \hyperlink{acme__point_8hh_source}{acme\+\_\+point.\+hh} 
+file\+: \hyperlink{acme__point_8hh_source}{acme\+\_\+point.\+hh}
+
+file\+: \hyperlink{acme__ray_8hh_source}{acme\+\_\+ray.\+hh}
+
+file\+: \hyperlink{acme__segment_8hh_source}{acme\+\_\+segment.\+hh}
+
+file\+: \hyperlink{acme__triangle_8hh_source}{acme\+\_\+triangle.\+hh} 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespaceacme_add7b88267b101300f6818a0ed6dacf2a}\label{namespaceacme_add7b88267b101300f6818a0ed6dacf2a}} 
