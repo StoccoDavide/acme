@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['infinity',['infinity',['../db/d32/namespaceacme.html#abaa8d891da65dcd3583b49a74a5070bf',1,'acme']]]
+  ['direction',['direction',['../d0/de8/classacme_1_1ray.html#af6ae286bbd1a15ba0c5f7419fc30a1fa',1,'acme::ray']]]
 ];

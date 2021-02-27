@@ -7,16 +7,19 @@
 
 // Print acme errors
 #ifndef ACME_ERROR
-  #define ACME_ERROR(MSG) {                 \
-    std::ostringstream ost; ost << MSG;    \
-    throw std::runtime_error( ost.str() ); \
+#define ACME_ERROR(MSG)                  \
+  {                                      \
+    std::ostringstream ost;              \
+    ost << MSG;                          \
+    throw std::runtime_error(ost.str()); \
   }
 #endif
 
 // Check for acme errors
 #ifndef ACME_ASSERT
-  #define ACME_ASSERT(COND,MSG) \
-    if ( !(COND) ) ACME_ERROR( MSG )
+#define ACME_ASSERT(COND, MSG) \
+  if (!(COND))                 \
+  ACME_ERROR(MSG)
 #endif
 
 #include <cmath>
@@ -35,10 +38,10 @@ namespace acme
    |                                                                       
   \*/
 
-  typedef double Float; //!< real_typeing point number type
-  typedef int Int;      //!< int_typeeger number type
+  typedef double Float; //!< Real number type
+  typedef int Int;      //!< Integer number type
 
-  static const Float Epsilon_Machine = std::numeric_limits<Float>::epsilon(); //!< machine espilon \f$ \varepsilon \f$
+  static const Float Epsilon_Machine = std::numeric_limits<Float>::epsilon(); //!< Machine espilon \f$ \varepsilon \f$
   static const Float Epsilon_High = 1.0E-16;                                  //!< High precision epsilon constant
   static const Float Epsilon_Medium = 1.0E-10;                                //!< Medium precision epsilon constant
   static const Float Epsilon_Low = 1.0E-07;                                   //!< Low precision epsilon constant
@@ -78,6 +81,12 @@ namespace acme
   //! Square function
   template <typename T>
   inline T sqr(
+      const T &value //!< Input value
+  );
+
+  //! Cubic function
+  template <typename T>
+  inline T cub(
       const T &value //!< Input value
   );
 

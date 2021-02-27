@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['tan',['tan',['../db/d32/namespaceacme.html#a0fa0c6c9aef80a18fe865938fa2cb01d',1,'acme']]],
+  ['triangle',['triangle',['../d4/d18/classacme_1_1triangle.html#ab848f5a31e2f426704277802cae23e20',1,'acme::triangle::triangle(const triangle&lt; T, D &gt; &amp;)=default'],['../d4/d18/classacme_1_1triangle.html#ad018574df8743ddc377e911b1b2bdedc',1,'acme::triangle::triangle()'],['../d4/d18/classacme_1_1triangle.html#a30a79e277bbfb0550620558603e69af5',1,'acme::triangle::triangle(const T &amp;x0, const T &amp;y0, const T &amp;x1, const T &amp;y1, const T &amp;x2, const T &amp;y2)'],['../d4/d18/classacme_1_1triangle.html#a78a146aacb55247cc900edcb883422a5',1,'acme::triangle::triangle(const T &amp;x0, const T &amp;y0, const T &amp;z0, const T &amp;x1, const T &amp;y1, const T &amp;z1, const T &amp;x2, const T &amp;y2, const T &amp;z2)'],['../d4/d18/classacme_1_1triangle.html#a53f6b787605b71b5420ce6524acfecfd',1,'acme::triangle::triangle(const point&lt; T, D &gt; &amp;point0, const point&lt; T, D &gt; &amp;point1, const point&lt; T, D &gt; &amp;point2)']]]
+];

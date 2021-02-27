@@ -13,6 +13,14 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  template <typename T>
+  inline T epsilon()
+  {
+    return static_cast<T>(Epsilon);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   template <>
   inline double epsilon<double>()
   {
@@ -33,6 +41,14 @@ namespace acme
   inline T sqr(const T &value)
   {
     return value * value;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  template <typename T>
+  inline T cub(const T &value)
+  {
+    return value * value * value;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

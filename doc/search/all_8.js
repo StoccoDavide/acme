@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['point',['point',['../db/d44/classacme_1_1point.html',1,'acme::point&lt; T, D &gt;'],['../db/d44/classacme_1_1point.html#acc181334f965fae46559815f996ae50c',1,'acme::point::point()'],['../db/d44/classacme_1_1point.html#ae1877073e915c45fba6ad5bbefc37f11',1,'acme::point::point(const T &amp;value0)'],['../db/d44/classacme_1_1point.html#a83633e83dfae312248d0a01fc9291f2a',1,'acme::point::point(const T &amp;value0, const T &amp;value1)'],['../db/d44/classacme_1_1point.html#a45d14bd173cd20cabc9a560ca5c443a3',1,'acme::point::point(const T &amp;value0, const T &amp;value1, const T &amp;value2)'],['../db/d44/classacme_1_1point.html#a786ca3e2c1b683a55469a79a7a68f2a9',1,'acme::point::point(const T &amp;value0, const T &amp;value1, const T &amp;value2, const T &amp;value3)']]]
+  ['max',['max',['../db/d32/namespaceacme.html#abc0dd1e2a5441a08af324075636ea74a',1,'acme::max(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#aca4726ee714290f5715f97242fd61cea',1,'acme::max(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]],
+  ['min',['min',['../db/d32/namespaceacme.html#a8e3d214c67f792ca4deef35481ea8b12',1,'acme::min(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#a49c47fe19dcb5a41cdb8111446c6f51e',1,'acme::min(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]]
 ];

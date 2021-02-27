@@ -10,132 +10,223 @@
 namespace acme
 {
 
+  //!< Stream out operator
   template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const point<T, 2> &point)
+  inline std::ostream &operator<<(
+      std::ostream &os,      //!< Output stream
+      const point<T, 2> &obj //!< 2D point object
+  )
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "(" << point[0] << "," << point[1] << ")";
+       << "(" << obj[0] << "," << obj[1] << ")";
     return os;
   }
 
+  //!< Stream out operator
   template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const point<T, 3> &point)
+  inline std::ostream &operator<<(
+      std::ostream &os,      //!< Output stream
+      const point<T, 3> &obj //!< 3D point object
+  )
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "(" << point[0] << "," << point[1] << "," << point[2] << ")";
+       << "(" << obj[0] << "," << obj[1] << "," << obj[2] << ")";
     return os;
   }
 
+  //!< Stream out operator
   template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const vector<T, 2> &v)
+  inline std::ostream &operator<<(
+      std::ostream &os,       //!< Output stream
+      const vector<T, 2> &obj //!< 2D vector object
+  )
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "(" << v[0] << "," << v[1] << ")";
+       << "(" << obj[0] << "," << obj[1] << ")";
     return os;
   }
 
+  //!< Stream out operator
   template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const vector<T, 3> &v)
+  inline std::ostream &operator<<(
+      std::ostream &os,       //!< Output stream
+      const vector<T, 3> &obj //!< 3D vector object
+  )
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "(" << v[0] << "," << v[1] << "," << v[2] << ")";
+       << "(" << obj[0] << "," << obj[1] << "," << obj[2] << ")";
     return os;
   }
 
-  template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const ray<T, 2> &ray)
-  {
-    os << std::scientific
-       << std::showpoint
-       << std::setprecision(6)
-       << "(" << ray.origin()[0] << "," << ray.origin()[1] << "," << ray.direction()[0] << "," << ray.direction()[1] << ")";
-    return os;
-  }
-
-  template <typename T>
-  inline std::ostream &operator<<(std::ostream &os, const ray<T, 3> &ray)
-  {
-    os << std::scientific
-       << std::showpoint
-       << std::setprecision(6)
-       << "(" << ray.origin()[0] << "," << ray.origin()[1] << "," << ray.origin()[2] << ","
-       << ray.direction()[0] << "," << ray.direction()[1] << "," << ray.direction()[2] << ")";
-    return os;
-  }
-
+  //!< Stream out operator
   template <typename T, std::size_t D>
-  inline std::ostream &operator<<(std::ostream &os, const segment<T, D> &segment)
+  inline std::ostream &operator<<(
+      std::ostream &os,        //!< Output stream
+      const segment<T, D> &obj //!< Segment object
+  )
   {
-    for (unsigned int i = 0; i < segment.size(); ++i)
+    for (unsigned int i = 0; i < obj.size(); ++i)
     {
-      os << segment[i];
+      os << obj[i];
     }
     return os;
   }
 
+  //!< Stream out operator
   template <typename T, std::size_t D>
-  inline std::ostream &operator<<(std::ostream &os, const triangle<T, D> &triangle)
+  inline std::ostream &operator<<(
+      std::ostream &os,     //!< Output stream
+      const line<T, D> &obj //!< Line object
+  )
   {
-    for (unsigned int i = 0; i < triangle.size(); ++i)
+    for (unsigned int i = 0; i < obj.size(); ++i)
     {
-      os << triangle[i];
+      os << obj[i];
     }
-
     return os;
   }
+
+  //!< Stream out operator
+  template <typename T, std::size_t D>
+  inline std::ostream &operator<<(
+      std::ostream &os,    //!< Output stream
+      const box<T, D> &obj //!< Box object
+  )
+  {
+    for (unsigned int i = 0; i < obj.size(); ++i)
+    {
+      os << obj[i];
+    }
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T, std::size_t D>
+  inline std::ostream &operator<<(
+      std::ostream &os,         //!< Output stream
+      const triangle<T, D> &obj //!< Triangle object
+  )
+  {
+    for (unsigned int i = 0; i < obj.size(); ++i)
+    {
+      os << obj[i];
+    }
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T, std::size_t D>
+  inline std::ostream &operator<<(
+      std::ostream &os,       //!< Output stream
+      const quadix<T, D> &obj //!< Quadix object
+  )
+  {
+    for (unsigned int i = 0; i < obj.size(); ++i)
+    {
+      os << obj[i];
+    }
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,    //!< Output stream
+      const ray<T, 2> &obj //!< 2D ray object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << ","
+       << obj.direction()[0] << "," << obj.direction()[1] << ")";
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,    //!< Output stream
+      const ray<T, 3> &obj //!< 3D ray object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
+       << obj.direction()[0] << "," << obj.direction()[1] << "," << obj.direction()[2] << ")";
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,      //!< Output stream
+      const plane<T, 2> &obj //!< 2D plane object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << ","
+       << obj.normal()[0] << "," << obj.normal()[1] << ")";
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,      //!< Output stream
+      const plane<T, 3> &obj //!< 3D plane object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
+       << obj.normal()[0] << "," << obj.normal()[1] << "," << obj.normal()[2] << ")";
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,       //!< Output stream
+      const sphere<T, 2> &obj //!< 2D sphere object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.point.origin()[0] << "," << obj.origin()[1]
+       << "," << obj.ray() << ")";
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,       //!< Output stream
+      const sphere<T, 3> &obj //!< 3D sphere object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2]
+       << "," << obj.ray() << ")";
+    return os;
+  }
+
   /*
-    template <typename T, std::size_t D>
-  inline std::ostream &operator<<(std::ostream &os, const line<T, D> &line)
-  {
-    for (unsigned int i = 0; i < acme::line<T, D>::PointCount; ++i)
-    {
-      os << line[i];
-    }
-
-    return os;
-  }
-
-   template <typename T>
-   inline std::ostream& operator<<(std::ostream& os, const rectangle<T>& rectangle)
-   {
-      for (unsigned int i = 0; i < acme::rectangle<T>::PointCount; ++i)
-      {
-         os << rectangle[i];
-      }
-
-      return os;
-   }
-
-   template <typename T, std::size_t D>
-   inline std::ostream& operator<<(std::ostream& os, const box<T,D>& box)
-   {
-      for (unsigned int i = 0; i < acme::box<T,D>::PointCount; ++i)
-      {
-         os << box[i];
-      }
-
-      return os;
-   }
-
-   template <typename T, std::size_t D>
-   inline std::ostream& operator<<(std::ostream& os, const quadix<T,D>& quadix)
-   {
-      for (unsigned int i = 0; i < acme::quadix<T,D>::PointCount; ++i)
-      {
-         os << quadix[i];
-      }
-
-      return os;
-   }
-
    template <typename T>
    inline std::ostream& operator<<(std::ostream& os, const circle<T>& circle)
    {
@@ -146,33 +237,7 @@ namespace acme
 
       return os;
    }
-
-   template <typename T>
-   inline std::ostream& operator<<(std::ostream& os, const sphere<T>& sphere)
-   {
-      os << std::scientific
-         << std::showpoint
-         << std::setprecision(6)
-         << "(" << sphere[0] << "," << sphere[1] << "," << sphere[2] << "," << sphere.radius << ")";
-
-      return os;
-   }
-
-   template <typename T, std::size_t M, std::size_t N>
-   inline std::ostream& operator<<(std::ostream& os, const matrix<T,M,N>& matrix)
-   {
-      for (std::size_t x = 0; x < M; x++)
-      {
-         for (std::size_t y = 0; y < N; y++)
-         {
-            os << matrix(x,y) << "\t";
-         }
-
-         os << std::endl;
-      }
-
-      return os;
-   }*/
+  */
 
 } // namespace acme
 

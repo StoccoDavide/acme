@@ -24,8 +24,8 @@ namespace acme
   class triangle
   {
   private:
-    const static std::size_t PointCount = 3;
-    point<T, D> data[PointCount];
+    const static std::size_t PointCount = 3; //!< Number of points in triangle
+    point<T, D> data[PointCount]; //!< Triangle data
 
   public:
     //! Copy constructor

@@ -24,8 +24,8 @@ namespace acme
   class segment
   {
   private:
-    const static std::size_t PointCount = 2;
-    point<T, D> data[PointCount];
+    const static std::size_t PointCount = 2; //!< Number of points in segment
+    point<T, D> data[PointCount]; //!< Segment data
 
   public:
     //! Copy constructor
@@ -132,6 +132,7 @@ namespace acme
     {
       return this->data[index];
     }
+    
     //! Return segment entity size
     inline std::size_t size() const { return PointCount; }
   };

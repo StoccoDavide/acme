@@ -3,6 +3,12 @@
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \hyperlink{classacme_1_1box}{box}
+\begin{DoxyCompactList}\small\item\em ND box class container. \end{DoxyCompactList}\item 
+class \hyperlink{classacme_1_1line}{line}
+\begin{DoxyCompactList}\small\item\em ND line class container. \end{DoxyCompactList}\item 
+class \hyperlink{classacme_1_1plane}{plane}
+\begin{DoxyCompactList}\small\item\em ND plane class container. \end{DoxyCompactList}\item 
 class \hyperlink{classacme_1_1point}{point}
 \begin{DoxyCompactList}\small\item\em ND point class container. \end{DoxyCompactList}\item 
 class \hyperlink{classacme_1_1ray}{ray}
@@ -18,10 +24,10 @@ class \hyperlink{classacme_1_1vector}{vector}
 \item 
 \mbox{\Hypertarget{namespaceacme_aebc1796778ad2c2ef830090c5738e56c}\label{namespaceacme_aebc1796778ad2c2ef830090c5738e56c}} 
 typedef double \hyperlink{namespaceacme_aebc1796778ad2c2ef830090c5738e56c}{Float}
-\begin{DoxyCompactList}\small\item\em real\+\_\+typeing point number type \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Real number type. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}\label{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}} 
 typedef int \hyperlink{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}{Int}
-\begin{DoxyCompactList}\small\item\em int\+\_\+typeeger number type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Integer number type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,6 +45,8 @@ typedef int \hyperlink{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}{Int}
 \begin{DoxyCompactList}\small\item\em Return specific float-\/type epsilon value. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceacme_a722297e283d0b656d1b3f64222acb175}{sqr} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Square function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceacme_af15f05bfabb3a12f9c95cc8f63a00425}{cub} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Cubic function. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceacme_a6727bc4e9b202cb40e59065a01d9368b}{sqrt} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Square root function. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceacme_add7b88267b101300f6818a0ed6dacf2a}{abs} (const T \&value)
@@ -93,6 +101,12 @@ typedef int \hyperlink{namespaceacme_a2ad7da80dca2640a79a37d38e2b14eb8}{Int}
 
 \subsection{Detailed Description}
 file\+: \hyperlink{acme_8hh_source}{acme.\+hh}
+
+file\+: \hyperlink{acme__box_8hh_source}{acme\+\_\+box.\+hh}
+
+file\+: \hyperlink{acme__line_8hh_source}{acme\+\_\+line.\+hh}
+
+file\+: \hyperlink{acme__plane_8hh_source}{acme\+\_\+plane.\+hh}
 
 file\+: \hyperlink{acme__point_8hh_source}{acme\+\_\+point.\+hh}
 
@@ -197,6 +211,22 @@ T acme\+::cos (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParam
 
 
 Cosine function \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Input value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceacme_af15f05bfabb3a12f9c95cc8f63a00425}\label{namespaceacme_af15f05bfabb3a12f9c95cc8f63a00425}} 
+\index{acme@{acme}!cub@{cub}}
+\index{cub@{cub}!acme@{acme}}
+\subsubsection{\texorpdfstring{cub()}{cub()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T acme\+::cub (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Cubic function. 
 
 
 \begin{DoxyParams}{Parameters}

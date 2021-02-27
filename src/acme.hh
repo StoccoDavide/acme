@@ -17,8 +17,13 @@
 #include "acme_point.hh"
 #include "acme_vector.hh"
 #include "acme_segment.hh"
+#include "acme_line.hh"
+#include "acme_box.hh"
 #include "acme_triangle.hh"
+#include "acme_quadix.hh"
 #include "acme_ray.hh"
+#include "acme_plane.hh"
+#include "acme_sphere.hh"
 
 namespace acme
 {

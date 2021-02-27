@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['max',['max',['../db/d32/namespaceacme.html#abc0dd1e2a5441a08af324075636ea74a',1,'acme::max(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#aca4726ee714290f5715f97242fd61cea',1,'acme::max(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]],
-  ['min',['min',['../db/d32/namespaceacme.html#a8e3d214c67f792ca4deef35481ea8b12',1,'acme::min(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#a49c47fe19dcb5a41cdb8111446c6f51e',1,'acme::min(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]]
+  ['epsilon',['epsilon',['../db/d32/namespaceacme.html#a271df552fb3ed0b0552ec753f179b086',1,'acme']]],
+  ['epsilon_3c_20double_20_3e',['epsilon&lt; double &gt;',['../db/d32/namespaceacme.html#ac0dc78bf61c8c5c10b1825cf9e8c1290',1,'acme']]],
+  ['epsilon_3c_20float_20_3e',['epsilon&lt; float &gt;',['../db/d32/namespaceacme.html#aa51a72841e708a201a31ddfe592b990f',1,'acme']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['epsilon',['epsilon',['../db/d32/namespaceacme.html#a271df552fb3ed0b0552ec753f179b086',1,'acme']]],
-  ['epsilon_3c_20double_20_3e',['epsilon&lt; double &gt;',['../db/d32/namespaceacme.html#ac0dc78bf61c8c5c10b1825cf9e8c1290',1,'acme']]],
-  ['epsilon_3c_20float_20_3e',['epsilon&lt; float &gt;',['../db/d32/namespaceacme.html#aa51a72841e708a201a31ddfe592b990f',1,'acme']]]
+  ['clamp',['clamp',['../db/d32/namespaceacme.html#a51ac298ca5ccfff9b9d71bfed9253131',1,'acme']]],
+  ['clear',['clear',['../db/d44/classacme_1_1point.html#a72a37be7ec9417b12eeec1a31ed0398b',1,'acme::point']]],
+  ['cos',['cos',['../db/d32/namespaceacme.html#ae74481d6a235be6f194a86ade7719e5c',1,'acme']]],
+  ['cub',['cub',['../db/d32/namespaceacme.html#af15f05bfabb3a12f9c95cc8f63a00425',1,'acme']]]
 ];

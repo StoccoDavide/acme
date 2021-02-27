@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['normalize',['normalize',['../df/de6/classacme_1_1vector.html#ae8e43db3ab2dea42390d713254bb0684',1,'acme::vector']]],
-  ['normalized',['normalized',['../df/de6/classacme_1_1vector.html#a067e26aadf2e8ea910a1e7b3365892cd',1,'acme::vector']]]
+  ['infinity',['infinity',['../db/d32/namespaceacme.html#abaa8d891da65dcd3583b49a74a5070bf',1,'acme']]],
+  ['int',['Int',['../db/d32/namespaceacme.html#a2ad7da80dca2640a79a37d38e2b14eb8',1,'acme']]]
 ];

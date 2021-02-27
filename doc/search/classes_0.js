@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['point',['point',['../db/d44/classacme_1_1point.html',1,'acme']]]
+  ['box',['box',['../d7/de4/classacme_1_1box.html',1,'acme']]]
 ];

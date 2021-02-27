@@ -24,10 +24,9 @@ namespace acme
   class point
   {
   protected:
-    Eigen::Matrix<T, D, 1> data;
+    Eigen::Matrix<T, D, 1> data; //!< Point data as Eigen column vector
 
   public:
-  
     //! Class constructor
     point() { clear(); }
 

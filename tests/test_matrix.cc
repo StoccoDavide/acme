@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "acme.hh"
-#include "acme_matrix.hh"
 
 int main(void)
 {
