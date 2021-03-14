@@ -1,13 +1,13 @@
 ///
-/// file: acme_triangle.hh
+/// file: ddd_triangle.hh
 ///
 
-#ifndef INCLUDE_ACME_TRIANGLE
-#define INCLUDE_ACME_TRIANGLE
+#ifndef INCLUDE_DDD_TRIANGLE
+#define INCLUDE_DDD_TRIANGLE
 
-#include "acme_point.hh"
+#include "ddd_point.hh"
 
-namespace acme
+namespace ddd
 {
 
   /*\
@@ -20,41 +20,18 @@ namespace acme
   \*/
 
   //! ND triangle class container
-  template <typename T = Float, std::size_t D = 3>
+  template <typename T = Float>
   class triangle
   {
   private:
     const static std::size_t PointCount = 3; //!< Number of points in triangle
-    point<T, D> data[PointCount]; //!< Triangle data
+    point<T> data[PointCount]; //!< Triangle data
 
   public:
     //! Copy constructor
     triangle(const triangle<T, D>&) = default;
 
     //! Class constructor
-    triangle() {
-      (this->data[0]).clear();
-      (this->data[1]).clear();
-      (this->data[2]).clear();
-    }
-
-    //! Class constructor for 2D triangle
-    triangle(
-        const T &x0, //<! Input x value for point 0
-        const T &y0, //<! Input y value for point 0
-        const T &x1, //<! Input x value for point 1
-        const T &y1, //<! Input y value for point 1
-        const T &x2, //<! Input x value for point 2
-        const T &y2  //<! Input y value for point 2
-    )
-    {
-      ACME_ASSERT(D == 2, "acme::segment::segment()\nDiscordant segment dimensions.")
-      this->data[0] = point<T, 2>(x0, y0);
-      this->data[1] = point<T, 2>(x1, y1);
-      this->data[2] = point<T, 2>(x2, y2);
-    }
-
-    //! Class constructor for 3D triangle
     triangle(
         const T &x0, //<! Input x value for point 0
         const T &y0, //<! Input y value for point 0
@@ -67,17 +44,16 @@ namespace acme
         const T &z2  //<! Input z value for point 2
     )
     {
-      ACME_ASSERT(D == 3, "acme::segment::segment()\nDiscordant segment dimensions.")
-      this->data[0] = point<T, 3>(x0, y0, z0);
-      this->data[1] = point<T, 3>(x1, y1, z1);
-      this->data[2] = point<T, 3>(x2, y2, z2);
+      this->data[0] = point<T>(x0, y0, z0);
+      this->data[1] = point<T>(x1, y1, z1);
+      this->data[2] = point<T>(x2, y2, z2);
     }
 
     //! Class constructor
     triangle(
-        const point<T, D> &point0, //!< Input ND point 0
-        const point<T, D> &point1, //!< Input ND point 1
-        const point<T, D> &point2  //!< Input ND point 2
+        const point<T> &point0, //!< Input ND point 0
+        const point<T> &point1, //!< Input ND point 1
+        const point<T> &point2  //!< Input ND point 2
     )
     {
       this->data[0] = point0;
@@ -89,8 +65,8 @@ namespace acme
     ~triangle() {}
 
     //! Equality operator
-    inline triangle<T, D> &operator=(
-        const triangle<T, D> &triangle //!< Input ND triangle
+    inline triangle<T> &operator=(
+        const triangle<T> &triangle //!< Input ND triangle
     )
     {
       this->data = triangle.data;
@@ -98,7 +74,7 @@ namespace acme
     }
 
     //! Indexing operator
-    inline point<T, D> &operator[](
+    inline point<T> &operator[](
         const std::size_t &index //!< Input index
     )
     {
@@ -106,7 +82,7 @@ namespace acme
     }
 
     //! Indexing operator
-    inline const point<T, D> &operator[](
+    inline const point<T> &operator[](
         const std::size_t &index //!< Input index
     )
         const
@@ -118,10 +94,10 @@ namespace acme
     inline std::size_t size() const { return PointCount; }
   };
 
-} // namespace acme
+} // namespace ddd
 
 #endif
 
 ///
-/// eof: acme_triangle.hh
+/// eof: ddd_triangle.hh
 ///

@@ -1,13 +1,13 @@
 ///
-/// file: acme_sphere.hh
+/// file: ddd_sphere.hh
 ///
 
 #ifndef INCLUDE_ACME_SPHERE
 #define INCLUDE_ACME_SPHERE
 
-#include "acme_point.hh"
+#include "ddd_point.hh"
 
-namespace acme
+namespace ddd
 {
 
   /*\
@@ -20,36 +20,36 @@ namespace acme
   \*/
 
   //! ND sphere class container
-  template <typename T = Float, std::size_t D = 3>
+  template <typename T = Float>
   class sphere
   {
-    point<T, D> o; //!< Sphere origin
-    T r;           //!< Sphere ray
+    point<T> center; //!< Sphere center
+    T radius;        //!< Sphere radius
 
   public:
     //! Copy constructor
-    sphere(const sphere<T, D> &) = default;
+    sphere(const sphere<T> &) = default;
 
     //! Class constructor
-    sphere() : o(point<T, D>()), r(T()) {}
+    sphere() : center(point<T>()), radius(T()) {}
 
     //! Return sphere point
-    inline const point<T, D> &origin() const
+    inline const point<T> &center() const
     {
-      return origin;
+      return center;
     }
 
-    //! Return sphere ray
-    inline const T &ray() const
+    //! Return sphere radiuszz
+    inline const T &radius() const
     {
-      return r;
+      return radius;
     }
   };
 
-} // namespace acme
+} // namespace ddd
 
 #endif
 
 ///
-/// eof: acme_sphere.hh
+/// eof: ddd_sphere.hh
 ///

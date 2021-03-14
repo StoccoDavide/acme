@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "acme.hh"
-#include "acme_utilities.hh"
+#include "ddd.hh"
+#include "ddd_utilities.hh"
 #include "TicToc.hh"
 
 
@@ -15,10 +15,10 @@ int main(void)
   TicToc tictoc;
 
   // POINT TEST
-  acme::point<acme::Float, 3> A(1.0, 0.0, 0.0); 
-  acme::point<> B(1.0, 0.0, 0.0);
-  acme::point<> D(1.0, 0.0, 0.0);
-  acme::point<acme::Float, 3> C;
+  ddd::point<ddd::Float, 3> A(1.0, 0.0, 0.0); 
+  ddd::point<> B(1.0, 0.0, 0.0);
+  ddd::point<> D(1.0, 0.0, 0.0);
+  ddd::point<ddd::Float, 3> C;
   C=B;
   B=D;
 
@@ -29,27 +29,27 @@ int main(void)
             << "Point D = " << D << std::endl 
             << std::endl;
 
-  acme::vector<acme::Float, 3> vec1;
-  acme::vector<acme::Float, 3> vec2(A);
+  ddd::vector<ddd::Float, 3> vec1;
+  ddd::vector<ddd::Float, 3> vec2(A);
   std::cout << vec1 << std::endl  << std::endl;
   vec1 = B;
   std::cout << vec1 << std::endl  << std::endl;
   
 
-  acme::segment<> seg(A, B);
+  ddd::segment<> seg(A, B);
   std::cout << seg << std::endl << std::endl;
 
-  acme::ray<acme::Float, 3> ray;
+  ddd::ray<ddd::Float, 3> ray;
   std::cout << ray << std::endl << std::endl;
   
-  //acme::triangle<acme::Float, 3> triangle;
+  //ddd::triangle<ddd::Float, 3> triangle;
   //std::cout << triangle;
 /*
-  Eigen::Matrix<acme::Float, 3, 3> m;
+  Eigen::Matrix<ddd::Float, 3, 3> m;
   m << 1, 2, 3,
        4, 5, 6,
        7, 8, 9;
-  acme::point3d<acme::Float> E = m*A;
+  ddd::point3d<ddd::Float> E = m*A;
   
   std::cout << "POINT TESTS" << std::endl
             //<< "Point A = " << m*A << std::endl
@@ -58,36 +58,36 @@ int main(void)
             << std::endl;*/
 
   /*/ TRIANGLE TESTS
-  acme::triangle3d Triangle = acme::make_triangle<acme::Float>(A, B, C);
+  ddd::triangle3d Triangle = ddd::make_triangle<ddd::Float>(A, B, C);
   std::cout << "TRIANGLE TESTS" << std::endl
             << "Triangle = " << Triangle << std::endl
             << std::endl;
 
   // VECTOR TESTS
-  acme::vector3d<acme::Float> Vector = acme::make_vector<acme::Float>(-1.0, -1.0, -1.0);
+  ddd::vector3d<ddd::Float> Vector = ddd::make_vector<ddd::Float>(-1.0, -1.0, -1.0);
   std::cout << "VECTOR TESTS" << std::endl
             << "Vector = " << Vector << std::endl
             << std::endl;
   
   // RAY TESTS
-  acme::ray3d Ray = acme::make_ray<acme::Float>(D, Vector);
+  ddd::ray3d Ray = ddd::make_ray<ddd::Float>(D, Vector);
   std::cout << "RAY TESTS" << std::endl
             << "Ray = " << Ray << std::endl
             << std::endl;
 
   // TRIANGLE-RAY TESTS
-  acme::point3d<acme::Float> IntPt = acme::intersection_point(Ray, Triangle);
+  ddd::point3d<ddd::Float> IntPt = ddd::intersection_point(Ray, Triangle);
   std::cout << "RAY TESTS" << std::endl
             << "Intersection point = " << IntPt << std::endl
             << std::endl;
 
   unsigned int N = 10000;
-  std::vector<acme::point3d<acme::Float>> IntPtVec;
+  std::vector<ddd::point3d<ddd::Float>> IntPtVec;
   IntPtVec.resize(N);
   // Perform timing
   tictoc.tic();
   for (unsigned int i = 0; i < N; i++) {
-    IntPtVec[i] = acme::intersection_point(Ray, Triangle);
+    IntPtVec[i] = ddd::intersection_point(Ray, Triangle);
   }
   tictoc.toc();
   std::cout << "Time tot = " << tictoc.elapsed_us() << "us" << std::endl

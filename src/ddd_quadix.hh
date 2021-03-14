@@ -1,13 +1,13 @@
 ///
-/// file: acme_quadix.hh
+/// file: ddd_quadix.hh
 ///
 
-#ifndef INCLUDE_ACME_QUADIX
-#define INCLUDE_ACME_QUADIX
+#ifndef INCLUDE_DDD_QUADIX
+#define INCLUDE_DDD_QUADIX
 
-#include "acme_point.hh"
+#include "ddd_point.hh"
 
-namespace acme
+namespace ddd
 {
 
   /*\
@@ -19,43 +19,28 @@ namespace acme
    |      |_|                         
   \*/
 
-  //! ND quadix class container
-  template <typename T = Float, std::size_t D = 3>
+  //! ddd quadix class container
+  template <typename T = Float>
   class quadix
   {
   private:
     const static std::size_t PointCount = 4; //!< Number of points in quadix
-    point<T, D> data[PointCount]; //!< Quadix data
+    point<T> data[PointCount];               //!< Quadix data
 
   public:
+    //! Class destructor
+    ~quadix() {}
+
     //! Copy constructor
-    quadix(const quadix<T, D>&) = default;
+    quadix(const quadix<T> &) = default;
 
     //! Class constructor
-    quadix() {
+    quadix()
+    {
       (this->data[0]).clear();
       (this->data[1]).clear();
       (this->data[2]).clear();
       (this->data[3]).clear();
-    }
-
-    //! Class constructor for 2D quadix
-    quadix(
-        const T &x0, //<! Input x value for point 0
-        const T &y0, //<! Input y value for point 0
-        const T &x1, //<! Input x value for point 1
-        const T &y1, //<! Input y value for point 1
-        const T &x2, //<! Input x value for point 2
-        const T &y2, //<! Input y value for point 2
-        const T &x3, //<! Input x value for point 3
-        const T &y3  //<! Input y value for point 3
-    )
-    {
-      ACME_ASSERT(D == 2, "acme::segment::segment()\nDiscordant segment dimensions.")
-      this->data[0] = point<T, 2>(x0, y0);
-      this->data[1] = point<T, 2>(x1, y1);
-      this->data[2] = point<T, 2>(x2, y2);
-      this->data[3] = point<T, 2>(x3, y3);
     }
 
     //! Class constructor for 3D quadix
@@ -74,19 +59,18 @@ namespace acme
         const T &z3  //<! Input z value for point 3
     )
     {
-      ACME_ASSERT(D == 3, "acme::segment::segment()\nDiscordant segment dimensions.")
-      this->data[0] = point<T, 3>(x0, y0, z0);
-      this->data[1] = point<T, 3>(x1, y1, z1);
-      this->data[2] = point<T, 3>(x2, y2, z2);
-      this->data[3] = point<T, 3>(x3, y3, z3);
+      this->data[0] = point<T>(x0, y0, z0);
+      this->data[1] = point<T>(x1, y1, z1);
+      this->data[2] = point<T>(x2, y2, z2);
+      this->data[3] = point<T>(x3, y3, z3);
     }
 
     //! Class constructor
     quadix(
-        const point<T, D> &point0, //!< Input ND point 0
-        const point<T, D> &point1, //!< Input ND point 1
-        const point<T, D> &point2, //!< Input ND point 2
-        const point<T, D> &point3  //!< Input ND point 3
+        const point<T> &point0, //!< Input point 0
+        const point<T> &point1, //!< Input point 1
+        const point<T> &point2, //!< Input point 2
+        const point<T> &point3  //!< Input point 3
     )
     {
       this->data[0] = point0;
@@ -95,12 +79,9 @@ namespace acme
       this->data[3] = point3;
     }
 
-    //! Class destructor
-    ~quadix() {}
-
     //! Equality operator
-    inline quadix<T, D> &operator=(
-        const quadix<T, D> &quadix //!< Input ND quadix
+    inline quadix<T> &operator=(
+        const quadix<T> &quadix //!< Input ND quadix
     )
     {
       this->data = quadix.data;
@@ -108,7 +89,7 @@ namespace acme
     }
 
     //! Indexing operator
-    inline point<T, D> &operator[](
+    inline point<T> &operator[](
         const std::size_t &index //!< Input index
     )
     {
@@ -116,7 +97,7 @@ namespace acme
     }
 
     //! Indexing operator
-    inline const point<T, D> &operator[](
+    inline const point<T> &operator[](
         const std::size_t &index //!< Input index
     )
         const
@@ -128,10 +109,10 @@ namespace acme
     inline std::size_t size() const { return PointCount; }
   };
 
-} // namespace acme
+} // namespace ddd
 
 #endif
 
 ///
-/// eof: acme_quadix.hh
+/// eof: ddd_quadix.hh
 ///

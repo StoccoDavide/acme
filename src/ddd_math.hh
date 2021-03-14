@@ -1,13 +1,13 @@
 ///
-/// file: acme_math.hh
+/// file: ddd_math.hh
 ///
 
-#ifndef INCLUDE_ACME_MATH
-#define INCLUDE_ACME_MATH
+#ifndef INCLUDE_DDD_MATH
+#define INCLUDE_DDD_MATH
 
-// Print acme errors
-#ifndef ACME_ERROR
-#define ACME_ERROR(MSG)                  \
+// Print ddd errors
+#ifndef DDD_ERROR
+#define DDD_ERROR(MSG)                   \
   {                                      \
     std::ostringstream ost;              \
     ost << MSG;                          \
@@ -15,18 +15,18 @@
   }
 #endif
 
-// Check for acme errors
-#ifndef ACME_ASSERT
-#define ACME_ASSERT(COND, MSG) \
-  if (!(COND))                 \
-  ACME_ERROR(MSG)
+// Check for ddd errors
+#ifndef DDD_ASSERT
+#define DDD_ASSERT(COND, MSG) \
+  if (!(COND))                \
+  DDD_ERROR(MSG)
 #endif
 
 #include <cmath>
 #include <limits>
 #include <algorithm>
 
-namespace acme
+namespace ddd
 {
 
   /*\
@@ -104,32 +104,32 @@ namespace acme
   //! Maximum between two values function
   template <typename T>
   inline T max(
-      const T &value1, //!< Input value 1
-      const T &value2  //!< Input value 2
+      const T &value0, //!< Input value 0
+      const T &value1  //!< Input value 1
   );
 
   //! Minimum between two values function
   template <typename T>
   inline T min(
-      const T &value1, //!< Input value 1
-      const T &value2  //!< Input value 2
+      const T &value0, //!< Input value 0
+      const T &value1  //!< Input value 1
 
   );
 
   //! Maximum between three values function
   template <typename T>
   inline T max(
+      const T &value0, //!< Input value 0
       const T &value1, //!< Input value 1
-      const T &value2, //!< Input value 2
-      const T &value3  //!< Input value 3
+      const T &value2  //!< Input value 2
   );
 
   //! Minimum between three values function
   template <typename T>
   inline T min(
+      const T &value0, //!< Input value 0
       const T &value1, //!< Input value 1
-      const T &value2, //!< Input value 2
-      const T &value3  //!< Input value 3
+      const T &value2  //!< Input value 2
   );
 
   /*\
@@ -183,12 +183,12 @@ namespace acme
       const T &high   //!< High end bound
   );
 
-} // namespace acme
+} // namespace ddd
 
-#include "acme_math.inl"
+#include "ddd_math.inl"
 
 #endif
 
 ///
-/// eof: acme_math.hh
+/// eof: ddd_math.hh
 ///

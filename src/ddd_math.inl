@@ -1,6 +1,6 @@
-#include "acme_math.hh"
+#include "ddd_math.hh"
 
-namespace acme
+namespace ddd
 {
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -165,4 +165,4 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-} // namespace acme
+} // namespace ddd
