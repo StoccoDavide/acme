@@ -17,6 +17,12 @@ namespace ddd
   \*/
 
   //! Vector class container
+  /*!
+  Base class representing a vector in 3D space. Constructed by three components
+  (X, Y and Z). Additionally, can be constructed by point, representing radius
+  vector of that point, or by two points, representing vector from first point
+  to another.
+  */
   template <typename T = Float>
   class vector : public point<T>
   {
@@ -28,10 +34,7 @@ namespace ddd
     vector(const vector<T> &) = default;
 
     //! Class constructor
-    vector() : point<T>()
-    {
-      this->clear();
-    }
+    vector() : point<T>() {}
 
     //! Class constructor
     vector(
@@ -52,8 +55,8 @@ namespace ddd
 
     //! Class constructor
     vector(
-        const point<T> &point //!< Input point object
-        ) : point<T>(point)
+        const point<T> &input //!< Input point object
+        ) : point<T>(input)
     {
     }
 
@@ -92,14 +95,14 @@ namespace ddd
     //! Get z coordinate
     inline const T &z(void) const { return this->_data.z(); }
 
-    //! Radius vector of vector
+    //! Convert to point
     inline const point<T> &toPoint(void)
     {
-      return new point<T>(this);
+      return point<T>(this);
     }
 
     //! Addition operator
-    inline const  vector<T> operator+(
+    inline const vector<T> operator+(
         const vector<T> &input //!< Input vector object
     )
         const
@@ -165,14 +168,19 @@ namespace ddd
     }
 
     //! Normalize vector
-    inline void normalize()
+    inline void normalize(void)
     {
-      this->_data.norm();
+      this->_data.normalize();
+    }
+
+    //! Return vector norm
+    inline const T &norm(void) const
+    {
+      return this->_data.norm();
     }
 
     //! Return normalized vector
-    inline const vector<T> normalized()
-        const
+    inline const vector<T> &normalized(void) const
     {
       return this->_data.normalized();
     }
@@ -190,6 +198,7 @@ namespace ddd
     inline bool is_parallel(
         const vector<T> &input //!< Input vector object
     )
+        const
     {
       return is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
     }
@@ -198,6 +207,7 @@ namespace ddd
     inline bool is_notparallel(
         const vector<T> &input //!< Input vector object
     )
+        const
     {
       return !this.is_parallel(input);
     }
@@ -206,6 +216,7 @@ namespace ddd
     inline bool is_orthogonal(
         const vector<T> &input //!< Input vector object
     )
+        const
     {
       return is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
     }
@@ -214,14 +225,34 @@ namespace ddd
     inline bool is_notorthogonal(
         const vector<T> &input //!< Input vector object
     )
+        const
     {
       return !this.is_orthogonal(input);
+    }
+
+    //! Get an arbitrary vector, orthogonal to the current vector
+    inline const vector<T> &orthogonalVector(void)
+        const
+    {
+      if (abs(this->x()) <= abs(this->y()) && abs(this->x()) <= abs(this->z()))
+      {
+        return new vector<T>(0, this->z(), -this->y());
+      }
+      else if (abs(this->y()) <= abs(this->x()) && abs(this->y()) <= abs(this->z()))
+      {
+        return new vector<T>(this->z(), 0, -this->x());
+      }
+      else
+      {
+        return new vector<T>(this->y(), -this->x(), 0);
+      }
     }
 
     //! Equality operator
     inline bool operator==(
         const vector<T> &input //!< Input vector object
     )
+        const
     {
       return this.is_equal(input);
     }
@@ -230,8 +261,45 @@ namespace ddd
     inline bool operator!=(
         const vector<T> &input //!< Input vector object
     )
+        const
     {
       return !(this == input);
+    }
+
+    //! Angle between two vectors [rad]
+    inline const T &angle(
+        const vector<T> &input //!< Input vector object
+    )
+        const
+    {
+      return acos(this->_data.dot(input) / (this->norm() * input.norm()));
+    }
+
+    //! Angle between vector and line [rad]
+    inline const T &angle(
+        const line<T> &input //!< Input line object
+    )
+        const
+    {
+      return this->angle(input.direction());
+    }
+
+    //! Angle between vector and ray [rad]
+    inline const T &angle(
+        const ray<T> &input //!< Input vector object
+    )
+        const
+    {
+      return this->angle(input.direction());
+    }
+
+    //! Angle between vector and segment [rad]
+    inline const T &angle(
+        const segment<T> &input //!< Input vector object
+    )
+        const
+    {
+      return this->angle(input.toVector());
     }
 
   }; // class vector

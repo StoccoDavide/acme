@@ -77,6 +77,7 @@ $(function() {
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>add()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#a66ad14a1d50eb4170c874f75b77e8b0b">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a97eca6a6625002022ab2442b5cbd0462">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -95,6 +96,9 @@ $(function() {
 <li>clear()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#ade1021a86b26ec7212cb83ebfd3b711f">ddd::point&lt; T &gt;</a>
 </li>
+<li>cross()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#a27ac4cb7a469642d497cfe070935ab4b">ddd::vector&lt; T &gt;</a>
+</li>
 </ul>
 
 
@@ -103,17 +107,33 @@ $(function() {
 : <a class="el" href="d0/dc3/classddd_1_1ray.html#a8c6a38d8e1fcda4a44791ad17c99866e">ddd::ray&lt; T &gt;</a>
 </li>
 <li>distance()
-: <a class="el" href="dd/ddb/classddd_1_1point.html#a36798ea778572d6145a709e7baf7893f">ddd::point&lt; T &gt;</a>
+: <a class="el" href="dd/ddb/classddd_1_1point.html#a59d8714cc178090ddf75b0c9dbd832c9">ddd::point&lt; T &gt;</a>
 </li>
 <li>distanceSquared()
-: <a class="el" href="dd/ddb/classddd_1_1point.html#a58ef7bc4870110dfd05c00609357756c">ddd::point&lt; T &gt;</a>
+: <a class="el" href="dd/ddb/classddd_1_1point.html#a4b6793fd154fc9ad4dd93a4927d4ee13">ddd::point&lt; T &gt;</a>
+</li>
+<li>dot()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#a61e3ccdb85f4d41c142c80b429808baf">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>is_equal()
-: <a class="el" href="dd/ddb/classddd_1_1point.html#ac18ef1f91134bce9bcfe8d8419ab0f2b">ddd::point&lt; T &gt;</a>
+: <a class="el" href="dd/ddb/classddd_1_1point.html#aa4cdbbf16736ee09e840e33f77e94b8a">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a860847a7c7c93e52b4a83af722eb60f7">ddd::vector&lt; T &gt;</a>
+</li>
+<li>is_notorthogonal()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#a7f96b8d4f26e95d3678b29ffb434d5e5">ddd::vector&lt; T &gt;</a>
+</li>
+<li>is_notparallel()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#ae2d3c12f861cd1d4bb8977d0512a5e20">ddd::vector&lt; T &gt;</a>
+</li>
+<li>is_orthogonal()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#a48546e7a818979326ebb22e9256a9070">ddd::vector&lt; T &gt;</a>
+</li>
+<li>is_parallel()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#a3f3fe85b03fcdfdd2a8002900d35d3a3">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -141,11 +161,17 @@ $(function() {
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
+<li>operator!=()
+: <a class="el" href="dd/ddb/classddd_1_1point.html#a2567b8c3cd08d965e70033f3f4a8d3db">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a83fb6aea4121e7737ab7642aae23e2df">ddd::vector&lt; T &gt;</a>
+</li>
 <li>operator+()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#ab0b0c990b117bb889d34d44509b645be">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a1d49d5831ff14a0845a0ce3ac0f4e02d">ddd::vector&lt; T &gt;</a>
 </li>
 <li>operator-()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#a5621f5a883c88d5588e09f9ff0de6575">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a6d3a62dbfdd3747aa5f640f18aef9220">ddd::vector&lt; T &gt;</a>
 </li>
 <li>operator=()
 : <a class="el" href="d0/db9/classddd_1_1box.html#a80ec0210ef2e3bcb0cd8e22e77f5c89d">ddd::box&lt; T &gt;</a>
@@ -156,13 +182,18 @@ $(function() {
 , <a class="el" href="d6/dda/classddd_1_1triangle.html#a4bda6c1640652c41dff136e5b468789c">ddd::triangle&lt; T &gt;</a>
 , <a class="el" href="d6/d27/classddd_1_1vector.html#a873d3b0fd4d4a5d7a1b6a9d7e907009d">ddd::vector&lt; T &gt;</a>
 </li>
+<li>operator==()
+: <a class="el" href="dd/ddb/classddd_1_1point.html#a98f8e8097257f053b85e1ee32352fda4">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a5f26a6f471c836b723c94a5f68a3931d">ddd::vector&lt; T &gt;</a>
+</li>
 <li>operator[]()
 : <a class="el" href="d0/db9/classddd_1_1box.html#a3fd2b2f0fbfcc484878a32f82994b294">ddd::box&lt; T &gt;</a>
 , <a class="el" href="d3/d06/classddd_1_1line.html#a04a2abe2c302b5ca97074116b2c39499">ddd::line&lt; T &gt;</a>
-, <a class="el" href="dd/ddb/classddd_1_1point.html#a320e2bfca11915c5ebb9ed0581a3cab1">ddd::point&lt; T &gt;</a>
+, <a class="el" href="dd/ddb/classddd_1_1point.html#aabf1454e1f0496fb70c1e62852aa2595">ddd::point&lt; T &gt;</a>
 , <a class="el" href="d3/d9a/classddd_1_1quadix.html#a46ccfe1c37d09fd9fe0a7edb24a8d18f">ddd::quadix&lt; T &gt;</a>
 , <a class="el" href="d0/d66/classddd_1_1segment.html#a7f491fcefb2c3d8f805b7a27ed93395f">ddd::segment&lt; T &gt;</a>
-, <a class="el" href="d6/dda/classddd_1_1triangle.html#afa3078cf85103598c7967644de4d2dc1">ddd::triangle&lt; T &gt;</a>
+, <a class="el" href="d6/dda/classddd_1_1triangle.html#aad15ef95a744f9177a0424c3c27afe72">ddd::triangle&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a38e2123649fc4ebf839f22e5061b9497">ddd::vector&lt; T &gt;</a>
 </li>
 <li>origin()
 : <a class="el" href="d0/dc3/classddd_1_1ray.html#a92ad567ccc11d6d2bb9faa66cefbb9ca">ddd::ray&lt; T &gt;</a>
@@ -201,11 +232,12 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>scale()
-: <a class="el" href="dd/ddb/classddd_1_1point.html#a5edb11d18e78ff66bc7aa2a5f26b8aa4">ddd::point&lt; T &gt;</a>
+<li>scalar()
+: <a class="el" href="dd/ddb/classddd_1_1point.html#ac913d28476f33d1cc300d281d625e0f3">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#af54b7b7822b48b3648e147eed92556cb">ddd::vector&lt; T &gt;</a>
 </li>
 <li>segment()
-: <a class="el" href="d0/d66/classddd_1_1segment.html#ad6ed63172c53846edce9a982ea54f734">ddd::segment&lt; T &gt;</a>
+: <a class="el" href="d0/d66/classddd_1_1segment.html#a11949f0ad3906498f0625230b5a04fa7">ddd::segment&lt; T &gt;</a>
 </li>
 <li>size()
 : <a class="el" href="d0/db9/classddd_1_1box.html#a450bee2733046d15d358546ae0606d66">ddd::box&lt; T &gt;</a>
@@ -215,23 +247,28 @@ $(function() {
 , <a class="el" href="d6/dda/classddd_1_1triangle.html#ae40fd95c96248e2b415858bee33a844e">ddd::triangle&lt; T &gt;</a>
 </li>
 <li>sphere()
-: <a class="el" href="d4/dc3/classddd_1_1sphere.html#ac434fad67b03cf195558e2b2185e6b42">ddd::sphere&lt; T &gt;</a>
+: <a class="el" href="d4/dc3/classddd_1_1sphere.html#aedcf4e205c6f6ce5f23ab63de4dbb0ac">ddd::sphere&lt; T &gt;</a>
 </li>
 <li>subtract()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#abf2e2ea5474534eb17d1cb6bd96b7913">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#abf367c7da55ad2c770a90a3ed3c01d5a">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>toPoint()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#a5fe880482ce10fe9af876458d79f153e">ddd::vector&lt; T &gt;</a>
+</li>
 <li>ToVector()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#a3d8e57af2dfe4b200dc2b7ca63ff554a">ddd::point&lt; T &gt;</a>
 </li>
 <li>translate()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#a36c06fef72376a058c663dd9632ddcd0">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a5d9764ea0d9e7342d967199070b1b744">ddd::vector&lt; T &gt;</a>
 </li>
 <li>triangle()
-: <a class="el" href="d6/dda/classddd_1_1triangle.html#ad19b3fc3d0a7997a6ab0400901743190">ddd::triangle&lt; T &gt;</a>
+: <a class="el" href="d6/dda/classddd_1_1triangle.html#afca480ce032f9e6ba7058c6817374ef8">ddd::triangle&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -246,6 +283,7 @@ $(function() {
 <h3><a id="index_x"></a>- x -</h3><ul>
 <li>x()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#af165c07ef348f3d795469b8b0918a3ba">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a1108468dc6ce04acf1d74949177c97b3">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -253,6 +291,7 @@ $(function() {
 <h3><a id="index_y"></a>- y -</h3><ul>
 <li>y()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#a632f731dfcc4cc1693948d861cb7327d">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a678928885fa7bcdb22f25eff71f74cdd">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -260,6 +299,7 @@ $(function() {
 <h3><a id="index_z"></a>- z -</h3><ul>
 <li>z()
 : <a class="el" href="dd/ddb/classddd_1_1point.html#aeb266a3811a70700ee7d52cacfdc0b9f">ddd::point&lt; T &gt;</a>
+, <a class="el" href="d6/d27/classddd_1_1vector.html#a6f9a297e7ba387597ca0515421012166">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -285,6 +325,9 @@ $(function() {
 </li>
 <li>~triangle()
 : <a class="el" href="d6/dda/classddd_1_1triangle.html#ae17a51e842e44cfb3061bdca7e64bc11">ddd::triangle&lt; T &gt;</a>
+</li>
+<li>~vector()
+: <a class="el" href="d6/d27/classddd_1_1vector.html#aa318607b6bdd556e5aa371488b3b2da8">ddd::vector&lt; T &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

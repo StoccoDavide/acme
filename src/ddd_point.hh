@@ -20,6 +20,9 @@ namespace ddd
   \*/
 
   //! Point class container
+  /*!
+  One of the base classes, can be constructed by three double numbers (X, Y and Z).
+  */
   template <typename T = Float>
   class point
   {
@@ -98,8 +101,8 @@ namespace ddd
     //! Get z coordinate
     inline const T &z(void) const { return _data.z(); }
 
-    //! Radius vector of point
-    inline const vector<T> &ToVector(void)
+    //! Convert to point
+    inline const vector<T> &toVector(void)
     {
       return new vector<T>(this);
     }

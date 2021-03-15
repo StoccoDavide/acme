@@ -2,7 +2,7 @@
 \label{classddd_1_1point}\index{ddd\+::point$<$ T $>$@{ddd\+::point$<$ T $>$}}
 
 
-ddd point class container  
+Point class container.  
 
 
 
@@ -11,8 +11,7 @@ ddd point class container
 
 
 
-Inheritance diagram for ddd\+:\+:point$<$ T $>$\+:
-\nopagebreak
+Inheritance diagram for ddd\+:\+:point$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -64,8 +63,8 @@ void \hyperlink{classddd_1_1point_a66ad14a1d50eb4170c874f75b77e8b0b}{add} (const
 \begin{DoxyCompactList}\small\item\em Addition function. \end{DoxyCompactList}\item 
 void \hyperlink{classddd_1_1point_abf2e2ea5474534eb17d1cb6bd96b7913}{subtract} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Subtraction function. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1point_a5edb11d18e78ff66bc7aa2a5f26b8aa4}{scale} (const T \&factor)
-\begin{DoxyCompactList}\small\item\em Scale point by given factor. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1point_ac913d28476f33d1cc300d281d625e0f3}{scalar} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Scalar product function. \end{DoxyCompactList}\item 
 void \hyperlink{classddd_1_1point_a36c06fef72376a058c663dd9632ddcd0}{translate} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Translate point by vector. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1point_ab1d35fc412c7e2f1661cb34f1cc2c250}\label{classddd_1_1point_ab1d35fc412c7e2f1661cb34f1cc2c250}} 
@@ -74,16 +73,16 @@ void \hyperlink{classddd_1_1point_ab1d35fc412c7e2f1661cb34f1cc2c250}{normalize} 
 \mbox{\Hypertarget{classddd_1_1point_ac17331c629f79d5abd4b48d807967470}\label{classddd_1_1point_ac17331c629f79d5abd4b48d807967470}} 
 const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \hyperlink{classddd_1_1point_ac17331c629f79d5abd4b48d807967470}{normalized} () const
 \begin{DoxyCompactList}\small\item\em Return normalized point. \end{DoxyCompactList}\item 
-const bool \& \hyperlink{classddd_1_1point_ac18ef1f91134bce9bcfe8d8419ab0f2b}{is\+\_\+equal} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Translate point by vector. \end{DoxyCompactList}\item 
-const T \& \hyperlink{classddd_1_1point_a36798ea778572d6145a709e7baf7893f}{distance} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
+bool \hyperlink{classddd_1_1point_aa4cdbbf16736ee09e840e33f77e94b8a}{is\+\_\+equal} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if point is equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1point_a98f8e8097257f053b85e1ee32352fda4}{operator==} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1point_a2567b8c3cd08d965e70033f3f4a8d3db}{operator!=} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Disequality operator. \end{DoxyCompactList}\item 
+const T \hyperlink{classddd_1_1point_a59d8714cc178090ddf75b0c9dbd832c9}{distance} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Distance between two points. \end{DoxyCompactList}\item 
-const T \& \hyperlink{classddd_1_1point_a58ef7bc4870110dfd05c00609357756c}{distance\+Squared} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Squared distance between two points. \end{DoxyCompactList}\item 
-const T \& \hyperlink{classddd_1_1point_a8f6afdb0816e235ffd63a9d31a91e65f}{distance} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Shortest distance to a line. \end{DoxyCompactList}\item 
-const T \& \hyperlink{classddd_1_1point_a1080466b104b23a1b041f6049aaed15d}{distance} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Shortest distance to a plane. \end{DoxyCompactList}\end{DoxyCompactItemize}
+const T \hyperlink{classddd_1_1point_a4b6793fd154fc9ad4dd93a4927d4ee13}{distance\+Squared} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Squared distance between two points. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -96,7 +95,7 @@ Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \hyperlink{classddd_1_1point_af4781a60e5c93aeaa
 \subsubsection*{template$<$typename T = Float$>$\newline
 class ddd\+::point$<$ T $>$}
 
-ddd point class container 
+Point class container. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classddd_1_1point_a0146118d518509e9e7cdf4fb6733eb48}\label{classddd_1_1point_a0146118d518509e9e7cdf4fb6733eb48}} 
@@ -154,12 +153,12 @@ Addition function.
 {\em input} & Input point object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_a36798ea778572d6145a709e7baf7893f}\label{classddd_1_1point_a36798ea778572d6145a709e7baf7893f}} 
+\mbox{\Hypertarget{classddd_1_1point_a59d8714cc178090ddf75b0c9dbd832c9}\label{classddd_1_1point_a59d8714cc178090ddf75b0c9dbd832c9}} 
 \index{ddd\+::point@{ddd\+::point}!distance@{distance}}
 \index{distance@{distance}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{distance()}{distance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{distance()}{distance()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const T\& \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::distance (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+const T \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::distance (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -170,44 +169,12 @@ Distance between two points.
 {\em input} & Input point object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_a8f6afdb0816e235ffd63a9d31a91e65f}\label{classddd_1_1point_a8f6afdb0816e235ffd63a9d31a91e65f}} 
-\index{ddd\+::point@{ddd\+::point}!distance@{distance}}
-\index{distance@{distance}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{distance()}{distance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const T\& \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::distance (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Shortest distance to a line. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em input} & Input line object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_a1080466b104b23a1b041f6049aaed15d}\label{classddd_1_1point_a1080466b104b23a1b041f6049aaed15d}} 
-\index{ddd\+::point@{ddd\+::point}!distance@{distance}}
-\index{distance@{distance}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{distance()}{distance()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const T\& \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::distance (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Shortest distance to a plane. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em input} & Input plane object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_a58ef7bc4870110dfd05c00609357756c}\label{classddd_1_1point_a58ef7bc4870110dfd05c00609357756c}} 
+\mbox{\Hypertarget{classddd_1_1point_a4b6793fd154fc9ad4dd93a4927d4ee13}\label{classddd_1_1point_a4b6793fd154fc9ad4dd93a4927d4ee13}} 
 \index{ddd\+::point@{ddd\+::point}!distance\+Squared@{distance\+Squared}}
 \index{distance\+Squared@{distance\+Squared}!ddd\+::point@{ddd\+::point}}
 \subsubsection{\texorpdfstring{distance\+Squared()}{distanceSquared()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const T\& \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::distance\+Squared (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+const T \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::distance\+Squared (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -218,16 +185,32 @@ Squared distance between two points.
 {\em input} & Input point object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_ac18ef1f91134bce9bcfe8d8419ab0f2b}\label{classddd_1_1point_ac18ef1f91134bce9bcfe8d8419ab0f2b}} 
+\mbox{\Hypertarget{classddd_1_1point_aa4cdbbf16736ee09e840e33f77e94b8a}\label{classddd_1_1point_aa4cdbbf16736ee09e840e33f77e94b8a}} 
 \index{ddd\+::point@{ddd\+::point}!is\+\_\+equal@{is\+\_\+equal}}
 \index{is\+\_\+equal@{is\+\_\+equal}!ddd\+::point@{ddd\+::point}}
 \subsubsection{\texorpdfstring{is\+\_\+equal()}{is\_equal()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const bool\& \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+bool \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Translate point by vector. 
+Check if point is equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input point object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1point_a2567b8c3cd08d965e70033f3f4a8d3db}\label{classddd_1_1point_a2567b8c3cd08d965e70033f3f4a8d3db}} 
+\index{ddd\+::point@{ddd\+::point}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!ddd\+::point@{ddd\+::point}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Disequality operator. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -282,6 +265,22 @@ Equality operator.
 {\em point} & Input point object \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1point_a98f8e8097257f053b85e1ee32352fda4}\label{classddd_1_1point_a98f8e8097257f053b85e1ee32352fda4}} 
+\index{ddd\+::point@{ddd\+::point}!operator==@{operator==}}
+\index{operator==@{operator==}!ddd\+::point@{ddd\+::point}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input point object \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1point_aabf1454e1f0496fb70c1e62852aa2595}\label{classddd_1_1point_aabf1454e1f0496fb70c1e62852aa2595}} 
 \index{ddd\+::point@{ddd\+::point}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::point@{ddd\+::point}}
@@ -314,20 +313,20 @@ Indexing operator.
 {\em i} & Input index \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_a5edb11d18e78ff66bc7aa2a5f26b8aa4}\label{classddd_1_1point_a5edb11d18e78ff66bc7aa2a5f26b8aa4}} 
-\index{ddd\+::point@{ddd\+::point}!scale@{scale}}
-\index{scale@{scale}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{scale()}{scale()}}
+\mbox{\Hypertarget{classddd_1_1point_ac913d28476f33d1cc300d281d625e0f3}\label{classddd_1_1point_ac913d28476f33d1cc300d281d625e0f3}} 
+\index{ddd\+::point@{ddd\+::point}!scalar@{scalar}}
+\index{scalar@{scalar}!ddd\+::point@{ddd\+::point}}
+\subsubsection{\texorpdfstring{scalar()}{scalar()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-void \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::scale (\begin{DoxyParamCaption}\item[{const T \&}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::scalar (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Scale point by given factor. 
+Scalar product function. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em factor} & Scaling factor \\
+{\em value} & Scalar value \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1point_abf2e2ea5474534eb17d1cb6bd96b7913}\label{classddd_1_1point_abf2e2ea5474534eb17d1cb6bd96b7913}} 

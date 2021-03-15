@@ -172,7 +172,15 @@ namespace ddd
 
   //! Arctangent function [rad]
   template <typename T>
-  inline T atan(const T &value //!< Input value
+  inline T atan(
+      const T &value //!< Input value
+  );
+
+  //! Arctangent function [rad]
+  template <typename T>
+  inline T atan2(
+      const T &value0, //!< Input value 0
+      const T &value1  //!< Input value 1
   );
 
   //! Clamp function (returns the input value bounded between low and high values)

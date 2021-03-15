@@ -4,25 +4,25 @@
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{classddd_1_1box}{box}
-\begin{DoxyCompactList}\small\item\em ddd box class container \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Box class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1line}{line}
-\begin{DoxyCompactList}\small\item\em ddd line class container \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Line class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1plane}{plane}
-\begin{DoxyCompactList}\small\item\em ddd plane class container \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Plane class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1point}{point}
-\begin{DoxyCompactList}\small\item\em ddd point class container \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Point class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1quadix}{quadix}
-\begin{DoxyCompactList}\small\item\em ddd quadix class container \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Quadix class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1ray}{ray}
-\begin{DoxyCompactList}\small\item\em ND ray class container. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ray class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1segment}{segment}
-\begin{DoxyCompactList}\small\item\em ND segment class container. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Segment class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1sphere}{sphere}
-\begin{DoxyCompactList}\small\item\em ND sphere class container. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sphere class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1triangle}{triangle}
-\begin{DoxyCompactList}\small\item\em ND triangle class container. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Triangle class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1vector}{vector}
-\begin{DoxyCompactList}\small\item\em D\+DD vector class container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vector class container. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -77,6 +77,10 @@ typedef int \hyperlink{namespaceddd_a50ea76e2b817cc6c6b4539c7f3c4bdad}{Int}
 \begin{DoxyCompactList}\small\item\em Arctangent function \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a070060e53a22cb16f07576bfb5c4b1cc}{clamp} (const T \&value, const T \&low, const T \&high)
 \begin{DoxyCompactList}\small\item\em Clamp function (returns the input value bounded between low and high values) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a7d68733d32a94776596a8e213ae9fcdf}{is\+\_\+equal} (const T \&value0, const T \&value1, const T \&tolerance=Epsilon\+\_\+\+High)
+\begin{DoxyCompactList}\small\item\em Check if two elements are almost equal. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}{is\+\_\+notequal} (const T \&value0, const T \&value1, const T \&tolerance=Epsilon\+\_\+\+High)
+\begin{DoxyCompactList}\small\item\em Check if two elements are N\+OT almost equal. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a02d73e2ba5a018e4e525deb8aea3c0a8}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em $<$ Stream out operator for point object \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a85783ffbd6985b1981059732d7bbe174}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&obj)
@@ -239,6 +243,46 @@ Cubic function.
 
 \begin{DoxyParams}{Parameters}
 {\em value} & Input value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a7d68733d32a94776596a8e213ae9fcdf}\label{namespaceddd_a7d68733d32a94776596a8e213ae9fcdf}} 
+\index{ddd@{ddd}!is\+\_\+equal@{is\+\_\+equal}}
+\index{is\+\_\+equal@{is\+\_\+equal}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{is\+\_\+equal()}{is\_equal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T ddd\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1,  }\item[{const T \&}]{tolerance = {\ttfamily Epsilon\+\_\+High} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two elements are almost equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+{\em value1} & Input value 1 \\
+\hline
+{\em tolerance} & High end bound \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}\label{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}} 
+\index{ddd@{ddd}!is\+\_\+notequal@{is\+\_\+notequal}}
+\index{is\+\_\+notequal@{is\+\_\+notequal}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{is\+\_\+notequal()}{is\_notequal()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T ddd\+::is\+\_\+notequal (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1,  }\item[{const T \&}]{tolerance = {\ttfamily Epsilon\+\_\+High} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two elements are N\+OT almost equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+{\em value1} & Input value 1 \\
+\hline
+{\em tolerance} & High end bound \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{namespaceddd_ac22862b5ed1b5bf5ba4d52e4a740bef9}\label{namespaceddd_ac22862b5ed1b5bf5ba4d52e4a740bef9}} 

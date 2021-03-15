@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>DDD vector class container.  
+<p>Vector class container.  
  <a href="../../d6/d27/classddd_1_1vector.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d2/d2a/ddd__vector_8hh_source.html">ddd_vector.hh</a>&gt;</code></p>
@@ -87,7 +87,7 @@ Inheritance diagram for ddd::vector&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d6/df3/classddd_1_1vector__inherit__graph.png" border="0" usemap="#ddd_1_1vector_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="ddd_1_1vector_3_01_t_01_4_inherit__map" id="ddd_1_1vector_3_01_t_01_4_inherit__map">
-<area shape="rect" id="node2" href="../../dd/ddb/classddd_1_1point.html" title="ddd point class container " alt="" coords="9,5,120,32"/>
+<area shape="rect" id="node2" href="../../dd/ddb/classddd_1_1point.html" title="Point class container. " alt="" coords="9,5,120,32"/>
 </map>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -95,12 +95,16 @@ Collaboration diagram for ddd::vector&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/d01/classddd_1_1vector__coll__graph.png" border="0" usemap="#ddd_1_1vector_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="ddd_1_1vector_3_01_t_01_4_coll__map" id="ddd_1_1vector_3_01_t_01_4_coll__map">
-<area shape="rect" id="node2" href="../../dd/ddb/classddd_1_1point.html" title="ddd point class container " alt="" coords="9,5,120,32"/>
+<area shape="rect" id="node2" href="../../dd/ddb/classddd_1_1point.html" title="Point class container. " alt="" coords="9,5,120,32"/>
 </map>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa318607b6bdd556e5aa371488b3b2da8"><td class="memItemLeft" align="right" valign="top"><a id="aa318607b6bdd556e5aa371488b3b2da8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#aa318607b6bdd556e5aa371488b3b2da8">~vector</a> ()</td></tr>
+<tr class="memdesc:aa318607b6bdd556e5aa371488b3b2da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor. <br /></td></tr>
+<tr class="separator:aa318607b6bdd556e5aa371488b3b2da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e10641f3e361c24f5a9756bbd1b2d44"><td class="memItemLeft" align="right" valign="top"><a id="a9e10641f3e361c24f5a9756bbd1b2d44"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a9e10641f3e361c24f5a9756bbd1b2d44">vector</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;)=default</td></tr>
 <tr class="memdesc:a9e10641f3e361c24f5a9756bbd1b2d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
@@ -109,15 +113,64 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a5231808b18bae0590e5083ff27b29056">vector</a> ()</td></tr>
 <tr class="memdesc:a5231808b18bae0590e5083ff27b29056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. <br /></td></tr>
 <tr class="separator:a5231808b18bae0590e5083ff27b29056"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8339300bbb7433f4988b2aebeef90599"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a8339300bbb7433f4988b2aebeef90599">vector</a> (const T &amp;v0, const T &amp;v1, const T &amp;v2)</td></tr>
-<tr class="memdesc:a8339300bbb7433f4988b2aebeef90599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="#a8339300bbb7433f4988b2aebeef90599">More...</a><br /></td></tr>
-<tr class="separator:a8339300bbb7433f4988b2aebeef90599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dec8f05a011372b6b2795827607e6b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a5dec8f05a011372b6b2795827607e6b2">vector</a> (const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;data)</td></tr>
+<tr class="memdesc:a5dec8f05a011372b6b2795827607e6b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="#a5dec8f05a011372b6b2795827607e6b2">More...</a><br /></td></tr>
+<tr class="separator:a5dec8f05a011372b6b2795827607e6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f097b576d026cb86b487546b841622"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a90f097b576d026cb86b487546b841622">vector</a> (const T &amp;<a class="el" href="../../d6/d27/classddd_1_1vector.html#a1108468dc6ce04acf1d74949177c97b3">x</a>, const T &amp;<a class="el" href="../../d6/d27/classddd_1_1vector.html#a678928885fa7bcdb22f25eff71f74cdd">y</a>, const T &amp;<a class="el" href="../../d6/d27/classddd_1_1vector.html#a6f9a297e7ba387597ca0515421012166">z</a>)</td></tr>
+<tr class="memdesc:a90f097b576d026cb86b487546b841622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="#a90f097b576d026cb86b487546b841622">More...</a><br /></td></tr>
+<tr class="separator:a90f097b576d026cb86b487546b841622"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ac6eee190f95425480a001947644fa4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a0ac6eee190f95425480a001947644fa4">vector</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;<a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>)</td></tr>
 <tr class="memdesc:a0ac6eee190f95425480a001947644fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="#a0ac6eee190f95425480a001947644fa4">More...</a><br /></td></tr>
 <tr class="separator:a0ac6eee190f95425480a001947644fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a873d3b0fd4d4a5d7a1b6a9d7e907009d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a873d3b0fd4d4a5d7a1b6a9d7e907009d">operator=</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;<a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>)</td></tr>
 <tr class="memdesc:a873d3b0fd4d4a5d7a1b6a9d7e907009d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="#a873d3b0fd4d4a5d7a1b6a9d7e907009d">More...</a><br /></td></tr>
 <tr class="separator:a873d3b0fd4d4a5d7a1b6a9d7e907009d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e2123649fc4ebf839f22e5061b9497"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a38e2123649fc4ebf839f22e5061b9497">operator[]</a> (const std::size_t &amp;i)</td></tr>
+<tr class="memdesc:a38e2123649fc4ebf839f22e5061b9497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indexing operator.  <a href="#a38e2123649fc4ebf839f22e5061b9497">More...</a><br /></td></tr>
+<tr class="separator:a38e2123649fc4ebf839f22e5061b9497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e8d544a596450edb30914dcc21159fc"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a7e8d544a596450edb30914dcc21159fc">operator[]</a> (const std::size_t &amp;i) const</td></tr>
+<tr class="memdesc:a7e8d544a596450edb30914dcc21159fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indexing operator.  <a href="#a7e8d544a596450edb30914dcc21159fc">More...</a><br /></td></tr>
+<tr class="separator:a7e8d544a596450edb30914dcc21159fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1108468dc6ce04acf1d74949177c97b3"><td class="memItemLeft" align="right" valign="top"><a id="a1108468dc6ce04acf1d74949177c97b3"></a>
+const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a1108468dc6ce04acf1d74949177c97b3">x</a> (void) const</td></tr>
+<tr class="memdesc:a1108468dc6ce04acf1d74949177c97b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get x coordinate. <br /></td></tr>
+<tr class="separator:a1108468dc6ce04acf1d74949177c97b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678928885fa7bcdb22f25eff71f74cdd"><td class="memItemLeft" align="right" valign="top"><a id="a678928885fa7bcdb22f25eff71f74cdd"></a>
+const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a678928885fa7bcdb22f25eff71f74cdd">y</a> (void) const</td></tr>
+<tr class="memdesc:a678928885fa7bcdb22f25eff71f74cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get y coordinate. <br /></td></tr>
+<tr class="separator:a678928885fa7bcdb22f25eff71f74cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f9a297e7ba387597ca0515421012166"><td class="memItemLeft" align="right" valign="top"><a id="a6f9a297e7ba387597ca0515421012166"></a>
+const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a6f9a297e7ba387597ca0515421012166">z</a> (void) const</td></tr>
+<tr class="memdesc:a6f9a297e7ba387597ca0515421012166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get z coordinate. <br /></td></tr>
+<tr class="separator:a6f9a297e7ba387597ca0515421012166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe880482ce10fe9af876458d79f153e"><td class="memItemLeft" align="right" valign="top"><a id="a5fe880482ce10fe9af876458d79f153e"></a>
+const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a5fe880482ce10fe9af876458d79f153e">toPoint</a> (void)</td></tr>
+<tr class="memdesc:a5fe880482ce10fe9af876458d79f153e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius vector of vector. <br /></td></tr>
+<tr class="separator:a5fe880482ce10fe9af876458d79f153e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d49d5831ff14a0845a0ce3ac0f4e02d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a1d49d5831ff14a0845a0ce3ac0f4e02d">operator+</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a1d49d5831ff14a0845a0ce3ac0f4e02d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Addition operator.  <a href="#a1d49d5831ff14a0845a0ce3ac0f4e02d">More...</a><br /></td></tr>
+<tr class="separator:a1d49d5831ff14a0845a0ce3ac0f4e02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d3a62dbfdd3747aa5f640f18aef9220"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a6d3a62dbfdd3747aa5f640f18aef9220">operator-</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a6d3a62dbfdd3747aa5f640f18aef9220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction operator.  <a href="#a6d3a62dbfdd3747aa5f640f18aef9220">More...</a><br /></td></tr>
+<tr class="separator:a6d3a62dbfdd3747aa5f640f18aef9220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97eca6a6625002022ab2442b5cbd0462"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a97eca6a6625002022ab2442b5cbd0462">add</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a97eca6a6625002022ab2442b5cbd0462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Addition function.  <a href="#a97eca6a6625002022ab2442b5cbd0462">More...</a><br /></td></tr>
+<tr class="separator:a97eca6a6625002022ab2442b5cbd0462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf367c7da55ad2c770a90a3ed3c01d5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#abf367c7da55ad2c770a90a3ed3c01d5a">subtract</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:abf367c7da55ad2c770a90a3ed3c01d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction function.  <a href="#abf367c7da55ad2c770a90a3ed3c01d5a">More...</a><br /></td></tr>
+<tr class="separator:abf367c7da55ad2c770a90a3ed3c01d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e3ccdb85f4d41c142c80b429808baf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a61e3ccdb85f4d41c142c80b429808baf">dot</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a61e3ccdb85f4d41c142c80b429808baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product function.  <a href="#a61e3ccdb85f4d41c142c80b429808baf">More...</a><br /></td></tr>
+<tr class="separator:a61e3ccdb85f4d41c142c80b429808baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ac4cb7a469642d497cfe070935ab4b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a27ac4cb7a469642d497cfe070935ab4b">cross</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a27ac4cb7a469642d497cfe070935ab4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross product function.  <a href="#a27ac4cb7a469642d497cfe070935ab4b">More...</a><br /></td></tr>
+<tr class="separator:a27ac4cb7a469642d497cfe070935ab4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af54b7b7822b48b3648e147eed92556cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#af54b7b7822b48b3648e147eed92556cb">scalar</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:af54b7b7822b48b3648e147eed92556cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar product function.  <a href="#af54b7b7822b48b3648e147eed92556cb">More...</a><br /></td></tr>
+<tr class="separator:af54b7b7822b48b3648e147eed92556cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9764ea0d9e7342d967199070b1b744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a5d9764ea0d9e7342d967199070b1b744">translate</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a5d9764ea0d9e7342d967199070b1b744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate vector by vector.  <a href="#a5d9764ea0d9e7342d967199070b1b744">More...</a><br /></td></tr>
+<tr class="separator:a5d9764ea0d9e7342d967199070b1b744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeff69a088496a7c9295b30b1c928df70"><td class="memItemLeft" align="right" valign="top"><a id="aeff69a088496a7c9295b30b1c928df70"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#aeff69a088496a7c9295b30b1c928df70">normalize</a> ()</td></tr>
 <tr class="memdesc:aeff69a088496a7c9295b30b1c928df70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize vector. <br /></td></tr>
@@ -126,28 +179,31 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a40b593b08a2dd6af92c5c07bb9faa463">normalized</a> () const</td></tr>
 <tr class="memdesc:a40b593b08a2dd6af92c5c07bb9faa463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return normalized vector. <br /></td></tr>
 <tr class="separator:a40b593b08a2dd6af92c5c07bb9faa463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a860847a7c7c93e52b4a83af722eb60f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a860847a7c7c93e52b4a83af722eb60f7">is_equal</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a860847a7c7c93e52b4a83af722eb60f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vector is equal.  <a href="#a860847a7c7c93e52b4a83af722eb60f7">More...</a><br /></td></tr>
+<tr class="separator:a860847a7c7c93e52b4a83af722eb60f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3fe85b03fcdfdd2a8002900d35d3a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a3f3fe85b03fcdfdd2a8002900d35d3a3">is_parallel</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a3f3fe85b03fcdfdd2a8002900d35d3a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two vectors are parallel.  <a href="#a3f3fe85b03fcdfdd2a8002900d35d3a3">More...</a><br /></td></tr>
+<tr class="separator:a3f3fe85b03fcdfdd2a8002900d35d3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d3c12f861cd1d4bb8977d0512a5e20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#ae2d3c12f861cd1d4bb8977d0512a5e20">is_notparallel</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:ae2d3c12f861cd1d4bb8977d0512a5e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two vectors are NOT parallel.  <a href="#ae2d3c12f861cd1d4bb8977d0512a5e20">More...</a><br /></td></tr>
+<tr class="separator:ae2d3c12f861cd1d4bb8977d0512a5e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48546e7a818979326ebb22e9256a9070"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a48546e7a818979326ebb22e9256a9070">is_orthogonal</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a48546e7a818979326ebb22e9256a9070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two vectors are orthogonal.  <a href="#a48546e7a818979326ebb22e9256a9070">More...</a><br /></td></tr>
+<tr class="separator:a48546e7a818979326ebb22e9256a9070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f96b8d4f26e95d3678b29ffb434d5e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a7f96b8d4f26e95d3678b29ffb434d5e5">is_notorthogonal</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a7f96b8d4f26e95d3678b29ffb434d5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two vectors are NOT orthogonal.  <a href="#a7f96b8d4f26e95d3678b29ffb434d5e5">More...</a><br /></td></tr>
+<tr class="separator:a7f96b8d4f26e95d3678b29ffb434d5e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f26a6f471c836b723c94a5f68a3931d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a5f26a6f471c836b723c94a5f68a3931d">operator==</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a5f26a6f471c836b723c94a5f68a3931d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="#a5f26a6f471c836b723c94a5f68a3931d">More...</a><br /></td></tr>
+<tr class="separator:a5f26a6f471c836b723c94a5f68a3931d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83fb6aea4121e7737ab7642aae23e2df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d27/classddd_1_1vector.html#a83fb6aea4121e7737ab7642aae23e2df">operator!=</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a83fb6aea4121e7737ab7642aae23e2df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disequality operator.  <a href="#a83fb6aea4121e7737ab7642aae23e2df">More...</a><br /></td></tr>
+<tr class="separator:a83fb6aea4121e7737ab7642aae23e2df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade1021a86b26ec7212cb83ebfd3b711f"><td class="memItemLeft" align="right" valign="top"><a id="ade1021a86b26ec7212cb83ebfd3b711f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#ade1021a86b26ec7212cb83ebfd3b711f">clear</a> ()</td></tr>
 <tr class="memdesc:ade1021a86b26ec7212cb83ebfd3b711f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear vector _data. <br /></td></tr>
 <tr class="separator:ade1021a86b26ec7212cb83ebfd3b711f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabf1454e1f0496fb70c1e62852aa2595"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#aabf1454e1f0496fb70c1e62852aa2595">operator[]</a> (const std::size_t &amp;i)</td></tr>
-<tr class="memdesc:aabf1454e1f0496fb70c1e62852aa2595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indexing operator.  <a href="#aabf1454e1f0496fb70c1e62852aa2595">More...</a><br /></td></tr>
-<tr class="separator:aabf1454e1f0496fb70c1e62852aa2595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a320e2bfca11915c5ebb9ed0581a3cab1"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a320e2bfca11915c5ebb9ed0581a3cab1">operator[]</a> (const std::size_t &amp;i) const</td></tr>
-<tr class="memdesc:a320e2bfca11915c5ebb9ed0581a3cab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indexing operator.  <a href="#a320e2bfca11915c5ebb9ed0581a3cab1">More...</a><br /></td></tr>
-<tr class="separator:a320e2bfca11915c5ebb9ed0581a3cab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af165c07ef348f3d795469b8b0918a3ba"><td class="memItemLeft" align="right" valign="top"><a id="af165c07ef348f3d795469b8b0918a3ba"></a>
-const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#af165c07ef348f3d795469b8b0918a3ba">x</a> (void) const</td></tr>
-<tr class="memdesc:af165c07ef348f3d795469b8b0918a3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get x coordinate. <br /></td></tr>
-<tr class="separator:af165c07ef348f3d795469b8b0918a3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a632f731dfcc4cc1693948d861cb7327d"><td class="memItemLeft" align="right" valign="top"><a id="a632f731dfcc4cc1693948d861cb7327d"></a>
-const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a632f731dfcc4cc1693948d861cb7327d">y</a> (void) const</td></tr>
-<tr class="memdesc:a632f731dfcc4cc1693948d861cb7327d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get y coordinate. <br /></td></tr>
-<tr class="separator:a632f731dfcc4cc1693948d861cb7327d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb266a3811a70700ee7d52cacfdc0b9f"><td class="memItemLeft" align="right" valign="top"><a id="aeb266a3811a70700ee7d52cacfdc0b9f"></a>
-const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#aeb266a3811a70700ee7d52cacfdc0b9f">z</a> (void) const</td></tr>
-<tr class="memdesc:aeb266a3811a70700ee7d52cacfdc0b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get z coordinate. <br /></td></tr>
-<tr class="separator:aeb266a3811a70700ee7d52cacfdc0b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8e57af2dfe4b200dc2b7ca63ff554a"><td class="memItemLeft" align="right" valign="top"><a id="a3d8e57af2dfe4b200dc2b7ca63ff554a"></a>
 const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a3d8e57af2dfe4b200dc2b7ca63ff554a">ToVector</a> (void)</td></tr>
 <tr class="memdesc:a3d8e57af2dfe4b200dc2b7ca63ff554a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius vector of point. <br /></td></tr>
@@ -164,27 +220,21 @@ const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T
 <tr class="memitem:abf2e2ea5474534eb17d1cb6bd96b7913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#abf2e2ea5474534eb17d1cb6bd96b7913">subtract</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input)</td></tr>
 <tr class="memdesc:abf2e2ea5474534eb17d1cb6bd96b7913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction function.  <a href="#abf2e2ea5474534eb17d1cb6bd96b7913">More...</a><br /></td></tr>
 <tr class="separator:abf2e2ea5474534eb17d1cb6bd96b7913"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5edb11d18e78ff66bc7aa2a5f26b8aa4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a5edb11d18e78ff66bc7aa2a5f26b8aa4">scale</a> (const T &amp;factor)</td></tr>
-<tr class="memdesc:a5edb11d18e78ff66bc7aa2a5f26b8aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale point by given factor.  <a href="#a5edb11d18e78ff66bc7aa2a5f26b8aa4">More...</a><br /></td></tr>
-<tr class="separator:a5edb11d18e78ff66bc7aa2a5f26b8aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c06fef72376a058c663dd9632ddcd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a36c06fef72376a058c663dd9632ddcd0">translate</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
-<tr class="memdesc:a36c06fef72376a058c663dd9632ddcd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate point by vector.  <a href="#a36c06fef72376a058c663dd9632ddcd0">More...</a><br /></td></tr>
-<tr class="separator:a36c06fef72376a058c663dd9632ddcd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac18ef1f91134bce9bcfe8d8419ab0f2b"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#ac18ef1f91134bce9bcfe8d8419ab0f2b">is_equal</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input) const</td></tr>
-<tr class="memdesc:ac18ef1f91134bce9bcfe8d8419ab0f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate point by vector.  <a href="#ac18ef1f91134bce9bcfe8d8419ab0f2b">More...</a><br /></td></tr>
-<tr class="separator:ac18ef1f91134bce9bcfe8d8419ab0f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36798ea778572d6145a709e7baf7893f"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a36798ea778572d6145a709e7baf7893f">distance</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input) const</td></tr>
-<tr class="memdesc:a36798ea778572d6145a709e7baf7893f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between two points.  <a href="#a36798ea778572d6145a709e7baf7893f">More...</a><br /></td></tr>
-<tr class="separator:a36798ea778572d6145a709e7baf7893f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f6afdb0816e235ffd63a9d31a91e65f"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a8f6afdb0816e235ffd63a9d31a91e65f">distance</a> (const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;input)</td></tr>
-<tr class="memdesc:a8f6afdb0816e235ffd63a9d31a91e65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortest distance to a line.  <a href="#a8f6afdb0816e235ffd63a9d31a91e65f">More...</a><br /></td></tr>
-<tr class="separator:a8f6afdb0816e235ffd63a9d31a91e65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1080466b104b23a1b041f6049aaed15d"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a1080466b104b23a1b041f6049aaed15d">distance</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input)</td></tr>
-<tr class="memdesc:a1080466b104b23a1b041f6049aaed15d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortest distance to a plane.  <a href="#a1080466b104b23a1b041f6049aaed15d">More...</a><br /></td></tr>
-<tr class="separator:a1080466b104b23a1b041f6049aaed15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58ef7bc4870110dfd05c00609357756c"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a58ef7bc4870110dfd05c00609357756c">distanceSquared</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input)</td></tr>
-<tr class="memdesc:a58ef7bc4870110dfd05c00609357756c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Squared distance between two points.  <a href="#a58ef7bc4870110dfd05c00609357756c">More...</a><br /></td></tr>
-<tr class="separator:a58ef7bc4870110dfd05c00609357756c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4cdbbf16736ee09e840e33f77e94b8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#aa4cdbbf16736ee09e840e33f77e94b8a">is_equal</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:aa4cdbbf16736ee09e840e33f77e94b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if point is equal.  <a href="#aa4cdbbf16736ee09e840e33f77e94b8a">More...</a><br /></td></tr>
+<tr class="separator:aa4cdbbf16736ee09e840e33f77e94b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f8e8097257f053b85e1ee32352fda4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a98f8e8097257f053b85e1ee32352fda4">operator==</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a98f8e8097257f053b85e1ee32352fda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="#a98f8e8097257f053b85e1ee32352fda4">More...</a><br /></td></tr>
+<tr class="separator:a98f8e8097257f053b85e1ee32352fda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2567b8c3cd08d965e70033f3f4a8d3db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a2567b8c3cd08d965e70033f3f4a8d3db">operator!=</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a2567b8c3cd08d965e70033f3f4a8d3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disequality operator.  <a href="#a2567b8c3cd08d965e70033f3f4a8d3db">More...</a><br /></td></tr>
+<tr class="separator:a2567b8c3cd08d965e70033f3f4a8d3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d8714cc178090ddf75b0c9dbd832c9"><td class="memItemLeft" align="right" valign="top">const T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a59d8714cc178090ddf75b0c9dbd832c9">distance</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a59d8714cc178090ddf75b0c9dbd832c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance between two points.  <a href="#a59d8714cc178090ddf75b0c9dbd832c9">More...</a><br /></td></tr>
+<tr class="separator:a59d8714cc178090ddf75b0c9dbd832c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6793fd154fc9ad4dd93a4927d4ee13"><td class="memItemLeft" align="right" valign="top">const T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ddb/classddd_1_1point.html#a4b6793fd154fc9ad4dd93a4927d4ee13">distanceSquared</a> (const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;input)</td></tr>
+<tr class="memdesc:a4b6793fd154fc9ad4dd93a4927d4ee13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Squared distance between two points.  <a href="#a4b6793fd154fc9ad4dd93a4927d4ee13">More...</a><br /></td></tr>
+<tr class="separator:a4b6793fd154fc9ad4dd93a4927d4ee13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -197,10 +247,46 @@ Eigen::Matrix&lt; T, 3, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom
 <div class="textblock"><h3>template&lt;typename T = Float&gt;<br />
 class ddd::vector&lt; T &gt;</h3>
 
-<p>DDD vector class container. </p>
+<p>Vector class container. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8339300bbb7433f4988b2aebeef90599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8339300bbb7433f4988b2aebeef90599">&#9670;&nbsp;</a></span>vector() <span class="overload">[1/2]</span></h2>
+<a id="a5dec8f05a011372b6b2795827607e6b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dec8f05a011372b6b2795827607e6b2">&#9670;&nbsp;</a></span>vector() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::<a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a> </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Class constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Input data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90f097b576d026cb86b487546b841622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f097b576d026cb86b487546b841622">&#9670;&nbsp;</a></span>vector() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,19 +300,19 @@ template&lt;typename T = Float&gt; </div>
           <td class="memname"><a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::<a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a> </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v0</em>, </td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
+          <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -244,9 +330,9 @@ template&lt;typename T = Float&gt; </div>
 <p>Class constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">v1</td><td>Input value 1 </td></tr>
-    <tr><td class="paramname">v2</td><td>Input value 2 </td></tr>
+    <tr><td class="paramname">x</td><td>Input x value </td></tr>
+    <tr><td class="paramname">y</td><td>Input y value </td></tr>
+    <tr><td class="paramname">z</td><td>Input z value </td></tr>
   </table>
   </dd>
 </dl>
@@ -254,7 +340,7 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <a id="a0ac6eee190f95425480a001947644fa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ac6eee190f95425480a001947644fa4">&#9670;&nbsp;</a></span>vector() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac6eee190f95425480a001947644fa4">&#9670;&nbsp;</a></span>vector() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,8 +376,44 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a97eca6a6625002022ab2442b5cbd0462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97eca6a6625002022ab2442b5cbd0462">&#9670;&nbsp;</a></span>add() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::add </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Addition function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a66ad14a1d50eb4170c874f75b77e8b0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66ad14a1d50eb4170c874f75b77e8b0b">&#9670;&nbsp;</a></span>add()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a66ad14a1d50eb4170c874f75b77e8b0b">&#9670;&nbsp;</a></span>add() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,8 +448,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a36798ea778572d6145a709e7baf7893f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36798ea778572d6145a709e7baf7893f">&#9670;&nbsp;</a></span>distance() <span class="overload">[1/3]</span></h2>
+<a id="a27ac4cb7a469642d497cfe070935ab4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ac4cb7a469642d497cfe070935ab4b">&#9670;&nbsp;</a></span>cross()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,7 +460,43 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::distance </td>
+          <td class="memname">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt;T&gt; <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cross product function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a59d8714cc178090ddf75b0c9dbd832c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59d8714cc178090ddf75b0c9dbd832c9">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::distance </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -362,8 +520,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a8f6afdb0816e235ffd63a9d31a91e65f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f6afdb0816e235ffd63a9d31a91e65f">&#9670;&nbsp;</a></span>distance() <span class="overload">[2/3]</span></h2>
+<a id="a4b6793fd154fc9ad4dd93a4927d4ee13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b6793fd154fc9ad4dd93a4927d4ee13">&#9670;&nbsp;</a></span>distanceSquared()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,79 +532,7 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::distance </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Shortest distance to a line. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>Input line object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1080466b104b23a1b041f6049aaed15d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1080466b104b23a1b041f6049aaed15d">&#9670;&nbsp;</a></span>distance() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = Float&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::distance </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Shortest distance to a plane. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>Input plane object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a58ef7bc4870110dfd05c00609357756c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58ef7bc4870110dfd05c00609357756c">&#9670;&nbsp;</a></span>distanceSquared()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = Float&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::distanceSquared </td>
+          <td class="memname">const T <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::distanceSquared </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -470,8 +556,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="ac18ef1f91134bce9bcfe8d8419ab0f2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac18ef1f91134bce9bcfe8d8419ab0f2b">&#9670;&nbsp;</a></span>is_equal()</h2>
+<a id="a61e3ccdb85f4d41c142c80b429808baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61e3ccdb85f4d41c142c80b429808baf">&#9670;&nbsp;</a></span>dot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -482,7 +568,43 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::is_equal </td>
+          <td class="memname">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt;T&gt; <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dot product function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa4cdbbf16736ee09e840e33f77e94b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4cdbbf16736ee09e840e33f77e94b8a">&#9670;&nbsp;</a></span>is_equal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::is_equal </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -496,7 +618,7 @@ template&lt;typename T = Float&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Translate point by vector. </p>
+<p>Check if point is equal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input point object </td></tr>
@@ -506,8 +628,296 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
+<a id="a860847a7c7c93e52b4a83af722eb60f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a860847a7c7c93e52b4a83af722eb60f7">&#9670;&nbsp;</a></span>is_equal() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::is_equal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if vector is equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7f96b8d4f26e95d3678b29ffb434d5e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f96b8d4f26e95d3678b29ffb434d5e5">&#9670;&nbsp;</a></span>is_notorthogonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::is_notorthogonal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two vectors are NOT orthogonal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae2d3c12f861cd1d4bb8977d0512a5e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d3c12f861cd1d4bb8977d0512a5e20">&#9670;&nbsp;</a></span>is_notparallel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::is_notparallel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two vectors are NOT parallel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a48546e7a818979326ebb22e9256a9070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48546e7a818979326ebb22e9256a9070">&#9670;&nbsp;</a></span>is_orthogonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::is_orthogonal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two vectors are orthogonal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f3fe85b03fcdfdd2a8002900d35d3a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3fe85b03fcdfdd2a8002900d35d3a3">&#9670;&nbsp;</a></span>is_parallel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::is_parallel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two vectors are parallel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2567b8c3cd08d965e70033f3f4a8d3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2567b8c3cd08d965e70033f3f4a8d3db">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disequality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input point object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a83fb6aea4121e7737ab7642aae23e2df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83fb6aea4121e7737ab7642aae23e2df">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disequality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1d49d5831ff14a0845a0ce3ac0f4e02d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d49d5831ff14a0845a0ce3ac0f4e02d">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt;T&gt; <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Addition operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ab0b0c990b117bb889d34d44509b645be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0b0c990b117bb889d34d44509b645be">&#9670;&nbsp;</a></span>operator+()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0b0c990b117bb889d34d44509b645be">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -542,8 +952,44 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
+<a id="a6d3a62dbfdd3747aa5f640f18aef9220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d3a62dbfdd3747aa5f640f18aef9220">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt;T&gt; <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subtraction operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5621f5a883c88d5588e09f9ff0de6575"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5621f5a883c88d5588e09f9ff0de6575">&#9670;&nbsp;</a></span>operator-()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5621f5a883c88d5588e09f9ff0de6575">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -614,8 +1060,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="aabf1454e1f0496fb70c1e62852aa2595"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabf1454e1f0496fb70c1e62852aa2595">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+<a id="a98f8e8097257f053b85e1ee32352fda4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f8e8097257f053b85e1ee32352fda4">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -626,7 +1072,79 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::operator[] </td>
+          <td class="memname">bool <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input point object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5f26a6f471c836b723c94a5f68a3931d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f26a6f471c836b723c94a5f68a3931d">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38e2123649fc4ebf839f22e5061b9497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e2123649fc4ebf839f22e5061b9497">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">const std::size_t &amp;&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -635,7 +1153,7 @@ template&lt;typename T = Float&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -650,8 +1168,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a320e2bfca11915c5ebb9ed0581a3cab1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a320e2bfca11915c5ebb9ed0581a3cab1">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+<a id="a7e8d544a596450edb30914dcc21159fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e8d544a596450edb30914dcc21159fc">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -662,7 +1180,7 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T&amp; <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::operator[] </td>
+          <td class="memname">const T&amp; <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">const std::size_t &amp;&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -671,7 +1189,7 @@ template&lt;typename T = Float&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -686,8 +1204,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a5edb11d18e78ff66bc7aa2a5f26b8aa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5edb11d18e78ff66bc7aa2a5f26b8aa4">&#9670;&nbsp;</a></span>scale()</h2>
+<a id="af54b7b7822b48b3648e147eed92556cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af54b7b7822b48b3648e147eed92556cb">&#9670;&nbsp;</a></span>scalar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -698,24 +1216,60 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::scale </td>
+          <td class="memname">void <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::scalar </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>factor</em></td><td>)</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Scale point by given factor. </p>
+<p>Scalar product function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">factor</td><td>Scaling factor </td></tr>
+    <tr><td class="paramname">value</td><td>Scalar value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf367c7da55ad2c770a90a3ed3c01d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf367c7da55ad2c770a90a3ed3c01d5a">&#9670;&nbsp;</a></span>subtract() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::subtract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subtraction function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
   </table>
   </dd>
 </dl>
@@ -723,7 +1277,7 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <a id="abf2e2ea5474534eb17d1cb6bd96b7913"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf2e2ea5474534eb17d1cb6bd96b7913">&#9670;&nbsp;</a></span>subtract()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abf2e2ea5474534eb17d1cb6bd96b7913">&#9670;&nbsp;</a></span>subtract() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -758,8 +1312,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a36c06fef72376a058c663dd9632ddcd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36c06fef72376a058c663dd9632ddcd0">&#9670;&nbsp;</a></span>translate()</h2>
+<a id="a5d9764ea0d9e7342d967199070b1b744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9764ea0d9e7342d967199070b1b744">&#9670;&nbsp;</a></span>translate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -770,7 +1324,7 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../dd/ddb/classddd_1_1point.html">ddd::point</a>&lt; T &gt;::translate </td>
+          <td class="memname">void <a class="el" href="../../d6/d27/classddd_1_1vector.html">ddd::vector</a>&lt; T &gt;::translate </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -779,12 +1333,12 @@ template&lt;typename T = Float&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Translate point by vector. </p>
+<p>Translate vector by vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input vector object </td></tr>

@@ -8,24 +8,29 @@
 namespace ddd
 {
 
+  // Point base class
   template <typename T>
   class point;
+
+  // Infinite objects classes
   template <typename T>
   class vector;
   template <typename T>
-  class segment;
-  template <typename T>
   class line;
+  template <typename T>
+  class ray;
+  template <typename T>
+  class plane;
+
+  // Finite objects classes
+  template <typename T>
+  class segment;
   template <typename T>
   class box;
   template <typename T>
   class triangle;
   template <typename T>
   class quadix;
-  template <typename T>
-  class ray;
-  template <typename T>
-  class plane;
   template <typename T>
   class sphere;
 

@@ -21,10 +21,13 @@ namespace ddd
   \*/
 
   //! Plane class container
+  /*!
+  3D plane defined by arbutrary point on the plane and a normal vector.
+  */
   template <typename T = Float>
   class plane
   {
-    point<T> _point;   //!< Plane point
+    point<T> _origin;  //!< Plane origin
     vector<T> _normal; //!< Plane normal
 
   public:
@@ -35,16 +38,16 @@ namespace ddd
     plane(const plane<T> &) = default;
 
     //! Class constructor
-    plane() : _point(point<T>()), _normal(vector<T>()) {}
+    plane() : _origin(point<T>()), _normal(vector<T>()) {}
 
     //! Return plane point
-    inline const point<T> &Point() const
+    inline const point<T> &origin() const
     {
-      return _point;
+      return _origin;
     }
 
     //! Return plane normal
-    inline const vector<T> &Normal() const
+    inline const vector<T> &normal() const
     {
       return _normal;
     }

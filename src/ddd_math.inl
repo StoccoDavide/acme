@@ -150,6 +150,17 @@ namespace ddd
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   template <typename T>
+  inline T atan2(
+    const T &value0,
+    const T &value1
+  )
+  {
+    return std::atan2(value0, value1);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  template <typename T>
   inline T clamp(
       const T &value,
       const T &low,
