@@ -19,30 +19,30 @@ namespace ddd
    |      |_|                        
   \*/
 
-  //! ND sphere class container
+  //! Sphere class container
   template <typename T = Float>
   class sphere
   {
-    point<T> center; //!< Sphere center
-    T radius;        //!< Sphere radius
+    point<T> _center; //!< Sphere center
+    T _radius;        //!< Sphere radius
 
   public:
     //! Copy constructor
     sphere(const sphere<T> &) = default;
 
     //! Class constructor
-    sphere() : center(point<T>()), radius(T()) {}
+    sphere() : _center(point<T>()), _radius(T()) {}
 
     //! Return sphere point
-    inline const point<T> &center() const
+    inline const point<T> &Center() const
     {
-      return center;
+      return _center;
     }
 
     //! Return sphere radiuszz
-    inline const T &radius() const
+    inline const T &Radius() const
     {
-      return radius;
+      return _radius;
     }
   };
 

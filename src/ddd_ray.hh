@@ -20,30 +20,30 @@ namespace ddd
    |             |___/ 
   \*/
 
-  //! ND ray class container
+  //! Ray class container
   template <typename T = Float>
   class ray
   {
-    point<T> origin;     //!< Ray origin
-    vector<T> direction; //!< Ray direction
+    point<T> _origin;     //!< Ray origin
+    vector<T> _direction; //!< Ray direction
 
   public:
     //! Copy constructor
     ray(const ray<T> &) = default;
 
     //! Class constructor
-    ray() : origin(point<T>()), direction(vector<T, D>()) {}
+    ray() : _origin(point<T>()), _direction(vector<T>()) {}
 
     //! Return ray origin
     inline const point<T> &origin() const
     {
-      return origin;
+      return _origin;
     }
 
     //! Return ray direction
     inline const vector<T> &direction() const
     {
-      return direction;
+      return _direction;
     }
   };
 

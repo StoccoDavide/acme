@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['normal',['normal',['../dd/d62/classacme_1_1plane.html#aa01e59b940e48eeb36fdd6fac5d5ca05',1,'acme::plane::normal() const'],['../dd/d62/classacme_1_1plane.html#aa01e59b940e48eeb36fdd6fac5d5ca05',1,'acme::plane::normal() const']]],
-  ['normalize',['normalize',['../df/de6/classacme_1_1vector.html#ae8e43db3ab2dea42390d713254bb0684',1,'acme::vector']]],
-  ['normalized',['normalized',['../df/de6/classacme_1_1vector.html#a067e26aadf2e8ea910a1e7b3365892cd',1,'acme::vector']]]
+  ['max',['max',['../df/dae/namespaceddd.html#ac22862b5ed1b5bf5ba4d52e4a740bef9',1,'ddd::max(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a64cb844784cf8f7a2a9d691f7c6bcba3',1,'ddd::max(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]],
+  ['min',['min',['../df/dae/namespaceddd.html#aa11a0222d3d3c7580e0b8b40b38258df',1,'ddd::min(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a563d604cd5ed6ee708fffa32cbe6ccf2',1,'ddd::min(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]]
 ];

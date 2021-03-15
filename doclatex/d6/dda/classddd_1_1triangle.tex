@@ -1,0 +1,120 @@
+\hypertarget{classddd_1_1triangle}{}\section{ddd\+:\+:triangle$<$ T $>$ Class Template Reference}
+\label{classddd_1_1triangle}\index{ddd\+::triangle$<$ T $>$@{ddd\+::triangle$<$ T $>$}}
+
+
+ND triangle class container.  
+
+
+
+
+{\ttfamily \#include $<$ddd\+\_\+triangle.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a3f1ab930b26ec606d8979a9c191a2722}\label{classddd_1_1triangle_a3f1ab930b26ec606d8979a9c191a2722}} 
+\hyperlink{classddd_1_1triangle_a3f1ab930b26ec606d8979a9c191a2722}{triangle} (const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_ad19b3fc3d0a7997a6ab0400901743190}\label{classddd_1_1triangle_ad19b3fc3d0a7997a6ab0400901743190}} 
+\hyperlink{classddd_1_1triangle_ad19b3fc3d0a7997a6ab0400901743190}{triangle} (const T \&x0, const T \&y0, const T \&z0, const T \&x1, const T \&y1, const T \&z1, const T \&x2, const T \&y2, const T \&z2)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1triangle_afca480ce032f9e6ba7058c6817374ef8}{triangle} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point0, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point1, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point2)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}\label{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}} 
+\hyperlink{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}{$\sim$triangle} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a4bda6c1640652c41dff136e5b468789c}{operator=} (const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&\hyperlink{classddd_1_1triangle}{triangle})
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_afa3078cf85103598c7967644de4d2dc1}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index)
+\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
+const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_aad15ef95a744f9177a0424c3c27afe72}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index) const
+\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_ae40fd95c96248e2b415858bee33a844e}\label{classddd_1_1triangle_ae40fd95c96248e2b415858bee33a844e}} 
+std\+::size\+\_\+t \hyperlink{classddd_1_1triangle_ae40fd95c96248e2b415858bee33a844e}{size} () const
+\begin{DoxyCompactList}\small\item\em Return triangle entity size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T = Float$>$\newline
+class ddd\+::triangle$<$ T $>$}
+
+ND triangle class container. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classddd_1_1triangle_afca480ce032f9e6ba7058c6817374ef8}\label{classddd_1_1triangle_afca480ce032f9e6ba7058c6817374ef8}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!triangle@{triangle}}
+\index{triangle@{triangle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{triangle()}{triangle()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::\hyperlink{classddd_1_1triangle}{triangle} (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point0,  }\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point1,  }\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point0} & Input ND point 0 \\
+\hline
+{\em point1} & Input ND point 1 \\
+\hline
+{\em point2} & Input ND point 2 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classddd_1_1triangle_a4bda6c1640652c41dff136e5b468789c}\label{classddd_1_1triangle_a4bda6c1640652c41dff136e5b468789c}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!operator=@{operator=}}
+\index{operator=@{operator=}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1triangle}{triangle}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&}]{triangle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangle} & Input ND triangle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_afa3078cf85103598c7967644de4d2dc1}\label{classddd_1_1triangle_afa3078cf85103598c7967644de4d2dc1}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1point}{point}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexing operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Input index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_aad15ef95a744f9177a0424c3c27afe72}\label{classddd_1_1triangle_aad15ef95a744f9177a0424c3c27afe72}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const \hyperlink{classddd_1_1point}{point}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexing operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Input index \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/ddd\+\_\+instantiate.\+hh\item 
+src/ddd\+\_\+triangle.\+hh\end{DoxyCompactItemize}

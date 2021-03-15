@@ -13,6 +13,7 @@
 #include <vector>
 #include <cassert>
 
+#include "ddd_instantiate.hh"
 #include "ddd_math.hh"
 #include "ddd_point.hh"
 #include "ddd_vector.hh"

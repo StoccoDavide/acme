@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ray',['ray',['../d0/de8/classacme_1_1ray.html#a181a7fb12af08ba45ff41f39920df03c',1,'acme::ray::ray(const ray&lt; T, D &gt; &amp;)=default'],['../d0/de8/classacme_1_1ray.html#afc8290a7430024f99fb291dbb5bbcc62',1,'acme::ray::ray()']]]
+  ['quadix',['quadix',['../d3/d9a/classddd_1_1quadix.html#ae5890ee224844b4fe85b6284b7ea71c4',1,'ddd::quadix::quadix(const quadix&lt; T &gt; &amp;)=default'],['../d3/d9a/classddd_1_1quadix.html#afb86b4382b964e20bf2c88aa9085bc06',1,'ddd::quadix::quadix()'],['../d3/d9a/classddd_1_1quadix.html#a0ae72a0bc622fc7cad5d6780c7af8e53',1,'ddd::quadix::quadix(const T &amp;x0, const T &amp;y0, const T &amp;z0, const T &amp;x1, const T &amp;y1, const T &amp;z1, const T &amp;x2, const T &amp;y2, const T &amp;z2, const T &amp;x3, const T &amp;y3, const T &amp;z3)'],['../d3/d9a/classddd_1_1quadix.html#a6820f2c802c25768a0e1d70cbac5fb2a',1,'ddd::quadix::quadix(const point&lt; T &gt; &amp;point0, const point&lt; T &gt; &amp;point1, const point&lt; T &gt; &amp;point2, const point&lt; T &gt; &amp;point3)']]]
 ];

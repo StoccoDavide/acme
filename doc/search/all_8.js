@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max',['max',['../db/d32/namespaceacme.html#abc0dd1e2a5441a08af324075636ea74a',1,'acme::max(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#aca4726ee714290f5715f97242fd61cea',1,'acme::max(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]],
-  ['min',['min',['../db/d32/namespaceacme.html#a8e3d214c67f792ca4deef35481ea8b12',1,'acme::min(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#a49c47fe19dcb5a41cdb8111446c6f51e',1,'acme::min(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]]
+  ['line',['line',['../d3/d06/classddd_1_1line.html',1,'ddd::line&lt; T &gt;'],['../d3/d06/classddd_1_1line.html#a0a87f672568157869bbf2aa6c4f78395',1,'ddd::line::line(const line&lt; T &gt; &amp;)=default'],['../d3/d06/classddd_1_1line.html#aeed42ee3ff157ff44dd237943f515c0f',1,'ddd::line::line(const T &amp;x0, const T &amp;y0, const T &amp;z0, const T &amp;x1, const T &amp;y1, const T &amp;z1)'],['../d3/d06/classddd_1_1line.html#a1b5a2bea42f89d3d77bde14f49f072d9',1,'ddd::line::line(const point&lt; T &gt; &amp;point1, const point&lt; T &gt; &amp;point2)']]]
 ];

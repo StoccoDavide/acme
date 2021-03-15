@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['normal',['normal',['../dd/d62/classacme_1_1plane.html#aa01e59b940e48eeb36fdd6fac5d5ca05',1,'acme::plane::normal() const'],['../dd/d62/classacme_1_1plane.html#aa01e59b940e48eeb36fdd6fac5d5ca05',1,'acme::plane::normal() const']]],
-  ['normalize',['normalize',['../df/de6/classacme_1_1vector.html#ae8e43db3ab2dea42390d713254bb0684',1,'acme::vector']]],
-  ['normalized',['normalized',['../df/de6/classacme_1_1vector.html#a067e26aadf2e8ea910a1e7b3365892cd',1,'acme::vector']]]
+  ['normal',['Normal',['../dd/d76/classddd_1_1plane.html#ad15272cb68d76c2702633de0e919db32',1,'ddd::plane']]],
+  ['normalize',['normalize',['../dd/ddb/classddd_1_1point.html#ab1d35fc412c7e2f1661cb34f1cc2c250',1,'ddd::point::normalize()'],['../d6/d27/classddd_1_1vector.html#aeff69a088496a7c9295b30b1c928df70',1,'ddd::vector::normalize()']]],
+  ['normalized',['normalized',['../dd/ddb/classddd_1_1point.html#ac17331c629f79d5abd4b48d807967470',1,'ddd::point::normalized()'],['../d6/d27/classddd_1_1vector.html#a40b593b08a2dd6af92c5c07bb9faa463',1,'ddd::vector::normalized()']]]
 ];

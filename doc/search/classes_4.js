@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['segment',['segment',['../d5/ddc/classacme_1_1segment.html',1,'acme']]]
+  ['ray',['ray',['../d0/dc3/classddd_1_1ray.html',1,'ddd']]]
 ];

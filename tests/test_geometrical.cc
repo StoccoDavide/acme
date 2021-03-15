@@ -15,12 +15,17 @@ int main(void)
   TicToc tictoc;
 
   // POINT TEST
-  ddd::point<ddd::Float, 3> A(1.0, 0.0, 0.0); 
+  ddd::point<ddd::Float> A(1.0, 0.0, 0.0); 
   ddd::point<> B(1.0, 0.0, 0.0);
   ddd::point<> D(1.0, 0.0, 0.0);
-  ddd::point<ddd::Float, 3> C;
+  ddd::point<ddd::Float> C;
   C=B;
   B=D;
+  C=A+B;
+  C.scalar(1.1);
+  D=A-B;
+  D.distance(B);
+  D==C;
 
   std::cout << "POINT TESTS" << std::endl
             << "Point A = " << A << std::endl
@@ -29,7 +34,7 @@ int main(void)
             << "Point D = " << D << std::endl 
             << std::endl;
 
-  ddd::vector<ddd::Float, 3> vec1;
+  /*ddd::vector<ddd::Float, 3> vec1;
   ddd::vector<ddd::Float, 3> vec2(A);
   std::cout << vec1 << std::endl  << std::endl;
   vec1 = B;
@@ -43,7 +48,7 @@ int main(void)
   std::cout << ray << std::endl << std::endl;
   
   //ddd::triangle<ddd::Float, 3> triangle;
-  //std::cout << triangle;
+  //std::cout << triangle;*/
 /*
   Eigen::Matrix<ddd::Float, 3, 3> m;
   m << 1, 2, 3,

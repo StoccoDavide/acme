@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['clamp',['clamp',['../db/d32/namespaceacme.html#a51ac298ca5ccfff9b9d71bfed9253131',1,'acme']]],
-  ['clear',['clear',['../db/d44/classacme_1_1point.html#a72a37be7ec9417b12eeec1a31ed0398b',1,'acme::point']]],
-  ['cos',['cos',['../db/d32/namespaceacme.html#ae74481d6a235be6f194a86ade7719e5c',1,'acme']]],
-  ['cub',['cub',['../db/d32/namespaceacme.html#af15f05bfabb3a12f9c95cc8f63a00425',1,'acme']]]
+  ['center',['Center',['../d4/dc3/classddd_1_1sphere.html#ae6804085242cdbdc51633b2507944e31',1,'ddd::sphere']]],
+  ['clamp',['clamp',['../df/dae/namespaceddd.html#a070060e53a22cb16f07576bfb5c4b1cc',1,'ddd']]],
+  ['clear',['clear',['../dd/ddb/classddd_1_1point.html#ade1021a86b26ec7212cb83ebfd3b711f',1,'ddd::point']]],
+  ['cos',['cos',['../df/dae/namespaceddd.html#a6a7f708bb835a257f25e87110af27b6a',1,'ddd']]],
+  ['cub',['cub',['../df/dae/namespaceddd.html#abbdb4782fa0a78950fd49de0d5766dd2',1,'ddd']]]
 ];

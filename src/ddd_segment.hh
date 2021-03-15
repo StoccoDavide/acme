@@ -19,7 +19,7 @@ namespace ddd
    |            |___/                          
   \*/
 
-  //! ND segment class container
+  //! Segment class container
   template <typename T = Float>
   class segment
   {

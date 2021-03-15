@@ -19,7 +19,7 @@ namespace ddd
    |                  
   \*/
 
-  //! ddd line class container
+  //! Line class container
   template <typename T = Float>
   class line
   {

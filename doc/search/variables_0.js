@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data',['data',['../db/d44/classacme_1_1point.html#a7532a61c7031fddbef1ea217cd916c4c',1,'acme::point']]]
+  ['_5fdata',['_data',['../dd/ddb/classddd_1_1point.html#af4781a60e5c93aeaaab5c66add25b991',1,'ddd::point']]]
 ];

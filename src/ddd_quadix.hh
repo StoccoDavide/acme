@@ -19,7 +19,7 @@ namespace ddd
    |      |_|                         
   \*/
 
-  //! ddd quadix class container
+  //! Quadix class container
   template <typename T = Float>
   class quadix
   {

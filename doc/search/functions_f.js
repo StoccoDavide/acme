@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['_7ebox',['~box',['../d7/de4/classacme_1_1box.html#a25e3b33ea59fcd1ec24d50f4b80b85c5',1,'acme::box']]],
-  ['_7eline',['~line',['../d1/dcd/classacme_1_1line.html#acf6ee035a572e1554bec62207b03a854',1,'acme::line']]],
-  ['_7epoint',['~point',['../db/d44/classacme_1_1point.html#a9d5898e4477a7ee90e199988c50c9ad4',1,'acme::point']]],
-  ['_7esegment',['~segment',['../d5/ddc/classacme_1_1segment.html#a014e93a736cd52d07f6478a4640a6ec6',1,'acme::segment']]],
-  ['_7etriangle',['~triangle',['../d4/d18/classacme_1_1triangle.html#a320a1aa56691e462b20f9279a68fb5ac',1,'acme::triangle']]]
+  ['vector',['vector',['../d6/d27/classddd_1_1vector.html#a9e10641f3e361c24f5a9756bbd1b2d44',1,'ddd::vector::vector(const vector&lt; T &gt; &amp;)=default'],['../d6/d27/classddd_1_1vector.html#a5231808b18bae0590e5083ff27b29056',1,'ddd::vector::vector()'],['../d6/d27/classddd_1_1vector.html#a8339300bbb7433f4988b2aebeef90599',1,'ddd::vector::vector(const T &amp;v0, const T &amp;v1, const T &amp;v2)'],['../d6/d27/classddd_1_1vector.html#a0ac6eee190f95425480a001947644fa4',1,'ddd::vector::vector(const point&lt; T &gt; &amp;point)']]]
 ];

@@ -19,7 +19,7 @@ namespace ddd
    |                          |___/        
   \*/
 
-  //! ND triangle class container
+  //! Triangle class container
   template <typename T = Float>
   class triangle
   {
@@ -29,7 +29,7 @@ namespace ddd
 
   public:
     //! Copy constructor
-    triangle(const triangle<T, D>&) = default;
+    triangle(const triangle<T>&) = default;
 
     //! Class constructor
     triangle(

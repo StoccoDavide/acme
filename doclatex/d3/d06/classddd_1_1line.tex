@@ -1,0 +1,118 @@
+\hypertarget{classddd_1_1line}{}\section{ddd\+:\+:line$<$ T $>$ Class Template Reference}
+\label{classddd_1_1line}\index{ddd\+::line$<$ T $>$@{ddd\+::line$<$ T $>$}}
+
+
+ddd line class container  
+
+
+
+
+{\ttfamily \#include $<$ddd\+\_\+line.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classddd_1_1line_a456f8a87d73fbc2aaf27c502bec653e3}\label{classddd_1_1line_a456f8a87d73fbc2aaf27c502bec653e3}} 
+\hyperlink{classddd_1_1line_a456f8a87d73fbc2aaf27c502bec653e3}{$\sim$line} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1line_a0a87f672568157869bbf2aa6c4f78395}\label{classddd_1_1line_a0a87f672568157869bbf2aa6c4f78395}} 
+\hyperlink{classddd_1_1line_a0a87f672568157869bbf2aa6c4f78395}{line} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1line_aeed42ee3ff157ff44dd237943f515c0f}\label{classddd_1_1line_aeed42ee3ff157ff44dd237943f515c0f}} 
+\hyperlink{classddd_1_1line_aeed42ee3ff157ff44dd237943f515c0f}{line} (const T \&x0, const T \&y0, const T \&z0, const T \&x1, const T \&y1, const T \&z1)
+\begin{DoxyCompactList}\small\item\em Class constructor for 3D line. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1line_a1b5a2bea42f89d3d77bde14f49f072d9}{line} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point1, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point2)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1line}{line}$<$ T $>$ \& \hyperlink{classddd_1_1line_a22cb20bea375f801ada57f910f6d66e2}{operator=} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&\hyperlink{classddd_1_1line}{line})
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1line_a04a2abe2c302b5ca97074116b2c39499}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index)
+\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
+const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1line_af12bf431234fac2996ca667ee4f70f3a}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index) const
+\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1line_a0ea347ed20be8fdfe15f960008e3e475}\label{classddd_1_1line_a0ea347ed20be8fdfe15f960008e3e475}} 
+std\+::size\+\_\+t \hyperlink{classddd_1_1line_a0ea347ed20be8fdfe15f960008e3e475}{size} () const
+\begin{DoxyCompactList}\small\item\em Return line entity size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T = Float$>$\newline
+class ddd\+::line$<$ T $>$}
+
+ddd line class container 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classddd_1_1line_a1b5a2bea42f89d3d77bde14f49f072d9}\label{classddd_1_1line_a1b5a2bea42f89d3d77bde14f49f072d9}} 
+\index{ddd\+::line@{ddd\+::line}!line@{line}}
+\index{line@{line}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{line()}{line()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::\hyperlink{classddd_1_1line}{line} (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point1,  }\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point1} & Input point 1 \\
+\hline
+{\em point2} & Input point 2 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classddd_1_1line_a22cb20bea375f801ada57f910f6d66e2}\label{classddd_1_1line_a22cb20bea375f801ada57f910f6d66e2}} 
+\index{ddd\+::line@{ddd\+::line}!operator=@{operator=}}
+\index{operator=@{operator=}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1line}{line}$<$T$>$\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Input ND line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a04a2abe2c302b5ca97074116b2c39499}\label{classddd_1_1line_a04a2abe2c302b5ca97074116b2c39499}} 
+\index{ddd\+::line@{ddd\+::line}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1point}{point}$<$T$>$\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexing operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Input index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_af12bf431234fac2996ca667ee4f70f3a}\label{classddd_1_1line_af12bf431234fac2996ca667ee4f70f3a}} 
+\index{ddd\+::line@{ddd\+::line}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const \hyperlink{classddd_1_1point}{point}$<$T$>$\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indexing operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Input index \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/ddd\+\_\+instantiate.\+hh\item 
+src/ddd\+\_\+line.\+hh\end{DoxyCompactItemize}

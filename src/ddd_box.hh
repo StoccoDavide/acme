@@ -19,7 +19,7 @@ namespace ddd
    |                   
   \*/
 
-  //! ddd box class container
+  //! Box class container
   template <typename T = Float>
   class box
   {

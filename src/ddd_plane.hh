@@ -20,12 +20,12 @@ namespace ddd
    |  |_|                       
   \*/
 
-  //! ddd plane class container
+  //! Plane class container
   template <typename T = Float>
   class plane
   {
-    point<T> point;   //!< Plane point
-    vector<T> normal; //!< Plane normal
+    point<T> _point;   //!< Plane point
+    vector<T> _normal; //!< Plane normal
 
   public:
     //! Class destructor
@@ -35,18 +35,18 @@ namespace ddd
     plane(const plane<T> &) = default;
 
     //! Class constructor
-    plane() : point(point<T>()), normal(vector<T>()) {}
+    plane() : _point(point<T>()), _normal(vector<T>()) {}
 
     //! Return plane point
-    inline const point<T> &point() const
+    inline const point<T> &Point() const
     {
-      return point;
+      return _point;
     }
 
     //! Return plane normal
-    inline const vector<T> &normal() const
+    inline const vector<T> &Normal() const
     {
-      return normal;
+      return _normal;
     }
   };
 

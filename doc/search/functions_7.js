@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['max',['max',['../db/d32/namespaceacme.html#abc0dd1e2a5441a08af324075636ea74a',1,'acme::max(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#aca4726ee714290f5715f97242fd61cea',1,'acme::max(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]],
-  ['min',['min',['../db/d32/namespaceacme.html#a8e3d214c67f792ca4deef35481ea8b12',1,'acme::min(const T &amp;value1, const T &amp;value2)'],['../db/d32/namespaceacme.html#a49c47fe19dcb5a41cdb8111446c6f51e',1,'acme::min(const T &amp;value1, const T &amp;value2, const T &amp;value3)']]]
+  ['max',['max',['../df/dae/namespaceddd.html#ac22862b5ed1b5bf5ba4d52e4a740bef9',1,'ddd::max(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a64cb844784cf8f7a2a9d691f7c6bcba3',1,'ddd::max(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]],
+  ['min',['min',['../df/dae/namespaceddd.html#aa11a0222d3d3c7580e0b8b40b38258df',1,'ddd::min(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a563d604cd5ed6ee708fffa32cbe6ccf2',1,'ddd::min(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]]
 ];

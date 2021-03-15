@@ -111,7 +111,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,    //!< Output stream
-      const ray<T, 3> &obj //!< Ray object
+      const ray<T> &obj //!< Ray object
   )
   {
     os << std::scientific

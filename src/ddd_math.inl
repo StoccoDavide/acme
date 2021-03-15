@@ -165,4 +165,29 @@ namespace ddd
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  template <typename T>
+  inline T is_equal(
+      const T &value0,
+      const T &value1,
+      const T &tolerance)
+  {
+    if (abs(value0 - value1) < tolerance)
+      return true;
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  template <typename T>
+  inline T is_notequal(
+      const T &value0,
+      const T &value1,
+      const T &tolerance)
+  {
+    return !is_equal(value0,value1,tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 } // namespace ddd

@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['data',['data',['../db/d44/classacme_1_1point.html#a7532a61c7031fddbef1ea217cd916c4c',1,'acme::point']]],
-  ['direction',['direction',['../d0/de8/classacme_1_1ray.html#af6ae286bbd1a15ba0c5f7419fc30a1fa',1,'acme::ray']]]
+  ['center',['Center',['../d4/dc3/classddd_1_1sphere.html#ae6804085242cdbdc51633b2507944e31',1,'ddd::sphere']]],
+  ['clamp',['clamp',['../df/dae/namespaceddd.html#a070060e53a22cb16f07576bfb5c4b1cc',1,'ddd']]],
+  ['clear',['clear',['../dd/ddb/classddd_1_1point.html#ade1021a86b26ec7212cb83ebfd3b711f',1,'ddd::point']]],
+  ['cos',['cos',['../df/dae/namespaceddd.html#a6a7f708bb835a257f25e87110af27b6a',1,'ddd']]],
+  ['cub',['cub',['../df/dae/namespaceddd.html#abbdb4782fa0a78950fd49de0d5766dd2',1,'ddd']]]
 ];

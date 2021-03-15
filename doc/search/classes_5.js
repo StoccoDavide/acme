@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tictoc',['TicToc',['../df/de4/class_tic_toc.html',1,'']]],
-  ['triangle',['triangle',['../d4/d18/classacme_1_1triangle.html',1,'acme']]]
+  ['segment',['segment',['../d0/d66/classddd_1_1segment.html',1,'ddd']]],
+  ['sphere',['sphere',['../d4/dc3/classddd_1_1sphere.html',1,'ddd']]]
 ];

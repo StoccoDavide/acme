@@ -183,6 +183,22 @@ namespace ddd
       const T &high   //!< High end bound
   );
 
+  //! Check if two elements are almost equal
+  template <typename T>
+  inline T is_equal(
+      const T &value0,                  //!< Input value 0
+      const T &value1,                  //!< Input value 1
+      const T &tolerance = Epsilon_High //!< High end bound
+  );
+
+  //! Check if two elements are NOT almost equal
+  template <typename T>
+  inline T is_notequal(
+      const T &value0,                  //!< Input value 0
+      const T &value1,                  //!< Input value 1
+      const T &tolerance = Epsilon_High //!< High end bound
+  );
+
 } // namespace ddd
 
 #include "ddd_math.inl"

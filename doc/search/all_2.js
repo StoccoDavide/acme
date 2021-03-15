@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['clamp',['clamp',['../db/d32/namespaceacme.html#a51ac298ca5ccfff9b9d71bfed9253131',1,'acme']]],
-  ['clear',['clear',['../db/d44/classacme_1_1point.html#a72a37be7ec9417b12eeec1a31ed0398b',1,'acme::point']]],
-  ['cos',['cos',['../db/d32/namespaceacme.html#ae74481d6a235be6f194a86ade7719e5c',1,'acme']]],
-  ['cub',['cub',['../db/d32/namespaceacme.html#af15f05bfabb3a12f9c95cc8f63a00425',1,'acme']]]
+  ['box',['box',['../d0/db9/classddd_1_1box.html',1,'ddd::box&lt; T &gt;'],['../d0/db9/classddd_1_1box.html#ae36d1565ad1e59e45329aa15d879017d',1,'ddd::box::box(const box&lt; T &gt; &amp;)=default'],['../d0/db9/classddd_1_1box.html#abe0d38e4c4380bf430a4781c8c0ed8f6',1,'ddd::box::box()'],['../d0/db9/classddd_1_1box.html#a5f4d57343779a88663aead8580127175',1,'ddd::box::box(const T &amp;x0, const T &amp;y0, const T &amp;z0, const T &amp;x1, const T &amp;y1, const T &amp;z1)'],['../d0/db9/classddd_1_1box.html#afb3bf0799aac08e5b58dbb955be99a78',1,'ddd::box::box(const point&lt; T &gt; &amp;point1, const point&lt; T &gt; &amp;point2)']]]
 ];
