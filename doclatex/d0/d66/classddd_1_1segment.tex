@@ -12,6 +12,9 @@ Segment class container.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classddd_1_1segment_a90f0a91b7cf1e39d8c385ff23bd6af5d}\label{classddd_1_1segment_a90f0a91b7cf1e39d8c385ff23bd6af5d}} 
+\hyperlink{classddd_1_1segment_a90f0a91b7cf1e39d8c385ff23bd6af5d}{$\sim$segment} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1segment_ad6ed63172c53846edce9a982ea54f734}\label{classddd_1_1segment_ad6ed63172c53846edce9a982ea54f734}} 
 \hyperlink{classddd_1_1segment_ad6ed63172c53846edce9a982ea54f734}{segment} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&)=default
 \begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
@@ -23,9 +26,6 @@ Segment class container.
 \begin{DoxyCompactList}\small\item\em Class constructor for 3D segment. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1segment_afdfcc983efc30b3dee0af2603795775b}{segment} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point0, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point1)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1segment_a90f0a91b7cf1e39d8c385ff23bd6af5d}\label{classddd_1_1segment_a90f0a91b7cf1e39d8c385ff23bd6af5d}} 
-\hyperlink{classddd_1_1segment_a90f0a91b7cf1e39d8c385ff23bd6af5d}{$\sim$segment} ()
-\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \& \hyperlink{classddd_1_1segment_a9c33e619d61ee3fc61a7767ebc2948f5}{operator=} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&\hyperlink{classddd_1_1segment}{segment})
 \begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1segment_a38fb73f1bb682c0446eef1cce0cb5f21}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index)
@@ -34,7 +34,24 @@ const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1se
 \begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1segment_a4337f5736c0e63ff90f4ecf69131d648}\label{classddd_1_1segment_a4337f5736c0e63ff90f4ecf69131d648}} 
 std\+::size\+\_\+t \hyperlink{classddd_1_1segment_a4337f5736c0e63ff90f4ecf69131d648}{size} (void) const
-\begin{DoxyCompactList}\small\item\em Return segment entity size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return segment entity size. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1segment_ab49787592f80cedf871adf00d3e54f76}\label{classddd_1_1segment_ab49787592f80cedf871adf00d3e54f76}} 
+const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \& \hyperlink{classddd_1_1segment_ab49787592f80cedf871adf00d3e54f76}{to\+Vector} (void) const
+\begin{DoxyCompactList}\small\item\em Convert to vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1segment_a7d1f499833d4836df22ae38e0a08972e}\label{classddd_1_1segment_a7d1f499833d4836df22ae38e0a08972e}} 
+const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \& \hyperlink{classddd_1_1segment_a7d1f499833d4836df22ae38e0a08972e}{to\+Ray} (void) const
+\begin{DoxyCompactList}\small\item\em Convert to ray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1segment_aeac2e89c66a714d596695c17b4219491}\label{classddd_1_1segment_aeac2e89c66a714d596695c17b4219491}} 
+const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \& \hyperlink{classddd_1_1segment_aeac2e89c66a714d596695c17b4219491}{to\+Line} (void) const
+\begin{DoxyCompactList}\small\item\em Convert to line. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1segment_a87c35ebcb1818d0958e51868a60c4181}{angle} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between segment and vector \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1segment_a63576e5f0bca9dc67f90a7b246345ff7}{angle} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between segment and line \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1segment_a5c7ab773bb94ce6e8593a3517765efe2}{angle} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between segment and ray \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1segment_a0b19e53d6aab0dc65290874e05fbb042}{angle} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between segments \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -57,14 +74,78 @@ Class constructor.
 
 
 \begin{DoxyParams}{Parameters}
-{\em point0} & Input ND point \\
+{\em point0} & Input point object \\
 \hline
-{\em point1} & Input ND point \\
+{\em point1} & Input point object \\
 \hline
 \end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classddd_1_1segment_a87c35ebcb1818d0958e51868a60c4181}\label{classddd_1_1segment_a87c35ebcb1818d0958e51868a60c4181}} 
+\index{ddd\+::segment@{ddd\+::segment}!angle@{angle}}
+\index{angle@{angle}!ddd\+::segment@{ddd\+::segment}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1segment}{ddd\+::segment}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between segment and vector \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1segment_a63576e5f0bca9dc67f90a7b246345ff7}\label{classddd_1_1segment_a63576e5f0bca9dc67f90a7b246345ff7}} 
+\index{ddd\+::segment@{ddd\+::segment}!angle@{angle}}
+\index{angle@{angle}!ddd\+::segment@{ddd\+::segment}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1segment}{ddd\+::segment}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between segment and line \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input line object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1segment_a5c7ab773bb94ce6e8593a3517765efe2}\label{classddd_1_1segment_a5c7ab773bb94ce6e8593a3517765efe2}} 
+\index{ddd\+::segment@{ddd\+::segment}!angle@{angle}}
+\index{angle@{angle}!ddd\+::segment@{ddd\+::segment}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1segment}{ddd\+::segment}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between segment and ray \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input ray object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1segment_a0b19e53d6aab0dc65290874e05fbb042}\label{classddd_1_1segment_a0b19e53d6aab0dc65290874e05fbb042}} 
+\index{ddd\+::segment@{ddd\+::segment}!angle@{angle}}
+\index{angle@{angle}!ddd\+::segment@{ddd\+::segment}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1segment}{ddd\+::segment}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between segments \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input segment object \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1segment_a9c33e619d61ee3fc61a7767ebc2948f5}\label{classddd_1_1segment_a9c33e619d61ee3fc61a7767ebc2948f5}} 
 \index{ddd\+::segment@{ddd\+::segment}!operator=@{operator=}}
 \index{operator=@{operator=}!ddd\+::segment@{ddd\+::segment}}
@@ -78,7 +159,7 @@ Equality operator.
 
 
 \begin{DoxyParams}{Parameters}
-{\em segment} & Input ND segment \\
+{\em segment} & Input segment object \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1segment_a38fb73f1bb682c0446eef1cce0cb5f21}\label{classddd_1_1segment_a38fb73f1bb682c0446eef1cce0cb5f21}} 

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['center',['Center',['../d4/dc3/classddd_1_1sphere.html#ae6804085242cdbdc51633b2507944e31',1,'ddd::sphere']]],
-  ['clamp',['clamp',['../df/dae/namespaceddd.html#a070060e53a22cb16f07576bfb5c4b1cc',1,'ddd']]],
-  ['clear',['clear',['../dd/ddb/classddd_1_1point.html#ade1021a86b26ec7212cb83ebfd3b711f',1,'ddd::point']]],
-  ['cos',['cos',['../df/dae/namespaceddd.html#a6a7f708bb835a257f25e87110af27b6a',1,'ddd']]],
-  ['cross',['cross',['../d6/d27/classddd_1_1vector.html#a27ac4cb7a469642d497cfe070935ab4b',1,'ddd::vector']]],
-  ['cub',['cub',['../df/dae/namespaceddd.html#abbdb4782fa0a78950fd49de0d5766dd2',1,'ddd']]]
+  ['data',['data',['../d3/d6a/classddd_1_1mat_object.html#a4e06f4a888443bc139c8081d664b4449',1,'ddd::matObject::data(void) const'],['../d3/d6a/classddd_1_1mat_object.html#a5bff8ef1182818135f4b82e978ff3bbf',1,'ddd::matObject::data(const Eigen::Matrix&lt; T, 3, 3 &gt; &amp;data)'],['../df/df7/classddd_1_1row_object.html#a30e3d89f19ec4001c9e70d0faaa6c579',1,'ddd::rowObject::data(void) const'],['../df/df7/classddd_1_1row_object.html#ae90cbcdfbe32788d18f051a78f8188a6',1,'ddd::rowObject::data(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;data)']]],
+  ['ddd',['ddd',['../df/dae/namespaceddd.html',1,'']]],
+  ['direction',['direction',['../d3/d2c/classddd_1_1infinite_object.html#a7197d400db3804be122c78475c242a00',1,'ddd::infiniteObject::direction() const'],['../d3/d2c/classddd_1_1infinite_object.html#a1940ac3d87fc2ca742ca036c866736e8',1,'ddd::infiniteObject::direction(const vector&lt; T &gt; &amp;input)']]],
+  ['distance',['distance',['../dd/ddb/classddd_1_1point.html#a59d8714cc178090ddf75b0c9dbd832c9',1,'ddd::point']]],
+  ['distancesquared',['distanceSquared',['../dd/ddb/classddd_1_1point.html#a4b6793fd154fc9ad4dd93a4927d4ee13',1,'ddd::point']]],
+  ['dot',['dot',['../d6/d27/classddd_1_1vector.html#a61e3ccdb85f4d41c142c80b429808baf',1,'ddd::vector']]]
 ];

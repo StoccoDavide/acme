@@ -1,2 +1,2 @@
 # dimension/dimension/dimension
-A geometric library with 3d.
+A small geometric library in 3 dimensions.

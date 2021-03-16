@@ -5,7 +5,7 @@
 #ifndef INCLUDE_DDD_RAY
 #define INCLUDE_DDD_RAY
 
-#include "ddd_infiniteObject.hh"
+#include "ddd_infObject.hh"
 
 namespace ddd
 {
@@ -21,12 +21,15 @@ namespace ddd
 
   //! Ray class container
   template <typename T = Float>
-  class ray : public infiniteObject<T>
+  class ray : public infObject<T>
   {
 
   public:
     //! Class destructor
     ~ray() {}
+
+    //! Class constructor
+    ray() {}
 
     //! Copy constructor
     ray(const ray<T> &) = default;
@@ -53,6 +56,57 @@ namespace ddd
     {
       this->origin(origin);
       this->direction(direction);
+    }
+
+    //! Equality operator
+    inline ray<T> &operator=(
+        const ray<T> &input //!< Input object
+    )
+    {
+      if (this == &input)
+      {
+        return *this;
+      }
+      else
+      {
+        this->origin(input.origin());
+        this->direction(input.direction());
+        return *this;
+      }
+    }
+
+    //! Check if two rays are (exactly) equal
+    inline bool operator==(
+        const ray<T> &input //!< Input object
+    )
+    {
+      return this->origin() == input.origin() && this->direction() == input.direction();
+    }
+
+    //! Check if two rays are (exactly) NOT equal
+    inline bool operator!=(
+        const ray<T> &input //!< Input object
+    )
+    {
+      return !(this == input);
+    }
+
+    //! Check if two rays are (almost) equal
+    inline bool is_equal(
+        const ray<T> &input //!< Input object
+    )
+        const
+    {
+      return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
+    }
+
+    //! Check if two rays are (almost) NOT equal
+    inline bool is_notequal(
+        const ray<T> &input //!< Input vector object
+    )
+        const
+    {
+      return !(this->is_equal(input));
     }
   };
 

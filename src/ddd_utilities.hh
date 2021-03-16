@@ -37,25 +37,56 @@ namespace ddd
     return os;
   }
 
-  //!< Stream out operator for segment object
-  template <typename T>
-  inline std::ostream &operator<<(
-      std::ostream &os,     //!< Output stream
-      const segment<T> &obj //!< Segment object
-  )
-  {
-    for (unsigned int i = 0; i < obj.size(); ++i)
-    {
-      os << obj[i];
-    }
-    return os;
-  }
-
   //!< Stream out operator for line object
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,  //!< Output stream
       const line<T> &obj //!< Line object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
+       << obj.direction()[0] << "," << obj.direction()[1] << "," << obj.direction()[2] << ")";
+    return os;
+  }
+
+  //!< Stream out operator for ray object
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os, //!< Output stream
+      const ray<T> &obj //!< Ray object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
+       << obj.direction()[0] << "," << obj.direction()[1] << "," << obj.direction()[2] << ")";
+    return os;
+  }
+
+  //!< Stream out operator
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,   //!< Output stream
+      const plane<T> &obj //!< Plane object
+  )
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
+       << obj.direction()[0] << "," << obj.direction()[1] << "," << obj.direction()[2] << ")";
+    return os;
+  }
+
+  //!< Stream out operator for segment object
+  template <typename T>
+  inline std::ostream &operator<<(
+      std::ostream &os,     //!< Output stream
+      const segment<T> &obj //!< Segment object
   )
   {
     for (unsigned int i = 0; i < obj.size(); ++i)
@@ -104,36 +135,6 @@ namespace ddd
     {
       os << obj[i];
     }
-    return os;
-  }
-
-  //!< Stream out operator for ray object
-  template <typename T>
-  inline std::ostream &operator<<(
-      std::ostream &os,    //!< Output stream
-      const ray<T> &obj //!< Ray object
-  )
-  {
-    os << std::scientific
-       << std::showpoint
-       << std::setprecision(6)
-       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
-       << obj.direction()[0] << "," << obj.direction()[1] << "," << obj.direction()[2] << ")";
-    return os;
-  }
-
-  //!< Stream out operator
-  template <typename T>
-  inline std::ostream &operator<<(
-      std::ostream &os,   //!< Output stream
-      const plane<T> &obj //!< Plane object
-  )
-  {
-    os << std::scientific
-       << std::showpoint
-       << std::setprecision(6)
-       << "(" << obj.point()[0] << "," << obj.point()[1] << "," << obj.point()[2] << ","
-       << obj.normal()[0] << "," << obj.normal()[1] << "," << obj.normal()[2] << ")";
     return os;
   }
 

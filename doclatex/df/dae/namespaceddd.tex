@@ -5,8 +5,16 @@
 \item 
 class \hyperlink{classddd_1_1box}{box}
 \begin{DoxyCompactList}\small\item\em Box class container. \end{DoxyCompactList}\item 
+class \hyperlink{classddd_1_1circle}{circle}
+\item 
+class \hyperlink{classddd_1_1coord}{coord}
+\item 
+class \hyperlink{classddd_1_1infinite_object}{infinite\+Object}
+\begin{DoxyCompactList}\small\item\em Infinite Object class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1line}{line}
 \begin{DoxyCompactList}\small\item\em Line class container. \end{DoxyCompactList}\item 
+class \hyperlink{classddd_1_1mat_object}{mat\+Object}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classddd_1_1mat_object}{mat\+Object} class container \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1plane}{plane}
 \begin{DoxyCompactList}\small\item\em Plane class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1point}{point}
@@ -15,6 +23,10 @@ class \hyperlink{classddd_1_1quadix}{quadix}
 \begin{DoxyCompactList}\small\item\em Quadix class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1ray}{ray}
 \begin{DoxyCompactList}\small\item\em Ray class container. \end{DoxyCompactList}\item 
+class \hyperlink{classddd_1_1rotation}{rotation}
+\begin{DoxyCompactList}\small\item\em Rotation class container. \end{DoxyCompactList}\item 
+class \hyperlink{classddd_1_1row_object}{row\+Object}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classddd_1_1row_object}{row\+Object} class container \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1segment}{segment}
 \begin{DoxyCompactList}\small\item\em Segment class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1sphere}{sphere}
@@ -75,6 +87,8 @@ typedef int \hyperlink{namespaceddd_a50ea76e2b817cc6c6b4539c7f3c4bdad}{Int}
 \begin{DoxyCompactList}\small\item\em Arccosine function \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a750f7cad6893bbbfbaa51353044bde4f}{atan} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Arctangent function \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a1dea631509d981c3718796774b796d6c}{atan2} (const T \&value0, const T \&value1)
+\begin{DoxyCompactList}\small\item\em Arctangent function \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a070060e53a22cb16f07576bfb5c4b1cc}{clamp} (const T \&value, const T \&low, const T \&high)
 \begin{DoxyCompactList}\small\item\em Clamp function (returns the input value bounded between low and high values) \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a7d68733d32a94776596a8e213ae9fcdf}{is\+\_\+equal} (const T \&value0, const T \&value1, const T \&tolerance=Epsilon\+\_\+\+High)
@@ -110,9 +124,13 @@ file\+: \hyperlink{ddd_8hh_source}{ddd.\+hh}
 
 file\+: \hyperlink{ddd__box_8hh_source}{ddd\+\_\+box.\+hh}
 
+file\+: \hyperlink{ddd__infinite_object_8hh_source}{ddd\+\_\+infinite\+Object.\+hh}
+
 file\+: \hyperlink{ddd__instantiate_8hh_source}{ddd\+\_\+instantiate.\+hh}
 
 file\+: \hyperlink{ddd__line_8hh_source}{ddd\+\_\+line.\+hh}
+
+file\+: \hyperlink{ddd__mat_object_8hh_source}{ddd\+\_\+mat\+Object.\+hh}
 
 file\+: \hyperlink{ddd__plane_8hh_source}{ddd\+\_\+plane.\+hh}
 
@@ -121,6 +139,8 @@ file\+: \hyperlink{ddd__point_8hh_source}{ddd\+\_\+point.\+hh}
 file\+: \hyperlink{ddd__quadix_8hh_source}{ddd\+\_\+quadix.\+hh}
 
 file\+: \hyperlink{ddd__ray_8hh_source}{ddd\+\_\+ray.\+hh}
+
+file\+: \hyperlink{ddd__row_object_8hh_source}{ddd\+\_\+row\+Object.\+hh}
 
 file\+: \hyperlink{ddd__segment_8hh_source}{ddd\+\_\+segment.\+hh}
 
@@ -191,6 +211,24 @@ Arctangent function \mbox{[}rad\mbox{]}.
 
 \begin{DoxyParams}{Parameters}
 {\em value} & Input value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a1dea631509d981c3718796774b796d6c}\label{namespaceddd_a1dea631509d981c3718796774b796d6c}} 
+\index{ddd@{ddd}!atan2@{atan2}}
+\index{atan2@{atan2}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{atan2()}{atan2()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T ddd\+::atan2 (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Arctangent function \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value0} & Input value 0 \\
+\hline
+{\em value1} & Input value 1 \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{namespaceddd_a070060e53a22cb16f07576bfb5c4b1cc}\label{namespaceddd_a070060e53a22cb16f07576bfb5c4b1cc}} 

@@ -1,4 +1,11 @@
 var searchData=
 [
-  ['box',['box',['../d0/db9/classddd_1_1box.html',1,'ddd::box&lt; T &gt;'],['../d0/db9/classddd_1_1box.html#ae36d1565ad1e59e45329aa15d879017d',1,'ddd::box::box(const box&lt; T &gt; &amp;)=default'],['../d0/db9/classddd_1_1box.html#abe0d38e4c4380bf430a4781c8c0ed8f6',1,'ddd::box::box()'],['../d0/db9/classddd_1_1box.html#a5f4d57343779a88663aead8580127175',1,'ddd::box::box(const T &amp;x0, const T &amp;y0, const T &amp;z0, const T &amp;x1, const T &amp;y1, const T &amp;z1)'],['../d0/db9/classddd_1_1box.html#afb3bf0799aac08e5b58dbb955be99a78',1,'ddd::box::box(const point&lt; T &gt; &amp;point1, const point&lt; T &gt; &amp;point2)']]]
+  ['center',['Center',['../d4/dc3/classddd_1_1sphere.html#ae6804085242cdbdc51633b2507944e31',1,'ddd::sphere']]],
+  ['circle',['circle',['../d2/d9a/classddd_1_1circle.html',1,'ddd']]],
+  ['clamp',['clamp',['../df/dae/namespaceddd.html#a070060e53a22cb16f07576bfb5c4b1cc',1,'ddd']]],
+  ['clear',['clear',['../d3/d6a/classddd_1_1mat_object.html#ad7c6aab0d8d7f5a2b6c522175aa35fc0',1,'ddd::matObject::clear()'],['../df/df7/classddd_1_1row_object.html#a1da634f01207c96a25d5d53a74619afe',1,'ddd::rowObject::clear()']]],
+  ['coord',['coord',['../d3/d4d/classddd_1_1coord.html',1,'ddd']]],
+  ['cos',['cos',['../df/dae/namespaceddd.html#a6a7f708bb835a257f25e87110af27b6a',1,'ddd']]],
+  ['cross',['cross',['../d6/d27/classddd_1_1vector.html#a27ac4cb7a469642d497cfe070935ab4b',1,'ddd::vector']]],
+  ['cub',['cub',['../df/dae/namespaceddd.html#abbdb4782fa0a78950fd49de0d5766dd2',1,'ddd']]]
 ];

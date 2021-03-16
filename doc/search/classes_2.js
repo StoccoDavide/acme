@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['plane',['plane',['../dd/d76/classddd_1_1plane.html',1,'ddd']]],
-  ['point',['point',['../dd/ddb/classddd_1_1point.html',1,'ddd']]]
+  ['infiniteobject',['infiniteObject',['../d3/d2c/classddd_1_1infinite_object.html',1,'ddd']]]
 ];

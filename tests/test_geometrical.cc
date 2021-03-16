@@ -22,11 +22,11 @@ int main(void)
   C=B;
   B=D;
   C=A+B;
-  C.scalar(1.1);
+  C.scale(1.1);
   D=A-B;
   D.distance(B);
   D==C;
-
+  C=A;
   std::cout << "POINT TESTS" << std::endl
             << "Point A = " << A << std::endl
             << "Point B = " << B << std::endl
@@ -35,18 +35,20 @@ int main(void)
             << std::endl;
 
   ddd::vector<ddd::Float> vec1(1,0,0);
-  ddd::vector<ddd::Float> vec2(A);
+  ddd::vector<ddd::Float> vec2;
   std::cout << vec1 << std::endl  << std::endl;
-  vec1 = B;
-  std::cout << vec1 << std::endl  << std::endl;
+  vec2 = vec1;
+  std::cout << vec2 << std::endl  << std::endl;
 
   ddd::line<ddd::Float> l(0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+  ddd::line<ddd::Float> l1;
+  std::cout << l1;
+  l=l1;
   ddd::ray<ddd::Float> r(0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
   ddd::ray<ddd::Float> r1();
   //r=r1;
-  if (l.is_equal(r)) std::cout << "CAZZOOOOOO";
-  
-
+  if (l.is_equal(l1)) std::cout << "CAZZOOOOOO";
+/*
   /*ddd::segment<> seg(A, B);
   std::cout << seg << std::endl << std::endl;
 

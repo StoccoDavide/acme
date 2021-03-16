@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['line',['line',['../d3/d06/classddd_1_1line.html',1,'ddd::line&lt; T &gt;'],['../d3/d06/classddd_1_1line.html#a0a87f672568157869bbf2aa6c4f78395',1,'ddd::line::line(const line&lt; T &gt; &amp;)=default'],['../d3/d06/classddd_1_1line.html#aeed42ee3ff157ff44dd237943f515c0f',1,'ddd::line::line(const T &amp;x0, const T &amp;y0, const T &amp;z0, const T &amp;x1, const T &amp;y1, const T &amp;z1)'],['../d3/d06/classddd_1_1line.html#a1b5a2bea42f89d3d77bde14f49f072d9',1,'ddd::line::line(const point&lt; T &gt; &amp;point1, const point&lt; T &gt; &amp;point2)']]]
+  ['matobject',['matObject',['../d3/d6a/classddd_1_1mat_object.html',1,'ddd::matObject&lt; T &gt;'],['../d3/d6a/classddd_1_1mat_object.html#a803ad1602c813d9f1476f9d6e087005a',1,'ddd::matObject::matObject()']]],
+  ['max',['max',['../df/dae/namespaceddd.html#ac22862b5ed1b5bf5ba4d52e4a740bef9',1,'ddd::max(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a64cb844784cf8f7a2a9d691f7c6bcba3',1,'ddd::max(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]],
+  ['min',['min',['../df/dae/namespaceddd.html#aa11a0222d3d3c7580e0b8b40b38258df',1,'ddd::min(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a563d604cd5ed6ee708fffa32cbe6ccf2',1,'ddd::min(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]]
 ];

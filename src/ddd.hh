@@ -15,17 +15,20 @@
 
 #include "ddd_instantiate.hh"
 #include "ddd_math.hh"
+#include "ddd_rowObject.hh"
 #include "ddd_point.hh"
 #include "ddd_vector.hh"
-#include "ddd_infiniteObject.hh"
-#include "ddd_segment.hh"
+#include "ddd_infObject.hh"
 #include "ddd_line.hh"
+#include "ddd_ray.hh"
+#include "ddd_plane.hh"
+
+//#include "ddd_finObject.hh"
+#include "ddd_segment.hh"
 #include "ddd_box.hh"
 #include "ddd_triangle.hh"
 #include "ddd_quadix.hh"
-#include "ddd_ray.hh"
-#include "ddd_plane.hh"
-#include "ddd_sphere.hh"
+//#include "ddd_circle.hh"
 
 namespace ddd
 {

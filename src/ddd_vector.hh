@@ -1,8 +1,7 @@
 #ifndef INCLUDE_DDD_VECTOR
 #define INCLUDE_DDD_VECTOR
 
-#include <Eigen/Dense>
-#include "ddd_vector.hh"
+#include "ddd_math.hh"
 
 namespace ddd
 {
@@ -18,13 +17,11 @@ namespace ddd
 
   //! Vector class container
   /*!
-  Base class representing a vector in 3D space. Constructed by three components
-  (X, Y and Z). Additionally, can be constructed by point, representing radius
-  vector of that point, or by two points, representing vector from first point
-  to another.
+  Class representing a vector in 3D space. It is constructed by
+  a 3 by 1 Eigen matrix.
   */
   template <typename T = Float>
-  class vector : public point<T>
+  class vector : public rowObject<T>
   {
   public:
     //! Class destructor
@@ -34,169 +31,164 @@ namespace ddd
     vector(const vector<T> &) = default;
 
     //! Class constructor
-    vector() : point<T>() {}
+    vector() { this->clear(); }
 
     //! Class constructor
     vector(
         const Eigen::Matrix<T, 3, 1> &data //!< Input data
     )
     {
-      this->_data = data;
+      this->data(data);
     }
 
     //! Class constructor
     vector(
-        const T &x, //!< Input x value
-        const T &y, //!< Input y value
-        const T &z  //!< Input z value
-        ) : point<T>(x, y, z)
+        const T &x, //!< Input x vector value
+        const T &y, //!< Input y vector value
+        const T &z  //!< Input z vector value
+    )
     {
+      this->x(x);
+      this->y(y);
+      this->z(z);
     }
 
     //! Class constructor
     vector(
-        const point<T> &input //!< Input point object
-        ) : point<T>(input)
+        const point<T> &input //!< Input point
+    )
     {
-    }
+      this->data(input.data());
+    };
 
     //! Equality operator
     inline vector<T> &operator=(
-        const vector<T> &vector //!< Input vector object
+        const vector<T> &input //!< Input object
     )
     {
-      this->_data = vector._data;
-      return *this;
+      if (this == &input)
+      {
+        return *this;
+      }
+      else
+      {
+        this->data(input.data());
+        return *this;
+      }
     }
 
-    //! Indexing operator
-    inline T &operator[](
-        const std::size_t &i //!< Input index
-    )
-    {
-      return this->_data[i];
-    }
-
-    //! Indexing operator
-    inline const T &operator[](
-        const std::size_t &i //!< Input index
-    )
-        const
-    {
-      return this->_data[i];
-    }
-
-    //! Get x coordinate
-    inline const T &x(void) const { return this->_data.x(); }
-
-    //! Get y coordinate
-    inline const T &y(void) const { return this->_data.y(); }
-
-    //! Get z coordinate
-    inline const T &z(void) const { return this->_data.z(); }
-
-    //! Convert to point
-    inline const point<T> &toPoint(void)
-    {
-      return point<T>(this);
-    }
-
-    //! Addition operator
-    inline const vector<T> operator+(
-        const vector<T> &input //!< Input vector object
+    //! Check if two vectors are (exactly) equal
+    inline bool operator==(
+        const vector<T> &input //!< Input object
     )
         const
     {
-      return vector<T>(this->_data + input._data);
+      return this->data() == input.data();
     }
 
-    //! Subtraction operator
-    inline const vector<T> operator-(
-        const vector<T> &input //!< Input vector object
+    //! Check if two vectors are (exactly) equal
+    inline bool operator!=(
+        const vector<T> &input //!< Input object
     )
         const
     {
-      return vector<T>(this->_data - input._data);
+      return !(this == input);
     }
 
-    //! Addition function
-    inline void add(
-        const vector<T> &input //!< Input vector object
-    )
-    {
-      this->_data = this->_data + input._data;
-    }
-
-    //! Subtraction function
-    inline void subtract(
-        const vector<T> &input //!< Input vector object
-    )
-    {
-      this->_data = this->_data - input._data;
-    }
-
-    //! Dot product function
-    inline const vector<T> dot(
-        const vector<T> &input //!< Input vector object
-    )
-    {
-      return this->dot(input);
-    }
-
-    //! Cross product function
-    inline const vector<T> cross(
-        const vector<T> &input //!< Input vector object
-    )
-    {
-      return this->cross(input);
-    }
-
-    //! Scalar product function
-    inline void scalar(
-        const T &value //!< Scalar value
-    )
-    {
-      this->_data = this->_data * value;
-    }
-
-    //! Translate vector by vector
-    inline void translate(
-        const vector<T> &input //!< Input vector object
-    )
-    {
-      this->_data = this->_data + input._data;
-    }
-
-    //! Normalize vector
-    inline void normalize(void)
-    {
-      this->_data.normalize();
-    }
-
-    //! Return vector norm
-    inline const T &norm(void) const
-    {
-      return this->_data.norm();
-    }
-
-    //! Return normalized vector
-    inline const vector<T> &normalized(void) const
-    {
-      return this->_data.normalized();
-    }
-
-    //! Check if vector is equal
+    //! Check if two vectors are (almost) equal
     inline bool is_equal(
         const vector<T> &input //!< Input vector object
     )
         const
     {
-      return ddd::is_equal((this->_data - input._data).norm(), T(0.0));
+      return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
+    }
+
+    //! Check if two vectors are (almost) NOT equal
+    inline bool is_notequal(
+        const vector<T> &input //!< Input vector object
+    )
+        const
+    {
+      return !(this->is_equal(input));
+    }
+
+    //! Addition operator
+    inline vector<T> operator+(
+        const vector<T> &input //!< Input object
+    )
+        const
+    {
+      return vector<T>(this->data() + input.data());
+    }
+
+    //! Subtraction operator
+    inline vector<T> operator-(
+        const vector<T> &input //!< Input object
+    )
+        const
+    {
+      return vector<T>(this->data() - input.data());
+    }
+
+    //! Scalar product operator
+    inline vector<T> operator*(
+        const T &input //!< Input scalar
+    )
+    {
+      return vector<T>(this->data() * input);
+    }
+
+    //! Scalar division operator
+    inline vector<T> operator/(
+        const T &input //!< Input scalar
+    )
+    {
+      return vector<T>(this->data() / input);
+    }
+
+    //! Return normalized vector
+    inline const vector<T> normalized()
+        const
+    {
+      return this->_data.normalized();
+    }
+
+    //! Addition function
+    inline void add(
+        const vector<T> &input //!< Input object
+    )
+    {
+      this->data(this->data() + input.data());
+    }
+
+    //! Subtraction function
+    inline void subtract(
+        const vector<T> &input //!< Input object
+    )
+    {
+      this->data(this->data() - input.data());
+    }
+
+    //! Dot product function
+    inline const vector<T> dot(
+        const vector<T> &input //!< Input object
+    )
+    {
+      return vector<T>(this.data()->dot(input.data()));
+    }
+
+    //! Cross product function
+    inline const vector<T> cross(
+        const vector<T> &input //!< Input object
+    )
+    {
+      return vector<T>(this.data()->cross(input.data()));
     }
 
     //! Check if two vectors are parallel
     inline bool is_parallel(
-        const vector<T> &input //!< Input vector object
+        const vector<T> &input //!< Input object
     )
         const
     {
@@ -205,16 +197,16 @@ namespace ddd
 
     //! Check if two vectors are NOT parallel
     inline bool is_notparallel(
-        const vector<T> &input //!< Input vector object
+        const vector<T> &input //!< Input object
     )
         const
     {
-      return !this.is_parallel(input);
+      return !(this.is_parallel(input));
     }
 
     //! Check if two vectors are orthogonal
     inline bool is_orthogonal(
-        const vector<T> &input //!< Input vector object
+        const vector<T> &input //!< Input object
     )
         const
     {
@@ -223,11 +215,23 @@ namespace ddd
 
     //! Check if two vectors are NOT orthogonal
     inline bool is_notorthogonal(
-        const vector<T> &input //!< Input vector object
+        const vector<T> &input //!< Input object
     )
         const
     {
-      return !this.is_orthogonal(input);
+      return !(this.is_orthogonal(input));
+    }
+
+    //! Check if vector has unitary norm
+    inline bool is_unitary(void) const
+    {
+      return is_equal(this->norm() - 1.0, 0.0);
+    }
+
+    //! Check if vector has NOT unitary norm
+    inline bool is_notunitary(void) const
+    {
+      return !(this.is_unitary());
     }
 
     //! Get an arbitrary vector, orthogonal to the current vector
@@ -248,27 +252,9 @@ namespace ddd
       }
     }
 
-    //! Equality comparison operator
-    inline bool operator==(
-        const vector<T> &input //!< Input vector object
-    )
-        const
-    {
-      return this.is_equal(input);
-    }
-
-    //! Disequality operator
-    inline bool operator!=(
-        const vector<T> &input //!< Input vector object
-    )
-        const
-    {
-      return !(this == input);
-    }
-
     //! Angle between two vectors [rad]
     inline const T &angle(
-        const vector<T> &input //!< Input vector object
+        const vector<T> &input //!< Input object
     )
         const
     {
@@ -277,7 +263,7 @@ namespace ddd
 
     //! Angle between vector and line [rad]
     inline const T &angle(
-        const line<T> &input //!< Input line object
+        const line<T> &input //!< Input object
     )
         const
     {
@@ -286,16 +272,25 @@ namespace ddd
 
     //! Angle between vector and ray [rad]
     inline const T &angle(
-        const ray<T> &input //!< Input vector object
+        const ray<T> &input //!< Input object
     )
         const
     {
       return this->angle(input.direction());
     }
 
+    //! Angle between vector and plane [rad]
+    inline const T &angle(
+        const plane<T> &input //!< Input object
+    )
+        const
+    {
+      return PI - this->angle(input.direction());
+    }
+
     //! Angle between vector and segment [rad]
     inline const T &angle(
-        const segment<T> &input //!< Input vector object
+        const segment<T> &input //!< Input object
     )
         const
     {

@@ -5,7 +5,7 @@
 #ifndef INCLUDE_DDD_LINE
 #define INCLUDE_DDD_LINE
 
-#include "ddd_infiniteObject.hh"
+#include "ddd_line.hh"
 
 namespace ddd
 {
@@ -25,11 +25,14 @@ namespace ddd
   vector.
   */
   template <typename T = Float>
-  class line : public infiniteObject<T>
+  class line : public infObject<T>
   {
   public:
     //! Class destructor
     ~line() {}
+
+    //! Class constructor
+    line() {}
 
     //! Copy constructor
     line(const line<T> &) = default;
@@ -56,6 +59,57 @@ namespace ddd
     {
       this->origin(origin);
       this->direction(direction);
+    }
+
+    //! Equality operator
+    inline line<T> &operator=(
+        const line<T> &input //!< Input object
+    )
+    {
+      if (this == &input)
+      {
+        return *this;
+      }
+      else
+      {
+        this->origin(input.origin());
+        this->direction(input.direction());
+        return *this;
+      }
+    }
+
+    //! Check if two lines are (exactly) equal
+    inline bool operator==(
+        const line<T> &input //!< Input object
+    )
+    {
+      return this->origin() == input.origin() && this->direction() == input.direction();
+    }
+
+    //! Check if two lines are (exactly) NOT equal
+    inline bool operator!=(
+        const line<T> &input //!< Input object
+    )
+    {
+      return !(this == input);
+    }
+
+    //! Check if two lines are (almost) equal
+    inline bool is_equal(
+        const line<T> &input //!< Input object
+    )
+        const
+    {
+      return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
+    }
+
+    //! Check if two lines are (almost) NOT equal
+    inline bool is_notequal(
+        const line<T> &input //!< Input vector object
+    )
+        const
+    {
+      return !(this->is_equal(input));
     }
   };
 

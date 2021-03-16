@@ -5,7 +5,7 @@
 #ifndef INCLUDE_DDD_PLANE
 #define INCLUDE_DDD_PLANE
 
-#include "ddd_infiniteObject.hh"
+#include "ddd_infObject.hh"
 
 namespace ddd
 {
@@ -21,15 +21,16 @@ namespace ddd
 
   //! Plane class container
   /*!
-  3D plane defined by arbutrary point on the plane and a normal vector.
+  3D plane defined by arbitrary point on the plane and a normal vector.
   */
   template <typename T = Float>
   class plane : public infiniteObject<T>
   {
     //! Class destructor
-    ~plane()
-    {
-    }
+    ~plane() {}
+
+    //! Class constructor
+    plane() {}
 
     //! Copy constructor
     plane(const plane<T> &) = default;
@@ -56,6 +57,57 @@ namespace ddd
     {
       this->origin(origin);
       this->direction(direction);
+    }
+
+    //! Equality operator
+    inline plane<T> &operator=(
+        const plane<T> &input //!< Input object
+    )
+    {
+      if (this == &input)
+      {
+        return *this;
+      }
+      else
+      {
+        this->origin(input.origin());
+        this->direction(input.direction());
+        return *this;
+      }
+    }
+
+    //! Check if two planes are (exactly) equal
+    inline bool operator==(
+        const plane<T> &input //!< Input object
+    )
+    {
+      return this->origin() == input.origin() && this->direction() == input.direction();
+    }
+
+    //! Check if two planes are (exactly) NOT equal
+    inline bool operator!=(
+        const plane<T> &input //!< Input object
+    )
+    {
+      return !(this == input);
+    }
+
+    //! Check if two planes are (almost) equal
+    inline bool is_equal(
+        const plane<T> &input //!< Input object
+    )
+        const
+    {
+      return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
+    }
+
+    //! Check if two planes are (almost) NOT equal
+    inline bool is_notequal(
+        const plane<T> &input //!< Input vector object
+    )
+        const
+    {
+      return !(this->is_equal(input));
     }
   };
 

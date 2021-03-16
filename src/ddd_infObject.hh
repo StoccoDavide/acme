@@ -1,9 +1,9 @@
 ///
-/// file: ddd_infiniteObject.hh
+/// file: ddd_infObject.hh
 ///
 
-#ifndef INCLUDE_DDD_INFINITEOBJECT
-#define INCLUDE_DDD_INFINITEOBJECT
+#ifndef INCLUDE_DDD_INFOBJECT
+#define INCLUDE_DDD_INFOBJECT
 
 #include "ddd_point.hh"
 #include "ddd_vector.hh"
@@ -12,35 +12,34 @@ namespace ddd
 {
 
   /*\
-   |   _        __ _       _ _        ___  _     _           _   
-   |  (_)_ __  / _(_)_ __ (_) |_ ___ / _ \| |__ (_) ___  ___| |_ 
-   |  | | '_ \| |_| | '_ \| | __/ _ \ | | | '_ \| |/ _ \/ __| __|
-   |  | | | | |  _| | | | | | ||  __/ |_| | |_) | |  __/ (__| |_ 
-   |  |_|_| |_|_| |_|_| |_|_|\__\___|\___/|_.__// |\___|\___|\__|
-   |                                          |__/               
+   |   _        __  ___  _     _           _   
+   |  (_)_ __  / _|/ _ \| |__ (_) ___  ___| |_ 
+   |  | | '_ \| |_| | | | '_ \| |/ _ \/ __| __|
+   |  | | | | |  _| |_| | |_) | |  __/ (__| |_ 
+   |  |_|_| |_|_|  \___/|_.__// |\___|\___|\__|
+   |                        |__/               
   \*/
 
-  //! Infinite Object class container
+  //! Infinite object class container
   /*!
-  Infinite line in 3D space and defined by any point lying on the line and a direction
-  vector.
+  Base class for infinite objects in 3D space.
   */
   template <typename T = Float>
-  class infiniteObject
+  class infObject
   {
   private:
-    point<T> _origin;     //!< Line origin
-    vector<T> _direction; //!< Line direction
+    point<T> _origin;     //!< Origin
+    vector<T> _direction; //!< Direction/Normal to plane
 
   protected:
     //! Class destructor
-    ~infiniteObject() {}
+    ~infObject() {}
 
     //! Class constructor
-    infiniteObject() {}
+    infObject() {}
 
     //! Class constructor for 3D line
-    infiniteObject(
+    infObject(
         const T &ox, //<! Input x origin value
         const T &oy, //<! Input y origin value
         const T &oz, //<! Input z origin value
@@ -54,7 +53,7 @@ namespace ddd
     }
 
     //! Class constructor
-    infiniteObject(
+    infObject(
         const point<T> &origin,    //!< Input origin point
         const vector<T> &direction //!< Input direction
     )
@@ -64,33 +63,6 @@ namespace ddd
     }
 
   public:
-    //! Equality operator
-    inline infiniteObject<T> &operator=(
-        const infiniteObject<T> &input //!< Input infiniteObject object
-    )
-    {
-      this->_origin = input._origin;
-      this->_direction = input._direction;
-      return *this;
-    }
-
-    //! Check if two objects are equal
-    inline bool is_equal(
-        const infiniteObject<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->_origin.is_equal(input._origin) && this->_direction.is_equal(input._direction));
-    }
-
-    //! Check if two objects are equal
-    inline bool operator==(
-        const infiniteObject<T> &input //!< Input infiniteObject object
-    )
-    {
-      return this->_origin.is_equal(input._origin) && this->_direction.is_equal(input._direction);
-    }
-
     //! Return origin
     inline const point<T> &origin() const
     {
@@ -119,12 +91,6 @@ namespace ddd
       this->_direction = input;
     }
 
-    //! Convert to vector
-    inline const vector<T> &toVector(void) const
-    {
-      return vector<T>(this);
-    }
-
     //! Convert to line
     inline const line<T> &toLine(void) const
     {
@@ -137,6 +103,12 @@ namespace ddd
       return ray<T>(this);
     }
 
+    //! Convert to plane
+    inline const plane<T> &toPlane(void) const
+    {
+      return plane<T>(this);
+    }
+
     //! Translate line by vector
     inline void translate(
         const vector<T> &input //!< Input vector object
@@ -147,7 +119,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const infiniteObject<T> &input //!< Input object
+        const infObject<T> &input //!< Input object
     )
         const
     {
@@ -156,7 +128,7 @@ namespace ddd
 
     //! Check if two objects are NOT parallel
     inline bool is_notparallel(
-        const infiniteObject<T> &input //!< Input object
+        const infObject<T> &input //!< Input object
     )
         const
     {
@@ -165,7 +137,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const infiniteObject<T> &input //!< Input vector object
+        const infObject<T> &input //!< Input vector object
     )
         const
     {
@@ -174,7 +146,7 @@ namespace ddd
 
     //! Check if two objects are NOT orthogonal
     inline bool is_notorthogonal(
-        const infiniteObject<T> &input //!< Input vector object
+        const infObject<T> &input //!< Input vector object
     )
         const
     {
@@ -183,7 +155,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const infiniteObject<T> &input //!< Input object
+        const infObject<T> &input //!< Input object
     )
         const
     {
@@ -199,5 +171,5 @@ namespace ddd
 #endif
 
 ///
-/// eof: ddd_infiniteObject.hh
+/// eof: ddd_infObject.hh
 ///

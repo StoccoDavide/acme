@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['max',['max',['../df/dae/namespaceddd.html#ac22862b5ed1b5bf5ba4d52e4a740bef9',1,'ddd::max(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a64cb844784cf8f7a2a9d691f7c6bcba3',1,'ddd::max(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]],
-  ['min',['min',['../df/dae/namespaceddd.html#aa11a0222d3d3c7580e0b8b40b38258df',1,'ddd::min(const T &amp;value0, const T &amp;value1)'],['../df/dae/namespaceddd.html#a563d604cd5ed6ee708fffa32cbe6ccf2',1,'ddd::min(const T &amp;value0, const T &amp;value1, const T &amp;value2)']]]
+  ['normalize',['normalize',['../df/df7/classddd_1_1row_object.html#ad567bf2ca914b05a544b73bcec70cc57',1,'ddd::rowObject']]],
+  ['normalized',['normalized',['../dd/ddb/classddd_1_1point.html#ac17331c629f79d5abd4b48d807967470',1,'ddd::point::normalized()'],['../d6/d27/classddd_1_1vector.html#a40b593b08a2dd6af92c5c07bb9faa463',1,'ddd::vector::normalized()']]]
 ];
