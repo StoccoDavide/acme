@@ -17,6 +17,7 @@
 #include "ddd_math.hh"
 #include "ddd_point.hh"
 #include "ddd_vector.hh"
+#include "ddd_infiniteObject.hh"
 #include "ddd_segment.hh"
 #include "ddd_line.hh"
 #include "ddd_box.hh"

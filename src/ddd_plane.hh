@@ -5,8 +5,7 @@
 #ifndef INCLUDE_DDD_PLANE
 #define INCLUDE_DDD_PLANE
 
-#include "ddd_point.hh"
-#include "ddd_vector.hh"
+#include "ddd_infiniteObject.hh"
 
 namespace ddd
 {
@@ -25,31 +24,38 @@ namespace ddd
   3D plane defined by arbutrary point on the plane and a normal vector.
   */
   template <typename T = Float>
-  class plane
+  class plane : public infiniteObject<T>
   {
-    point<T> _origin;  //!< Plane origin
-    vector<T> _normal; //!< Plane normal
-
-  public:
     //! Class destructor
-    ~plane() {}
+    ~plane()
+    {
+    }
 
     //! Copy constructor
     plane(const plane<T> &) = default;
 
-    //! Class constructor
-    plane() : _origin(point<T>()), _normal(vector<T>()) {}
-
-    //! Return plane point
-    inline const point<T> &origin() const
+    //! Class constructor for plane
+    plane(
+        const T &ox, //<! Input x origin value
+        const T &oy, //<! Input y origin value
+        const T &oz, //<! Input z origin value
+        const T &dx, //<! Input x direction value
+        const T &dy, //<! Input y direction value
+        const T &dz  //<! Input z direction value
+    )
     {
-      return _origin;
+      this->origin(point<T>(ox, oy, oz));
+      this->direction(vector<T>(dx, dy, dz));
     }
 
-    //! Return plane normal
-    inline const vector<T> &normal() const
+    //! Class constructor
+    plane(
+        const point<T> &origin,    //!< Input origin point
+        const vector<T> &direction //!< Input direction
+    )
     {
-      return _normal;
+      this->origin(origin);
+      this->direction(direction);
     }
   };
 

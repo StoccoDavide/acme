@@ -49,7 +49,7 @@ namespace ddd
         const T &x, //!< Input x value
         const T &y, //!< Input y value
         const T &z  //!< Input z value
-        ) : vector<T>(x, y, z)
+        ) : point<T>(x, y, z)
     {
     }
 
@@ -248,7 +248,7 @@ namespace ddd
       }
     }
 
-    //! Equality operator
+    //! Equality comparison operator
     inline bool operator==(
         const vector<T> &input //!< Input vector object
     )

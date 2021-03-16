@@ -16,8 +16,8 @@ int main(void)
 
   // POINT TEST
   ddd::point<ddd::Float> A(1.0, 0.0, 0.0); 
-  ddd::point<> B(1.0, 0.0, 0.0);
-  ddd::point<> D(1.0, 0.0, 0.0);
+  ddd::point<ddd::Float> B(1.0, 0.0, 0.0);
+  ddd::point<ddd::Float> D(1.0, 0.0, 0.0);
   ddd::point<ddd::Float> C;
   C=B;
   B=D;
@@ -34,14 +34,20 @@ int main(void)
             << "Point D = " << D << std::endl 
             << std::endl;
 
-  /*ddd::vector<ddd::Float, 3> vec1;
-  ddd::vector<ddd::Float, 3> vec2(A);
+  ddd::vector<ddd::Float> vec1(1,0,0);
+  ddd::vector<ddd::Float> vec2(A);
   std::cout << vec1 << std::endl  << std::endl;
   vec1 = B;
   std::cout << vec1 << std::endl  << std::endl;
+
+  ddd::line<ddd::Float> l(0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+  ddd::ray<ddd::Float> r(0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+  ddd::ray<ddd::Float> r1();
+  //r=r1;
+  if (l.is_equal(r)) std::cout << "CAZZOOOOOO";
   
 
-  ddd::segment<> seg(A, B);
+  /*ddd::segment<> seg(A, B);
   std::cout << seg << std::endl << std::endl;
 
   ddd::ray<ddd::Float, 3> ray;

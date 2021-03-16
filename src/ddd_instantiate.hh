@@ -12,9 +12,15 @@ namespace ddd
   template <typename T>
   class point;
 
-  // Infinite objects classes
+  // Derived vector class
   template <typename T>
   class vector;
+
+  
+  // Virtual infinite object base class
+  template <typename T>
+  class infiniteObject;
+  // Infinite objects classes (point/vector description)
   template <typename T>
   class line;
   template <typename T>
@@ -22,17 +28,27 @@ namespace ddd
   template <typename T>
   class plane;
 
-  // Finite objects classes
+  // Finite objects classes (2 points)
   template <typename T>
   class segment;
   template <typename T>
   class box;
+
+  // Finite objects classes (3 points)
   template <typename T>
   class triangle;
+
+  // Finite objects classes (4 points)
   template <typename T>
   class quadix;
+
+  // Finite objects classes (1 point + real)
   template <typename T>
   class sphere;
+
+  // Finite objects classes (1 point + real + vector)
+  template <typename T>
+  class circle;
 
 } // namespace ddd
 
