@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |                  _             
-   |  __   _____  ___| |_ ___  _ __ 
-   |  \ \ / / _ \/ __| __/ _ \| '__|
-   |   \ V /  __/ (__| || (_) | |   
-   |    \_/ \___|\___|\__\___/|_|   
-   |                                
+   |                 _            _____ 
+   | __   _____  ___| |_ ___  _ _|___ / 
+   | \ \ / / _ \/ __| __/ _ \| '__||_ \ 
+   |  \ V /  __/ (__| || (_) | |  ___) |
+   |   \_/ \___|\___|\__\___/|_| |____/ 
+   |                                    
   \*/
 
   //! Vector class container
@@ -69,9 +69,9 @@ namespace acme
 
     //! Class constructor
     vector3(
-        const T &x, //!< Input x vector3 value
-        const T &y, //!< Input y vector3 value
-        const T &z  //!< Input z vector3 value
+        const T &x, //!< Input x value
+        const T &y, //!< Input y value
+        const T &z  //!< Input z value
         ) : _data(Eigen::Matrix<T, 3, 1>(x, y, z))
     {
     }
@@ -97,7 +97,7 @@ namespace acme
       }
     }
 
-    //! Check if two vector3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator==(
         const vector3<T> &input //!< Input object
     )
@@ -106,7 +106,7 @@ namespace acme
       return this->data() == input.data();
     }
 
-    //! Check if two vector3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator!=(
         const vector3<T> &input //!< Input object
     )
@@ -115,9 +115,9 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two vector3s are (almost) equal
+    //! Check if two objects are (almost) equal
     inline bool is_equal(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -259,7 +259,7 @@ namespace acme
       return this->_data.norm();
     }
 
-    //! Return normalized vector3
+    //! Return normalized vector
     inline const vector3<T> normalized()
         const
     {
@@ -403,7 +403,7 @@ namespace acme
       }
     }
 
-    //! Angle between two vector3s [rad]
+    //! Angle between two objects [rad]
     inline const T &angle(
         const vector3<T> &input //!< Input object
     )

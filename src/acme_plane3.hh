@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |         _                  
-   |   _ __ | | __ _ _ __   ___ 
-   |  | '_ \| |/ _` | '_ \ / _ \
-   |  | |_) | | (_| | | | |  __/
-   |  | .__/|_|\__,_|_| |_|\___|
-   |  |_|                       
+   |         _                  _____ 
+   |   _ __ | | __ _ _ __   ___|___ / 
+   |  | '_ \| |/ _` | '_ \ / _ \ |_ \ 
+   |  | |_) | | (_| | | | |  __/___) |
+   |  | .__/|_|\__,_|_| |_|\___|____/ 
+   |  |_|                             
   \*/
 
   //! Plane class container
@@ -74,7 +74,7 @@ namespace acme
 
     //! Class constructor
     plane3(
-        const point3<T> &origin, //!< Input origin point3
+        const point3<T> &origin, //!< Input origin
         const vector3<T> &normal //!< Input normal
         ) : _origin(origin), _normal(normal)
     {
@@ -82,8 +82,8 @@ namespace acme
 
     //! Class constructor
     plane3(
-        const Eigen::Matrix<T, 3, 1> &origin, //!< Input origin point3
-        const Eigen::Matrix<T, 3, 1> &normal  //!< Input direction
+        const Eigen::Matrix<T, 3, 1> &origin, //!< Input origin
+        const Eigen::Matrix<T, 3, 1> &normal  //!< Input normal
         ) : _origin(origin), _normal(normal)
     {
     }
@@ -105,7 +105,7 @@ namespace acme
       }
     }
 
-    //! Check if two plane3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator==(
         const plane3<T> &input //!< Input object
     )
@@ -113,7 +113,7 @@ namespace acme
       return this->_origin == input._origin && this->_normal == input._normal;
     }
 
-    //! Check if two plane3s are (exactly) NOT equal
+    //! Check if two objects are (exactly) NOT equal
     inline bool operator!=(
         const plane3<T> &input //!< Input object
     )
@@ -121,7 +121,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two plane3s are (almost) equal
+    //! Check if two objects are (almost) equal
     inline bool is_equal(
         const plane3<T> &input //!< Input object
     )
@@ -167,7 +167,7 @@ namespace acme
 
     //! Translate line3 by vector3
     inline void translate(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
     {
       this->_origin.translate(input);
@@ -220,7 +220,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -229,7 +229,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line3<T> &input //!< Input vector3 object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -238,7 +238,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray3<T> &input //!< Input vector3 object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -247,7 +247,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane3<T> &input //!< Input vector3 object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -256,7 +256,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment3<T> &input //!< Input vector3 object
+        const segment3<T> &input //!< Input object
     )
         const
     {

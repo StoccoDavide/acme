@@ -5,15 +5,15 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The acme computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The acme computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the acme computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |               _       _   
-   |   _ __   ___ (_)_ __ | |_ 
-   |  | '_ \ / _ \| | '_ \| __|
-   |  | |_) | (_) | | | | | |_ 
-   |  | .__/ \___/|_|_| |_|\__|
-   |  |_|                      
+   |               _       _   _____ 
+   |   _ __   ___ (_)_ __ | |_|___ / 
+   |  | '_ \ / _ \| | '_ \| __| |_ \ 
+   |  | |_) | (_) | | | | | |_ ___) |
+   |  | .__/ \___/|_|_| |_|\__|____/ 
+   |  |_|                            
   \*/
 
   //! Point class container
@@ -69,16 +69,16 @@ namespace acme
 
     //! Class constructor
     point3(
-        const T &x, //!< Input x point3 value
-        const T &y, //!< Input y point3 value
-        const T &z  //!< Input z point3 value
+        const T &x, //!< Input x value
+        const T &y, //!< Input y value
+        const T &z  //!< Input z value
         ) : _data(Eigen::Matrix<T, 3, 1>(x, y, z))
     {
     }
 
     //! Class constructor
     point3(
-        const vector3<T> &input //!< Input point3
+        const vector3<T> &input //!< Input object
         ) : _data(input.data()){};
 
     //! Equality operator
@@ -97,7 +97,7 @@ namespace acme
       }
     }
 
-    //! Check if two point3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator==(
         const point3<T> &input //!< Input object
     )
@@ -105,7 +105,7 @@ namespace acme
       return this->data() == input.data();
     }
 
-    //! Check if two point3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator!=(
         const point3<T> &input //!< Input object
     )
@@ -113,9 +113,9 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two point3s are (almost) equal
+    //! Check if two objects are (almost) equal
     inline bool is_equal(
-        const point3<T> &input //!< Input point3 object
+        const point3<T> &input //!< Input object
     )
         const
     {
@@ -250,15 +250,15 @@ namespace acme
       return this->_data.norm();
     }
 
-    //! Translate rowObject by vector3
+    //! Translate by vector
     inline void translate(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
     {
       this->data(this->data() + input.data());
     }
 
-    //! Distance between point3s
+    //! Distance between objects
     inline const T distance(
         const point3<T> &input //!< Input object
     )
@@ -274,9 +274,9 @@ namespace acme
       }
     }
 
-    //! Squared distance between two point3s
+    //! Squared distance between points
     inline const T distanceSquared(
-        const point3<T> &input //!< Input point3 object
+        const point3<T> &input //!< Input object
     )
     {
       if (!this->is_equal(input))

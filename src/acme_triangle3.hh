@@ -5,15 +5,15 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The acme computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The acme computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the acme computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_triangle33
-#define INCLUDE_ACME_triangle33
+#ifndef INCLUDE_ACME_TRIANGLE3
+#define INCLUDE_ACME_TRIANGLE3
 
 #include "acme_point3.hh"
 
@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |   _        _                   _      
-   |  | |_ _ __(_) __ _ _ __   __ _| | ___ 
-   |  | __| '__| |/ _` | '_ \ / _` | |/ _ \
-   |  | |_| |  | | (_| | | | | (_| | |  __/
-   |   \__|_|  |_|\__,_|_| |_|\__, |_|\___|
-   |                          |___/        
+   |   _        _                   _      _____ 
+   |  | |_ _ __(_) __ _ _ __   __ _| | ___|___ / 
+   |  | __| '__| |/ _` | '_ \ / _` | |/ _ \ |_ \ 
+   |  | |_| |  | | (_| | | | | (_| | |  __/___) |
+   |   \__|_|  |_|\__,_|_| |_|\__, |_|\___|____/ 
+   |                          |___/              
   \*/
 
   //! triangle3 class container
@@ -61,40 +61,40 @@ namespace acme
 
     //! Class constructor
     triangle3(
-        const T &x0, //<! Input x value of first point3
-        const T &y0, //<! Input y value of first point3
-        const T &z0, //<! Input z value of first point3
-        const T &x1, //<! Input x value of second point3
-        const T &y1, //<! Input y value of second point3
-        const T &z1, //<! Input z value of second point3
-        const T &x2, //<! Input x value of third point3
-        const T &y2, //<! Input y value of third point3
-        const T &z2  //<! Input z value of third point3
+        const T &x0, //<! Input x value of first point
+        const T &y0, //<! Input y value of first point
+        const T &z0, //<! Input z value of first point
+        const T &x1, //<! Input x value of second point
+        const T &y1, //<! Input y value of second point
+        const T &z1, //<! Input z value of second point
+        const T &x2, //<! Input x value of third point
+        const T &y2, //<! Input y value of third point
+        const T &z2  //<! Input z value of third point
         ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1)), _point2(point3<T>(x2, y2, z2))
     {
     }
 
     //! Class constructor
     triangle3(
-        const point3<T> &point0, //!< Input point3 object
-        const point3<T> &point1, //!< Input point3 object
-        const point3<T> &point2  //!< Input point3 object
+        const point3<T> &point0, //!< Input object
+        const point3<T> &point1, //!< Input object
+        const point3<T> &point2  //!< Input object
         ) : _point0(point0), _point1(point1), _point2(point2)
     {
     }
 
     //! Class constructor
     triangle3(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point3 object
-        const Eigen::Matrix<T, 3, 1> &point1, //!< Input point3 object
-        const Eigen::Matrix<T, 3, 1> &point2  //!< Input point3 object
+        const Eigen::Matrix<T, 3, 1> &point0, //!< Input object
+        const Eigen::Matrix<T, 3, 1> &point1, //!< Input object
+        const Eigen::Matrix<T, 3, 1> &point2  //!< Input object
         ) : _point0(point0), _point1(point1), _point2(point2)
     {
     }
 
     //! Equality operator
     inline triangle3<T> &operator=(
-        const triangle3<T> &input //!< Input segment3 object
+        const triangle3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -110,7 +110,7 @@ namespace acme
       }
     }
 
-    //! Check if two ray3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator==(
         const segment3<T> &input //!< Input object
     )
@@ -118,7 +118,7 @@ namespace acme
       return this->_point0 == input._point0 && this->_point1 == input._point1 && this->_point2 == input._point2;
     }
 
-    //! Check if two ray3s are (exactly) NOT equal
+    //! Check if two objects are (exactly) NOT equal
     inline bool operator!=(
         const segment3<T> &input //!< Input object
     )
@@ -126,7 +126,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two ray3s are (almost) equal
+    //! Check if two objects are (almost) equal
     inline bool is_equal(
         const segment3<T> &input //!< Input object
     )
@@ -135,17 +135,17 @@ namespace acme
       return this->_point0.is_equal(input._point0) && this->_point1.is_equal(input._point1) && this->_point2.is_equal(input._point2);
     }
 
-    //! Check if triangle3 is degenerated
+    //! Check if triangle is degenerated
     inline bool is_degenerated(void)
         const
     {
       return this->direction().is_degenerated();
     }
 
-    //! Get first point3
+    //! Get first point
     inline point3<T> &point_1(void) const { return this->_point1; }
 
-    //! Set first point3
+    //! Set first point
     inline void point_1(
         const point3<T> &input //!< Input object
     )
@@ -153,10 +153,10 @@ namespace acme
       this->_point1 = input;
     }
 
-    //! Get second point3
+    //! Get second point
     inline point3<T> &point_2(void) const { return this->_point2; }
 
-    //! Set second point3
+    //! Set second point
     inline void point_2(
         const point3<T> &input //!< Input object
     )
@@ -164,10 +164,10 @@ namespace acme
       this->_point2 = input;
     }
 
-    //! Get third point3
+    //! Get third point
     inline point3<T> &point_3(void) const { return this->_point3; }
 
-    //! Set third point3
+    //! Set third point
     inline void point_3(
         const point3<T> &input //!< Input object
     )
@@ -184,23 +184,23 @@ namespace acme
     //! Get third edge
     inline segment3<T> &edge_3(void) const { return segment3<T>(this->_point2, this->_point0); }
 
-    //! Get triangle3 normal
+    //! Get face normal
     inline vector3<T> &normal(void)
         const
     {
       return vector3<T>((this->_point1.data() - this->_point0.data()).cross(this->_point2.data() - this->_point0.data()));
     }
 
-    //! Get triangle3 normal
+    //! Get face normal
     inline Eigen::Matrix<T, 3, 1> &normalEigen(void)
         const
     {
       return (this->_point1.data() - this->_point0.data()).cross(this->_point2.data() - this->_point0.data());
     }
 
-    //! Translate line3 by vector3
+    //! Translate by vector
     inline void translate(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
     {
       this->_point0.translate(input);
@@ -255,7 +255,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -264,7 +264,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line3<T> &input //!< Input vector3 object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -273,7 +273,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray3<T> &input //!< Input vector3 object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -282,7 +282,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane3<T> &input //!< Input vector3 object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -291,7 +291,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment3<T> &input //!< Input vector3 object
+        const segment3<T> &input //!< Input object
     )
         const
     {

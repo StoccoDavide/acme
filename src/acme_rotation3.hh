@@ -5,15 +5,15 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The acme computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The acme computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the acme computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |             _        _   _             
-   |   _ __ ___ | |_ __ _| |_(_) ___  _ __  
-   |  | '__/ _ \| __/ _` | __| |/ _ \| '_ \ 
-   |  | | | (_) | || (_| | |_| | (_) | | | |
-   |  |_|  \___/ \__\__,_|\__|_|\___/|_| |_|
-   |                                        
+   |             _        _   _             _____ 
+   |   _ __ ___ | |_ __ _| |_(_) ___  _ __ |___ / 
+   |  | '__/ _ \| __/ _` | __| |/ _ \| '_ \  |_ \ 
+   |  | | | (_) | || (_| | |_| | (_) | | | |___) |
+   |  |_|  \___/ \__\__,_|\__|_|\___/|_| |_|____/ 
+   |                                              
   \*/
 
   //! Rotation class container
@@ -70,9 +70,9 @@ namespace acme
 
     //! Class constructor
     rotation3(
-        const vector3<T> &x, //!< Input x vector3 value
-        const vector3<T> &y, //!< Input y vector3 value
-        const vector3<T> &z  //!< Input z vector3 value
+        const vector3<T> &x, //!< Input x value
+        const vector3<T> &y, //!< Input y value
+        const vector3<T> &z  //!< Input z value
     )
     {
       this->_data[0] = x;
@@ -109,7 +109,7 @@ namespace acme
       }
     }
 
-    //! Check if two rotation3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator==(
         const rotation3<T> &input //!< Input object
     )
@@ -117,7 +117,7 @@ namespace acme
       return this->data() == input.data();
     }
 
-    //! Check if two rotation3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator!=(
         const rotation3<T> &input //!< Input object
     )
@@ -125,9 +125,9 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two rotation3s are (almost) equal
+    //! Check if two objects are (almost) equal
     inline bool is_equal(
-        const rotation3<T> &input //!< Input rotation3 object
+        const rotation3<T> &input //!< Input object
     )
         const
     {
@@ -152,7 +152,7 @@ namespace acme
 
     //! External product operator
     inline point3<T> operator*(
-        const point3<T> &input //!< Input point3
+        const point3<T> &input //!< Input object
     )
     {
       return point3<T>(this->data() * input.data());
@@ -160,7 +160,7 @@ namespace acme
 
     //! External product operator
     inline vector3<T> operator*(
-        const vector3<T> &input //!< Input vector3
+        const vector3<T> &input //!< Input object
     )
     {
       return vector3<T>(this->data() * input.data());
@@ -168,7 +168,7 @@ namespace acme
 
     //! Rotation product operator
     inline rotation3<T> operator*(
-        const rotation3<T> &input //!< Input vector3
+        const rotation3<T> &input //!< Input object
     )
         const
     {
@@ -216,7 +216,7 @@ namespace acme
 
     //! Set x vector3
     inline void x(
-        const vector3<T> &input //!< Input vector3
+        const vector3<T> &input //!< Input object
     )
     {
       this->_data.col(0) = input.data();
@@ -224,7 +224,7 @@ namespace acme
 
     //! Set y vector3
     inline void y(
-        const vector3<T> &input //!< Input vector3
+        const vector3<T> &input //!< Input object
     )
     {
       this->_data.col(1) = input.data();
@@ -232,7 +232,7 @@ namespace acme
 
     //! Set z vector3
     inline void z(
-        const vector3<T> &input //!< Input vector3
+        const vector3<T> &input //!< Input object
     )
     {
       this->_data.col(2) = input.data();

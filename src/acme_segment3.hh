@@ -5,15 +5,15 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The acme computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The acme computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the acme computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |                                       _   
-   |   ___  ___  __ _ _ __ ___   ___ _ __ | |_ 
-   |  / __|/ _ \/ _` | '_ ` _ \ / _ \ '_ \| __|
-   |  \__ \  __/ (_| | | | | | |  __/ | | | |_ 
-   |  |___/\___|\__, |_| |_| |_|\___|_| |_|\__|
-   |            |___/                          
+   |                                       _   _____ 
+   |   ___  ___  __ _ _ __ ___   ___ _ __ | |_|___ / 
+   |  / __|/ _ \/ _` | '_ ` _ \ / _ \ '_ \| __| |_ \ 
+   |  \__ \  __/ (_| | | | | | |  __/ | | | |_ ___) |
+   |  |___/\___|\__, |_| |_| |_|\___|_| |_|\__|____/ 
+   |            |___/                                
   \*/
 
   //! Segment class container
@@ -59,35 +59,35 @@ namespace acme
 
     //! Class constructor
     segment3(
-        const T &x0, //<! Input x value of first point3
-        const T &y0, //<! Input y value of first point3
-        const T &z0, //<! Input z value of first point3
-        const T &x1, //<! Input x value of second point3
-        const T &y1, //<! Input y value of second point3
-        const T &z1  //<! Input z value of second point3
+        const T &x0, //<! Input x value of first point
+        const T &y0, //<! Input y value of first point
+        const T &z0, //<! Input z value of first point
+        const T &x1, //<! Input x value of second point
+        const T &y1, //<! Input y value of second point
+        const T &z1  //<! Input z value of second point
         ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1))
     {
     }
 
     //! Class constructor
     segment3(
-        const point3<T> &point0, //!< Input point3 object
-        const point3<T> &point1  //!< Input point3 object
+        const point3<T> &point0, //!< Input object
+        const point3<T> &point1  //!< Input object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Class constructor
     segment3(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point3 object
-        const Eigen::Matrix<T, 3, 1> &point1  //!< Input point3 object
+        const Eigen::Matrix<T, 3, 1> &point0, //!< Input object
+        const Eigen::Matrix<T, 3, 1> &point1  //!< Input object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Equality operator
     inline segment3<T> &operator=(
-        const segment3<T> &input //!< Input segment3 object
+        const segment3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -176,7 +176,7 @@ namespace acme
 
     //! Translate line3 by vector3
     inline void translate(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
     {
       this->_point0.translate(input);
@@ -230,7 +230,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -239,7 +239,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line3<T> &input //!< Input vector3 object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -248,7 +248,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray3<T> &input //!< Input vector3 object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -257,7 +257,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane3<T> &input //!< Input vector3 object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -266,7 +266,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment3<T> &input //!< Input vector3 object
+        const segment3<T> &input //!< Input object
     )
         const
     {

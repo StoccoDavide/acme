@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |                   
-   |   _ __ __ _ _   _ 
-   |  | '__/ _` | | | |
-   |  | | | (_| | |_| |
-   |  |_|  \__,_|\__, |
-   |             |___/ 
+   |                   _____ 
+   |   _ __ __ _ _   _|___ / 
+   |  | '__/ _` | | | | |_ \ 
+   |  | | | (_| | |_| |___) |
+   |  |_|  \__,_|\__, |____/ 
+   |             |___/       
   \*/
 
   //! Ray class container
@@ -44,8 +44,8 @@ namespace acme
   class ray3 final
   {
   private:
-    point3<T> _origin;     //!< Origin point3
-    vector3<T> _direction; //!< Direction vector3
+    point3<T> _origin;     //!< Origin
+    vector3<T> _direction; //!< Direction
 
   public:
     //! Class destructor
@@ -71,7 +71,7 @@ namespace acme
 
     //! Class constructor
     ray3(
-        const point3<T> &origin,    //!< Input origin point3
+        const point3<T> &origin,    //!< Input origin
         const vector3<T> &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
@@ -79,7 +79,7 @@ namespace acme
 
     //! Class constructor
     ray3(
-        const Eigen::Matrix<T, 3, 1> &origin,   //!< Input origin point3
+        const Eigen::Matrix<T, 3, 1> &origin,   //!< Input origin
         const Eigen::Matrix<T, 3, 1> &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
@@ -102,7 +102,7 @@ namespace acme
       }
     }
 
-    //! Check if two ray3s are (exactly) equal
+    //! Check if two objects are (exactly) equal
     inline bool operator==(
         const ray3<T> &input //!< Input object
     )
@@ -110,7 +110,7 @@ namespace acme
       return this->origin() == input.origin() && this->direction() == input.direction();
     }
 
-    //! Check if two ray3s are (exactly) NOT equal
+    //! Check if two objects are (exactly) NOT equal
     inline bool operator!=(
         const ray3<T> &input //!< Input object
     )
@@ -118,7 +118,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two ray3s are (almost) equal
+    //! Check if two objects are (almost) equal
     inline bool is_equal(
         const ray3<T> &input //!< Input object
     )
@@ -127,7 +127,7 @@ namespace acme
       return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
     }
 
-    //! Check if ray3 is degenerated
+    //! Check if ray is degenerated
     inline bool is_degenerated(void)
         const
     {
@@ -148,7 +148,7 @@ namespace acme
 
     //! Set origin
     inline void origin(
-        const point3<T> &input //!< input point3 object
+        const point3<T> &input //!< input object
     )
     {
       this->_origin = input;
@@ -156,27 +156,27 @@ namespace acme
 
     //! Set direction
     inline void direction(
-        const vector3<T> &input //!< input vector3 object
+        const vector3<T> &input //!< input object
     )
     {
       this->_direction = input;
     }
 
     //! Convert to line3
-    inline const line3<T> &toLine(void) const
+    inline const line3<T> &toLine3void) const
     {
       return line3<T>(this);
     }
 
     //! Convert to plane3
-    inline const plane3<T> &toPlane(void) const
+    inline const plane3<T> &toPlane3(void) const
     {
       return plane3<T>(this);
     }
 
-    //! Translate line3 by vector3
+    //! Translate by vector
     inline void translate(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
     {
       this->_origin.translate(input);
@@ -229,7 +229,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -238,7 +238,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line3<T> &input //!< Input vector3 object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -247,7 +247,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray3<T> &input //!< Input vector3 object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -256,7 +256,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane3<T> &input //!< Input vector3 object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -265,7 +265,7 @@ namespace acme
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment3<T> &input //!< Input vector3 object
+        const segment3<T> &input //!< Input object
     )
         const
     {

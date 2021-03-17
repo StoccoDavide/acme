@@ -31,12 +31,12 @@ namespace acme
 {
 
   /*\
-   |   _               
-   |  | |__   _____  __
-   |  | '_ \ / _ \ \/ /
-   |  | |_) | (_) >  < 
-   |  |_.__/ \___/_/\_\
-   |                   
+   |   _               _____ 
+   |  | |__   _____  _|___ / 
+   |  | '_ \ / _ \ \/ / |_ \ 
+   |  | |_) | (_) >  < ___) |
+   |  |_.__/ \___/_/\_\____/ 
+   |                         
   \*/
 
   //! Box class container
@@ -59,28 +59,28 @@ namespace acme
 
     //! Class constructor
     box3(
-        const T &x0, //<! Input x value of first point3
-        const T &y0, //<! Input y value of first point3
-        const T &z0, //<! Input z value of first point3
-        const T &x1, //<! Input x value of second point3
-        const T &y1, //<! Input y value of second point3
-        const T &z1  //<! Input z value of second point3
+        const T &x0, //<! Input x value of first point
+        const T &y0, //<! Input y value of first point
+        const T &z0, //<! Input z value of first point
+        const T &x1, //<! Input x value of second point
+        const T &y1, //<! Input y value of second point
+        const T &z1  //<! Input z value of second point
         ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1))
     {
     }
 
     //! Class constructor
     box3(
-        const point3<T> &point0, //!< Input point3 object
-        const point3<T> &point1  //!< Input point3 object
+        const point3<T> &point0, //!< Input object
+        const point3<T> &point1  //!< Input object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Class constructor
     box3(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point3 object
-        const Eigen::Matrix<T, 3, 1> &point1  //!< Input point3 object
+        const Eigen::Matrix<T, 3, 1> &point0, //!< Input object
+        const Eigen::Matrix<T, 3, 1> &point1  //!< Input object
         ) : _point0(point0), _point1(point1)
     {
     }
@@ -134,10 +134,10 @@ namespace acme
       return acme::is_equal(_point0.distance(_point1), T(0.0));
     }
 
-    //! Get first point3
+    //! Get first point
     inline point3<T> &point_1(void) const { return this->_point1; }
 
-    //! Set first point3
+    //! Set first point
     inline void point_1(
         const point3<T> &input //!< Input object
     )
@@ -145,10 +145,10 @@ namespace acme
       this->_point1 = input;
     }
 
-    //! Get second point3
+    //! Get second point
     inline point3<T> &point_2(void) const { return this->_point2; }
 
-    //! Set second point3
+    //! Set second point
     inline void point_2(
         const point3<T> &input //!< Input object
     )
@@ -156,9 +156,9 @@ namespace acme
       this->_point2 = input;
     }
 
-    //! Translate line by vector3
+    //! Translate by vector
     inline void translate(
-        const vector3<T> &input //!< Input vector3 object
+        const vector3<T> &input //!< Input object
     )
     {
       this->_point0.translate(input);

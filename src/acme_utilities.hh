@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_acme_UTILTIES
-#define INCLUDE_acme_UTILTIES
+#ifndef INCLUDE_ACME_UTILTIES
+#define INCLUDE_ACME_UTILTIES
 
 #include <iostream>
 #include <iomanip>
@@ -33,10 +33,19 @@
 
 namespace acme
 {
+  /*\
+   |   _____ ____          _   _ _ _ _   _           
+   |  |___ /|  _ \   _   _| |_(_) (_) |_(_) ___  ___ 
+   |    |_ \| | | | | | | | __| | | | __| |/ _ \/ __|
+   |   ___) | |_| | | |_| | |_| | | | |_| |  __/\__ \
+   |  |____/|____/   \__,_|\__|_|_|_|\__|_|\___||___/
+   |                                                 
+  \*/
+
   //!< Stream out operator for point object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os,   //!< Output stream
+      std::ostream &os,    //!< Output stream
       const point3<T> &obj //!< Point object
   )
   {
@@ -50,7 +59,7 @@ namespace acme
   //!< Stream out operator for vector3 object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os,    //!< Output stream
+      std::ostream &os,     //!< Output stream
       const vector3<T> &obj //!< Vector object
   )
   {
@@ -64,7 +73,7 @@ namespace acme
   //!< Stream out operator for line object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os,  //!< Output stream
+      std::ostream &os,   //!< Output stream
       const line3<T> &obj //!< Line object
   )
   {
@@ -79,7 +88,7 @@ namespace acme
   //!< Stream out operator for ray object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os, //!< Output stream
+      std::ostream &os,  //!< Output stream
       const ray3<T> &obj //!< Ray object
   )
   {
@@ -94,7 +103,7 @@ namespace acme
   //!< Stream out operator
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os,   //!< Output stream
+      std::ostream &os,    //!< Output stream
       const plane3<T> &obj //!< Plane object
   )
   {
@@ -109,7 +118,7 @@ namespace acme
   //!< Stream out operator for segment object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os,     //!< Output stream
+      std::ostream &os,      //!< Output stream
       const segment3<T> &obj //!< Segment object
   )
   {
@@ -123,7 +132,7 @@ namespace acme
   //!< Stream out operator for box object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os, //!< Output stream
+      std::ostream &os,  //!< Output stream
       const box3<T> &obj //!< Box object
   )
   {
@@ -137,7 +146,7 @@ namespace acme
   //!< Stream out operator for triangle object
   template <typename T>
   inline std::ostream &operator<<(
-      std::ostream &os,      //!< Output stream
+      std::ostream &os,       //!< Output stream
       const triangle3<T> &obj //!< Triangle object
   )
   {
@@ -167,7 +176,6 @@ namespace acme
 } // namespace acme
 
 #endif
-
 
 ///
 /// eof: acme_utilities.hh
