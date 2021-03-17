@@ -35,7 +35,9 @@
 vscode
 
 # Folders
-doc/*
-doclatex/*
+doc/
+doclatex/
+build/
+bin/
 
 
