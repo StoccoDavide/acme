@@ -110,6 +110,13 @@ namespace ddd
       return this->_origin.is_equal(input._origin) && this->_normal.is_equal(input._normal);
     }
 
+    //! Check if plane is degenerated
+    inline bool is_degenerated(void)
+        const
+    {
+      return this->normal().is_degenerated();
+    }
+
     //! Return origin
     inline const point<T> &origin() const
     {
@@ -269,7 +276,7 @@ namespace ddd
     )
         const
     {
-      return this->_normal.angle(input.normal();
+      return this->_normal.angle(input.normal());
     }
 
     //! Angle between objects [rad]

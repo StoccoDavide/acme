@@ -111,6 +111,13 @@ namespace ddd
       return this->_origin.is_equal(input._origin) && this->_direction.is_equal(input._direction);
     }
 
+    //! Check if line is degenerated
+    inline bool is_degenerated(void)
+        const
+    {
+      return this->direction().is_degenerated();
+    }
+
     //! Return origin
     inline const point<T> &origin() const
     {
@@ -255,7 +262,7 @@ namespace ddd
     )
         const
     {
-      return input.angle(this));
+      return input.angle(this);
     }
 
     //! Angle between objects [rad]

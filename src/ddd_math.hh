@@ -198,15 +198,7 @@ namespace ddd
       const T &value1,                  //!< Input value 1
       const T &tolerance = Epsilon_High //!< High end bound
   );
-
-  //! Check if two elements are NOT almost equal
-  template <typename T>
-  inline T is_notequal(
-      const T &value0,                  //!< Input value 0
-      const T &value1,                  //!< Input value 1
-      const T &tolerance = Epsilon_High //!< High end bound
-  );
-
+  
   //! Get rotation on x-axis
   template <typename T>
   inline Eigen::Matrix<T, 3, 3> rotate_x(

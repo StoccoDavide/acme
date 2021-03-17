@@ -107,6 +107,13 @@ namespace ddd
       return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
     }
 
+    //! Check if ray is degenerated
+    inline bool is_degenerated(void)
+        const
+    {
+      return this->direction().is_degenerated();
+    }
+
     //! Return origin
     inline const point<T> &origin() const
     {

@@ -100,6 +100,13 @@ namespace ddd
       return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
     }
 
+    //! Check if vector is degenerated
+    inline bool is_degenerated(void)
+        const
+    {
+      return ddd::is_equal(this->_data.norm(), T(0.0));
+    }
+
     //! Addition operator
     inline vector<T> operator+(
         const vector<T> &input //!< Input object
@@ -273,7 +280,7 @@ namespace ddd
     )
         const
     {
-      return is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
+      return ddd::is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
     }
 
     //! Check if two objects are parallel
@@ -318,7 +325,7 @@ namespace ddd
     )
         const
     {
-      return is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
+      return ddd::is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
     }
 
     //! Check if two objects are parallel
@@ -378,7 +385,7 @@ namespace ddd
     )
         const
     {
-      return acos(this->_data.dot(input) / (this->norm() * input.norm()));
+      return ddd::acos(this->_data.dot(input) / (this->norm() * input.norm()));
     }
 
     //! Angle between vector and line [rad]

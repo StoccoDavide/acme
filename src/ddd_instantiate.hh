@@ -20,9 +20,9 @@ namespace ddd
   template <typename T>
   class rotation;
 
-  // Coordinate system class
+  // Coordinate frame class
   template <typename T>
-  class coord;
+  class frame;
 
   // Infinite objects classes (point/vector description)
   template <typename T>
@@ -42,15 +42,7 @@ namespace ddd
   template <typename T>
   class triangle;
 
-  // Finite objects classes (4 points)
-  template <typename T>
-  class quadix;
-
-  // Finite objects classes (1 point + real)
-  template <typename T>
-  class sphere;
-
-  // Finite objects classes (1 point + real + vector)
+  // Finite objects classes (1 real + 1 plane (center + normal))
   template <typename T>
   class circle;
 

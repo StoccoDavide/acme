@@ -114,15 +114,6 @@ namespace ddd
       return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
     }
 
-    //! Check if two rotations are (almost) NOT equal
-    inline bool is_notequal(
-        const rotation<T> &input //!< Input rotation object
-    )
-        const
-    {
-      return !(this->is_equal(input));
-    }
-
     //! Scalar product operator
     inline rotation<T> operator*(
         const T &input //!< Input scalar
@@ -245,13 +236,6 @@ namespace ddd
               this->y().is_unitary() &&
               this->z().is_unitary());
     }
-
-    //! Check if two rotation matrix is NOT othonormal
-    inline const bool is_notothonormal(void) const
-    {
-      return !(this->is_othonormal());
-    }
-
     //! Get transposed matrix
     inline Eigen::Matrix<T, 3, 3> transpose(void)
     {
