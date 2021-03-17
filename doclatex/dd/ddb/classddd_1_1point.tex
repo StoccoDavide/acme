@@ -25,6 +25,8 @@ Point class container.
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1point_a1f05ca364672341087e1a22b2298d649}{point} (const T \&\hyperlink{classddd_1_1point_af165c07ef348f3d795469b8b0918a3ba}{x}, const T \&\hyperlink{classddd_1_1point_a632f731dfcc4cc1693948d861cb7327d}{y}, const T \&\hyperlink{classddd_1_1point_aeb266a3811a70700ee7d52cacfdc0b9f}{z})
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1point_ae0acd00fddc0a7811466874cfcd1f5e4}{point} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1point_ae767e47c1a939d5e6d24b3f810f43170}{operator=} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1point_a98f8e8097257f053b85e1ee32352fda4}{operator==} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
@@ -33,8 +35,6 @@ bool \hyperlink{classddd_1_1point_a2567b8c3cd08d965e70033f3f4a8d3db}{operator!=}
 \begin{DoxyCompactList}\small\item\em Check if two points are (exactly) equal. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1point_aa4cdbbf16736ee09e840e33f77e94b8a}{is\+\_\+equal} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two points are (almost) equal. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1point_a3d2415605fc07e3e0ed54ad68e2ade92}{is\+\_\+notequal} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Check if two points are (almost) N\+OT equal. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1point}{point}$<$ T $>$ \hyperlink{classddd_1_1point_ab0b0c990b117bb889d34d44509b645be}{operator+} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Addition operator. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1point}{point}$<$ T $>$ \hyperlink{classddd_1_1point_a5621f5a883c88d5588e09f9ff0de6575}{operator-\/} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input) const
@@ -104,7 +104,7 @@ Class representing a point in 3D space. It is constructed by a 3 by 1 Eigen matr
 \mbox{\Hypertarget{classddd_1_1point_a0146118d518509e9e7cdf4fb6733eb48}\label{classddd_1_1point_a0146118d518509e9e7cdf4fb6733eb48}} 
 \index{ddd\+::point@{ddd\+::point}!point@{point}}
 \index{point@{point}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::\hyperlink{classddd_1_1point}{point} (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -120,7 +120,7 @@ Class constructor.
 \mbox{\Hypertarget{classddd_1_1point_a1f05ca364672341087e1a22b2298d649}\label{classddd_1_1point_a1f05ca364672341087e1a22b2298d649}} 
 \index{ddd\+::point@{ddd\+::point}!point@{point}}
 \index{point@{point}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::\hyperlink{classddd_1_1point}{point} (\begin{DoxyParamCaption}\item[{const T \&}]{x,  }\item[{const T \&}]{y,  }\item[{const T \&}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -135,6 +135,22 @@ Class constructor.
 {\em y} & Input y point value \\
 \hline
 {\em z} & Input z point value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1point_ae0acd00fddc0a7811466874cfcd1f5e4}\label{classddd_1_1point_ae0acd00fddc0a7811466874cfcd1f5e4}} 
+\index{ddd\+::point@{ddd\+::point}!point@{point}}
+\index{point@{point}!ddd\+::point@{ddd\+::point}}
+\subsubsection{\texorpdfstring{point()}{point()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::\hyperlink{classddd_1_1point}{point} (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input point \\
 \hline
 \end{DoxyParams}
 
@@ -198,22 +214,6 @@ bool \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::is\+\_\+equal (\beg
 
 
 Check if two points are (almost) equal. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em input} & Input point object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1point_a3d2415605fc07e3e0ed54ad68e2ade92}\label{classddd_1_1point_a3d2415605fc07e3e0ed54ad68e2ade92}} 
-\index{ddd\+::point@{ddd\+::point}!is\+\_\+notequal@{is\+\_\+notequal}}
-\index{is\+\_\+notequal@{is\+\_\+notequal}!ddd\+::point@{ddd\+::point}}
-\subsubsection{\texorpdfstring{is\+\_\+notequal()}{is\_notequal()}}
-{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1point}{ddd\+::point}$<$ T $>$\+::is\+\_\+notequal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Check if two points are (almost) N\+OT equal. 
 
 
 \begin{DoxyParams}{Parameters}

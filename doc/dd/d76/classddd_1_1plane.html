@@ -118,9 +118,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa1bb5a0628b0867a39f9484ec6e1f1df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#aa1bb5a0628b0867a39f9484ec6e1f1df">is_equal</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input) const</td></tr>
 <tr class="memdesc:aa1bb5a0628b0867a39f9484ec6e1f1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two planes are (almost) equal.  <a href="#aa1bb5a0628b0867a39f9484ec6e1f1df">More...</a><br /></td></tr>
 <tr class="separator:aa1bb5a0628b0867a39f9484ec6e1f1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319553f776b468860662c166c2a9790c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a319553f776b468860662c166c2a9790c">is_notequal</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input) const</td></tr>
-<tr class="memdesc:a319553f776b468860662c166c2a9790c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two planes are (almost) NOT equal.  <a href="#a319553f776b468860662c166c2a9790c">More...</a><br /></td></tr>
-<tr class="separator:a319553f776b468860662c166c2a9790c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6544379a0cbadf2015ad1cbda3427ecb"><td class="memItemLeft" align="right" valign="top"><a id="a6544379a0cbadf2015ad1cbda3427ecb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a6544379a0cbadf2015ad1cbda3427ecb">is_degenerated</a> (void) const</td></tr>
+<tr class="memdesc:a6544379a0cbadf2015ad1cbda3427ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if plane is degenerated. <br /></td></tr>
+<tr class="separator:a6544379a0cbadf2015ad1cbda3427ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a195c3b73a20a3b0a02040b79ada07"><td class="memItemLeft" align="right" valign="top"><a id="af6a195c3b73a20a3b0a02040b79ada07"></a>
 const <a class="el" href="../../dd/ddb/classddd_1_1point.html">point</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#af6a195c3b73a20a3b0a02040b79ada07">origin</a> () const</td></tr>
 <tr class="memdesc:af6a195c3b73a20a3b0a02040b79ada07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return origin. <br /></td></tr>
@@ -138,18 +139,39 @@ const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T
 <tr class="memitem:a452cbfa144468d3748b424b18f045c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a452cbfa144468d3748b424b18f045c24">translate</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input)</td></tr>
 <tr class="memdesc:a452cbfa144468d3748b424b18f045c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate line by vector.  <a href="#a452cbfa144468d3748b424b18f045c24">More...</a><br /></td></tr>
 <tr class="separator:a452cbfa144468d3748b424b18f045c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5aca29c531998c539cd8df3236e81d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#af5aca29c531998c539cd8df3236e81d7">is_parallel</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:af5aca29c531998c539cd8df3236e81d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are parallel.  <a href="#af5aca29c531998c539cd8df3236e81d7">More...</a><br /></td></tr>
+<tr class="separator:af5aca29c531998c539cd8df3236e81d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ebd469641fe441db7bf3ba67ea5e01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a07ebd469641fe441db7bf3ba67ea5e01">is_parallel</a> (const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a07ebd469641fe441db7bf3ba67ea5e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are parallel.  <a href="#a07ebd469641fe441db7bf3ba67ea5e01">More...</a><br /></td></tr>
+<tr class="separator:a07ebd469641fe441db7bf3ba67ea5e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29f6dd828983c11764422814a86559ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a29f6dd828983c11764422814a86559ed">is_parallel</a> (const <a class="el" href="../../d0/dc3/classddd_1_1ray.html">ray</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a29f6dd828983c11764422814a86559ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are parallel.  <a href="#a29f6dd828983c11764422814a86559ed">More...</a><br /></td></tr>
+<tr class="separator:a29f6dd828983c11764422814a86559ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af94adfd507e373307fea80b6c4061d80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#af94adfd507e373307fea80b6c4061d80">is_parallel</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input) const</td></tr>
 <tr class="memdesc:af94adfd507e373307fea80b6c4061d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are parallel.  <a href="#af94adfd507e373307fea80b6c4061d80">More...</a><br /></td></tr>
 <tr class="separator:af94adfd507e373307fea80b6c4061d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43d2c86ea24af8c084623632326f18a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a43d2c86ea24af8c084623632326f18a0">is_notparallel</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input) const</td></tr>
-<tr class="memdesc:a43d2c86ea24af8c084623632326f18a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are NOT parallel.  <a href="#a43d2c86ea24af8c084623632326f18a0">More...</a><br /></td></tr>
-<tr class="separator:a43d2c86ea24af8c084623632326f18a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4118eb93ecb24fcb6b76bfb22c10b451"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a4118eb93ecb24fcb6b76bfb22c10b451">is_parallel</a> (const <a class="el" href="../../d0/d66/classddd_1_1segment.html">segment</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a4118eb93ecb24fcb6b76bfb22c10b451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are parallel.  <a href="#a4118eb93ecb24fcb6b76bfb22c10b451">More...</a><br /></td></tr>
+<tr class="separator:a4118eb93ecb24fcb6b76bfb22c10b451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bea901b743fe8a941b1b6b89ad5f53e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a3bea901b743fe8a941b1b6b89ad5f53e">is_orthogonal</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a3bea901b743fe8a941b1b6b89ad5f53e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are orthogonal.  <a href="#a3bea901b743fe8a941b1b6b89ad5f53e">More...</a><br /></td></tr>
+<tr class="separator:a3bea901b743fe8a941b1b6b89ad5f53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9d52d43d074f00cc5f36d85bdc16b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a0a9d52d43d074f00cc5f36d85bdc16b1">is_orthogonal</a> (const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a0a9d52d43d074f00cc5f36d85bdc16b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are orthogonal.  <a href="#a0a9d52d43d074f00cc5f36d85bdc16b1">More...</a><br /></td></tr>
+<tr class="separator:a0a9d52d43d074f00cc5f36d85bdc16b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e96b3fc7db8468a01f487f0a03fbf5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#ab2e96b3fc7db8468a01f487f0a03fbf5">is_orthogonal</a> (const <a class="el" href="../../d0/dc3/classddd_1_1ray.html">ray</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:ab2e96b3fc7db8468a01f487f0a03fbf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are orthogonal.  <a href="#ab2e96b3fc7db8468a01f487f0a03fbf5">More...</a><br /></td></tr>
+<tr class="separator:ab2e96b3fc7db8468a01f487f0a03fbf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a385d3ae184ada014ea95e8139a0995d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a385d3ae184ada014ea95e8139a0995d0">is_orthogonal</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input) const</td></tr>
 <tr class="memdesc:a385d3ae184ada014ea95e8139a0995d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are orthogonal.  <a href="#a385d3ae184ada014ea95e8139a0995d0">More...</a><br /></td></tr>
 <tr class="separator:a385d3ae184ada014ea95e8139a0995d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81746ebaea1459d7b79b462c892b0937"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a81746ebaea1459d7b79b462c892b0937">is_notorthogonal</a> (const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;input) const</td></tr>
-<tr class="memdesc:a81746ebaea1459d7b79b462c892b0937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are NOT orthogonal.  <a href="#a81746ebaea1459d7b79b462c892b0937">More...</a><br /></td></tr>
-<tr class="separator:a81746ebaea1459d7b79b462c892b0937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a110e20cb229dd24588557dcc96b2d099"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a110e20cb229dd24588557dcc96b2d099">is_orthogonal</a> (const <a class="el" href="../../d0/d66/classddd_1_1segment.html">segment</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a110e20cb229dd24588557dcc96b2d099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two objects are orthogonal.  <a href="#a110e20cb229dd24588557dcc96b2d099">More...</a><br /></td></tr>
+<tr class="separator:a110e20cb229dd24588557dcc96b2d099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f91cce7fe6dc942c62311e4dfa10d9"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a07f91cce7fe6dc942c62311e4dfa10d9">angle</a> (const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;input) const</td></tr>
+<tr class="memdesc:a07f91cce7fe6dc942c62311e4dfa10d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle between objects [rad].  <a href="#a07f91cce7fe6dc942c62311e4dfa10d9">More...</a><br /></td></tr>
+<tr class="separator:a07f91cce7fe6dc942c62311e4dfa10d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5107cac34cbae7ff286f0b0e9a90c940"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d76/classddd_1_1plane.html#a5107cac34cbae7ff286f0b0e9a90c940">angle</a> (const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;input) const</td></tr>
 <tr class="memdesc:a5107cac34cbae7ff286f0b0e9a90c940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle between objects [rad].  <a href="#a5107cac34cbae7ff286f0b0e9a90c940">More...</a><br /></td></tr>
 <tr class="separator:a5107cac34cbae7ff286f0b0e9a90c940"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,8 +291,44 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a07f91cce7fe6dc942c62311e4dfa10d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f91cce7fe6dc942c62311e4dfa10d9">&#9670;&nbsp;</a></span>angle() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::angle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Angle between objects [rad]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5107cac34cbae7ff286f0b0e9a90c940"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5107cac34cbae7ff286f0b0e9a90c940">&#9670;&nbsp;</a></span>angle() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5107cac34cbae7ff286f0b0e9a90c940">&#9670;&nbsp;</a></span>angle() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +364,7 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <a id="a4e472e461308a96438c26b73b9338593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e472e461308a96438c26b73b9338593">&#9670;&nbsp;</a></span>angle() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e472e461308a96438c26b73b9338593">&#9670;&nbsp;</a></span>angle() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +400,7 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <a id="ae6f58f5c23ff49aa351f22ccccee46b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6f58f5c23ff49aa351f22ccccee46b6">&#9670;&nbsp;</a></span>angle() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f58f5c23ff49aa351f22ccccee46b6">&#9670;&nbsp;</a></span>angle() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +436,7 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <a id="a6a9a1c5fb177702ee67e330d803762ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a9a1c5fb177702ee67e330d803762ab">&#9670;&nbsp;</a></span>angle() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a9a1c5fb177702ee67e330d803762ab">&#9670;&nbsp;</a></span>angle() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -449,8 +507,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a319553f776b468860662c166c2a9790c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a319553f776b468860662c166c2a9790c">&#9670;&nbsp;</a></span>is_notequal()</h2>
+<a id="a3bea901b743fe8a941b1b6b89ad5f53e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bea901b743fe8a941b1b6b89ad5f53e">&#9670;&nbsp;</a></span>is_orthogonal() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -461,9 +519,9 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_notequal </td>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_orthogonal </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -475,7 +533,7 @@ template&lt;typename T = Float&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Check if two planes are (almost) NOT equal. </p>
+<p>Check if two objects are orthogonal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input vector object </td></tr>
@@ -485,8 +543,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a81746ebaea1459d7b79b462c892b0937"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81746ebaea1459d7b79b462c892b0937">&#9670;&nbsp;</a></span>is_notorthogonal()</h2>
+<a id="a0a9d52d43d074f00cc5f36d85bdc16b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9d52d43d074f00cc5f36d85bdc16b1">&#9670;&nbsp;</a></span>is_orthogonal() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,9 +555,9 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_notorthogonal </td>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_orthogonal </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -511,7 +569,7 @@ template&lt;typename T = Float&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Check if two objects are NOT orthogonal. </p>
+<p>Check if two objects are orthogonal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input vector object </td></tr>
@@ -521,8 +579,8 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
-<a id="a43d2c86ea24af8c084623632326f18a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43d2c86ea24af8c084623632326f18a0">&#9670;&nbsp;</a></span>is_notparallel()</h2>
+<a id="ab2e96b3fc7db8468a01f487f0a03fbf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e96b3fc7db8468a01f487f0a03fbf5">&#9670;&nbsp;</a></span>is_orthogonal() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -533,9 +591,9 @@ template&lt;typename T = Float&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_notparallel </td>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_orthogonal </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d0/dc3/classddd_1_1ray.html">ray</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -547,10 +605,10 @@ template&lt;typename T = Float&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Check if two objects are NOT parallel. </p>
+<p>Check if two objects are orthogonal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input object </td></tr>
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
   </table>
   </dd>
 </dl>
@@ -558,7 +616,7 @@ template&lt;typename T = Float&gt; </div>
 </div>
 </div>
 <a id="a385d3ae184ada014ea95e8139a0995d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a385d3ae184ada014ea95e8139a0995d0">&#9670;&nbsp;</a></span>is_orthogonal()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a385d3ae184ada014ea95e8139a0995d0">&#9670;&nbsp;</a></span>is_orthogonal() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -593,8 +651,152 @@ template&lt;typename T = Float&gt; </div>
 
 </div>
 </div>
+<a id="a110e20cb229dd24588557dcc96b2d099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110e20cb229dd24588557dcc96b2d099">&#9670;&nbsp;</a></span>is_orthogonal() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_orthogonal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d66/classddd_1_1segment.html">segment</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two objects are orthogonal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input vector object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5aca29c531998c539cd8df3236e81d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5aca29c531998c539cd8df3236e81d7">&#9670;&nbsp;</a></span>is_parallel() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_parallel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d27/classddd_1_1vector.html">vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two objects are parallel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a07ebd469641fe441db7bf3ba67ea5e01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ebd469641fe441db7bf3ba67ea5e01">&#9670;&nbsp;</a></span>is_parallel() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_parallel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d06/classddd_1_1line.html">line</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two objects are parallel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a29f6dd828983c11764422814a86559ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f6dd828983c11764422814a86559ed">&#9670;&nbsp;</a></span>is_parallel() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_parallel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/dc3/classddd_1_1ray.html">ray</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two objects are parallel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="af94adfd507e373307fea80b6c4061d80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af94adfd507e373307fea80b6c4061d80">&#9670;&nbsp;</a></span>is_parallel()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af94adfd507e373307fea80b6c4061d80">&#9670;&nbsp;</a></span>is_parallel() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -608,6 +810,42 @@ template&lt;typename T = Float&gt; </div>
           <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_parallel </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dd/d76/classddd_1_1plane.html">plane</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if two objects are parallel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4118eb93ecb24fcb6b76bfb22c10b451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4118eb93ecb24fcb6b76bfb22c10b451">&#9670;&nbsp;</a></span>is_parallel() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = Float&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d76/classddd_1_1plane.html">ddd::plane</a>&lt; T &gt;::is_parallel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d66/classddd_1_1segment.html">segment</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td> const</td>
         </tr>

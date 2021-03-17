@@ -118,9 +118,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="memitem:a3af65c771a81cd62655802ce3ee22614"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de3/classddd_1_1rotation.html#a3af65c771a81cd62655802ce3ee22614">is_equal</a> (const <a class="el" href="../../d4/de3/classddd_1_1rotation.html">rotation</a>&lt; T &gt; &amp;input) const</td></tr>
 <tr class="memdesc:a3af65c771a81cd62655802ce3ee22614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two rotations are (almost) equal.  <a href="#a3af65c771a81cd62655802ce3ee22614">More...</a><br /></td></tr>
 <tr class="separator:a3af65c771a81cd62655802ce3ee22614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1aba1ad41c7d09edce377bd5cb6efbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de3/classddd_1_1rotation.html#aa1aba1ad41c7d09edce377bd5cb6efbb">is_notequal</a> (const <a class="el" href="../../d4/de3/classddd_1_1rotation.html">rotation</a>&lt; T &gt; &amp;input) const</td></tr>
-<tr class="memdesc:aa1aba1ad41c7d09edce377bd5cb6efbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two rotations are (almost) NOT equal.  <a href="#aa1aba1ad41c7d09edce377bd5cb6efbb">More...</a><br /></td></tr>
-<tr class="separator:aa1aba1ad41c7d09edce377bd5cb6efbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aada9691ca7067feefd0a0206f8c8d035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/de3/classddd_1_1rotation.html">rotation</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de3/classddd_1_1rotation.html#aada9691ca7067feefd0a0206f8c8d035">operator*</a> (const T &amp;input)</td></tr>
 <tr class="memdesc:aada9691ca7067feefd0a0206f8c8d035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar product operator.  <a href="#aada9691ca7067feefd0a0206f8c8d035">More...</a><br /></td></tr>
 <tr class="separator:aada9691ca7067feefd0a0206f8c8d035"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,10 +174,6 @@ const Eigen::Matrix&lt; T, 3, 3 &gt; &amp;&#160;</td><td class="memItemRight" va
 const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de3/classddd_1_1rotation.html#a25fd7a4d0358a92c95b7369db99f542b">is_othonormal</a> (void) const</td></tr>
 <tr class="memdesc:a25fd7a4d0358a92c95b7369db99f542b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two rotation matrix is othonormal. <br /></td></tr>
 <tr class="separator:a25fd7a4d0358a92c95b7369db99f542b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b71f1f04257a2d519b0e5433d1ae4f3"><td class="memItemLeft" align="right" valign="top"><a id="a3b71f1f04257a2d519b0e5433d1ae4f3"></a>
-const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de3/classddd_1_1rotation.html#a3b71f1f04257a2d519b0e5433d1ae4f3">is_notothonormal</a> (void) const</td></tr>
-<tr class="memdesc:a3b71f1f04257a2d519b0e5433d1ae4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two rotation matrix is NOT othonormal. <br /></td></tr>
-<tr class="separator:a3b71f1f04257a2d519b0e5433d1ae4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae20ad2dde12f552e8ef032e9e02733cf"><td class="memItemLeft" align="right" valign="top"><a id="ae20ad2dde12f552e8ef032e9e02733cf"></a>
 Eigen::Matrix&lt; T, 3, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de3/classddd_1_1rotation.html#ae20ad2dde12f552e8ef032e9e02733cf">transpose</a> (void)</td></tr>
 <tr class="memdesc:ae20ad2dde12f552e8ef032e9e02733cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transposed matrix. <br /></td></tr>
@@ -368,42 +361,6 @@ template&lt;typename T  = Float&gt; </div>
 </div><div class="memdoc">
 
 <p>Check if two rotations are (almost) equal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>Input rotation object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa1aba1ad41c7d09edce377bd5cb6efbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1aba1ad41c7d09edce377bd5cb6efbb">&#9670;&nbsp;</a></span>is_notequal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T  = Float&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d4/de3/classddd_1_1rotation.html">ddd::rotation</a>&lt; T &gt;::is_notequal </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d4/de3/classddd_1_1rotation.html">rotation</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if two rotations are (almost) NOT equal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input rotation object </td></tr>

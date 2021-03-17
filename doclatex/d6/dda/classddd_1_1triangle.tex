@@ -12,26 +12,95 @@ Triangle class container.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}\label{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}} 
+\hyperlink{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}{$\sim$triangle} ()
+\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1triangle_a3f1ab930b26ec606d8979a9c191a2722}\label{classddd_1_1triangle_a3f1ab930b26ec606d8979a9c191a2722}} 
 \hyperlink{classddd_1_1triangle_a3f1ab930b26ec606d8979a9c191a2722}{triangle} (const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&)=default
 \begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a245e40512a611b62c33cc540ac0478ba}\label{classddd_1_1triangle_a245e40512a611b62c33cc540ac0478ba}} 
+\hyperlink{classddd_1_1triangle_a245e40512a611b62c33cc540ac0478ba}{triangle} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1triangle_ad19b3fc3d0a7997a6ab0400901743190}\label{classddd_1_1triangle_ad19b3fc3d0a7997a6ab0400901743190}} 
 \hyperlink{classddd_1_1triangle_ad19b3fc3d0a7997a6ab0400901743190}{triangle} (const T \&x0, const T \&y0, const T \&z0, const T \&x1, const T \&y1, const T \&z1, const T \&x2, const T \&y2, const T \&z2)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1triangle_afca480ce032f9e6ba7058c6817374ef8}{triangle} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point0, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point1, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&point2)
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}\label{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}} 
-\hyperlink{classddd_1_1triangle_ae17a51e842e44cfb3061bdca7e64bc11}{$\sim$triangle} ()
-\begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
-\hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a4bda6c1640652c41dff136e5b468789c}{operator=} (const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&\hyperlink{classddd_1_1triangle}{triangle})
+\hyperlink{classddd_1_1triangle_a897fbeb1dde322cd30991eb89c645daf}{triangle} (const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&point0, const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&point1, const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&point2)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a6f8b514ac16be9c700105484f0d8b6b1}{operator=} (const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
-\hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_afa3078cf85103598c7967644de4d2dc1}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index)
-\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
-const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_aad15ef95a744f9177a0424c3c27afe72}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&index) const
-\begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1triangle_ae40fd95c96248e2b415858bee33a844e}\label{classddd_1_1triangle_ae40fd95c96248e2b415858bee33a844e}} 
-std\+::size\+\_\+t \hyperlink{classddd_1_1triangle_ae40fd95c96248e2b415858bee33a844e}{size} () const
-\begin{DoxyCompactList}\small\item\em Return triangle entity size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \hyperlink{classddd_1_1triangle_abc6795d1b802b4386c84047386d7b0c7}{operator==} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Check if two rays are (exactly) equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_af23c4691bc10de121a1873d4740068fd}{operator!=} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Check if two rays are (exactly) N\+OT equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_a10426bd9554b5f885775394f90a46851}{is\+\_\+equal} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two rays are (almost) equal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a9715f8f90cba08549ee91b29552cbfab}\label{classddd_1_1triangle_a9715f8f90cba08549ee91b29552cbfab}} 
+bool \hyperlink{classddd_1_1triangle_a9715f8f90cba08549ee91b29552cbfab}{is\+\_\+degenerated} (void) const
+\begin{DoxyCompactList}\small\item\em Check if triangle is degenerated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a90187bc680868485f09b073757770324}\label{classddd_1_1triangle_a90187bc680868485f09b073757770324}} 
+\hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a90187bc680868485f09b073757770324}{point\+\_\+1} (void) const
+\begin{DoxyCompactList}\small\item\em Get first point. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1triangle_af8c30b97314cd78877330b80e2139612}{point\+\_\+1} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set first point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_ad7480c02553761f0fbb7ccd5310eb98b}\label{classddd_1_1triangle_ad7480c02553761f0fbb7ccd5310eb98b}} 
+\hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_ad7480c02553761f0fbb7ccd5310eb98b}{point\+\_\+2} (void) const
+\begin{DoxyCompactList}\small\item\em Get second point. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1triangle_a700e0229138322947ad2c0e4c57c285d}{point\+\_\+2} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set second point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a70f56db3d1c602c93615701c9302adaa}\label{classddd_1_1triangle_a70f56db3d1c602c93615701c9302adaa}} 
+\hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a70f56db3d1c602c93615701c9302adaa}{point\+\_\+3} (void) const
+\begin{DoxyCompactList}\small\item\em Get third point. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1triangle_a3256c2d4f7c6bcc571de9743b4e536e7}{point\+\_\+3} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set third point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a305f3bc2ab0c875b734869d7f3a7d5b9}\label{classddd_1_1triangle_a305f3bc2ab0c875b734869d7f3a7d5b9}} 
+\hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a305f3bc2ab0c875b734869d7f3a7d5b9}{edge\+\_\+1} (void) const
+\begin{DoxyCompactList}\small\item\em Get first edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a17963443fa01b119843857f718eac112}\label{classddd_1_1triangle_a17963443fa01b119843857f718eac112}} 
+\hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a17963443fa01b119843857f718eac112}{edge\+\_\+2} (void) const
+\begin{DoxyCompactList}\small\item\em Get second edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_ad59fa6ccce745b9062f7b4f6ba46a137}\label{classddd_1_1triangle_ad59fa6ccce745b9062f7b4f6ba46a137}} 
+\hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_ad59fa6ccce745b9062f7b4f6ba46a137}{edge\+\_\+3} (void) const
+\begin{DoxyCompactList}\small\item\em Get third edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a1a45e08178b427aec00868271f664273}\label{classddd_1_1triangle_a1a45e08178b427aec00868271f664273}} 
+\hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \& \hyperlink{classddd_1_1triangle_a1a45e08178b427aec00868271f664273}{normal} (void) const
+\begin{DoxyCompactList}\small\item\em Get triangle normal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1triangle_a3e933880daa0317e2f5a1a6fa702b0dc}\label{classddd_1_1triangle_a3e933880daa0317e2f5a1a6fa702b0dc}} 
+Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \& \hyperlink{classddd_1_1triangle_a3e933880daa0317e2f5a1a6fa702b0dc}{normal\+Eigen} (void) const
+\begin{DoxyCompactList}\small\item\em Get triangle normal. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1triangle_a8f763fc90af4be50a284ad99020bb746}{translate} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Translate line by vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_ad12c87bf60bd5754643a430e3849332e}{is\+\_\+parallel} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_a49f8deab2e4e94b563f92a9c8d752fe8}{is\+\_\+parallel} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_af3ef3664c5607056410abc1138e51f8f}{is\+\_\+parallel} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_af3ba7a91cfe813cadb2dac7f6d47cb99}{is\+\_\+parallel} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_a7f8fcee75b7b053c7f62bbf7cdc759cb}{is\+\_\+parallel} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_a6b750dcea35f2baf2e8a331d66a7fbe0}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_a69185916f0406188b4dbb7890d75ef65}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_ac0a2b1a3f58cee686599c681bb955d92}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_ab165278d21b58f2dde0c7cec255cdff0}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1triangle_a8be06a2c15e540723e277fc5ab131143}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1triangle_a4ef530c1ffcdafb0a0dfeb74c02dc890}{angle} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1triangle_a98946234d7e985c3a22f74467e7c4467}{angle} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1triangle_a47d6182945cca395be1b9f6f387694b9}{angle} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1triangle_a0500bf1ca10c82a24b6d61ade86b1f19}{angle} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1triangle_afcb7c775aada1ae8b396742d0f36ac51}{angle} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -44,7 +113,7 @@ Triangle class container.
 \mbox{\Hypertarget{classddd_1_1triangle_afca480ce032f9e6ba7058c6817374ef8}\label{classddd_1_1triangle_afca480ce032f9e6ba7058c6817374ef8}} 
 \index{ddd\+::triangle@{ddd\+::triangle}!triangle@{triangle}}
 \index{triangle@{triangle}!ddd\+::triangle@{ddd\+::triangle}}
-\subsubsection{\texorpdfstring{triangle()}{triangle()}}
+\subsubsection{\texorpdfstring{triangle()}{triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::\hyperlink{classddd_1_1triangle}{triangle} (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point0,  }\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point1,  }\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{point2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -54,22 +123,314 @@ Class constructor.
 
 
 \begin{DoxyParams}{Parameters}
-{\em point0} & Input ND point 0 \\
+{\em point0} & Input point object \\
 \hline
-{\em point1} & Input ND point 1 \\
+{\em point1} & Input point object \\
 \hline
-{\em point2} & Input ND point 2 \\
+{\em point2} & Input point object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a897fbeb1dde322cd30991eb89c645daf}\label{classddd_1_1triangle_a897fbeb1dde322cd30991eb89c645daf}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!triangle@{triangle}}
+\index{triangle@{triangle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{triangle()}{triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::\hyperlink{classddd_1_1triangle}{triangle} (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&}]{point0,  }\item[{const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&}]{point1,  }\item[{const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&}]{point2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point0} & Input point object \\
+\hline
+{\em point1} & Input point object \\
+\hline
+{\em point2} & Input point object \\
 \hline
 \end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classddd_1_1triangle_a4bda6c1640652c41dff136e5b468789c}\label{classddd_1_1triangle_a4bda6c1640652c41dff136e5b468789c}} 
+\mbox{\Hypertarget{classddd_1_1triangle_a4ef530c1ffcdafb0a0dfeb74c02dc890}\label{classddd_1_1triangle_a4ef530c1ffcdafb0a0dfeb74c02dc890}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!angle@{angle}}
+\index{angle@{angle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a98946234d7e985c3a22f74467e7c4467}\label{classddd_1_1triangle_a98946234d7e985c3a22f74467e7c4467}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!angle@{angle}}
+\index{angle@{angle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a47d6182945cca395be1b9f6f387694b9}\label{classddd_1_1triangle_a47d6182945cca395be1b9f6f387694b9}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!angle@{angle}}
+\index{angle@{angle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a0500bf1ca10c82a24b6d61ade86b1f19}\label{classddd_1_1triangle_a0500bf1ca10c82a24b6d61ade86b1f19}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!angle@{angle}}
+\index{angle@{angle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_afcb7c775aada1ae8b396742d0f36ac51}\label{classddd_1_1triangle_afcb7c775aada1ae8b396742d0f36ac51}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!angle@{angle}}
+\index{angle@{angle}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a10426bd9554b5f885775394f90a46851}\label{classddd_1_1triangle_a10426bd9554b5f885775394f90a46851}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+equal@{is\+\_\+equal}}
+\index{is\+\_\+equal@{is\+\_\+equal}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+equal()}{is\_equal()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two rays are (almost) equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a6b750dcea35f2baf2e8a331d66a7fbe0}\label{classddd_1_1triangle_a6b750dcea35f2baf2e8a331d66a7fbe0}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a69185916f0406188b4dbb7890d75ef65}\label{classddd_1_1triangle_a69185916f0406188b4dbb7890d75ef65}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_ac0a2b1a3f58cee686599c681bb955d92}\label{classddd_1_1triangle_ac0a2b1a3f58cee686599c681bb955d92}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_ab165278d21b58f2dde0c7cec255cdff0}\label{classddd_1_1triangle_ab165278d21b58f2dde0c7cec255cdff0}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a8be06a2c15e540723e277fc5ab131143}\label{classddd_1_1triangle_a8be06a2c15e540723e277fc5ab131143}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_ad12c87bf60bd5754643a430e3849332e}\label{classddd_1_1triangle_ad12c87bf60bd5754643a430e3849332e}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a49f8deab2e4e94b563f92a9c8d752fe8}\label{classddd_1_1triangle_a49f8deab2e4e94b563f92a9c8d752fe8}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_af3ef3664c5607056410abc1138e51f8f}\label{classddd_1_1triangle_af3ef3664c5607056410abc1138e51f8f}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_af3ba7a91cfe813cadb2dac7f6d47cb99}\label{classddd_1_1triangle_af3ba7a91cfe813cadb2dac7f6d47cb99}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a7f8fcee75b7b053c7f62bbf7cdc759cb}\label{classddd_1_1triangle_a7f8fcee75b7b053c7f62bbf7cdc759cb}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_af23c4691bc10de121a1873d4740068fd}\label{classddd_1_1triangle_af23c4691bc10de121a1873d4740068fd}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two rays are (exactly) N\+OT equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a6f8b514ac16be9c700105484f0d8b6b1}\label{classddd_1_1triangle_a6f8b514ac16be9c700105484f0d8b6b1}} 
 \index{ddd\+::triangle@{ddd\+::triangle}!operator=@{operator=}}
 \index{operator=@{operator=}!ddd\+::triangle@{ddd\+::triangle}}
 \subsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-\hyperlink{classddd_1_1triangle}{triangle}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&}]{triangle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\hyperlink{classddd_1_1triangle}{triangle}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -77,39 +438,87 @@ Equality operator.
 
 
 \begin{DoxyParams}{Parameters}
-{\em triangle} & Input ND triangle \\
+{\em input} & Input segment object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1triangle_afa3078cf85103598c7967644de4d2dc1}\label{classddd_1_1triangle_afa3078cf85103598c7967644de4d2dc1}} 
-\index{ddd\+::triangle@{ddd\+::triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
-\index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::triangle@{ddd\+::triangle}}
-\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\mbox{\Hypertarget{classddd_1_1triangle_abc6795d1b802b4386c84047386d7b0c7}\label{classddd_1_1triangle_abc6795d1b802b4386c84047386d7b0c7}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!operator==@{operator==}}
+\index{operator==@{operator==}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-\hyperlink{classddd_1_1point}{point}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+bool \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Indexing operator. 
+Check if two rays are (exactly) equal. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Input index \\
+{\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1triangle_aad15ef95a744f9177a0424c3c27afe72}\label{classddd_1_1triangle_aad15ef95a744f9177a0424c3c27afe72}} 
-\index{ddd\+::triangle@{ddd\+::triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
-\index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::triangle@{ddd\+::triangle}}
-\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\mbox{\Hypertarget{classddd_1_1triangle_af8c30b97314cd78877330b80e2139612}\label{classddd_1_1triangle_af8c30b97314cd78877330b80e2139612}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!point\+\_\+1@{point\+\_\+1}}
+\index{point\+\_\+1@{point\+\_\+1}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{point\+\_\+1()}{point\_1()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const \hyperlink{classddd_1_1point}{point}$<$T$>$\& \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+void \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::point\+\_\+1 (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Indexing operator. 
+Set first point. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & Input index \\
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a700e0229138322947ad2c0e4c57c285d}\label{classddd_1_1triangle_a700e0229138322947ad2c0e4c57c285d}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!point\+\_\+2@{point\+\_\+2}}
+\index{point\+\_\+2@{point\+\_\+2}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{point\+\_\+2()}{point\_2()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+void \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::point\+\_\+2 (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set second point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a3256c2d4f7c6bcc571de9743b4e536e7}\label{classddd_1_1triangle_a3256c2d4f7c6bcc571de9743b4e536e7}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!point\+\_\+3@{point\+\_\+3}}
+\index{point\+\_\+3@{point\+\_\+3}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{point\+\_\+3()}{point\_3()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+void \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::point\+\_\+3 (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set third point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1triangle_a8f763fc90af4be50a284ad99020bb746}\label{classddd_1_1triangle_a8f763fc90af4be50a284ad99020bb746}} 
+\index{ddd\+::triangle@{ddd\+::triangle}!translate@{translate}}
+\index{translate@{translate}!ddd\+::triangle@{ddd\+::triangle}}
+\subsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+void \hyperlink{classddd_1_1triangle}{ddd\+::triangle}$<$ T $>$\+::translate (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Translate line by vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
 \hline
 \end{DoxyParams}
 

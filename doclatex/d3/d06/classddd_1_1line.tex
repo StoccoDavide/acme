@@ -36,8 +36,9 @@ bool \hyperlink{classddd_1_1line_a1ff398ce69c656f9f51fc307f0753d10}{operator!=} 
 \begin{DoxyCompactList}\small\item\em Check if two lines are (exactly) N\+OT equal. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1line_aecc0993bff268ebf77fb77665ad003a6}{is\+\_\+equal} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two lines are (almost) equal. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1line_addea61f32ab9aad4abf390bea633fd3c}{is\+\_\+notequal} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Check if two lines are (almost) N\+OT equal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1line_a27dd2c4d6a8abc7c101581357fcb17be}\label{classddd_1_1line_a27dd2c4d6a8abc7c101581357fcb17be}} 
+bool \hyperlink{classddd_1_1line_a27dd2c4d6a8abc7c101581357fcb17be}{is\+\_\+degenerated} (void) const
+\begin{DoxyCompactList}\small\item\em Check if line is degenerated. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1line_a229e71bc976e64ac6129d14113a0d529}\label{classddd_1_1line_a229e71bc976e64ac6129d14113a0d529}} 
 const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1line_a229e71bc976e64ac6129d14113a0d529}{origin} () const
 \begin{DoxyCompactList}\small\item\em Return origin. \end{DoxyCompactList}\item 
@@ -56,14 +57,28 @@ const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \& \hyperlink{classddd_1_1li
 \begin{DoxyCompactList}\small\item\em Convert to plane. \end{DoxyCompactList}\item 
 void \hyperlink{classddd_1_1line_a46e5ed85d7fe38fc3d4d4755b3f23568}{translate} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Translate line by vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a9a299f9e7241572177826969d96fefe6}{is\+\_\+parallel} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1line_aba281798b6743c8bbab01df3613325ac}{is\+\_\+parallel} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1line_a1cbafdf3998cbf4e154b272c29357124}{is\+\_\+notparallel} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Check if two objects are N\+OT parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a57ddc03fe8add135eac64eeb88c3c5b8}{is\+\_\+parallel} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_affec7d381a8b3f3ce9786412893da61e}{is\+\_\+parallel} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a2226c26de0134fda0458ade612626c10}{is\+\_\+parallel} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a23122dec472048c57ee610ee76ddc6db}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1line_a31170f8f74362954dc35ae189ba64984}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1line_a123c95c4ec684dc8b56fff2f9b9f4ac1}{is\+\_\+notorthogonal} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Check if two objects are N\+OT orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a3f836658151a55ad7f88dce40a975c3a}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a52b6c5a1d0ca010c109d98e43ea43427}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1line_a2ddfad009ef1e253b854bfecaa7f759c}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1line_a467a7bb3964141ec5e84f4187cdf4099}{angle} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
 const T \& \hyperlink{classddd_1_1line_a3ce8f1109a657e646d0c334b19c79f53}{angle} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
 const T \& \hyperlink{classddd_1_1line_a0d122a300125cbce9b756ed55977c5eb}{angle} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
@@ -125,10 +140,26 @@ Class constructor.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classddd_1_1line_a467a7bb3964141ec5e84f4187cdf4099}\label{classddd_1_1line_a467a7bb3964141ec5e84f4187cdf4099}} 
+\index{ddd\+::line@{ddd\+::line}!angle@{angle}}
+\index{angle@{angle}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1line_a3ce8f1109a657e646d0c334b19c79f53}\label{classddd_1_1line_a3ce8f1109a657e646d0c334b19c79f53}} 
 \index{ddd\+::line@{ddd\+::line}!angle@{angle}}
 \index{angle@{angle}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 const T\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -144,7 +175,7 @@ Angle between objects \mbox{[}rad\mbox{]}.
 \mbox{\Hypertarget{classddd_1_1line_a0d122a300125cbce9b756ed55977c5eb}\label{classddd_1_1line_a0d122a300125cbce9b756ed55977c5eb}} 
 \index{ddd\+::line@{ddd\+::line}!angle@{angle}}
 \index{angle@{angle}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 const T\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -160,7 +191,7 @@ Angle between objects \mbox{[}rad\mbox{]}.
 \mbox{\Hypertarget{classddd_1_1line_a3f7bf21d9f2338f9cc5538b6269ff603}\label{classddd_1_1line_a3f7bf21d9f2338f9cc5538b6269ff603}} 
 \index{ddd\+::line@{ddd\+::line}!angle@{angle}}
 \index{angle@{angle}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 const T\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -176,7 +207,7 @@ Angle between objects \mbox{[}rad\mbox{]}.
 \mbox{\Hypertarget{classddd_1_1line_a2dff36dabec19d440e5e8069cfe830df}\label{classddd_1_1line_a2dff36dabec19d440e5e8069cfe830df}} 
 \index{ddd\+::line@{ddd\+::line}!angle@{angle}}
 \index{angle@{angle}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 const T\& \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -221,58 +252,26 @@ Check if two lines are (almost) equal.
 {\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1line_addea61f32ab9aad4abf390bea633fd3c}\label{classddd_1_1line_addea61f32ab9aad4abf390bea633fd3c}} 
-\index{ddd\+::line@{ddd\+::line}!is\+\_\+notequal@{is\+\_\+notequal}}
-\index{is\+\_\+notequal@{is\+\_\+notequal}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{is\+\_\+notequal()}{is\_notequal()}}
+\mbox{\Hypertarget{classddd_1_1line_a23122dec472048c57ee610ee76ddc6db}\label{classddd_1_1line_a23122dec472048c57ee610ee76ddc6db}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+notequal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Check if two lines are (almost) N\+OT equal. 
+Check if two objects are orthogonal. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em input} & Input vector object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1line_a123c95c4ec684dc8b56fff2f9b9f4ac1}\label{classddd_1_1line_a123c95c4ec684dc8b56fff2f9b9f4ac1}} 
-\index{ddd\+::line@{ddd\+::line}!is\+\_\+notorthogonal@{is\+\_\+notorthogonal}}
-\index{is\+\_\+notorthogonal@{is\+\_\+notorthogonal}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{is\+\_\+notorthogonal()}{is\_notorthogonal()}}
-{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+notorthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Check if two objects are N\+OT orthogonal. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em input} & Input vector object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1line_a1cbafdf3998cbf4e154b272c29357124}\label{classddd_1_1line_a1cbafdf3998cbf4e154b272c29357124}} 
-\index{ddd\+::line@{ddd\+::line}!is\+\_\+notparallel@{is\+\_\+notparallel}}
-\index{is\+\_\+notparallel@{is\+\_\+notparallel}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{is\+\_\+notparallel()}{is\_notparallel()}}
-{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+notparallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Check if two objects are N\+OT parallel. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em input} & Input object \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1line_a31170f8f74362954dc35ae189ba64984}\label{classddd_1_1line_a31170f8f74362954dc35ae189ba64984}} 
 \index{ddd\+::line@{ddd\+::line}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
 \index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -285,12 +284,124 @@ Check if two objects are orthogonal.
 {\em input} & Input vector object \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a3f836658151a55ad7f88dce40a975c3a}\label{classddd_1_1line_a3f836658151a55ad7f88dce40a975c3a}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a52b6c5a1d0ca010c109d98e43ea43427}\label{classddd_1_1line_a52b6c5a1d0ca010c109d98e43ea43427}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a2ddfad009ef1e253b854bfecaa7f759c}\label{classddd_1_1line_a2ddfad009ef1e253b854bfecaa7f759c}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
+\index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are orthogonal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a9a299f9e7241572177826969d96fefe6}\label{classddd_1_1line_a9a299f9e7241572177826969d96fefe6}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1line_aba281798b6743c8bbab01df3613325ac}\label{classddd_1_1line_aba281798b6743c8bbab01df3613325ac}} 
 \index{ddd\+::line@{ddd\+::line}!is\+\_\+parallel@{is\+\_\+parallel}}
 \index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::line@{ddd\+::line}}
-\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a57ddc03fe8add135eac64eeb88c3c5b8}\label{classddd_1_1line_a57ddc03fe8add135eac64eeb88c3c5b8}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_affec7d381a8b3f3ce9786412893da61e}\label{classddd_1_1line_affec7d381a8b3f3ce9786412893da61e}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two objects are parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1line_a2226c26de0134fda0458ade612626c10}\label{classddd_1_1line_a2226c26de0134fda0458ade612626c10}} 
+\index{ddd\+::line@{ddd\+::line}!is\+\_\+parallel@{is\+\_\+parallel}}
+\index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::line@{ddd\+::line}}
+\subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1line}{ddd\+::line}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

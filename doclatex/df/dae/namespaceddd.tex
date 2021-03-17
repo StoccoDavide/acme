@@ -1,5 +1,10 @@
 \hypertarget{namespaceddd}{}\section{ddd Namespace Reference}
 \label{namespaceddd}\index{ddd@{ddd}}
+
+
+Namepaces containing all 3d objects classes and routines.  
+
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -7,7 +12,7 @@ class \hyperlink{classddd_1_1box}{box}
 \begin{DoxyCompactList}\small\item\em Box class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1circle}{circle}
 \item 
-class \hyperlink{classddd_1_1coord}{coord}
+class \hyperlink{classddd_1_1frame}{frame}
 \item 
 class \hyperlink{classddd_1_1line}{line}
 \begin{DoxyCompactList}\small\item\em Line class container. \end{DoxyCompactList}\item 
@@ -15,8 +20,6 @@ class \hyperlink{classddd_1_1plane}{plane}
 \begin{DoxyCompactList}\small\item\em Plane class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1point}{point}
 \begin{DoxyCompactList}\small\item\em Point class container. \end{DoxyCompactList}\item 
-class \hyperlink{classddd_1_1quadix}{quadix}
-\begin{DoxyCompactList}\small\item\em Quadix class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1ray}{ray}
 \begin{DoxyCompactList}\small\item\em Ray class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1rotation}{rotation}
@@ -87,8 +90,6 @@ typedef int \hyperlink{namespaceddd_a50ea76e2b817cc6c6b4539c7f3c4bdad}{Int}
 \begin{DoxyCompactList}\small\item\em Clamp function (returns the input value bounded between low and high values) \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a7d68733d32a94776596a8e213ae9fcdf}{is\+\_\+equal} (const T \&value0, const T \&value1, const T \&tolerance=Epsilon\+\_\+\+High)
 \begin{DoxyCompactList}\small\item\em Check if two elements are almost equal. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}{is\+\_\+notequal} (const T \&value0, const T \&value1, const T \&tolerance=Epsilon\+\_\+\+High)
-\begin{DoxyCompactList}\small\item\em Check if two elements are N\+OT almost equal. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{namespaceddd_ad45c0a592c1aebe03fc48a0c57d52641}{rotate\+\_\+x} (const T \&input)
 \begin{DoxyCompactList}\small\item\em Get rotation on x-\/axis. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{namespaceddd_a91c74ff16a602f1f611759e2e9f594f3}{rotate\+\_\+y} (const T \&input)
@@ -120,30 +121,32 @@ typedef int \hyperlink{namespaceddd_a50ea76e2b817cc6c6b4539c7f3c4bdad}{Int}
 \begin{DoxyCompactList}\small\item\em Stream out operator for triangle object. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a3a6f828f85e4fa306f0d950f1aab4f64}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em Stream out operator. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1quadix}{quadix}$<$ T $>$ \&obj)
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}{operator$<$$<$} (std\+::ostream \&os, const quadix$<$ T $>$ \&obj)
 \item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a64dbb41c0ee377eb528907f3448514f6}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1sphere}{sphere}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em $<$ Stream out operator \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Namepaces containing all 3d objects classes and routines. 
+
 file\+: ddd.\+cc
 
 file\+: \hyperlink{ddd_8hh_source}{ddd.\+hh}
 
 file\+: \hyperlink{ddd__box_8hh_source}{ddd\+\_\+box.\+hh}
 
-file\+: ddd\+\_\+sphere.\+hh
+file\+: \hyperlink{ddd__circle_8hh_source}{ddd\+\_\+circle.\+hh}
 
 file\+: \hyperlink{ddd__instantiate_8hh_source}{ddd\+\_\+instantiate.\+hh}
 
 file\+: \hyperlink{ddd__line_8hh_source}{ddd\+\_\+line.\+hh}
 
+file\+: ddd\+\_\+math.\+inl
+
 file\+: \hyperlink{ddd__plane_8hh_source}{ddd\+\_\+plane.\+hh}
 
 file\+: \hyperlink{ddd__point_8hh_source}{ddd\+\_\+point.\+hh}
-
-file\+: \hyperlink{ddd__quadix_8hh_source}{ddd\+\_\+quadix.\+hh}
 
 file\+: \hyperlink{ddd__ray_8hh_source}{ddd\+\_\+ray.\+hh}
 
@@ -151,7 +154,11 @@ file\+: \hyperlink{ddd__rotation_8hh_source}{ddd\+\_\+rotation.\+hh}
 
 file\+: \hyperlink{ddd__segment_8hh_source}{ddd\+\_\+segment.\+hh}
 
-file\+: \hyperlink{ddd__triangle_8hh_source}{ddd\+\_\+triangle.\+hh} 
+file\+: \hyperlink{ddd__triangle_8hh_source}{ddd\+\_\+triangle.\+hh}
+
+file\+: \hyperlink{ddd__utilities_8hh_source}{ddd\+\_\+utilities.\+hh}
+
+file\+: \hyperlink{ddd__vector_8hh_source}{ddd\+\_\+vector.\+hh} 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespaceddd_a9ac20d4240d0a9fa208e3dd220101a0a}\label{namespaceddd_a9ac20d4240d0a9fa208e3dd220101a0a}} 
@@ -298,26 +305,6 @@ T ddd\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\i
 
 
 Check if two elements are almost equal. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em value0} & Input value 0 \\
-\hline
-{\em value1} & Input value 1 \\
-\hline
-{\em tolerance} & High end bound \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}\label{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}} 
-\index{ddd@{ddd}!is\+\_\+notequal@{is\+\_\+notequal}}
-\index{is\+\_\+notequal@{is\+\_\+notequal}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{is\+\_\+notequal()}{is\_notequal()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-T ddd\+::is\+\_\+notequal (\begin{DoxyParamCaption}\item[{const T \&}]{value0,  }\item[{const T \&}]{value1,  }\item[{const T \&}]{tolerance = {\ttfamily Epsilon\+\_\+High} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Check if two elements are N\+OT almost equal. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -553,7 +540,7 @@ Stream out operator.
 \index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
 \subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1quadix}{quadix}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const quadix$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 \begin{DoxyParams}{Parameters}

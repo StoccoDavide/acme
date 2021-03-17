@@ -36,8 +36,6 @@ bool \hyperlink{classddd_1_1rotation_abfeae27a919ada418d2cdcce96e5e08d}{operator
 \begin{DoxyCompactList}\small\item\em Check if two rotations are (exactly) equal. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1rotation_a3af65c771a81cd62655802ce3ee22614}{is\+\_\+equal} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two rotations are (almost) equal. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1rotation_aa1aba1ad41c7d09edce377bd5cb6efbb}{is\+\_\+notequal} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Check if two rotations are (almost) N\+OT equal. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \hyperlink{classddd_1_1rotation_aada9691ca7067feefd0a0206f8c8d035}{operator$\ast$} (const T \&input)
 \begin{DoxyCompactList}\small\item\em Scalar product operator. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \hyperlink{classddd_1_1rotation_ac95799a9a25f9653d39ab3339b8085b7}{operator/} (const T \&input)
@@ -77,9 +75,6 @@ void \hyperlink{classddd_1_1rotation_af70341fadd500946c111eb750e4865a5}{data} (c
 \mbox{\Hypertarget{classddd_1_1rotation_a25fd7a4d0358a92c95b7369db99f542b}\label{classddd_1_1rotation_a25fd7a4d0358a92c95b7369db99f542b}} 
 const bool \hyperlink{classddd_1_1rotation_a25fd7a4d0358a92c95b7369db99f542b}{is\+\_\+othonormal} (void) const
 \begin{DoxyCompactList}\small\item\em Check if two rotation matrix is othonormal. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1rotation_a3b71f1f04257a2d519b0e5433d1ae4f3}\label{classddd_1_1rotation_a3b71f1f04257a2d519b0e5433d1ae4f3}} 
-const bool \hyperlink{classddd_1_1rotation_a3b71f1f04257a2d519b0e5433d1ae4f3}{is\+\_\+notothonormal} (void) const
-\begin{DoxyCompactList}\small\item\em Check if two rotation matrix is N\+OT othonormal. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1rotation_ae20ad2dde12f552e8ef032e9e02733cf}\label{classddd_1_1rotation_ae20ad2dde12f552e8ef032e9e02733cf}} 
 Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{classddd_1_1rotation_ae20ad2dde12f552e8ef032e9e02733cf}{transpose} (void)
 \begin{DoxyCompactList}\small\item\em Get transposed matrix. \end{DoxyCompactList}\item 
@@ -174,22 +169,6 @@ bool \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::is\+\_\+equal
 
 
 Check if two rotations are (almost) equal. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em input} & Input rotation object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1rotation_aa1aba1ad41c7d09edce377bd5cb6efbb}\label{classddd_1_1rotation_aa1aba1ad41c7d09edce377bd5cb6efbb}} 
-\index{ddd\+::rotation@{ddd\+::rotation}!is\+\_\+notequal@{is\+\_\+notequal}}
-\index{is\+\_\+notequal@{is\+\_\+notequal}!ddd\+::rotation@{ddd\+::rotation}}
-\subsubsection{\texorpdfstring{is\+\_\+notequal()}{is\_notequal()}}
-{\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-bool \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::is\+\_\+notequal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Check if two rotations are (almost) N\+OT equal. 
 
 
 \begin{DoxyParams}{Parameters}

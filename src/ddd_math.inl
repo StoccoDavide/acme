@@ -1,3 +1,27 @@
+///
+/// file: ddd_math.inl
+///
+
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ddd computational geometry library                              *)
+(*                                                                     *)
+(* Release Version 0.0.0                                               *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
+(*                                                                     *)
+(* The ddd computational geometry library and its components are       *)
+(* supplied under the terms of the open source MIT License.            *)
+(* The contents of the ddd computational geometry library and its      *)
+(* components may not be copied or disclosed except in accordance with *)
+(* the terms of the MIT License.                                       *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/MIT                            *)
+(*                                                                     *)
+(***********************************************************************)
+*/
+
 #include "ddd_math.hh"
 
 namespace ddd
@@ -190,17 +214,6 @@ namespace ddd
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   template <typename T>
-  inline T is_notequal(
-      const T &value0,
-      const T &value1,
-      const T &tolerance)
-  {
-    return !is_equal(value0, value1, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  template <typename T>
   inline const Eigen::Matrix<T, 3, 3> &rotation_x(
       const T &input)
   {
@@ -234,3 +247,7 @@ namespace ddd
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace ddd
+
+///
+/// eof: ddd_math.inl
+///
