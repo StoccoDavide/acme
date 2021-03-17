@@ -1,19 +1,19 @@
 ///
-/// file: ddd.cc
+/// file: acme.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,13 +22,41 @@
 (***********************************************************************)
 */
 
-#include "ddd.hh"
+#ifndef INCLUDE_ACME
+#define INCLUDE_ACME
 
-namespace ddd
+#include <Eigen/Dense>
+#include <cstddef>
+#include <limits>
+#include <algorithm>
+#include <iterator>
+#include <vector>
+#include <cassert>
+
+#include "acme_instantiate.hh"
+#include "acme_math.hh"
+
+#include "acme_point3.hh"
+#include "acme_vector3.hh"
+
+#include "acme_line3.hh"
+#include "acme_ray3.hh"
+#include "acme_plane3.hh"
+
+#include "acme_segment3.hh"
+#include "acme_box3.hh"
+#include "acme_triangle3.hh"
+#include "acme_circle3.hh"
+
+
+//! Namepaces containing all objects classes and routines
+namespace acme
 {
 
-} // namespace ddd
+} // namespace acme
+
+#endif
 
 ///
-/// eof: ddd.cc
+/// eof: acme.hh
 ///

@@ -1,19 +1,19 @@
 ///
-/// file: ddd_box.hh
+/// file: acme_box.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_BOX
-#define INCLUDE_DDD_BOX
+#ifndef INCLUDE_ACME_BOX3
+#define INCLUDE_ACME_BOX3
 
-#include "ddd_point.hh"
+#include "acme_point3.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -41,53 +41,53 @@ namespace ddd
 
   //! Box class container
   template <typename T = Float>
-  class box
+  class box3
   {
   private:
-    point<T> _point0; //!< Point 0
-    point<T> _point1; //!< Point 1
+    point3<T> _point0; //!< Point 0
+    point3<T> _point1; //!< Point 1
 
   public:
     //! Class destructor
-    ~box() {}
+    ~box3() {}
 
     //! Copy constructor
-    box(const box<T> &) = default;
+    box3(const box3<T> &) = default;
 
     //! Class constructor
-    box() {}
+    box3() {}
 
     //! Class constructor
-    box(
-        const T &x0, //<! Input x value of first point
-        const T &y0, //<! Input y value of first point
-        const T &z0, //<! Input z value of first point
-        const T &x1, //<! Input x value of second point
-        const T &y1, //<! Input y value of second point
-        const T &z1  //<! Input z value of second point
-        ) : _point0(point<T>(x0, y0, z0)), _point1(point<T>(x1, y1, z1))
+    box3(
+        const T &x0, //<! Input x value of first point3
+        const T &y0, //<! Input y value of first point3
+        const T &z0, //<! Input z value of first point3
+        const T &x1, //<! Input x value of second point3
+        const T &y1, //<! Input y value of second point3
+        const T &z1  //<! Input z value of second point3
+        ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1))
     {
     }
 
     //! Class constructor
-    box(
-        const point<T> &point0, //!< Input point object
-        const point<T> &point1  //!< Input point object
+    box3(
+        const point3<T> &point0, //!< Input point3 object
+        const point3<T> &point1  //!< Input point3 object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Class constructor
-    box(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point object
-        const Eigen::Matrix<T, 3, 1> &point1  //!< Input point object
+    box3(
+        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point3 object
+        const Eigen::Matrix<T, 3, 1> &point1  //!< Input point3 object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Equality operator
-    inline box<T> &operator=(
-        const box<T> &input //!< Input object
+    inline box3<T> &operator=(
+        const box3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -104,7 +104,7 @@ namespace ddd
 
     //! Check if two objects are (exactly) equal
     inline bool operator==(
-        const box<T> &input //!< Input object
+        const box3<T> &input //!< Input object
     )
     {
       return this->_point0 == input._point0 && this->_point1 == input._point1;
@@ -112,7 +112,7 @@ namespace ddd
 
     //! Check if two objects are (exactly) NOT equal
     inline bool operator!=(
-        const box<T> &input //!< Input object
+        const box3<T> &input //!< Input object
     )
     {
       return !(this == input);
@@ -120,45 +120,45 @@ namespace ddd
 
     //! Check if two objects are (almost) equal
     inline bool is_equal(
-        const se<T> &input //!< Input object
+        const box3<T> &input //!< Input object
     )
         const
     {
       return this->_point0.is_equal(input._point0) && this->_point1.is_equal(input._point1);
     }
 
-    //! Check if box is degenerated
+    //! Check if box3 is degenerated
     inline bool is_degenerated(void)
         const
     {
-      return ddd::is_equal(_point0.distance(_point1), T(0.0));
+      return acme::is_equal(_point0.distance(_point1), T(0.0));
     }
 
-    //! Get first point
-    inline point<T> &point_1(void) const { return this->_point1; }
+    //! Get first point3
+    inline point3<T> &point_1(void) const { return this->_point1; }
 
-    //! Set first point
+    //! Set first point3
     inline void point_1(
-        const point<T> &input //!< Input object
+        const point3<T> &input //!< Input object
     )
     {
       this->_point1 = input;
     }
 
-    //! Get second point
-    inline point<T> &point_2(void) const { return this->_point2; }
+    //! Get second point3
+    inline point3<T> &point_2(void) const { return this->_point2; }
 
-    //! Set second point
+    //! Set second point3
     inline void point_2(
-        const point<T> &input //!< Input object
+        const point3<T> &input //!< Input object
     )
     {
       this->_point2 = input;
     }
 
-    //! Translate line by vector
+    //! Translate line by vector3
     inline void translate(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
     {
       this->_point0.translate(input);
@@ -167,10 +167,10 @@ namespace ddd
 
   };
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_box.hh
+/// eof: acme_box.hh
 ///

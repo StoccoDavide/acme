@@ -1,19 +1,19 @@
 ///
-/// file: ddd_vector.hh
+/// file: acme_vector3.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_VECTOR
-#define INCLUDE_DDD_VECTOR
+#ifndef INCLUDE_ACME_VECTOR3
+#define INCLUDE_ACME_VECTOR3
 
-#include "ddd_math.hh"
+#include "acme_math.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -41,49 +41,49 @@ namespace ddd
 
   //! Vector class container
   /*!
-  Class representing a vector in 3D space. It is constructed by
+  Class representing a vector3 in 3D space. It is constructed by
   a 3 by 1 Eigen matrix.
   */
   template <typename T = Float>
-  class vector final
+  class vector3 final
   {
   private:
-    Eigen::Matrix<T, 3, 1> _data; //!< Data as Eigen 3x1 column vector
+    Eigen::Matrix<T, 3, 1> _data; //!< Data as Eigen 3x1 column vector3
 
   public:
     //! Class destructor
-    ~vector() {}
+    ~vector3() {}
 
     //! Copy constructor
-    vector(const vector<T> &) = default;
+    vector3(const vector3<T> &) = default;
 
     //! Class constructor
-    vector() { this->clear(); }
+    vector3() { this->clear(); }
 
     //! Class constructor
-    vector(
+    vector3(
         const Eigen::Matrix<T, 3, 1> &data //!< Input data
         ) : _data(data)
     {
     }
 
     //! Class constructor
-    vector(
-        const T &x, //!< Input x vector value
-        const T &y, //!< Input y vector value
-        const T &z  //!< Input z vector value
+    vector3(
+        const T &x, //!< Input x vector3 value
+        const T &y, //!< Input y vector3 value
+        const T &z  //!< Input z vector3 value
         ) : _data(Eigen::Matrix<T, 3, 1>(x, y, z))
     {
     }
 
     //! Class constructor
-    vector(
-        const point<T> &input //!< Input point
+    vector3(
+        const point3<T> &input //!< Input object
         ) : _data(input.data()){};
 
     //! Equality operator
-    inline vector<T> &operator=(
-        const vector<T> &input //!< Input object
+    inline vector3<T> &operator=(
+        const vector3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -97,72 +97,72 @@ namespace ddd
       }
     }
 
-    //! Check if two vectors are (exactly) equal
+    //! Check if two vector3s are (exactly) equal
     inline bool operator==(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
       return this->data() == input.data();
     }
 
-    //! Check if two vectors are (exactly) equal
+    //! Check if two vector3s are (exactly) equal
     inline bool operator!=(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
       return !(this == input);
     }
 
-    //! Check if two vectors are (almost) equal
+    //! Check if two vector3s are (almost) equal
     inline bool is_equal(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
         const
     {
-      return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
+      return acme::is_equal((this->data() - input.data()).norm(), T(0.0));
     }
 
-    //! Check if vector is degenerated
+    //! Check if vector3 is degenerated
     inline bool is_degenerated(void)
         const
     {
-      return ddd::is_equal(this->_data.norm(), T(0.0));
+      return acme::is_equal(this->_data.norm(), T(0.0));
     }
 
     //! Addition operator
-    inline vector<T> operator+(
-        const vector<T> &input //!< Input object
+    inline vector3<T> operator+(
+        const vector3<T> &input //!< Input object
     )
         const
     {
-      return vector<T>(this->data() + input.data());
+      return vector3<T>(this->data() + input.data());
     }
 
     //! Subtraction operator
-    inline vector<T> operator-(
-        const vector<T> &input //!< Input object
+    inline vector3<T> operator-(
+        const vector3<T> &input //!< Input object
     )
         const
     {
-      return vector<T>(this->data() - input.data());
+      return vector3<T>(this->data() - input.data());
     }
 
     //! Scalar product operator
-    inline vector<T> operator*(
+    inline vector3<T> operator*(
         const T &input //!< Input scalar
     )
     {
-      return vector<T>(this->data() * input);
+      return vector3<T>(this->data() * input);
     }
 
     //! Scalar division operator
-    inline vector<T> operator/(
+    inline vector3<T> operator/(
         const T &input //!< Input scalar
     )
     {
-      return vector<T>(this->data() / input);
+      return vector3<T>(this->data() / input);
     }
 
     //! Clear data
@@ -198,9 +198,9 @@ namespace ddd
     }
 
     //! Convert to point
-    inline const point<T> toPoint(void)
+    inline const point3<T> toPoint3(void)
     {
-      return point<T>(this);
+      return point3<T>(this);
     }
 
     //! Get x coordinate
@@ -259,8 +259,8 @@ namespace ddd
       return this->_data.norm();
     }
 
-    //! Return normalized vector
-    inline const vector<T> normalized()
+    //! Return normalized vector3
+    inline const vector3<T> normalized()
         const
     {
       return this->_data.normalized();
@@ -268,7 +268,7 @@ namespace ddd
 
     //! Addition function
     inline void add(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
     {
       this->data(this->_data + input._data);
@@ -276,49 +276,40 @@ namespace ddd
 
     //! Subtraction function
     inline void subtract(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
     {
       this->data(this->_data - input._data);
     }
 
     //! Dot product function
-    inline const vector<T> dot(
-        const vector<T> &input //!< Input object
+    inline const vector3<T> dot(
+        const vector3<T> &input //!< Input object
     )
     {
-      return vector<T>(this->_data->dot(input._data));
+      return vector3<T>(this->_data->dot(input._data));
     }
 
     //! Cross product function
-    inline const vector<T> cross(
-        const vector<T> &input //!< Input object
+    inline const vector3<T> cross(
+        const vector3<T> &input //!< Input object
     )
     {
-      return vector<T>(this->_data->cross(input._data));
+      return vector3<T>(this->_data->cross(input._data));
     }
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const vector<T> &input //!< Input object
-    )
-        const
-    {
-      return ddd::is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
-    }
-
-    //! Check if two objects are parallel
-    inline bool is_parallel(
-        const line<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
-      return this->is_parallel(input.direction());
+      return acme::is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
     }
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const ray<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -327,7 +318,16 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const plane<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
+    )
+        const
+    {
+      return this->is_parallel(input.direction());
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -336,7 +336,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -345,16 +345,16 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
-      return ddd::is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
+      return acme::is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
     }
 
     //! Check if two objects are parallel
     inline bool is_orthogonal(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -363,7 +363,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_orthogonal(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -372,88 +372,88 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_orthogonal(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
       return this->is_orthogonal(input.toVector());
     }
 
-    //! Check if vector has unitary norm
+    //! Check if vector3 has unitary norm
     inline bool is_unitary(void) const
     {
       return is_equal(this->norm() - 1.0, 0.0);
     }
 
-    //! Get an arbitrary vector, orthogonal to the current vector
-    inline const vector<T> &orthogonalVector(void)
+    //! Get an arbitrary vector3, orthogonal to the current vector3
+    inline const vector3<T> &orthogonalVector(void)
         const
     {
       if (abs(this->x()) <= abs(this->y()) && abs(this->x()) <= abs(this->z()))
       {
-        return new vector<T>(0, this->z(), -this->y());
+        return new vector3<T>(0, this->z(), -this->y());
       }
       else if (abs(this->y()) <= abs(this->x()) && abs(this->y()) <= abs(this->z()))
       {
-        return new vector<T>(this->z(), 0, -this->x());
+        return new vector3<T>(this->z(), 0, -this->x());
       }
       else
       {
-        return new vector<T>(this->y(), -this->x(), 0);
+        return new vector3<T>(this->y(), -this->x(), 0);
       }
     }
 
-    //! Angle between two vectors [rad]
+    //! Angle between two vector3s [rad]
     inline const T &angle(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
-      return ddd::acos(this->_data.dot(input) / (this->norm() * input.norm()));
+      return acme::acos(this->_data.dot(input) / (this->norm() * input.norm()));
     }
 
-    //! Angle between vector and line [rad]
+    //! Angle between vector3 and line3 [rad]
     inline const T &angle(
-        const line<T> &input //!< Input object
-    )
-        const
-    {
-      return this->angle(input.direction());
-    }
-
-    //! Angle between vector and ray [rad]
-    inline const T &angle(
-        const ray<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
       return this->angle(input.direction());
     }
 
-    //! Angle between vector and plane [rad]
+    //! Angle between vector3 and ray3 [rad]
     inline const T &angle(
-        const plane<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
+    )
+        const
+    {
+      return this->angle(input.direction());
+    }
+
+    //! Angle between vector3 and plane [rad]
+    inline const T &angle(
+        const plane3<T> &input //!< Input object
     )
         const
     {
       return this->angle(input.direction()) - PI / 2.0;
     }
 
-    //! Angle between vector and segment [rad]
+    //! Angle between vector3 and segment [rad]
     inline const T &angle(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
       return this->angle(input.toVector());
     }
 
-  }; // class vector
+  }; // class vector3
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_vector.hh
+/// eof: acme_vector3.hh
 ///

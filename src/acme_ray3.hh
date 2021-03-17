@@ -1,19 +1,19 @@
 ///
-/// file: ddd_ray.hh
+/// file: acme_ray3.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_RAY
-#define INCLUDE_DDD_RAY
+#ifndef INCLUDE_ACME_RAY3
+#define INCLUDE_ACME_RAY3
 
-#include "ddd.hh"
+#include "acme.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -41,53 +41,53 @@ namespace ddd
 
   //! Ray class container
   template <typename T = Float>
-  class ray final
+  class ray3 final
   {
   private:
-    point<T> _origin;     //!< Origin point
-    vector<T> _direction; //!< Direction vector
+    point3<T> _origin;     //!< Origin point3
+    vector3<T> _direction; //!< Direction vector3
 
   public:
     //! Class destructor
-    ~ray() {}
+    ~ray3() {}
 
     //! Class constructor
-    ray() {}
+    ray3() {}
 
     //! Copy constructor
-    ray(const ray<T> &) = default;
+    ray3(const ray3<T> &) = default;
 
-    //! Class constructor for ray
-    ray(
+    //! Class constructor for ray3
+    ray3(
         const T &ox, //<! Input x origin value
         const T &oy, //<! Input y origin value
         const T &oz, //<! Input z origin value
         const T &dx, //<! Input x direction value
         const T &dy, //<! Input y direction value
         const T &dz  //<! Input z direction value
-        ) : _origin(point<T>(ox, oy, oz)), _direction(vector<T>(dx, dy, dz))
+        ) : _origin(point3<T>(ox, oy, oz)), _direction(vector3<T>(dx, dy, dz))
     {
     }
 
     //! Class constructor
-    ray(
-        const point<T> &origin,    //!< Input origin point
-        const vector<T> &direction //!< Input direction
+    ray3(
+        const point3<T> &origin,    //!< Input origin point3
+        const vector3<T> &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
     }
 
     //! Class constructor
-    ray(
-        const Eigen::Matrix<T, 3, 1> &origin,   //!< Input origin point
+    ray3(
+        const Eigen::Matrix<T, 3, 1> &origin,   //!< Input origin point3
         const Eigen::Matrix<T, 3, 1> &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
     }
 
     //! Equality operator
-    inline ray<T> &operator=(
-        const ray<T> &input //!< Input object
+    inline ray3<T> &operator=(
+        const ray3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -102,32 +102,32 @@ namespace ddd
       }
     }
 
-    //! Check if two rays are (exactly) equal
+    //! Check if two ray3s are (exactly) equal
     inline bool operator==(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
     {
       return this->origin() == input.origin() && this->direction() == input.direction();
     }
 
-    //! Check if two rays are (exactly) NOT equal
+    //! Check if two ray3s are (exactly) NOT equal
     inline bool operator!=(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
     {
       return !(this == input);
     }
 
-    //! Check if two rays are (almost) equal
+    //! Check if two ray3s are (almost) equal
     inline bool is_equal(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
       return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
     }
 
-    //! Check if ray is degenerated
+    //! Check if ray3 is degenerated
     inline bool is_degenerated(void)
         const
     {
@@ -135,20 +135,20 @@ namespace ddd
     }
 
     //! Return origin
-    inline const point<T> &origin() const
+    inline const point3<T> &origin() const
     {
       return this->_origin;
     }
 
     //! Return direction
-    inline const vector<T> &direction() const
+    inline const vector3<T> &direction() const
     {
       return this->_direction;
     }
 
     //! Set origin
     inline void origin(
-        const point<T> &input //!< input point object
+        const point3<T> &input //!< input point3 object
     )
     {
       this->_origin = input;
@@ -156,27 +156,27 @@ namespace ddd
 
     //! Set direction
     inline void direction(
-        const vector<T> &input //!< input vector object
+        const vector3<T> &input //!< input vector3 object
     )
     {
       this->_direction = input;
     }
 
-    //! Convert to line
-    inline const line<T> &toLine(void) const
+    //! Convert to line3
+    inline const line3<T> &toLine(void) const
     {
-      return line<T>(this);
+      return line3<T>(this);
     }
 
-    //! Convert to plane
-    inline const plane<T> &toPlane(void) const
+    //! Convert to plane3
+    inline const plane3<T> &toPlane(void) const
     {
-      return plane<T>(this);
+      return plane3<T>(this);
     }
 
-    //! Translate line by vector
+    //! Translate line3 by vector3
     inline void translate(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
     {
       this->_origin.translate(input);
@@ -184,7 +184,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -193,7 +193,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const line<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -202,7 +202,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -211,7 +211,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -220,7 +220,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -229,7 +229,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -238,7 +238,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line<T> &input //!< Input vector object
+        const line3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -247,7 +247,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray<T> &input //!< Input vector object
+        const ray3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -256,7 +256,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane<T> &input //!< Input vector object
+        const plane3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -265,7 +265,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment<T> &input //!< Input vector object
+        const segment3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -274,7 +274,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -283,7 +283,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const line<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -292,7 +292,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -301,7 +301,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -310,7 +310,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -321,10 +321,10 @@ namespace ddd
     inline void reverse(void) { this->_direction = -this->_direction; }
   };
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_ray.hh
+/// eof: acme_ray3.hh
 ///

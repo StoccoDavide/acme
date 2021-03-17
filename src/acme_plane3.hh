@@ -1,19 +1,19 @@
 ///
-/// file: ddd_plane.hh
+/// file: acme_plane3.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_PLANE
-#define INCLUDE_DDD_PLANE
+#ifndef INCLUDE_ACME_PLANE3
+#define INCLUDE_ACME_PLANE3
 
-#include "ddd.hh"
+#include "acme.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -41,56 +41,56 @@ namespace ddd
 
   //! Plane class container
   /*!
-  3D plane defined by arbitrary point on the plane and a normal vector.
+  3D plane3 defined by arbitrary point3 on the plane3 and a normal vector3.
   */
   template <typename T = Float>
-  class plane final
+  class plane3 final
   {
   private:
-    point<T> _origin;  //!< Origin point
-    vector<T> _normal; //!< Normal vector
+    point3<T> _origin;  //!< Origin point3
+    vector3<T> _normal; //!< Normal vector3
 
   public:
     //! Class destructor
-    ~plane() {}
+    ~plane3() {}
 
     //! Class constructor
-    plane() {}
+    plane3() {}
 
     //! Copy constructor
-    plane(const plane<T> &) = default;
+    plane3(const plane3<T> &) = default;
 
-    //! Class constructor for plane
-    plane(
+    //! Class constructor for plane3
+    plane3(
         const T &ox, //<! Input x origin value
         const T &oy, //<! Input y origin value
         const T &oz, //<! Input z origin value
         const T &dx, //<! Input x normal value
         const T &dy, //<! Input y normal value
         const T &dz  //<! Input z normal value
-        ) : _origin(point<T>(ox, oy, oz)), _normal(vector<T>(dx, dy, dz))
+        ) : _origin(point3<T>(ox, oy, oz)), _normal(vector3<T>(dx, dy, dz))
     {
     }
 
     //! Class constructor
-    plane(
-        const point<T> &origin, //!< Input origin point
-        const vector<T> &normal //!< Input normal
+    plane3(
+        const point3<T> &origin, //!< Input origin point3
+        const vector3<T> &normal //!< Input normal
         ) : _origin(origin), _normal(normal)
     {
     }
 
     //! Class constructor
-    plane(
-        const Eigen::Matrix<T, 3, 1> &origin, //!< Input origin point
+    plane3(
+        const Eigen::Matrix<T, 3, 1> &origin, //!< Input origin point3
         const Eigen::Matrix<T, 3, 1> &normal  //!< Input direction
         ) : _origin(origin), _normal(normal)
     {
     }
 
     //! Equality operator
-    inline plane<T> &operator=(
-        const plane<T> &input //!< Input object
+    inline plane3<T> &operator=(
+        const plane3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -105,32 +105,32 @@ namespace ddd
       }
     }
 
-    //! Check if two planes are (exactly) equal
+    //! Check if two plane3s are (exactly) equal
     inline bool operator==(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
     {
       return this->_origin == input._origin && this->_normal == input._normal;
     }
 
-    //! Check if two planes are (exactly) NOT equal
+    //! Check if two plane3s are (exactly) NOT equal
     inline bool operator!=(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
     {
       return !(this == input);
     }
 
-    //! Check if two planes are (almost) equal
+    //! Check if two plane3s are (almost) equal
     inline bool is_equal(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
       return this->_origin.is_equal(input._origin) && this->_normal.is_equal(input._normal);
     }
 
-    //! Check if plane is degenerated
+    //! Check if plane3 is degenerated
     inline bool is_degenerated(void)
         const
     {
@@ -138,20 +138,20 @@ namespace ddd
     }
 
     //! Return origin
-    inline const point<T> &origin() const
+    inline const point3<T> &origin() const
     {
       return this->_origin;
     }
 
     //! Return normal
-    inline const vector<T> &normal() const
+    inline const vector3<T> &normal() const
     {
       return this->_normal;
     }
 
     //! Set origin
     inline void origin(
-        const point<T> &input //!< input point object
+        const point3<T> &input //!< input point3 object
     )
     {
       this->_origin = input;
@@ -159,15 +159,15 @@ namespace ddd
 
     //! Set normal
     inline void normal(
-        const vector<T> &input //!< input vector object
+        const vector3<T> &input //!< input vector3 object
     )
     {
       this->_normal = input;
     }
 
-    //! Translate line by vector
+    //! Translate line3 by vector3
     inline void translate(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
     {
       this->_origin.translate(input);
@@ -175,7 +175,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -184,7 +184,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const line<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -193,7 +193,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -202,7 +202,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -211,7 +211,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -220,7 +220,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -229,7 +229,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line<T> &input //!< Input vector object
+        const line3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -238,7 +238,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray<T> &input //!< Input vector object
+        const ray3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -247,7 +247,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane<T> &input //!< Input vector object
+        const plane3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -256,7 +256,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment<T> &input //!< Input vector object
+        const segment3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -265,7 +265,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -274,7 +274,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const line<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -283,7 +283,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -292,7 +292,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -301,7 +301,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -312,10 +312,10 @@ namespace ddd
     inline void reverse(void) { this->_normal = -this->_normal; }
   };
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_plane.hh
+/// eof: acme_plane3.hh
 ///

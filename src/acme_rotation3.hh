@@ -1,19 +1,19 @@
 ///
-/// file: ddd_rotation.hh
+/// file: acme_rotation3.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                              *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are       *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its      *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_ROTATION
-#define INCLUDE_DDD_ROTATION
+#ifndef INCLUDE_ACME_ROTATION3
+#define INCLUDE_ACME_ROTATION3
 
-#include "ddd_math.hh"
+#include "acme_math.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -41,27 +41,27 @@ namespace ddd
 
   //! Rotation class container
   /*!
-  Class representing a rotation in 3D space. It is constructed by
+  Class representing a rotation3 in 3D space. It is constructed by
   a 3 by 3 Eigen matrix.
   */
   template <typename T = Float>
-  class rotation final
+  class rotation3 final
   {
   private:
     Eigen::Matrix<T, 3, 3> _data; //!< Data as Eigen 3 by 3 matrix
 
   public:
     //! Class destructor
-    ~rotation() {}
+    ~rotation3() {}
 
     //! Copy constructor
-    rotation(const rotation<T> &) = default;
+    rotation3(const rotation3<T> &) = default;
 
     //! Class constructor
-    rotation() { this->clear(); }
+    rotation3() { this->clear(); }
 
     //! Class constructor
-    rotation(
+    rotation3(
         const Eigen::Matrix<T, 3, 3> &data //!< Input data
     )
     {
@@ -69,10 +69,10 @@ namespace ddd
     }
 
     //! Class constructor
-    rotation(
-        const vector<T> &x, //!< Input x vector value
-        const vector<T> &y, //!< Input y vector value
-        const vector<T> &z  //!< Input z vector value
+    rotation3(
+        const vector3<T> &x, //!< Input x vector3 value
+        const vector3<T> &y, //!< Input y vector3 value
+        const vector3<T> &z  //!< Input z vector3 value
     )
     {
       this->_data[0] = x;
@@ -94,8 +94,8 @@ namespace ddd
     }
 
     //! Equality operator
-    inline rotation<T> &operator=(
-        const rotation<T> &input //!< Input object
+    inline rotation3<T> &operator=(
+        const rotation3<T> &input //!< Input object
     )
     {
       if (this == &input)
@@ -109,70 +109,70 @@ namespace ddd
       }
     }
 
-    //! Check if two rotations are (exactly) equal
+    //! Check if two rotation3s are (exactly) equal
     inline bool operator==(
-        const rotation<T> &input //!< Input object
+        const rotation3<T> &input //!< Input object
     )
     {
       return this->data() == input.data();
     }
 
-    //! Check if two rotations are (exactly) equal
+    //! Check if two rotation3s are (exactly) equal
     inline bool operator!=(
-        const rotation<T> &input //!< Input object
+        const rotation3<T> &input //!< Input object
     )
     {
       return !(this == input);
     }
 
-    //! Check if two rotations are (almost) equal
+    //! Check if two rotation3s are (almost) equal
     inline bool is_equal(
-        const rotation<T> &input //!< Input rotation object
+        const rotation3<T> &input //!< Input rotation3 object
     )
         const
     {
-      return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
+      return acme::is_equal((this->data() - input.data()).norm(), T(0.0));
     }
 
     //! Scalar product operator
-    inline rotation<T> operator*(
+    inline rotation3<T> operator*(
         const T &input //!< Input scalar
     )
     {
-      return rotation<T>(this->data() * input);
+      return rotation3<T>(this->data() * input);
     }
 
     //! Scalar division operator
-    inline rotation<T> operator/(
+    inline rotation3<T> operator/(
         const T &input //!< Input scalar
     )
     {
-      return rotation<T>(this->data() / input);
+      return rotation3<T>(this->data() / input);
     }
 
     //! External product operator
-    inline point<T> operator*(
-        const point<T> &input //!< Input point
+    inline point3<T> operator*(
+        const point3<T> &input //!< Input point3
     )
     {
-      return point<T>(this->data() * input.data());
+      return point3<T>(this->data() * input.data());
     }
 
     //! External product operator
-    inline vector<T> operator*(
-        const vector<T> &input //!< Input vector
+    inline vector3<T> operator*(
+        const vector3<T> &input //!< Input vector3
     )
     {
-      return vector<T>(this->data() * input.data());
+      return vector3<T>(this->data() * input.data());
     }
 
     //! Rotation product operator
-    inline rotation<T> operator*(
-        const rotation<T> &input //!< Input vector
+    inline rotation3<T> operator*(
+        const rotation3<T> &input //!< Input vector3
     )
         const
     {
-      return rotation<T>(this->data() * input.data());
+      return rotation3<T>(this->data() * input.data());
     }
 
     //! Scale object
@@ -202,37 +202,37 @@ namespace ddd
       return this->_data[i, j];
     }
 
-    //! Get x vector
+    //! Get x vector3
     inline const T &x(void) const { return this->_data.col(0); }
 
-    //! Get y vector
+    //! Get y vector3
     inline const T &y(void) const { return this->_data.col(1); }
 
-    //! Get z vector
+    //! Get z vector3
     inline const T &z(void) const { return this->_data.col(2); }
 
     //! Get data
     inline const Eigen::Matrix<T, 3, 3> &data(void) const { return this->_data; }
 
-    //! Set x vector
+    //! Set x vector3
     inline void x(
-        const vector<T> &input //!< Input vector
+        const vector3<T> &input //!< Input vector3
     )
     {
       this->_data.col(0) = input.data();
     }
 
-    //! Set y vector
+    //! Set y vector3
     inline void y(
-        const vector<T> &input //!< Input vector
+        const vector3<T> &input //!< Input vector3
     )
     {
       this->_data.col(1) = input.data();
     }
 
-    //! Set z vector
+    //! Set z vector3
     inline void z(
-        const vector<T> &input //!< Input vector
+        const vector3<T> &input //!< Input vector3
     )
     {
       this->_data.col(2) = input.data();
@@ -246,7 +246,7 @@ namespace ddd
       this->_data = data;
     }
 
-    //! Check if two rotation matrix is othonormal
+    //! Check if two rotation3 matrix is othonormal
     inline const bool is_othonormal(void) const
     {
       return (this->x().is_othogonal(this->y()) &&
@@ -268,48 +268,48 @@ namespace ddd
       this->_data = this->_data.transpose();
     }
 
-    //! Get inverse rotation matrix (othonormality must be checked manually!)
+    //! Get inverse rotation3 matrix (othonormality must be checked manually!)
     inline Eigen::Matrix<T, 3, 3> inverse(void)
     {
       return this->_data.transpose();
     }
 
-    //! Inverse rotation matrix (othonormality must be checked manually!)
+    //! Inverse rotation3 matrix (othonormality must be checked manually!)
     inline void inverse(void) const
     {
       this->_data = this->_data.transpose();
     }
 
-    //! Perform rotation on x-axis
+    //! Perform rotation3 on x-axis
     inline void rotate_x(
         const T &input //!< Input angle [rad]
     )
     {
-      this->_data = this->_data * ddd::rotation_x(input);
+      this->_data = this->_data * acme::rotation3_x(input);
     }
 
-    //! Perform rotation on y-axis
+    //! Perform rotation3 on y-axis
     inline void rotate_y(
         const T &input //!< Input angle [rad]
     )
     {
-      this->_data = this->_data * ddd::rotation_y(input);
+      this->_data = this->_data * acme::rotation3_y(input);
     }
 
-    //! Perform rotation on z-axis
+    //! Perform rotation3 on z-axis
     inline void rotate_z(
         const T &input //!< Input angle [rad]
     )
     {
-      this->_data = this->_data * ddd::rotation_z(input);
+      this->_data = this->_data * acme::rotation3_z(input);
     }
 
-  }; // class rotation
+  }; // class rotation3
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_rotation.hh
+/// eof: acme_rotation3.hh
 ///

@@ -1,19 +1,19 @@
 ///
-/// file: ddd_math.hh
+/// file: acme_math.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                              *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are       *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its      *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_MATH
-#define INCLUDE_DDD_MATH
+#ifndef INCLUDE_ACME_MATH
+#define INCLUDE_ACME_MATH
 
-// Print ddd errors
-#ifndef DDD_ERROR
-#define DDD_ERROR(MSG)                   \
+// Print acme errors
+#ifndef ACME_ERROR
+#define ACME_ERROR(MSG)                  \
   {                                      \
     std::ostringstream ost;              \
     ost << MSG;                          \
@@ -35,18 +35,18 @@
   }
 #endif
 
-// Check for ddd errors
-#ifndef DDD_ASSERT
-#define DDD_ASSERT(COND, MSG) \
-  if (!(COND))                \
-  DDD_ERROR(MSG)
+// Check for acme errors
+#ifndef ACME_ASSERT
+#define ACME_ASSERT(COND, MSG) \
+  if (!(COND))                 \
+  acme_ERROR(MSG)
 #endif
 
 #include <cmath>
 #include <limits>
 #include <algorithm>
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -218,7 +218,7 @@ namespace ddd
       const T &value1,                  //!< Input value 1
       const T &tolerance = Epsilon_High //!< High end bound
   );
-  
+
   //! Get rotation on x-axis
   template <typename T>
   inline Eigen::Matrix<T, 3, 3> rotate_x(
@@ -237,12 +237,12 @@ namespace ddd
       const T &input //!< Input angle [rad]
   );
 
-} // namespace ddd
+} // namespace acme
 
-#include "ddd_math.inl"
+#include "acme_math.inl"
 
 #endif
 
 ///
-/// eof: ddd_math.hh
+/// eof: acme_math.hh
 ///

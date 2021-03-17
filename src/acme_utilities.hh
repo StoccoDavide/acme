@@ -1,19 +1,19 @@
 ///
-/// file: ddd_utilities.hh
+/// file: acme_utilities.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,22 +22,22 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_UTILTIES
-#define INCLUDE_DDD_UTILTIES
+#ifndef INCLUDE_acme_UTILTIES
+#define INCLUDE_acme_UTILTIES
 
 #include <iostream>
 #include <iomanip>
 #include <vector>
 
-#include "ddd.hh"
+#include "acme.hh"
 
-namespace ddd
+namespace acme
 {
   //!< Stream out operator for point object
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,   //!< Output stream
-      const point<T> &obj //!< Point object
+      const point3<T> &obj //!< Point object
   )
   {
     os << std::scientific
@@ -47,11 +47,11 @@ namespace ddd
     return os;
   }
 
-  //!< Stream out operator for vector object
+  //!< Stream out operator for vector3 object
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,    //!< Output stream
-      const vector<T> &obj //!< Vector object
+      const vector3<T> &obj //!< Vector object
   )
   {
     os << std::scientific
@@ -65,7 +65,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,  //!< Output stream
-      const line<T> &obj //!< Line object
+      const line3<T> &obj //!< Line object
   )
   {
     os << std::scientific
@@ -80,7 +80,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const ray<T> &obj //!< Ray object
+      const ray3<T> &obj //!< Ray object
   )
   {
     os << std::scientific
@@ -95,7 +95,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,   //!< Output stream
-      const plane<T> &obj //!< Plane object
+      const plane3<T> &obj //!< Plane object
   )
   {
     os << std::scientific
@@ -110,7 +110,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,     //!< Output stream
-      const segment<T> &obj //!< Segment object
+      const segment3<T> &obj //!< Segment object
   )
   {
     for (unsigned int i = 0; i < obj.size(); ++i)
@@ -124,7 +124,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const box<T> &obj //!< Box object
+      const box3<T> &obj //!< Box object
   )
   {
     for (unsigned int i = 0; i < obj.size(); ++i)
@@ -138,21 +138,7 @@ namespace ddd
   template <typename T>
   inline std::ostream &operator<<(
       std::ostream &os,      //!< Output stream
-      const triangle<T> &obj //!< Triangle object
-  )
-  {
-    for (unsigned int i = 0; i < obj.size(); ++i)
-    {
-      os << obj[i];
-    }
-    return os;
-  }
-
-  //!< Stream out operator
-  template <typename T>
-  inline std::ostream &operator<<(
-      std::ostream &os,    //!< Output stream
-      const quadix<T> &obj //!< Quadix object
+      const triangle3<T> &obj //!< Triangle object
   )
   {
     for (unsigned int i = 0; i < obj.size(); ++i)
@@ -166,7 +152,7 @@ namespace ddd
    template <typename T>
    inline std::ostream& operator<<(
      std::ostream& os,   //!< Output stream
-     const circle<T>& circle //!< Circle object
+     const circle3<T>& circle //!< Circle object
      )
    {
       os << std::scientific
@@ -178,26 +164,11 @@ namespace ddd
    }
   */
 
-  //!< Stream out operator
-  template <typename T>
-  inline std::ostream &operator<<(
-      std::ostream &os,    //!< Output stream
-      const sphere<T> &obj //!< Sphere object
-  )
-  {
-    os << std::scientific
-       << std::showpoint
-       << std::setprecision(6)
-       << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2]
-       << "," << obj.ray() << ")";
-    return os;
-  }
-
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 
 ///
-/// eof: ddd_utilities.hh
+/// eof: acme_utilities.hh
 ///

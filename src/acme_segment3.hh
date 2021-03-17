@@ -1,19 +1,19 @@
 ///
-/// file: ddd_segment.hh
+/// file: acme_segment.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                              *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are       *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its      *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,12 +22,12 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_DDD_SEGMENT
-#define INCLUDE_DDD_SEGMENT
+#ifndef INCLUDE_ACME_SEGMENT3
+#define INCLUDE_ACME_SEGMENT3
 
-#include "ddd_point.hh"
+#include "acme_point3.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
@@ -41,53 +41,53 @@ namespace ddd
 
   //! Segment class container
   template <typename T = Float>
-  class segment final
+  class segment3 final
   {
   private:
-    point<T> _point0; //!< Point 0
-    point<T> _point1; //!< Point 1
+    point3<T> _point0; //!< Point 0
+    point3<T> _point1; //!< Point 1
 
   public:
     //! Class destructor
-    ~segment() {}
+    ~segment3() {}
 
     //! Copy constructor
-    segment(const segment<T> &) = default;
+    segment3(const segment3<T> &) = default;
 
     //! Class constructor
-    segment() {}
+    segment3() {}
 
     //! Class constructor
-    segment(
-        const T &x0, //<! Input x value of first point
-        const T &y0, //<! Input y value of first point
-        const T &z0, //<! Input z value of first point
-        const T &x1, //<! Input x value of second point
-        const T &y1, //<! Input y value of second point
-        const T &z1  //<! Input z value of second point
-        ) : _point0(point<T>(x0, y0, z0)), _point1(point<T>(x1, y1, z1))
+    segment3(
+        const T &x0, //<! Input x value of first point3
+        const T &y0, //<! Input y value of first point3
+        const T &z0, //<! Input z value of first point3
+        const T &x1, //<! Input x value of second point3
+        const T &y1, //<! Input y value of second point3
+        const T &z1  //<! Input z value of second point3
+        ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1))
     {
     }
 
     //! Class constructor
-    segment(
-        const point<T> &point0, //!< Input point object
-        const point<T> &point1  //!< Input point object
+    segment3(
+        const point3<T> &point0, //!< Input point3 object
+        const point3<T> &point1  //!< Input point3 object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Class constructor
-    segment(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point object
-        const Eigen::Matrix<T, 3, 1> &point1  //!< Input point object
+    segment3(
+        const Eigen::Matrix<T, 3, 1> &point0, //!< Input point3 object
+        const Eigen::Matrix<T, 3, 1> &point1  //!< Input point3 object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Equality operator
-    inline segment<T> &operator=(
-        const segment<T> &input //!< Input segment object
+    inline segment3<T> &operator=(
+        const segment3<T> &input //!< Input segment3 object
     )
     {
       if (this == &input)
@@ -104,7 +104,7 @@ namespace ddd
 
     //! Check if two rays are (exactly) equal
     inline bool operator==(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
     {
       return this->_point0 == input._point0 && this->_point1 == input._point1;
@@ -112,7 +112,7 @@ namespace ddd
 
     //! Check if two rays are (exactly) NOT equal
     inline bool operator!=(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
     {
       return !(this == input);
@@ -120,63 +120,63 @@ namespace ddd
 
     //! Check if two rays are (almost) equal
     inline bool is_equal(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
       return this->_point0.is_equal(input._point0) && this->_point1.is_equal(input._point1);
     }
 
-    //! Check if line is degenerated
+    //! Check if line3 is degenerated
     inline bool is_degenerated(void)
         const
     {
-      return ddd::is_equal(_point0.distance(_point1), T(0.0));
+      return acme::is_equal(_point0.distance(_point1), T(0.0));
     }
 
-    //! Get first point
-    inline point<T> &point_1(void) const { return this->_point1; }
+    //! Get first point3
+    inline point3<T> &point_1(void) const { return this->_point1; }
 
-    //! Set first point
+    //! Set first point3
     inline void point_1(
-        const point<T> &input //!< Input object
+        const point3<T> &input //!< Input object
     )
     {
       this->_point1 = input;
     }
 
-    //! Get second point
-    inline point<T> &point_2(void) const { return this->_point2; }
+    //! Get second point3
+    inline point3<T> &point_2(void) const { return this->_point2; }
 
-    //! Set second point
+    //! Set second point3
     inline void point_2(
-        const point<T> &input //!< Input object
+        const point3<T> &input //!< Input object
     )
     {
       this->_point2 = input;
     }
 
-    //! Convert to vector
-    inline const vector<T> &toVector(void) const
+    //! Convert to vector3
+    inline const vector3<T> &toVector(void) const
     {
-      return vector<T>(this->_point0, this->_point1);
+      return vector3<T>(this->_point0, this->_point1);
     }
 
-    //! Convert to ray
-    inline const ray<T> &toRay(void) const
+    //! Convert to ray3
+    inline const ray3<T> &toRay(void) const
     {
-      return ray<T>(point<T>(this->_point0), vector<T>(this->_point0, this->_point1));
+      return ray3<T>(point3<T>(this->_point0), vector3<T>(this->_point0, this->_point1));
     }
 
-    //! Convert to line
-    inline const line<T> &toLine(void) const
+    //! Convert to line3
+    inline const line3<T> &toLine(void) const
     {
-      return line<T>(point<T>(this->_point0), vector<T>(this->_point0, this->_point1));
+      return line3<T>(point3<T>(this->_point0), vector3<T>(this->_point0, this->_point1));
     }
 
-    //! Translate line by vector
+    //! Translate line3 by vector3
     inline void translate(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
     {
       this->_point0.translate(input);
@@ -185,7 +185,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -194,7 +194,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const line<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -203,7 +203,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -212,7 +212,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -221,7 +221,7 @@ namespace ddd
 
     //! Check if two objects are parallel
     inline bool is_parallel(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -230,7 +230,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const vector<T> &input //!< Input vector object
+        const vector3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -239,7 +239,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const line<T> &input //!< Input vector object
+        const line3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -248,7 +248,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const ray<T> &input //!< Input vector object
+        const ray3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -257,7 +257,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const plane<T> &input //!< Input vector object
+        const plane3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -266,7 +266,7 @@ namespace ddd
 
     //! Check if two objects are orthogonal
     inline bool is_orthogonal(
-        const segment<T> &input //!< Input vector object
+        const segment3<T> &input //!< Input vector3 object
     )
         const
     {
@@ -275,7 +275,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const vector<T> &input //!< Input object
+        const vector3<T> &input //!< Input object
     )
         const
     {
@@ -284,7 +284,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const line<T> &input //!< Input object
+        const line3<T> &input //!< Input object
     )
         const
     {
@@ -293,7 +293,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const ray<T> &input //!< Input object
+        const ray3<T> &input //!< Input object
     )
         const
     {
@@ -302,7 +302,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const plane<T> &input //!< Input object
+        const plane3<T> &input //!< Input object
     )
         const
     {
@@ -311,7 +311,7 @@ namespace ddd
 
     //! Angle between objects [rad]
     inline const T &angle(
-        const segment<T> &input //!< Input object
+        const segment3<T> &input //!< Input object
     )
         const
     {
@@ -319,10 +319,10 @@ namespace ddd
     }
   };
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_segment.hh
+/// eof: acme_segment.hh
 ///

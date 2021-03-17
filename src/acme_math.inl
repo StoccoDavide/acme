@@ -1,19 +1,19 @@
 ///
-/// file: ddd_math.inl
+/// file: acme_math.inl
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                             *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are      *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its     *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,9 +22,9 @@
 (***********************************************************************)
 */
 
-#include "ddd_math.hh"
+#include "acme_math.hh"
 
-namespace ddd
+namespace acme
 {
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -246,8 +246,8 @@ namespace ddd
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-} // namespace ddd
+} // namespace acme
 
 ///
-/// eof: ddd_math.inl
+/// eof: acme_math.inl
 ///

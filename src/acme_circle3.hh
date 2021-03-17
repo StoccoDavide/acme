@@ -1,19 +1,19 @@
 ///
-/// file: ddd_circle.hh
+/// file: acme_circle.hh
 ///
 
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ddd computational geometry library                              *)
+(* The acme computational geometry library                              *)
 (*                                                                     *)
 (* Release Version 0.0.0                                               *)
 (*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
-(* The ddd computational geometry library and its components are       *)
+(* The acme computational geometry library and its components are       *)
 (* supplied under the terms of the open source MIT License.            *)
-(* The contents of the ddd computational geometry library and its      *)
+(* The contents of the acme computational geometry library and its      *)
 (* components may not be copied or disclosed except in accordance with *)
 (* the terms of the MIT License.                                       *)
 (*                                                                     *)
@@ -22,54 +22,54 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_CIRCLE
-#define INCLUDE_ACME_CIRCLE
+#ifndef INCLUDE_ACME_CIRCLE3
+#define INCLUDE_ACME_CIRCLE3
 
-#include "ddd_point.hh"
+#include "acme_point3.hh"
 
-namespace ddd
+namespace acme
 {
 
   /*\
-   |             _                   
-   |   ___ _ __ | |__   ___ _ __ ___ 
-   |  / __| '_ \| '_ \ / _ \ '__/ _ \
-   |  \__ \ |_) | | | |  __/ | |  __/
-   |  |___/ .__/|_| |_|\___|_|  \___|
-   |      |_|                        
+   |        _          _      _____ 
+   |    ___(_)_ __ ___| | ___|___ / 
+   |   / __| | '__/ __| |/ _ \ |_ \ 
+   |  | (__| | | | (__| |  __/___) |
+   |   \___|_|_|  \___|_|\___|____/ 
+   |                                
   \*/
 
   //! Sphere class container
   template <typename T = Float>
-  class sphere
+  class circle3
   {
-    point<T> _center; //!< Sphere center
+    point3<T> _center; //!< Sphere center
     T _radius;        //!< Sphere radius
 
   public:
     //! Copy constructor
-    sphere(const sphere<T> &) = default;
+    circle3(const circle3<T> &) = default;
 
     //! Class constructor
-    sphere() : _center(point<T>()), _radius(T()) {}
+    circle3() : _center(point3<T>()), _radius(T()) {}
 
     //! Return sphere point
-    inline const point<T> &Center() const
+    inline const point3<T> &center() const
     {
       return _center;
     }
 
     //! Return sphere radiuszz
-    inline const T &Radius() const
+    inline const T &radius() const
     {
       return _radius;
     }
   };
 
-} // namespace ddd
+} // namespace acme
 
 #endif
 
 ///
-/// eof: ddd_circle.hh
+/// eof: acme_circle.hh
 ///

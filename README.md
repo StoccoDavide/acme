@@ -1,2 +1,2 @@
-# dimension/dimension/dimension
-A small geometric library in 3 dimensions.
+# acme
+A small 3d geometric library.
