@@ -121,14 +121,14 @@ namespace acme
   inline T abs(const T &value //!< Input value
   );
 
-  //! Maximum between two values function
+  //! Maximum between values function
   template <typename T>
   inline T max(
       const T &value0, //!< Input value 0
       const T &value1  //!< Input value 1
   );
 
-  //! Minimum between two values function
+  //! Minimum between values function
   template <typename T>
   inline T min(
       const T &value0, //!< Input value 0
@@ -211,7 +211,7 @@ namespace acme
       const T &high   //!< High end bound
   );
 
-  //! Check if two elements are almost equal
+  //! Check if elements are almost equal
   template <typename T>
   inline T is_equal(
       const T &value0,                  //!< Input value 0

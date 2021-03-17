@@ -32,7 +32,7 @@
 *.app
 
 # Visual Studio Code
-vscode
+.vscode/*
 
 # Folders
 doc/*

@@ -103,14 +103,14 @@ namespace acme
       }
       else
       {
-        this->_point0(input._point0);
-        this->_point1(input._point1);
-        this->_point2(input._point2);
+        this->_point0 = input._point0;
+        this->_point1 = input._point1;
+        this->_point2 = input._point2;
         return *this;
       }
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator==(
         const segment3<T> &input //!< Input object
     )
@@ -118,7 +118,7 @@ namespace acme
       return this->_point0 == input._point0 && this->_point1 == input._point1 && this->_point2 == input._point2;
     }
 
-    //! Check if two objects are (exactly) NOT equal
+    //! Check if objects are (exactly) NOT equal
     inline bool operator!=(
         const segment3<T> &input //!< Input object
     )
@@ -126,7 +126,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two objects are (almost) equal
+    //! Check if objects are (almost) equal
     inline bool is_equal(
         const segment3<T> &input //!< Input object
     )
@@ -208,7 +208,7 @@ namespace acme
       this->_point2.translate(input);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const vector3<T> &input //!< Input object
     )
@@ -217,7 +217,7 @@ namespace acme
       return (this->normal()).is_orthogonal(input);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const line3<T> &input //!< Input object
     )
@@ -226,7 +226,7 @@ namespace acme
       return (this->normal()).is_orthogonal(input);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const ray3<T> &input //!< Input object
     )
@@ -235,7 +235,7 @@ namespace acme
       return (this->normal()).is_orthogonal(input);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const plane3<T> &input //!< Input object
     )
@@ -244,7 +244,7 @@ namespace acme
       return (this->normal()).is_orthogonal(input);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const segment3<T> &input //!< Input object
     )
@@ -253,7 +253,7 @@ namespace acme
       return (this->normal()).is_orthogonal(input.toVector());
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const vector3<T> &input //!< Input object
     )
@@ -262,7 +262,7 @@ namespace acme
       return (this->normal()).is_parallel(input);
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const line3<T> &input //!< Input object
     )
@@ -271,7 +271,7 @@ namespace acme
       return (this->normal()).is_parallel(input);
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const ray3<T> &input //!< Input object
     )
@@ -280,7 +280,7 @@ namespace acme
       return (this->normal()).is_parallel(input);
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const plane3<T> &input //!< Input object
     )
@@ -289,7 +289,7 @@ namespace acme
       return(this->normal()).is_parallel(input);
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const segment3<T> &input //!< Input object
     )

@@ -92,12 +92,12 @@ namespace acme
       }
       else
       {
-        this->data(input.data());
+        this->_data = input._data;
         return *this;
       }
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator==(
         const point3<T> &input //!< Input object
     )
@@ -105,7 +105,7 @@ namespace acme
       return this->data() == input.data();
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator!=(
         const point3<T> &input //!< Input object
     )
@@ -113,7 +113,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two objects are (almost) equal
+    //! Check if objects are (almost) equal
     inline bool is_equal(
         const point3<T> &input //!< Input object
     )
@@ -274,7 +274,7 @@ namespace acme
       }
     }
 
-    //! Squared distance between points
+    //! Squared distance between objects
     inline const T distanceSquared(
         const point3<T> &input //!< Input object
     )
@@ -289,7 +289,7 @@ namespace acme
       }
     }
 
-    //! Return normalized point3
+    //! Return normalized point
     inline const point3<T> normalized()
         const
     {

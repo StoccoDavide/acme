@@ -106,7 +106,7 @@ namespace acme
       }
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator==(
         const line3<T> &input //!< Input object
     )
@@ -114,7 +114,7 @@ namespace acme
       return this->_origin == input._origin && this->_direction == input._direction;
     }
 
-    //! Check if two objects are (exactly) NOT equal
+    //! Check if objects are (exactly) NOT equal
     inline bool operator!=(
         const line3<T> &input //!< Input object
     )
@@ -122,7 +122,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two objects are (almost) equal
+    //! Check if objects are (almost) equal
     inline bool is_equal(
         const line3<T> &input //!< Input object
     )
@@ -131,7 +131,7 @@ namespace acme
       return this->_origin.is_equal(input._origin) && this->_direction.is_equal(input._direction);
     }
 
-    //! Check if line3 is degenerated
+    //! Check if line is degenerated
     inline bool is_degenerated(void)
         const
     {
@@ -186,7 +186,7 @@ namespace acme
       this->_origin.translate(input);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const vector3<T> &input //!< Input object
     )
@@ -195,7 +195,7 @@ namespace acme
       return input.is_parallel(this);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const line3<T> &input //!< Input object
     )
@@ -204,7 +204,7 @@ namespace acme
       return this->_direction.is_equal(input._direction);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const ray3<T> &input //!< Input object
     )
@@ -213,7 +213,7 @@ namespace acme
       return this->_direction.is_parallel(input.direction());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const plane3<T> &input //!< Input object
     )
@@ -222,7 +222,7 @@ namespace acme
       return this->_direction.is_orthogonal(input.normal());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const segment3<T> &input //!< Input object
     )
@@ -231,7 +231,7 @@ namespace acme
       return this->_direction.is_parallel(input.toVector());
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const vector3<T> &input //!< Input object
     )
@@ -240,7 +240,7 @@ namespace acme
       return input.is_orthogonal(this);
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const line3<T> &input //!< Input object
     )
@@ -249,7 +249,7 @@ namespace acme
       return this->_direction.is_orthogonal(input._direction);
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const ray3<T> &input //!< Input object
     )
@@ -258,7 +258,7 @@ namespace acme
       return this->_direction.is_orthogonal(input.direction());
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const plane3<T> &input //!< Input object
     )
@@ -267,7 +267,7 @@ namespace acme
       return this->_direction.is_parallel(input.normal());
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const segment3<T> &input //!< Input object
     )

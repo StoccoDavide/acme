@@ -102,7 +102,7 @@ namespace acme
       }
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator==(
         const box3<T> &input //!< Input object
     )
@@ -110,7 +110,7 @@ namespace acme
       return this->_point0 == input._point0 && this->_point1 == input._point1;
     }
 
-    //! Check if two objects are (exactly) NOT equal
+    //! Check if objects are (exactly) NOT equal
     inline bool operator!=(
         const box3<T> &input //!< Input object
     )
@@ -118,7 +118,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two objects are (almost) equal
+    //! Check if objects are (almost) equal
     inline bool is_equal(
         const box3<T> &input //!< Input object
     )
@@ -127,7 +127,7 @@ namespace acme
       return this->_point0.is_equal(input._point0) && this->_point1.is_equal(input._point1);
     }
 
-    //! Check if box3 is degenerated
+    //! Check if box is degenerated
     inline bool is_degenerated(void)
         const
     {

@@ -92,21 +92,21 @@ namespace acme
       }
       else
       {
-        this->data(input.data());
+        this->_data = input._data;
         return *this;
       }
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator==(
         const vector3<T> &input //!< Input object
     )
         const
     {
-      return this->data() == input.data();
+      return this->_data == input._data;
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator!=(
         const vector3<T> &input //!< Input object
     )
@@ -115,20 +115,20 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two objects are (almost) equal
+    //! Check if objects are (almost) equal
     inline bool is_equal(
         const vector3<T> &input //!< Input object
     )
         const
     {
-      return acme::is_equal((this->data() - input.data()).norm(), T(0.0));
+      return acme::is_equal((this->_data - input._data).norm(), T(0.0));
     }
 
-    //! Check if vector3 is degenerated
+    //! Check if vector is degenerated
     inline bool is_degenerated(void)
         const
     {
-      return acme::is_equal(this->_data.norm(), T(0.0));
+      return acme::is_equal((this->_data).norm(), T(0.0));
     }
 
     //! Addition operator
@@ -137,7 +137,7 @@ namespace acme
     )
         const
     {
-      return vector3<T>(this->data() + input.data());
+      return vector3<T>(this->_data + input._data);
     }
 
     //! Subtraction operator
@@ -146,7 +146,7 @@ namespace acme
     )
         const
     {
-      return vector3<T>(this->data() - input.data());
+      return vector3<T>(this->_data - input._data);
     }
 
     //! Scalar product operator
@@ -154,7 +154,7 @@ namespace acme
         const T &input //!< Input scalar
     )
     {
-      return vector3<T>(this->data() * input);
+      return vector3<T>(this->_data * input);
     }
 
     //! Scalar division operator
@@ -162,7 +162,7 @@ namespace acme
         const T &input //!< Input scalar
     )
     {
-      return vector3<T>(this->data() / input);
+      return vector3<T>(this->_data / input);
     }
 
     //! Clear data
@@ -298,7 +298,7 @@ namespace acme
       return vector3<T>(this->_data->cross(input._data));
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const vector3<T> &input //!< Input object
     )
@@ -307,7 +307,7 @@ namespace acme
       return acme::is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const line3<T> &input //!< Input object
     )
@@ -316,7 +316,7 @@ namespace acme
       return this->is_parallel(input.direction());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const ray3<T> &input //!< Input object
     )
@@ -325,7 +325,7 @@ namespace acme
       return this->is_parallel(input.direction());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const plane3<T> &input //!< Input object
     )
@@ -334,7 +334,7 @@ namespace acme
       return this->is_orthogonal(input.normal());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_parallel(
         const segment3<T> &input //!< Input object
     )
@@ -343,7 +343,7 @@ namespace acme
       return this->is_parallel(input.toVector());
     }
 
-    //! Check if two objects are orthogonal
+    //! Check if objects are orthogonal
     inline bool is_orthogonal(
         const vector3<T> &input //!< Input object
     )
@@ -352,7 +352,7 @@ namespace acme
       return acme::is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_orthogonal(
         const ray3<T> &input //!< Input object
     )
@@ -361,7 +361,7 @@ namespace acme
       return this->is_orthogonal(input.direction());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_orthogonal(
         const plane3<T> &input //!< Input object
     )
@@ -370,7 +370,7 @@ namespace acme
       return this->is_parallel(input.normal());
     }
 
-    //! Check if two objects are parallel
+    //! Check if objects are parallel
     inline bool is_orthogonal(
         const segment3<T> &input //!< Input object
     )
@@ -379,13 +379,13 @@ namespace acme
       return this->is_orthogonal(input.toVector());
     }
 
-    //! Check if vector3 has unitary norm
+    //! Check if vector has unitary norm
     inline bool is_unitary(void) const
     {
       return is_equal(this->norm() - 1.0, 0.0);
     }
 
-    //! Get an arbitrary vector3, orthogonal to the current vector3
+    //! Get an arbitrary vector orthogonal to the current vector
     inline const vector3<T> &orthogonalVector(void)
         const
     {
@@ -403,7 +403,7 @@ namespace acme
       }
     }
 
-    //! Angle between two objects [rad]
+    //! Angle between objects [rad]
     inline const T &angle(
         const vector3<T> &input //!< Input object
     )
@@ -412,7 +412,7 @@ namespace acme
       return acme::acos(this->_data.dot(input) / (this->norm() * input.norm()));
     }
 
-    //! Angle between vector3 and line3 [rad]
+    //! Angle between objects [rad]
     inline const T &angle(
         const line3<T> &input //!< Input object
     )
@@ -421,7 +421,7 @@ namespace acme
       return this->angle(input.direction());
     }
 
-    //! Angle between vector3 and ray3 [rad]
+    //! Angle between objects [rad]
     inline const T &angle(
         const ray3<T> &input //!< Input object
     )
@@ -430,7 +430,7 @@ namespace acme
       return this->angle(input.direction());
     }
 
-    //! Angle between vector3 and plane [rad]
+    //! Angle between objects [rad]
     inline const T &angle(
         const plane3<T> &input //!< Input object
     )
@@ -439,9 +439,19 @@ namespace acme
       return this->angle(input.direction()) - PI / 2.0;
     }
 
-    //! Angle between vector3 and segment [rad]
+    //! Angle between objects [rad]
     inline const T &angle(
         const segment3<T> &input //!< Input object
+    )
+        const
+    {
+      return this->angle(input.toVector());
+    }
+
+    //! Tranform vector from frameA to frameB
+    inline const vector3<T> &transform(
+        const coord3<T> &frameA, //!< Actual reference coordinate system
+        const coord3<T> &frameB  //!< Future reference coordinate system
     )
         const
     {

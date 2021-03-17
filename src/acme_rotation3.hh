@@ -104,12 +104,12 @@ namespace acme
       }
       else
       {
-        this->data(input.data());
+        this->_data = input._data;
         return *this;
       }
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator==(
         const rotation3<T> &input //!< Input object
     )
@@ -117,7 +117,7 @@ namespace acme
       return this->data() == input.data();
     }
 
-    //! Check if two objects are (exactly) equal
+    //! Check if objects are (exactly) equal
     inline bool operator!=(
         const rotation3<T> &input //!< Input object
     )
@@ -125,7 +125,7 @@ namespace acme
       return !(this == input);
     }
 
-    //! Check if two objects are (almost) equal
+    //! Check if objects are (almost) equal
     inline bool is_equal(
         const rotation3<T> &input //!< Input object
     )
@@ -246,7 +246,7 @@ namespace acme
       this->_data = data;
     }
 
-    //! Check if two rotation3 matrix is othonormal
+    //! Check if rotation matrix is othonormal
     inline const bool is_othonormal(void) const
     {
       return (this->x().is_othogonal(this->y()) &&
