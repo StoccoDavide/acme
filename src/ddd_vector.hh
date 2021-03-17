@@ -21,8 +21,11 @@ namespace ddd
   a 3 by 1 Eigen matrix.
   */
   template <typename T = Float>
-  class vector : public rowObject<T>
+  class vector final
   {
+  private:
+    Eigen::Matrix<T, 3, 1> _data; //!< Data as Eigen 3x1 column vector
+
   public:
     //! Class destructor
     ~vector() {}
@@ -36,9 +39,8 @@ namespace ddd
     //! Class constructor
     vector(
         const Eigen::Matrix<T, 3, 1> &data //!< Input data
-    )
+        ) : _data(data)
     {
-      this->data(data);
     }
 
     //! Class constructor
@@ -46,20 +48,14 @@ namespace ddd
         const T &x, //!< Input x vector value
         const T &y, //!< Input y vector value
         const T &z  //!< Input z vector value
-    )
+        ) : _data(Eigen::Matrix<T, 3, 1>(x, y, z))
     {
-      this->x(x);
-      this->y(y);
-      this->z(z);
     }
 
     //! Class constructor
     vector(
         const point<T> &input //!< Input point
-    )
-    {
-      this->data(input.data());
-    };
+        ) : _data(input.data()){};
 
     //! Equality operator
     inline vector<T> &operator=(
@@ -104,15 +100,6 @@ namespace ddd
       return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
     }
 
-    //! Check if two vectors are (almost) NOT equal
-    inline bool is_notequal(
-        const vector<T> &input //!< Input vector object
-    )
-        const
-    {
-      return !(this->is_equal(input));
-    }
-
     //! Addition operator
     inline vector<T> operator+(
         const vector<T> &input //!< Input object
@@ -147,6 +134,100 @@ namespace ddd
       return vector<T>(this->data() / input);
     }
 
+    //! Clear data
+    void clear()
+    {
+      for (std::size_t i = 0; i < 3; ++i)
+        this->_data[i] = T(0.0);
+    }
+
+    //! Scale object
+    inline void scale(
+        const T &value //!< Scale value
+    )
+    {
+      this->_data = this->_data * value;
+    }
+
+    //! Indexing operator
+    inline T &operator[](
+        const std::size_t &i //!< Input index
+    )
+    {
+      return this->_data[i];
+    }
+
+    //! Indexing operator
+    inline const T &operator[](
+        const std::size_t &i //!< Input index
+    )
+        const
+    {
+      return this->_data[i];
+    }
+
+    //! Convert to point
+    inline const point<T> toPoint(void)
+    {
+      return point<T>(this);
+    }
+
+    //! Get x coordinate
+    inline const T &x(void) const { return this->_data.x(); }
+
+    //! Get y coordinate
+    inline const T &y(void) const { return this->_data.y(); }
+
+    //! Get z coordinate
+    inline const T &z(void) const { return this->_data.z(); }
+
+    //! Get data
+    inline const Eigen::Matrix<T, 3, 1> &data(void) const { return this->_data; }
+
+    //! Set x coordinate
+    inline void x(
+        const T &input //!< Input value
+    )
+    {
+      this->_data[0] = input;
+    }
+
+    //! Set y coordinate
+    inline void y(
+        const T &input //!< Input value
+    )
+    {
+      this->_data[1] = input;
+    }
+
+    //! Set z coordinate
+    inline void z(
+        const T &input //!< Input value
+    )
+    {
+      this->_data[2] = input;
+    }
+
+    //! Set data
+    inline void data(
+        const Eigen::Matrix<T, 3, 1> &data //!< Input data
+    )
+    {
+      this->_data = data;
+    }
+
+    //! Normalize object
+    inline void normalize()
+    {
+      this->_data.normalize();
+    }
+
+    //! Return object norm
+    inline const T &norm()
+    {
+      return this->_data.norm();
+    }
+
     //! Return normalized vector
     inline const vector<T> normalized()
         const
@@ -159,7 +240,7 @@ namespace ddd
         const vector<T> &input //!< Input object
     )
     {
-      this->data(this->data() + input.data());
+      this->data(this->_data + input._data);
     }
 
     //! Subtraction function
@@ -167,7 +248,7 @@ namespace ddd
         const vector<T> &input //!< Input object
     )
     {
-      this->data(this->data() - input.data());
+      this->data(this->_data - input._data);
     }
 
     //! Dot product function
@@ -175,7 +256,7 @@ namespace ddd
         const vector<T> &input //!< Input object
     )
     {
-      return vector<T>(this.data()->dot(input.data()));
+      return vector<T>(this->_data->dot(input._data));
     }
 
     //! Cross product function
@@ -183,10 +264,10 @@ namespace ddd
         const vector<T> &input //!< Input object
     )
     {
-      return vector<T>(this.data()->cross(input.data()));
+      return vector<T>(this->_data->cross(input._data));
     }
 
-    //! Check if two vectors are parallel
+    //! Check if two objects are parallel
     inline bool is_parallel(
         const vector<T> &input //!< Input object
     )
@@ -195,16 +276,43 @@ namespace ddd
       return is_equal((this->normalized().cross(input.normalized())).norm(), 0.0);
     }
 
-    //! Check if two vectors are NOT parallel
-    inline bool is_notparallel(
-        const vector<T> &input //!< Input object
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const line<T> &input //!< Input object
     )
         const
     {
-      return !(this.is_parallel(input));
+      return this->is_parallel(input.direction());
     }
 
-    //! Check if two vectors are orthogonal
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const ray<T> &input //!< Input object
+    )
+        const
+    {
+      return this->is_parallel(input.direction());
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const plane<T> &input //!< Input object
+    )
+        const
+    {
+      return this->is_orthogonal(input.normal());
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const segment<T> &input //!< Input object
+    )
+        const
+    {
+      return this->is_parallel(input.toVector());
+    }
+
+    //! Check if two objects are orthogonal
     inline bool is_orthogonal(
         const vector<T> &input //!< Input object
     )
@@ -213,25 +321,37 @@ namespace ddd
       return is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
     }
 
-    //! Check if two vectors are NOT orthogonal
-    inline bool is_notorthogonal(
-        const vector<T> &input //!< Input object
+    //! Check if two objects are parallel
+    inline bool is_orthogonal(
+        const ray<T> &input //!< Input object
     )
         const
     {
-      return !(this.is_orthogonal(input));
+      return this->is_orthogonal(input.direction());
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_orthogonal(
+        const plane<T> &input //!< Input object
+    )
+        const
+    {
+      return this->is_parallel(input.normal());
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_orthogonal(
+        const segment<T> &input //!< Input object
+    )
+        const
+    {
+      return this->is_orthogonal(input.toVector());
     }
 
     //! Check if vector has unitary norm
     inline bool is_unitary(void) const
     {
       return is_equal(this->norm() - 1.0, 0.0);
-    }
-
-    //! Check if vector has NOT unitary norm
-    inline bool is_notunitary(void) const
-    {
-      return !(this.is_unitary());
     }
 
     //! Get an arbitrary vector, orthogonal to the current vector
@@ -285,7 +405,7 @@ namespace ddd
     )
         const
     {
-      return PI - this->angle(input.direction());
+      return this->angle(input.direction()) - PI / 2.0;
     }
 
     //! Angle between vector and segment [rad]

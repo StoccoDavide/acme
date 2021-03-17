@@ -38,7 +38,8 @@ int main(void)
   ddd::vector<ddd::Float> vec2;
   std::cout << vec1 << std::endl  << std::endl;
   vec2 = vec1;
-  std::cout << vec2 << std::endl  << std::endl;
+  vec1[1];
+  std::cout << A[0] << std::endl  << std::endl;
 
   ddd::line<ddd::Float> l(0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
   ddd::line<ddd::Float> l1;

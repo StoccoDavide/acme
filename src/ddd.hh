@@ -15,10 +15,10 @@
 
 #include "ddd_instantiate.hh"
 #include "ddd_math.hh"
-#include "ddd_rowObject.hh"
+
 #include "ddd_point.hh"
 #include "ddd_vector.hh"
-#include "ddd_infObject.hh"
+
 #include "ddd_line.hh"
 #include "ddd_ray.hh"
 #include "ddd_plane.hh"

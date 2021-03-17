@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['matobject',['matObject',['../d3/d6a/classddd_1_1mat_object.html',1,'ddd']]]
+  ['quadix',['quadix',['../d3/d9a/classddd_1_1quadix.html',1,'ddd']]]
 ];

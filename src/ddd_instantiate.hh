@@ -8,18 +8,14 @@
 namespace ddd
 {
 
-  // Eigen row vector (3 by 1 matrix) base class
-  template <typename T>
-  class rowObject;
+  // Eigen row vector (3 by 1 matrix) base classes
   // Point/vector base classes
   template <typename T>
   class point;
   template <typename T>
   class vector;
 
-  // Eigen 3 by 3 matrix base class
-  template <typename T>
-  class matObject;
+  // Eigen 3 by 3 matrix base classes
   // Rotation matrix class
   template <typename T>
   class rotation;
@@ -28,9 +24,6 @@ namespace ddd
   template <typename T>
   class coord;
 
-  // Infinite object base class
-  template <typename T>
-  class infiniteObject;
   // Infinite objects classes (point/vector description)
   template <typename T>
   class line;

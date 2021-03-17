@@ -9,75 +9,71 @@ Ray class container.
 
 {\ttfamily \#include $<$ddd\+\_\+ray.\+hh$>$}
 
-
-
-Inheritance diagram for ddd\+:\+:ray$<$ T $>$\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=199pt]{d6/d54/classddd_1_1ray__inherit__graph}
-\end{center}
-\end{figure}
-
-
-Collaboration diagram for ddd\+:\+:ray$<$ T $>$\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=199pt]{d0/d0e/classddd_1_1ray__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classddd_1_1ray_a1d3f28c826dfa86971a851ad6d385a53}\label{classddd_1_1ray_a1d3f28c826dfa86971a851ad6d385a53}} 
 \hyperlink{classddd_1_1ray_a1d3f28c826dfa86971a851ad6d385a53}{$\sim$ray} ()
 \begin{DoxyCompactList}\small\item\em Class destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1ray_a608816826f457db78e459e7c1f0d5a3a}\label{classddd_1_1ray_a608816826f457db78e459e7c1f0d5a3a}} 
+\hyperlink{classddd_1_1ray_a608816826f457db78e459e7c1f0d5a3a}{ray} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1ray_a7262ad98c0ba222969241df6e3986f2d}\label{classddd_1_1ray_a7262ad98c0ba222969241df6e3986f2d}} 
 \hyperlink{classddd_1_1ray_a7262ad98c0ba222969241df6e3986f2d}{ray} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&)=default
 \begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classddd_1_1ray_ac3d4624fdf4cbdd1b211ce2b02957d35}\label{classddd_1_1ray_ac3d4624fdf4cbdd1b211ce2b02957d35}} 
 \hyperlink{classddd_1_1ray_ac3d4624fdf4cbdd1b211ce2b02957d35}{ray} (const T \&ox, const T \&oy, const T \&oz, const T \&dx, const T \&dy, const T \&dz)
 \begin{DoxyCompactList}\small\item\em Class constructor for ray. \end{DoxyCompactList}\item 
-\hyperlink{classddd_1_1ray_acac10719a90ebaa930a55f2aff5dd372}{ray} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&\hyperlink{classddd_1_1infinite_object_a0097f1df7ea358d410a73bdfcf2904f9}{origin}, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1infinite_object_a7197d400db3804be122c78475c242a00}{direction})
+\hyperlink{classddd_1_1ray_acac10719a90ebaa930a55f2aff5dd372}{ray} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&\hyperlink{classddd_1_1ray_a92ad567ccc11d6d2bb9faa66cefbb9ca}{origin}, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1ray_a8c6a38d8e1fcda4a44791ad17c99866e}{direction})
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1infinite_object_a7cd3342d60d4de4e4fc91d90fa9cc065}{operator==} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Check if two objects are equal. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1infinite_object_a64089c7dadb2ec0b414b155f5bd43339}{is\+\_\+equal} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input) const
-\begin{DoxyCompactList}\small\item\em Check if two objects are equal. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1infinite_object_a0097f1df7ea358d410a73bdfcf2904f9}\label{classddd_1_1infinite_object_a0097f1df7ea358d410a73bdfcf2904f9}} 
-const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1infinite_object_a0097f1df7ea358d410a73bdfcf2904f9}{origin} () const
+\hyperlink{classddd_1_1ray_a7dda924f93114bf913684c0241637f7d}{ray} (const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&\hyperlink{classddd_1_1ray_a92ad567ccc11d6d2bb9faa66cefbb9ca}{origin}, const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&\hyperlink{classddd_1_1ray_a8c6a38d8e1fcda4a44791ad17c99866e}{direction})
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \& \hyperlink{classddd_1_1ray_a5d035573694570d6a80a76b489ecd9fd}{operator=} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1ray_ac2a7a6189983df2aafa917b3a673eb49}{operator==} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Check if two rays are (exactly) equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1ray_a8b119ad8700dddcff3fcdc45673456a4}{operator!=} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Check if two rays are (exactly) N\+OT equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1ray_a9f556671f1aafce7838d9cd716e1bd72}{is\+\_\+equal} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two rays are (almost) equal. \end{DoxyCompactList}\item 
+bool \hyperlink{classddd_1_1ray_a905bb4921312cd23ee918d90a1e7f6e8}{is\+\_\+notequal} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Check if two rays are (almost) N\+OT equal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1ray_a92ad567ccc11d6d2bb9faa66cefbb9ca}\label{classddd_1_1ray_a92ad567ccc11d6d2bb9faa66cefbb9ca}} 
+const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \& \hyperlink{classddd_1_1ray_a92ad567ccc11d6d2bb9faa66cefbb9ca}{origin} () const
 \begin{DoxyCompactList}\small\item\em Return origin. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1infinite_object_a82ecd5fc09ecfe5b1fe9a2609dd1465e}{origin} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Set origin. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1infinite_object_a7197d400db3804be122c78475c242a00}\label{classddd_1_1infinite_object_a7197d400db3804be122c78475c242a00}} 
-const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \& \hyperlink{classddd_1_1infinite_object_a7197d400db3804be122c78475c242a00}{direction} () const
+\mbox{\Hypertarget{classddd_1_1ray_a8c6a38d8e1fcda4a44791ad17c99866e}\label{classddd_1_1ray_a8c6a38d8e1fcda4a44791ad17c99866e}} 
+const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \& \hyperlink{classddd_1_1ray_a8c6a38d8e1fcda4a44791ad17c99866e}{direction} () const
 \begin{DoxyCompactList}\small\item\em Return direction. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1infinite_object_a1940ac3d87fc2ca742ca036c866736e8}{direction} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+void \hyperlink{classddd_1_1ray_ac7a05d23b571b8e60ab9b25e53a8962f}{origin} (const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set origin. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1ray_a52a945e00576b41d9e42a221a26aee14}{direction} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Set direction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1infinite_object_a7f5790458f0f4e5bb085b580ead9e862}\label{classddd_1_1infinite_object_a7f5790458f0f4e5bb085b580ead9e862}} 
-const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \& \hyperlink{classddd_1_1infinite_object_a7f5790458f0f4e5bb085b580ead9e862}{to\+Vector} (void) const
-\begin{DoxyCompactList}\small\item\em Convert to vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1infinite_object_ab51b563ee31f9b473cc2459f6fd6caae}\label{classddd_1_1infinite_object_ab51b563ee31f9b473cc2459f6fd6caae}} 
-const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \& \hyperlink{classddd_1_1infinite_object_ab51b563ee31f9b473cc2459f6fd6caae}{to\+Line} (void) const
+\mbox{\Hypertarget{classddd_1_1ray_a407808f80ae5b3ac9d3ef7f35ff4d671}\label{classddd_1_1ray_a407808f80ae5b3ac9d3ef7f35ff4d671}} 
+const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \& \hyperlink{classddd_1_1ray_a407808f80ae5b3ac9d3ef7f35ff4d671}{to\+Line} (void) const
 \begin{DoxyCompactList}\small\item\em Convert to line. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1infinite_object_ac34ea2bfd432c3a07c03b508c3e1e499}\label{classddd_1_1infinite_object_ac34ea2bfd432c3a07c03b508c3e1e499}} 
-const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \& \hyperlink{classddd_1_1infinite_object_ac34ea2bfd432c3a07c03b508c3e1e499}{to\+Ray} (void) const
-\begin{DoxyCompactList}\small\item\em Convert to ray. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1infinite_object_a72649daa44060efdbef986ab9d90f3f6}{translate} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+\mbox{\Hypertarget{classddd_1_1ray_a19f2040289cee7b67abe9520522909a5}\label{classddd_1_1ray_a19f2040289cee7b67abe9520522909a5}} 
+const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \& \hyperlink{classddd_1_1ray_a19f2040289cee7b67abe9520522909a5}{to\+Plane} (void) const
+\begin{DoxyCompactList}\small\item\em Convert to plane. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1ray_a705a8f1ab49b183b03a42e097bd40649}{translate} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Translate line by vector. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1infinite_object_a52c16b849e5bd987c69ed6ae79a6cab1}{is\+\_\+parallel} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input) const
+bool \hyperlink{classddd_1_1ray_ac17fe4f977e57135cff60d1b152fafb9}{is\+\_\+parallel} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two objects are parallel. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1infinite_object_ad4f312a6d767c5825632d8915a9f7dbc}{is\+\_\+notparallel} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input) const
+bool \hyperlink{classddd_1_1ray_a71ecf77ee2921224588b6124f3ab30ab}{is\+\_\+notparallel} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two objects are N\+OT parallel. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1infinite_object_a634f0db3a5447756901c43f8f3d20a8a}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input) const
+bool \hyperlink{classddd_1_1ray_a669c71b72c7222adae9fab86795e7305}{is\+\_\+orthogonal} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two objects are orthogonal. \end{DoxyCompactList}\item 
-bool \hyperlink{classddd_1_1infinite_object_a1dbf3e37dc6f146f089c4c63c4704329}{is\+\_\+notorthogonal} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input) const
+bool \hyperlink{classddd_1_1ray_aa0c53861b95ff86c12e9c0bcac935080}{is\+\_\+notorthogonal} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Check if two objects are N\+OT orthogonal. \end{DoxyCompactList}\item 
-const T \& \hyperlink{classddd_1_1infinite_object_a2145eca21c4505c11d19badc25faaf85}{angle} (const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&input) const
+const T \& \hyperlink{classddd_1_1ray_a148b37b45554dbdffd57c5574ad3836f}{angle} (const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1infinite_object_ae9f9826fd760a02b74604e63434b4211}\label{classddd_1_1infinite_object_ae9f9826fd760a02b74604e63434b4211}} 
-void \hyperlink{classddd_1_1infinite_object_ae9f9826fd760a02b74604e63434b4211}{reverse} (void)
+const T \& \hyperlink{classddd_1_1ray_a2d95fa78240a0e66d36cff629e5a8e0b}{angle} (const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1ray_ac7fa512fde0e202a0f64463b12ea7e11}{angle} (const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classddd_1_1ray_ab634fe1fa02504d0b5de85555be324d5}{angle} (const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&input) const
+\begin{DoxyCompactList}\small\item\em Angle between objects \mbox{[}rad\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1ray_a1a55daac434b754f4fb951a8dba6b4c9}\label{classddd_1_1ray_a1a55daac434b754f4fb951a8dba6b4c9}} 
+void \hyperlink{classddd_1_1ray_a1a55daac434b754f4fb951a8dba6b4c9}{reverse} (void)
 \begin{DoxyCompactList}\small\item\em Reverse direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -91,9 +87,27 @@ Ray class container.
 \mbox{\Hypertarget{classddd_1_1ray_acac10719a90ebaa930a55f2aff5dd372}\label{classddd_1_1ray_acac10719a90ebaa930a55f2aff5dd372}} 
 \index{ddd\+::ray@{ddd\+::ray}!ray@{ray}}
 \index{ray@{ray}!ddd\+::ray@{ddd\+::ray}}
-\subsubsection{\texorpdfstring{ray()}{ray()}}
+\subsubsection{\texorpdfstring{ray()}{ray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
 \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::\hyperlink{classddd_1_1ray}{ray} (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{origin,  }\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & Input origin point \\
+\hline
+{\em direction} & Input direction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_a7dda924f93114bf913684c0241637f7d}\label{classddd_1_1ray_a7dda924f93114bf913684c0241637f7d}} 
+\index{ddd\+::ray@{ddd\+::ray}!ray@{ray}}
+\index{ray@{ray}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{ray()}{ray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::\hyperlink{classddd_1_1ray}{ray} (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&}]{origin,  }\item[{const Eigen\+::\+Matrix$<$ T, 3, 1 $>$ \&}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -109,12 +123,12 @@ Class constructor.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a2145eca21c4505c11d19badc25faaf85}\label{classddd_1_1infinite_object_a2145eca21c4505c11d19badc25faaf85}} 
+\mbox{\Hypertarget{classddd_1_1ray_a148b37b45554dbdffd57c5574ad3836f}\label{classddd_1_1ray_a148b37b45554dbdffd57c5574ad3836f}} 
 \index{ddd\+::ray@{ddd\+::ray}!angle@{angle}}
 \index{angle@{angle}!ddd\+::ray@{ddd\+::ray}}
-\subsubsection{\texorpdfstring{angle()}{angle()}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-const T\& \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+const T\& \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -125,12 +139,60 @@ Angle between objects \mbox{[}rad\mbox{]}.
 {\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a1940ac3d87fc2ca742ca036c866736e8}\label{classddd_1_1infinite_object_a1940ac3d87fc2ca742ca036c866736e8}} 
+\mbox{\Hypertarget{classddd_1_1ray_a2d95fa78240a0e66d36cff629e5a8e0b}\label{classddd_1_1ray_a2d95fa78240a0e66d36cff629e5a8e0b}} 
+\index{ddd\+::ray@{ddd\+::ray}!angle@{angle}}
+\index{angle@{angle}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_ac7fa512fde0e202a0f64463b12ea7e11}\label{classddd_1_1ray_ac7fa512fde0e202a0f64463b12ea7e11}} 
+\index{ddd\+::ray@{ddd\+::ray}!angle@{angle}}
+\index{angle@{angle}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_ab634fe1fa02504d0b5de85555be324d5}\label{classddd_1_1ray_ab634fe1fa02504d0b5de85555be324d5}} 
+\index{ddd\+::ray@{ddd\+::ray}!angle@{angle}}
+\index{angle@{angle}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{angle()}{angle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+const T\& \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::angle (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Angle between objects \mbox{[}rad\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_a52a945e00576b41d9e42a221a26aee14}\label{classddd_1_1ray_a52a945e00576b41d9e42a221a26aee14}} 
 \index{ddd\+::ray@{ddd\+::ray}!direction@{direction}}
 \index{direction@{direction}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{direction()}{direction()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-void \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::direction (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::direction (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -141,28 +203,44 @@ Set direction.
 {\em input} & input vector object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a64089c7dadb2ec0b414b155f5bd43339}\label{classddd_1_1infinite_object_a64089c7dadb2ec0b414b155f5bd43339}} 
+\mbox{\Hypertarget{classddd_1_1ray_a9f556671f1aafce7838d9cd716e1bd72}\label{classddd_1_1ray_a9f556671f1aafce7838d9cd716e1bd72}} 
 \index{ddd\+::ray@{ddd\+::ray}!is\+\_\+equal@{is\+\_\+equal}}
 \index{is\+\_\+equal@{is\+\_\+equal}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{is\+\_\+equal()}{is\_equal()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Check if two objects are equal. 
+Check if two rays are (almost) equal. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a1dbf3e37dc6f146f089c4c63c4704329}\label{classddd_1_1infinite_object_a1dbf3e37dc6f146f089c4c63c4704329}} 
+\mbox{\Hypertarget{classddd_1_1ray_a905bb4921312cd23ee918d90a1e7f6e8}\label{classddd_1_1ray_a905bb4921312cd23ee918d90a1e7f6e8}} 
+\index{ddd\+::ray@{ddd\+::ray}!is\+\_\+notequal@{is\+\_\+notequal}}
+\index{is\+\_\+notequal@{is\+\_\+notequal}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{is\+\_\+notequal()}{is\_notequal()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::is\+\_\+notequal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two rays are (almost) N\+OT equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input vector object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_aa0c53861b95ff86c12e9c0bcac935080}\label{classddd_1_1ray_aa0c53861b95ff86c12e9c0bcac935080}} 
 \index{ddd\+::ray@{ddd\+::ray}!is\+\_\+notorthogonal@{is\+\_\+notorthogonal}}
 \index{is\+\_\+notorthogonal@{is\+\_\+notorthogonal}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{is\+\_\+notorthogonal()}{is\_notorthogonal()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::is\+\_\+notorthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::is\+\_\+notorthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -173,12 +251,12 @@ Check if two objects are N\+OT orthogonal.
 {\em input} & Input vector object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_ad4f312a6d767c5825632d8915a9f7dbc}\label{classddd_1_1infinite_object_ad4f312a6d767c5825632d8915a9f7dbc}} 
+\mbox{\Hypertarget{classddd_1_1ray_a71ecf77ee2921224588b6124f3ab30ab}\label{classddd_1_1ray_a71ecf77ee2921224588b6124f3ab30ab}} 
 \index{ddd\+::ray@{ddd\+::ray}!is\+\_\+notparallel@{is\+\_\+notparallel}}
 \index{is\+\_\+notparallel@{is\+\_\+notparallel}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{is\+\_\+notparallel()}{is\_notparallel()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::is\+\_\+notparallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::is\+\_\+notparallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -189,12 +267,12 @@ Check if two objects are N\+OT parallel.
 {\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a634f0db3a5447756901c43f8f3d20a8a}\label{classddd_1_1infinite_object_a634f0db3a5447756901c43f8f3d20a8a}} 
+\mbox{\Hypertarget{classddd_1_1ray_a669c71b72c7222adae9fab86795e7305}\label{classddd_1_1ray_a669c71b72c7222adae9fab86795e7305}} 
 \index{ddd\+::ray@{ddd\+::ray}!is\+\_\+orthogonal@{is\+\_\+orthogonal}}
 \index{is\+\_\+orthogonal@{is\+\_\+orthogonal}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{is\+\_\+orthogonal()}{is\_orthogonal()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::is\+\_\+orthogonal (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -205,12 +283,12 @@ Check if two objects are orthogonal.
 {\em input} & Input vector object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a52c16b849e5bd987c69ed6ae79a6cab1}\label{classddd_1_1infinite_object_a52c16b849e5bd987c69ed6ae79a6cab1}} 
+\mbox{\Hypertarget{classddd_1_1ray_ac17fe4f977e57135cff60d1b152fafb9}\label{classddd_1_1ray_ac17fe4f977e57135cff60d1b152fafb9}} 
 \index{ddd\+::ray@{ddd\+::ray}!is\+\_\+parallel@{is\+\_\+parallel}}
 \index{is\+\_\+parallel@{is\+\_\+parallel}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{is\+\_\+parallel()}{is\_parallel()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::is\+\_\+parallel (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -221,28 +299,60 @@ Check if two objects are parallel.
 {\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a7cd3342d60d4de4e4fc91d90fa9cc065}\label{classddd_1_1infinite_object_a7cd3342d60d4de4e4fc91d90fa9cc065}} 
+\mbox{\Hypertarget{classddd_1_1ray_a8b119ad8700dddcff3fcdc45673456a4}\label{classddd_1_1ray_a8b119ad8700dddcff3fcdc45673456a4}} 
+\index{ddd\+::ray@{ddd\+::ray}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if two rays are (exactly) N\+OT equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_a5d035573694570d6a80a76b489ecd9fd}\label{classddd_1_1ray_a5d035573694570d6a80a76b489ecd9fd}} 
+\index{ddd\+::ray@{ddd\+::ray}!operator=@{operator=}}
+\index{operator=@{operator=}!ddd\+::ray@{ddd\+::ray}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T = Float$>$ \\
+\hyperlink{classddd_1_1ray}{ray}$<$T$>$\& \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1ray_ac2a7a6189983df2aafa917b3a673eb49}\label{classddd_1_1ray_ac2a7a6189983df2aafa917b3a673eb49}} 
 \index{ddd\+::ray@{ddd\+::ray}!operator==@{operator==}}
 \index{operator==@{operator==}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{operator==()}{operator==()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-bool \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1infinite_object}{infinite\+Object}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+bool \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Check if two objects are equal. 
+Check if two rays are (exactly) equal. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em input} & Input \hyperlink{classddd_1_1infinite_object}{infinite\+Object} object \\
+{\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a82ecd5fc09ecfe5b1fe9a2609dd1465e}\label{classddd_1_1infinite_object_a82ecd5fc09ecfe5b1fe9a2609dd1465e}} 
+\mbox{\Hypertarget{classddd_1_1ray_ac7a05d23b571b8e60ab9b25e53a8962f}\label{classddd_1_1ray_ac7a05d23b571b8e60ab9b25e53a8962f}} 
 \index{ddd\+::ray@{ddd\+::ray}!origin@{origin}}
 \index{origin@{origin}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{origin()}{origin()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-void \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::origin (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::origin (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -253,12 +363,12 @@ Set origin.
 {\em input} & input point object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1infinite_object_a72649daa44060efdbef986ab9d90f3f6}\label{classddd_1_1infinite_object_a72649daa44060efdbef986ab9d90f3f6}} 
+\mbox{\Hypertarget{classddd_1_1ray_a705a8f1ab49b183b03a42e097bd40649}\label{classddd_1_1ray_a705a8f1ab49b183b03a42e097bd40649}} 
 \index{ddd\+::ray@{ddd\+::ray}!translate@{translate}}
 \index{translate@{translate}!ddd\+::ray@{ddd\+::ray}}
 \subsubsection{\texorpdfstring{translate()}{translate()}}
 {\footnotesize\ttfamily template$<$typename T = Float$>$ \\
-void \hyperlink{classddd_1_1infinite_object}{ddd\+::infinite\+Object}$<$ T $>$\+::translate (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1ray}{ddd\+::ray}$<$ T $>$\+::translate (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

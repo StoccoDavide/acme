@@ -151,9 +151,8 @@ namespace ddd
 
   template <typename T>
   inline T atan2(
-    const T &value0,
-    const T &value1
-  )
+      const T &value0,
+      const T &value1)
   {
     return std::atan2(value0, value1);
   }
@@ -196,7 +195,40 @@ namespace ddd
       const T &value1,
       const T &tolerance)
   {
-    return !is_equal(value0,value1,tolerance);
+    return !is_equal(value0, value1, tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  template <typename T>
+  inline const Eigen::Matrix<T, 3, 3> &rotation_x(
+      const T &input)
+  {
+    return Eigen::Matrix<T, 3, 3>(T(1.0), T(0.0), T(0.0),
+                                  T(0.0), cos(input), -sin(input),
+                                  T(0.0), sin(input), cos(input));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  template <typename T>
+  inline const Eigen::Matrix<T, 3, 3> &rotation_y(
+      const T &input)
+  {
+    return Eigen::Matrix<T, 3, 3>(cos(input), T(0.0), sin(input),
+                                  T(0.0), T(1.0), T(0.0),
+                                  -sin(input), T(0.0), cos(input));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  template <typename T>
+  inline const Eigen::Matrix<T, 3, 3> &rotation_z(
+      const T &input)
+  {
+    return Eigen::Matrix<T, 3, 3>(cos(input), -sin(input), T(0.0),
+                                  sin(input), cos(input), T(0.0),
+                                  T(0.0), T(0.0), T(1.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

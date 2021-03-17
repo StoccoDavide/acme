@@ -78,7 +78,7 @@ namespace ddd
        << std::showpoint
        << std::setprecision(6)
        << "(" << obj.origin()[0] << "," << obj.origin()[1] << "," << obj.origin()[2] << ","
-       << obj.direction()[0] << "," << obj.direction()[1] << "," << obj.direction()[2] << ")";
+       << obj.normal()[0] << "," << obj.normal()[1] << "," << obj.normal()[2] << ")";
     return os;
   }
 

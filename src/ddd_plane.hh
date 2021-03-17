@@ -5,7 +5,7 @@
 #ifndef INCLUDE_DDD_PLANE
 #define INCLUDE_DDD_PLANE
 
-#include "ddd_infObject.hh"
+#include "ddd.hh"
 
 namespace ddd
 {
@@ -24,8 +24,13 @@ namespace ddd
   3D plane defined by arbitrary point on the plane and a normal vector.
   */
   template <typename T = Float>
-  class plane : public infiniteObject<T>
+  class plane final
   {
+  private:
+    point<T> _origin;  //!< Origin point
+    vector<T> _normal; //!< Normal vector
+
+  public:
     //! Class destructor
     ~plane() {}
 
@@ -40,23 +45,27 @@ namespace ddd
         const T &ox, //<! Input x origin value
         const T &oy, //<! Input y origin value
         const T &oz, //<! Input z origin value
-        const T &dx, //<! Input x direction value
-        const T &dy, //<! Input y direction value
-        const T &dz  //<! Input z direction value
-    )
+        const T &dx, //<! Input x normal value
+        const T &dy, //<! Input y normal value
+        const T &dz  //<! Input z normal value
+        ) : _origin(point<T>(ox, oy, oz)), _normal(vector<T>(dx, dy, dz))
     {
-      this->origin(point<T>(ox, oy, oz));
-      this->direction(vector<T>(dx, dy, dz));
     }
 
     //! Class constructor
     plane(
-        const point<T> &origin,    //!< Input origin point
-        const vector<T> &direction //!< Input direction
-    )
+        const point<T> &origin, //!< Input origin point
+        const vector<T> &normal //!< Input normal
+        ) : _origin(origin), _normal(normal)
     {
-      this->origin(origin);
-      this->direction(direction);
+    }
+
+    //! Class constructor
+    plane(
+        const Eigen::Matrix<T, 3, 1> &origin, //!< Input origin point
+        const Eigen::Matrix<T, 3, 1> &normal  //!< Input direction
+        ) : _origin(origin), _normal(normal)
+    {
     }
 
     //! Equality operator
@@ -70,8 +79,8 @@ namespace ddd
       }
       else
       {
-        this->origin(input.origin());
-        this->direction(input.direction());
+        this->_origin = input._origin;
+        this->_normal = input._normal;
         return *this;
       }
     }
@@ -81,7 +90,7 @@ namespace ddd
         const plane<T> &input //!< Input object
     )
     {
-      return this->origin() == input.origin() && this->direction() == input.direction();
+      return this->_origin == input._origin && this->_normal == input._normal;
     }
 
     //! Check if two planes are (exactly) NOT equal
@@ -98,17 +107,182 @@ namespace ddd
     )
         const
     {
-      return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
+      return this->_origin.is_equal(input._origin) && this->_normal.is_equal(input._normal);
     }
 
-    //! Check if two planes are (almost) NOT equal
-    inline bool is_notequal(
+    //! Return origin
+    inline const point<T> &origin() const
+    {
+      return this->_origin;
+    }
+
+    //! Return normal
+    inline const vector<T> &normal() const
+    {
+      return this->_normal;
+    }
+
+    //! Set origin
+    inline void origin(
+        const point<T> &input //!< input point object
+    )
+    {
+      this->_origin = input;
+    }
+
+    //! Set normal
+    inline void normal(
+        const vector<T> &input //!< input vector object
+    )
+    {
+      this->_normal = input;
+    }
+
+    //! Translate line by vector
+    inline void translate(
+        const vector<T> &input //!< Input vector object
+    )
+    {
+      this->_origin.translate(input);
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const vector<T> &input //!< Input object
+    )
+        const
+    {
+      return input.is_parallel(this);
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const line<T> &input //!< Input object
+    )
+        const
+    {
+      return input.is_parallel(this);
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const ray<T> &input //!< Input object
+    )
+        const
+    {
+      return input.is_parallel(this);
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const plane<T> &input //!< Input object
+    )
+        const
+    {
+      return this->_normal.is_parallel(input.normal());
+    }
+
+    //! Check if two objects are parallel
+    inline bool is_parallel(
+        const segment<T> &input //!< Input object
+    )
+        const
+    {
+      return this->_normal.is_orthogonal(input.toVector());
+    }
+
+    //! Check if two objects are orthogonal
+    inline bool is_orthogonal(
+        const vector<T> &input //!< Input vector object
+    )
+        const
+    {
+      return input.is_orthogonal(this);
+    }
+
+    //! Check if two objects are orthogonal
+    inline bool is_orthogonal(
+        const line<T> &input //!< Input vector object
+    )
+        const
+    {
+      return input.is_orthogonal(this);
+    }
+
+    //! Check if two objects are orthogonal
+    inline bool is_orthogonal(
+        const ray<T> &input //!< Input vector object
+    )
+        const
+    {
+      return input.is_orthogonal(this);
+    }
+
+    //! Check if two objects are orthogonal
+    inline bool is_orthogonal(
         const plane<T> &input //!< Input vector object
     )
         const
     {
-      return !(this->is_equal(input));
+      return this->_normal.is_orthogonal(input.normal());
     }
+
+    //! Check if two objects are orthogonal
+    inline bool is_orthogonal(
+        const segment<T> &input //!< Input vector object
+    )
+        const
+    {
+      return this->_normal.is_parallel(input.toVector());
+    }
+
+    //! Angle between objects [rad]
+    inline const T &angle(
+        const vector<T> &input //!< Input object
+    )
+        const
+    {
+      return input.angle(this);
+    }
+
+    //! Angle between objects [rad]
+    inline const T &angle(
+        const line<T> &input //!< Input object
+    )
+        const
+    {
+      return input.angle(this);
+    }
+
+    //! Angle between objects [rad]
+    inline const T &angle(
+        const ray<T> &input //!< Input object
+    )
+        const
+    {
+      return input.angle(this);
+    }
+
+    //! Angle between objects [rad]
+    inline const T &angle(
+        const plane<T> &input //!< Input object
+    )
+        const
+    {
+      return this->_normal.angle(input.normal();
+    }
+
+    //! Angle between objects [rad]
+    inline const T &angle(
+        const segment<T> &input //!< Input object
+    )
+        const
+    {
+      return (this->_direction).angle(input.toVector()) - PI / 2.0;
+    }
+
+    //! Reverse normal
+    inline void reverse(void) { this->_normal = -this->_normal; }
   };
 
 } // namespace ddd

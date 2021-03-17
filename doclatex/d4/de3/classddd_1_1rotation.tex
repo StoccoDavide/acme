@@ -9,26 +9,6 @@ Rotation class container.
 
 {\ttfamily \#include $<$ddd\+\_\+rotation.\+hh$>$}
 
-
-
-Inheritance diagram for ddd\+:\+:rotation$<$ T $>$\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=187pt]{d2/d78/classddd_1_1rotation__inherit__graph}
-\end{center}
-\end{figure}
-
-
-Collaboration diagram for ddd\+:\+:rotation$<$ T $>$\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=187pt]{d7/df5/classddd_1_1rotation__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,10 +21,15 @@ Collaboration diagram for ddd\+:\+:rotation$<$ T $>$\+:
 \mbox{\Hypertarget{classddd_1_1rotation_a3c41c8ce3effc94658cf4cf5fa229e65}\label{classddd_1_1rotation_a3c41c8ce3effc94658cf4cf5fa229e65}} 
 \hyperlink{classddd_1_1rotation_a3c41c8ce3effc94658cf4cf5fa229e65}{rotation} ()
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\hyperlink{classddd_1_1rotation_a10b7bcc20f352a49767460ebde9a1fcf}{rotation} (const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \&\hyperlink{classddd_1_1mat_object_a4e06f4a888443bc139c8081d664b4449}{data})
+\hyperlink{classddd_1_1rotation_a10b7bcc20f352a49767460ebde9a1fcf}{rotation} (const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \&\hyperlink{classddd_1_1rotation_a96ca78d491ccc1c1c5b6be44c18e5abd}{data})
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
-\hyperlink{classddd_1_1rotation_a2b0e5637ae25ce6fc706f50d49f885e7}{rotation} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1mat_object_ae5d6d780c693c989836db506094a04b1}{x}, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1mat_object_a7122d95c42d387eed62a3d821061a97f}{y}, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1mat_object_a627bb80e18863ae1b6dd9ba19750328b}{z})
+\hyperlink{classddd_1_1rotation_a2b0e5637ae25ce6fc706f50d49f885e7}{rotation} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1rotation_a6888d588f65756080db76224a262140b}{x}, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1rotation_a9abadbab25e48775a4dd73c43f9d03ac}{y}, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&\hyperlink{classddd_1_1rotation_a6128afc3f093ba083b2f79b111990ae7}{z})
 \begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_a2b8d2188a302d730c313dd61bfaacf47}\label{classddd_1_1rotation_a2b8d2188a302d730c313dd61bfaacf47}} 
+void \hyperlink{classddd_1_1rotation_a2b8d2188a302d730c313dd61bfaacf47}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clear data. \end{DoxyCompactList}\item 
+\hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \& \hyperlink{classddd_1_1rotation_a7ea14405fb6eba57a9cf3de1bc200fd0}{operator=} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1rotation_ae704ea435ead1c66b7ca0bd4899ce2bc}{operator==} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em Check if two rotations are (exactly) equal. \end{DoxyCompactList}\item 
 bool \hyperlink{classddd_1_1rotation_abfeae27a919ada418d2cdcce96e5e08d}{operator!=} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input)
@@ -61,37 +46,58 @@ bool \hyperlink{classddd_1_1rotation_aa1aba1ad41c7d09edce377bd5cb6efbb}{is\+\_\+
 \begin{DoxyCompactList}\small\item\em External product operator. \end{DoxyCompactList}\item 
 \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \hyperlink{classddd_1_1rotation_a1b55d8f810793caa469b12a2ca41ee6c}{operator$\ast$} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
 \begin{DoxyCompactList}\small\item\em External product operator. \end{DoxyCompactList}\item 
-\hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \hyperlink{classddd_1_1rotation_af4bae9f617bb9760fc44d5520098e2eb}{operator$\ast$} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input)
+\hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \hyperlink{classddd_1_1rotation_a974dff537d71eef1dd26420b9b4e087d}{operator$\ast$} (const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&input) const
 \begin{DoxyCompactList}\small\item\em Rotation product operator. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1mat_object_ad7c6aab0d8d7f5a2b6c522175aa35fc0}\label{classddd_1_1mat_object_ad7c6aab0d8d7f5a2b6c522175aa35fc0}} 
-void \hyperlink{classddd_1_1mat_object_ad7c6aab0d8d7f5a2b6c522175aa35fc0}{clear} ()
-\begin{DoxyCompactList}\small\item\em Clear data. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1mat_object_a078f66a56b01fc18cc9864ec736611e5}{scale} (const T \&value)
+void \hyperlink{classddd_1_1rotation_ab4911ee3dd5709e25f6dc7db6bad2c21}{scale} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Scale object. \end{DoxyCompactList}\item 
-T \& \hyperlink{classddd_1_1mat_object_a361b78105da1bb2151f51f674a20d59a}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&i, const std\+::size\+\_\+t \&j)
+T \& \hyperlink{classddd_1_1rotation_a25411622296849f461c6f15aeaf280a0}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&i, const std\+::size\+\_\+t \&j)
 \begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
-const T \& \hyperlink{classddd_1_1mat_object_ae87764e4910b1323233f611c796946a2}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&i, const std\+::size\+\_\+t \&j) const
+const T \& \hyperlink{classddd_1_1rotation_abe1b800d2857b75ad2d00de4743bfa85}{operator\mbox{[}$\,$\mbox{]}} (const std\+::size\+\_\+t \&i, const std\+::size\+\_\+t \&j) const
 \begin{DoxyCompactList}\small\item\em Indexing operator. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1mat_object_ae5d6d780c693c989836db506094a04b1}\label{classddd_1_1mat_object_ae5d6d780c693c989836db506094a04b1}} 
-const T \& \hyperlink{classddd_1_1mat_object_ae5d6d780c693c989836db506094a04b1}{x} (void) const
+\mbox{\Hypertarget{classddd_1_1rotation_a6888d588f65756080db76224a262140b}\label{classddd_1_1rotation_a6888d588f65756080db76224a262140b}} 
+const T \& \hyperlink{classddd_1_1rotation_a6888d588f65756080db76224a262140b}{x} (void) const
 \begin{DoxyCompactList}\small\item\em Get x vector. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1mat_object_a9b1d7066a88e2f1b6cfb101fb783fdf6}{x} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Set x vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1mat_object_a7122d95c42d387eed62a3d821061a97f}\label{classddd_1_1mat_object_a7122d95c42d387eed62a3d821061a97f}} 
-const T \& \hyperlink{classddd_1_1mat_object_a7122d95c42d387eed62a3d821061a97f}{y} (void) const
+\mbox{\Hypertarget{classddd_1_1rotation_a9abadbab25e48775a4dd73c43f9d03ac}\label{classddd_1_1rotation_a9abadbab25e48775a4dd73c43f9d03ac}} 
+const T \& \hyperlink{classddd_1_1rotation_a9abadbab25e48775a4dd73c43f9d03ac}{y} (void) const
 \begin{DoxyCompactList}\small\item\em Get y vector. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1mat_object_a638f5c083ccd96c6742f062d35810193}{y} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Set y vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1mat_object_a627bb80e18863ae1b6dd9ba19750328b}\label{classddd_1_1mat_object_a627bb80e18863ae1b6dd9ba19750328b}} 
-const T \& \hyperlink{classddd_1_1mat_object_a627bb80e18863ae1b6dd9ba19750328b}{z} (void) const
+\mbox{\Hypertarget{classddd_1_1rotation_a6128afc3f093ba083b2f79b111990ae7}\label{classddd_1_1rotation_a6128afc3f093ba083b2f79b111990ae7}} 
+const T \& \hyperlink{classddd_1_1rotation_a6128afc3f093ba083b2f79b111990ae7}{z} (void) const
 \begin{DoxyCompactList}\small\item\em Get z vector. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1mat_object_ae234d843cfd0a90b5e67b946ec18bfea}{z} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
-\begin{DoxyCompactList}\small\item\em Set z vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classddd_1_1mat_object_a4e06f4a888443bc139c8081d664b4449}\label{classddd_1_1mat_object_a4e06f4a888443bc139c8081d664b4449}} 
-const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \& \hyperlink{classddd_1_1mat_object_a4e06f4a888443bc139c8081d664b4449}{data} (void) const
+\mbox{\Hypertarget{classddd_1_1rotation_a96ca78d491ccc1c1c5b6be44c18e5abd}\label{classddd_1_1rotation_a96ca78d491ccc1c1c5b6be44c18e5abd}} 
+const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \& \hyperlink{classddd_1_1rotation_a96ca78d491ccc1c1c5b6be44c18e5abd}{data} (void) const
 \begin{DoxyCompactList}\small\item\em Get data. \end{DoxyCompactList}\item 
-void \hyperlink{classddd_1_1mat_object_a5bff8ef1182818135f4b82e978ff3bbf}{data} (const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \&data)
-\begin{DoxyCompactList}\small\item\em Set data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{classddd_1_1rotation_ab1d32f426452f5fc28844c1c7ba486c6}{x} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set x vector. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1rotation_aeb1179a75b15819f424d212d9b09d818}{y} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set y vector. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1rotation_add5659b127f52c0796f8eaa5997d9e20}{z} (const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&input)
+\begin{DoxyCompactList}\small\item\em Set z vector. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1rotation_af70341fadd500946c111eb750e4865a5}{data} (const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Set data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_a25fd7a4d0358a92c95b7369db99f542b}\label{classddd_1_1rotation_a25fd7a4d0358a92c95b7369db99f542b}} 
+const bool \hyperlink{classddd_1_1rotation_a25fd7a4d0358a92c95b7369db99f542b}{is\+\_\+othonormal} (void) const
+\begin{DoxyCompactList}\small\item\em Check if two rotation matrix is othonormal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_a3b71f1f04257a2d519b0e5433d1ae4f3}\label{classddd_1_1rotation_a3b71f1f04257a2d519b0e5433d1ae4f3}} 
+const bool \hyperlink{classddd_1_1rotation_a3b71f1f04257a2d519b0e5433d1ae4f3}{is\+\_\+notothonormal} (void) const
+\begin{DoxyCompactList}\small\item\em Check if two rotation matrix is N\+OT othonormal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_ae20ad2dde12f552e8ef032e9e02733cf}\label{classddd_1_1rotation_ae20ad2dde12f552e8ef032e9e02733cf}} 
+Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{classddd_1_1rotation_ae20ad2dde12f552e8ef032e9e02733cf}{transpose} (void)
+\begin{DoxyCompactList}\small\item\em Get transposed matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_aaeb56c20ff04304b991ae382dcd06829}\label{classddd_1_1rotation_aaeb56c20ff04304b991ae382dcd06829}} 
+void \hyperlink{classddd_1_1rotation_aaeb56c20ff04304b991ae382dcd06829}{transpose} (void) const
+\begin{DoxyCompactList}\small\item\em Transpose matrix. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_ae27db71440b3473d16f3ffae6d963b31}\label{classddd_1_1rotation_ae27db71440b3473d16f3ffae6d963b31}} 
+Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{classddd_1_1rotation_ae27db71440b3473d16f3ffae6d963b31}{inverse} (void)
+\begin{DoxyCompactList}\small\item\em Get inverse rotation matrix (othonormality must be checked manually!) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classddd_1_1rotation_a6736628a6252a8373c567884f84c2f2d}\label{classddd_1_1rotation_a6736628a6252a8373c567884f84c2f2d}} 
+void \hyperlink{classddd_1_1rotation_a6736628a6252a8373c567884f84c2f2d}{inverse} (void) const
+\begin{DoxyCompactList}\small\item\em Inverse rotation matrix (othonormality must be checked manually!) \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1rotation_af4bd213ca0cf7d372f840cbfd9d37696}{rotate\+\_\+x} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Perform rotation on x-\/axis. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1rotation_a4f883c5c4c736387fa14f1362d90a90c}{rotate\+\_\+y} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Perform rotation on y-\/axis. \end{DoxyCompactList}\item 
+void \hyperlink{classddd_1_1rotation_a3ef52c0cd324e1ef83fcb65dba746e10}{rotate\+\_\+z} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Perform rotation on z-\/axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -142,12 +148,12 @@ Class constructor.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classddd_1_1mat_object_a5bff8ef1182818135f4b82e978ff3bbf}\label{classddd_1_1mat_object_a5bff8ef1182818135f4b82e978ff3bbf}} 
+\mbox{\Hypertarget{classddd_1_1rotation_af70341fadd500946c111eb750e4865a5}\label{classddd_1_1rotation_af70341fadd500946c111eb750e4865a5}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!data@{data}}
 \index{data@{data}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{data()}{data()}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-void \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::data (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::data (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -254,12 +260,12 @@ External product operator.
 {\em input} & Input vector \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1rotation_af4bae9f617bb9760fc44d5520098e2eb}\label{classddd_1_1rotation_af4bae9f617bb9760fc44d5520098e2eb}} 
+\mbox{\Hypertarget{classddd_1_1rotation_a974dff537d71eef1dd26420b9b4e087d}\label{classddd_1_1rotation_a974dff537d71eef1dd26420b9b4e087d}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-\hyperlink{classddd_1_1rotation}{rotation}$<$T$>$ \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\hyperlink{classddd_1_1rotation}{rotation}$<$T$>$ \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&}]{input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -286,6 +292,22 @@ Scalar division operator.
 {\em input} & Input scalar \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1rotation_a7ea14405fb6eba57a9cf3de1bc200fd0}\label{classddd_1_1rotation_a7ea14405fb6eba57a9cf3de1bc200fd0}} 
+\index{ddd\+::rotation@{ddd\+::rotation}!operator=@{operator=}}
+\index{operator=@{operator=}!ddd\+::rotation@{ddd\+::rotation}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
+\hyperlink{classddd_1_1rotation}{rotation}$<$T$>$\& \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1rotation}{rotation}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input object \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classddd_1_1rotation_ae704ea435ead1c66b7ca0bd4899ce2bc}\label{classddd_1_1rotation_ae704ea435ead1c66b7ca0bd4899ce2bc}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!operator==@{operator==}}
 \index{operator==@{operator==}!ddd\+::rotation@{ddd\+::rotation}}
@@ -302,12 +324,12 @@ Check if two rotations are (exactly) equal.
 {\em input} & Input object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1mat_object_a361b78105da1bb2151f51f674a20d59a}\label{classddd_1_1mat_object_a361b78105da1bb2151f51f674a20d59a}} 
+\mbox{\Hypertarget{classddd_1_1rotation_a25411622296849f461c6f15aeaf280a0}\label{classddd_1_1rotation_a25411622296849f461c6f15aeaf280a0}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-T\& \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i,  }\item[{const std\+::size\+\_\+t \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+T\& \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i,  }\item[{const std\+::size\+\_\+t \&}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -320,12 +342,12 @@ Indexing operator.
 {\em j} & Input index \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1mat_object_ae87764e4910b1323233f611c796946a2}\label{classddd_1_1mat_object_ae87764e4910b1323233f611c796946a2}} 
+\mbox{\Hypertarget{classddd_1_1rotation_abe1b800d2857b75ad2d00de4743bfa85}\label{classddd_1_1rotation_abe1b800d2857b75ad2d00de4743bfa85}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-const T\& \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i,  }\item[{const std\+::size\+\_\+t \&}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+const T\& \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t \&}]{i,  }\item[{const std\+::size\+\_\+t \&}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -338,12 +360,60 @@ Indexing operator.
 {\em j} & Input index \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1mat_object_a078f66a56b01fc18cc9864ec736611e5}\label{classddd_1_1mat_object_a078f66a56b01fc18cc9864ec736611e5}} 
+\mbox{\Hypertarget{classddd_1_1rotation_af4bd213ca0cf7d372f840cbfd9d37696}\label{classddd_1_1rotation_af4bd213ca0cf7d372f840cbfd9d37696}} 
+\index{ddd\+::rotation@{ddd\+::rotation}!rotate\+\_\+x@{rotate\+\_\+x}}
+\index{rotate\+\_\+x@{rotate\+\_\+x}!ddd\+::rotation@{ddd\+::rotation}}
+\subsubsection{\texorpdfstring{rotate\+\_\+x()}{rotate\_x()}}
+{\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::rotate\+\_\+x (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Perform rotation on x-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input angle \mbox{[}rad\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1rotation_a4f883c5c4c736387fa14f1362d90a90c}\label{classddd_1_1rotation_a4f883c5c4c736387fa14f1362d90a90c}} 
+\index{ddd\+::rotation@{ddd\+::rotation}!rotate\+\_\+y@{rotate\+\_\+y}}
+\index{rotate\+\_\+y@{rotate\+\_\+y}!ddd\+::rotation@{ddd\+::rotation}}
+\subsubsection{\texorpdfstring{rotate\+\_\+y()}{rotate\_y()}}
+{\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::rotate\+\_\+y (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Perform rotation on y-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input angle \mbox{[}rad\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1rotation_a3ef52c0cd324e1ef83fcb65dba746e10}\label{classddd_1_1rotation_a3ef52c0cd324e1ef83fcb65dba746e10}} 
+\index{ddd\+::rotation@{ddd\+::rotation}!rotate\+\_\+z@{rotate\+\_\+z}}
+\index{rotate\+\_\+z@{rotate\+\_\+z}!ddd\+::rotation@{ddd\+::rotation}}
+\subsubsection{\texorpdfstring{rotate\+\_\+z()}{rotate\_z()}}
+{\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::rotate\+\_\+z (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Perform rotation on z-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input angle \mbox{[}rad\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classddd_1_1rotation_ab4911ee3dd5709e25f6dc7db6bad2c21}\label{classddd_1_1rotation_ab4911ee3dd5709e25f6dc7db6bad2c21}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!scale@{scale}}
 \index{scale@{scale}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{scale()}{scale()}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-void \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::scale (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::scale (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -354,12 +424,12 @@ Scale object.
 {\em value} & Scale value \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1mat_object_a9b1d7066a88e2f1b6cfb101fb783fdf6}\label{classddd_1_1mat_object_a9b1d7066a88e2f1b6cfb101fb783fdf6}} 
+\mbox{\Hypertarget{classddd_1_1rotation_ab1d32f426452f5fc28844c1c7ba486c6}\label{classddd_1_1rotation_ab1d32f426452f5fc28844c1c7ba486c6}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!x@{x}}
 \index{x@{x}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{x()}{x()}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-void \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::x (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::x (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -370,12 +440,12 @@ Set x vector.
 {\em input} & Input vector \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1mat_object_a638f5c083ccd96c6742f062d35810193}\label{classddd_1_1mat_object_a638f5c083ccd96c6742f062d35810193}} 
+\mbox{\Hypertarget{classddd_1_1rotation_aeb1179a75b15819f424d212d9b09d818}\label{classddd_1_1rotation_aeb1179a75b15819f424d212d9b09d818}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!y@{y}}
 \index{y@{y}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{y()}{y()}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-void \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::y (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::y (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -386,12 +456,12 @@ Set y vector.
 {\em input} & Input vector \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classddd_1_1mat_object_ae234d843cfd0a90b5e67b946ec18bfea}\label{classddd_1_1mat_object_ae234d843cfd0a90b5e67b946ec18bfea}} 
+\mbox{\Hypertarget{classddd_1_1rotation_add5659b127f52c0796f8eaa5997d9e20}\label{classddd_1_1rotation_add5659b127f52c0796f8eaa5997d9e20}} 
 \index{ddd\+::rotation@{ddd\+::rotation}!z@{z}}
 \index{z@{z}!ddd\+::rotation@{ddd\+::rotation}}
 \subsubsection{\texorpdfstring{z()}{z()}}
 {\footnotesize\ttfamily template$<$typename T  = Float$>$ \\
-void \hyperlink{classddd_1_1mat_object}{ddd\+::mat\+Object}$<$ T $>$\+::z (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+void \hyperlink{classddd_1_1rotation}{ddd\+::rotation}$<$ T $>$\+::z (\begin{DoxyParamCaption}\item[{const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

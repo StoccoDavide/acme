@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['plane',['plane',['../dd/d76/classddd_1_1plane.html',1,'ddd']]],
-  ['point',['point',['../dd/ddb/classddd_1_1point.html',1,'ddd']]]
+  ['ray',['ray',['../d0/dc3/classddd_1_1ray.html',1,'ddd']]],
+  ['rotation',['rotation',['../d4/de3/classddd_1_1rotation.html',1,'ddd']]]
 ];

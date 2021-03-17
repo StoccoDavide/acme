@@ -25,8 +25,11 @@ namespace ddd
   a 3 by 1 Eigen matrix.
   */
   template <typename T = Float>
-  class point : public rowObject<T>
+  class point final
   {
+  private:
+    Eigen::Matrix<T, 3, 1> _data; //!< Data as Eigen 3x1 column vector
+
   public:
     //! Class destructor
     ~point() {}
@@ -40,9 +43,8 @@ namespace ddd
     //! Class constructor
     point(
         const Eigen::Matrix<T, 3, 1> &data //!< Input data
-    )
+        ) : _data(data)
     {
-      this->data(data);
     }
 
     //! Class constructor
@@ -50,12 +52,14 @@ namespace ddd
         const T &x, //!< Input x point value
         const T &y, //!< Input y point value
         const T &z  //!< Input z point value
-    )
+        ) : _data(Eigen::Matrix<T, 3, 1>(x, y, z))
     {
-      this->x(x);
-      this->y(y);
-      this->z(z);
     }
+
+    //! Class constructor
+    point(
+        const vector<T> &input //!< Input point
+        ) : _data(input.data()){};
 
     //! Equality operator
     inline point<T> &operator=(
@@ -98,15 +102,6 @@ namespace ddd
       return ddd::is_equal((this->data() - input.data()).norm(), T(0.0));
     }
 
-    //! Check if two points are (almost) NOT equal
-    inline bool is_notequal(
-        const point<T> &input //!< Input point object
-    )
-        const
-    {
-      return !(this->is_equal(input));
-    }
-
     //! Addition operator
     inline point<T> operator+(
         const point<T> &input //!< Input object
@@ -141,6 +136,99 @@ namespace ddd
       return point<T>(this->data() / input);
     }
 
+    //! Clear data
+    void clear()
+    {
+      for (std::size_t i = 0; i < 3; ++i)
+        this->_data[i] = T(0.0);
+    }
+
+    //! Scale object
+    inline void scale(
+        const T &value //!< Scale value
+    )
+    {
+      this->_data = this->_data * value;
+    }
+
+    //! Indexing operator
+    inline T &operator[](
+        const std::size_t &i //!< Input index
+    )
+    {
+      return this->_data[i];
+    }
+
+    //! Indexing operator
+    inline const T &operator[](
+        const std::size_t &i //!< Input index
+    )
+        const
+    {
+      return this->_data[i];
+    }
+
+    //! Convert to vector
+    inline const vector<T> toVector(void)
+    {
+      return vector<T>(this);
+    }
+
+    //! Get x coordinate
+    inline const T &x(void) const { return this->_data[0]; }
+
+    //! Get y coordinate
+    inline const T &y(void) const { return this->_data[1]; }
+
+    //! Get z coordinate
+    inline const T &z(void) const { return this->_data[2]; }
+
+    //! Get data
+    inline const Eigen::Matrix<T, 3, 1> &data(void) const { return this->_data; }
+
+    //! Set x coordinate
+    inline void x(
+        const T &input //!< Input value
+    )
+    {
+      this->_data[0] = input;
+    }
+
+    //! Set y coordinate
+    inline void y(
+        const T &input //!< Input value
+    )
+    {
+      this->_data[1] = input;
+    }
+
+    //! Set z coordinate
+    inline void z(
+        const T &input //!< Input value
+    )
+    {
+      this->_data[2] = input;
+    }
+
+    //! Set data
+    inline void data(
+        const Eigen::Matrix<T, 3, 1> &data //!< Input data
+    )
+    {
+      this->_data = data;
+    }
+
+    //! Normalize object
+    inline void normalize()
+    {
+      this->_data.normalize();
+    }
+
+    //! Return object norm
+    inline const T &norm()
+    {
+      return this->_data.norm();
+    }
 
     //! Translate rowObject by vector
     inline void translate(
@@ -158,7 +246,7 @@ namespace ddd
     {
       if (!this->is_equal(input))
       {
-        return (this->data() - input.data()).norm();
+        return (this->_data - input._data).norm();
       }
       else
       {
@@ -173,7 +261,7 @@ namespace ddd
     {
       if (!this->is_equal(input))
       {
-        return (this->data() - input.data()).squaredNorm();
+        return (this->_data - input._data).squaredNorm();
       }
       else
       {

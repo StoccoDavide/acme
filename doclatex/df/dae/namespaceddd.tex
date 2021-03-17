@@ -9,12 +9,8 @@ class \hyperlink{classddd_1_1circle}{circle}
 \item 
 class \hyperlink{classddd_1_1coord}{coord}
 \item 
-class \hyperlink{classddd_1_1infinite_object}{infinite\+Object}
-\begin{DoxyCompactList}\small\item\em Infinite Object class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1line}{line}
 \begin{DoxyCompactList}\small\item\em Line class container. \end{DoxyCompactList}\item 
-class \hyperlink{classddd_1_1mat_object}{mat\+Object}
-\begin{DoxyCompactList}\small\item\em \hyperlink{classddd_1_1mat_object}{mat\+Object} class container \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1plane}{plane}
 \begin{DoxyCompactList}\small\item\em Plane class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1point}{point}
@@ -25,8 +21,6 @@ class \hyperlink{classddd_1_1ray}{ray}
 \begin{DoxyCompactList}\small\item\em Ray class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1rotation}{rotation}
 \begin{DoxyCompactList}\small\item\em Rotation class container. \end{DoxyCompactList}\item 
-class \hyperlink{classddd_1_1row_object}{row\+Object}
-\begin{DoxyCompactList}\small\item\em \hyperlink{classddd_1_1row_object}{row\+Object} class container \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1segment}{segment}
 \begin{DoxyCompactList}\small\item\em Segment class container. \end{DoxyCompactList}\item 
 class \hyperlink{classddd_1_1sphere}{sphere}
@@ -95,23 +89,38 @@ typedef int \hyperlink{namespaceddd_a50ea76e2b817cc6c6b4539c7f3c4bdad}{Int}
 \begin{DoxyCompactList}\small\item\em Check if two elements are almost equal. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespaceddd_a9b12e82fa10b6beadb08360007e6b57b}{is\+\_\+notequal} (const T \&value0, const T \&value1, const T \&tolerance=Epsilon\+\_\+\+High)
 \begin{DoxyCompactList}\small\item\em Check if two elements are N\+OT almost equal. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{namespaceddd_ad45c0a592c1aebe03fc48a0c57d52641}{rotate\+\_\+x} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Get rotation on x-\/axis. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{namespaceddd_a91c74ff16a602f1f611759e2e9f594f3}{rotate\+\_\+y} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Get rotation on y-\/axis. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \hyperlink{namespaceddd_a8b9d6f84cbf4f443881fd3b3abad07e4}{rotate\+\_\+z} (const T \&input)
+\begin{DoxyCompactList}\small\item\em Get rotation on z-\/axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceddd_ae7562b0e49ae64d1740ac6f68f81fdef}\label{namespaceddd_ae7562b0e49ae64d1740ac6f68f81fdef}} 
+{\footnotesize template$<$typename T $>$ }\\const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \& {\bfseries rotation\+\_\+x} (const T \&input)
+\item 
+\mbox{\Hypertarget{namespaceddd_a99646f415772db90f4df4fb5dd4d458d}\label{namespaceddd_a99646f415772db90f4df4fb5dd4d458d}} 
+{\footnotesize template$<$typename T $>$ }\\const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \& {\bfseries rotation\+\_\+y} (const T \&input)
+\item 
+\mbox{\Hypertarget{namespaceddd_a03a4cb214ac10e4199f9cbe342cf68f6}\label{namespaceddd_a03a4cb214ac10e4199f9cbe342cf68f6}} 
+{\footnotesize template$<$typename T $>$ }\\const Eigen\+::\+Matrix$<$ T, 3, 3 $>$ \& {\bfseries rotation\+\_\+z} (const T \&input)
+\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a02d73e2ba5a018e4e525deb8aea3c0a8}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1point}{point}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em $<$ Stream out operator for point object \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a85783ffbd6985b1981059732d7bbe174}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1vector}{vector}$<$ T $>$ \&obj)
-\begin{DoxyCompactList}\small\item\em Stream out operator for segment object. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a59e2fa950fd945aa8b3dd550720ad3f5}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em Stream out operator for line object. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a2001eec5d960802592e1ca6a5b0dc203}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&obj)
+\begin{DoxyCompactList}\small\item\em Stream out operator for ray object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_ae2604d6c72853dfb2595f6882cbc7a51}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&obj)
+\begin{DoxyCompactList}\small\item\em Stream out operator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_af1faa02295670c7cfd7f0278e3973f84}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&obj)
+\begin{DoxyCompactList}\small\item\em Stream out operator for segment object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a59e2fa950fd945aa8b3dd550720ad3f5}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em Stream out operator for box object. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_af710b0f11be50190553c743ce86545a3}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1box}{box}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em Stream out operator for triangle object. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a3a6f828f85e4fa306f0d950f1aab4f64}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em Stream out operator. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1quadix}{quadix}$<$ T $>$ \&obj)
-\begin{DoxyCompactList}\small\item\em Stream out operator for ray object. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_ae2604d6c72853dfb2595f6882cbc7a51}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&obj)
-\begin{DoxyCompactList}\small\item\em Stream out operator. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_af1faa02295670c7cfd7f0278e3973f84}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&obj)
 \item 
 {\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{namespaceddd_a64dbb41c0ee377eb528907f3448514f6}{operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classddd_1_1sphere}{sphere}$<$ T $>$ \&obj)
 \begin{DoxyCompactList}\small\item\em $<$ Stream out operator \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -124,13 +133,11 @@ file\+: \hyperlink{ddd_8hh_source}{ddd.\+hh}
 
 file\+: \hyperlink{ddd__box_8hh_source}{ddd\+\_\+box.\+hh}
 
-file\+: \hyperlink{ddd__infinite_object_8hh_source}{ddd\+\_\+infinite\+Object.\+hh}
+file\+: ddd\+\_\+sphere.\+hh
 
 file\+: \hyperlink{ddd__instantiate_8hh_source}{ddd\+\_\+instantiate.\+hh}
 
 file\+: \hyperlink{ddd__line_8hh_source}{ddd\+\_\+line.\+hh}
-
-file\+: \hyperlink{ddd__mat_object_8hh_source}{ddd\+\_\+mat\+Object.\+hh}
 
 file\+: \hyperlink{ddd__plane_8hh_source}{ddd\+\_\+plane.\+hh}
 
@@ -140,11 +147,9 @@ file\+: \hyperlink{ddd__quadix_8hh_source}{ddd\+\_\+quadix.\+hh}
 
 file\+: \hyperlink{ddd__ray_8hh_source}{ddd\+\_\+ray.\+hh}
 
-file\+: \hyperlink{ddd__row_object_8hh_source}{ddd\+\_\+row\+Object.\+hh}
+file\+: \hyperlink{ddd__rotation_8hh_source}{ddd\+\_\+rotation.\+hh}
 
 file\+: \hyperlink{ddd__segment_8hh_source}{ddd\+\_\+segment.\+hh}
-
-file\+: \hyperlink{ddd__sphere_8hh_source}{ddd\+\_\+sphere.\+hh}
 
 file\+: \hyperlink{ddd__triangle_8hh_source}{ddd\+\_\+triangle.\+hh} 
 
@@ -426,7 +431,7 @@ std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::os
 
 
 
-Stream out operator for segment object. 
+Stream out operator for line object. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -435,84 +440,12 @@ Stream out operator for segment object.
 {\em obj} & Vector object \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{namespaceddd_a59e2fa950fd945aa8b3dd550720ad3f5}\label{namespaceddd_a59e2fa950fd945aa8b3dd550720ad3f5}} 
+\mbox{\Hypertarget{namespaceddd_a2001eec5d960802592e1ca6a5b0dc203}\label{namespaceddd_a2001eec5d960802592e1ca6a5b0dc203}} 
 \index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
 \subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Stream out operator for line object. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & Output stream \\
-\hline
-{\em obj} & Segment object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{namespaceddd_a2001eec5d960802592e1ca6a5b0dc203}\label{namespaceddd_a2001eec5d960802592e1ca6a5b0dc203}} 
-\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
 std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1line}{line}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Stream out operator for box object. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & Output stream \\
-\hline
-{\em obj} & Line object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{namespaceddd_af710b0f11be50190553c743ce86545a3}\label{namespaceddd_af710b0f11be50190553c743ce86545a3}} 
-\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1box}{box}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Stream out operator for triangle object. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & Output stream \\
-\hline
-{\em obj} & Box object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{namespaceddd_a3a6f828f85e4fa306f0d950f1aab4f64}\label{namespaceddd_a3a6f828f85e4fa306f0d950f1aab4f64}} 
-\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Stream out operator. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em os} & Output stream \\
-\hline
-{\em obj} & Triangle object \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}\label{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}} 
-\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
-\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1quadix}{quadix}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -522,13 +455,13 @@ Stream out operator for ray object.
 \begin{DoxyParams}{Parameters}
 {\em os} & Output stream \\
 \hline
-{\em obj} & Quadix object \\
+{\em obj} & Line object \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{namespaceddd_ae2604d6c72853dfb2595f6882cbc7a51}\label{namespaceddd_ae2604d6c72853dfb2595f6882cbc7a51}} 
 \index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1ray}{ray}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -546,15 +479,87 @@ Stream out operator.
 \mbox{\Hypertarget{namespaceddd_af1faa02295670c7cfd7f0278e3973f84}\label{namespaceddd_af1faa02295670c7cfd7f0278e3973f84}} 
 \index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1plane}{plane}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stream out operator for segment object. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em os} & Output stream \\
 \hline
 {\em obj} & Plane object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a59e2fa950fd945aa8b3dd550720ad3f5}\label{namespaceddd_a59e2fa950fd945aa8b3dd550720ad3f5}} 
+\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1segment}{segment}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stream out operator for box object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em obj} & Segment object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_af710b0f11be50190553c743ce86545a3}\label{namespaceddd_af710b0f11be50190553c743ce86545a3}} 
+\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1box}{box}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stream out operator for triangle object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em obj} & Box object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a3a6f828f85e4fa306f0d950f1aab4f64}\label{namespaceddd_a3a6f828f85e4fa306f0d950f1aab4f64}} 
+\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1triangle}{triangle}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stream out operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em obj} & Triangle object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}\label{namespaceddd_a58ae88cefdf3b919e400db6de59f4cfc}} 
+\index{ddd@{ddd}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& ddd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \hyperlink{classddd_1_1quadix}{quadix}$<$ T $>$ \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em obj} & Quadix object \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{namespaceddd_a64dbb41c0ee377eb528907f3448514f6}\label{namespaceddd_a64dbb41c0ee377eb528907f3448514f6}} 
@@ -573,6 +578,54 @@ $<$ Stream out operator
 {\em os} & Output stream \\
 \hline
 {\em obj} & Sphere object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_ad45c0a592c1aebe03fc48a0c57d52641}\label{namespaceddd_ad45c0a592c1aebe03fc48a0c57d52641}} 
+\index{ddd@{ddd}!rotate\+\_\+x@{rotate\+\_\+x}}
+\index{rotate\+\_\+x@{rotate\+\_\+x}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{rotate\+\_\+x()}{rotate\_x()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix$<$T, 3, 3$>$ ddd\+::rotate\+\_\+x (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get rotation on x-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input angle \mbox{[}rad\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a91c74ff16a602f1f611759e2e9f594f3}\label{namespaceddd_a91c74ff16a602f1f611759e2e9f594f3}} 
+\index{ddd@{ddd}!rotate\+\_\+y@{rotate\+\_\+y}}
+\index{rotate\+\_\+y@{rotate\+\_\+y}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{rotate\+\_\+y()}{rotate\_y()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix$<$T, 3, 3$>$ ddd\+::rotate\+\_\+y (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get rotation on y-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input angle \mbox{[}rad\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceddd_a8b9d6f84cbf4f443881fd3b3abad07e4}\label{namespaceddd_a8b9d6f84cbf4f443881fd3b3abad07e4}} 
+\index{ddd@{ddd}!rotate\+\_\+z@{rotate\+\_\+z}}
+\index{rotate\+\_\+z@{rotate\+\_\+z}!ddd@{ddd}}
+\subsubsection{\texorpdfstring{rotate\+\_\+z()}{rotate\_z()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix$<$T, 3, 3$>$ ddd\+::rotate\+\_\+z (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get rotation on z-\/axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input angle \mbox{[}rad\mbox{]} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{namespaceddd_a3c2355d52318b82d63a4ff3525bb651a}\label{namespaceddd_a3c2355d52318b82d63a4ff3525bb651a}} 

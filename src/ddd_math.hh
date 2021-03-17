@@ -207,6 +207,24 @@ namespace ddd
       const T &tolerance = Epsilon_High //!< High end bound
   );
 
+  //! Get rotation on x-axis
+  template <typename T>
+  inline Eigen::Matrix<T, 3, 3> rotate_x(
+      const T &input //!< Input angle [rad]
+  );
+
+  //! Get rotation on y-axis
+  template <typename T>
+  inline Eigen::Matrix<T, 3, 3> rotate_y(
+      const T &input //!< Input angle [rad]
+  );
+
+  //! Get rotation on z-axis
+  template <typename T>
+  inline Eigen::Matrix<T, 3, 3> rotate_z(
+      const T &input //!< Input angle [rad]
+  );
+
 } // namespace ddd
 
 #include "ddd_math.inl"

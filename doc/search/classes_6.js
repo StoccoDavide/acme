@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quadix',['quadix',['../d3/d9a/classddd_1_1quadix.html',1,'ddd']]]
+  ['segment',['segment',['../d0/d66/classddd_1_1segment.html',1,'ddd']]],
+  ['sphere',['sphere',['../d4/dc3/classddd_1_1sphere.html',1,'ddd']]]
 ];
