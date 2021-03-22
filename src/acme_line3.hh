@@ -277,7 +277,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const vector3<T> &input //!< Input object
     )
         const
@@ -286,7 +286,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const line3<T> &input //!< Input object
     )
         const
@@ -295,7 +295,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const ray3<T> &input //!< Input object
     )
         const
@@ -304,7 +304,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const plane3<T> &input //!< Input object
     )
         const
@@ -313,7 +313,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const segment3<T> &input //!< Input object
     )
         const
@@ -323,6 +323,17 @@ namespace acme
 
     //! Reverse direction
     inline void reverse(void) { this->_direction = -this->_direction; }
+
+    //! Tranform line from frameA to frameB
+    inline const line3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
+    )
+        const
+    {
+      return line3<T>(this->_origin.transform(frameA, frameB),
+                      this->_direction.transform(frameA, frameB));
+    }
   };
 
 } // namespace acme

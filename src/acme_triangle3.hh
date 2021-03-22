@@ -143,9 +143,20 @@ namespace acme
     }
 
     //! Get first point
-    inline point3<T> &point_1(void) const { return this->_point1; }
+    inline const point3<T> &point_0(void) const { return this->_point0; }
 
     //! Set first point
+    inline void point_0(
+        const point3<T> &input //!< Input object
+    )
+    {
+      this->_point0 = input;
+    }
+
+    //! Get second point
+    inline const point3<T> &point_1(void) const { return this->_point1; }
+
+    //! Set second point
     inline void point_1(
         const point3<T> &input //!< Input object
     )
@@ -153,10 +164,10 @@ namespace acme
       this->_point1 = input;
     }
 
-    //! Get second point
-    inline point3<T> &point_2(void) const { return this->_point2; }
+    //! Get third point
+    inline const point3<T> &point_2(void) const { return this->_point2; }
 
-    //! Set second point
+    //! Set third point
     inline void point_2(
         const point3<T> &input //!< Input object
     )
@@ -164,25 +175,14 @@ namespace acme
       this->_point2 = input;
     }
 
-    //! Get third point
-    inline point3<T> &point_3(void) const { return this->_point3; }
-
-    //! Set third point
-    inline void point_3(
-        const point3<T> &input //!< Input object
-    )
-    {
-      this->_point3 = input;
-    }
-
     //! Get first edge
-    inline segment3<T> &edge_1(void) const { return segment3<T>(this->_point0, this->_point1); }
+    inline segment3<T> &edge_0(void) const { return segment3<T>(this->_point0, this->_point1); }
 
     //! Get second edge
-    inline segment3<T> &edge_2(void) const { return segment3<T>(this->_point1, this->_point2); }
+    inline segment3<T> &edge_1(void) const { return segment3<T>(this->_point1, this->_point2); }
 
     //! Get third edge
-    inline segment3<T> &edge_3(void) const { return segment3<T>(this->_point2, this->_point0); }
+    inline segment3<T> &edge_2(void) const { return segment3<T>(this->_point2, this->_point0); }
 
     //! Get face normal
     inline vector3<T> &normal(void)
@@ -286,7 +286,7 @@ namespace acme
     )
         const
     {
-      return(this->normal()).is_parallel(input);
+      return (this->normal()).is_parallel(input);
     }
 
     //! Check if objects are orthogonal
@@ -341,6 +341,18 @@ namespace acme
         const
     {
       return (this->toVector()).angle(input.toVector());
+    }
+
+    //! Tranform triangle from frameA to frameB
+    inline const triangle3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
+    )
+        const
+    {
+      return triangle3<T>(this->_point0.transform(frameA, frameB),
+                          this->_point1.transform(frameA, frameB),
+                          this->_point2.transform(frameA, frameB));
     }
   };
 

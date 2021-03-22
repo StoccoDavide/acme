@@ -264,7 +264,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const vector3<T> &input //!< Input object
     )
         const
@@ -273,7 +273,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const line3<T> &input //!< Input object
     )
         const
@@ -282,7 +282,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const ray3<T> &input //!< Input object
     )
         const
@@ -291,7 +291,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const plane3<T> &input //!< Input object
     )
         const
@@ -300,16 +300,39 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const segment3<T> &input //!< Input object
     )
         const
     {
-      return (this->_direction).angle(input.toVector()) - PI / 2.0;
+      return (this->_normal).angle(input.toVector()) - PI / 2.0;
     }
 
     //! Reverse normal
     inline void reverse(void) { this->_normal = -this->_normal; }
+
+    //! Tranform plane from frameA to frameB
+    inline const plane3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
+    )
+        const
+    {
+      return plane3<T>(this->_origin.transform(frameA, frameB),
+                       this->_normal.transform(frameA, frameB));
+    }
+
+    //! Return d value
+    inline const T d(void) const { return -this->_data.dot(this->_normal); }
+
+    //! Distance between objects
+    inline const T distance(
+        const point3<T> &input //!< Input object
+    )
+        const
+    {
+      return (input.data() - this->_origin).dot(this->_normal);
+    }
   };
 
 } // namespace acme

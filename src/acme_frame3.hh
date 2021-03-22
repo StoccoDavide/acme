@@ -50,7 +50,10 @@ namespace acme
   private:
     point3<T> _origin;
     rotation3<T> _rotation;
-
+    
+    friend class point3<T>;
+    friend class vector3<T>;
+    
   public:
     //! Class destructor
     ~frame3() {}
@@ -244,14 +247,6 @@ namespace acme
     )
     {
       this->_rotation = this->_rotate_y(input);
-    }
-
-    //! Perform translation by vector
-    inline void translate(
-        const vector3<T> &input //!< Input object
-    )
-    {
-      this->_origin = this->_origin.translate(input);
     }
 
   }; // class frame3

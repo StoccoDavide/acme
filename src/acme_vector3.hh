@@ -200,7 +200,7 @@ namespace acme
     //! Convert to point
     inline const point3<T> toPoint3(void)
     {
-      return point3<T>(this);
+      return point3<T>(this->_data);
     }
 
     //! Get x coordinate
@@ -386,7 +386,7 @@ namespace acme
     }
 
     //! Get an arbitrary vector orthogonal to the current vector
-    inline const vector3<T> &orthogonalVector(void)
+    inline const vector3<T> orthogonalVector(void)
         const
     {
       if (abs(this->x()) <= abs(this->y()) && abs(this->x()) <= abs(this->z()))
@@ -404,16 +404,16 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const vector3<T> &input //!< Input object
     )
         const
     {
-      return acme::acos(this->_data.dot(input) / (this->norm() * input.norm()));
+      return acme::acos(this->_data.dot(input._data) / (this->_data.norm() * input._data.norm()));
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const line3<T> &input //!< Input object
     )
         const
@@ -422,7 +422,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const ray3<T> &input //!< Input object
     )
         const
@@ -431,7 +431,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const plane3<T> &input //!< Input object
     )
         const
@@ -440,7 +440,7 @@ namespace acme
     }
 
     //! Angle between objects [rad]
-    inline const T &angle(
+    inline const T angle(
         const segment3<T> &input //!< Input object
     )
         const
@@ -449,13 +449,13 @@ namespace acme
     }
 
     //! Tranform vector from frameA to frameB
-    inline const vector3<T> &transform(
-        const coord3<T> &frameA, //!< Actual reference coordinate system
-        const coord3<T> &frameB  //!< Future reference coordinate system
+    inline const vector3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
     )
         const
     {
-      return this->angle(input.toVector());
+      return vector3<T>(frameB._rotation.transpose()*(frameA._rotation*this->_data));
     }
 
   }; // class vector3

@@ -319,8 +319,18 @@ namespace acme
 
     //! Reverse direction
     inline void reverse(void) { this->_direction = -this->_direction; }
-  };
 
+    //! Tranform ray from frameA to frameB
+    inline const ray3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
+    )
+        const
+    {
+      return ray3<T>(this->_origin.transform(frameA, frameB),
+                     this->_direction.transform(frameA, frameB));
+    }
+  };
 } // namespace acme
 
 #endif

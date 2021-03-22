@@ -191,7 +191,7 @@ namespace acme
     //! Convert to vector3
     inline const vector3<T> toVector(void)
     {
-      return vector3<T>(this);
+      return vector3<T>(this->_data);
     }
 
     //! Get x coordinate
@@ -274,6 +274,15 @@ namespace acme
       }
     }
 
+    //! Distance between objects
+    inline const T distance(
+        const plane3<T> &input //!< Input object
+    )
+        const
+    {
+      return input.distance(this);
+    }
+
     //! Squared distance between objects
     inline const T distanceSquared(
         const point3<T> &input //!< Input object
@@ -294,6 +303,16 @@ namespace acme
         const
     {
       return this->_data.normalized();
+    }
+
+    //! Tranform point from frameA to frameB
+    inline const point3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
+    )
+        const
+    {
+      return point3<T>(frameB._rotation.transpose() * (frameA._rotation * this->_data + frameA._origin - frameB._origin));
     }
 
   }; // class point3

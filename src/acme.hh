@@ -48,6 +48,7 @@
 #include "acme_triangle3.hh"
 #include "acme_circle3.hh"
 
+#include "acme_intersect3.hh"
 
 //! Namepaces containing all objects classes and routines
 namespace acme

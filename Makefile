@@ -57,14 +57,13 @@ clean:
 
 tests: $(OBJECTS) $(TESTS_SOURCES)
 	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc  -o bin/test_math  $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_geometrical.cc  -o bin/test_geometrical $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_matrix.cc -o bin/test_matrix $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_point.cc  -o bin/test_point $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_vector.cc  -o bin/test_vector $(LIBS)
 
 run:
 	#./bin/test_math
-	./bin/test_geometrical
-	#./bin/test_matrix
-
+	#./bin/test_point
+	./bin/test_vector
 
 #
 # That's All Folks!

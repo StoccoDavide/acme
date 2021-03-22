@@ -135,7 +135,7 @@ namespace acme
     }
 
     //! Get first point
-    inline point3<T> &point_1(void) const { return this->_point1; }
+    inline const point3<T> &point_1(void) const { return this->_point1; }
 
     //! Set first point
     inline void point_1(
@@ -146,7 +146,7 @@ namespace acme
     }
 
     //! Get second point
-    inline point3<T> &point_2(void) const { return this->_point2; }
+    inline const point3<T> &point_2(void) const { return this->_point2; }
 
     //! Set second point
     inline void point_2(
@@ -165,6 +165,18 @@ namespace acme
       this->_point1.translate(input);
     }
 
+    //! Tranform box from frameA to frameB
+    inline const box3<T> transform(
+        const frame3<T> &frameA, //!< Actual reference coordinate system
+        const frame3<T> &frameB  //!< Future reference coordinate system
+    )
+        const
+    {
+      return box3<T>(this->_point0.transform(frameA, frameB),
+                     this->_point1.transform(frameA, frameB));
+    }
+
+    
   };
 
 } // namespace acme
