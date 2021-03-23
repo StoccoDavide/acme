@@ -1,5 +1,5 @@
 ///
-/// file: acme_line3.hh
+/// file: acme_plane.hh
 ///
 
 /*
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_LINE3
-#define INCLUDE_ACME_LINE3
+#ifndef INCLUDE_ACME_PLANE
+#define INCLUDE_ACME_PLANE
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -32,58 +32,57 @@ namespace acme
 {
 
   /*\
-   |   _ _            _____ 
-   |  | (_)_ __   ___|___ / 
-   |  | | | '_ \ / _ \ |_ \ 
-   |  | | | | | |  __/___) |
-   |  |_|_|_| |_|\___|____/ 
-   |                        
+   |         _                  
+   |   _ __ | | __ _ _ __   ___ 
+   |  | '_ \| |/ _` | '_ \ / _ \
+   |  | |_) | | (_| | | | |  __/
+   |  | .__/|_|\__,_|_| |_|\___|
+   |  |_|                       
   \*/
 
-  //! Line class container
+  //! Plane class container
   /*!
-  Infinite line in 3D space and defined by any point lying on the line and a direction
-  vector.
+  3D plane defined by arbitrary vector on the plane and a normal vector.
   */
-  class line3
+  class plane
   {
   private:
-    vector3 _origin;    //!< Origin (point)
-    vector3 _direction; //!< Direction (vector)
+    vector _origin; //!< Origin vector
+    vector _normal; //!< Normal vector
 
   public:
     //! Class destructor
-    ~line3() {}
+    ~plane() {}
 
     //! Class constructor
-    line3() {}
+    plane() {}
 
     //! Copy constructor
-    line3(const line3 &) = default;
+    plane(const plane &) = default;
 
-    //! Class constructor for line3
-    line3(
+    //! Class constructor for plane
+    plane(
         const real_type &ox, //<! Input x origin value
         const real_type &oy, //<! Input y origin value
         const real_type &oz, //<! Input z origin value
-        const real_type &dx, //<! Input x direction value
-        const real_type &dy, //<! Input y direction value
-        const real_type &dz  //<! Input z direction value
-        ) : _origin(vector3(ox, oy, oz)), _direction(vector3(dx, dy, dz))
+        const real_type &dx, //<! Input x normal value
+        const real_type &dy, //<! Input y normal value
+        const real_type &dz  //<! Input z normal value
+        ) : _origin(vector(ox, oy, oz)), _normal(vector(dx, dy, dz))
     {
     }
 
     //! Class constructor
-    line3(
-        const vector3 &origin,   //!< Input origin
-        const vector3 &direction //!< Input direction
-        ) : _origin(origin), _direction(direction)
+    plane(
+        const vector &origin, //!< Input origin
+        const vector &normal  //!< Input normal
+        ) : _origin(origin), _normal(normal)
     {
     }
 
     //! Equality operator
-    line3 &operator=(
-        const line3 &input //!< Input object
+    plane &operator=(
+        const plane &input //!< Input object
     )
     {
       if (this == &input)
@@ -93,68 +92,87 @@ namespace acme
       else
       {
         this->_origin = input._origin;
-        this->_direction = input._direction;
+        this->_normal = input._normal;
         return *this;
       }
     }
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const line3 &input //!< Input object
+        const plane &input //!< Input object
     )
         const
     {
       return acme::is_equal(this->_origin, input._origin) &&
-             acme::is_equal(this->_direction, input._direction);
+             acme::is_equal(this->_normal, input._normal);
     }
 
-    //! Check if line is degenerated
+    //! Check if plane is degenerated
     bool is_degenerated(void)
         const
     {
-      return acme::is_degenerated(this->_direction);
+      return acme::is_degenerated(this->_normal);
     }
 
     //! Return origin
-    const vector3 &origin() const
+    const vector &origin() const
     {
       return this->_origin;
     }
 
-    //! Return direction
-    const vector3 &direction() const
+    //! Return normal
+    const vector &normal() const
     {
-      return this->_direction;
+      return this->_normal;
     }
 
     //! Set origin
     void origin(
-        const vector3 &input //!< input vector3 object
+        const vector &input //!< input vector object
     )
     {
       this->_origin = input;
     }
 
-    //! Set direction
-    void direction(
-        const vector3 &input //!< input vector3 object
+    //! Set normal
+    void normal(
+        const vector &input //!< input vector object
     )
     {
-      this->_direction = input;
+      this->_normal = input;
     }
 
-    //! Translate line3 by vector3
+    //! Translate by vector
     void translate(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input
     )
     {
-      this->_origin + input;
+      this->_origin = input + this->_origin;
     }
 
-    //! Reverse direction
-    void reverse(void) { this->_direction = -this->_direction; }
+    //! Rotate by matrix
+    void rotate(
+        const matrix &input //!< Input
+    )
+    {
+      this->_origin = input * this->_origin;
+      this->_normal = input * this->_normal;
+    }
 
-    
+    //! Reverse normal
+    void reverse(void) { this->_normal = -this->_normal; }
+
+    //! Return d value
+    real_type d(void) const { return -this->_origin.dot(this->_normal); }
+
+    //! Distance between point and plane
+    real_type distance(
+        const vector &input //!< Input
+    )
+        const
+    {
+      return (input - this->_origin).dot(this->_normal);
+    }
   };
 
 } // namespace acme
@@ -162,5 +180,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_line3.hh
+/// eof: acme_plane.hh
 ///

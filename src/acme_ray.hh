@@ -1,5 +1,5 @@
 ///
-/// file: acme_plane3.hh
+/// file: acme_ray.hh
 ///
 
 /*
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_PLANE3
-#define INCLUDE_ACME_PLANE3
+#ifndef INCLUDE_ACME_RAY
+#define INCLUDE_ACME_RAY
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -32,57 +32,54 @@ namespace acme
 {
 
   /*\
-   |         _                  _____ 
-   |   _ __ | | __ _ _ __   ___|___ / 
-   |  | '_ \| |/ _` | '_ \ / _ \ |_ \ 
-   |  | |_) | | (_| | | | |  __/___) |
-   |  | .__/|_|\__,_|_| |_|\___|____/ 
-   |  |_|                             
+   |                   
+   |   _ __ __ _ _   _ 
+   |  | '__/ _` | | | |
+   |  | | | (_| | |_| |
+   |  |_|  \__,_|\__, |
+   |             |___/ 
   \*/
 
-  //! Plane class container
-  /*!
-  3D plane3 defined by arbitrary vector3 on the plane3 and a normal vector3.
-  */
-  class plane3
+  //! Ray class container
+  class ray
   {
   private:
-    vector3 _origin; //!< Origin vector3
-    vector3 _normal; //!< Normal vector3
+    vector _origin;    //!< Origin
+    vector _direction; //!< Direction
 
   public:
     //! Class destructor
-    ~plane3() {}
+    ~ray() {}
 
     //! Class constructor
-    plane3() {}
+    ray() {}
 
     //! Copy constructor
-    plane3(const plane3 &) = default;
+    ray(const ray &) = default;
 
-    //! Class constructor for plane3
-    plane3(
+    //! Class constructor
+    ray(
         const real_type &ox, //<! Input x origin value
         const real_type &oy, //<! Input y origin value
         const real_type &oz, //<! Input z origin value
-        const real_type &dx, //<! Input x normal value
-        const real_type &dy, //<! Input y normal value
-        const real_type &dz  //<! Input z normal value
-        ) : _origin(vector3(ox, oy, oz)), _normal(vector3(dx, dy, dz))
+        const real_type &dx, //<! Input x direction value
+        const real_type &dy, //<! Input y direction value
+        const real_type &dz  //<! Input z direction value
+        ) : _origin(vector(ox, oy, oz)), _direction(vector(dx, dy, dz))
     {
     }
 
     //! Class constructor
-    plane3(
-        const vector3 &origin, //!< Input origin
-        const vector3 &normal  //!< Input normal
-        ) : _origin(origin), _normal(normal)
+    ray(
+        const vector &origin,   //!< Input origin
+        const vector &direction //!< Input direction
+        ) : _origin(origin), _direction(direction)
     {
     }
 
     //! Equality operator
-    plane3 &operator=(
-        const plane3 &input //!< Input object
+    ray &operator=(
+        const ray &input //!< Input object
     )
     {
       if (this == &input)
@@ -92,84 +89,80 @@ namespace acme
       else
       {
         this->_origin = input._origin;
-        this->_normal = input._normal;
+        this->_direction = input._direction;
         return *this;
       }
     }
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const plane3 &input //!< Input object
+        const ray &input //!< Input object
     )
         const
     {
       return acme::is_equal(this->_origin, input._origin) &&
-             acme::is_equal(this->_normal, input._normal);
+             acme::is_equal(this->_direction, input._direction);
     }
 
-    //! Check if plane is degenerated
+    //! Check if ray is degenerated
     bool is_degenerated(void)
         const
     {
-      return acme::is_degenerated(this->_normal);
+      return acme::is_degenerated(this->_direction);
     }
 
     //! Return origin
-    const vector3 &origin() const
+    const vector &origin() const
     {
       return this->_origin;
     }
 
-    //! Return normal
-    const vector3 &normal() const
+    //! Return direction
+    const vector &direction() const
     {
-      return this->_normal;
+      return this->_direction;
     }
 
     //! Set origin
     void origin(
-        const vector3 &input //!< input vector3 object
+        const vector &input //!< input object
     )
     {
       this->_origin = input;
     }
 
-    //! Set normal
-    void normal(
-        const vector3 &input //!< input vector3 object
+    //! Set direction
+    void direction(
+        const vector &input //!< input object
     )
     {
-      this->_normal = input;
+      this->_direction = input;
     }
 
-    //! Translate line3 by vector3
+    //! Translate by vector
     void translate(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input
     )
     {
-      this->_origin + input;
+      this->_origin = input + this->_origin;
     }
 
-    //! Reverse normal
-    void reverse(void) { this->_normal = -this->_normal; }
-
-    //! Return d value
-    real_type d(void) const { return -this->_origin.dot(this->_normal); }
-
-    //! Distance between point and plane
-    real_type distance(
-        const vector3 &input //!< Input
+    //! Rotate by matrix
+    void rotate(
+        const matrix &input //!< Input
     )
-        const
     {
-      return (input - this->_origin).dot(this->_normal);
+      this->_origin = input * this->_origin;
+      this->_direction = input * this->_direction;
     }
+
+    //! Reverse direction
+    void reverse(void) { this->_direction = -this->_direction; }
   };
-
 } // namespace acme
 
 #endif
 
 ///
-/// eof: acme_plane3.hh
+/// eof: acme_ray.hh
 ///

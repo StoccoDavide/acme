@@ -1,5 +1,5 @@
 ///
-/// file: acme_intersect3.hh
+/// file: acme_intersect.hh
 ///
 
 /*
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_INTERSECT3
-#define INCLUDE_ACME_INTERSECT3
+#ifndef INCLUDE_ACME_INTERSECT
+#define INCLUDE_ACME_INTERSECT
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -32,27 +32,27 @@ namespace acme
 {
 
   /*\
-   |   ___       _                          _   _____ 
-   |  |_ _|_ __ | |_ ___ _ __ ___  ___  ___| |_|___ / 
-   |   | || '_ \| __/ _ \ '__/ __|/ _ \/ __| __| |_ \ 
-   |   | || | | | ||  __/ |  \__ \  __/ (__| |_ ___) |
-   |  |___|_| |_|\__\___|_|  |___/\___|\___|\__|____/ 
-   |                                                   
+   |   ___       _                          _   
+   |  |_ _|_ __ | |_ ___ _ __ ___  ___  ___| |_ 
+   |   | || '_ \| __/ _ \ '__/ __|/ _ \/ __| __|
+   |   | || | | | ||  __/ |  \__ \  __/ (__| |_ 
+   |  |___|_| |_|\__\___|_|  |___/\___|\___|\__|
+   |                                            
   \*/
 
   //! Intersect between three planes
   bool intersect(
-      const plane3 &plane0, //!< Input plane 0
-      const plane3 &plane1, //!< Input plane 1
-      const plane3 &plane2, //!< Input plane 1
-      vector3 &point        //!< Output point
+      const plane &plane0, //!< Input plane 0
+      const plane &plane1, //!< Input plane 1
+      const plane &plane2, //!< Input plane 1
+      vector &point        //!< Output point
   )
   {
-    const vector3 normal0(plane0.normal());
-    const vector3 normal1(plane1.normal());
-    const vector3 normal2(plane2.normal());
+    const vector normal0(plane0.normal());
+    const vector normal1(plane1.normal());
+    const vector normal2(plane2.normal());
 
-    matrix3 Mat;
+    matrix Mat;
     Mat << normal0, normal1, normal2;
     real_type det = Mat.determinant();
     if (acme::is_equal(det, real_type(0.0)))
@@ -71,15 +71,15 @@ namespace acme
 
   //! Intersect between two planes
   bool intersect(
-      const plane3 &plane0, //!< Input plane 0
-      const plane3 &plane1, //!< Input plane 1
-      line3 &line           //!< Output line
+      const plane &plane0, //!< Input plane 0
+      const plane &plane1, //!< Input plane 1
+      line &line           //!< Output line
   )
   {
-    vector3 normal0 = plane0.normal();
-    vector3 normal1 = plane1.normal();
+    vector normal0 = plane0.normal();
+    vector normal1 = plane1.normal();
 
-    vector3 line_d = normal0.cross(normal1);
+    vector line_d = normal0.cross(normal1);
     real_type det = line_d.norm() * line_d.norm();
     if (acme::is_equal(det, real_type(0.0)))
     {
@@ -96,9 +96,9 @@ namespace acme
 
   //! Intersect ray with plane
   bool intersect(
-      const ray3 &ray,     //!< Input ray
-      const plane3 &plane, //!< Input plane
-      vector3 &point       //!< Output point
+      const ray &ray,     //!< Input ray
+      const plane &plane, //!< Input plane
+      vector &point       //!< Output point
   )
   {
     real_type det = ray.direction().dot(plane.normal());
@@ -123,9 +123,9 @@ namespace acme
 
   //! Intersect line with plane
   bool intersect(
-      const line3 &line,   //!< Input line
-      const plane3 &plane, //!< Input plane
-      vector3 &point       //!< Output point
+      const line &line,   //!< Input line
+      const plane &plane, //!< Input plane
+      vector &point       //!< Output point
   )
   {
     real_type det = line.direction().dot(plane.normal());
@@ -143,9 +143,9 @@ namespace acme
 
   //! Intersect segment with plane
   bool intersect(
-      const segment3 &segment, //!< Input segment
-      const plane3 &plane,     //!< Input plane
-      vector3 &point           //!< Output point
+      const segment &segment, //!< Input segment
+      const plane &plane,     //!< Input plane
+      vector &point           //!< Output point
   )
   {
     real_type d0 = plane.distance(segment.point_0());
@@ -166,12 +166,12 @@ namespace acme
   //! Intersect triangle with plane
 
   bool intersect(
-      const triangle3 &triangle, //!< Input triangle
-      const plane3 &plane,       //!< Input plane
-      segment3 &segment          //!< Input plane
+      const triangle &triangle, //!< Input triangle
+      const plane &plane,       //!< Input plane
+      segment &segment          //!< Input plane
   )
   {
-    vector3 point0, point1, point2;
+    vector point0, point1, point2;
     bool bool0, bool1, bool2;
     bool0 = intersect(triangle.edge_0(), plane, point0);
     bool1 = intersect(triangle.edge_1(), plane, point1);
@@ -201,21 +201,21 @@ namespace acme
   //! Intersect triangle with ray
 
   bool intersect(
-      const triangle3 &triangle, //!< Input triangle
-      const ray3 &ray,           //!< Input plane
-      vector3 &point             //!< Output point
+      const triangle &triangle, //!< Input triangle
+      const ray &ray,           //!< Input plane
+      vector &point             //!< Output point
   )
   {
-    vector3 vertex0 = triangle.point_0();
-    vector3 vertex1 = triangle.point_1();
-    vector3 vertex2 = triangle.point_2();
-    vector3 edge1 = vertex1 - vertex0;
-    vector3 edge2 = vertex2 - vertex0;
+    vector vertex0 = triangle.point_0();
+    vector vertex1 = triangle.point_1();
+    vector vertex2 = triangle.point_2();
+    vector edge1 = vertex1 - vertex0;
+    vector edge2 = vertex2 - vertex0;
 
-    vector3 origin = ray.origin();
-    vector3 direction = ray.direction();
+    vector origin = ray.origin();
+    vector direction = ray.direction();
 
-    vector3 h, s, q;
+    vector h, s, q;
     real_type a, f, u, v;
     h = direction.cross(edge2);
     a = edge1.dot(h);
@@ -245,5 +245,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_intersect3.hh
+/// eof: acme_intersect.hh
 ///

@@ -1,5 +1,5 @@
 ///
-/// file: acme_triangle3.hh
+/// file: acme_triangle.hh
 ///
 
 /*
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_TRIANGLE3
-#define INCLUDE_ACME_TRIANGLE3
+#ifndef INCLUDE_ACME_TRIANGLE
+#define INCLUDE_ACME_TRIANGLE
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -32,35 +32,35 @@ namespace acme
 {
 
   /*\
-   |   _        _                   _      _____ 
-   |  | |_ _ __(_) __ _ _ __   __ _| | ___|___ / 
-   |  | __| '__| |/ _` | '_ \ / _` | |/ _ \ |_ \ 
-   |  | |_| |  | | (_| | | | | (_| | |  __/___) |
-   |   \__|_|  |_|\__,_|_| |_|\__, |_|\___|____/ 
-   |                          |___/              
+   |   _        _                   _      
+   |  | |_ _ __(_) __ _ _ __   __ _| | ___ 
+   |  | __| '__| |/ _` | '_ \ / _` | |/ _ \
+   |  | |_| |  | | (_| | | | | (_| | |  __/
+   |   \__|_|  |_|\__,_|_| |_|\__, |_|\___|
+   |                          |___/        
   \*/
 
-  //! triangle3 class container
-  class triangle3
+  //! triangle class container
+  class triangle
   {
   private:
   private:
-    vector3 _point0; //!< Point 0
-    vector3 _point1; //!< Point 1
-    vector3 _point2; //!< Point 2
+    vector _point0; //!< Point 0
+    vector _point1; //!< Point 1
+    vector _point2; //!< Point 2
 
   public:
     //! Class destructor
-    ~triangle3() {}
+    ~triangle() {}
 
     //! Copy constructor
-    triangle3(const triangle3 &) = default;
+    triangle(const triangle &) = default;
 
     //! Class constructor
-    triangle3() {}
+    triangle() {}
 
     //! Class constructor
-    triangle3(
+    triangle(
         const real_type &x0, //<! Input x value of first point
         const real_type &y0, //<! Input y value of first point
         const real_type &z0, //<! Input z value of first point
@@ -70,22 +70,22 @@ namespace acme
         const real_type &x2, //<! Input x value of third point
         const real_type &y2, //<! Input y value of third point
         const real_type &z2  //<! Input z value of third point
-        ) : _point0(vector3(x0, y0, z0)), _point1(vector3(x1, y1, z1)), _point2(vector3(x2, y2, z2))
+        ) : _point0(vector(x0, y0, z0)), _point1(vector(x1, y1, z1)), _point2(vector(x2, y2, z2))
     {
     }
 
     //! Class constructor
-    triangle3(
-        const vector3 &point0, //!< Input object
-        const vector3 &point1, //!< Input object
-        const vector3 &point2  //!< Input object
+    triangle(
+        const vector &point0, //!< Input object
+        const vector &point1, //!< Input object
+        const vector &point2  //!< Input object
         ) : _point0(point0), _point1(point1), _point2(point2)
     {
     }
 
     //! Equality operator
-    triangle3 &operator=(
-        const triangle3 &input //!< Input object
+    triangle &operator=(
+        const triangle &input //!< Input object
     )
     {
       if (this == &input)
@@ -103,7 +103,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const triangle3 &input //!< Input object
+        const triangle &input //!< Input object
     )
         const
     {
@@ -122,49 +122,49 @@ namespace acme
     }
 
     //! Get first point
-    const vector3 &point_0(void) const { return this->_point0; }
+    const vector &point_0(void) const { return this->_point0; }
 
     //! Set first point
     void point_0(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input object
     )
     {
       this->_point0 = input;
     }
 
     //! Get second point
-    const vector3 &point_1(void) const { return this->_point1; }
+    const vector &point_1(void) const { return this->_point1; }
 
     //! Set second point
     void point_1(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input object
     )
     {
       this->_point1 = input;
     }
 
     //! Get third point
-    const vector3 &point_2(void) const { return this->_point2; }
+    const vector &point_2(void) const { return this->_point2; }
 
     //! Set third point
     void point_2(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input object
     )
     {
       this->_point2 = input;
     }
 
     //! Get first edge
-    const segment3 edge_0(void) const { return segment3(this->_point0, this->_point1); }
+    const segment edge_0(void) const { return segment(this->_point0, this->_point1); }
 
     //! Get second edge
-    const segment3 edge_1(void) const { return segment3(this->_point1, this->_point2); }
+    const segment edge_1(void) const { return segment(this->_point1, this->_point2); }
 
     //! Get third edge
-    const segment3 edge_2(void) const { return segment3(this->_point2, this->_point0); }
+    const segment edge_2(void) const { return segment(this->_point2, this->_point0); }
 
     //! Get face normal
-    const vector3 normal(void)
+    const vector normal(void)
         const
     {
       return (this->_point1 - this->_point0).cross(this->_point2 - this->_point0);
@@ -172,14 +172,23 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input
     )
     {
-      this->_point0 + input;
-      this->_point1 + input;
-      this->_point2 + input;
+      this->_point0 = input + this->_point0;
+      this->_point1 = input + this->_point1;
+      this->_point2 = input + this->_point2;
     }
 
+    //! Rotate by matrix
+    void rotate(
+        const matrix &input //!< Input
+    )
+    {
+      this->_point0 = input * this->_point0;
+      this->_point1 = input * this->_point1;
+      this->_point2 = input * this->_point2;
+    }
   };
 
 } // namespace acme
@@ -187,5 +196,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_triangle3.hh
+/// eof: acme_triangle.hh
 ///

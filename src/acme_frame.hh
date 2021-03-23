@@ -1,5 +1,5 @@
 ///
-/// file: acme_frame3.hh
+/// file: acme_frame.hh
 ///
 
 /*
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_FRAME3
-#define INCLUDE_ACME_FRAME3
+#ifndef INCLUDE_ACME_frame
+#define INCLUDE_ACME_frame
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -45,26 +45,26 @@ namespace acme
   Class representing a frame in 3D space. It is constructed by
   a origin and a rotation matrix.
   */
-  class frame3
+  class frame
   {
   private:
-    vector3 _origin;
-    matrix3 _rotation;
+    vector _origin;
+    matrix _rotation;
 
   public:
     //! Class destructor
-    ~frame3() {}
+    ~frame() {}
 
     //! Copy constructor
-    frame3(const frame3 &) = default;
+    frame(const frame &) = default;
 
     //! Class constructor
-    frame3() { this->clear(); }
+    frame() { this->clear(); }
 
     //! Class constructor
-    frame3(
-        const vector3 &origin,    //!< Input origin
-        const matrix3 &rotation //!< Input rotation
+    frame(
+        const vector &origin,    //!< Input origin
+        const matrix &rotation //!< Input rotation
         ) : _origin(origin), _rotation(rotation)
     {
     }
@@ -73,13 +73,13 @@ namespace acme
     //! Clear data
     void clear()
     {
-      this->_origin = vector3::Zero();
-      this->_rotation = matrix3::Zero();
+      this->_origin = vector::Zero();
+      this->_rotation = matrix::Zero();
     }
 
     //! Equality operator
-    frame3 &operator=(
-        const frame3 &input //!< Input object
+    frame &operator=(
+        const frame &input //!< Input object
     )
     {
       if (this == &input)
@@ -96,7 +96,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const frame3 &input //!< Input object
+        const frame &input //!< Input object
     )
         const
     {
@@ -105,17 +105,17 @@ namespace acme
     }
 
     //! Get x vector
-    const vector3 x(void) const { return this->_rotation.col(0); }
+    const vector x(void) const { return this->_rotation.col(0); }
 
     //! Get y vector
-    const vector3 y(void) const { return this->_rotation.col(1); }
+    const vector y(void) const { return this->_rotation.col(1); }
 
     //! Get z vector
-    const vector3 z(void) const { return this->_rotation.col(2); }
+    const vector z(void) const { return this->_rotation.col(2); }
 
     //! Set x vector
     void x(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input object
     )
     {
       this->_rotation.col(0) = input;
@@ -123,7 +123,7 @@ namespace acme
 
     //! Set y vector
     void y(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input object
     )
     {
       this->_rotation.col(1) = input;
@@ -131,29 +131,29 @@ namespace acme
 
     //! Set z vector
     void z(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input object
     )
     {
       this->_rotation.col(2) = input;
     }
 
     //! Get rotation
-    const matrix3 &rotation(void) const { return this->_rotation; }
+    const matrix &rotation(void) const { return this->_rotation; }
 
     //! Set rotation
     void rotation(
-        matrix3 &input //!< Input
+        matrix &input //!< Input
     )
     {
       this->_rotation = input;
     }
 
     //! Get origin
-    const vector3 origin(void) const { return this->_origin; }
+    const vector origin(void) const { return this->_origin; }
 
     //! Set rotation
     void origin(
-        vector3 &input //!< Input
+        vector &input //!< Input
     )
     {
       this->_origin = input;
@@ -189,12 +189,12 @@ namespace acme
       this->_rotation * acme::rotate_y(input);
     }
 
-  }; // class frame3
+  }; // class frame
 
 } // namespace acme
 
 #endif
 
 ///
-/// eof: acme_frame3.hh
+/// eof: acme_frame.hh
 ///

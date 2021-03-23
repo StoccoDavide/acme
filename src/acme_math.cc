@@ -71,30 +71,40 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type max(const real_type &input1, const real_type &input2)
+  real_type max(
+      const real_type &input0,
+      const real_type &input1)
   {
-    return std::max<real_type>(input1, input2);
+    return std::max<real_type>(input0, input1);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type min(const real_type &input1, const real_type &input2)
+  real_type min(
+      const real_type &input0,
+      const real_type &input1)
   {
-    return std::min<real_type>(input1, input2);
+    return std::min<real_type>(input0, input1);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type max(const real_type &input1, const real_type &input2, const real_type &input3)
+  real_type max(
+      const real_type &input0,
+      const real_type &input1,
+      const real_type &input2)
   {
-    return max(input1, max(input2, input3));
+    return max(input0, max(input1, input2));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type min(const real_type &input1, const real_type &input2, const real_type &input3)
+  real_type min(
+      const real_type &input0,
+      const real_type &input1,
+      const real_type &input2)
   {
-    return min(input1, min(input2, input3));
+    return min(input0, min(input1, input2));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -189,8 +199,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_equal(
-      const vector2 &input0,
-      const vector2 &input1,
+      const vector &input0,
+      const vector &input1,
       const real_type &tolerance)
   {
     return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
@@ -199,38 +209,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_equal(
-      const vector3 &input0,
-      const vector3 &input1,
-      const real_type &tolerance)
-  {
-    return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_equal(
-      const vector4 &input0,
-      const vector4 &input1,
-      const real_type &tolerance)
-  {
-    return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_equal(
-      const matrix2 &input0,
-      const matrix2 &input1,
-      const real_type &tolerance)
-  {
-    return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_equal(
-      const matrix3 &input0,
-      const matrix3 &input1,
+      const matrix &input0,
+      const matrix &input1,
       const real_type &tolerance)
   {
     return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
@@ -239,25 +219,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_degenerated(
-      const vector2 &input,
-      const real_type &tolerance)
-  {
-    return acme::is_equal(input.norm(), 0.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_degenerated(
-      const vector3 &input,
-      const real_type &tolerance)
-  {
-    return acme::is_equal(input.norm(), 0.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_degenerated(
-      const vector4 &input,
+      const vector &input,
       const real_type &tolerance)
   {
     return acme::is_equal(input.norm(), 0.0, tolerance);
@@ -266,25 +228,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_normalized(
-      const vector2 &input,
-      const real_type &tolerance)
-  {
-    return acme::is_equal(input.norm(), 1.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_normalized(
-      const vector3 &input,
-      const real_type &tolerance)
-  {
-    return acme::is_equal(input.norm(), 1.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool is_normalized(
-      const vector4 &input,
+      const vector &input,
       const real_type &tolerance)
   {
     return acme::is_equal(input.norm(), 1.0, tolerance);
@@ -293,8 +237,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_ortogonal(
-      const vector3 &input0,
-      const vector3 &input1,
+      const vector &input0,
+      const vector &input1,
       const real_type &tolerance)
   {
     return acme::is_equal(abs(input0.dot(input1)) / (input0.norm() * input1.norm()), 0.0, tolerance);
@@ -303,8 +247,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_parallel(
-      const vector3 &input0,
-      const vector3 &input1,
+      const vector &input0,
+      const vector &input1,
       const real_type &tolerance)
   {
     return acme::is_equal(input0.cross(input1).norm(), 0.0, tolerance);
@@ -313,23 +257,23 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool is_ortonormal(
-      const matrix3 &input,
+      const matrix &input,
       const real_type &tolerance)
   {
     return acme::is_ortogonal(input.col(0), input.col(1), tolerance) &&
            acme::is_ortogonal(input.col(1), input.col(2), tolerance) &&
            acme::is_ortogonal(input.col(2), input.col(0), tolerance) &&
-           acme::is_normalized(vector3(input.col(0)), tolerance) &&
-           acme::is_normalized(vector3(input.col(1)), tolerance) &&
-           acme::is_normalized(vector3(input.col(2)), tolerance);
+           acme::is_normalized(vector(input.col(0)), tolerance) &&
+           acme::is_normalized(vector(input.col(1)), tolerance) &&
+           acme::is_normalized(vector(input.col(2)), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  matrix3 rotation_x(
+  matrix rotation_x(
       const real_type &input)
   {
-    matrix3 rot;
+    matrix rot;
     rot << 1.0, 0.0, 0.0,
         0.0, cos(input), -sin(input),
         0.0, sin(input), cos(input);
@@ -338,10 +282,10 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  matrix3 rotation_y(
+  matrix rotation_y(
       const real_type &input)
   {
-    matrix3 rot;
+    matrix rot;
     rot << cos(input), 0.0, sin(input),
         0.0, 1.0, 0.0,
         -sin(input), 0.0, cos(input);
@@ -350,10 +294,10 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  matrix3 rotation_z(
+  matrix rotation_z(
       const real_type &input)
   {
-    matrix3 rot;
+    matrix rot;
     rot << cos(input), -sin(input), 0.0,
         sin(input), cos(input), 0.0,
         0.0, 0.0, 1.0;
@@ -363,8 +307,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type angle_rad(
-      const vector3 &input0,
-      const vector3 &input1)
+      const vector &input0,
+      const vector &input1)
   {
     return acme::acos(input0.dot(input1) / (input0.norm() * input1.norm()));
   }
@@ -372,10 +316,10 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type angle_deg(
-      const vector3 &input0,
-      const vector3 &input1)
+      const vector &input0,
+      const vector &input1)
   {
-    return acme::angle_rad(input0, input1)*1/PIDiv180;
+    return acme::angle_rad(input0, input1) * 1 / PIDiv180;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -172,127 +172,75 @@ namespace acme
 
   //! Checks if elements are almost equal
   bool is_equal(
-      const vector2 &input0,                    //!< Input 0
-      const vector2 &input1,                    //!< Input 1
+      const vector &input0,                     //!< Input 0
+      const vector &input1,                     //!< Input 1
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      const vector3 &input0,                    //!< Input 0
-      const vector3 &input1,                    //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Checks if elements are almost equal
-  bool is_equal(
-      const vector4 &input0,                    //!< Input 0
-      const vector4 &input1,                    //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Checks if elements are almost equal
-  bool is_equal(
-      const matrix2 &input0,                    //!< Input 0
-      const matrix2 &input1,                    //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Checks if elements are almost equal
-  bool is_equal(
-      const matrix3 &input0,                    //!< Input 0
-      const matrix3 &input1,                    //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Checks if elements are almost equal
-  bool is_equal(
-      const matrix4 &input0,                    //!< Input 0
-      const matrix4 &input1,                    //!< Input 1
+      const matrix &input0,                     //!< Input 0
+      const matrix &input1,                     //!< Input 1
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vector is degenerated
   bool is_degenerated(
-      const vector2 &input,                     //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Check if vector is degenerated
-  bool is_degenerated(
-      const vector3 &input,                     //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Check if vector is degenerated
-  bool is_degenerated(
-      const vector4 &input,                     //!< Input
+      const vector &input,                      //!< Input
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vector is normalized
   bool is_normalized(
-      const vector2 &input,                     //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Check if vector is normalized
-  bool is_normalized(
-      const vector3 &input,                     //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
-  );
-
-  //! Check if vector is normalized
-  bool is_normalized(
-      const vector4 &input,                     //!< Input
+      const vector &input,                      //!< Input
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are ortogonal
   bool is_ortogonal(
-      const vector3 &input0,                    //!< Input 0
-      const vector3 &input1,                    //!< Input 1
+      const vector &input0,                     //!< Input 0
+      const vector &input1,                     //!< Input 1
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool is_parallel(
-      const vector3 &input0,                    //!< Input 0
-      const vector3 &input1,                    //!< Input 1
+      const vector &input0,                     //!< Input 0
+      const vector &input1,                     //!< Input 1
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if rotation matrix is othonormal
   bool is_ortonormal(
-      const matrix3 &input,                     //!< Input
+      const matrix &input,                      //!< Input
       const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Returns rotation on x-axis
-  matrix3 rotate_x(
+  matrix rotate_x(
       const real_type &input //!< Input angle [rad]
   );
 
   //! Returns rotation on y-axis
-  matrix3 rotate_y(
+  matrix rotate_y(
       const real_type &input //!< Input angle [rad]
   );
 
   //! Returns rotation on z-axis
-  matrix3 rotate_z(
+  matrix rotate_z(
       const real_type &input //!< Input angle [rad]
   );
 
   //! Angle between objects [rad]
   real_type angle_rad(
-      const vector3 &input0, //!< Input 0
-      const vector3 &input1  //!< Input 1
+      const vector &input0, //!< Input 0
+      const vector &input1  //!< Input 1
   );
 
   //! Angle between objects [deg]
   real_type angle_deg(
-      const vector3 &input0, //!< Input 0
-      const vector3 &input1  //!< Input 1
+      const vector &input0, //!< Input 0
+      const vector &input1  //!< Input 1
   );
 
 } // namespace acme

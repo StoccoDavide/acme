@@ -31,32 +31,32 @@
 
 #include "acme.hh"
 
-#include "acme_ray3.hh"
-#include "acme_line3.hh"
-#include "acme_plane3.hh"
-#include "acme_segment3.hh"
-#include "acme_box3.hh"
-#include "acme_triangle3.hh"
-#include "acme_circle3.hh"
+#include "acme_ray.hh"
+#include "acme_line.hh"
+#include "acme_plane.hh"
+#include "acme_segment.hh"
+#include "acme_box.hh"
+#include "acme_triangle.hh"
+#include "acme_circle.hh"
 
-#include "acme_transform3.hh"
-#include "acme_intersect3.hh"
+#include "acme_transform.hh"
+#include "acme_intersect.hh"
 
 namespace acme
 {
   /*\
-   |   _____ ____          _   _ _ _ _   _           
-   |  |___ /|  _ \   _   _| |_(_) (_) |_(_) ___  ___ 
-   |    |_ \| | | | | | | | __| | | | __| |/ _ \/ __|
-   |   ___) | |_| | | |_| | |_| | | | |_| |  __/\__ \
-   |  |____/|____/   \__,_|\__|_|_|_|\__|_|\___||___/
-   |                                                 
+   |         _   _ _ _ _   _           
+   |   _   _| |_(_) (_) |_(_) ___  ___ 
+   |  | | | | __| | | | __| |/ _ \/ __|
+   |  | |_| | |_| | | | |_| |  __/\__ \
+   |   \__,_|\__|_|_|_|\__|_|\___||___/
+   |                                   
   \*/
 
-  //!< Stream out operator for vector3 object
+  //!< Stream out operator for vector object
   std::ostream &operator<<(
       std::ostream &os,  //!< Output stream
-      const vector3 &obj //!< Vector object
+      const vector &obj //!< Vector object
   )
   {
     os << std::scientific
@@ -69,7 +69,7 @@ namespace acme
   //!< Stream out operator for line object
   std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const line3 &obj  //!< Line object
+      const line &obj  //!< Line object
   )
   {
     os << std::scientific
@@ -83,7 +83,7 @@ namespace acme
   //!< Stream out operator for ray object
   std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const ray3 &obj   //!< Ray object
+      const ray &obj   //!< Ray object
   )
   {
     os << std::scientific
@@ -97,7 +97,7 @@ namespace acme
   //!< Stream out operator
   std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const plane3 &obj //!< Plane object
+      const plane &obj //!< Plane object
   )
   {
     os << std::scientific
@@ -111,7 +111,7 @@ namespace acme
   //!< Stream out operator for segment object
   std::ostream &operator<<(
       std::ostream &os,   //!< Output stream
-      const segment3 &obj //!< Segment object
+      const segment &obj //!< Segment object
   )
   {
     os << std::scientific
@@ -125,7 +125,7 @@ namespace acme
   //!< Stream out operator for box object
   std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const box3 &obj   //!< Box object
+      const box &obj   //!< Box object
   )
   {
     os << std::scientific
@@ -139,7 +139,7 @@ namespace acme
   //!< Stream out operator for triangle object
   std::ostream &operator<<(
       std::ostream &os,    //!< Output stream
-      const triangle3 &obj //!< Triangle object
+      const triangle &obj //!< Triangle object
   )
   {
     os << std::scientific
@@ -153,7 +153,7 @@ namespace acme
 
   std::ostream &operator<<(
       std::ostream &os,  //!< Output stream
-      const circle3 &obj //!< Object
+      const circle &obj //!< Object
   )
   {
     os << std::scientific
@@ -167,7 +167,7 @@ namespace acme
 
   std::ostream &operator<<(
       std::ostream &os, //!< Output stream
-      const frame3 &obj //!< Object
+      const frame &obj //!< Object
   )
   {
     os << std::scientific

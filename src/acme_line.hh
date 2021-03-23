@@ -1,5 +1,5 @@
 ///
-/// file: acme_ray3.hh
+/// file: acme_line.hh
 ///
 
 /*
@@ -22,8 +22,8 @@
 (***********************************************************************)
 */
 
-#ifndef INCLUDE_ACME_RAY3
-#define INCLUDE_ACME_RAY3
+#ifndef INCLUDE_ACME_LINE
+#define INCLUDE_ACME_LINE
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -32,54 +32,58 @@ namespace acme
 {
 
   /*\
-   |                   _____ 
-   |   _ __ __ _ _   _|___ / 
-   |  | '__/ _` | | | | |_ \ 
-   |  | | | (_| | |_| |___) |
-   |  |_|  \__,_|\__, |____/ 
-   |             |___/       
+   |   _ _            
+   |  | (_)_ __   ___ 
+   |  | | | '_ \ / _ \
+   |  | | | | | |  __/
+   |  |_|_|_| |_|\___|
+   |                  
   \*/
 
-  //! Ray class container
-  class ray3
+  //! Line class container
+  /*!
+  Infinite line in 3D space and defined by any point lying on the line and a direction
+  vector.
+  */
+  class line
   {
   private:
-    vector3 _origin;    //!< Origin
-    vector3 _direction; //!< Direction
+    vector _origin;    //!< Origin (point)
+    vector _direction; //!< Direction (vector)
 
   public:
     //! Class destructor
-    ~ray3() {}
+    ~line() {}
 
     //! Class constructor
-    ray3() {}
+    line() {}
 
     //! Copy constructor
-    ray3(const ray3 &) = default;
+    line(const line &) = default;
 
-    //! Class constructor
-    ray3(
+    //! Class constructor for line
+    line(
         const real_type &ox, //<! Input x origin value
         const real_type &oy, //<! Input y origin value
         const real_type &oz, //<! Input z origin value
         const real_type &dx, //<! Input x direction value
         const real_type &dy, //<! Input y direction value
         const real_type &dz  //<! Input z direction value
-        ) : _origin(vector3(ox, oy, oz)), _direction(vector3(dx, dy, dz))
+        ) : _origin(vector(ox, oy, oz)), _direction(vector(dx, dy, dz))
     {
     }
 
     //! Class constructor
-    ray3(
-        const vector3 &origin,   //!< Input origin
-        const vector3 &direction //!< Input direction
+    line(
+        const vector &origin,   //!< Input origin
+        const vector &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
     }
 
     //! Equality operator
-    ray3 &operator=(
-        const ray3 &input //!< Input object
+    line &operator=(
+        const line &input //!< Input object
     )
     {
       if (this == &input)
@@ -96,7 +100,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const ray3 &input //!< Input object
+        const line &input //!< Input object
     )
         const
     {
@@ -104,7 +108,7 @@ namespace acme
              acme::is_equal(this->_direction, input._direction);
     }
 
-    //! Check if ray is degenerated
+    //! Check if line is degenerated
     bool is_degenerated(void)
         const
     {
@@ -112,20 +116,20 @@ namespace acme
     }
 
     //! Return origin
-    const vector3 &origin() const
+    const vector &origin() const
     {
       return this->_origin;
     }
 
     //! Return direction
-    const vector3 &direction() const
+    const vector &direction() const
     {
       return this->_direction;
     }
 
     //! Set origin
     void origin(
-        const vector3 &input //!< input object
+        const vector &input //!< input vector object
     )
     {
       this->_origin = input;
@@ -133,7 +137,7 @@ namespace acme
 
     //! Set direction
     void direction(
-        const vector3 &input //!< input object
+        const vector &input //!< input vector object
     )
     {
       this->_direction = input;
@@ -141,20 +145,31 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector3 &input //!< Input object
+        const vector &input //!< Input
     )
     {
-      this->_origin + input;
+      this->_origin = input + this->_origin;
+    }
+
+    //! Rotate by matrix
+    void rotate(
+        const matrix &input //!< Input
+    )
+    {
+      this->_origin = input * this->_origin;
+      this->_direction = input * this->_direction;
     }
 
     //! Reverse direction
     void reverse(void) { this->_direction = -this->_direction; }
 
+    
   };
+
 } // namespace acme
 
 #endif
 
 ///
-/// eof: acme_ray3.hh
+/// eof: acme_line.hh
 ///
