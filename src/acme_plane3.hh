@@ -26,6 +26,7 @@
 #define INCLUDE_ACME_PLANE3
 
 #include "acme.hh"
+#include "acme_math.hh"
 
 namespace acme
 {
@@ -41,14 +42,13 @@ namespace acme
 
   //! Plane class container
   /*!
-  3D plane3 defined by arbitrary point3 on the plane3 and a normal vector3.
+  3D plane3 defined by arbitrary vector3 on the plane3 and a normal vector3.
   */
-  template <typename T = Float>
-  class plane3 final
+  class plane3
   {
   private:
-    point3<T> _origin;  //!< Origin point3
-    vector3<T> _normal; //!< Normal vector3
+    vector3 _origin; //!< Origin vector3
+    vector3 _normal; //!< Normal vector3
 
   public:
     //! Class destructor
@@ -58,39 +58,31 @@ namespace acme
     plane3() {}
 
     //! Copy constructor
-    plane3(const plane3<T> &) = default;
+    plane3(const plane3 &) = default;
 
     //! Class constructor for plane3
     plane3(
-        const T &ox, //<! Input x origin value
-        const T &oy, //<! Input y origin value
-        const T &oz, //<! Input z origin value
-        const T &dx, //<! Input x normal value
-        const T &dy, //<! Input y normal value
-        const T &dz  //<! Input z normal value
-        ) : _origin(point3<T>(ox, oy, oz)), _normal(vector3<T>(dx, dy, dz))
+        const real_type &ox, //<! Input x origin value
+        const real_type &oy, //<! Input y origin value
+        const real_type &oz, //<! Input z origin value
+        const real_type &dx, //<! Input x normal value
+        const real_type &dy, //<! Input y normal value
+        const real_type &dz  //<! Input z normal value
+        ) : _origin(vector3(ox, oy, oz)), _normal(vector3(dx, dy, dz))
     {
     }
 
     //! Class constructor
     plane3(
-        const point3<T> &origin, //!< Input origin
-        const vector3<T> &normal //!< Input normal
-        ) : _origin(origin), _normal(normal)
-    {
-    }
-
-    //! Class constructor
-    plane3(
-        const Eigen::Matrix<T, 3, 1> &origin, //!< Input origin
-        const Eigen::Matrix<T, 3, 1> &normal  //!< Input normal
+        const vector3 &origin, //!< Input origin
+        const vector3 &normal  //!< Input normal
         ) : _origin(origin), _normal(normal)
     {
     }
 
     //! Equality operator
-    inline plane3<T> &operator=(
-        const plane3<T> &input //!< Input object
+    plane3 &operator=(
+        const plane3 &input //!< Input object
     )
     {
       if (this == &input)
@@ -105,233 +97,72 @@ namespace acme
       }
     }
 
-    //! Check if objects are (exactly) equal
-    inline bool operator==(
-        const plane3<T> &input //!< Input object
-    )
-    {
-      return this->_origin == input._origin && this->_normal == input._normal;
-    }
-
-    //! Check if objects are (exactly) NOT equal
-    inline bool operator!=(
-        const plane3<T> &input //!< Input object
-    )
-    {
-      return !(this == input);
-    }
-
     //! Check if objects are (almost) equal
-    inline bool is_equal(
-        const plane3<T> &input //!< Input object
+    bool is_equal(
+        const plane3 &input //!< Input object
     )
         const
     {
-      return this->_origin.is_equal(input._origin) && this->_normal.is_equal(input._normal);
+      return acme::is_equal(this->_origin, input._origin) &&
+             acme::is_equal(this->_normal, input._normal);
     }
 
     //! Check if plane is degenerated
-    inline bool is_degenerated(void)
+    bool is_degenerated(void)
         const
     {
-      return this->normal().is_degenerated();
+      return acme::is_degenerated(this->_normal);
     }
 
     //! Return origin
-    inline const point3<T> &origin() const
+    const vector3 &origin() const
     {
       return this->_origin;
     }
 
     //! Return normal
-    inline const vector3<T> &normal() const
+    const vector3 &normal() const
     {
       return this->_normal;
     }
 
     //! Set origin
-    inline void origin(
-        const point3<T> &input //!< input point3 object
+    void origin(
+        const vector3 &input //!< input vector3 object
     )
     {
       this->_origin = input;
     }
 
     //! Set normal
-    inline void normal(
-        const vector3<T> &input //!< input vector3 object
+    void normal(
+        const vector3 &input //!< input vector3 object
     )
     {
       this->_normal = input;
     }
 
     //! Translate line3 by vector3
-    inline void translate(
-        const vector3<T> &input //!< Input object
+    void translate(
+        const vector3 &input //!< Input object
     )
     {
-      this->_origin.translate(input);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_parallel(this);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_parallel(this);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_parallel(this);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_normal.is_parallel(input.normal());
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_normal.is_orthogonal(input.toVector());
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_orthogonal(this);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_orthogonal(this);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_orthogonal(this);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_normal.is_orthogonal(input.normal());
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_normal.is_parallel(input.toVector());
-    }
-
-    //! Angle between objects [rad]
-    inline const T angle(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T angle(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T angle(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T angle(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_normal.angle(input.normal());
-    }
-
-    //! Angle between objects [rad]
-    inline const T angle(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->_normal).angle(input.toVector()) - PI / 2.0;
+      this->_origin + input;
     }
 
     //! Reverse normal
-    inline void reverse(void) { this->_normal = -this->_normal; }
-
-    //! Tranform plane from frameA to frameB
-    inline const plane3<T> transform(
-        const frame3<T> &frameA, //!< Actual reference coordinate system
-        const frame3<T> &frameB  //!< Future reference coordinate system
-    )
-        const
-    {
-      return plane3<T>(this->_origin.transform(frameA, frameB),
-                       this->_normal.transform(frameA, frameB));
-    }
+    void reverse(void) { this->_normal = -this->_normal; }
 
     //! Return d value
-    inline const T d(void) const { return -this->_data.dot(this->_normal); }
+    real_type d(void) const { return -this->_origin.dot(this->_normal); }
 
-    //! Distance between objects
-    inline const T distance(
-        const point3<T> &input //!< Input object
+    //! Distance between point and plane
+    real_type distance(
+        const vector3 &input //!< Input
     )
         const
     {
-      return (input.data() - this->_origin).dot(this->_normal);
+      return (input - this->_origin).dot(this->_normal);
     }
   };
 

@@ -56,14 +56,14 @@ clean:
 	rm -rf $(OBJECTS)
 
 tests: $(OBJECTS) $(TESTS_SOURCES)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc  -o bin/test_math  $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_point.cc  -o bin/test_point $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc  -o bin/test_math  $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_vector.cc  -o bin/test_vector $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_triangle.cc  -o bin/test_triangle $(LIBS)
 
 run:
 	#./bin/test_math
-	#./bin/test_point
-	./bin/test_vector
+	#./bin/test_vector
+	./bin/test_triangle
 
 #
 # That's All Folks!

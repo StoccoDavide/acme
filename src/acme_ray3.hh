@@ -26,6 +26,7 @@
 #define INCLUDE_ACME_RAY3
 
 #include "acme.hh"
+#include "acme_math.hh"
 
 namespace acme
 {
@@ -40,12 +41,11 @@ namespace acme
   \*/
 
   //! Ray class container
-  template <typename T = Float>
-  class ray3 final
+  class ray3
   {
   private:
-    point3<T> _origin;     //!< Origin
-    vector3<T> _direction; //!< Direction
+    vector3 _origin;    //!< Origin
+    vector3 _direction; //!< Direction
 
   public:
     //! Class destructor
@@ -55,39 +55,31 @@ namespace acme
     ray3() {}
 
     //! Copy constructor
-    ray3(const ray3<T> &) = default;
+    ray3(const ray3 &) = default;
 
-    //! Class constructor for ray3
+    //! Class constructor
     ray3(
-        const T &ox, //<! Input x origin value
-        const T &oy, //<! Input y origin value
-        const T &oz, //<! Input z origin value
-        const T &dx, //<! Input x direction value
-        const T &dy, //<! Input y direction value
-        const T &dz  //<! Input z direction value
-        ) : _origin(point3<T>(ox, oy, oz)), _direction(vector3<T>(dx, dy, dz))
+        const real_type &ox, //<! Input x origin value
+        const real_type &oy, //<! Input y origin value
+        const real_type &oz, //<! Input z origin value
+        const real_type &dx, //<! Input x direction value
+        const real_type &dy, //<! Input y direction value
+        const real_type &dz  //<! Input z direction value
+        ) : _origin(vector3(ox, oy, oz)), _direction(vector3(dx, dy, dz))
     {
     }
 
     //! Class constructor
     ray3(
-        const point3<T> &origin,    //!< Input origin
-        const vector3<T> &direction //!< Input direction
-        ) : _origin(origin), _direction(direction)
-    {
-    }
-
-    //! Class constructor
-    ray3(
-        const Eigen::Matrix<T, 3, 1> &origin,   //!< Input origin
-        const Eigen::Matrix<T, 3, 1> &direction //!< Input direction
+        const vector3 &origin,   //!< Input origin
+        const vector3 &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
     }
 
     //! Equality operator
-    inline ray3<T> &operator=(
-        const ray3<T> &input //!< Input object
+    ray3 &operator=(
+        const ray3 &input //!< Input object
     )
     {
       if (this == &input)
@@ -102,234 +94,62 @@ namespace acme
       }
     }
 
-    //! Check if objects are (exactly) equal
-    inline bool operator==(
-        const ray3<T> &input //!< Input object
-    )
-    {
-      return this->origin() == input.origin() && this->direction() == input.direction();
-    }
-
-    //! Check if objects are (exactly) NOT equal
-    inline bool operator!=(
-        const ray3<T> &input //!< Input object
-    )
-    {
-      return !(this == input);
-    }
-
     //! Check if objects are (almost) equal
-    inline bool is_equal(
-        const ray3<T> &input //!< Input object
+    bool is_equal(
+        const ray3 &input //!< Input object
     )
         const
     {
-      return (this->origin().is_equal(input.origin()) && this->direction().is_equal(input.direction()));
+      return acme::is_equal(this->_origin, input._origin) &&
+             acme::is_equal(this->_direction, input._direction);
     }
 
     //! Check if ray is degenerated
-    inline bool is_degenerated(void)
+    bool is_degenerated(void)
         const
     {
-      return this->direction().is_degenerated();
+      return acme::is_degenerated(this->_direction);
     }
 
     //! Return origin
-    inline const point3<T> &origin() const
+    const vector3 &origin() const
     {
       return this->_origin;
     }
 
     //! Return direction
-    inline const vector3<T> &direction() const
+    const vector3 &direction() const
     {
       return this->_direction;
     }
 
     //! Set origin
-    inline void origin(
-        const point3<T> &input //!< input object
+    void origin(
+        const vector3 &input //!< input object
     )
     {
       this->_origin = input;
     }
 
     //! Set direction
-    inline void direction(
-        const vector3<T> &input //!< input object
+    void direction(
+        const vector3 &input //!< input object
     )
     {
       this->_direction = input;
     }
 
-    //! Convert to line3
-    inline const line3<T> &toLine3(void) const
-    {
-      return line3<T>(this);
-    }
-
-    //! Convert to plane3
-    inline const plane3<T> &toPlane3(void) const
-    {
-      return plane3<T>(this);
-    }
-
     //! Translate by vector
-    inline void translate(
-        const vector3<T> &input //!< Input object
+    void translate(
+        const vector3 &input //!< Input object
     )
     {
-      this->_origin.translate(input);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_parallel(this);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_parallel(this);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.is_parallel(input._direction);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.is_orthognal(input.normal());
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.is_parallel(input.toVector());
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_orthogonal(this);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.is_orthogonal(this);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.is_orthogonal(input._direction);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.is_parallel(input.normal());
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.is_orthogonal(input.toVector());
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return this->_direction.angle(input._direction);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->_direction).angle(input.normal()) - PI / 2.0;
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->_direction).angle(input.toVector());
+      this->_origin + input;
     }
 
     //! Reverse direction
-    inline void reverse(void) { this->_direction = -this->_direction; }
+    void reverse(void) { this->_direction = -this->_direction; }
 
-    //! Tranform ray from frameA to frameB
-    inline const ray3<T> transform(
-        const frame3<T> &frameA, //!< Actual reference coordinate system
-        const frame3<T> &frameB  //!< Future reference coordinate system
-    )
-        const
-    {
-      return ray3<T>(this->_origin.transform(frameA, frameB),
-                     this->_direction.transform(frameA, frameB));
-    }
   };
 } // namespace acme
 

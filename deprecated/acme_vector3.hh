@@ -50,6 +50,8 @@ namespace acme
   private:
     Eigen::Matrix<T, 3, 1> _data; //!< Data as Eigen 3x1 column vector3
 
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
   public:
     //! Class destructor
     ~vector3() {}
@@ -283,11 +285,11 @@ namespace acme
     }
 
     //! Dot product function
-    inline const vector3<T> dot(
+    inline const T dot(
         const vector3<T> &input //!< Input object
     )
     {
-      return vector3<T>(this->_data->dot(input._data));
+      return this->_data.dot(input._data);
     }
 
     //! Cross product function
@@ -295,7 +297,7 @@ namespace acme
         const vector3<T> &input //!< Input object
     )
     {
-      return vector3<T>(this->_data->cross(input._data));
+      return vector3<T>(this->_data.cross(input._data));
     }
 
     //! Check if objects are parallel
@@ -349,7 +351,7 @@ namespace acme
     )
         const
     {
-      return acme::is_equal(abs(this->dot(input)) / (this->norm() * input.norm()), 0.0);
+      return acme::is_equal(abs(this->_data.dot(input._data)) / (this->_data.norm() * input._data.norm()), 0.0);
     }
 
     //! Check if objects are parallel
@@ -382,25 +384,7 @@ namespace acme
     //! Check if vector has unitary norm
     inline bool is_unitary(void) const
     {
-      return is_equal(this->norm() - 1.0, 0.0);
-    }
-
-    //! Get an arbitrary vector orthogonal to the current vector
-    inline const vector3<T> orthogonalVector(void)
-        const
-    {
-      if (abs(this->x()) <= abs(this->y()) && abs(this->x()) <= abs(this->z()))
-      {
-        return new vector3<T>(0, this->z(), -this->y());
-      }
-      else if (abs(this->y()) <= abs(this->x()) && abs(this->y()) <= abs(this->z()))
-      {
-        return new vector3<T>(this->z(), 0, -this->x());
-      }
-      else
-      {
-        return new vector3<T>(this->y(), -this->x(), 0);
-      }
+      return is_equal(this._data->norm() - 1.0, 0.0);
     }
 
     //! Angle between objects [rad]
@@ -455,7 +439,7 @@ namespace acme
     )
         const
     {
-      return vector3<T>(frameB._rotation.transpose()*(frameA._rotation*this->_data));
+      return vector3<T>(frameB._rotation.transpose() * (frameA._rotation * this->_data));
     }
 
   }; // class vector3

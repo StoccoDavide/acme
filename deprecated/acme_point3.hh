@@ -48,9 +48,11 @@ namespace acme
   class point3 final
   {
   private:
-    Eigen::Matrix<T, 3, 1> _data; //!< Data as Eigen 3x1 column vector3
+    vector3 _data; //!< Data as Eigen 3x1 column vector3
 
   public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
     //! Class destructor
     ~point3() {}
 

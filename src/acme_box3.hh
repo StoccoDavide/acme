@@ -25,7 +25,8 @@
 #ifndef INCLUDE_ACME_BOX3
 #define INCLUDE_ACME_BOX3
 
-#include "acme_point3.hh"
+#include "acme.hh"
+#include "acme_math.hh"
 
 namespace acme
 {
@@ -40,54 +41,45 @@ namespace acme
   \*/
 
   //! Box class container
-  template <typename T = Float>
   class box3
   {
   private:
-    point3<T> _point0; //!< Point 0
-    point3<T> _point1; //!< Point 1
+    vector3 _point0; //!< Point 0
+    vector3 _point1; //!< Point 1
 
   public:
     //! Class destructor
     ~box3() {}
 
     //! Copy constructor
-    box3(const box3<T> &) = default;
+    box3(const box3 &) = default;
 
     //! Class constructor
     box3() {}
 
     //! Class constructor
     box3(
-        const T &x0, //<! Input x value of first point
-        const T &y0, //<! Input y value of first point
-        const T &z0, //<! Input z value of first point
-        const T &x1, //<! Input x value of second point
-        const T &y1, //<! Input y value of second point
-        const T &z1  //<! Input z value of second point
-        ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1))
+        const real_type &x0, //<! Input x value of first point
+        const real_type &y0, //<! Input y value of first point
+        const real_type &z0, //<! Input z value of first point
+        const real_type &x1, //<! Input x value of second point
+        const real_type &y1, //<! Input y value of second point
+        const real_type &z1  //<! Input z value of second point
+        ) : _point0(vector3(x0, y0, z0)), _point1(vector3(x1, y1, z1))
     {
     }
 
     //! Class constructor
     box3(
-        const point3<T> &point0, //!< Input object
-        const point3<T> &point1  //!< Input object
-        ) : _point0(point0), _point1(point1)
-    {
-    }
-
-    //! Class constructor
-    box3(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input object
-        const Eigen::Matrix<T, 3, 1> &point1  //!< Input object
+        const vector3 &point0, //!< Input object
+        const vector3 &point1  //!< Input object
         ) : _point0(point0), _point1(point1)
     {
     }
 
     //! Equality operator
-    inline box3<T> &operator=(
-        const box3<T> &input //!< Input object
+    box3 &operator=(
+        const box3 &input //!< Input object
     )
     {
       if (this == &input)
@@ -96,87 +88,60 @@ namespace acme
       }
       else
       {
-        this->_point0(input._point0);
-        this->_point1(input._point1);
+        this->_point0 = input._point0;
+        this->_point1 = input._point1;
         return *this;
       }
     }
 
-    //! Check if objects are (exactly) equal
-    inline bool operator==(
-        const box3<T> &input //!< Input object
-    )
-    {
-      return this->_point0 == input._point0 && this->_point1 == input._point1;
-    }
-
-    //! Check if objects are (exactly) NOT equal
-    inline bool operator!=(
-        const box3<T> &input //!< Input object
-    )
-    {
-      return !(this == input);
-    }
-
     //! Check if objects are (almost) equal
-    inline bool is_equal(
-        const box3<T> &input //!< Input object
+    bool is_equal(
+        const box3 &input //!< Input object
     )
         const
     {
-      return this->_point0.is_equal(input._point0) && this->_point1.is_equal(input._point1);
+      return acme::is_equal(this->_point0, input._point0) &&
+             acme::is_equal(this->_point1, input._point1);
     }
 
     //! Check if box is degenerated
-    inline bool is_degenerated(void)
+    bool is_degenerated(void)
         const
     {
-      return acme::is_equal(_point0.distance(_point1), T(0.0));
+      return acme::is_equal((this->_point0 - this->_point1).norm(), real_type(0.0));
     }
 
     //! Get first point
-    inline const point3<T> &point_1(void) const { return this->_point1; }
+    const vector3 &point_0(void) const { return this->_point0; }
 
     //! Set first point
-    inline void point_1(
-        const point3<T> &input //!< Input object
+    void point_0(
+        const vector3 &input //!< Input object
+    )
+    {
+      this->_point0 = input;
+    }
+
+    //! Get second point
+    const vector3 &point_1(void) const { return this->_point1; }
+
+    //! Set second point
+    void point_1(
+        const vector3 &input //!< Input object
     )
     {
       this->_point1 = input;
     }
 
-    //! Get second point
-    inline const point3<T> &point_2(void) const { return this->_point2; }
-
-    //! Set second point
-    inline void point_2(
-        const point3<T> &input //!< Input object
-    )
-    {
-      this->_point2 = input;
-    }
-
     //! Translate by vector
-    inline void translate(
-        const vector3<T> &input //!< Input object
+    void translate(
+        const vector3 &input //!< Input object
     )
     {
-      this->_point0.translate(input);
-      this->_point1.translate(input);
+      this->_point0 + input;
+      this->_point1 + input;
     }
 
-    //! Tranform box from frameA to frameB
-    inline const box3<T> transform(
-        const frame3<T> &frameA, //!< Actual reference coordinate system
-        const frame3<T> &frameB  //!< Future reference coordinate system
-    )
-        const
-    {
-      return box3<T>(this->_point0.transform(frameA, frameB),
-                     this->_point1.transform(frameA, frameB));
-    }
-
-    
   };
 
 } // namespace acme

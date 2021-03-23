@@ -46,32 +46,10 @@
 #include <limits>
 #include <algorithm>
 
+#include "acme.hh"
+
 namespace acme
 {
-
-  /*\
-   |   ____            _                            _              _       
-   |  | __ )  __ _ ___(_) ___    ___ ___  _ __  ___| |_ __ _ _ __ | |_ ___ 
-   |  |  _ \ / _` / __| |/ __|  / __/ _ \| '_ \/ __| __/ _` | '_ \| __/ __|
-   |  | |_) | (_| \__ \ | (__  | (_| (_) | | | \__ \ || (_| | | | | |_\__ \
-   |  |____/ \__,_|___/_|\___|  \___\___/|_| |_|___/\__\__,_|_| |_|\__|___/
-   |                                                                       
-  \*/
-
-  typedef double Float; //!< Real number type
-  typedef int Int;      //!< Integer number type
-
-  static const Float Epsilon_Machine = std::numeric_limits<Float>::epsilon(); //!< Machine espilon \f$ \varepsilon \f$
-  static const Float Epsilon_High = 1.0E-16;                                  //!< High precision epsilon constant
-  static const Float Epsilon_Medium = 1.0E-10;                                //!< Medium precision epsilon constant
-  static const Float Epsilon_Low = 1.0E-07;                                   //!< Low precision epsilon constant
-  static const Float Epsilon = Epsilon_Medium;                                //!< Standard precision epsilon constant
-  static const Float Infinity = std::numeric_limits<Float>::infinity();       //!< Infinity constant
-
-  static const Float PI = Float(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ value
-  static const Float PI2 = Float(6.283185307179586476925286766559000);        //!< \f$ 2\pi \f$ value
-  static const Float PIDiv180 = Float(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ value
-  static const Float _180DivPI = Float(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ value
 
   /*\
    |   __  __       _   _     
@@ -82,74 +60,56 @@ namespace acme
    |                          
   \*/
 
-  //! Return infinity value
-  template <typename T>
-  inline T infinity();
+  //! Return infinity
+  real_type infinity(void);
 
-  //! Return epsilon value
-  template <typename T>
-  inline T epsilon();
+  //! Return epsilon
+  real_type epsilon(void);
 
-  //! Return specific double-type epsilon value
-  template <>
-  inline double epsilon<double>();
-
-  template <>
-  //! Return specific float-type epsilon value
-  inline float epsilon<float>();
-
-  //! Square function
-  template <typename T>
-  inline T sqr(
-      const T &value //!< Input value
+  //! Square
+  real_type sqr(
+      const real_type &input //!< Input
   );
 
-  //! Cubic function
-  template <typename T>
-  inline T cub(
-      const T &value //!< Input value
+  //! Cubic
+  real_type cub(
+      const real_type &input //!< Input
   );
 
-  //! Square root function
-  template <typename T>
-  inline T sqrt(
-      const T &value //!< Input value
+  //! Square root
+  real_type sqrt(
+      const real_type &input //!< Input
   );
 
-  //! Absolute value function
-  template <typename T>
-  inline T abs(const T &value //!< Input value
+  //! Absolute value
+  real_type abs(const real_type &input //!< Input
   );
 
-  //! Maximum between values function
-  template <typename T>
-  inline T max(
-      const T &value0, //!< Input value 0
-      const T &value1  //!< Input value 1
+  //! Maximum between inputs
+  real_type max(
+      const real_type &input0, //!< Input 0
+      const real_type &input1  //!< Input 1
   );
 
-  //! Minimum between values function
-  template <typename T>
-  inline T min(
-      const T &value0, //!< Input value 0
-      const T &value1  //!< Input value 1
+  //! Minimum between inputs
+  real_type min(
+      const real_type &input0, //!< Input 0
+      const real_type &input1  //!< Input 1
 
   );
 
-  //! Maximum between three values function
-  template <typename T>
-  inline T max(
-      const T &value0, //!< Input value 0
-      const T &value1, //!< Input value 1
-      const T &value2  //!< Input value 2
+  //! Maximum between three inputs
+  real_type max(
+      const real_type &input0, //!< Input 0
+      const real_type &input1, //!< Input 1
+      const real_type &input2  //!< Input 2
   );
 
-  //! Minimum between three values function
-  template <typename T>
-  inline T min(
-      const T &value0, //!< Input value 0
-      const T &value1, //!< Input value 1
-      const T &value2  //!< Input value 2
+  //! Minimum between three inputs
+  real_type min(
+      const real_type &input0, //!< Input 0
+      const real_type &input1, //!< Input 1
+      const real_type &input2  //!< Input 2
   );
 
   /*\
@@ -162,84 +122,180 @@ namespace acme
   \*/
 
   //! Sine function [rad]
-  template <typename T>
-  inline T sin(
-      const T &value //!< Input value
+  real_type sin(
+      const real_type &input //!< Input
   );
 
   //! Cosine function [rad]
-  template <typename T>
-  inline T cos(
-      const T &value //!< Input value
+  real_type cos(
+      const real_type &input //!< Input
   );
 
   //! Tangent function [rad]
-  template <typename T>
-  inline T tan(const T &value //!< Input value
+  real_type tan(const real_type &input //!< Input
   );
 
   //! Arcsine function [rad]
-  template <typename T>
-  inline T asin(
-      const T &value //!< Input value
+  real_type asin(
+      const real_type &input //!< Input
   );
 
   //! Arccosine function [rad]
-  template <typename T>
-  inline T acos(
-      const T &value //!< Input value
+  real_type acos(
+      const real_type &input //!< Input
   );
 
   //! Arctangent function [rad]
-  template <typename T>
-  inline T atan(
-      const T &value //!< Input value
+  real_type atan(
+      const real_type &input //!< void
   );
 
   //! Arctangent function [rad]
-  template <typename T>
-  inline T atan2(
-      const T &value0, //!< Input value 0
-      const T &value1  //!< Input value 1
+  real_type atan2(
+      const real_type &input0, //!< Input 0
+      const real_type &input1  //!< Input 1
   );
 
-  //! Clamp function (returns the input value bounded between low and high values)
-  template <typename T>
-  inline T clamp(
-      const T &value, //!< Input value
-      const T &low,   //!< Low end bound
-      const T &high   //!< High end bound
+  //! Returns the input input bounded between low and high inputs
+  real_type clamp(
+      const real_type &input, //!< Input
+      const real_type &low,   //!< Low-end bound
+      const real_type &high   //!< High-end bound
   );
 
-  //! Check if elements are almost equal
-  template <typename T>
-  inline T is_equal(
-      const T &value0,                  //!< Input value 0
-      const T &value1,                  //!< Input value 1
-      const T &tolerance = Epsilon_High //!< High end bound
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const real_type &input0,                  //!< Input 0
+      const real_type &input1,                  //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
-  //! Get rotation on x-axis
-  template <typename T>
-  inline Eigen::Matrix<T, 3, 3> rotate_x(
-      const T &input //!< Input angle [rad]
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const vector2 &input0,                    //!< Input 0
+      const vector2 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
-  //! Get rotation on y-axis
-  template <typename T>
-  inline Eigen::Matrix<T, 3, 3> rotate_y(
-      const T &input //!< Input angle [rad]
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const vector3 &input0,                    //!< Input 0
+      const vector3 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
   );
 
-  //! Get rotation on z-axis
-  template <typename T>
-  inline Eigen::Matrix<T, 3, 3> rotate_z(
-      const T &input //!< Input angle [rad]
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const vector4 &input0,                    //!< Input 0
+      const vector4 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const matrix2 &input0,                    //!< Input 0
+      const matrix2 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const matrix3 &input0,                    //!< Input 0
+      const matrix3 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Checks if elements are almost equal
+  bool is_equal(
+      const matrix4 &input0,                    //!< Input 0
+      const matrix4 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vector is degenerated
+  bool is_degenerated(
+      const vector2 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vector is degenerated
+  bool is_degenerated(
+      const vector3 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vector is degenerated
+  bool is_degenerated(
+      const vector4 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vector is normalized
+  bool is_normalized(
+      const vector2 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vector is normalized
+  bool is_normalized(
+      const vector3 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vector is normalized
+  bool is_normalized(
+      const vector4 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vectors are ortogonal
+  bool is_ortogonal(
+      const vector3 &input0,                    //!< Input 0
+      const vector3 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if vectors are parallel
+  bool is_parallel(
+      const vector3 &input0,                    //!< Input 0
+      const vector3 &input1,                    //!< Input 1
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Check if rotation matrix is othonormal
+  bool is_ortonormal(
+      const matrix3 &input,                     //!< Input
+      const real_type &tolerance = Epsilon_High //!< Tolerance
+  );
+
+  //! Returns rotation on x-axis
+  matrix3 rotate_x(
+      const real_type &input //!< Input angle [rad]
+  );
+
+  //! Returns rotation on y-axis
+  matrix3 rotate_y(
+      const real_type &input //!< Input angle [rad]
+  );
+
+  //! Returns rotation on z-axis
+  matrix3 rotate_z(
+      const real_type &input //!< Input angle [rad]
+  );
+
+  //! Angle between objects [rad]
+  real_type angle_rad(
+      const vector3 &input0, //!< Input 0
+      const vector3 &input1  //!< Input 1
+  );
+
+  //! Angle between objects [deg]
+  real_type angle_deg(
+      const vector3 &input0, //!< Input 0
+      const vector3 &input1  //!< Input 1
   );
 
 } // namespace acme
-
-#include "acme_math.inl"
 
 #endif
 

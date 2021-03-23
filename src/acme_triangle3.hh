@@ -25,7 +25,8 @@
 #ifndef INCLUDE_ACME_TRIANGLE3
 #define INCLUDE_ACME_TRIANGLE3
 
-#include "acme_point3.hh"
+#include "acme.hh"
+#include "acme_math.hh"
 
 namespace acme
 {
@@ -40,61 +41,51 @@ namespace acme
   \*/
 
   //! triangle3 class container
-  template <typename T = Float>
   class triangle3
   {
   private:
   private:
-    point3<T> _point0; //!< Point 0
-    point3<T> _point1; //!< Point 1
-    point3<T> _point2; //!< Point 2
+    vector3 _point0; //!< Point 0
+    vector3 _point1; //!< Point 1
+    vector3 _point2; //!< Point 2
 
   public:
     //! Class destructor
     ~triangle3() {}
 
     //! Copy constructor
-    triangle3(const triangle3<T> &) = default;
+    triangle3(const triangle3 &) = default;
 
     //! Class constructor
     triangle3() {}
 
     //! Class constructor
     triangle3(
-        const T &x0, //<! Input x value of first point
-        const T &y0, //<! Input y value of first point
-        const T &z0, //<! Input z value of first point
-        const T &x1, //<! Input x value of second point
-        const T &y1, //<! Input y value of second point
-        const T &z1, //<! Input z value of second point
-        const T &x2, //<! Input x value of third point
-        const T &y2, //<! Input y value of third point
-        const T &z2  //<! Input z value of third point
-        ) : _point0(point3<T>(x0, y0, z0)), _point1(point3<T>(x1, y1, z1)), _point2(point3<T>(x2, y2, z2))
+        const real_type &x0, //<! Input x value of first point
+        const real_type &y0, //<! Input y value of first point
+        const real_type &z0, //<! Input z value of first point
+        const real_type &x1, //<! Input x value of second point
+        const real_type &y1, //<! Input y value of second point
+        const real_type &z1, //<! Input z value of second point
+        const real_type &x2, //<! Input x value of third point
+        const real_type &y2, //<! Input y value of third point
+        const real_type &z2  //<! Input z value of third point
+        ) : _point0(vector3(x0, y0, z0)), _point1(vector3(x1, y1, z1)), _point2(vector3(x2, y2, z2))
     {
     }
 
     //! Class constructor
     triangle3(
-        const point3<T> &point0, //!< Input object
-        const point3<T> &point1, //!< Input object
-        const point3<T> &point2  //!< Input object
-        ) : _point0(point0), _point1(point1), _point2(point2)
-    {
-    }
-
-    //! Class constructor
-    triangle3(
-        const Eigen::Matrix<T, 3, 1> &point0, //!< Input object
-        const Eigen::Matrix<T, 3, 1> &point1, //!< Input object
-        const Eigen::Matrix<T, 3, 1> &point2  //!< Input object
+        const vector3 &point0, //!< Input object
+        const vector3 &point1, //!< Input object
+        const vector3 &point2  //!< Input object
         ) : _point0(point0), _point1(point1), _point2(point2)
     {
     }
 
     //! Equality operator
-    inline triangle3<T> &operator=(
-        const triangle3<T> &input //!< Input object
+    triangle3 &operator=(
+        const triangle3 &input //!< Input object
     )
     {
       if (this == &input)
@@ -110,250 +101,85 @@ namespace acme
       }
     }
 
-    //! Check if objects are (exactly) equal
-    inline bool operator==(
-        const segment3<T> &input //!< Input object
-    )
-    {
-      return this->_point0 == input._point0 && this->_point1 == input._point1 && this->_point2 == input._point2;
-    }
-
-    //! Check if objects are (exactly) NOT equal
-    inline bool operator!=(
-        const segment3<T> &input //!< Input object
-    )
-    {
-      return !(this == input);
-    }
-
     //! Check if objects are (almost) equal
-    inline bool is_equal(
-        const segment3<T> &input //!< Input object
+    bool is_equal(
+        const triangle3 &input //!< Input object
     )
         const
     {
-      return this->_point0.is_equal(input._point0) && this->_point1.is_equal(input._point1) && this->_point2.is_equal(input._point2);
+      return acme::is_equal(this->_point0, input._point0) &&
+             acme::is_equal(this->_point1, input._point1) &&
+             acme::is_equal(this->_point2, input._point2);
     }
 
     //! Check if triangle is degenerated
-    inline bool is_degenerated(void)
+    bool is_degenerated(void)
         const
     {
-      return this->direction().is_degenerated();
+      return acme::is_equal((this->_point0 - this->_point1).norm(), 0.0) ||
+             acme::is_equal((this->_point1 - this->_point2).norm(), 0.0) ||
+             acme::is_equal((this->_point2 - this->_point0).norm(), 0.0);
     }
 
     //! Get first point
-    inline const point3<T> &point_0(void) const { return this->_point0; }
+    const vector3 &point_0(void) const { return this->_point0; }
 
     //! Set first point
-    inline void point_0(
-        const point3<T> &input //!< Input object
+    void point_0(
+        const vector3 &input //!< Input object
     )
     {
       this->_point0 = input;
     }
 
     //! Get second point
-    inline const point3<T> &point_1(void) const { return this->_point1; }
+    const vector3 &point_1(void) const { return this->_point1; }
 
     //! Set second point
-    inline void point_1(
-        const point3<T> &input //!< Input object
+    void point_1(
+        const vector3 &input //!< Input object
     )
     {
       this->_point1 = input;
     }
 
     //! Get third point
-    inline const point3<T> &point_2(void) const { return this->_point2; }
+    const vector3 &point_2(void) const { return this->_point2; }
 
     //! Set third point
-    inline void point_2(
-        const point3<T> &input //!< Input object
+    void point_2(
+        const vector3 &input //!< Input object
     )
     {
       this->_point2 = input;
     }
 
     //! Get first edge
-    inline segment3<T> &edge_0(void) const { return segment3<T>(this->_point0, this->_point1); }
+    const segment3 edge_0(void) const { return segment3(this->_point0, this->_point1); }
 
     //! Get second edge
-    inline segment3<T> &edge_1(void) const { return segment3<T>(this->_point1, this->_point2); }
+    const segment3 edge_1(void) const { return segment3(this->_point1, this->_point2); }
 
     //! Get third edge
-    inline segment3<T> &edge_2(void) const { return segment3<T>(this->_point2, this->_point0); }
+    const segment3 edge_2(void) const { return segment3(this->_point2, this->_point0); }
 
     //! Get face normal
-    inline vector3<T> &normal(void)
+    const vector3 normal(void)
         const
     {
-      return vector3<T>((this->_point1.data() - this->_point0.data()).cross(this->_point2.data() - this->_point0.data()));
-    }
-
-    //! Get face normal
-    inline Eigen::Matrix<T, 3, 1> &normalEigen(void)
-        const
-    {
-      return (this->_point1.data() - this->_point0.data()).cross(this->_point2.data() - this->_point0.data());
+      return (this->_point1 - this->_point0).cross(this->_point2 - this->_point0);
     }
 
     //! Translate by vector
-    inline void translate(
-        const vector3<T> &input //!< Input object
+    void translate(
+        const vector3 &input //!< Input object
     )
     {
-      this->_point0.translate(input);
-      this->_point1.translate(input);
-      this->_point2.translate(input);
+      this->_point0 + input;
+      this->_point1 + input;
+      this->_point2 + input;
     }
 
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_orthogonal(input);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_orthogonal(input);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_orthogonal(input);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_orthogonal(input);
-    }
-
-    //! Check if objects are parallel
-    inline bool is_parallel(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_orthogonal(input.toVector());
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_parallel(input);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_parallel(input);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_parallel(input);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_parallel(input);
-    }
-
-    //! Check if objects are orthogonal
-    inline bool is_orthogonal(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->normal()).is_parallel(input.toVector());
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const vector3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const line3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const ray3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const plane3<T> &input //!< Input object
-    )
-        const
-    {
-      return input.angle(this);
-    }
-
-    //! Angle between objects [rad]
-    inline const T &angle(
-        const segment3<T> &input //!< Input object
-    )
-        const
-    {
-      return (this->toVector()).angle(input.toVector());
-    }
-
-    //! Tranform triangle from frameA to frameB
-    inline const triangle3<T> transform(
-        const frame3<T> &frameA, //!< Actual reference coordinate system
-        const frame3<T> &frameB  //!< Future reference coordinate system
-    )
-        const
-    {
-      return triangle3<T>(this->_point0.transform(frameA, frameB),
-                          this->_point1.transform(frameA, frameB),
-                          this->_point2.transform(frameA, frameB));
-    }
   };
 
 } // namespace acme

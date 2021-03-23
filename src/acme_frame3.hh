@@ -25,6 +25,7 @@
 #ifndef INCLUDE_ACME_FRAME3
 #define INCLUDE_ACME_FRAME3
 
+#include "acme.hh"
 #include "acme_math.hh"
 
 namespace acme
@@ -44,38 +45,26 @@ namespace acme
   Class representing a frame in 3D space. It is constructed by
   a origin and a rotation matrix.
   */
-  template <typename T = Float>
-  class frame3 final
+  class frame3
   {
   private:
-    point3<T> _origin;
-    rotation3<T> _rotation;
-    
-    friend class point3<T>;
-    friend class vector3<T>;
-    
+    vector3 _origin;
+    matrix3 _rotation;
+
   public:
     //! Class destructor
     ~frame3() {}
 
     //! Copy constructor
-    frame3(const frame3<T> &) = default;
+    frame3(const frame3 &) = default;
 
     //! Class constructor
     frame3() { this->clear(); }
 
     //! Class constructor
     frame3(
-        const Eigen::Matrix<T, 3, 1> &origin,  //!< Input origin
-        const Eigen::Matrix<T, 3, 3> &rotation //!< Input rotation
-        ) : _origin(origin), _rotation(rotation)
-    {
-    }
-
-    //! Class constructor
-    frame3(
-        const point3<T> &origin,     //!< Input origin
-        const rotation3<T> &rotation //!< Input rotation
+        const vector3 &origin,    //!< Input origin
+        const matrix3 &rotation //!< Input rotation
         ) : _origin(origin), _rotation(rotation)
     {
     }
@@ -84,13 +73,13 @@ namespace acme
     //! Clear data
     void clear()
     {
-      this->_origin.clear();
-      this->_rotation.clear()
+      this->_origin = vector3::Zero();
+      this->_rotation = matrix3::Zero();
     }
 
     //! Equality operator
-    inline frame3<T> &operator=(
-        const frame3<T> &input //!< Input object
+    frame3 &operator=(
+        const frame3 &input //!< Input object
     )
     {
       if (this == &input)
@@ -105,148 +94,99 @@ namespace acme
       }
     }
 
-    //! Check if objects are (exactly) equal
-    inline bool operator==(
-        const frame3<T> &input //!< Input object
-    )
-    {
-      return this->_origin == input._origin && this->_rotation == input._rotation;
-    }
-
-    //! Check if objects are (exactly) equal
-    inline bool operator!=(
-        const frame3<T> &input //!< Input object
-    )
-    {
-      return !(this == input);
-    }
-
     //! Check if objects are (almost) equal
-    inline bool is_equal(
-        const frame3<T> &input //!< Input object
+    bool is_equal(
+        const frame3 &input //!< Input object
     )
         const
     {
-      return this->_origin.is_equal(input._origin) && this->_rotation.is_equal(input._rotation);
+      return acme::is_equal(this->_origin, input._origin) &&
+             acme::is_equal(this->_rotation, input._rotation);
     }
 
     //! Get x vector
-    inline const T &x(void) const { return this->_rotation.x(); }
+    const vector3 x(void) const { return this->_rotation.col(0); }
 
     //! Get y vector
-    inline const T &y(void) const { return this->_rotation.y(); }
+    const vector3 y(void) const { return this->_rotation.col(1); }
 
     //! Get z vector
-    inline const T &z(void) const { return this->_rotation.z(); }
-
-    //! Get data
-    inline const Eigen::Matrix<T, 3, 3> &data(void) const { return this->_data; }
+    const vector3 z(void) const { return this->_rotation.col(2); }
 
     //! Set x vector
-    inline void x(
-        const vector3<T> &input //!< Input object
+    void x(
+        const vector3 &input //!< Input object
     )
     {
-      this->_rotation.x() = input.data();
+      this->_rotation.col(0) = input;
     }
 
     //! Set y vector
-    inline void y(
-        const vector3<T> &input //!< Input object
+    void y(
+        const vector3 &input //!< Input object
     )
     {
-      this->_data.y() = input.data();
+      this->_rotation.col(1) = input;
     }
 
     //! Set z vector
-    inline void z(
-        const vector3<T> &input //!< Input object
+    void z(
+        const vector3 &input //!< Input object
     )
     {
-      this->_data.z() = input.data();
+      this->_rotation.col(2) = input;
     }
 
     //! Get rotation
-    inline rotation3<T> &rotation(void) const
-    {
-      return this->_rotation;
-    }
-
-    //! Get rotation
-    inline Eigen::Matrix<T, 3, 3> &rotationEigen(void) const
-    {
-      return this->_rotation.data();
-    }
+    const matrix3 &rotation(void) const { return this->_rotation; }
 
     //! Set rotation
-    inline void rotationEigen(
-        const Eigen::Matrix<T, 3, 3> &data //!< Input data
+    void rotation(
+        matrix3 &input //!< Input
     )
     {
-      this->_rotation.data(data);
+      this->_rotation = input;
     }
 
     //! Get origin
-    inline point3<T> &origin(void) const
-    {
-      return this->_origin;
-    }
+    const vector3 origin(void) const { return this->_origin; }
 
-    //! Get origin
-    inline Eigen::Matrix<T, 3, 1> &originEigen(void) const
-    {
-      return this->_origin.data();
-    }
-
-    //! Set origin
-    inline void originEigen(
-        const Eigen::Matrix<T, 3, 1> &data //!< Input data
+    //! Set rotation
+    void origin(
+        vector3 &input //!< Input
     )
     {
-      this->_origin.data(data);
+      this->_origin = input;
     }
 
     //! Check if rotation matrix is othonormal
-    inline const bool is_othonormal(void) const
+    bool is_ortonormal(void) const
     {
-      return this->_rotation.is_othonormal();
-    }
-
-    //! Get inverse rotation matrix (othonormality must be checked manually!)
-    inline Eigen::Matrix<T, 4, 4> inverse(void)
-    {
-      return this->_rotation.transpose();
-    }
-
-    //! Inverse rotation matrix (othonormality must be checked manually!)
-    inline void inverse(void) const
-    {
-      this->_origin = -this->_rotation.transpose() * this->_origin;
-      this->_rotation = this->_rotation.transpose();
+      return acme::is_ortonormal(this->_rotation);
     }
 
     //! Perform rotation on x-axis
-    inline void rotate_x(
-        const T &input //!< Input angle [rad]
+    void rotate_x(
+        const real_type &input //!< Input angle [rad]
     )
     {
-      this->_rotation = this->_rotate_x(input);
+      this->_rotation * acme::rotate_x(input);
     }
 
     //! Perform rotation on y-axis
-    inline void rotate_y(
-        const T &input //!< Input angle [rad]
+    void rotate_y(
+        const real_type &input //!< Input angle [rad]
     )
     {
-      this->_rotation = this->_rotate_y(input);
+      this->_rotation * acme::rotate_y(input);
     }
 
     //! Perform rotation on z-axis
-    inline void rotate_z(
-        const T &input //!< Input angle [rad]
+    void rotate_z(
+        const real_type &input //!< Input angle [rad]
     )
     {
-      this->_rotation = this->_rotate_y(input);
+      this->_rotation * acme::rotate_y(input);
     }
 
   }; // class frame3
