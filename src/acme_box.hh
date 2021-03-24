@@ -48,9 +48,9 @@ namespace acme
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<box const> boxPtr;
+    typedef std::shared_ptr<box const> boxPtr; //!< Shared pointer to box
 #else
-    typedef box const *boxPtr;
+    typedef box const *boxPtr; //!< Pointer to box
 #endif
 
   private:

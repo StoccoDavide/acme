@@ -47,8 +47,9 @@ namespace acme
    |        |___/|_|                            
   \*/
 
-  typedef double real_type; //!< Real number type
-  typedef int int_type;     //!< Integer number type
+  typedef double real_type;          //!< Real number type
+  typedef int int_type;              //!< Integer number type
+  typedef std::ostream ostream_type; //!< Output stream type
 
   typedef Eigen::Matrix<real_type, 2, 1> vec2; //!< Vector type 2x1 (column vector)
   typedef Eigen::Matrix<real_type, 2, 2> mat2; //!< Matrix type 2x2
@@ -81,12 +82,12 @@ namespace acme
   static real_type const PIDiv180 = real_type(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ input
   static real_type const _180DivPI = real_type(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ input
 
-  static vec2 const NaN_vec2 = vec2::Constant(NaN);   //!< Not-a-Number vec2 type
-  static mat2 const NaN_mat2 = mat2::Constant(NaN);   //!< Not-a-Number mat2 type
+  static vec2 const NaN_vec2 = vec2::Constant(NaN);    //!< Not-a-Number vec2 type
+  static mat2 const NaN_mat2 = mat2::Constant(NaN);    //!< Not-a-Number mat2 type
   static vec2 const Zeros_vect2 = vec2::Constant(0.0); //!< Zeros vec2 type
-  static mat2 const Zeros_mat2 = mat2::Constant(0.0); //!< Zeros mat2 type
-  static vec2 const Ones_vec2 = vec2::Constant(1.0);  //!< Ones vec2 type
-  static mat2 const Ones_mat2 = mat2::Constant(1.0);  //!< Ones mat2 type
+  static mat2 const Zeros_mat2 = mat2::Constant(0.0);  //!< Zeros mat2 type
+  static vec2 const Ones_vec2 = vec2::Constant(1.0);   //!< Ones vec2 type
+  static mat2 const Ones_mat2 = mat2::Constant(1.0);   //!< Ones mat2 type
 
   static vec3 const NaN_vec3 = vec3::Constant(NaN);   //!< Not-a-Number vec3 type
   static mat3 const NaN_mat3 = mat3::Constant(NaN);   //!< Not-a-Number mat3 type

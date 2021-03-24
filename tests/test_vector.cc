@@ -2,7 +2,6 @@
 
 #include "acme.hh"
 #include "acme_utilities.hh"
-#include "TicToc.hh"
 
 int main(void)
 {
@@ -10,9 +9,6 @@ int main(void)
   std::cout << "ACME GEOMETRICAL TESTS"
             << std::endl
             << std::endl;
-
-  // Instantiate a TicToc object
-  TicToc tictoc;
 
   // POINT TEST
   acme::vec3 A(1.0, 0.0, 0.0);

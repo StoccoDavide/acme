@@ -84,90 +84,47 @@ namespace acme
     //! Equality operator
     line &operator=(
         line const &input //!< Input object
-    )
-    {
-      if (this == &input)
-      {
-        return *this;
-      }
-      else
-      {
-        this->_origin = input._origin;
-        this->_direction = input._direction;
-        return *this;
-      }
-    }
+    );
 
     //! Check if objects are (almost) equal
     bool is_equal(
         line const &input //!< Input object
-    )
-        const
-    {
-      return acme::is_equal(this->_origin, input._origin) &&
-             acme::is_equal(this->_direction, input._direction);
-    }
+    ) const;
 
     //! Check if line is degenerated
-    bool is_degenerated(void)
-        const
-    {
-      return acme::is_degenerated(this->_direction);
-    }
+    bool is_degenerated(void) const;
 
     //! Return origin
-    vec3 const &origin() const
-    {
-      return this->_origin;
-    }
+    vec3 const &origin() const;
 
     //! Return direction
-    vec3 const &direction() const
-    {
-      return this->_direction;
-    }
+    vec3 const &direction() const;
 
     //! Set origin
     void origin(
         vec3 const &input //!< input vec3 object
-    )
-    {
-      this->_origin = input;
-    }
+    );
 
     //! Set direction
     void direction(
         vec3 const &input //!< input vec3 object
-    )
-    {
-      this->_direction = input;
-    }
+    );
 
     //! Translate by vector
     void translate(
         vec3 const &input //!< Input
-    )
-    {
-      this->_origin = input + this->_origin;
-    }
+    );
 
     //! Rotate by matrix
     void rotate(
         mat3 const &input //!< Input
-    )
-    {
-      this->_origin = input * this->_origin;
-      this->_direction = input * this->_direction;
-    }
+    );
 
     //! Reverse direction
-    void reverse(void) { this->_direction = -this->_direction; }
+    void reverse(void);
 
     //! Get reversed line
-    line reversed(void) const
-    {
-      return line(this->_origin, -this->_direction);
-    }
+    line reversed(void) const;
 
   }; // class line
 

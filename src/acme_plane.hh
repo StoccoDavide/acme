@@ -82,103 +82,57 @@ namespace acme
 
     //! Equality operator
     plane &operator=(
-        plane const &input //!< Input object
-    )
-    {
-      if (this == &input)
-      {
-        return *this;
-      }
-      else
-      {
-        this->_origin = input._origin;
-        this->_normal = input._normal;
-        return *this;
-      }
-    }
+        plane const &input //!< Input
+    );
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        plane const &input //!< Input object
-    )
-        const
-    {
-      return acme::is_equal(this->_origin, input._origin) &&
-             acme::is_equal(this->_normal, input._normal);
-    }
+        plane const &input //!< Input
+    ) const;
 
     //! Check if plane is degenerated
     bool is_degenerated(void)
-        const
-    {
-      return acme::is_degenerated(this->_normal);
-    }
+        const;
 
     //! Return origin
-    vec3 const &origin() const
-    {
-      return this->_origin;
-    }
+    vec3 const &origin() const;
 
     //! Return normal
-    vec3 const &normal() const
-    {
-      return this->_normal;
-    }
+    vec3 const &normal() const;
 
     //! Set origin
     void origin(
-        vec3 const &input //!< input vec3 object
-    )
-    {
-      this->_origin = input;
-    }
+        vec3 const &input //!< input
+    );
 
     //! Set normal
     void normal(
-        vec3 const &input //!< input vec3 object
-    )
-    {
-      this->_normal = input;
-    }
+        vec3 const &input //!< input
+    );
 
     //! Translate by vector
     void translate(
         vec3 const &input //!< Input
-    )
-    {
-      this->_origin = input + this->_origin;
-    }
+    );
 
     //! Rotate by matrix
     void rotate(
         mat3 const &input //!< Input
-    )
-    {
-      this->_origin = input * this->_origin;
-      this->_normal = input * this->_normal;
-    }
+    );
 
     //! Reverse normal
-    void reverse(void) { this->_normal = -this->_normal; }
+    void reverse(void);
 
     //! Get reversed ray
-    plane reversed(void) const
-    {
-      return plane(this->_origin, -this->_normal);
-    }
+    plane reversed(void) const;
 
     //! Return d value
-    real_type d(void) const { return -this->_origin.dot(this->_normal); }
+    real_type d(void) const;
 
     //! Distance between point and plane
     real_type distance(
         vec3 const &input //!< Input
-    )
-        const
-    {
-      return (input - this->_origin).dot(this->_normal);
-    }
+    ) const;
 
   }; // class plane
 

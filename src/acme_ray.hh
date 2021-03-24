@@ -22,7 +22,6 @@
 /// file: acme_ray.hh
 ///
 
-
 #ifndef INCLUDE_ACME_RAY
 #define INCLUDE_ACME_RAY
 
@@ -85,90 +84,47 @@ namespace acme
     //! Equality operator
     ray &operator=(
         ray const &input //!< Input object
-    )
-    {
-      if (this == &input)
-      {
-        return *this;
-      }
-      else
-      {
-        this->_origin = input._origin;
-        this->_direction = input._direction;
-        return *this;
-      }
-    }
+    );
 
     //! Check if objects are (almost) equal
     bool is_equal(
         ray const &input //!< Input object
-    )
-        const
-    {
-      return acme::is_equal(this->_origin, input._origin) &&
-             acme::is_equal(this->_direction, input._direction);
-    }
+    ) const;
 
     //! Check if ray is degenerated
-    bool is_degenerated(void)
-        const
-    {
-      return acme::is_degenerated(this->_direction);
-    }
+    bool is_degenerated(void) const;
 
     //! Return origin
-    vec3 const &origin() const
-    {
-      return this->_origin;
-    }
+    vec3 const &origin() const;
 
     //! Return direction
-    vec3 const &direction() const
-    {
-      return this->_direction;
-    }
+    vec3 const &direction() const;
 
     //! Set origin
     void origin(
         vec3 const &input //!< input object
-    )
-    {
-      this->_origin = input;
-    }
+    );
 
     //! Set direction
     void direction(
         vec3 const &input //!< input object
-    )
-    {
-      this->_direction = input;
-    }
+    );
 
     //! Translate by vector
     void translate(
         vec3 const &input //!< Input
-    )
-    {
-      this->_origin = input + this->_origin;
-    }
+    );
 
     //! Rotate by matrix
     void rotate(
         mat3 const &input //!< Input
-    )
-    {
-      this->_origin = input * this->_origin;
-      this->_direction = input * this->_direction;
-    }
+    );
 
     //! Reverse direction
-    void reverse(void) { this->_direction = -this->_direction; }
+    void reverse(void);
 
     //! Get reversed ray
-    ray reversed(void) const
-    {
-      return ray(this->_origin, -this->_direction);
-    }
+    ray reversed(void) const;
 
   }; // class ray
 

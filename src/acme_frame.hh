@@ -22,8 +22,8 @@
 /// file: acme_frame.hh
 ///
 
-#ifndef INCLUDE_ACME_frame
-#define INCLUDE_ACME_frame
+#ifndef INCLUDE_ACME_FRAME
+#define INCLUDE_ACME_FRAME
 
 #include "acme.hh"
 #include "acme_math.hh"
@@ -32,12 +32,12 @@ namespace acme
 {
 
   /*\
-   |    __                          _____ 
-   |   / _|_ __ __ _ _ __ ___   ___|___ / 
-   |  | |_| '__/ _` | '_ ` _ \ / _ \ |_ \ 
-   |  |  _| | | (_| | | | | | |  __/___) |
-   |  |_| |_|  \__,_|_| |_| |_|\___|____/ 
-   |                                      
+   |    __                          
+   |   / _|_ __ __ _ _ __ ___   ___ 
+   |  | |_| '__/ _` | '_ ` _ \ / _ \
+   |  |  _| | | (_| | | | | | |  __/
+   |  |_| |_|  \__,_|_| |_| |_|\___|
+   |                                
   \*/
 
   //! Rotation class container
@@ -71,143 +71,109 @@ namespace acme
 
   public:
     //! Clear data
-    void clear()
-    {
-      this->_origin = NaN_vec3;
-      this->_rotation = NaN_mat3;
-    }
+    void clear(void);
 
     //! Equality operator
     frame &operator=(
         frame const &input //!< Input object
-    )
-    {
-      if (this == &input)
-      {
-        return *this;
-      }
-      else
-      {
-        this->_origin = input._origin;
-        this->_rotation = input._rotation;
-        return *this;
-      }
-    }
+    );
 
     //! Check if objects are (almost) equal
     bool is_equal(
         frame const &input //!< Input object
-    )
-        const
-    {
-      return acme::is_equal(this->_origin, input._origin) &&
-             acme::is_equal(this->_rotation, input._rotation);
-    }
+    ) const;
 
     //! Get x vector
-    vec3 const x(void) const { return this->_rotation.col(0); }
+    vec3 const x(void) const;
 
     //! Get y vector
-    vec3 const y(void) const { return this->_rotation.col(1); }
+    vec3 const y(void) const;
 
     //! Get z vector
-    vec3 const z(void) const { return this->_rotation.col(2); }
+    vec3 const z(void) const;
 
     //! Set x vector
     void x(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_rotation.col(0) = input;
-    }
+    );
 
     //! Set y vector
     void y(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_rotation.col(1) = input;
-    }
+    );
 
     //! Set z vector
     void z(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_rotation.col(2) = input;
-    }
+    );
 
     //! Get rotation
-    mat3 const &rotation(void) const { return this->_rotation; }
+    mat3 const &rotation(void) const;
 
     //! Set rotation
     void rotation(
         mat3 &input //!< Input
-    )
-    {
-      this->_rotation = input;
-    }
+    );
 
     //! Get origin
-    vec3 const origin(void) const { return this->_origin; }
+    vec3 const origin(void) const;
 
     //! Set rotation
     void origin(
         vec3 &input //!< Input
-    )
-    {
-      this->_origin = input;
-    }
+    );
 
     //! Check if rotation mat3 is othonormal
-    bool is_ortonormal(void) const
-    {
-      return acme::is_ortonormal(this->_rotation);
-    }
+    bool is_ortonormal(void) const;
 
     //! Perform rotation on x-axis
     void rotate_x(
         real_type const input //!< Input angle [rad]
-    )
-    {
-      this->_rotation *acme::rotate_x(input);
-    }
+    );
 
     //! Perform rotation on y-axis
     void rotate_y(
         real_type const input //!< Input angle [rad]
-    )
-    {
-      this->_rotation *acme::rotate_y(input);
-    }
+    );
 
     //! Perform rotation on z-axis
     void rotate_z(
         real_type const input //!< Input angle [rad]
-    )
-    {
-      this->_rotation *acme::rotate_y(input);
-    }
+    );
 
     //! Set 4x4 affine transformation matrix
     void
     affine(
         mat4 const &input //!< Input 4x4 affine transformation matrix
-    )
-    {
-      this->_origin = input.block<3, 1>(0, 3);
-      this->_rotation = input.block<3, 3>(0, 0);
-    }
+    );
 
     //! Get 4x4 affine transformation matrix
-    mat4 affine(void) const
-    {
-      mat4 output;
-      output << this->_rotation, this->_origin, vec4(0.0, 0.0, 0.0, 1.0).transpose();
-      return output;
-    }
+    mat4 affine(void) const;
 
   }; // class frame
+
+  /*\
+   |   _____                     __                      
+   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
+   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
+   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
+   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
+   |                                                     
+  \*/
+
+  //! Tranform VECTOR from frameA to frameB
+  vec3 transform_vector(
+      vec3 const &vector,  //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
+  );
+
+  //! Tranform point from frameA to frameB
+  vec3 transform_point(
+      vec3 const &point,   //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
+  );
 
 } // namespace acme
 

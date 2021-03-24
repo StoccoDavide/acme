@@ -122,7 +122,7 @@ namespace acme
     //! Print AABB tree content
     void
     print(
-        std::ostream &stream, //!< Output stream
+        ostream_type &stream, //!< Output stream
         int level = 0         //!< Level to print
     ) const;
 
@@ -140,8 +140,8 @@ namespace acme
       if (!tree.ptrbox->collision(*ptrbox))
         return false;
 
-      int icase = (children.is_empty() ? 0 : 1) +
-                  (tree.children.is_empty() ? 0 : 2);
+      int icase = (children.empty() ? 0 : 1) +
+                  (tree.children.empty() ? 0 : 2);
 
       switch (icase)
       {

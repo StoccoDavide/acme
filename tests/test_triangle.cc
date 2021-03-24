@@ -3,7 +3,6 @@
 #include "acme.hh"
 #include "acme_utilities.hh"
 #include "acme_intersect.hh"
-#include "TicToc.hh"
 
 int main(void)
 {
@@ -11,9 +10,6 @@ int main(void)
   std::cout << "ACME GEOMETRICAL TESTS"
             << std::endl
             << std::endl;
-
-  // Instantiate a TicToc object
-  TicToc tictoc;
 
   // POINT TEST
   acme::vec3 A(1.0, 0.0, 0.0);
@@ -35,12 +31,10 @@ int main(void)
   acme::vec3 pt_Line(acme::NaN_vec3);
   acme::vec3 pt_Line_rev(acme::NaN_vec3);
 
-  tictoc.tic();
   acme::intersect(Tri, Ray, pt_Ray);
   acme::intersect(Tri, Ray_rev, pt_Ray_rev);
   acme::intersect(Tri, Line, pt_Line);
   acme::intersect(Tri, Line_rev, pt_Line_rev);
-  tictoc.toc();
 
   std::cout
       << "POINT TESTS" << std::endl
@@ -50,7 +44,6 @@ int main(void)
       << "Pt (-Ray)  = " << pt_Ray_rev << std::endl
       << "Pt (+Line) = " << pt_Line << std::endl
       << "Pt (-Line) = " << pt_Line_rev << std::endl
-      << "Time[us]  = " << tictoc.elapsed_ms() * 1e3 << std::endl
       << std::endl;
   return 0;
 }

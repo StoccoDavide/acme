@@ -67,155 +67,83 @@ namespace acme
         real_type const x1, //<! Input x value of second point
         real_type const y1, //<! Input y value of second point
         real_type const z1  //<! Input z value of second point
-    )
-    {
-      this->_point[0] = vec3(x0, y0, z0);
-      this->_point[1] = vec3(x1, y1, z1);
-    }
+    );
 
     //! Class constructor
     segment(
         vec3 const &point0, //!< Input object
         vec3 const &point1  //!< Input object
-    )
-    {
-      this->_point[0] = point0;
-      this->_point[1] = point1;
-    }
+    );
 
     //! Equality operator
     segment &operator=(
         segment const &input //!< Input object
-    )
-    {
-      if (this == &input)
-      {
-        return *this;
-      }
-      else
-      {
-        this->_point[0] = input._point[0];
-        this->_point[1] = input._point[1];
-        return *this;
-      }
-    }
+    );
 
     //! Check if rays are (almost) equal
     bool is_equal(
         segment const &input //!< Input object
-    )
-        const
-    {
-      return acme::is_equal(this->_point[0], input._point[0]) &&
-             acme::is_equal(this->_point[1], input._point[1]);
-    }
+    ) const;
 
     //! Check if segment is degenerated
-    bool is_degenerated(void)
-        const
-    {
-      return acme::is_equal((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
-    }
+    bool is_degenerated(void) const;
 
     //! Get first vector
-    vec3 const &point_0(void) const { return this->_point[0]; }
+    vec3 const &point_0(void) const;
 
     //! Set first vector
     void point_0(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_point[0] = input;
-    }
+    );
 
     //! Get second vector
-    vec3 const &point_1(void) const { return this->_point[1]; }
+    vec3 const &point_1(void) const;
 
     //! Set second vector
     void point_1(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_point[1] = input;
-    }
+    );
 
     //! Get i-th point
     vec3 const &point(
         int_type const &i //!< Intput i-th vertex
-    ) const
-    {
-      return this->_point[i];
-    }
+    ) const;
 
     //! Set i-th point
     void point(
         int_type const &i, //!< Intput i-th vertex
         vec3 const &input  //!< Input
-    )
-    {
-      this->_point[i] = input;
-    }
+    );
 
     //! Set points
     void points(
         vec3 const &input0, //!< Input object 0
         vec3 const &input1  //!< Input object 1
-    )
-    {
-      this->_point[0] = input0;
-      this->_point[1] = input1;
-    }
+    );
 
     //! Convert to vector
-    vec3 to_vector(void) const
-    {
-      return vec3(this->_point[1] - this->_point[0]);
-    }
+    vec3 to_vector(void) const;
 
     //! Translate by vector
     void translate(
         vec3 const &input //!< Input
-    )
-    {
-      this->_point[0] = input + this->_point[0];
-      this->_point[1] = input + this->_point[1];
-    }
+    );
 
     //! Rotate by matrix
     void rotate(
         mat3 const &input //!< Input
-    )
-    {
-      this->_point[0] = input * this->_point[0];
-      this->_point[1] = input * this->_point[1];
-    }
+    );
 
     //! Swap segment points
-    void swap(void)
-    {
-      vec3 tmp_point_0(this->_point[0]);
-      vec3 tmp_point_1(this->_point[1]);
-      this->_point[0] = tmp_point_1;
-      this->_point[1] = tmp_point_0;
-    }
+    void swap(void);
 
     //! Calculate segment length
-    real_type length(void) const
-    {
-      return (this->_point[0] - this->_point[1]).norm();
-    }
+    real_type length(void) const;
 
     // checks whether a point is within a segment
     bool is_inside(
         vec3 const &point //!< Input
-    )
-        const
-    {
-      real_type d0 = this->length();
-      real_type d1 = (this->_point - this->_point[0]).norm();
-      real_type d2 = (this->_point - this->_point[1]).norm();
-      return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
-    };
+    ) const;
 
   }; // class segment
 

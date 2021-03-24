@@ -172,62 +172,62 @@ namespace acme
 
   //! Checks if elements are almost equal
   bool is_equal(
-      vec3 const &input0,                     //!< Input 0
-      vec3 const &input1,                     //!< Input 1
+      vec3 const &input0,                      //!< Input 0
+      vec3 const &input1,                      //!< Input 1
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      mat3 const &input0,                     //!< Input 0
-      mat3 const &input1,                     //!< Input 1
+      mat3 const &input0,                      //!< Input 0
+      mat3 const &input1,                      //!< Input 1
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vec3 is degenerated
   bool is_degenerated(
-      vec3 const &input,                      //!< Input
+      vec3 const &input,                       //!< Input
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vec3 is normalized
   bool is_normalized(
-      vec3 const &input,                      //!< Input
+      vec3 const &input,                       //!< Input
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are ortogonal
   bool is_ortogonal(
-      vec3 const &input0,                     //!< Input 0
-      vec3 const &input1,                     //!< Input 1
+      vec3 const &input0,                      //!< Input 0
+      vec3 const &input1,                      //!< Input 1
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool is_parallel(
-      vec3 const &input0,                     //!< Input 0
-      vec3 const &input1,                     //!< Input 1
+      vec3 const &input0,                      //!< Input 0
+      vec3 const &input1,                      //!< Input 1
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if rotation mat3 is othonormal
   bool is_ortonormal(
-      mat3 const &input,                      //!< Input
+      mat3 const &input,                       //!< Input
       real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Returns rotation on x-axis
-  mat3 rotate_x(
+  mat3 rotation_x(
       real_type const input //!< Input angle [rad]
   );
 
   //! Returns rotation on y-axis
-  mat3 rotate_y(
+  mat3 rotation_y(
       real_type const input //!< Input angle [rad]
   );
 
   //! Returns rotation on z-axis
-  mat3 rotate_z(
+  mat3 rotation_z(
       real_type const input //!< Input angle [rad]
   );
 

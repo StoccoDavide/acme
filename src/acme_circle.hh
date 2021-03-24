@@ -27,6 +27,7 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
+#include "acme_plane.hh"
 
 namespace acme
 {
@@ -79,104 +80,55 @@ namespace acme
     //! Equality operator
     circle &operator=(
         circle const &input //!< Input object
-    )
-    {
-      if (this == &input)
-      {
-        return *this;
-      }
-      else
-      {
-        this->_radius = input._radius;
-        this->_plane = input._plane;
-        return *this;
-      }
-    }
+    );
 
     //! Check if objects are (almost) equal
     bool is_equal(
         circle const &input //!< Input object
-    )
-        const
-    {
-      return acme::is_equal(this->_radius, input._radius) &&
-             acme::is_equal(this->_plane.origin(), input._plane.origin()) &&
-             acme::is_equal(this->_plane.normal(), input._plane.normal());
-    }
+    ) const;
 
     //! Check if ray is degenerated
-    bool is_degenerated(void)
-        const
-    {
-      return acme::is_equal(this->_radius, 0.0);
-    }
+    bool is_degenerated(void) const;
 
     //! Get radius
-    real_type radius() const
-    {
-      return this->_radius;
-    }
+    real_type radius() const;
 
     //! Get center point
-    vec3 const &center() const
-    {
-      return this->_plane.origin();
-    }
+    vec3 const &center() const;
 
     //! Get normal vector
-    vec3 const &normal() const
-    {
-      return this->_plane.normal();
-    }
+    vec3 const &normal() const;
 
     //! Set center point
     void radius(
         real_type const input //!< Input
-    )
-    {
-      this->_radius = input;
-    }
+    );
 
     //! Set center point
     void center(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_plane.origin(input);
-    }
+    );
 
     //! Set normal vector
     void normal(
         vec3 const &input //!< Input object
-    )
-    {
-      this->_plane.normal(input);
-    }
+    );
 
     //! Translate by vector
     void translate(
         vec3 const &input //!< Input
-    )
-    {
-      this->_plane.translate(input);
-    }
+    );
 
     //! Rotate by matrix
     void rotate(
         mat3 const &input //!< Input
-    )
-    {
-      this->_plane.rotate(input);
-    }
+    );
 
     //! Reverse direction
-    void reverse(void) { this->_plane.reverse(); }
+    void reverse(void);
 
     //! Get reversed circle
-    circle reversed(void) const
-    {
-      return circle(this->_radius, this->_plane.reversed());
-    }
+    circle reversed(void) const;
 
   }; // class circle
 

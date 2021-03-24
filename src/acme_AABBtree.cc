@@ -80,7 +80,7 @@ namespace acme
   bool
   AABBtree::is_empty() const
   {
-    return children.is_empty() && !boxPtr;
+    return children.empty() && !boxPtr;
   }
 
 #else
@@ -115,7 +115,7 @@ namespace acme
   bool
   AABBtree::is_empty() const
   {
-    return children.is_empty() && ptrbox == nullptr;
+    return children.empty() && ptrbox == nullptr;
   }
 
 #endif
@@ -127,7 +127,7 @@ namespace acme
   {
     clear();
 
-    if (boxes.is_empty())
+    if (boxes.empty())
       return;
 
     size_t size = boxes.size();
@@ -199,14 +199,14 @@ namespace acme
       }
     }
 
-    if (negBoxes.is_empty())
+    if (negBoxes.empty())
     {
       std::vector<boxPtr>::iterator midIdx;
       midIdx = posBoxes.begin() + posBoxes.size() / 2;
       negBoxes.insert(negBoxes.end(), midIdx, posBoxes.end());
       posBoxes.erase(midIdx, posBoxes.end());
     }
-    else if (posBoxes.is_empty())
+    else if (posBoxes.empty())
     {
       std::vector<boxPtr>::iterator midIdx;
       midIdx = negBoxes.begin() + negBoxes.size() / 2;
@@ -234,9 +234,9 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  AABBtree::print(std::ostream &stream, int_type level) const
+  AABBtree::print(ostream_type &stream, int_type level) const
   {
-    if (is_empty())
+    if (this->is_empty())
     {
       stream << "[EMPTY AABB tree]\n";
     }
@@ -265,8 +265,8 @@ namespace acme
     if (!tree.ptrbox->collision(*ptrbox))
       return;
 
-    int icase = (children.is_empty() ? 0 : 1) +
-                (tree.children.is_empty() ? 0 : 2);
+    int icase = (children.empty() ? 0 : 1) +
+                (tree.children.empty() ? 0 : 2);
 
     switch (icase)
     {
@@ -313,7 +313,7 @@ namespace acme
 
     std::vector<PtrAABB> const &children = tree.children;
 
-    if (children.is_empty())
+    if (children.empty())
     {
       real_type dst = tree.ptrbox->max_distance(point);
       return acme::min(dst, distance);
@@ -344,7 +344,7 @@ namespace acme
     real_type dst = tree.ptrbox->distance(point);
     if (dst <= distance)
     {
-      if (children.is_empty())
+      if (children.empty())
       {
         candidateList.push_back(tree.ptrbox);
       }
@@ -353,7 +353,7 @@ namespace acme
         // check box with
         std::vector<PtrAABB>::const_iterator it;
         for (it = children.begin(); it != children.end(); ++it)
-          this->min_maxdist_select(point, distance, **it, candidateList);
+          min_maxdist_select(point, distance, **it, candidateList);
       }
     }
   }
