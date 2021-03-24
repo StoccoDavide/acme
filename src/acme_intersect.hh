@@ -164,7 +164,6 @@ namespace acme
   }
 
   //! Intersect triangle with plane
-
   bool intersect(
       const triangle &triangle, //!< Input triangle
       const plane &plane,       //!< Input plane
@@ -198,17 +197,16 @@ namespace acme
     }
   }
 
-  //! Intersect triangle with ray
-
+  //! Intersect triangle with ray (no precalculated normal)
   bool intersect(
       const triangle &triangle, //!< Input triangle
       const ray &ray,           //!< Input plane
       vector &point             //!< Output point
   )
   {
-    vector vertex0 = triangle.point_0();
-    vector vertex1 = triangle.point_1();
-    vector vertex2 = triangle.point_2();
+    vector vertex0 = triangle.vertex_0();
+    vector vertex1 = triangle.vertex_1();
+    vector vertex2 = triangle.vertex_2();
     vector edge1 = vertex1 - vertex0;
     vector edge2 = vertex2 - vertex0;
 
@@ -238,6 +236,42 @@ namespace acme
     }
     else
       return false;
+  }
+
+  //! Intersect triangle with line (no precalculated normal)
+  bool intersect(
+      const triangle &triangle, //!< Input triangle
+      const line &line,           //!< Input plane
+      vector &point             //!< Output point
+  )
+  {
+    vector vertex0 = triangle.vertex_0();
+    vector vertex1 = triangle.vertex_1();
+    vector vertex2 = triangle.vertex_2();
+    vector edge1 = vertex1 - vertex0;
+    vector edge2 = vertex2 - vertex0;
+
+    vector origin = line.origin();
+    vector direction = line.direction();
+
+    vector h, s, q;
+    real_type a, f, u, v;
+    h = direction.cross(edge2);
+    a = edge1.dot(h);
+    if (a > -acme::Epsilon && a < acme::Epsilon)
+      return false;
+    f = 1.0 / a;
+    s = origin - vertex0;
+    u = f * s.dot(h);
+    if (u < 0.0 || u > 1.0)
+      return false;
+    q = s.cross(edge1);
+    v = f * direction.dot(q);
+    if (v < 0.0 || u + v > 1.0)
+      return false;
+    float t = f * edge2.dot(q);
+    point = origin + direction * t;
+    return true;
   }
 
 } // namespace acme

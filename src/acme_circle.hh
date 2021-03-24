@@ -44,7 +44,7 @@ namespace acme
   class circle
   {
     real_type _radius; //!< Circle radius
-    plane _plane;     //!< Circle plane (circle center + normal vector)
+    plane _plane;      //!< Circle plane (circle center + normal vector)
 
   public:
     //! Class deconstructor
@@ -58,7 +58,7 @@ namespace acme
 
     //! Class constructor
     circle(
-        const real_type &radius, //!< Input
+        const real_type radius, //!< Input
         const plane &plane      //!< Input
         ) : _radius(radius), _plane(plane)
     {
@@ -66,7 +66,7 @@ namespace acme
 
     //! Class constructor
     circle(
-        const real_type &radius, //!< Input
+        const real_type radius, //!< Input
         const vector &center,   //!< Input
         const vector &normal    //!< Input
         ) : _radius(radius), _plane(center, normal)
@@ -109,26 +109,26 @@ namespace acme
     }
 
     //! Get radius
-    const real_type radius() const
+    real_type radius() const
     {
       return this->_radius;
     }
 
     //! Get center point
-    const vector center() const
+    const vector &center() const
     {
       return this->_plane.origin();
     }
 
     //! Get normal vector
-    const vector normal() const
+    const vector &normal() const
     {
       return this->_plane.normal();
     }
 
     //! Set center point
     void radius(
-        const real_type &input //!< Input
+        const real_type input //!< Input
     )
     {
       this->_radius = input;
@@ -155,7 +155,6 @@ namespace acme
         const vector &input //!< Input
     )
     {
-      this->_origin = input + this->_origin;
       this->_plane.translate(input);
     }
 
@@ -164,12 +163,17 @@ namespace acme
         const matrix &input //!< Input
     )
     {
-      this->_origin = input * this->_origin;
       this->_plane.rotate(input);
     }
 
     //! Reverse direction
-    void reverse(void) { this->_direction = -this->_direction; }
+    void reverse(void) { this->_plane.reverse(); }
+
+    //! Get reversed circle
+    circle reversed(void) const
+    {
+      return circle(this->_radius, this->_plane.reversed());
+    }
   };
 
 } // namespace acme

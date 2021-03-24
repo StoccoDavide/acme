@@ -63,7 +63,7 @@ namespace acme
 
     //! Class constructor
     frame(
-        const vector &origin,    //!< Input origin
+        const vector &origin,  //!< Input origin
         const matrix &rotation //!< Input rotation
         ) : _origin(origin), _rotation(rotation)
     {
@@ -73,8 +73,8 @@ namespace acme
     //! Clear data
     void clear()
     {
-      this->_origin = vector::Zero();
-      this->_rotation = matrix::Zero();
+      this->_origin = NaN_vector;
+      this->_rotation = NaN_matrix;
     }
 
     //! Equality operator
@@ -167,26 +167,26 @@ namespace acme
 
     //! Perform rotation on x-axis
     void rotate_x(
-        const real_type &input //!< Input angle [rad]
+        const real_type input //!< Input angle [rad]
     )
     {
-      this->_rotation * acme::rotate_x(input);
+      this->_rotation *acme::rotate_x(input);
     }
 
     //! Perform rotation on y-axis
     void rotate_y(
-        const real_type &input //!< Input angle [rad]
+        const real_type input //!< Input angle [rad]
     )
     {
-      this->_rotation * acme::rotate_y(input);
+      this->_rotation *acme::rotate_y(input);
     }
 
     //! Perform rotation on z-axis
     void rotate_z(
-        const real_type &input //!< Input angle [rad]
+        const real_type input //!< Input angle [rad]
     )
     {
-      this->_rotation * acme::rotate_y(input);
+      this->_rotation *acme::rotate_y(input);
     }
 
   }; // class frame

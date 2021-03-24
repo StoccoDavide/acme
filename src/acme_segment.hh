@@ -44,8 +44,7 @@ namespace acme
   class segment
   {
   private:
-    vector _point0; //!< Point 0
-    vector _point1; //!< Point 1
+    vector _point[2]; //!< Point
 
   public:
     //! Class destructor
@@ -59,22 +58,26 @@ namespace acme
 
     //! Class constructor
     segment(
-        const real_type &x0, //<! Input x value of first point
-        const real_type &y0, //<! Input y value of first point
-        const real_type &z0, //<! Input z value of first point
-        const real_type &x1, //<! Input x value of second point
-        const real_type &y1, //<! Input y value of second point
-        const real_type &z1  //<! Input z value of second point
-        ) : _point0(vector(x0, y0, z0)), _point1(vector(x1, y1, z1))
+        const real_type x0, //<! Input x value of first point
+        const real_type y0, //<! Input y value of first point
+        const real_type z0, //<! Input z value of first point
+        const real_type x1, //<! Input x value of second point
+        const real_type y1, //<! Input y value of second point
+        const real_type z1  //<! Input z value of second point
+    )
     {
+      this->_point[0] = vector(x0, y0, z0);
+      this->_point[1] = vector(x1, y1, z1);
     }
 
     //! Class constructor
     segment(
         const vector &point0, //!< Input object
         const vector &point1  //!< Input object
-        ) : _point0(point0), _point1(point1)
+    )
     {
+      this->_point[0] = point0;
+      this->_point[1] = point1;
     }
 
     //! Equality operator
@@ -88,8 +91,8 @@ namespace acme
       }
       else
       {
-        this->_point0 = input._point0;
-        this->_point1 = input._point1;
+        this->_point[0] = input._point[0];
+        this->_point[1] = input._point[1];
         return *this;
       }
     }
@@ -100,37 +103,54 @@ namespace acme
     )
         const
     {
-      return acme::is_equal(this->_point0, input._point0) &&
-             acme::is_equal(this->_point1, input._point1);
+      return acme::is_equal(this->_point[0], input._point[0]) &&
+             acme::is_equal(this->_point[1], input._point[1]);
     }
 
     //! Check if segment is degenerated
     bool is_degenerated(void)
         const
     {
-      return acme::is_equal((this->_point0 - this->_point1).norm(), real_type(0.0));
+      return acme::is_equal((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
     }
 
     //! Get first vector
-    const vector &point_0(void) const { return this->_point0; }
+    const vector &point_0(void) const { return this->_point[0]; }
 
     //! Set first vector
     void point_0(
         const vector &input //!< Input object
     )
     {
-      this->_point0 = input;
+      this->_point[0] = input;
     }
 
     //! Get second vector
-    const vector &point_1(void) const { return this->_point1; }
+    const vector &point_1(void) const { return this->_point[1]; }
 
     //! Set second vector
     void point_1(
         const vector &input //!< Input object
     )
     {
-      this->_point1 = input;
+      this->_point[1] = input;
+    }
+
+    //! Get i-th point
+    const vector &point(
+        const int_type &i //!< Intput i-th vertex
+    ) const
+    {
+      return this->_point[i];
+    }
+
+    //! Set i-th point
+    void point(
+        const int_type &i,  //!< Intput i-th vertex
+        const vector &input //!< Input
+    )
+    {
+      this->_point[i] = input;
     }
 
     //! Set points
@@ -139,23 +159,23 @@ namespace acme
         const vector &input1  //!< Input object 1
     )
     {
-      this->_point0 = input0;
-      this->_point1 = input1;
+      this->_point[0] = input0;
+      this->_point[1] = input1;
     }
 
     //! Convert to vector
-    vector toVector(void) const
+    vector to_vector(void) const
     {
-      return vector(this->_point1 - this->_point0);
+      return vector(this->_point[1] - this->_point[0]);
     }
 
-   //! Translate by vector
+    //! Translate by vector
     void translate(
         const vector &input //!< Input
     )
     {
-      this->_point0 = input + this->_point0;
-      this->_point1 = input + this->_point1;
+      this->_point[0] = input + this->_point[0];
+      this->_point[1] = input + this->_point[1];
     }
 
     //! Rotate by matrix
@@ -163,10 +183,24 @@ namespace acme
         const matrix &input //!< Input
     )
     {
-      this->_point0 = input * this->_point0;
-      this->_point1 = input * this->_point1;
+      this->_point[0] = input * this->_point[0];
+      this->_point[1] = input * this->_point[1];
     }
 
+    //! Swap segment points
+    void swap(void)
+    {
+      vector tmp_point_0(this->_point[0]);
+      vector tmp_point_1(this->_point[1]);
+      this->_point[0] = tmp_point_1;
+      this->_point[1] = tmp_point_0;
+    }
+
+    //! Calculate segment length
+    real_type length(void) const
+    {
+      return (this->_point[0] - this->_point[1]).norm();
+    }
   };
 
 } // namespace acme

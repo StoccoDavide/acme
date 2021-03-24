@@ -25,8 +25,10 @@ int main(void)
 
   // SINE TEST
   double value = acme::PI;
-   std::cout << "SINE TEST" << std::endl
-             << "Sine(PI) = " << acme::sin(value) << std::endl;
+  std::cout << "SINE TEST" << std::endl
+            << "Sin(PI) = " << acme::sin(value) << std::endl
+            << "Cos(PI) = " << acme::cos(value) << std::endl
+            << "Tan(PI) = " << acme::tan(value) << std::endl;
 
   return 0;
 }

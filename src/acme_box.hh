@@ -51,10 +51,10 @@ namespace acme
 #endif
 
   private:
-    vector _point0; //!< Point 0 (min)
-    vector _point1; //!< Point 1 (max)
-    int_type _id;   //!< Id of the box
-    int_type _ipos; //!< Rank of the bounding box (used in external algorithms)
+    vector _point_min; //!< Point 0 (min)
+    vector _point_max; //!< Point 1 (max)
+    int_type _id;      //!< Id of the box
+    int_type _ipos;    //!< Rank of the bounding box (used in external algorithms)
 
   public:
     //! Class destructor
@@ -68,25 +68,25 @@ namespace acme
 
     //! Class constructor
     box(
-        const real_type &x0,      //<! Input x value of first point
-        const real_type &y0,      //<! Input y value of first point
-        const real_type &z0,      //<! Input z value of first point
-        const real_type &x1,      //<! Input x value of second point
-        const real_type &y1,      //<! Input y value of second point
-        const real_type &z1,      //<! Input z value of second point
+        const real_type x0,      //<! Input x value of first point
+        const real_type y0,      //<! Input y value of first point
+        const real_type z0,      //<! Input z value of first point
+        const real_type x1,      //<! Input x value of second point
+        const real_type y1,      //<! Input y value of second point
+        const real_type z1,      //<! Input z value of second point
         const real_type id = 0,  //<! Input y value of second point
         const real_type ipos = 0 //<! Input z value of second point
-        ) : _point0(vector(x0, y0, z0)), _point1(vector(x1, y1, z1)), _id(id), _ipos(ipos)
+        ) : _point_min(vector(x0, y0, z0)), _point_max(vector(x1, y1, z1)), _id(id), _ipos(ipos)
     {
     }
 
     //! Class constructor
     box(
-        const vector &point0,     //!< Input
-        const vector &point1,     //!< Input
+        const vector &point_min, //!< Input
+        const vector &point_max, //!< Input
         const real_type id = 0,  //<! Input y value of second point
         const real_type ipos = 0 //<! Input z value of second point
-        ) : _point0(point0), _point1(point1), _id(id), _ipos(ipos)
+        ) : _point_min(point_min), _point_max(point_max), _id(id), _ipos(ipos)
     {
     }
 
@@ -112,8 +112,8 @@ namespace acme
       }
       else
       {
-        this->_point0 = input._point0;
-        this->_point1 = input._point1;
+        this->_point_min = input._point_min;
+        this->_point_max = input._point_max;
         this->_id = input._id;
         this->_ipos = input._ipos;
         return *this;
@@ -126,37 +126,131 @@ namespace acme
     )
         const
     {
-      return acme::is_equal(this->_point0, input._point0) &&
-             acme::is_equal(this->_point1, input._point1);
+      return acme::is_equal(this->_point_min, input._point_min) &&
+             acme::is_equal(this->_point_max, input._point_max);
     }
 
     //! Check if box is degenerated
     bool is_degenerated(void)
         const
     {
-      return acme::is_equal((this->_point0 - this->_point1).norm(), real_type(0.0));
+      return acme::is_equal((this->_point_min - this->_point_max).norm(), real_type(0.0));
     }
 
-    //! Get first point
-    const vector &point_0(void) const { return this->_point0; }
+    //! Check box max and min points
+    bool check_max_min(void)
+        const
+    {
+      return this->_point_max.x() >= this->_point_min.x() &&
+             this->_point_max.y() >= this->_point_min.y() &&
+             this->_point_max.z() >= this->_point_min.z();
+    }
 
-    //! Set first point
-    void point_0(
+    //! Update and check box max and min points
+    bool update_max_min(void)
+    {
+      bool output = true;
+      real_type point_max_tmp, point_min_tmp;
+      for (size_t i = 0; i < 3; ++i)
+      {
+        point_max_tmp = this->_point_max[i];
+        point_min_tmp = this->_point_min[i];
+        if (point_max_tmp < point_min_tmp)
+        {
+          this->_point_max[i] = point_min_tmp;
+          this->_point_min[i] = point_max_tmp;
+          output = false;
+        }
+      }
+      return output;
+    }
+
+    //! Get min point
+    const vector &point_min(void) const { return this->_point_min; }
+
+    //! Get min point x value
+    real_type x_min(void) const { return this->_point_min.x(); }
+
+    //! Get min point y value
+    real_type y_min(void) const { return this->_point_min.y(); }
+
+    //! Get min point z value
+    real_type z_min(void) const { return this->_point_min.z(); }
+
+    //! Set min point
+    void point_min(
         const vector &input //!< Input
     )
     {
-      this->_point0 = input;
+      this->_point_min = input;
     }
 
-    //! Get second point
-    const vector &point_1(void) const { return this->_point1; }
+    //! Set min point x value
+    void x_min(
+        const real_type input //!<Input
+    )
+    {
+      this->_point_min.x() = input;
+    }
 
-    //! Set second point
-    void point_1(
+    //! Set min point y value
+    void y_min(
+        const real_type input //!<Input
+    )
+    {
+      this->_point_min.y() = input;
+    }
+
+    //! Set min point z value
+    void z_min(
+        const real_type input //!<Input
+    )
+    {
+      this->_point_min.z() = input;
+    }
+
+    //! Get max point
+    const vector &point_max(void) const { return this->_point_max; }
+
+    //! Get max point x value
+    real_type x_max(void) const { return this->_point_max.x(); }
+
+    //! Get max point y value
+    real_type y_max(void) const { return this->_point_max.y(); }
+
+    //! Get max point z value
+    real_type z_max(void) const { return this->_point_max.z(); }
+
+    //! Set max point
+    void point_max(
         const vector &input //!< Input
     )
     {
-      this->_point1 = input;
+      this->_point_max = input;
+    }
+
+    //! Set max point x value
+    void x_max(
+        const real_type input //!<Input
+    )
+    {
+      this->_point_max.x() = input;
+    }
+
+    //! Set max point y value
+    void y_max(
+        const real_type input //!<Input
+    )
+    {
+      this->_point_max.y() = input;
+    }
+
+    //! Set max point z value
+    void z_max(
+        const real_type input //!<Input
+    )
+    {
+      this->_point_max.z() = input;
     }
 
     //! Translate by vector
@@ -164,8 +258,8 @@ namespace acme
         const vector &input //!< Input
     )
     {
-      this->_point0 = input + this->_point0;
-      this->_point1 = input + this->_point1;
+      this->_point_min = input + this->_point_min;
+      this->_point_max = input + this->_point_max;
     }
 
     //! Rotate by matrix
@@ -173,8 +267,8 @@ namespace acme
         const matrix &input //!< Input
     )
     {
-      this->_point0 = input * this->_point0;
-      this->_point1 = input * this->_point1;
+      this->_point_min = input * this->_point_min;
+      this->_point_max = input * this->_point_max;
     }
 
     //! Detect if boxes collide
@@ -183,9 +277,9 @@ namespace acme
     )
         const
     {
-      return (this->_point0.x() <= input._point1.x() && this->_point1.x() >= input._point0.x()) &&
-             (this->_point0.y() <= input._point1.y() && this->_point1.y() >= input._point0.y()) &&
-             (this->_point0.z() <= input._point1.z() && this->_point1.z() >= input._point0.z());
+      return (this->_point_min.x() <= input._point_max.x() && this->_point_max.x() >= input._point_min.x()) &&
+             (this->_point_min.y() <= input._point_max.y() && this->_point_max.y() >= input._point_min.y()) &&
+             (this->_point_min.z() <= input._point_max.z() && this->_point_max.z() >= input._point_min.z());
     }
 
     //! Build box wirh a list of boxes
@@ -196,31 +290,31 @@ namespace acme
     {
       if (boxes.empty())
       {
-        this->_point0 = vector::Zero();
-        this->_point1 = vector::Zero();
+        this->_point_min = Zeros_vector;
+        this->_point_max = Zeros_vector;
       }
       else
       {
         std::vector<boxPtr>::const_iterator it = boxes.begin();
 
-        this->_point0 = (*it)->_point0;
-        this->_point1 = (*it)->_point1;
+        this->_point_min = (*it)->_point_min;
+        this->_point_max = (*it)->_point_max;
 
         for (++it; it != boxes.end(); ++it)
         {
           box const &curBox = **it;
-          if (curBox._point0.x() < _point0.x())
-            _point0.x() = curBox._point0.x();
-          if (curBox._point0.y() < _point0.y())
-            _point0.y() = curBox._point0.y();
-          if (curBox._point0.z() < _point0.z())
-            _point0.z() = curBox._point0.z();
-          if (curBox._point1.x() > _point1.x())
-            _point1.x() = curBox._point1.x();
-          if (curBox._point1.y() > _point1.y())
-            _point1.y() = curBox._point1.y();
-          if (curBox._point1.z() > _point1.z())
-            _point1.z() = curBox._point1.z();
+          if (curBox._point_min.x() < _point_min.x())
+            _point_min.x() = curBox._point_min.x();
+          if (curBox._point_min.y() < _point_min.y())
+            _point_min.y() = curBox._point_min.y();
+          if (curBox._point_min.z() < _point_min.z())
+            _point_min.z() = curBox._point_min.z();
+          if (curBox._point_max.x() > _point_max.x())
+            _point_max.x() = curBox._point_max.x();
+          if (curBox._point_max.y() > _point_max.y())
+            _point_max.y() = curBox._point_max.y();
+          if (curBox._point_max.z() > _point_max.z())
+            _point_max.z() = curBox._point_max.z();
         }
       }
     }
@@ -232,13 +326,13 @@ namespace acme
     )
         const
     {
-      vector center((this->_point1 + this->_point0) / 2);
-      vector point1_centered(this->_point1 - center);
+      vector center((this->_point_max + this->_point_min) / 2);
+      vector point_max_centered(this->_point_max - center);
       vector point_centered(point - center);
 
-      real_type x_scale = acme::abs(1.0 / point1_centered.x());
-      real_type y_scale = acme::abs(1.0 / point1_centered.y());
-      real_type z_scale = acme::abs(1.0 / point1_centered.z());
+      real_type x_scale = acme::abs(1.0 / point_max_centered.x());
+      real_type y_scale = acme::abs(1.0 / point_max_centered.y());
+      real_type z_scale = acme::abs(1.0 / point_max_centered.z());
 
       real_type dx = acme::max(0.0, acme::abs(point_centered.x()) * x_scale - 1.0) / x_scale;
       real_type dy = acme::max(0.0, acme::abs(point_centered.y()) * y_scale - 1.0) / y_scale;
@@ -253,9 +347,9 @@ namespace acme
         const vector &point //!< Input
     ) const
     {
-      real_type dx = max(abs(point.x() - this->_point0.x()), abs(point.x() - this->_point1.x()));
-      real_type dy = max(abs(point.y() - this->_point0.y()), abs(point.y() - this->_point1.y()));
-      real_type dz = max(abs(point.z() - this->_point0.z()), abs(point.z() - this->_point1.z()));
+      real_type dx = max(abs(point.x() - this->_point_min.x()), abs(point.x() - this->_point_max.x()));
+      real_type dy = max(abs(point.y() - this->_point_min.y()), abs(point.y() - this->_point_max.y()));
+      real_type dz = max(abs(point.z() - this->_point_min.z()), abs(point.z() - this->_point_max.z()));
       return sqrt(dx * dx + dy * dy + dz * dz);
     }
   };

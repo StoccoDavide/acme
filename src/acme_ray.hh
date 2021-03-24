@@ -59,12 +59,12 @@ namespace acme
 
     //! Class constructor
     ray(
-        const real_type &ox, //<! Input x origin value
-        const real_type &oy, //<! Input y origin value
-        const real_type &oz, //<! Input z origin value
-        const real_type &dx, //<! Input x direction value
-        const real_type &dy, //<! Input y direction value
-        const real_type &dz  //<! Input z direction value
+        const real_type ox, //<! Input x origin value
+        const real_type oy, //<! Input y origin value
+        const real_type oz, //<! Input z origin value
+        const real_type dx, //<! Input x direction value
+        const real_type dy, //<! Input y direction value
+        const real_type dz  //<! Input z direction value
         ) : _origin(vector(ox, oy, oz)), _direction(vector(dx, dy, dz))
     {
     }
@@ -158,6 +158,13 @@ namespace acme
 
     //! Reverse direction
     void reverse(void) { this->_direction = -this->_direction; }
+
+    //! Get reversed ray
+    ray reversed(void) const
+    {
+      return ray(this->_origin, -this->_direction);
+    }
+
   };
 } // namespace acme
 

@@ -68,48 +68,48 @@ namespace acme
 
   //! Square
   real_type sqr(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Cubic
   real_type cub(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Square root
   real_type sqrt(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Absolute value
-  real_type abs(const real_type &input //!< Input
+  real_type abs(const real_type input //!< Input
   );
 
   //! Maximum between inputs
   real_type max(
-      const real_type &input0, //!< Input 0
-      const real_type &input1  //!< Input 1
+      const real_type input0, //!< Input 0
+      const real_type input1  //!< Input 1
   );
 
   //! Minimum between inputs
   real_type min(
-      const real_type &input0, //!< Input 0
-      const real_type &input1  //!< Input 1
+      const real_type input0, //!< Input 0
+      const real_type input1  //!< Input 1
 
   );
 
   //! Maximum between three inputs
   real_type max(
-      const real_type &input0, //!< Input 0
-      const real_type &input1, //!< Input 1
-      const real_type &input2  //!< Input 2
+      const real_type input0, //!< Input 0
+      const real_type input1, //!< Input 1
+      const real_type input2  //!< Input 2
   );
 
   //! Minimum between three inputs
   real_type min(
-      const real_type &input0, //!< Input 0
-      const real_type &input1, //!< Input 1
-      const real_type &input2  //!< Input 2
+      const real_type input0, //!< Input 0
+      const real_type input1, //!< Input 1
+      const real_type input2  //!< Input 2
   );
 
   /*\
@@ -123,112 +123,112 @@ namespace acme
 
   //! Sine function [rad]
   real_type sin(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Cosine function [rad]
   real_type cos(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Tangent function [rad]
-  real_type tan(const real_type &input //!< Input
+  real_type tan(const real_type input //!< Input
   );
 
   //! Arcsine function [rad]
   real_type asin(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Arccosine function [rad]
   real_type acos(
-      const real_type &input //!< Input
+      const real_type input //!< Input
   );
 
   //! Arctangent function [rad]
   real_type atan(
-      const real_type &input //!< void
+      const real_type input //!< void
   );
 
   //! Arctangent function [rad]
   real_type atan2(
-      const real_type &input0, //!< Input 0
-      const real_type &input1  //!< Input 1
+      const real_type input0, //!< Input 0
+      const real_type input1  //!< Input 1
   );
 
   //! Returns the input input bounded between low and high inputs
   real_type clamp(
-      const real_type &input, //!< Input
-      const real_type &low,   //!< Low-end bound
-      const real_type &high   //!< High-end bound
+      const real_type input, //!< Input
+      const real_type low,   //!< Low-end bound
+      const real_type high   //!< High-end bound
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      const real_type &input0,                  //!< Input 0
-      const real_type &input1,                  //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type input0,                  //!< Input 0
+      const real_type input1,                  //!< Input 1
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
       const vector &input0,                     //!< Input 0
       const vector &input1,                     //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
       const matrix &input0,                     //!< Input 0
       const matrix &input1,                     //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vector is degenerated
   bool is_degenerated(
       const vector &input,                      //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vector is normalized
   bool is_normalized(
       const vector &input,                      //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are ortogonal
   bool is_ortogonal(
       const vector &input0,                     //!< Input 0
       const vector &input1,                     //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool is_parallel(
       const vector &input0,                     //!< Input 0
       const vector &input1,                     //!< Input 1
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if rotation matrix is othonormal
   bool is_ortonormal(
       const matrix &input,                      //!< Input
-      const real_type &tolerance = Epsilon_High //!< Tolerance
+      const real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Returns rotation on x-axis
   matrix rotate_x(
-      const real_type &input //!< Input angle [rad]
+      const real_type input //!< Input angle [rad]
   );
 
   //! Returns rotation on y-axis
   matrix rotate_y(
-      const real_type &input //!< Input angle [rad]
+      const real_type input //!< Input angle [rad]
   );
 
   //! Returns rotation on z-axis
   matrix rotate_z(
-      const real_type &input //!< Input angle [rad]
+      const real_type input //!< Input angle [rad]
   );
 
   //! Angle between objects [rad]

@@ -65,17 +65,17 @@ namespace acme
 #else
 
   AABBtree::AABBtree()
-      : pbox(nullptr)
+      : ptrbox(nullptr)
   {
     children.clear();
   }
 
   AABBtree::~AABBtree()
   {
-    if (pbox != nullptr)
+    if (ptrbox != nullptr)
     {
-      delete pbox;
-      pbox = nullptr;
+      delete ptrbox;
+      ptrbox = nullptr;
     }
     children.clear();
   }
@@ -83,10 +83,10 @@ namespace acme
   void
   AABBtree::clear()
   {
-    if (pbox != nullptr)
+    if (ptrbox != nullptr)
     {
-      delete pbox;
-      pbox = nullptr;
+      delete ptrbox;
+      ptrbox = nullptr;
     }
     children.clear();
   }
@@ -94,7 +94,7 @@ namespace acme
   bool
   AABBtree::empty() const
   {
-    return children.empty() && pbox == nullptr;
+    return children.empty() && ptrbox == nullptr;
   }
 
 #endif
@@ -113,38 +113,51 @@ namespace acme
 
     if (size == 1)
     {
-      this->pbox = boxes.front();
+      this->ptrbox = boxes.front();
       return;
     }
 
 #ifdef ACME_USE_CXX11
     boxPtr = shared_ptr<box>(new box(boxes, 0, 0));
 #else
-    if (pbox != nullptr)
+    if (ptrbox != nullptr)
     {
-      delete pbox;
-      pbox = nullptr;
+      delete ptrbox;
+      ptrbox = nullptr;
     }
-    pbox = new box(boxes, 0, 0);
+    ptrbox = new box(boxes, 0, 0);
 #endif
 
-    real_type xmin = pbox->point_0().x();
-    real_type ymin = pbox->point_0().y();
-    real_type zmin = pbox->point_0().z();
-    real_type xmax = pbox->point_1().x();
-    real_type ymax = pbox->point_1().y();
-    real_type zmax = pbox->point_1().z();
+    real_type xmin = ptrbox->x_min();
+    real_type ymin = ptrbox->y_min();
+    real_type zmin = ptrbox->z_min();
+    real_type xmax = ptrbox->x_max();
+    real_type ymax = ptrbox->y_max();
+    real_type zmax = ptrbox->z_max();
 
     std::vector<boxPtr> posBoxes;
     std::vector<boxPtr> negBoxes;
 
-    if ((ymax - ymin) > (xmax - xmin))
+    if ((xmax - xmin) > (ymax - ymin) && (xmax - xmin) > (zmax - zmin))
+    {
+      real_type cutPos = (xmax + xmin) / 2;
+      std::vector<boxPtr>::const_iterator it;
+      for (it = boxes.begin(); it != boxes.end(); ++it)
+      {
+        real_type xmid = ((*it)->x_min() + (*it)->x_max()) / 2;
+        if (xmid > cutPos)
+          posBoxes.push_back(*it);
+        else
+          negBoxes.push_back(*it);
+      }
+    }
+    else if ((ymax - ymin) > (xmax - xmin) && (ymax - ymin) > (zmax - zmin))
     {
       real_type cutPos = (ymax + ymin) / 2;
       std::vector<boxPtr>::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
-        real_type ymid = ((*it)->Ymin() + (*it)->Ymax()) / 2;
+        real_type ymid = ((*it)->y_min() + (*it)->y_max()) / 2;
         if (ymid > cutPos)
           posBoxes.push_back(*it);
         else
@@ -153,12 +166,12 @@ namespace acme
     }
     else
     {
-      real_type cutPos = (xmax + xmin) / 2;
+      real_type cutPos = (zmax + zmin) / 2;
       std::vector<boxPtr>::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
-        real_type xmid = ((*it)->Xmin() + (*it)->Xmax()) / 2;
-        if (xmid > cutPos)
+        real_type zmid = ((*it)->z_min() + (*it)->z_max()) / 2;
+        if (zmid > cutPos)
           posBoxes.push_back(*it);
         else
           negBoxes.push_back(*it);
@@ -180,7 +193,7 @@ namespace acme
       negBoxes.erase(midIdx, negBoxes.end());
     }
 
-#ifdef G2LIB_USE_CXX11
+#ifdef ACME_USE_CXX11
     PtrAABB neg = make_shared<AABBtree>();
     PtrAABB pos = make_shared<AABBtree>();
 #else
@@ -208,9 +221,10 @@ namespace acme
     }
     else
     {
-      fmt::print(stream,
-                 "BBOX xmin={:<12.4)} ymin={:<12.4)} xmax={:<12.4)} ymax={:<12.4)} level={}\n",
-                 pbox->m_xmin, pbox->m_ymin, pbox->m_xmax, pbox->m_ymax);
+      /*fmt::print(stream,
+                 "BOX xmin={:<12.4)} ymin={:<12.4)} zmin={:<12.4)} xmax={:<12.4)} ymax={:<12.4)} zmax={:<12.4)} level={}\n",
+                 ptrbox->x_min(), ptrbox->y_min(), ptrbox->z_min(),
+                 ptrbox->x_max(), ptrbox->y_max(), ptrbox->z_max());*/
       std::vector<PtrAABB>::const_iterator it;
       for (it = children.begin(); it != children.end(); ++it)
         (*it)->print(stream, level + 1);
@@ -222,12 +236,12 @@ namespace acme
   void
   AABBtree::intersect(
       AABBtree const &tree,
-      VecPairPtrBBox &intersectionList,
+      boxPtrPairVec &intersectionList,
       bool swap_tree) const
   {
 
-    // check bbox with
-    if (!tree.boxPtr->collision(*boxPtr))
+    // Check box with
+    if (!tree.ptrbox->collision(*ptrbox))
       return;
 
     int icase = (children.empty() ? 0 : 1) +
@@ -235,27 +249,27 @@ namespace acme
 
     switch (icase)
     {
-    case 0: // both leaf
+    case 0: // Both are leafs
       if (swap_tree)
-        intersectionList.push_back(PairPtrBBox(tree.pbox, pbox));
+        intersectionList.push_back(boxPtrPair(tree.ptrbox, ptrbox));
       else
-        intersectionList.push_back(PairPtrBBox(pbox, tree.pbox));
+        intersectionList.push_back(boxPtrPair(ptrbox, tree.ptrbox));
       break;
-    case 1: // first is a tree, second is a leaf
+    case 1: // First is a tree, second is a leaf
     {
       std::vector<PtrAABB>::const_iterator it;
       for (it = children.begin(); it != children.end(); ++it)
         tree.intersect(**it, intersectionList, !swap_tree);
     }
     break;
-    case 2: // first leaf, second is a tree
+    case 2: // First leaf, second is a tree
     {
       std::vector<PtrAABB>::const_iterator it;
       for (it = tree.children.begin(); it != tree.children.end(); ++it)
         this->intersect(**it, intersectionList, swap_tree);
     }
     break;
-    case 3: // first is a tree, second is a tree
+    case 3: // First is a tree, second is a tree
     {
       std::vector<PtrAABB>::const_iterator c1;
       std::vector<PtrAABB>::const_iterator c2;
@@ -271,8 +285,7 @@ namespace acme
 
   real_type
   AABBtree::min_maxdist(
-      real_type x,
-      real_type y,
+      const vector &point,
       AABBtree const &tree,
       real_type mmDist)
   {
@@ -281,18 +294,18 @@ namespace acme
 
     if (children.empty())
     {
-      real_type dst = tree.pbox->maxDistance(x, y);
-      return min(dst, mmDist);
+      real_type dst = tree.ptrbox->max_distance(point);
+      return acme::min(dst, mmDist);
     }
 
-    real_type dmin = tree.pbox->distance(x, y);
+    real_type dmin = tree.ptrbox->distance(point);
     if (dmin > mmDist)
       return mmDist;
 
     // check box with
     std::vector<PtrAABB>::const_iterator it;
     for (it = children.begin(); it != children.end(); ++it)
-      mmDist = min_maxdist(x, y, **it, mmDist);
+      mmDist = min_maxdist(point, **it, mmDist);
 
     return mmDist;
   }
@@ -301,26 +314,25 @@ namespace acme
 
   void
   AABBtree::min_maxdist_select(
-      real_type x,
-      real_type y,
+      const vector &point,
       real_type mmDist,
       AABBtree const &tree,
-      VecPtrBBox &candidateList)
+      boxPtrVec &candidateList)
   {
     std::vector<PtrAABB> const &children = tree.children;
-    real_type dst = tree.pbox->distance(x, y);
+    real_type dst = tree.ptrbox->distance(point);
     if (dst <= mmDist)
     {
       if (children.empty())
       {
-        candidateList.push_back(tree.pbox);
+        candidateList.push_back(tree.ptrbox);
       }
       else
       {
-        // check bbox with
+        // check box with
         std::vector<PtrAABB>::const_iterator it;
         for (it = children.begin(); it != children.end(); ++it)
-          min_maxdist_select(x, y, mmDist, **it, candidateList);
+          min_maxdist_select(point, mmDist, **it, candidateList);
       }
     }
   }
@@ -329,13 +341,12 @@ namespace acme
 
   void
   AABBtree::min_distance(
-      real_type x,
-      real_type y,
-      VecPtrBBox &candidateList) const
+      const vector &point,
+      boxPtrVec &candidateList) const
   {
     real_type mmDist = min_maxdist(
-        x, y, *this, acme::infinity());
-    min_maxdist_select(x, y, mmDist, *this, candidateList);
+        point, *this, acme::infinity());
+    min_maxdist_select(point, mmDist, *this, candidateList);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

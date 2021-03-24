@@ -62,12 +62,12 @@ namespace acme
 
     //! Class constructor for plane
     plane(
-        const real_type &ox, //<! Input x origin value
-        const real_type &oy, //<! Input y origin value
-        const real_type &oz, //<! Input z origin value
-        const real_type &dx, //<! Input x normal value
-        const real_type &dy, //<! Input y normal value
-        const real_type &dz  //<! Input z normal value
+        const real_type ox, //<! Input x origin value
+        const real_type oy, //<! Input y origin value
+        const real_type oz, //<! Input z origin value
+        const real_type dx, //<! Input x normal value
+        const real_type dy, //<! Input y normal value
+        const real_type dz  //<! Input z normal value
         ) : _origin(vector(ox, oy, oz)), _normal(vector(dx, dy, dz))
     {
     }
@@ -161,6 +161,12 @@ namespace acme
 
     //! Reverse normal
     void reverse(void) { this->_normal = -this->_normal; }
+
+    //! Get reversed ray
+    plane reversed(void) const
+    {
+      return plane(this->_origin, -this->_normal);
+    }
 
     //! Return d value
     real_type d(void) const { return -this->_origin.dot(this->_normal); }

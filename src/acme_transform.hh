@@ -44,8 +44,8 @@ namespace acme
   //! Tranform VECTOR from frameA to frameB
   vector transform_vector(
       const vector &vector, //!< Input
-      const frame &frameA, //!< Actual reference coordinate system
-      const frame &frameB  //!< Future reference coordinate system
+      const frame &frameA,  //!< Actual reference coordinate system
+      const frame &frameB   //!< Future reference coordinate system
   )
   {
     return frameB.rotation().transpose() * (frameA.rotation() * vector);
@@ -63,69 +63,69 @@ namespace acme
 
   //! Tranform ray from frameA to frameB
   ray transform(
-      const ray &ray,      //!< Input
+      const ray &input,    //!< Input
       const frame &frameA, //!< Actual reference coordinate system
       const frame &frameB  //!< Future reference coordinate system
   )
   {
-    return ray(acme::transform(ray.origin(), frameA, frameB),
-                acme::transform(ray.direction(), frameA, frameB));
+    return ray(acme::transform(input.origin(), frameA, frameB),
+               acme::transform(input.direction(), frameA, frameB));
   }
 
   //! Tranform line from frameA to frameB
   line transform(
-      const line &line,    //!< Input
+      const line &input,   //!< Input
       const frame &frameA, //!< Actual reference coordinate system
       const frame &frameB  //!< Future reference coordinate system
   )
   {
-    return line(acme::transform(line.origin(), frameA, frameB),
-                 acme::transform(line.direction(), frameA, frameB));
+    return line(acme::transform(input.origin(), frameA, frameB),
+                acme::transform(input.direction(), frameA, frameB));
   }
 
   //! Tranform plane from frameA to frameB
   plane transform(
-      const plane &plane,  //!< Input
+      const plane &input,  //!< Input
       const frame &frameA, //!< Actual reference coordinate system
       const frame &frameB  //!< Future reference coordinate system
   )
   {
-    return plane(acme::transform(plane.origin(), frameA, frameB),
-                  acme::transform(plane.normal(), frameA, frameB));
+    return plane(acme::transform(input.origin(), frameA, frameB),
+                 acme::transform(input.normal(), frameA, frameB));
   }
 
   //! Tranform segment from frameA to frameB
   segment transform(
-      const segment &segment, //!< Input
-      const frame &frameA,    //!< Actual reference coordinate system
-      const frame &frameB     //!< Future reference coordinate system
+      const segment &input, //!< Input
+      const frame &frameA,  //!< Actual reference coordinate system
+      const frame &frameB   //!< Future reference coordinate system
   )
   {
-    return segment(acme::transform(segment.point_0(), frameA, frameB),
-                    acme::transform(segment.point_1(), frameA, frameB));
+    return segment(acme::transform(input.point_0(), frameA, frameB),
+                   acme::transform(input.point_1(), frameA, frameB));
   }
 
   //! Tranform box from frameA to frameB
   box transform(
-      const box &box,      //!< Input
+      const box &input,    //!< Input
       const frame &frameA, //!< Actual reference coordinate system
       const frame &frameB  //!< Future reference coordinate system
   )
   {
-    return box(acme::transform(box.point_0(), frameA, frameB),
-                acme::transform(box.point_1(), frameA, frameB));
+    return box(acme::transform(input.point_min(), frameA, frameB),
+               acme::transform(input.point_max(), frameA, frameB));
   }
 
   //! Tranform triangle from frameA to frameB
   triangle transform(
-      const triangle &triangle, //!< Input
+      const triangle &input, //!< Input
       const frame &frameA,      //!< Actual reference coordinate system
       const frame &frameB       //!< Future reference coordinate system
   )
   {
-    return triangle(acme::transform(triangle.point_0(), frameA, frameB),
-                     acme::transform(triangle.point_1(), frameA, frameB),
-                     acme::transform(triangle.point_2(), frameA, frameB));
+    return triangle(acme::transform(input.vertex_0(), frameA, frameB),
+                    acme::transform(input.vertex_1(), frameA, frameB),
+                    acme::transform(input.vertex_2(), frameA, frameB));
   }
 
 } // namespace acme

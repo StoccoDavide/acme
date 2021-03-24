@@ -103,7 +103,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Origin = " << obj.origin()
+       << "Origin = " << obj.origin().x()
        << "Normal = " << obj.normal();
     return os;
   }
@@ -131,8 +131,8 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Point 0 = " << obj.point_0()
-       << "Point 1 = " << obj.point_1();
+       << "Point min = " << obj.point_min()
+       << "Point max = " << obj.point_max();
     return os;
   }
 
@@ -145,9 +145,9 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Point 0 = " << obj.point_0()
-       << "Point 1 = " << obj.point_1()
-       << "Point 2 = " << obj.point_2();
+       << "Point 0 = " << obj.vertex_0()
+       << "Point 1 = " << obj.vertex_1()
+       << "Point 2 = " << obj.vertex_2();
     return os;
   }
 
