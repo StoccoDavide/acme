@@ -1,7 +1,3 @@
-///
-/// file: acme_triangle.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -22,6 +18,10 @@
 (***********************************************************************)
 */
 
+///
+/// file: acme_triangle.hh
+///
+
 #ifndef INCLUDE_ACME_TRIANGLE
 #define INCLUDE_ACME_TRIANGLE
 
@@ -41,46 +41,49 @@ namespace acme
    |                          |___/        
   \*/
 
-  //! triangle class container
+  //! Triangle class container
+  /*!
+  Triangle in 3D space. It is defined by three arbitrary points.
+  */
   class triangle
   {
   private:
   private:
-    vector _point[3]; //!< Vertices as points
+    vec3 _point[3]; //!< Vertices as points
 
   public:
     //! Class destructor
     ~triangle() {}
 
     //! Copy constructor
-    triangle(const triangle &) = default;
+    triangle(triangle const &) = default;
 
     //! Class constructor
     triangle() {}
 
     //! Class constructor
     triangle(
-        const real_type x0, //<! Input x value of first point
-        const real_type y0, //<! Input y value of first point
-        const real_type z0, //<! Input z value of first point
-        const real_type x1, //<! Input x value of second point
-        const real_type y1, //<! Input y value of second point
-        const real_type z1, //<! Input z value of second point
-        const real_type x2, //<! Input x value of third point
-        const real_type y2, //<! Input y value of third point
-        const real_type z2  //<! Input z value of third point
+        real_type const x0, //<! Input x value of first point
+        real_type const y0, //<! Input y value of first point
+        real_type const z0, //<! Input z value of first point
+        real_type const x1, //<! Input x value of second point
+        real_type const y1, //<! Input y value of second point
+        real_type const z1, //<! Input z value of second point
+        real_type const x2, //<! Input x value of third point
+        real_type const y2, //<! Input y value of third point
+        real_type const z2  //<! Input z value of third point
     )
     {
-      this->_point[0] = vector(x0, y0, z0);
-      this->_point[1] = vector(x1, y1, z1);
-      this->_point[2] = vector(x2, y2, z2);
+      this->_point[0] = vec3(x0, y0, z0);
+      this->_point[1] = vec3(x1, y1, z1);
+      this->_point[2] = vec3(x2, y2, z2);
     }
 
     //! Class constructor
     triangle(
-        const vector &point0, //!< Input object
-        const vector &point1, //!< Input object
-        const vector &point2  //!< Input object
+        vec3 const &point0, //!< Input object
+        vec3 const &point1, //!< Input object
+        vec3 const &point2  //!< Input object
     )
     {
       this->_point[0] = point0;
@@ -90,7 +93,7 @@ namespace acme
 
     //! Equality operator
     triangle &operator=(
-        const triangle &input //!< Input object
+        triangle const &input //!< Input object
     )
     {
       if (this == &input)
@@ -108,7 +111,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const triangle &input //!< Input object
+        triangle const &input //!< Input object
     )
         const
     {
@@ -127,41 +130,41 @@ namespace acme
     }
 
     //! Get first point
-    const vector &vertex_0(void) const { return this->_point[0]; }
+    vec3 const &vertex_0(void) const { return this->_point[0]; }
 
     //! Set first vertex
     void vertex_0(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_point[0] = input;
     }
 
     //! Get second vertex
-    const vector &vertex_1(void) const { return this->_point[1]; }
+    vec3 const &vertex_1(void) const { return this->_point[1]; }
 
     //! Set second vertex
     void vertex_1(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_point[1] = input;
     }
 
     //! Get third vertex
-    const vector &vertex_2(void) const { return this->_point[2]; }
+    vec3 const &vertex_2(void) const { return this->_point[2]; }
 
     //! Set third vertex
     void vertex_2(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_point[2] = input;
     }
 
     //! Get i-th vertex
-    const vector &vertex(
-        const int_type &i //!< Intput i-th vertex
+    vec3 const &vertex(
+        int_type const &i //!< Intput i-th vertex
     ) const
     {
       return this->_point[i];
@@ -169,8 +172,8 @@ namespace acme
 
     //! Set i-th vertex
     void vertex(
-        const int_type &i,  //!< Intput i-th vertex
-        const vector &input //!< Input
+        int_type const &i, //!< Intput i-th vertex
+        vec3 const &input  //!< Input
     )
     {
       this->_point[i] = input;
@@ -178,9 +181,9 @@ namespace acme
 
     //! Set points
     void vertices(
-        const vector &input0, //!< Input 0
-        const vector &input1, //!< Input 1
-        const vector &input2  //!< Input 2
+        vec3 const &input0, //!< Input 0
+        vec3 const &input1, //!< Input 1
+        vec3 const &input2  //!< Input 2
     )
     {
       this->_point[0] = input0;
@@ -189,16 +192,16 @@ namespace acme
     }
 
     //! Get first edge
-    const segment edge_0(void) const { return segment(this->_point[0], this->_point[1]); }
+    segment const edge_0(void) const { return segment(this->_point[0], this->_point[1]); }
 
     //! Get second edge
-    const segment edge_1(void) const { return segment(this->_point[1], this->_point[2]); }
+    segment const edge_1(void) const { return segment(this->_point[1], this->_point[2]); }
 
     //! Get third edge
-    const segment edge_2(void) const { return segment(this->_point[2], this->_point[0]); }
+    segment const edge_2(void) const { return segment(this->_point[2], this->_point[0]); }
 
     //! Get face (normalized) normal
-    const vector normal(void)
+    vec3 const normal(void)
         const
     {
       return (this->_point[1] - this->_point[0]).cross(this->_point[2] - this->_point[0]).normalized();
@@ -206,7 +209,7 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_point[0] = input + this->_point[0];
@@ -216,7 +219,7 @@ namespace acme
 
     //! Rotate by matrix
     void rotate(
-        const matrix &input //!< Input
+        mat3 const &input //!< Input
     )
     {
       this->_point[0] = input * this->_point[0];
@@ -226,12 +229,12 @@ namespace acme
 
     //! Swap triangle points
     void swap(
-        const int_type i, //!< Input i-th vertex
-        const int_type j  //!< Input j-th vertex
+        int_type const i, //!< Input i-th vertex
+        int_type const j  //!< Input j-th vertex
     )
     {
-      vector tmp_point_i(this->_point[i]);
-      vector tmp_point_j(this->_point[j]);
+      vec3 tmp_point_i(this->_point[i]);
+      vec3 tmp_point_j(this->_point[j]);
       this->_point[i] = tmp_point_j;
       this->_point[j] = tmp_point_i;
     }
@@ -265,7 +268,7 @@ namespace acme
 
     //! Check if a point lays inside the triangle
     bool is_inside(
-        const vector &point //!< Input
+        vec3 const &point //!< Input
     )
     {
       real_type u, v, w;
@@ -284,16 +287,16 @@ namespace acme
 
     // Compute barycentric coordinates (u,v,w) for point
     void barycentric(
-        const vector &point, //!< Input
-        real_type &u,        //!< Output barycentric coordinate u
-        real_type &v,        //!< Output barycentric coordinate v
-        real_type &w         //!< Output barycentric coordinate w
+        vec3 const &point, //!< Input
+        real_type &u,      //!< Output barycentric coordinate u
+        real_type &v,      //!< Output barycentric coordinate v
+        real_type &w       //!< Output barycentric coordinate w
     )
         const
     {
-      vector v0(this->_point[1] - this->_point[0]);
-      vector v1(this->_point[2] - this->_point[0]);
-      vector v2(point - this->_point[0]);
+      vec3 v0(this->_point[1] - this->_point[0]);
+      vec3 v1(this->_point[2] - this->_point[0]);
+      vec3 v2(point - this->_point[0]);
       real_type d00 = v0.dot(v0);
       real_type d01 = v0.dot(v1);
       real_type d11 = v1.dot(v1);
@@ -304,7 +307,8 @@ namespace acme
       w = (d00 * d21 - d01 * d20) / denom;
       u = 1.0 - v - w;
     }
-  };
+
+  }; // class triangle
 
 } // namespace acme
 

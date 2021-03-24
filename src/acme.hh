@@ -1,7 +1,3 @@
-///
-/// file: acme.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -21,6 +17,10 @@
 (*                                                                     *)
 (***********************************************************************)
 */
+
+///
+/// file: acme.hh
+///
 
 #ifndef INCLUDE_ACME
 #define INCLUDE_ACME
@@ -50,8 +50,14 @@ namespace acme
   typedef double real_type; //!< Real number type
   typedef int int_type;     //!< Integer number type
 
-  typedef Eigen::Matrix<real_type, 3, 1> vector; //!< Vector type 3x1 (column vector)
-  typedef Eigen::Matrix<real_type, 3, 3> matrix; //!< Matrix type 3x3
+  typedef Eigen::Matrix<real_type, 2, 1> vec2; //!< Vector type 2x1 (column vector)
+  typedef Eigen::Matrix<real_type, 2, 2> mat2; //!< Matrix type 2x2
+
+  typedef Eigen::Matrix<real_type, 3, 1> vec3; //!< Vector type 3x1 (column vector)
+  typedef Eigen::Matrix<real_type, 3, 3> mat3; //!< Matrix type 3x3
+
+  typedef Eigen::Matrix<real_type, 4, 1> vec4; //!< Vector type 4x1 (column vector)
+  typedef Eigen::Matrix<real_type, 4, 4> mat4; //!< Matrix type 4x4
 
   /*\
    |    ____                _              _       
@@ -62,25 +68,39 @@ namespace acme
    |                                               
   \*/
 
-  static const real_type Epsilon_Machine = std::numeric_limits<real_type>::epsilon(); //!< Machine espilon \f$ \varepsilon \f$
-  static const real_type Epsilon_High = 1.0E-16;                                      //!< High precision epsilon constant
-  static const real_type Epsilon_Medium = 1.0E-10;                                    //!< Medium precision epsilon constant
-  static const real_type Epsilon_Low = 1.0E-07;                                       //!< Low precision epsilon constant
-  static const real_type Epsilon = Epsilon_Medium;                                    //!< Standard precision epsilon constant
-  static const real_type Infinity = std::numeric_limits<real_type>::infinity();       //!< Infinity constant
-  static const real_type NaN = std::numeric_limits<real_type>::quiet_NaN();           //!< Not-a-Number type
+  static real_type const Epsilon_Machine = std::numeric_limits<real_type>::epsilon(); //!< Machine espilon \f$ \varepsilon \f$
+  static real_type const Epsilon_High = 1.0E-16;                                      //!< High precision epsilon constant
+  static real_type const Epsilon_Medium = 1.0E-10;                                    //!< Medium precision epsilon constant
+  static real_type const Epsilon_Low = 1.0E-07;                                       //!< Low precision epsilon constant
+  static real_type const Epsilon = Epsilon_Medium;                                    //!< Standard precision epsilon constant
+  static real_type const Infinity = std::numeric_limits<real_type>::infinity();       //!< Infinity constant
+  static real_type const NaN = std::numeric_limits<real_type>::quiet_NaN();           //!< Not-a-Number type
 
-  static const real_type PI = real_type(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ input
-  static const real_type PI2 = real_type(6.283185307179586476925286766559000);        //!< \f$ 2\pi \f$ input
-  static const real_type PIDiv180 = real_type(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ input
-  static const real_type _180DivPI = real_type(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ input
+  static real_type const PI = real_type(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ input
+  static real_type const PI2 = real_type(6.283185307179586476925286766559000);        //!< \f$ 2\pi \f$ input
+  static real_type const PIDiv180 = real_type(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ input
+  static real_type const _180DivPI = real_type(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ input
 
-  static const vector NaN_vector = vector::Constant(NaN);   //!< Not-a-Number vector type
-  static const matrix NaN_matrix = matrix::Constant(NaN);   //!< Not-a-Number matrix type
-  static const vector Zeros_vector = vector::Constant(0.0); //!< Zeros vector type
-  static const matrix Zeros_matrix = matrix::Constant(0.0); //!< Zeros matrix type
-  static const vector Ones_vector = vector::Constant(1.0);  //!< Ones vector type
-  static const matrix Ones_matrix = matrix::Constant(1.0);  //!< Ones matrix type
+  static vec2 const NaN_vec2 = vec2::Constant(NaN);   //!< Not-a-Number vec2 type
+  static mat2 const NaN_mat2 = mat2::Constant(NaN);   //!< Not-a-Number mat2 type
+  static vec2 const Zeros_vect2 = vec2::Constant(0.0); //!< Zeros vec2 type
+  static mat2 const Zeros_mat2 = mat2::Constant(0.0); //!< Zeros mat2 type
+  static vec2 const Ones_vec2 = vec2::Constant(1.0);  //!< Ones vec2 type
+  static mat2 const Ones_mat2 = mat2::Constant(1.0);  //!< Ones mat2 type
+
+  static vec3 const NaN_vec3 = vec3::Constant(NaN);   //!< Not-a-Number vec3 type
+  static mat3 const NaN_mat3 = mat3::Constant(NaN);   //!< Not-a-Number mat3 type
+  static vec3 const Zeros_vec3 = vec3::Constant(0.0); //!< Zeros vec3 type
+  static mat3 const Zeros_mat3 = mat3::Constant(0.0); //!< Zeros mat3 type
+  static vec3 const Ones_vec3 = vec3::Constant(1.0);  //!< Ones vec3 type
+  static mat3 const Ones_mat3 = mat3::Constant(1.0);  //!< Ones mat3 type
+
+  static vec4 const NaN_vec4 = vec4::Constant(NaN);   //!< Not-a-Number vec4 type
+  static mat4 const NaN_mat4 = mat4::Constant(NaN);   //!< Not-a-Number mat4 type
+  static vec4 const Zeros_vec4 = vec4::Constant(0.0); //!< Zeros vec4 type
+  static mat4 const Zeros_mat4 = mat4::Constant(0.0); //!< Zeros mat4 type
+  static vec4 const Ones_vec4 = vec4::Constant(1.0);  //!< Ones vec4 type
+  static mat4 const Ones_mat4 = mat4::Constant(1.0);  //!< Ones mat4 type
 
 } // namespace acme
 

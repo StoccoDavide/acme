@@ -1,7 +1,3 @@
-///
-/// file: acme_frame.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -21,6 +17,10 @@
 (*                                                                     *)
 (***********************************************************************)
 */
+
+///
+/// file: acme_frame.hh
+///
 
 #ifndef INCLUDE_ACME_frame
 #define INCLUDE_ACME_frame
@@ -48,23 +48,23 @@ namespace acme
   class frame
   {
   private:
-    vector _origin;
-    matrix _rotation;
+    vec3 _origin;
+    mat3 _rotation;
 
   public:
     //! Class destructor
     ~frame() {}
 
     //! Copy constructor
-    frame(const frame &) = default;
+    frame(frame const &) = default;
 
     //! Class constructor
     frame() { this->clear(); }
 
     //! Class constructor
     frame(
-        const vector &origin,  //!< Input origin
-        const matrix &rotation //!< Input rotation
+        vec3 const &origin,  //!< Input origin
+        mat3 const &rotation //!< Input rotation
         ) : _origin(origin), _rotation(rotation)
     {
     }
@@ -73,13 +73,13 @@ namespace acme
     //! Clear data
     void clear()
     {
-      this->_origin = NaN_vector;
-      this->_rotation = NaN_matrix;
+      this->_origin = NaN_vec3;
+      this->_rotation = NaN_mat3;
     }
 
     //! Equality operator
     frame &operator=(
-        const frame &input //!< Input object
+        frame const &input //!< Input object
     )
     {
       if (this == &input)
@@ -96,7 +96,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const frame &input //!< Input object
+        frame const &input //!< Input object
     )
         const
     {
@@ -105,17 +105,17 @@ namespace acme
     }
 
     //! Get x vector
-    const vector x(void) const { return this->_rotation.col(0); }
+    vec3 const x(void) const { return this->_rotation.col(0); }
 
     //! Get y vector
-    const vector y(void) const { return this->_rotation.col(1); }
+    vec3 const y(void) const { return this->_rotation.col(1); }
 
     //! Get z vector
-    const vector z(void) const { return this->_rotation.col(2); }
+    vec3 const z(void) const { return this->_rotation.col(2); }
 
     //! Set x vector
     void x(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_rotation.col(0) = input;
@@ -123,7 +123,7 @@ namespace acme
 
     //! Set y vector
     void y(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_rotation.col(1) = input;
@@ -131,35 +131,35 @@ namespace acme
 
     //! Set z vector
     void z(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_rotation.col(2) = input;
     }
 
     //! Get rotation
-    const matrix &rotation(void) const { return this->_rotation; }
+    mat3 const &rotation(void) const { return this->_rotation; }
 
     //! Set rotation
     void rotation(
-        matrix &input //!< Input
+        mat3 &input //!< Input
     )
     {
       this->_rotation = input;
     }
 
     //! Get origin
-    const vector origin(void) const { return this->_origin; }
+    vec3 const origin(void) const { return this->_origin; }
 
     //! Set rotation
     void origin(
-        vector &input //!< Input
+        vec3 &input //!< Input
     )
     {
       this->_origin = input;
     }
 
-    //! Check if rotation matrix is othonormal
+    //! Check if rotation mat3 is othonormal
     bool is_ortonormal(void) const
     {
       return acme::is_ortonormal(this->_rotation);
@@ -167,7 +167,7 @@ namespace acme
 
     //! Perform rotation on x-axis
     void rotate_x(
-        const real_type input //!< Input angle [rad]
+        real_type const input //!< Input angle [rad]
     )
     {
       this->_rotation *acme::rotate_x(input);
@@ -175,7 +175,7 @@ namespace acme
 
     //! Perform rotation on y-axis
     void rotate_y(
-        const real_type input //!< Input angle [rad]
+        real_type const input //!< Input angle [rad]
     )
     {
       this->_rotation *acme::rotate_y(input);
@@ -183,10 +183,28 @@ namespace acme
 
     //! Perform rotation on z-axis
     void rotate_z(
-        const real_type input //!< Input angle [rad]
+        real_type const input //!< Input angle [rad]
     )
     {
       this->_rotation *acme::rotate_y(input);
+    }
+
+    //! Set 4x4 affine transformation matrix
+    void
+    affine(
+        mat4 const &input //!< Input 4x4 affine transformation matrix
+    )
+    {
+      this->_origin = input.block<3, 1>(0, 3);
+      this->_rotation = input.block<3, 3>(0, 0);
+    }
+
+    //! Get 4x4 affine transformation matrix
+    mat4 affine(void) const
+    {
+      mat4 output;
+      output << this->_rotation, this->_origin, vec4(0.0, 0.0, 0.0, 1.0).transpose();
+      return output;
     }
 
   }; // class frame

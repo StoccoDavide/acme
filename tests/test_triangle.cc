@@ -16,13 +16,13 @@ int main(void)
   TicToc tictoc;
 
   // POINT TEST
-  acme::vector A(1.0, 0.0, 0.0);
-  acme::vector B(0.0, 1.0, 0.0);
-  acme::vector C(0.0, 0.0, 1.0);
+  acme::vec3 A(1.0, 0.0, 0.0);
+  acme::vec3 B(0.0, 1.0, 0.0);
+  acme::vec3 C(0.0, 0.0, 1.0);
 
   acme::triangle Tri(A, B, C);
 
-  acme::vector Vec(-1.0, -1.0, -1.0);
+  acme::vec3 Vec(-1.0, -1.0, -1.0);
   acme::ray Ray(A + B + C, Vec);
   acme::ray Ray_rev(Ray);
   Ray_rev.reverse();
@@ -30,10 +30,10 @@ int main(void)
   acme::line Line_rev(Line);
   Line_rev.reverse();
 
-  acme::vector pt_Ray(acme::NaN_vector);
-  acme::vector pt_Ray_rev(acme::NaN_vector);
-  acme::vector pt_Line(acme::NaN_vector);
-  acme::vector pt_Line_rev(acme::NaN_vector);
+  acme::vec3 pt_Ray(acme::NaN_vec3);
+  acme::vec3 pt_Ray_rev(acme::NaN_vec3);
+  acme::vec3 pt_Line(acme::NaN_vec3);
+  acme::vec3 pt_Line_rev(acme::NaN_vec3);
 
   tictoc.tic();
   acme::intersect(Tri, Ray, pt_Ray);

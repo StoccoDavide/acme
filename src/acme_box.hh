@@ -1,7 +1,3 @@
-///
-/// file: acme_box.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -22,6 +18,10 @@
 (***********************************************************************)
 */
 
+///
+/// file: acme_box.hh
+///
+
 #ifndef INCLUDE_ACME_BOX
 #define INCLUDE_ACME_BOX
 
@@ -41,6 +41,9 @@ namespace acme
   \*/
 
   //! Box class container
+  /*!
+  Box in 3D space and defined by a "maximum" and a "minimum" point.
+  */
   class box
   {
   public:
@@ -51,41 +54,41 @@ namespace acme
 #endif
 
   private:
-    vector _point_min; //!< Point 0 (min)
-    vector _point_max; //!< Point 1 (max)
-    int_type _id;      //!< Id of the box
-    int_type _ipos;    //!< Rank of the bounding box (used in external algorithms)
+    vec3 _point_min; //!< Point min
+    vec3 _point_max; //!< Point max
+    int_type _id;    //!< Id of the box
+    int_type _ipos;  //!< Rank of the bounding box (used in external algorithms)
 
   public:
     //! Class destructor
     ~box() {}
 
     //! Copy constructor
-    box(const box &) = default;
+    box(box const &) = default;
 
     //! Class constructor
     box() {}
 
     //! Class constructor
     box(
-        const real_type x0,      //<! Input x value of first point
-        const real_type y0,      //<! Input y value of first point
-        const real_type z0,      //<! Input z value of first point
-        const real_type x1,      //<! Input x value of second point
-        const real_type y1,      //<! Input y value of second point
-        const real_type z1,      //<! Input z value of second point
-        const real_type id = 0,  //<! Input y value of second point
-        const real_type ipos = 0 //<! Input z value of second point
-        ) : _point_min(vector(x0, y0, z0)), _point_max(vector(x1, y1, z1)), _id(id), _ipos(ipos)
+        real_type const x_min,   //<! Input x value of minimum point
+        real_type const y_min,   //<! Input y value of minimum point
+        real_type const z_min,   //<! Input z value of minimum point
+        real_type const x_max,   //<! Input x value of maximum point
+        real_type const y_max,   //<! Input y value of maximum point
+        real_type const z_max,   //<! Input z value of maximum point
+        real_type const id = 0,  //<! Input y value of second point
+        real_type const ipos = 0 //<! Input z value of second point
+        ) : _point_min(vec3(x_min, y_min, z_min)), _point_max(vec3(x_max, y_max, z_max)), _id(id), _ipos(ipos)
     {
     }
 
     //! Class constructor
     box(
-        const vector &point_min, //!< Input
-        const vector &point_max, //!< Input
-        const real_type id = 0,  //<! Input y value of second point
-        const real_type ipos = 0 //<! Input z value of second point
+        vec3 const &point_min,   //!< Input minimum point
+        vec3 const &point_max,   //!< Input maximum point
+        real_type const id = 0,  //<! Input y value of second point
+        real_type const ipos = 0 //<! Input z value of second point
         ) : _point_min(point_min), _point_max(point_max), _id(id), _ipos(ipos)
     {
     }
@@ -93,8 +96,8 @@ namespace acme
     //! Class constructor
     box(
         std::vector<boxPtr> const &boxes,
-        const int_type id,
-        const int_type ipos)
+        int_type const id,
+        int_type const ipos)
     {
       _id = id;
       _ipos = ipos;
@@ -103,7 +106,7 @@ namespace acme
 
     //! Equality operator
     box &operator=(
-        const box &input //!< Input
+        box const &input //!< Input
     )
     {
       if (this == &input)
@@ -122,7 +125,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const box &input //!< Input
+        box const &input //!< Input
     )
         const
     {
@@ -166,7 +169,7 @@ namespace acme
     }
 
     //! Get min point
-    const vector &point_min(void) const { return this->_point_min; }
+    vec3 const &point_min(void) const { return this->_point_min; }
 
     //! Get min point x value
     real_type x_min(void) const { return this->_point_min.x(); }
@@ -179,7 +182,7 @@ namespace acme
 
     //! Set min point
     void point_min(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_point_min = input;
@@ -187,7 +190,7 @@ namespace acme
 
     //! Set min point x value
     void x_min(
-        const real_type input //!<Input
+        real_type const input //!<Input
     )
     {
       this->_point_min.x() = input;
@@ -195,7 +198,7 @@ namespace acme
 
     //! Set min point y value
     void y_min(
-        const real_type input //!<Input
+        real_type const input //!<Input
     )
     {
       this->_point_min.y() = input;
@@ -203,14 +206,14 @@ namespace acme
 
     //! Set min point z value
     void z_min(
-        const real_type input //!<Input
+        real_type const input //!<Input
     )
     {
       this->_point_min.z() = input;
     }
 
     //! Get max point
-    const vector &point_max(void) const { return this->_point_max; }
+    vec3 const &point_max(void) const { return this->_point_max; }
 
     //! Get max point x value
     real_type x_max(void) const { return this->_point_max.x(); }
@@ -223,7 +226,7 @@ namespace acme
 
     //! Set max point
     void point_max(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_point_max = input;
@@ -231,7 +234,7 @@ namespace acme
 
     //! Set max point x value
     void x_max(
-        const real_type input //!<Input
+        real_type const input //!<Input
     )
     {
       this->_point_max.x() = input;
@@ -239,7 +242,7 @@ namespace acme
 
     //! Set max point y value
     void y_max(
-        const real_type input //!<Input
+        real_type const input //!<Input
     )
     {
       this->_point_max.y() = input;
@@ -247,7 +250,7 @@ namespace acme
 
     //! Set max point z value
     void z_max(
-        const real_type input //!<Input
+        real_type const input //!<Input
     )
     {
       this->_point_max.z() = input;
@@ -255,7 +258,7 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_point_min = input + this->_point_min;
@@ -264,7 +267,7 @@ namespace acme
 
     //! Rotate by matrix
     void rotate(
-        const matrix &input //!< Input
+        mat3 const &input //!< Input
     )
     {
       this->_point_min = input * this->_point_min;
@@ -273,7 +276,7 @@ namespace acme
 
     //! Detect if boxes collide
     bool collision(
-        const box &input //!< Input
+        box const &input //!< Input
     )
         const
     {
@@ -290,8 +293,8 @@ namespace acme
     {
       if (boxes.empty())
       {
-        this->_point_min = Zeros_vector;
-        this->_point_max = Zeros_vector;
+        this->_point_min = Zeros_vec3;
+        this->_point_max = Zeros_vec3;
       }
       else
       {
@@ -320,15 +323,14 @@ namespace acme
     }
 
     //! Distance of the point to the box
-    real_type
-    distance(
-        const vector &point //!< Input
+    real_type distance(
+        vec3 const &point //!< Input
     )
         const
     {
-      vector center((this->_point_max + this->_point_min) / 2);
-      vector point_max_centered(this->_point_max - center);
-      vector point_centered(point - center);
+      vec3 center((this->_point_max + this->_point_min) / 2);
+      vec3 point_max_centered(this->_point_max - center);
+      vec3 point_centered(point - center);
 
       real_type x_scale = acme::abs(1.0 / point_max_centered.x());
       real_type y_scale = acme::abs(1.0 / point_max_centered.y());
@@ -342,17 +344,17 @@ namespace acme
     }
 
     //! Maximum distance of the point to the point of box
-    real_type
-    max_distance(
-        const vector &point //!< Input
+    real_type max_distance(
+        vec3 const &point //!< Input
     ) const
     {
-      real_type dx = max(abs(point.x() - this->_point_min.x()), abs(point.x() - this->_point_max.x()));
-      real_type dy = max(abs(point.y() - this->_point_min.y()), abs(point.y() - this->_point_max.y()));
-      real_type dz = max(abs(point.z() - this->_point_min.z()), abs(point.z() - this->_point_max.z()));
+      real_type dx = acme::max(acme::abs(point.x() - this->_point_min.x()), acme::abs(point.x() - this->_point_max.x()));
+      real_type dy = acme::max(acme::abs(point.y() - this->_point_min.y()), acme::abs(point.y() - this->_point_max.y()));
+      real_type dz = acme::max(acme::abs(point.z() - this->_point_min.z()), acme::abs(point.z() - this->_point_max.z()));
       return sqrt(dx * dx + dy * dy + dz * dz);
     }
-  };
+
+  }; //class box
 
 } // namespace acme
 

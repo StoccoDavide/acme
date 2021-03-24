@@ -1,7 +1,3 @@
-///
-/// file: acme_segment.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -22,6 +18,10 @@
 (***********************************************************************)
 */
 
+///
+/// file: acme_segment.hh
+///
+
 #ifndef INCLUDE_ACME_SEGMENT
 #define INCLUDE_ACME_SEGMENT
 
@@ -41,39 +41,42 @@ namespace acme
   \*/
 
   //! Segment class container
+  /*!
+  Segment in 3D space. It is defined by two arbitrary points.
+  */
   class segment
   {
   private:
-    vector _point[2]; //!< Point
+    vec3 _point[2]; //!< Point
 
   public:
     //! Class destructor
     ~segment() {}
 
     //! Copy constructor
-    segment(const segment &) = default;
+    segment(segment const &) = default;
 
     //! Class constructor
     segment() {}
 
     //! Class constructor
     segment(
-        const real_type x0, //<! Input x value of first point
-        const real_type y0, //<! Input y value of first point
-        const real_type z0, //<! Input z value of first point
-        const real_type x1, //<! Input x value of second point
-        const real_type y1, //<! Input y value of second point
-        const real_type z1  //<! Input z value of second point
+        real_type const x0, //<! Input x value of first point
+        real_type const y0, //<! Input y value of first point
+        real_type const z0, //<! Input z value of first point
+        real_type const x1, //<! Input x value of second point
+        real_type const y1, //<! Input y value of second point
+        real_type const z1  //<! Input z value of second point
     )
     {
-      this->_point[0] = vector(x0, y0, z0);
-      this->_point[1] = vector(x1, y1, z1);
+      this->_point[0] = vec3(x0, y0, z0);
+      this->_point[1] = vec3(x1, y1, z1);
     }
 
     //! Class constructor
     segment(
-        const vector &point0, //!< Input object
-        const vector &point1  //!< Input object
+        vec3 const &point0, //!< Input object
+        vec3 const &point1  //!< Input object
     )
     {
       this->_point[0] = point0;
@@ -82,7 +85,7 @@ namespace acme
 
     //! Equality operator
     segment &operator=(
-        const segment &input //!< Input object
+        segment const &input //!< Input object
     )
     {
       if (this == &input)
@@ -99,7 +102,7 @@ namespace acme
 
     //! Check if rays are (almost) equal
     bool is_equal(
-        const segment &input //!< Input object
+        segment const &input //!< Input object
     )
         const
     {
@@ -115,30 +118,30 @@ namespace acme
     }
 
     //! Get first vector
-    const vector &point_0(void) const { return this->_point[0]; }
+    vec3 const &point_0(void) const { return this->_point[0]; }
 
     //! Set first vector
     void point_0(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_point[0] = input;
     }
 
     //! Get second vector
-    const vector &point_1(void) const { return this->_point[1]; }
+    vec3 const &point_1(void) const { return this->_point[1]; }
 
     //! Set second vector
     void point_1(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_point[1] = input;
     }
 
     //! Get i-th point
-    const vector &point(
-        const int_type &i //!< Intput i-th vertex
+    vec3 const &point(
+        int_type const &i //!< Intput i-th vertex
     ) const
     {
       return this->_point[i];
@@ -146,8 +149,8 @@ namespace acme
 
     //! Set i-th point
     void point(
-        const int_type &i,  //!< Intput i-th vertex
-        const vector &input //!< Input
+        int_type const &i, //!< Intput i-th vertex
+        vec3 const &input  //!< Input
     )
     {
       this->_point[i] = input;
@@ -155,8 +158,8 @@ namespace acme
 
     //! Set points
     void points(
-        const vector &input0, //!< Input object 0
-        const vector &input1  //!< Input object 1
+        vec3 const &input0, //!< Input object 0
+        vec3 const &input1  //!< Input object 1
     )
     {
       this->_point[0] = input0;
@@ -164,14 +167,14 @@ namespace acme
     }
 
     //! Convert to vector
-    vector to_vector(void) const
+    vec3 to_vector(void) const
     {
-      return vector(this->_point[1] - this->_point[0]);
+      return vec3(this->_point[1] - this->_point[0]);
     }
 
     //! Translate by vector
     void translate(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_point[0] = input + this->_point[0];
@@ -180,7 +183,7 @@ namespace acme
 
     //! Rotate by matrix
     void rotate(
-        const matrix &input //!< Input
+        mat3 const &input //!< Input
     )
     {
       this->_point[0] = input * this->_point[0];
@@ -190,8 +193,8 @@ namespace acme
     //! Swap segment points
     void swap(void)
     {
-      vector tmp_point_0(this->_point[0]);
-      vector tmp_point_1(this->_point[1]);
+      vec3 tmp_point_0(this->_point[0]);
+      vec3 tmp_point_1(this->_point[1]);
       this->_point[0] = tmp_point_1;
       this->_point[1] = tmp_point_0;
     }
@@ -201,7 +204,20 @@ namespace acme
     {
       return (this->_point[0] - this->_point[1]).norm();
     }
-  };
+
+    // checks whether a point is within a segment
+    bool is_inside(
+        vec3 const &point //!< Input
+    )
+        const
+    {
+      real_type d0 = this->length();
+      real_type d1 = (this->_point - this->_point[0]).norm();
+      real_type d2 = (this->_point - this->_point[1]).norm();
+      return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
+    };
+
+  }; // class segment
 
 } // namespace acme
 

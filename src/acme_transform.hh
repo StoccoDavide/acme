@@ -1,7 +1,3 @@
-///
-/// file: acme_transform.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -21,6 +17,10 @@
 (*                                                                     *)
 (***********************************************************************)
 */
+
+///
+/// file: acme_transform.hh
+///
 
 #ifndef INCLUDE_ACME_TRANSFORM
 #define INCLUDE_ACME_TRANSFORM
@@ -42,20 +42,20 @@ namespace acme
   \*/
 
   //! Tranform VECTOR from frameA to frameB
-  vector transform_vector(
-      const vector &vector, //!< Input
-      const frame &frameA,  //!< Actual reference coordinate system
-      const frame &frameB   //!< Future reference coordinate system
+  vec3 transform_vector(
+      vec3 const &vector,  //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
   )
   {
     return frameB.rotation().transpose() * (frameA.rotation() * vector);
   }
 
   //! Tranform point from frameA to frameB
-  vector transform(
-      const vector &point, //!< Input
-      const frame &frameA, //!< Actual reference coordinate system
-      const frame &frameB  //!< Future reference coordinate system
+  vec3 transform(
+      vec3 const &point,   //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
   )
   {
     return frameB.rotation().transpose() * (frameA.rotation() * point + frameA.origin() - frameB.origin());
@@ -63,9 +63,9 @@ namespace acme
 
   //! Tranform ray from frameA to frameB
   ray transform(
-      const ray &input,    //!< Input
-      const frame &frameA, //!< Actual reference coordinate system
-      const frame &frameB  //!< Future reference coordinate system
+      ray const &input,    //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
   )
   {
     return ray(acme::transform(input.origin(), frameA, frameB),
@@ -74,9 +74,9 @@ namespace acme
 
   //! Tranform line from frameA to frameB
   line transform(
-      const line &input,   //!< Input
-      const frame &frameA, //!< Actual reference coordinate system
-      const frame &frameB  //!< Future reference coordinate system
+      line const &input,   //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
   )
   {
     return line(acme::transform(input.origin(), frameA, frameB),
@@ -85,9 +85,9 @@ namespace acme
 
   //! Tranform plane from frameA to frameB
   plane transform(
-      const plane &input,  //!< Input
-      const frame &frameA, //!< Actual reference coordinate system
-      const frame &frameB  //!< Future reference coordinate system
+      plane const &input,  //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
   )
   {
     return plane(acme::transform(input.origin(), frameA, frameB),
@@ -96,9 +96,9 @@ namespace acme
 
   //! Tranform segment from frameA to frameB
   segment transform(
-      const segment &input, //!< Input
-      const frame &frameA,  //!< Actual reference coordinate system
-      const frame &frameB   //!< Future reference coordinate system
+      segment const &input, //!< Input
+      frame const &frameA,  //!< Actual reference coordinate system
+      frame const &frameB   //!< Future reference coordinate system
   )
   {
     return segment(acme::transform(input.point_0(), frameA, frameB),
@@ -107,9 +107,9 @@ namespace acme
 
   //! Tranform box from frameA to frameB
   box transform(
-      const box &input,    //!< Input
-      const frame &frameA, //!< Actual reference coordinate system
-      const frame &frameB  //!< Future reference coordinate system
+      box const &input,    //!< Input
+      frame const &frameA, //!< Actual reference coordinate system
+      frame const &frameB  //!< Future reference coordinate system
   )
   {
     return box(acme::transform(input.point_min(), frameA, frameB),
@@ -118,9 +118,9 @@ namespace acme
 
   //! Tranform triangle from frameA to frameB
   triangle transform(
-      const triangle &input, //!< Input
-      const frame &frameA,      //!< Actual reference coordinate system
-      const frame &frameB       //!< Future reference coordinate system
+      triangle const &input, //!< Input
+      frame const &frameA,   //!< Actual reference coordinate system
+      frame const &frameB    //!< Future reference coordinate system
   )
   {
     return triangle(acme::transform(input.vertex_0(), frameA, frameB),

@@ -1,7 +1,3 @@
-///
-/// file: acme_circle.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -22,6 +18,10 @@
 (***********************************************************************)
 */
 
+///
+/// file: acme_circle.hh
+///
+
 #ifndef INCLUDE_ACME_CIRCLE
 #define INCLUDE_ACME_CIRCLE
 
@@ -41,6 +41,9 @@ namespace acme
   \*/
 
   //! Circle class container
+  /*!
+  Circle in 3D space and defined by a radius and a plane (circle center + normal vector).
+  */
   class circle
   {
     real_type _radius; //!< Circle radius
@@ -54,28 +57,28 @@ namespace acme
     circle() {}
 
     //! Copy constructor
-    circle(const circle &) = default;
+    circle(circle const &) = default;
 
     //! Class constructor
     circle(
-        const real_type radius, //!< Input
-        const plane &plane      //!< Input
+        real_type const radius, //!< Input
+        plane const &plane      //!< Input
         ) : _radius(radius), _plane(plane)
     {
     }
 
     //! Class constructor
     circle(
-        const real_type radius, //!< Input
-        const vector &center,   //!< Input
-        const vector &normal    //!< Input
+        real_type const radius, //!< Input
+        vec3 const &center,     //!< Input
+        vec3 const &normal      //!< Input
         ) : _radius(radius), _plane(center, normal)
     {
     }
 
     //! Equality operator
     circle &operator=(
-        const circle &input //!< Input object
+        circle const &input //!< Input object
     )
     {
       if (this == &input)
@@ -92,7 +95,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const circle &input //!< Input object
+        circle const &input //!< Input object
     )
         const
     {
@@ -115,20 +118,20 @@ namespace acme
     }
 
     //! Get center point
-    const vector &center() const
+    vec3 const &center() const
     {
       return this->_plane.origin();
     }
 
     //! Get normal vector
-    const vector &normal() const
+    vec3 const &normal() const
     {
       return this->_plane.normal();
     }
 
     //! Set center point
     void radius(
-        const real_type input //!< Input
+        real_type const input //!< Input
     )
     {
       this->_radius = input;
@@ -136,7 +139,7 @@ namespace acme
 
     //! Set center point
     void center(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_plane.origin(input);
@@ -144,7 +147,7 @@ namespace acme
 
     //! Set normal vector
     void normal(
-        const vector &input //!< Input object
+        vec3 const &input //!< Input object
     )
     {
       this->_plane.normal(input);
@@ -152,7 +155,7 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_plane.translate(input);
@@ -160,7 +163,7 @@ namespace acme
 
     //! Rotate by matrix
     void rotate(
-        const matrix &input //!< Input
+        mat3 const &input //!< Input
     )
     {
       this->_plane.rotate(input);
@@ -174,7 +177,8 @@ namespace acme
     {
       return circle(this->_radius, this->_plane.reversed());
     }
-  };
+
+  }; // class circle
 
 } // namespace acme
 

@@ -1,7 +1,3 @@
-///
-/// file: acme_plane.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -21,6 +17,10 @@
 (*                                                                     *)
 (***********************************************************************)
 */
+
+///
+/// file: acme_plane.hh
+///
 
 #ifndef INCLUDE_ACME_PLANE
 #define INCLUDE_ACME_PLANE
@@ -42,13 +42,13 @@ namespace acme
 
   //! Plane class container
   /*!
-  3D plane defined by arbitrary vector on the plane and a normal vector.
+  3D plane defined by the normal vector to plane and an arbitraty point laying on the plane.
   */
   class plane
   {
   private:
-    vector _origin; //!< Origin vector
-    vector _normal; //!< Normal vector
+    vec3 _origin; //!< Origin vector
+    vec3 _normal; //!< Normal vector
 
   public:
     //! Class destructor
@@ -58,31 +58,31 @@ namespace acme
     plane() {}
 
     //! Copy constructor
-    plane(const plane &) = default;
+    plane(plane const &) = default;
 
     //! Class constructor for plane
     plane(
-        const real_type ox, //<! Input x origin value
-        const real_type oy, //<! Input y origin value
-        const real_type oz, //<! Input z origin value
-        const real_type dx, //<! Input x normal value
-        const real_type dy, //<! Input y normal value
-        const real_type dz  //<! Input z normal value
-        ) : _origin(vector(ox, oy, oz)), _normal(vector(dx, dy, dz))
+        real_type const ox, //<! Input x origin value
+        real_type const oy, //<! Input y origin value
+        real_type const oz, //<! Input z origin value
+        real_type const dx, //<! Input x normal value
+        real_type const dy, //<! Input y normal value
+        real_type const dz  //<! Input z normal value
+        ) : _origin(vec3(ox, oy, oz)), _normal(vec3(dx, dy, dz))
     {
     }
 
     //! Class constructor
     plane(
-        const vector &origin, //!< Input origin
-        const vector &normal  //!< Input normal
+        vec3 const &origin, //!< Input origin
+        vec3 const &normal  //!< Input normal
         ) : _origin(origin), _normal(normal)
     {
     }
 
     //! Equality operator
     plane &operator=(
-        const plane &input //!< Input object
+        plane const &input //!< Input object
     )
     {
       if (this == &input)
@@ -99,7 +99,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const plane &input //!< Input object
+        plane const &input //!< Input object
     )
         const
     {
@@ -115,20 +115,20 @@ namespace acme
     }
 
     //! Return origin
-    const vector &origin() const
+    vec3 const &origin() const
     {
       return this->_origin;
     }
 
     //! Return normal
-    const vector &normal() const
+    vec3 const &normal() const
     {
       return this->_normal;
     }
 
     //! Set origin
     void origin(
-        const vector &input //!< input vector object
+        vec3 const &input //!< input vec3 object
     )
     {
       this->_origin = input;
@@ -136,7 +136,7 @@ namespace acme
 
     //! Set normal
     void normal(
-        const vector &input //!< input vector object
+        vec3 const &input //!< input vec3 object
     )
     {
       this->_normal = input;
@@ -144,7 +144,7 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_origin = input + this->_origin;
@@ -152,7 +152,7 @@ namespace acme
 
     //! Rotate by matrix
     void rotate(
-        const matrix &input //!< Input
+        mat3 const &input //!< Input
     )
     {
       this->_origin = input * this->_origin;
@@ -173,13 +173,14 @@ namespace acme
 
     //! Distance between point and plane
     real_type distance(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
         const
     {
       return (input - this->_origin).dot(this->_normal);
     }
-  };
+
+  }; // class plane
 
 } // namespace acme
 

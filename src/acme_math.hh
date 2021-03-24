@@ -1,7 +1,3 @@
-///
-/// file: acme_math.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -21,6 +17,10 @@
 (*                                                                     *)
 (***********************************************************************)
 */
+
+///
+/// file: acme_math.hh
+///
 
 #ifndef INCLUDE_ACME_MATH
 #define INCLUDE_ACME_MATH
@@ -68,48 +68,48 @@ namespace acme
 
   //! Square
   real_type sqr(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Cubic
   real_type cub(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Square root
   real_type sqrt(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Absolute value
-  real_type abs(const real_type input //!< Input
+  real_type abs(real_type const input //!< Input
   );
 
   //! Maximum between inputs
   real_type max(
-      const real_type input0, //!< Input 0
-      const real_type input1  //!< Input 1
+      real_type const input0, //!< Input 0
+      real_type const input1  //!< Input 1
   );
 
   //! Minimum between inputs
   real_type min(
-      const real_type input0, //!< Input 0
-      const real_type input1  //!< Input 1
+      real_type const input0, //!< Input 0
+      real_type const input1  //!< Input 1
 
   );
 
   //! Maximum between three inputs
   real_type max(
-      const real_type input0, //!< Input 0
-      const real_type input1, //!< Input 1
-      const real_type input2  //!< Input 2
+      real_type const input0, //!< Input 0
+      real_type const input1, //!< Input 1
+      real_type const input2  //!< Input 2
   );
 
   //! Minimum between three inputs
   real_type min(
-      const real_type input0, //!< Input 0
-      const real_type input1, //!< Input 1
-      const real_type input2  //!< Input 2
+      real_type const input0, //!< Input 0
+      real_type const input1, //!< Input 1
+      real_type const input2  //!< Input 2
   );
 
   /*\
@@ -123,124 +123,124 @@ namespace acme
 
   //! Sine function [rad]
   real_type sin(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Cosine function [rad]
   real_type cos(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Tangent function [rad]
-  real_type tan(const real_type input //!< Input
+  real_type tan(real_type const input //!< Input
   );
 
   //! Arcsine function [rad]
   real_type asin(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Arccosine function [rad]
   real_type acos(
-      const real_type input //!< Input
+      real_type const input //!< Input
   );
 
   //! Arctangent function [rad]
   real_type atan(
-      const real_type input //!< void
+      real_type const input //!< void
   );
 
   //! Arctangent function [rad]
   real_type atan2(
-      const real_type input0, //!< Input 0
-      const real_type input1  //!< Input 1
+      real_type const input0, //!< Input 0
+      real_type const input1  //!< Input 1
   );
 
   //! Returns the input input bounded between low and high inputs
   real_type clamp(
-      const real_type input, //!< Input
-      const real_type low,   //!< Low-end bound
-      const real_type high   //!< High-end bound
+      real_type const input, //!< Input
+      real_type const low,   //!< Low-end bound
+      real_type const high   //!< High-end bound
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      const real_type input0,                  //!< Input 0
-      const real_type input1,                  //!< Input 1
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      real_type const input0,                  //!< Input 0
+      real_type const input1,                  //!< Input 1
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      const vector &input0,                     //!< Input 0
-      const vector &input1,                     //!< Input 1
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,                     //!< Input 0
+      vec3 const &input1,                     //!< Input 1
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      const matrix &input0,                     //!< Input 0
-      const matrix &input1,                     //!< Input 1
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      mat3 const &input0,                     //!< Input 0
+      mat3 const &input1,                     //!< Input 1
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
-  //! Check if vector is degenerated
+  //! Check if vec3 is degenerated
   bool is_degenerated(
-      const vector &input,                      //!< Input
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input,                      //!< Input
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
-  //! Check if vector is normalized
+  //! Check if vec3 is normalized
   bool is_normalized(
-      const vector &input,                      //!< Input
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input,                      //!< Input
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are ortogonal
   bool is_ortogonal(
-      const vector &input0,                     //!< Input 0
-      const vector &input1,                     //!< Input 1
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,                     //!< Input 0
+      vec3 const &input1,                     //!< Input 1
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool is_parallel(
-      const vector &input0,                     //!< Input 0
-      const vector &input1,                     //!< Input 1
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,                     //!< Input 0
+      vec3 const &input1,                     //!< Input 1
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
-  //! Check if rotation matrix is othonormal
+  //! Check if rotation mat3 is othonormal
   bool is_ortonormal(
-      const matrix &input,                      //!< Input
-      const real_type tolerance = Epsilon_High //!< Tolerance
+      mat3 const &input,                      //!< Input
+      real_type const tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Returns rotation on x-axis
-  matrix rotate_x(
-      const real_type input //!< Input angle [rad]
+  mat3 rotate_x(
+      real_type const input //!< Input angle [rad]
   );
 
   //! Returns rotation on y-axis
-  matrix rotate_y(
-      const real_type input //!< Input angle [rad]
+  mat3 rotate_y(
+      real_type const input //!< Input angle [rad]
   );
 
   //! Returns rotation on z-axis
-  matrix rotate_z(
-      const real_type input //!< Input angle [rad]
+  mat3 rotate_z(
+      real_type const input //!< Input angle [rad]
   );
 
   //! Angle between objects [rad]
   real_type angle_rad(
-      const vector &input0, //!< Input 0
-      const vector &input1  //!< Input 1
+      vec3 const &input0, //!< Input 0
+      vec3 const &input1  //!< Input 1
   );
 
   //! Angle between objects [deg]
   real_type angle_deg(
-      const vector &input0, //!< Input 0
-      const vector &input1  //!< Input 1
+      vec3 const &input0, //!< Input 0
+      vec3 const &input1  //!< Input 1
   );
 
 } // namespace acme

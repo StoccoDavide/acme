@@ -1,7 +1,3 @@
-///
-/// file: acme_line.hh
-///
-
 /*
 (***********************************************************************)
 (*                                                                     *)
@@ -21,6 +17,10 @@
 (*                                                                     *)
 (***********************************************************************)
 */
+
+///
+/// file: acme_line.hh
+///
 
 #ifndef INCLUDE_ACME_LINE
 #define INCLUDE_ACME_LINE
@@ -48,8 +48,8 @@ namespace acme
   class line
   {
   private:
-    vector _origin;    //!< Origin (point)
-    vector _direction; //!< Direction (vector)
+    vec3 _origin;    //!< Origin (point)
+    vec3 _direction; //!< Direction (vector)
 
   public:
     //! Class destructor
@@ -59,31 +59,31 @@ namespace acme
     line() {}
 
     //! Copy constructor
-    line(const line &) = default;
+    line(line const &) = default;
 
     //! Class constructor for line
     line(
-        const real_type ox, //<! Input x origin value
-        const real_type oy, //<! Input y origin value
-        const real_type oz, //<! Input z origin value
-        const real_type dx, //<! Input x direction value
-        const real_type dy, //<! Input y direction value
-        const real_type dz  //<! Input z direction value
-        ) : _origin(vector(ox, oy, oz)), _direction(vector(dx, dy, dz))
+        real_type const ox, //<! Input x origin value
+        real_type const oy, //<! Input y origin value
+        real_type const oz, //<! Input z origin value
+        real_type const dx, //<! Input x direction value
+        real_type const dy, //<! Input y direction value
+        real_type const dz  //<! Input z direction value
+        ) : _origin(vec3(ox, oy, oz)), _direction(vec3(dx, dy, dz))
     {
     }
 
     //! Class constructor
     line(
-        const vector &origin,   //!< Input origin
-        const vector &direction //!< Input direction
+        vec3 const &origin,   //!< Input origin
+        vec3 const &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
     {
     }
 
     //! Equality operator
     line &operator=(
-        const line &input //!< Input object
+        line const &input //!< Input object
     )
     {
       if (this == &input)
@@ -100,7 +100,7 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        const line &input //!< Input object
+        line const &input //!< Input object
     )
         const
     {
@@ -116,20 +116,20 @@ namespace acme
     }
 
     //! Return origin
-    const vector &origin() const
+    vec3 const &origin() const
     {
       return this->_origin;
     }
 
     //! Return direction
-    const vector &direction() const
+    vec3 const &direction() const
     {
       return this->_direction;
     }
 
     //! Set origin
     void origin(
-        const vector &input //!< input vector object
+        vec3 const &input //!< input vec3 object
     )
     {
       this->_origin = input;
@@ -137,7 +137,7 @@ namespace acme
 
     //! Set direction
     void direction(
-        const vector &input //!< input vector object
+        vec3 const &input //!< input vec3 object
     )
     {
       this->_direction = input;
@@ -145,7 +145,7 @@ namespace acme
 
     //! Translate by vector
     void translate(
-        const vector &input //!< Input
+        vec3 const &input //!< Input
     )
     {
       this->_origin = input + this->_origin;
@@ -153,7 +153,7 @@ namespace acme
 
     //! Rotate by matrix
     void rotate(
-        const matrix &input //!< Input
+        mat3 const &input //!< Input
     )
     {
       this->_origin = input * this->_origin;
@@ -169,7 +169,7 @@ namespace acme
       return line(this->_origin, -this->_direction);
     }
 
-  };
+  }; // class line
 
 } // namespace acme
 
