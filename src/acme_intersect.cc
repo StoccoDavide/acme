@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -37,6 +35,89 @@ namespace acme
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      line const &line0,
+      line const &line1,
+      vec3 &point)
+  {
+    vec3 p(line0.origin());
+    vec3 v(line0.direction());
+    vec3 q(line1.origin());
+    vec3 u(line1.direction());
+    // find a = v x u
+    vec3 a(v.cross(u));
+    // find dot product = (v x u).(v x u)
+    real_type dot = a.dot(a);
+    // if v and u are parallel (v x u = 0), then no intersection
+    ACME_ASSERT(acme::is_equal(dot, 0.0),
+                "acme::intersect(line|ray|segment, line|ray|segment -> point): Parallel ojects.");
+    // find b = (Q1-P1) x u
+    vec3 b((q - p).cross(u));
+    // find t = (b.a)/(a.a) = ((Q1-P1) x u).(v x u) / (v x u).(v x u)
+    real_type t = b.dot(a) / dot;
+    // find intersection point
+    point = p + (t * v);
+    return true;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      ray const &ray0,
+      ray const &ray1,
+      vec3 &point)
+  {
+    if (acme::intersect(line(ray0.origin(), ray0.direction()),
+                        line(ray1.origin(), ray1.direction()),
+                        point))
+      return ray0.is_inside(point) && ray1.is_inside(point);
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      segment const &segment0,
+      segment const &segment1,
+      vec3 &point)
+  {
+    if (acme::intersect(line(segment0.point_0(), segment0.to_normalized_vector()),
+                        line(segment1.point_0(), segment1.to_normalized_vector()),
+                        point))
+      return (segment0.is_inside(point) && segment1.is_inside(point));
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      box const &box0,
+      box const &box1,
+      box &box)
+  {
+    if (!(box0.collision(box1)))
+      return false;
+
+    for (int i = 0; i < 3; i++)
+    {
+      if (box0.max(i) <= box1.max(i))
+        box.max(i, box0.max(i));
+      else
+        box.max(i, box1.max(i));
+
+      if (box0.min(i) <= box1.min(i))
+        box.min(i, box1.min(i));
+      else
+        box.min(i, box0.min(i));
+    }
+    return true;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool intersect(
       plane const &plane0,
       plane const &plane1,
@@ -65,6 +146,7 @@ namespace acme
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool intersect(
       plane const &plane0,
       plane const &plane1,
@@ -269,14 +351,258 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  /*/! Intersect ray with plane
   bool intersect(
-      circle const &circle, //!< Input circle
-      plane const &plane,   //!< Input plane
-      segment &segment      //!< Input plane
-  )
+      line const &line,
+      circle const &circle,
+      vec3 &point)
   {
-  }*/
+    if (acme::intersect(line, circle.laying_plane(), point))
+    {
+      if ((circle.center() - point).norm() <= circle.radius())
+        return true;
+      else
+        return false;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      ray const &ray,
+      circle const &circle,
+      vec3 &point)
+  {
+    if (acme::intersect(line(ray.origin(), ray.direction()), circle.laying_plane(), point))
+      return ray.is_inside(point);
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      circle const &circle,
+      segment const &segment,
+      vec3 &point)
+  {
+    if (acme::intersect(line(segment.point_0(), segment.to_normalized_vector()), circle.laying_plane(), point))
+      return segment.is_inside(point);
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      segment const &segment0,
+      segment const &segment1,
+      segment &segment)
+  {
+    //
+    //   p0       p1   p0       p1
+    //   o---s0---o    o---s1---o
+    //
+    vec3 s0_p0(segment0.point_0());
+    vec3 s0_p1(segment0.point_1());
+    vec3 s1_p0(segment1.point_0());
+    vec3 s1_p1(segment1.point_1());
+    bool s1_p0_in_s0 = segment0.is_inside(s0_p0);
+    bool s1_p1_in_s0 = segment0.is_inside(s0_p1);
+    bool s0_p0_in_s1 = segment1.is_inside(s1_p0);
+    bool s0_p1_in_s1 = segment1.is_inside(s1_p1);
+
+    //                    Segments coincides
+    // | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
+    // |      1      |      1      |      1      |      1      |
+    if (s0_p0_in_s1 && s0_p1_in_s1 && s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s0_p0, s0_p1);
+      return true;
+    }
+    //                       An extrema coincides
+    //     | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
+    //     |      0      |      1      |      1      |      1      |
+    //     |      1      |      0      |      1      |      1      |
+    //     |      1      |      1      |      0      |      1      |
+    //     |      1      |      1      |      1      |      0      |
+    else if (!s0_p0_in_s1 && s0_p1_in_s1 && s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s1_p0, s1_p1);
+      return true;
+    }
+    else if (s0_p0_in_s1 && !s0_p1_in_s1 && s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s1_p0, s1_p1);
+      return true;
+    }
+    else if (s0_p0_in_s1 && s0_p1_in_s1 && !s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s0_p0, s0_p1);
+      return true;
+    }
+    else if (s0_p0_in_s1 && s0_p1_in_s1 && s1_p0_in_s0 && !s1_p1_in_s0)
+    {
+      segment.points(s0_p0, s0_p1);
+      return true;
+    }
+    //                      Partial overlap
+    // | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
+    // |      0      |      1      |      0      |      1      |
+    // |      0      |      1      |      1      |      0      |
+    // |      1      |      0      |      0      |      1      |
+    // |      1      |      0      |      1      |      0      |
+    else if (!s0_p0_in_s1 && s0_p1_in_s1 && !s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s0_p1, s1_p1);
+      return true;
+    }
+    else if (!s0_p0_in_s1 && s0_p1_in_s1 && s1_p0_in_s0 && !s1_p1_in_s0)
+    {
+      segment.points(s0_p1, s1_p0);
+      return true;
+    }
+    else if (s0_p0_in_s1 && !s0_p1_in_s1 && !s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s0_p0, s1_p1);
+      return true;
+    }
+    else if (s0_p0_in_s1 && !s0_p1_in_s1 && s1_p0_in_s0 && !s1_p1_in_s0)
+    {
+      segment.points(s0_p0, s1_p0);
+      return true;
+    }
+    //                 One segment is inside
+    // | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
+    // |      1      |      1      |      0      |      0      |
+    // |      0      |      0      |      1      |      1      |
+    else if (s0_p0_in_s1 && s0_p1_in_s1 && !s1_p0_in_s0 && !s1_p1_in_s0)
+    {
+      segment.points(s0_p0, s0_p1);
+      return true;
+    }
+    else if (!s0_p0_in_s1 && !s0_p1_in_s1 && s1_p0_in_s0 && s1_p1_in_s0)
+    {
+      segment.points(s1_p0, s1_p1);
+      return true;
+    }
+    //                   No intersection case
+    // | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
+    // |      0      |      0      |      0      |      0      |
+    else if (!s0_p0_in_s1 && !s0_p1_in_s1 && !s1_p0_in_s0 && !s1_p1_in_s0)
+    {
+      return false;
+    }
+    //                  Exception not handled
+    // | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
+    // |      0      |      0      |      0      |      1      |
+    // |      0      |      0      |      1      |      0      |
+    // |      0      |      1      |      0      |      0      |
+    // |      1      |      0      |      0      |      0      |
+    else
+    {
+      ACME_ERROR("acme::intersect(segment, segment -> segment): Cannot handle exception.")
+      return false;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      circle const &circle,
+      line const &line,
+      segment &segment)
+  {
+    // Locate one or two points that are on the circle and line.
+    // If the line is t*D+P, the circle center is C, and the circle radius is r, then
+    // r^2 = |t*D+P-C|^2 = |D|^2*t^2 + 2*Dot(D,P-C)*t + |P-C|^2
+    // This is a quadratic equation of the form
+    // a2*t^2 + 2*a1*t + a0 = 0.
+    real_type circle_radius = circle.radius();
+    vec3 circle_center(circle.center());
+    vec3 line_origin(line.origin());
+    vec3 line_direction(line.direction());
+    vec3 diff(line_origin - circle_center);
+
+    real_type a2 = line_direction.dot(line_direction);
+    real_type a1 = diff.dot(line_direction);
+    real_type a0 = diff.dot(diff) - circle_radius * circle_radius;
+
+    real_type discr = a1 * a1 - a0 * a2;
+    // No real roots, the circle does not intersect the plane
+    if (discr < 0.0)
+      return false;
+
+    real_type inv = 1 / a2;
+    // One repeated root, the circle just touches the plane
+    if (discr == 0.0)
+    {
+      vec3 int_point(line_origin - (a1 * inv) * line_direction);
+      segment.points(int_point, int_point);
+      return true;
+    }
+
+    // Two distinct, real-valued roots, the circle intersects the plane in two points
+    real_type root = std::sqrt(discr);
+    segment.point_0(line_origin - ((a1 + root) * inv) * line_direction);
+    segment.point_1(line_origin - ((a1 - root) * inv) * line_direction);
+    return true;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      circle const &circle,
+      plane const &plane,
+      segment &segment)
+  {
+    // Compute the intersection of circle plane with the input plane
+    line int_line;
+    ACME_ASSERT(acme::intersect(circle.laying_plane(), plane, int_line),
+                "acme::intersect(circle, plane -> segment)\nParallel or coplanar planes.");
+    // Compute the intersection of resulting line with the circle
+    return acme::intersect(circle, int_line, segment);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      circle const &circle,
+      segment const &segment_in,
+      segment &segment_out)
+  {
+    // Transform segment to line
+    line tmp_line(segment_in.point_0(), segment_in.to_normalized_vector());
+    // Compute the intersection of resulting line with the circle
+    segment tmp_segment;
+    if (acme::intersect(circle, tmp_line, tmp_segment))
+    {
+      return acme::intersect(segment_in, tmp_segment, segment_out);
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersect(
+      circle const &circle,
+      triangle const &triangle,
+      segment &segment_out)
+  {
+    segment tmp_segment;
+    if (acme::intersect(triangle, circle.laying_plane(), tmp_segment))
+      return acme::intersect(circle, tmp_segment, segment_out);
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
 

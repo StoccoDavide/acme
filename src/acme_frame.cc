@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -143,7 +141,7 @@ namespace acme
   void frame::rotate_x(
       real_type const input)
   {
-    this->_rotation * acme::rotation_x(input);
+    this->_rotation *acme::rotation_x(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -151,7 +149,7 @@ namespace acme
   void frame::rotate_y(
       real_type const input)
   {
-    this->_rotation * acme::rotation_y(input);
+    this->_rotation *acme::rotation_y(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -159,7 +157,7 @@ namespace acme
   void frame::rotate_z(
       real_type const input)
   {
-    this->_rotation * acme::rotation_y(input);
+    this->_rotation *acme::rotation_y(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

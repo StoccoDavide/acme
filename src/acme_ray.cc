@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -127,6 +125,16 @@ namespace acme
   ray ray::reversed(void) const
   {
     return ray(this->_origin, -this->_direction);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool ray::is_inside(
+      vec3 const &point)
+      const
+  {
+    return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon &&
+           (point - this->_origin).dot(this->_direction) > 0.0;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

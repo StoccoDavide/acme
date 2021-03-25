@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -186,17 +184,11 @@ namespace acme
       real_type const high)
   {
     if (input < low)
-    {
       return low;
-    }
     else if (input > high)
-    {
       return high;
-    }
     else
-    {
       return input;
-    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -206,14 +198,7 @@ namespace acme
       real_type const input1,
       real_type const tolerance)
   {
-    if (abs(input0 - input1) < tolerance)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    return abs(input0 - input1) < tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

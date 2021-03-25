@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -197,6 +195,9 @@ namespace acme
     ) const;
 
   }; // class triangle
+
+  static triangle const NaN_triangle = triangle(acme::NaN_vec3, acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number triangle type
+  static triangle triangle_goat = triangle(NaN_triangle);                                        //!< Scapegoat triangle type (throwaway non-const object)
 
 } // namespace acme
 

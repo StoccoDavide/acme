@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -32,6 +30,7 @@
 #include "acme_line.hh"
 #include "acme_triangle.hh"
 #include "acme_circle.hh"
+#include "acme_box.hh"
 
 namespace acme
 {
@@ -45,64 +44,158 @@ namespace acme
    |                                            
   \*/
 
-  //! Intersect between three planes
+  //! Intersect between two lines \n
+  //! ATTENTION: This function does not support parallel objects!
   bool intersect(
-      plane const &plane0, //!< Input plane 0
-      plane const &plane1, //!< Input plane 1
-      plane const &plane2, //!< Input plane 1
-      vec3 &point          //!< Output point
+      line const &line0,      //!< Input line 0
+      line const &line1,      //!< Input line 1
+      vec3 &point = vec3_goat //!< Output point
   );
 
-  //! Intersect between two planes
+  //! Intersect between two rays \n
+  //! ATTENTION: This function does not support parallel objects!
   bool intersect(
-      plane const &plane0, //!< Input plane 0
-      plane const &plane1, //!< Input plane 1
-      line &line           //!< Output line
+      ray const &ray0,        //!< Input ray 0
+      ray const &ray1,        //!< Input ray 1
+      vec3 &point = vec3_goat //!< Output point
+  );
+  
+  //! Intersect between two segments \n
+  //! ATTENTION: This function does not support parallel objects!
+  bool
+  intersect(
+      segment const &segment0, //!< Input segment 0
+      segment const &segment1, //!< Input segment 1
+      vec3 &point = vec3_goat  //!< Output point
   );
 
-  //! Intersect ray with plane
+  //! Intersect between three planes \n
   bool intersect(
-      ray const &ray,     //!< Input ray
-      plane const &plane, //!< Input plane
-      vec3 &point         //!< Output point
+      box const &box0,    //!< Input box 0
+      box const &box1,    //!< Input box 1
+      box &box = box_goat //!< Output box
   );
 
-  //! Intersect line with plane
+  //! Intersect between three planes \n
+  //! ATTENTION: This function does not support coplanarity!
   bool intersect(
-      line const &line,   //!< Input line
-      plane const &plane, //!< Input plane
-      vec3 &point         //!< Output point
+      plane const &plane0,    //!< Input plane 0
+      plane const &plane1,    //!< Input plane 1
+      plane const &plane2,    //!< Input plane 1
+      vec3 &point = vec3_goat //!< Output point
   );
 
-  //! Intersect triangle with ray (no precalculated normal)
+  //! Intersect between two planes \n
+  //! ATTENTION: This function does not support coplanarity!
+  bool intersect(
+      plane const &plane0,   //!< Input plane 0
+      plane const &plane1,   //!< Input plane 1
+      line &line = line_goat //!< Output line
+  );
+
+  //! Intersect ray with plane \n
+  //! ATTENTION: This function does not support coplanarity!
+  bool intersect(
+      ray const &ray,         //!< Input ray
+      plane const &plane,     //!< Input plane
+      vec3 &point = vec3_goat //!< Output point
+  );
+
+  //! Intersect line with plane \n
+  //! ATTENTION: This function does not support coplanarity!
+  bool intersect(
+      line const &line,       //!< Input line
+      plane const &plane,     //!< Input plane
+      vec3 &point = vec3_goat //!< Output point
+  );
+
+  //! Intersect triangle with ray (no precalculated normal) \n
+  //! ATTENTION: This function does not support coplanarity!
   bool intersect(
       triangle const &triangle, //!< Input triangle
       ray const &ray,           //!< Input plane
-      vec3 &point               //!< Output point
+      vec3 &point = vec3_goat   //!< Output point
   );
 
-  //! Intersect triangle with line (no precalculated normal)
+  //! Intersect triangle with line (no precalculated normal) \n
+  //! ATTENTION: This function does not support coplanarity!
   bool intersect(
       triangle const &triangle, //!< Input triangle
       line const &line,         //!< Input plane
-      vec3 &point               //!< Output point
+      vec3 &point = vec3_goat   //!< Output point
   );
 
-  //! Intersect triangle with plane
+  //! Intersect triangle with plane \n
+  //! ATTENTION: This function does not support coplanarity!
   bool intersect(
-      triangle const &triangle, //!< Input triangle
-      plane const &plane,       //!< Input plane
-      segment &segment          //!< Input plane
+      triangle const &triangle,       //!< Input triangle
+      plane const &plane,             //!< Input plane
+      segment &segment = segment_goat //!< Ouput plane
   );
 
-  /*/! Intersect ray with plane
+  //! Intersect line and circle \n
+  //! ATTENTION: This function does not support coplanarity!
   bool intersect(
-      circle const &circle, //!< Input circle
-      plane const &plane,   //!< Input plane
-      segment &segment      //!< Input plane
-  )
-  {
-  }*/
+      line const &line,       //!< Input line
+      circle const &circle,   //!< Input circle
+      vec3 &point = vec3_goat //!< Ouput point
+  );
+
+  //! Intersect ray with circle \n
+  //! ATTENTION: This function does not support coplanarity!
+  bool intersect(
+      ray const &ray,         //!< Input ray
+      circle const &circle,   //!< Input circle
+      vec3 &point = vec3_goat //!< Ouput point
+  );
+
+  //! Intersect circle with plane \n
+  //! ATTENTION: This function does not support coplanarity!
+  bool intersect(
+      circle const &circle,   //!< Input circle
+      segment const &segment, //!< Input segment
+      vec3 &point = vec3_goat //!< Ouput point
+  );
+
+  //! Intersection between two segments \n
+  //! ATTENTION: This function does not support coplanarity!
+  bool intersect(
+      segment const &segment0,        //!< Input segment 0
+      segment const &segment1,        //!< Input segment 1
+      segment &segment = segment_goat //!< Output segment
+  );
+
+  //! Intersect circle with line \n
+  //! ATTENTION: This function only support coplanar objects!
+  bool intersect(
+      circle const &circle,           //!< Input circle
+      line const &line,               //!< Input line
+      segment &segment = segment_goat //!< Ouput segment
+  );
+
+  //! Intersect circle with plane \n
+  //! ATTENTION: This function only support coplanar objects!
+  bool intersect(
+      circle const &circle,           //!< Input circle
+      plane const &plane,             //!< Input plane
+      segment &segment = segment_goat //!< Ouput segment
+  );
+
+  //! Intersect circle with plane \n
+  //! ATTENTION: This function only support coplanar objects!
+  bool intersect(
+      circle const &circle,               //!< Input circle
+      segment const &segment_in,          //!< Input segment
+      segment &segment_out = segment_goat //!< Ouput segment
+  );
+
+  //! Intersect circle with triangle \n
+  //! ATTENTION: This function only support coplanar objects!
+  bool intersect(
+      circle const &circle,           //!< Input circle
+      triangle const &triangle,       //!< Input triangle
+      segment &segment = segment_goat //!< Ouput segment
+  );
 
 } // namespace acme
 
@@ -111,3 +204,7 @@ namespace acme
 ///
 /// eof: acme_intersect.hh
 ///
+
+/*
+
+*/

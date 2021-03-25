@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -174,6 +172,9 @@ namespace acme
       frame const &frameA, //!< Actual reference coordinate system
       frame const &frameB  //!< Future reference coordinate system
   );
+
+  static frame const NaN_frame = frame(acme::NaN_vec3, acme::NaN_mat3); //!< Not-a-Number frame type
+  static frame frame_goat = frame(NaN_frame);                           //!< Scapegoat frame type (throwaway non-const object)
 
 } // namespace acme
 

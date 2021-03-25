@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -151,6 +149,13 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  vec3 segment::to_normalized_vector(void) const
+  {
+    return vec3((this->_point[1] - this->_point[0]).normalized());
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void segment::translate(
       vec3 const &input)
   {
@@ -195,6 +200,8 @@ namespace acme
     real_type d2 = (point - this->_point[1]).norm();
     return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
   }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
 

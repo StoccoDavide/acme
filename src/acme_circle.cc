@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -95,6 +93,13 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  plane const &circle::laying_plane() const
+  {
+    return this->_plane;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void circle::radius(
       real_type const input)
   {
@@ -115,6 +120,14 @@ namespace acme
       vec3 const &input)
   {
     this->_plane.normal(input);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void circle::laying_plane(
+      plane const &input)
+  {
+    this->_plane = input;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -142,6 +155,16 @@ namespace acme
   circle circle::reversed(void) const
   {
     return circle(this->_radius, this->_plane.reversed());
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool circle::is_inside(
+      vec3 const &point)
+      const
+  {
+
+    return this->_plane.is_inside(point) && (this->_plane.origin() - point).norm() <= this->_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

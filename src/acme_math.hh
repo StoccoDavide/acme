@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -24,23 +22,6 @@
 
 #ifndef INCLUDE_ACME_MATH
 #define INCLUDE_ACME_MATH
-
-// Print acme errors
-#ifndef ACME_ERROR
-#define ACME_ERROR(MSG)                  \
-  {                                      \
-    std::ostringstream ost;              \
-    ost << MSG;                          \
-    throw std::runtime_error(ost.str()); \
-  }
-#endif
-
-// Check for acme errors
-#ifndef ACME_ASSERT
-#define ACME_ASSERT(COND, MSG) \
-  if (!(COND))                 \
-  acme_ERROR(MSG)
-#endif
 
 #include <cmath>
 #include <limits>

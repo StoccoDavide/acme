@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -234,21 +232,23 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  AABBtree::print(ostream_type &stream, int_type level) const
+  AABBtree::print(ostream_type &os, int_type level) const
   {
     if (this->is_empty())
     {
-      stream << "[EMPTY AABB tree]\n";
+      os << "[EMPTY AABB tree]" << std::endl;
     }
     else
     {
-      /*fmt::print(stream,
-                 "BOX xmin={:<12.4)} ymin={:<12.4)} zmin={:<12.4)} xmax={:<12.4)} ymax={:<12.4)} zmax={:<12.4)} level={}\n",
-                 ptrbox->x_min(), ptrbox->y_min(), ptrbox->z_min(),
-                 ptrbox->x_max(), ptrbox->y_max(), ptrbox->z_max());*/
+      os << std::scientific
+         << std::showpoint
+         << std::setprecision(10)
+         << "BOX xmin={" << ptrbox->x_min() << "} ymin={" << ptrbox->y_min() << "} zmin={" << ptrbox->z_min() << "}"
+         << "    xmax={" << ptrbox->x_max() << "} ymax={" << ptrbox->x_max() << "} zmax={" << ptrbox->x_max() << "}"
+         << std::endl;
       std::vector<PtrAABB>::const_iterator it;
       for (it = children.begin(); it != children.end(); ++it)
-        (*it)->print(stream, level + 1);
+        (*it)->print(os, level + 1);
     }
   }
 

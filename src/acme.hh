@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -25,12 +23,31 @@
 #ifndef INCLUDE_ACME
 #define INCLUDE_ACME
 
+// Print acme errors
+#ifndef ACME_ERROR
+#define ACME_ERROR(MSG)                  \
+  {                                      \
+    std::ostringstream ost;              \
+    ost << MSG;                          \
+    throw std::runtime_error(ost.str()); \
+  }
+#endif
+
+// Check for acme errors
+#ifndef ACME_ASSERT
+#define ACME_ASSERT(COND, MSG) \
+  if (!(COND))                 \
+  ACME_ERROR(MSG)
+#endif
+
 #include <memory>
 #include <Eigen/Dense>
 #include <cstddef>
 #include <limits>
 #include <algorithm>
 #include <iterator>
+#include <iostream>
+#include <iomanip>
 #include <vector>
 #include <cassert>
 
@@ -102,6 +119,13 @@ namespace acme
   static mat4 const Zeros_mat4 = mat4::Constant(0.0); //!< Zeros mat4 type
   static vec4 const Ones_vec4 = vec4::Constant(1.0);  //!< Ones vec4 type
   static mat4 const Ones_mat4 = mat4::Constant(1.0);  //!< Ones mat4 type
+
+  static vec2 vec2_goat = vec2(NaN_vec2); //!< Scapegoat vec2 type (throwaway non-const object)
+  static vec3 vec3_goat = vec3(NaN_vec3); //!< Scapegoat vec3 type (throwaway non-const object)
+  static vec4 vec4_goat = vec4(NaN_vec4); //!< Scapegoat vec4 type (throwaway non-const object)
+  static mat2 mat2_goat = mat2(NaN_mat2); //!< Scapegoat mat2 type (throwaway non-const object)
+  static mat3 mat3_goat = mat3(NaN_mat3); //!< Scapegoat mat3 type (throwaway non-const object)
+  static mat4 mat4_goat = mat4(NaN_mat4); //!< Scapegoat mat4 type (throwaway non-const object)
 
 } // namespace acme
 

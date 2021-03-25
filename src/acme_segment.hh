@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -124,6 +122,9 @@ namespace acme
     //! Convert to vector
     vec3 to_vector(void) const;
 
+    //! Convert to normalized vector
+    vec3 to_normalized_vector(void) const;
+
     //! Translate by vector
     void translate(
         vec3 const &input //!< Input
@@ -140,12 +141,15 @@ namespace acme
     //! Calculate segment length
     real_type length(void) const;
 
-    // checks whether a point is within a segment
+    // Check whether the point is inside the segment
     bool is_inside(
         vec3 const &point //!< Input
     ) const;
 
   }; // class segment
+
+  static segment const NaN_segment = segment(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number segment type
+  static segment segment_goat = segment(NaN_segment);                         //!< Scapegoat segment type (throwaway non-const object)
 
 } // namespace acme
 

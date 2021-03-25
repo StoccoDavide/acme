@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -134,7 +132,15 @@ namespace acme
         vec3 const &input //!< Input
     ) const;
 
+    // checks whether a point lays on the plane
+    bool is_inside(
+        vec3 const &point //!< Input
+    ) const;
+
   }; // class plane
+
+  static plane const NaN_plane = plane(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number plane type
+  static plane const plane_goat = plane(NaN_plane);                     //!< Scapegoat plane type (throwaway non-const object)
 
 } // namespace acme
 

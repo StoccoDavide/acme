@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -79,12 +77,12 @@ namespace acme
 
     //! Equality operator
     circle &operator=(
-        circle const &input //!< Input object
+        circle const &input //!< Input
     );
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        circle const &input //!< Input object
+        circle const &input //!< Input
     ) const;
 
     //! Check if ray is degenerated
@@ -99,6 +97,9 @@ namespace acme
     //! Get normal vector
     vec3 const &normal() const;
 
+    //! Get plane
+    plane const &laying_plane() const;
+
     //! Set center point
     void radius(
         real_type const input //!< Input
@@ -106,12 +107,17 @@ namespace acme
 
     //! Set center point
     void center(
-        vec3 const &input //!< Input object
+        vec3 const &input //!< Input
     );
 
     //! Set normal vector
     void normal(
-        vec3 const &input //!< Input object
+        vec3 const &input //!< Input
+    );
+
+    //! Set plane
+    void laying_plane(
+        plane const &input //!< Input
     );
 
     //! Translate by vector
@@ -130,7 +136,15 @@ namespace acme
     //! Get reversed circle
     circle reversed(void) const;
 
+    // Check whether the point is inside the circle
+    bool is_inside(
+        vec3 const &point //!< Input
+    ) const;
+
   }; // class circle
+
+  static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!< Not-a-Number triangle type
+  static circle circle_goat = circle(NaN_circle);                      //!< Scapegoat circle type (throwaway non-const object)
 
 } // namespace acme
 

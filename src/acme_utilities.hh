@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -24,10 +22,6 @@
 
 #ifndef INCLUDE_ACME_UTILTIES
 #define INCLUDE_ACME_UTILTIES
-
-#include <iostream>
-#include <iomanip>
-#include <vector>
 
 #include "acme.hh"
 

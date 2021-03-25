@@ -2,9 +2,7 @@
 (***********************************************************************)
 (*                                                                     *)
 (* The acme computational geometry library                             *)
-(*                                                                     *)
 (* Release Version 0.0.0                                               *)
-(*                                                                     *)
 (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
 (*                                                                     *)
 (* The acme computational geometry library and its components are      *)
@@ -126,7 +124,15 @@ namespace acme
     //! Get reversed ray
     ray reversed(void) const;
 
+    // Check whether the point is inside the ray
+    bool is_inside(
+        vec3 const &point //!< Input
+    ) const;
+
   }; // class ray
+
+  static ray const NaN_ray = ray(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number ray type
+  static ray ray_goat = ray(NaN_ray);                           //!< Scapegoat ray type (throwaway non-const object)
 
 } // namespace acme
 
