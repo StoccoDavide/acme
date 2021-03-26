@@ -56,6 +56,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  segment::segment(
+      vec3 const point[2])
+  {
+    this->_point[0] = point[0];
+    this->_point[1] = point[1];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   segment &segment::operator=(
       segment const &input)
   {

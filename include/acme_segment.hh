@@ -74,6 +74,11 @@ namespace acme
         vec3 const &point1  //!< Input object
     );
 
+    //! Class constructor
+    segment(
+        vec3 const point[2] //!< Input points
+    );
+
     //! Equality operator
     segment &operator=(
         segment const &input //!< Input object

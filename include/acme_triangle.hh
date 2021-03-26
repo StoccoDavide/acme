@@ -76,9 +76,14 @@ namespace acme
 
     //! Class constructor
     triangle(
-        vec3 const &point0, //!< Input object
-        vec3 const &point1, //!< Input object
-        vec3 const &point2  //!< Input object
+        vec3 const &point0, //!< Input
+        vec3 const &point1, //!< Input
+        vec3 const &point2  //!< Input
+    );
+
+    //! Class constructor
+    triangle(
+        vec3 const point[3] //!< Input points
     );
 
     //! Equality operator

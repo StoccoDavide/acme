@@ -60,6 +60,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  triangle::triangle(
+      vec3 const point[3])
+  {
+    this->_point[0] = point[0];
+    this->_point[1] = point[1];
+    this->_point[2] = point[2];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   triangle &triangle::operator=(
       triangle const &input)
   {
