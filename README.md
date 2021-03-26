@@ -1,2 +1,4 @@
-# acme
-A small 3d geometric library.
+# ACME
+A 3D computational geometric library
+
+# That's All Folks!
