@@ -4,7 +4,7 @@ PWD = $(shell pwd)
 SOURCES       = $(wildcard src/*.cc)
 OBJECTS       = $(patsubst src/%.cc, build/%.o, $(SOURCES))
 TESTS_SOURCES = $(wildcard tests/*.cc)
-INCLUDEDIRS   = -Isrc
+INCLUDEDIRS   = -Iinclude
 
 CXXFLAGS      = $(INCLUDEDIRS) $(shell pkg-config --cflags eigen3) 
 LIBS          = 
@@ -61,8 +61,8 @@ tests: $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_triangle.cc  -o bin/test_triangle $(LIBS)
 
 run:
-	#./bin/test_math
-	#./bin/test_vector
+	./bin/test_math
+	./bin/test_vector
 	./bin/test_triangle
 
 #

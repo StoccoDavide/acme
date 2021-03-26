@@ -241,8 +241,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      triangle const &triangle,
       ray const &ray,
+      triangle const &triangle,
       vec3 &point)
   {
     vec3 vertex0 = triangle.vertex_0();
@@ -282,8 +282,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      triangle const &triangle,
       line const &line,
+      triangle const &triangle,
       vec3 &point)
   {
     vec3 vertex0 = triangle.vertex_0();
@@ -318,8 +318,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      triangle const &triangle,
       plane const &plane,
+      triangle const &triangle,
       segment &segment)
   {
     vec3 point0, point1, point2;
@@ -385,8 +385,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      circle const &circle,
       segment const &segment,
+      circle const &circle,
       vec3 &point)
   {
     if (acme::intersect(line(segment.point_0(), segment.to_normalized_vector()), circle.laying_plane(), point))
@@ -512,8 +512,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      circle const &circle,
       line const &line,
+      circle const &circle,
       segment &segment)
   {
     // Locate one or two points that are on the circle and line.
@@ -555,8 +555,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      circle const &circle,
       plane const &plane,
+      circle const &circle,
       segment &segment)
   {
     // Compute the intersection of circle plane with the input plane
@@ -564,21 +564,21 @@ namespace acme
     ACME_ASSERT(acme::intersect(circle.laying_plane(), plane, int_line),
                 "acme::intersect(circle, plane -> segment)\nParallel or coplanar planes.");
     // Compute the intersection of resulting line with the circle
-    return acme::intersect(circle, int_line, segment);
+    return acme::intersect(int_line, circle, segment);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool intersect(
-      circle const &circle,
       segment const &segment_in,
+      circle const &circle,
       segment &segment_out)
   {
     // Transform segment to line
     line tmp_line(segment_in.point_0(), segment_in.to_normalized_vector());
     // Compute the intersection of resulting line with the circle
     segment tmp_segment;
-    if (acme::intersect(circle, tmp_line, tmp_segment))
+    if (acme::intersect(tmp_line, circle, tmp_segment))
     {
       return acme::intersect(segment_in, tmp_segment, segment_out);
     }
@@ -596,8 +596,8 @@ namespace acme
       segment &segment_out)
   {
     segment tmp_segment;
-    if (acme::intersect(triangle, circle.laying_plane(), tmp_segment))
-      return acme::intersect(circle, tmp_segment, segment_out);
+    if (acme::intersect(circle.laying_plane(), triangle, tmp_segment))
+      return acme::intersect(tmp_segment, circle, segment_out);
     else
       return false;
   }

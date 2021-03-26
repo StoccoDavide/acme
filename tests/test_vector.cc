@@ -19,6 +19,7 @@ int main(void)
             << "Vector A = " << A << std::endl
             << "Vector B = " << B << std::endl
             << "Vector C = " << C << std::endl
+            << "Matrix D = " << acme::mat3_goat << std::endl
             << std::endl;
   return 0;
 }

@@ -25,6 +25,7 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
+#include "acme_frame.hh"
 
 namespace acme
 {
@@ -134,6 +135,12 @@ namespace acme
     void rotate(
         mat3 const &input //!< Input
     );
+
+    //! Tranform segment from frameA to frameB
+    segment transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    ) const;
 
     //! Swap segment points
     void swap(void);

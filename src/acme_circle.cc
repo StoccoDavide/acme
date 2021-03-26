@@ -148,6 +148,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  circle circle::transform(
+      frame const &frameA,
+      frame const &frameB) const
+  {
+    return circle(this->_radius, this->_plane.transform(frameA, frameB));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void circle::reverse(void) { this->_plane.reverse(); }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

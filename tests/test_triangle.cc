@@ -31,10 +31,10 @@ int main(void)
   acme::vec3 pt_Line(acme::NaN_vec3);
   acme::vec3 pt_Line_rev(acme::NaN_vec3);
 
-  acme::intersect(Tri, Ray, pt_Ray);
-  acme::intersect(Tri, Ray_rev, pt_Ray_rev);
-  acme::intersect(Tri, Line, pt_Line);
-  acme::intersect(Tri, Line_rev, pt_Line_rev);
+  acme::intersect(Ray, Tri, pt_Ray);
+  acme::intersect(Ray_rev, Tri, pt_Ray_rev);
+  acme::intersect(Line, Tri, pt_Line);
+  acme::intersect(Line_rev, Tri, pt_Line_rev);
 
   std::cout
       << "POINT TESTS" << std::endl

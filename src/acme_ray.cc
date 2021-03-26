@@ -118,6 +118,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  ray ray::transform(
+      frame const &frameA,
+      frame const &frameB) const
+  {
+    return ray(acme::transform_point(this->_origin, frameA, frameB),
+               acme::transform_vector(this->_direction, frameA, frameB));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void ray::reverse(void) { this->_direction = -this->_direction; }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

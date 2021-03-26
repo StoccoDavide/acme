@@ -118,6 +118,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  plane plane::transform(
+      frame const &frameA,
+      frame const &frameB) const
+  {
+    return plane(acme::transform_point(this->_origin, frameA, frameB),
+                 acme::transform_vector(this->_normal, frameA, frameB));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void plane::reverse(void) { this->_normal = -this->_normal; }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

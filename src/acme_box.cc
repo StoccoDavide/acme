@@ -33,7 +33,7 @@ namespace acme
    |  |_.__/ \___/_/\_\
    |                   
   \*/
-  
+
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   box &box::operator=(
@@ -249,6 +249,16 @@ namespace acme
   {
     this->_point_min = input * this->_point_min;
     this->_point_max = input * this->_point_max;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  box box::transform(
+      frame const &frameA,
+      frame const &frameB) const
+  {
+    return box(acme::transform_point(this->_point_min, frameA, frameB),
+               acme::transform_point(this->_point_max, frameA, frameB));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

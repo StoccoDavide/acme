@@ -174,6 +174,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  segment segment::transform(
+      frame const &frameA,
+      frame const &frameB) const
+  {
+    return segment(acme::transform_point(this->_point[0], frameA, frameB),
+                   acme::transform_point(this->_point[1], frameA, frameB));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void segment::swap(void)
   {
     vec3 tmp_point_0(this->_point[0]);

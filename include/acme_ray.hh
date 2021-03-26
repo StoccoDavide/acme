@@ -17,50 +17,51 @@
 */
 
 ///
-/// file: acme_line.hh
+/// file: acme_ray.hh
 ///
 
-#ifndef INCLUDE_ACME_LINE
-#define INCLUDE_ACME_LINE
+#ifndef INCLUDE_ACME_RAY
+#define INCLUDE_ACME_RAY
 
 #include "acme.hh"
 #include "acme_math.hh"
+#include "acme_frame.hh"
 
 namespace acme
 {
 
   /*\
-   |   _ _            
-   |  | (_)_ __   ___ 
-   |  | | | '_ \ / _ \
-   |  | | | | | |  __/
-   |  |_|_|_| |_|\___|
-   |                  
+   |                   
+   |   _ __ __ _ _   _ 
+   |  | '__/ _` | | | |
+   |  | | | (_| | |_| |
+   |  |_|  \__,_|\__, |
+   |             |___/ 
   \*/
 
-  //! Line class container
+  //! Ray class container
   /*!
-  Infinite line in 3D space and defined by any point lying on the line and a direction
+  Infinite ray in 3D space and defined by any point lying on the line and a direction
   vector.
   */
-  class line
+  class ray
   {
   private:
-    vec3 _origin;    //!< Origin (point)
-    vec3 _direction; //!< Direction (vector)
+    vec3 _origin;    //!< Origin
+    vec3 _direction; //!< Direction
 
   public:
     //! Class destructor
-    ~line() {}
+    ~ray() {}
 
     //! Class constructor
-    line() {}
+    ray() {}
 
     //! Copy constructor
-    line(line const &) = default;
+    ray(ray const &) = default;
 
-    //! Class constructor for line
-    line(
+    //! Class constructor
+    ray(
         real_type const ox, //<! Input x origin value
         real_type const oy, //<! Input y origin value
         real_type const oz, //<! Input z origin value
@@ -72,7 +73,7 @@ namespace acme
     }
 
     //! Class constructor
-    line(
+    ray(
         vec3 const &origin,   //!< Input origin
         vec3 const &direction //!< Input direction
         ) : _origin(origin), _direction(direction)
@@ -80,16 +81,16 @@ namespace acme
     }
 
     //! Equality operator
-    line &operator=(
-        line const &input //!< Input object
+    ray &operator=(
+        ray const &input //!< Input object
     );
 
     //! Check if objects are (almost) equal
     bool is_equal(
-        line const &input //!< Input object
+        ray const &input //!< Input object
     ) const;
 
-    //! Check if line is degenerated
+    //! Check if ray is degenerated
     bool is_degenerated(void) const;
 
     //! Return origin
@@ -100,12 +101,12 @@ namespace acme
 
     //! Set origin
     void origin(
-        vec3 const &input //!< input vec3 object
+        vec3 const &input //!< input object
     );
 
     //! Set direction
     void direction(
-        vec3 const &input //!< input vec3 object
+        vec3 const &input //!< input object
     );
 
     //! Translate by vector
@@ -118,26 +119,32 @@ namespace acme
         mat3 const &input //!< Input
     );
 
+    //! Tranform ray from frameA to frameB
+    ray transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    ) const;
+
     //! Reverse direction
     void reverse(void);
 
-    //! Get reversed line
-    line reversed(void) const;
+    //! Get reversed ray
+    ray reversed(void) const;
 
-    // Check whether the point is inside the line
+    // Check whether the point is inside the ray
     bool is_inside(
         vec3 const &point //!< Input
     ) const;
 
-  }; // class line
+  }; // class ray
 
-  static line const NaN_line = line(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number line type
-  static line line_goat = line(NaN_line);                            //!< Scapegoat line type (throwaway non-const object)
+  static ray const NaN_ray = ray(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number ray type
+  static ray ray_goat = ray(NaN_ray);                             //!< Scapegoat ray type (throwaway non-const object)
 
 } // namespace acme
 
 #endif
 
 ///
-/// eof: acme_line.hh
+/// eof: acme_ray.hh
 ///

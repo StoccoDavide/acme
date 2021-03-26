@@ -129,6 +129,42 @@ namespace acme
 
 } // namespace acme
 
+//!< Overload stream out operator for acme::vec2 object
+std::ostream &operator<<(
+    std::ostream &os,     //!< Output stream
+    acme::vec2 const &obj //!< Vector object
+);
+
+//!< Overload stream out operator for acme::mat2 object
+std::ostream &operator<<(
+    std::ostream &os,     //!< Output stream
+    acme::mat2 const &obj //!< Vector object
+);
+
+//!< Overload stream out operator for acme::vec3 object
+std::ostream &operator<<(
+    std::ostream &os,     //!< Output stream
+    acme::vec3 const &obj //!< Vector object
+);
+
+//!< Overload stream out operator for acme::mat3 object
+std::ostream &operator<<(
+    std::ostream &os,     //!< Output stream
+    acme::mat3 const &obj //!< Vector object
+);
+
+//!< Overload stream out operator for acme::vec4 object
+std::ostream &operator<<(
+    std::ostream &os,     //!< Output stream
+    acme::vec4 const &obj //!< Vector object
+);
+
+//!< Overload stream out operator for acme::mat4 object
+std::ostream &operator<<(
+    std::ostream &os,     //!< Output stream
+    acme::mat4 const &obj //!< Vector object
+);
+
 #endif
 
 ///

@@ -118,6 +118,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  line line::transform(
+      frame const &frameA,
+      frame const &frameB) const
+  {
+    return line(acme::transform_point(this->_origin, frameA, frameB),
+                acme::transform_vector(this->_direction, frameA, frameB));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void line::reverse(void) { this->_direction = -this->_direction; }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

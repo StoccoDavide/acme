@@ -26,6 +26,7 @@
 #include "acme.hh"
 #include "acme_math.hh"
 #include "acme_plane.hh"
+#include "acme_frame.hh"
 
 namespace acme
 {
@@ -129,6 +130,12 @@ namespace acme
     void rotate(
         mat3 const &input //!< Input
     );
+
+    //! Tranform circle from frameA to frameB
+    circle transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    ) const;
 
     //! Reverse direction
     void reverse(void);

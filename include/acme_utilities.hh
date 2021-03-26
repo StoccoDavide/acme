@@ -46,12 +46,6 @@ namespace acme
    |                                   
   \*/
 
-  //!< Stream out operator for vec3 object
-  ostream_type &operator<<(
-      ostream_type &os, //!< Output stream
-      vec3 const &obj   //!< Vector object
-  );
-
   //!< Stream out operator for line object
   ostream_type &operator<<(
       ostream_type &os, //!< Output stream
