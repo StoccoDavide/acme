@@ -46,8 +46,8 @@ namespace acme
   class frame
   {
   private:
-    vec3 _origin;
-    mat3 _rotation;
+    vec3 _origin;   //!< Origin (point)
+    mat3 _rotation; //!< Rotation matrix
 
   public:
     //! Class destructor
@@ -126,17 +126,17 @@ namespace acme
 
     //! Perform rotation on x-axis
     void rotate_x(
-        real_type const input //!< Input angle [rad]
+        real_type input //!< Input angle [rad]
     );
 
     //! Perform rotation on y-axis
     void rotate_y(
-        real_type const input //!< Input angle [rad]
+        real_type input //!< Input angle [rad]
     );
 
     //! Perform rotation on z-axis
     void rotate_z(
-        real_type const input //!< Input angle [rad]
+        real_type input //!< Input angle [rad]
     );
 
     //! Set 4x4 affine transformation matrix
@@ -147,6 +147,21 @@ namespace acme
 
     //! Get 4x4 affine transformation matrix
     mat4 affine(void) const;
+
+    //! Get current Euler angle [rad] for x-axis \n
+    //! WARNING: Factor as [Rz][Rx][Ry]!
+    // https://www.geometrictools.com/Documentation/EulerAngles.pdf
+    real_type euler_angle_x(void) const;
+
+    //! Get current Euler angle [rad] for y-axis \n
+    //! WARNING: Factor as [Rz][Rx][Ry]!
+    // https://www.geometrictools.com/Documentation/EulerAngles.pdf
+    real_type euler_angle_y(void) const;
+
+    //! Get current Euler angle [rad] for z-axis \n
+    //! WARNING: Factor as [Rz][Rx][Ry]!
+    // https://www.geometrictools.com/Documentation/EulerAngles.pdf
+    real_type euler_angle_z(void) const;
 
   }; // class frame
 

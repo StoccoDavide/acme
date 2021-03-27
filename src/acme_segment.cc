@@ -37,8 +37,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      real_type const x0, real_type const y0, real_type const z0,
-      real_type const x1, real_type const y1, real_type const z1)
+      real_type x0, real_type y0, real_type z0,
+      real_type x1, real_type y1, real_type z1)
   {
     this->_point[0] = vec3(x0, y0, z0);
     this->_point[1] = vec3(x1, y1, z1);
@@ -125,7 +125,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &segment::point(
-      int_type const &i) const
+      int_type &i) const
   {
     return this->_point[i];
   }
@@ -133,7 +133,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void segment::point(
-      int_type const &i,
+      int_type &i,
       vec3 const &input)
   {
     this->_point[i] = input;

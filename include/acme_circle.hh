@@ -61,17 +61,17 @@ namespace acme
 
     //! Class constructor
     circle(
-        real_type const radius, //!< Input
-        plane const &plane      //!< Input
+        real_type radius,  //!< Input
+        plane const &plane //!< Input
         ) : _radius(radius), _plane(plane)
     {
     }
 
     //! Class constructor
     circle(
-        real_type const radius, //!< Input
-        vec3 const &center,     //!< Input
-        vec3 const &normal      //!< Input
+        real_type radius,   //!< Input
+        vec3 const &center, //!< Input
+        vec3 const &normal  //!< Input
         ) : _radius(radius), _plane(center, normal)
     {
     }
@@ -103,7 +103,7 @@ namespace acme
 
     //! Set center point
     void radius(
-        real_type const input //!< Input
+        real_type input //!< Input
     );
 
     //! Set center point

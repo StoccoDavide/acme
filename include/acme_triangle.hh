@@ -63,15 +63,15 @@ namespace acme
 
     //! Class constructor
     triangle(
-        real_type const x0, //<! Input x value of first point
-        real_type const y0, //<! Input y value of first point
-        real_type const z0, //<! Input z value of first point
-        real_type const x1, //<! Input x value of second point
-        real_type const y1, //<! Input y value of second point
-        real_type const z1, //<! Input z value of second point
-        real_type const x2, //<! Input x value of third point
-        real_type const y2, //<! Input y value of third point
-        real_type const z2  //<! Input z value of third point
+        real_type x0, //<! Input x value of first point
+        real_type y0, //<! Input y value of first point
+        real_type z0, //<! Input z value of first point
+        real_type x1, //<! Input x value of second point
+        real_type y1, //<! Input y value of second point
+        real_type z1, //<! Input z value of second point
+        real_type x2, //<! Input x value of third point
+        real_type y2, //<! Input y value of third point
+        real_type z2  //<! Input z value of third point
     );
 
     //! Class constructor
@@ -125,13 +125,13 @@ namespace acme
 
     //! Get i-th vertex
     vec3 const &vertex(
-        int_type const &i //!< Intput i-th vertex
+        int_type &i //!< Intput i-th vertex
     ) const;
 
     //! Set i-th vertex
     void vertex(
-        int_type const &i, //!< Intput i-th vertex
-        vec3 const &input  //!< Input
+        int_type &i,      //!< Intput i-th vertex
+        vec3 const &input //!< Input
     );
 
     //! Set points
@@ -171,8 +171,8 @@ namespace acme
 
     //! Swap triangle points
     void swap(
-        int_type const i, //!< Input i-th vertex
-        int_type const j  //!< Input j-th vertex
+        int_type i, //!< Input i-th vertex
+        int_type j  //!< Input j-th vertex
     );
 
     //! Get minimum bounding box

@@ -60,12 +60,12 @@ namespace acme
 
     //! Class constructor
     segment(
-        real_type const x0, //<! Input x value of first point
-        real_type const y0, //<! Input y value of first point
-        real_type const z0, //<! Input z value of first point
-        real_type const x1, //<! Input x value of second point
-        real_type const y1, //<! Input y value of second point
-        real_type const z1  //<! Input z value of second point
+        real_type x0, //<! Input x value of first point
+        real_type y0, //<! Input y value of first point
+        real_type z0, //<! Input z value of first point
+        real_type x1, //<! Input x value of second point
+        real_type y1, //<! Input y value of second point
+        real_type z1  //<! Input z value of second point
     );
 
     //! Class constructor
@@ -110,13 +110,13 @@ namespace acme
 
     //! Get i-th point
     vec3 const &point(
-        int_type const &i //!< Intput i-th vertex
+        int_type &i //!< Intput i-th vertex
     ) const;
 
     //! Set i-th point
     void point(
-        int_type const &i, //!< Intput i-th vertex
-        vec3 const &input  //!< Input
+        int_type &i,      //!< Intput i-th vertex
+        vec3 const &input //!< Input
     );
 
     //! Set points

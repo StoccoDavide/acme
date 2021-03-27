@@ -139,7 +139,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void frame::rotate_x(
-      real_type const input)
+      real_type input)
   {
     this->_rotation *acme::rotation_x(input);
   }
@@ -147,7 +147,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void frame::rotate_y(
-      real_type const input)
+      real_type input)
   {
     this->_rotation *acme::rotation_y(input);
   }
@@ -155,7 +155,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void frame::rotate_z(
-      real_type const input)
+      real_type input)
   {
     this->_rotation *acme::rotation_y(input);
   }
@@ -176,6 +176,84 @@ namespace acme
     mat4 output;
     output << this->_rotation, this->_origin, vec4(0.0, 0.0, 0.0, 1.0).transpose();
     return output;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real_type frame::euler_angle_x(void) const
+  {
+    real_type r21 = this->_rotation(2, 1);
+    if (r21 < 1.0)
+    {
+      if (r21 > -1.0)
+      {
+        return acme::asin(r21);
+      }
+      else
+      { // r21 == -1.0
+        // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
+        return -acme::PI / 2.0;
+      }
+    }
+    else
+    { // r21 == 1.0
+      // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
+      return acme::PI / 2.0;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real_type frame::euler_angle_y(void) const
+  {
+    real_type r20 = this->_rotation(2, 0);
+    real_type r21 = this->_rotation(2, 1);
+    real_type r22 = this->_rotation(2, 2);
+    if (r21 < 1.0)
+    {
+      if (r21 > -1.0)
+      {
+        return acme::atan2(-r20, r22);
+      }
+      else
+      { // r21 == -1.0
+        // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
+        return 0.0;
+      }
+    }
+    else
+    { // r21 == 1.0
+      // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
+      return 0.0;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real_type frame::euler_angle_z(void) const
+  {
+    real_type r00 = this->_rotation(0, 0);
+    real_type r01 = this->_rotation(0, 1);
+    real_type r02 = this->_rotation(0, 2);
+    real_type r11 = this->_rotation(1, 1);
+    real_type r21 = this->_rotation(2, 1);
+    if (r21 < 1.0)
+    {
+      if (r21 > -1.0)
+      {
+        return acme::atan2(-r01, r11);
+      }
+      else
+      { // r21 == -1.0
+        // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
+        return -acme::atan2(r02, r00);
+      }
+    }
+    else
+    { // r21 == 1.0
+      // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
+      return acme::atan2(r02, r00);
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

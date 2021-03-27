@@ -62,12 +62,12 @@ namespace acme
 
     //! Class constructor
     ray(
-        real_type const ox, //<! Input x origin value
-        real_type const oy, //<! Input y origin value
-        real_type const oz, //<! Input z origin value
-        real_type const dx, //<! Input x direction value
-        real_type const dy, //<! Input y direction value
-        real_type const dz  //<! Input z direction value
+        real_type ox, //<! Input x origin value
+        real_type oy, //<! Input y origin value
+        real_type oz, //<! Input z origin value
+        real_type dx, //<! Input x direction value
+        real_type dy, //<! Input y direction value
+        real_type dz  //<! Input z direction value
         ) : _origin(vec3(ox, oy, oz)), _direction(vec3(dx, dy, dz))
     {
     }

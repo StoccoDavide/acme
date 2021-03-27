@@ -137,7 +137,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::x_min(
-      real_type const input)
+      real_type input)
   {
     this->_point_min.x() = input;
   }
@@ -145,7 +145,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::y_min(
-      real_type const input)
+      real_type input)
   {
     this->_point_min.y() = input;
   }
@@ -153,7 +153,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::z_min(
-      real_type const input)
+      real_type input)
   {
     this->_point_min.z() = input;
   }
@@ -161,8 +161,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::min(
-      int_type const i,
-      real_type const input)
+      int_type i,
+      real_type input)
   {
     this->_point_min[i] = input;
   }
@@ -186,7 +186,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type box::max(
-      int_type const i)
+      int_type i)
       const
   {
     return this->_point_max[i];
@@ -203,7 +203,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::x_max(
-      real_type const input)
+      real_type input)
   {
     this->_point_max.x() = input;
   }
@@ -211,7 +211,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::y_max(
-      real_type const input)
+      real_type input)
   {
     this->_point_max.y() = input;
   }
@@ -219,7 +219,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::z_max(
-      real_type const input)
+      real_type input)
   {
     this->_point_max.z() = input;
   }
@@ -227,8 +227,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::max(
-      int_type const i,
-      real_type const input)
+      int_type i,
+      real_type input)
   {
     this->_point_max[i] = input;
   }
@@ -341,6 +341,14 @@ namespace acme
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  box box::minimum_box(
+      vec3 const points[3])
+      const
+  {
+    acme::minmax3(Vertices[0].x(), Vertices[1].x(), Vertices[2].x(), Xmin, Xmax);
+    acme::minmax3(Vertices[0].y(), Vertices[1].y(), Vertices[2].y(), Ymin, Ymax);
+  }
 
 } // namespace acme
 

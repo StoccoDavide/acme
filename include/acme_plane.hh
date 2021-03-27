@@ -61,12 +61,12 @@ namespace acme
 
     //! Class constructor for plane
     plane(
-        real_type const ox, //<! Input x origin value
-        real_type const oy, //<! Input y origin value
-        real_type const oz, //<! Input z origin value
-        real_type const dx, //<! Input x normal value
-        real_type const dy, //<! Input y normal value
-        real_type const dz  //<! Input z normal value
+        real_type ox, //<! Input x origin value
+        real_type oy, //<! Input y origin value
+        real_type oz, //<! Input z origin value
+        real_type dx, //<! Input x normal value
+        real_type dy, //<! Input y normal value
+        real_type dz  //<! Input z normal value
         ) : _origin(vec3(ox, oy, oz)), _normal(vec3(dx, dy, dz))
     {
     }

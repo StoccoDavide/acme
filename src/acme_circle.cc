@@ -101,7 +101,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void circle::radius(
-      real_type const input)
+      real_type input)
   {
     this->_radius = input;
   }

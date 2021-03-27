@@ -70,24 +70,24 @@ namespace acme
 
     //! Class constructor
     box(
-        real_type const x_min,   //<! Input x value of minimum point
-        real_type const y_min,   //<! Input y value of minimum point
-        real_type const z_min,   //<! Input z value of minimum point
-        real_type const x_max,   //<! Input x value of maximum point
-        real_type const y_max,   //<! Input y value of maximum point
-        real_type const z_max,   //<! Input z value of maximum point
-        real_type const id = 0,  //<! Input id value
-        real_type const ipos = 0 //<! Input rank value
+        real_type x_min,  //<! Input x value of minimum point
+        real_type y_min,  //<! Input y value of minimum point
+        real_type z_min,  //<! Input z value of minimum point
+        real_type x_max,  //<! Input x value of maximum point
+        real_type y_max,  //<! Input y value of maximum point
+        real_type z_max,  //<! Input z value of maximum point
+        int_type id = 0,  //<! Input id value
+        int_type ipos = 0 //<! Input rank value
         ) : _point_min(vec3(x_min, y_min, z_min)), _point_max(vec3(x_max, y_max, z_max)), _id(id), _ipos(ipos)
     {
     }
 
     //! Class constructor
     box(
-        vec3 const &point_min,   //!< Input minimum point
-        vec3 const &point_max,   //!< Input maximum point
-        real_type const id = 0,  //<! Input id value
-        real_type const ipos = 0 //<! Input rank value
+        vec3 const &point_min, //!< Input minimum point
+        vec3 const &point_max, //!< Input maximum point
+        int_type id = 0,       //<! Input id value
+        int_type ipos = 0      //<! Input rank value
         ) : _point_min(point_min), _point_max(point_max), _id(id), _ipos(ipos)
     {
     }
@@ -95,8 +95,8 @@ namespace acme
     //! Class constructor
     box(
         std::vector<boxPtr> const &boxes, //!< Input poiter to vector of boxes
-        real_type const id = 0,           //<! Input id value
-        real_type const ipos = 0          //<! Input rank value
+        int_type id = 0,                  //<! Input id value
+        int_type ipos = 0                 //<! Input rank value
     )
     {
       this->_id = id;
@@ -146,23 +146,23 @@ namespace acme
     );
     //! Set min point x value
     void x_min(
-        real_type const input //!<Input
+        real_type input //!<Input
     );
 
     //! Set min point y value
     void y_min(
-        real_type const input //!<Input
+        real_type input //!<Input
     );
 
     //! Set min point z value
     void z_min(
-        real_type const input //!<Input
+        real_type input //!<Input
     );
 
     //! Set min i-th point axis value
     void min(
-        int_type const i,     //!< Input i-th value
-        real_type const input //!<Input
+        int_type i,     //!< Input i-th value
+        real_type input //!<Input
     );
 
     //! Get max point
@@ -179,7 +179,7 @@ namespace acme
 
     //! Get max i-th point axis value
     real_type max(
-        int_type const i //!< Input i-th value
+        int_type i //!< Input i-th value
     ) const;
 
     //! Set max point
@@ -189,23 +189,23 @@ namespace acme
 
     //! Set max point x value
     void x_max(
-        real_type const input //!<Input
+        real_type input //!<Input
     );
 
     //! Set max point y value
     void y_max(
-        real_type const input //!<Input
+        real_type input //!<Input
     );
 
     //! Set max point z value
     void z_max(
-        real_type const input //!<Input
+        real_type input //!<Input
     );
 
     //! Set max i-th point axis value
     void max(
-        int_type const i,     //!< Input i-th value
-        real_type const input //!<Input
+        int_type i,     //!< Input i-th value
+        real_type input //!<Input
     );
 
     //! Translate by vector
@@ -243,6 +243,12 @@ namespace acme
     //! Maximum distance of the point to the point of box
     real_type max_distance(
         vec3 const &point //!< Input
+    ) const;
+
+    //! Get the minimum bounding box containing three input points
+    box
+    minimum_box(
+        vec3 const points[3] //!< Input
     ) const;
 
   }; //class box

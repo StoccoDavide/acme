@@ -49,48 +49,48 @@ namespace acme
 
   //! Square
   real_type sqr(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Cubic
   real_type cub(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Square root
   real_type sqrt(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Absolute value
-  real_type abs(real_type const input //!< Input
+  real_type abs(real_type input //!< Input
   );
 
   //! Maximum between inputs
   real_type max(
-      real_type const input0, //!< Input 0
-      real_type const input1  //!< Input 1
+      real_type input0, //!< Input 0
+      real_type input1  //!< Input 1
   );
 
   //! Minimum between inputs
   real_type min(
-      real_type const input0, //!< Input 0
-      real_type const input1  //!< Input 1
+      real_type input0, //!< Input 0
+      real_type input1  //!< Input 1
 
   );
 
   //! Maximum between three inputs
   real_type max(
-      real_type const input0, //!< Input 0
-      real_type const input1, //!< Input 1
-      real_type const input2  //!< Input 2
+      real_type input0, //!< Input 0
+      real_type input1, //!< Input 1
+      real_type input2  //!< Input 2
   );
 
   //! Minimum between three inputs
   real_type min(
-      real_type const input0, //!< Input 0
-      real_type const input1, //!< Input 1
-      real_type const input2  //!< Input 2
+      real_type input0, //!< Input 0
+      real_type input1, //!< Input 1
+      real_type input2  //!< Input 2
   );
 
   /*\
@@ -104,112 +104,112 @@ namespace acme
 
   //! Sine function [rad]
   real_type sin(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Cosine function [rad]
   real_type cos(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Tangent function [rad]
-  real_type tan(real_type const input //!< Input
+  real_type tan(real_type input //!< Input
   );
 
   //! Arcsine function [rad]
   real_type asin(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Arccosine function [rad]
   real_type acos(
-      real_type const input //!< Input
+      real_type input //!< Input
   );
 
   //! Arctangent function [rad]
   real_type atan(
-      real_type const input //!< void
+      real_type input //!< void
   );
 
   //! Arctangent function [rad]
   real_type atan2(
-      real_type const input0, //!< Input 0
-      real_type const input1  //!< Input 1
+      real_type input0, //!< Input 0
+      real_type input1  //!< Input 1
   );
 
   //! Returns the input input bounded between low and high inputs
   real_type clamp(
-      real_type const input, //!< Input
-      real_type const low,   //!< Low-end bound
-      real_type const high   //!< High-end bound
+      real_type input, //!< Input
+      real_type low,   //!< Low-end bound
+      real_type high   //!< High-end bound
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      real_type const input0,                  //!< Input 0
-      real_type const input1,                  //!< Input 1
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      real_type input0,                  //!< Input 0
+      real_type input1,                  //!< Input 1
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      vec3 const &input0,                      //!< Input 0
-      vec3 const &input1,                      //!< Input 1
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,                //!< Input 0
+      vec3 const &input1,                //!< Input 1
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      mat3 const &input0,                      //!< Input 0
-      mat3 const &input1,                      //!< Input 1
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      mat3 const &input0,                //!< Input 0
+      mat3 const &input1,                //!< Input 1
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vec3 is degenerated
   bool is_degenerated(
-      vec3 const &input,                       //!< Input
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input,                 //!< Input
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vec3 is normalized
   bool is_normalized(
-      vec3 const &input,                       //!< Input
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input,                 //!< Input
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are ortogonal
   bool is_ortogonal(
-      vec3 const &input0,                      //!< Input 0
-      vec3 const &input1,                      //!< Input 1
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,                //!< Input 0
+      vec3 const &input1,                //!< Input 1
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool is_parallel(
-      vec3 const &input0,                      //!< Input 0
-      vec3 const &input1,                      //!< Input 1
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,                //!< Input 0
+      vec3 const &input1,                //!< Input 1
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Check if rotation mat3 is othonormal
   bool is_ortonormal(
-      mat3 const &input,                       //!< Input
-      real_type const tolerance = Epsilon_High //!< Tolerance
+      mat3 const &input,                 //!< Input
+      real_type tolerance = Epsilon_High //!< Tolerance
   );
 
   //! Returns rotation on x-axis
   mat3 rotation_x(
-      real_type const input //!< Input angle [rad]
+      real_type input //!< Input angle [rad]
   );
 
   //! Returns rotation on y-axis
   mat3 rotation_y(
-      real_type const input //!< Input angle [rad]
+      real_type input //!< Input angle [rad]
   );
 
   //! Returns rotation on z-axis
   mat3 rotation_z(
-      real_type const input //!< Input angle [rad]
+      real_type input //!< Input angle [rad]
   );
 
   //! Angle between objects [rad]
