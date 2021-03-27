@@ -353,6 +353,16 @@ namespace acme
     this->_point_max.z() = acme::max(points[0].z(), points[1].z(), points[2].z());
   }
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  int_type const &box::id() const { return this->_id; }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  int_type const &box::pos() const { return this->_ipos; }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 } // namespace acme
 
 ///

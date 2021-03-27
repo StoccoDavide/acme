@@ -250,6 +250,12 @@ namespace acme
         vec3 const points[3] //!< Input
     );
 
+    //!< return box id
+    int_type const &id() const;
+
+    //!< return box position
+    int_type const &pos() const;
+
   }; //class box
 
   static box const NaN_box = box(acme::NaN_vec3, acme::NaN_vec3, 0, 0); //!< Not-a-Number box type
