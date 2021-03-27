@@ -146,7 +146,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &triangle::vertex(
-      int_type &i) const
+      unsigned i) const
   {
     return this->_point[i];
   }
@@ -154,7 +154,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void triangle::vertex(
-      int_type &i,
+      unsigned i,
       vec3 const &input)
   {
     this->_point[i] = input;
@@ -238,8 +238,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void triangle::swap(
-      int_type i,
-      int_type j)
+      unsigned i,
+      unsigned j)
   {
     vec3 tmp_point_i(this->_point[i]);
     vec3 tmp_point_j(this->_point[j]);

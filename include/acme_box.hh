@@ -109,6 +109,9 @@ namespace acme
         box const &input //!< Input
     );
 
+    //! Clear the box domain (set to NaN)
+    void clear(void);
+
     //! Check if objects are (almost) equal
     bool is_equal(
         box const &input //!< Input
@@ -137,7 +140,7 @@ namespace acme
 
     //! Get min i-th point axis value
     real_type min(
-        const int_type i //!< Input i-th value
+        unsigned i //!< Input i-th value
     ) const;
 
     //! Set min point
@@ -161,7 +164,7 @@ namespace acme
 
     //! Set min i-th point axis value
     void min(
-        int_type i,     //!< Input i-th value
+        unsigned i,     //!< Input i-th value
         real_type input //!<Input
     );
 
@@ -179,7 +182,7 @@ namespace acme
 
     //! Get max i-th point axis value
     real_type max(
-        int_type i //!< Input i-th value
+        unsigned i //!< Input i-th value
     ) const;
 
     //! Set max point
@@ -204,7 +207,7 @@ namespace acme
 
     //! Set max i-th point axis value
     void max(
-        int_type i,     //!< Input i-th value
+        unsigned i,     //!< Input i-th value
         real_type input //!<Input
     );
 

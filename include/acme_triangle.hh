@@ -125,12 +125,12 @@ namespace acme
 
     //! Get i-th vertex
     vec3 const &vertex(
-        int_type &i //!< Intput i-th vertex
+        unsigned i //!< Intput i-th vertex
     ) const;
 
     //! Set i-th vertex
     void vertex(
-        int_type &i,      //!< Intput i-th vertex
+        unsigned i,      //!< Intput i-th vertex
         vec3 const &input //!< Input
     );
 
@@ -171,8 +171,8 @@ namespace acme
 
     //! Swap triangle points
     void swap(
-        int_type i, //!< Input i-th vertex
-        int_type j  //!< Input j-th vertex
+        unsigned i, //!< Input i-th vertex
+        unsigned j  //!< Input j-th vertex
     );
 
     //! Get minimum bounding box

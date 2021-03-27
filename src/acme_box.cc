@@ -55,6 +55,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void
+  box::clear(
+      void)
+  {
+    this->_point_min = NaN_vec3;
+    this->_point_max = NaN_vec3;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool box::is_equal(
       box const &input)
       const
@@ -120,7 +130,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type box::min(
-      const int_type i)
+      unsigned i)
       const
   {
     return this->_point_min[i];
@@ -161,7 +171,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::min(
-      int_type i,
+      unsigned i,
       real_type input)
   {
     this->_point_min[i] = input;
@@ -186,7 +196,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type box::max(
-      int_type i)
+      unsigned i)
       const
   {
     return this->_point_max[i];
@@ -227,7 +237,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::max(
-      int_type i,
+      unsigned i,
       real_type input)
   {
     this->_point_max[i] = input;

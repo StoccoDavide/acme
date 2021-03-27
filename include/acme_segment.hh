@@ -110,12 +110,12 @@ namespace acme
 
     //! Get i-th point
     vec3 const &point(
-        int_type &i //!< Intput i-th vertex
+        unsigned i //!< Intput i-th vertex
     ) const;
 
     //! Set i-th point
     void point(
-        int_type &i,      //!< Intput i-th vertex
+        unsigned i,      //!< Intput i-th vertex
         vec3 const &input //!< Input
     );
 

@@ -125,7 +125,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &segment::point(
-      int_type &i) const
+      unsigned i) const
   {
     return this->_point[i];
   }
@@ -133,7 +133,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void segment::point(
-      int_type &i,
+      unsigned i,
       vec3 const &input)
   {
     this->_point[i] = input;
