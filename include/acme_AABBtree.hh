@@ -65,10 +65,10 @@ namespace acme
   public:
 #ifdef ACME_USE_CXX11
     typedef shared_ptr<box const> boxPtr; //!< Shared pointer to box;;
-    typedef shared_ptr<AABBtree> PtrAABB; //!< Shared pointer to tree
+    typedef shared_ptr<AABBtree> AABBPtr; //!< Shared pointer to tree
 #else
     typedef box const *boxPtr; //!< Pointer to box
-    typedef AABBtree *PtrAABB; //!< Pointer to tree
+    typedef AABBtree *AABBPtr; //!< Pointer to tree
 #endif
 
     typedef std::pair<boxPtr, boxPtr> boxPtrPair;  //!< Pair of box
@@ -77,7 +77,7 @@ namespace acme
 
   private:
     boxPtr ptrbox; //!< Pointer to box of tree
-    std::vector<PtrAABB> children;
+    std::vector<AABBPtr> children;
 
     AABBtree(AABBtree const &tree);
 
@@ -150,7 +150,7 @@ namespace acme
           return fun(ptrbox, tree.ptrbox);
       case 1: // first is a tree, second is a leaf
       {
-        typename std::vector<PtrAABB>::const_iterator it;
+        typename std::vector<AABBPtr>::const_iterator it;
         for (it = children.begin(); it != children.end(); ++it)
           if (tree.collision(**it, fun, !swap_tree))
             return true;
@@ -158,7 +158,7 @@ namespace acme
       break;
       case 2: // first leaf, second is a tree
       {
-        typename std::vector<PtrAABB>::const_iterator it;
+        typename std::vector<AABBPtr>::const_iterator it;
         for (it = tree.children.begin();
              it != tree.children.end(); ++it)
           if (this->collision(**it, fun, swap_tree))
@@ -167,8 +167,8 @@ namespace acme
       break;
       case 3: // first is a tree, second is a tree
       {
-        typename std::vector<PtrAABB>::const_iterator it1;
-        typename std::vector<PtrAABB>::const_iterator it2;
+        typename std::vector<AABBPtr>::const_iterator it1;
+        typename std::vector<AABBPtr>::const_iterator it2;
         for (it1 = children.begin(); it1 != children.end(); ++it1)
           for (it2 = tree.children.begin();
                it2 != tree.children.end(); ++it2)

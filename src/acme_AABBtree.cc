@@ -213,11 +213,11 @@ namespace acme
     }
 
 #ifdef ACME_USE_CXX11
-    PtrAABB neg = make_shared<AABBtree>();
-    PtrAABB pos = make_shared<AABBtree>();
+    AABBPtr neg = make_shared<AABBtree>();
+    AABBPtr pos = make_shared<AABBtree>();
 #else
-    PtrAABB neg = new AABBtree();
-    PtrAABB pos = new AABBtree();
+    AABBPtr neg = new AABBtree();
+    AABBPtr pos = new AABBtree();
 #endif
 
     neg->build(negBoxes);
@@ -246,7 +246,7 @@ namespace acme
          << "BOX xmin={" << ptrbox->x_min() << "} ymin={" << ptrbox->y_min() << "} zmin={" << ptrbox->z_min() << "}"
          << "    xmax={" << ptrbox->x_max() << "} ymax={" << ptrbox->x_max() << "} zmax={" << ptrbox->x_max() << "}"
          << std::endl;
-      std::vector<PtrAABB>::const_iterator it;
+      std::vector<AABBPtr>::const_iterator it;
       for (it = children.begin(); it != children.end(); ++it)
         (*it)->print(os, level + 1);
     }
@@ -278,22 +278,22 @@ namespace acme
       break;
     case 1: // First is a tree, second is a leaf
     {
-      std::vector<PtrAABB>::const_iterator it;
+      std::vector<AABBPtr>::const_iterator it;
       for (it = children.begin(); it != children.end(); ++it)
         tree.intersect(**it, intersectionList, !swap_tree);
     }
     break;
     case 2: // First leaf, second is a tree
     {
-      std::vector<PtrAABB>::const_iterator it;
+      std::vector<AABBPtr>::const_iterator it;
       for (it = tree.children.begin(); it != tree.children.end(); ++it)
         this->intersect(**it, intersectionList, swap_tree);
     }
     break;
     case 3: // First is a tree, second is a tree
     {
-      std::vector<PtrAABB>::const_iterator c1;
-      std::vector<PtrAABB>::const_iterator c2;
+      std::vector<AABBPtr>::const_iterator c1;
+      std::vector<AABBPtr>::const_iterator c2;
       for (c1 = children.begin(); c1 != children.end(); ++c1)
         for (c2 = tree.children.begin(); c2 != tree.children.end(); ++c2)
           (*c1)->intersect(**c2, intersectionList, swap_tree);
@@ -311,7 +311,7 @@ namespace acme
       real_type distance)
   {
 
-    std::vector<PtrAABB> const &children = tree.children;
+    std::vector<AABBPtr> const &children = tree.children;
 
     if (children.empty())
     {
@@ -324,7 +324,7 @@ namespace acme
       return distance;
 
     // check box with
-    std::vector<PtrAABB>::const_iterator it;
+    std::vector<AABBPtr>::const_iterator it;
     for (it = children.begin(); it != children.end(); ++it)
       distance = min_maxdist(point, **it, distance);
 
@@ -340,7 +340,7 @@ namespace acme
       AABBtree const &tree,
       boxPtrVec &candidateList)
   {
-    std::vector<PtrAABB> const &children = tree.children;
+    std::vector<AABBPtr> const &children = tree.children;
     real_type dst = tree.ptrbox->distance(point);
     if (dst <= distance)
     {
@@ -351,7 +351,7 @@ namespace acme
       else
       {
         // check box with
-        std::vector<PtrAABB>::const_iterator it;
+        std::vector<AABBPtr>::const_iterator it;
         for (it = children.begin(); it != children.end(); ++it)
           min_maxdist_select(point, distance, **it, candidateList);
       }

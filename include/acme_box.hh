@@ -246,10 +246,9 @@ namespace acme
     ) const;
 
     //! Get the minimum bounding box containing three input points
-    box
-    minimum_box(
+    void minimum_box(
         vec3 const points[3] //!< Input
-    ) const;
+    );
 
   }; //class box
 

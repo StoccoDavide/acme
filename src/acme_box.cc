@@ -342,12 +342,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  box box::minimum_box(
+  void box::minimum_box(
       vec3 const points[3])
-      const
   {
-    acme::minmax3(Vertices[0].x(), Vertices[1].x(), Vertices[2].x(), Xmin, Xmax);
-    acme::minmax3(Vertices[0].y(), Vertices[1].y(), Vertices[2].y(), Ymin, Ymax);
+    this->_point_min.x() = acme::min(points[0].x(), points[1].x(), points[2].x());
+    this->_point_min.y() = acme::min(points[0].y(), points[1].y(), points[2].y());
+    this->_point_min.z() = acme::min(points[0].z(), points[1].z(), points[2].z());
+    this->_point_max.x() = acme::max(points[0].x(), points[1].x(), points[2].x());
+    this->_point_max.y() = acme::max(points[0].y(), points[1].y(), points[2].y());
+    this->_point_max.z() = acme::max(points[0].z(), points[1].z(), points[2].z());
   }
 
 } // namespace acme
