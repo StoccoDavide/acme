@@ -47,10 +47,14 @@ namespace acme
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<box const> boxPtr; //!< Shared pointer to box
+    typedef std::shared_ptr<box const> ptr; //!< Shared pointer to box
 #else
-    typedef box const *boxPtr; //!< Pointer to box
+    typedef box const *ptr; //!< Pointer to box
 #endif
+
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of box
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to box
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pointers to pair of box
 
   private:
     vec3 _point_min; //!< Point min
@@ -94,7 +98,7 @@ namespace acme
 
     //! Class constructor
     box(
-        std::vector<boxPtr> const &boxes, //!< Input poiter to vector of boxes
+        std::vector<box::ptr> const &boxes, //!< Input poiter to vector of boxes
         int_type id = 0,                  //<! Input id value
         int_type ipos = 0                 //<! Input rank value
     )
@@ -235,7 +239,7 @@ namespace acme
     //! Build box wirh a list of boxes
     void
     join(
-        std::vector<boxPtr> const &boxes //!< Input poiter to vector of boxes
+        std::vector<box::ptr> const &boxes //!< Input poiter to vector of boxes
     );
 
     //! Distance of the point to the box

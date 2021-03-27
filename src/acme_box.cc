@@ -285,7 +285,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::join(
-      std::vector<boxPtr> const &boxes)
+      std::vector<box::ptr> const &boxes)
   {
     if (boxes.empty())
     {
@@ -294,7 +294,7 @@ namespace acme
     }
     else
     {
-      std::vector<boxPtr>::const_iterator it = boxes.begin();
+      std::vector<box::ptr>::const_iterator it = boxes.begin();
 
       this->_point_min = (*it)->_point_min;
       this->_point_max = (*it)->_point_max;

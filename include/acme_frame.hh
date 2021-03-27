@@ -45,6 +45,15 @@ namespace acme
   */
   class frame
   {
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<frame const> ptr; //!< Shared pointer to frame
+#else
+    typedef frame const *ptr; //!< Pointer to frame
+#endif
+
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to frame
+
   private:
     vec3 _origin;   //!< Origin (point)
     mat3 _rotation; //!< Rotation matrix

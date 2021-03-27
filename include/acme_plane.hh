@@ -45,6 +45,15 @@ namespace acme
   */
   class plane
   {
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<plane const> ptr; //!< Shared pointer to plane
+#else
+    typedef plane const *ptr; //!< Pointer to plane
+#endif
+
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to plane
+
   private:
     vec3 _origin; //!< Origin vector
     vec3 _normal; //!< Normal vector

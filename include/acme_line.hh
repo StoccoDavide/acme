@@ -46,6 +46,15 @@ namespace acme
   */
   class line
   {
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<line const> ptr; //!< Shared pointer to line
+#else
+    typedef line const *ptr; //!< Pointer to line
+#endif
+
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to line
+
   private:
     vec3 _origin;    //!< Origin (point)
     vec3 _direction; //!< Direction (vector)

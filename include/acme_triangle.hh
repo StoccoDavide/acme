@@ -47,7 +47,15 @@ namespace acme
   */
   class triangle
   {
-  private:
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<triangle const> ptr; //!< Shared pointer to triangle
+#else
+    typedef triangle const *ptr; //!< Pointer to triangle
+#endif
+
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to triangle
+
   private:
     vec3 _point[3]; //!< Vertices as points
 
@@ -130,7 +138,7 @@ namespace acme
 
     //! Set i-th vertex
     void vertex(
-        unsigned i,      //!< Intput i-th vertex
+        unsigned i,       //!< Intput i-th vertex
         vec3 const &input //!< Input
     );
 

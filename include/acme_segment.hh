@@ -45,6 +45,15 @@ namespace acme
   */
   class segment
   {
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment
+#else
+    typedef segment const *ptr; //!< Pointer to segment
+#endif
+
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to segment
+
   private:
     vec3 _point[2]; //!< Point
 
@@ -115,7 +124,7 @@ namespace acme
 
     //! Set i-th point
     void point(
-        unsigned i,      //!< Intput i-th vertex
+        unsigned i,       //!< Intput i-th vertex
         vec3 const &input //!< Input
     );
 

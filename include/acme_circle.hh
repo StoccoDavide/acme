@@ -46,6 +46,16 @@ namespace acme
   */
   class circle
   {
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<circle const> ptr; //!< Shared pointer to circle
+#else
+    typedef circle const *ptr; //!< Pointer to circle
+#endif
+
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to circle
+
+  private:
     real_type _radius; //!< Circle radius
     plane _plane;      //!< Circle plane (circle center + normal vector)
 
