@@ -353,6 +353,21 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void box::minimum_box(
+      vec3 const &point_0,
+      vec3 const &point_1,
+      vec3 const &point_2)
+  {
+    this->_point_min.x() = acme::min(point_0.x(), point_1.x(), point_2.x());
+    this->_point_min.y() = acme::min(point_0.y(), point_1.y(), point_2.y());
+    this->_point_min.z() = acme::min(point_0.z(), point_1.z(), point_2.z());
+    this->_point_max.x() = acme::max(point_0.x(), point_1.x(), point_2.x());
+    this->_point_max.y() = acme::max(point_0.y(), point_1.y(), point_2.y());
+    this->_point_max.z() = acme::max(point_0.z(), point_1.z(), point_2.z());
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void box::minimum_box(
       vec3 const points[3])
   {
     this->_point_min.x() = acme::min(points[0].x(), points[1].x(), points[2].x());

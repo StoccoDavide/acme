@@ -39,5 +39,6 @@ doc/*
 doclatex/*
 build/*
 bin/*
+lib/*
 
 

@@ -57,7 +57,7 @@ namespace acme
     typedef std::vector<ptr> ptrVec; //!< Vector of pointers to triangle
 
   private:
-    vec3 _point[3]; //!< Vertices as points
+    vec3 _vertex[3]; //!< Vertices as points
 
   public:
     //! Class destructor
@@ -142,11 +142,16 @@ namespace acme
         vec3 const &input //!< Input
     );
 
-    //! Set points
+    //! Set vertices points
     void vertices(
-        vec3 const &input0, //!< Input 0
-        vec3 const &input1, //!< Input 1
-        vec3 const &input2  //!< Input 2
+        vec3 const &vertex0, //!< Input 0
+        vec3 const &vertex1, //!< Input 1
+        vec3 const &vertex2  //!< Input 2
+    );
+
+    //! Set vertices points
+    void vertices(
+        vec3 const vertex[3] //!< Input
     );
 
     //! Get first edge

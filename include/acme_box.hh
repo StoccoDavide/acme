@@ -99,8 +99,8 @@ namespace acme
     //! Class constructor
     box(
         std::vector<box::ptr> const &boxes, //!< Input poiter to vector of boxes
-        int_type id = 0,                  //<! Input id value
-        int_type ipos = 0                 //<! Input rank value
+        int_type id = 0,                    //<! Input id value
+        int_type ipos = 0                   //<! Input rank value
     )
     {
       this->_id = id;
@@ -252,7 +252,14 @@ namespace acme
         vec3 const &point //!< Input
     ) const;
 
-    //! Get the minimum bounding box containing three input points
+    //! Resize the box as the minimum bounding box containing three input points
+    void minimum_box(
+        vec3 const &point0, //!< Input
+        vec3 const &point1, //!< Input
+        vec3 const &point2  //!< Input
+    );
+
+    //! Resize the box as the minimum bounding box containing three input points
     void minimum_box(
         vec3 const points[3] //!< Input
     );
