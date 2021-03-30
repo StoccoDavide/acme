@@ -160,7 +160,7 @@ namespace acme
 
   vec3 segment::to_normalized_vector(void) const
   {
-    return vec3((this->_point[1] - this->_point[0]).normalized());
+    return (this->_point[1] - this->_point[0]).normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

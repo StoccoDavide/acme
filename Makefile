@@ -1,3 +1,19 @@
+# (***********************************************************************)
+# (*                                                                     *)
+# (* The ACME computational geometry library                             *)
+# (* Release Version 0.0.0                                               *)
+# (* Copyright (c) 2020-2021 Davide Stocco, All Rights Reserved.         *)
+# (*                                                                     *)
+# (* The ACME computational geometry library and its components are      *)
+# (* supplied under the terms of the open source MIT License.            *)
+# (* The contents of the ACME computational geometry library and its     *)
+# (* components may not be copied or disclosed except in accordance with *)
+# (* the terms of the MIT License.                                       *)
+# (*                                                                     *)
+# (* URL: https://opensource.org/licenses/MIT                            *)
+# (*                                                                     *)
+# (***********************************************************************)
+
 OS  = $(shell uname -s)
 PWD = $(shell pwd)
 
@@ -106,18 +122,31 @@ clean:
 	rm -rf $(TARGET)
 	rm -rf $(OBJECTS)
 
-tests: $(OBJECTS) $(TESTS_SOURCES)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_math.cc  -o bin/test_math  $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_vector.cc  -o bin/test_vector $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/test_triangle.cc  -o bin/test_triangle $(LIBS)
+test_math: $(OBJECTS) $(TESTS_SOURCES)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/math_test.cc  -o bin/math_test  $(LIBS)
 
-run:
+run_test_math:
 	./bin/test_math
-	./bin/test_vector
-	./bin/test_triangle
 
-doc:
-	doxygen
+test_geometry: $(OBJECTS) $(TESTS_SOURCES)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test1.cc  -o bin/geometry_test1  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test2.cc  -o bin/geometry_test2  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test3.cc  -o bin/geometry_test3  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test4.cc  -o bin/geometry_test4  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test5.cc  -o bin/geometry_test5  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test6.cc  -o bin/geometry_test6  $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test7.cc  -o bin/geometry_test7  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test8.cc  -o bin/geometry_test8  $(LIBS)
+
+run_test_geometry:
+	#./bin/geometry_test1
+	#./bin/geometry_test2
+	#./bin/geometry_test3
+	#./bin/geometry_test4
+	#./bin/geometry_test5
+	#./bin/geometry_test6
+	#./bin/geometry_test7
+	./bin/geometry_test8
 
 #
 # That's All Folks!

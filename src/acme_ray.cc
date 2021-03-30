@@ -143,8 +143,7 @@ namespace acme
       vec3 const &point)
       const
   {
-    return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon &&
-           (point - this->_origin).dot(this->_direction) > 0.0;
+    return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -119,7 +119,7 @@ namespace acme
 
     //! Set rotation
     void rotation(
-        mat3 &input //!< Input
+        mat3 const &input //!< Input
     );
 
     //! Get origin
@@ -127,7 +127,7 @@ namespace acme
 
     //! Set rotation
     void origin(
-        vec3 &input //!< Input
+        vec3 const &input //!< Input
     );
 
     //! Check if rotation mat3 is othonormal
@@ -197,6 +197,7 @@ namespace acme
       frame const &frameB  //!< Future reference coordinate system
   );
 
+  static frame const ground = frame(acme::Zeros_vec3, acme::Identity_mat3); //!< Ground frame
   static frame const NaN_frame = frame(acme::NaN_vec3, acme::NaN_mat3); //!< Not-a-Number frame type
   static frame frame_goat = frame(NaN_frame);                           //!< Scapegoat frame type (throwaway non-const object)
 

@@ -275,7 +275,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 rotation_x(
+  mat3 const rotation_x(
       real_type input)
   {
     mat3 rot;
@@ -287,7 +287,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 rotation_y(
+  mat3 const rotation_y(
       real_type input)
   {
     mat3 rot;
@@ -299,7 +299,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 rotation_z(
+  mat3 const rotation_z(
       real_type input)
   {
     mat3 rot;
@@ -324,7 +324,7 @@ namespace acme
       vec3 const &input0,
       vec3 const &input1)
   {
-    return acme::angle_rad(input0, input1) * 1 / PIDiv180;
+    return acme::angle_rad(input0, input1) * 1 / PIdiv180;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

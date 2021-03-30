@@ -146,69 +146,69 @@ namespace acme
 
   //! Checks if elements are almost equal
   bool is_equal(
-      real_type input0,                  //!< Input 0
-      real_type input1,                  //!< Input 1
-      real_type tolerance = Epsilon_High //!< Tolerance
+      real_type input0,             //!< Input 0
+      real_type input1,             //!< Input 1
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      vec3 const &input0,                //!< Input 0
-      vec3 const &input1,                //!< Input 1
-      real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,           //!< Input 0
+      vec3 const &input1,           //!< Input 1
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Checks if elements are almost equal
   bool is_equal(
-      mat3 const &input0,                //!< Input 0
-      mat3 const &input1,                //!< Input 1
-      real_type tolerance = Epsilon_High //!< Tolerance
+      mat3 const &input0,           //!< Input 0
+      mat3 const &input1,           //!< Input 1
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if vec3 is degenerated
   bool is_degenerated(
-      vec3 const &input,                 //!< Input
-      real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input,            //!< Input
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if vec3 is normalized
   bool is_normalized(
-      vec3 const &input,                 //!< Input
-      real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input,            //!< Input
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if vectors are ortogonal
   bool is_ortogonal(
-      vec3 const &input0,                //!< Input 0
-      vec3 const &input1,                //!< Input 1
-      real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,           //!< Input 0
+      vec3 const &input1,           //!< Input 1
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool is_parallel(
-      vec3 const &input0,                //!< Input 0
-      vec3 const &input1,                //!< Input 1
-      real_type tolerance = Epsilon_High //!< Tolerance
+      vec3 const &input0,           //!< Input 0
+      vec3 const &input1,           //!< Input 1
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if rotation mat3 is othonormal
   bool is_ortonormal(
-      mat3 const &input,                 //!< Input
-      real_type tolerance = Epsilon_High //!< Tolerance
+      mat3 const &input,            //!< Input
+      real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Returns rotation on x-axis
-  mat3 rotation_x(
+  mat3 const rotation_x(
       real_type input //!< Input angle [rad]
   );
 
   //! Returns rotation on y-axis
-  mat3 rotation_y(
+  mat3 const rotation_y(
       real_type input //!< Input angle [rad]
   );
 
   //! Returns rotation on z-axis
-  mat3 rotation_z(
+  mat3 const rotation_z(
       real_type input //!< Input angle [rad]
   );
 

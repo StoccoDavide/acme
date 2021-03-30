@@ -112,7 +112,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void frame::rotation(
-      mat3 &input)
+      mat3 const &input)
   {
     this->_rotation = input;
   }
@@ -124,7 +124,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void frame::origin(
-      vec3 &input)
+      vec3 const &input)
   {
     this->_origin = input;
   }

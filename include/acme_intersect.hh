@@ -166,17 +166,41 @@ namespace acme
   );
 
   //! Intersection between two segments \n
-  //! WARNING: This function does not support coplanarity!
+  //! WARNING: This function only support coplanar objects!
   bool intersect(
       segment const &segment0,        //!< Input segment 0
       segment const &segment1,        //!< Input segment 1
       segment &segment = segment_goat //!< Output segment
   );
 
+  //! Intersection between line and segment \n
+  //! WARNING: This function only support coplanar objects!
+  bool intersect(
+      line const &line,                   //!< Input line
+      segment const &segment_in,          //!< Input segment
+      segment &segment_out = segment_goat //!< Output segment
+  );
+
+  //! Intersection between ray and segment \n
+  //! WARNING: This function only support coplanar objects!
+  bool intersect(
+      ray const &ray,                     //!< Input ray
+      segment const &segment_in,          //!< Input segment
+      segment &segment_out = segment_goat //!< Output segment
+  );
+
   //! Intersect line with circle \n
   //! WARNING: This function only support coplanar objects!
   bool intersect(
       line const &line,               //!< Input line
+      circle const &circle,           //!< Input circle
+      segment &segment = segment_goat //!< Ouput segment
+  );
+
+  //! Intersect ray with circle \n
+  //! WARNING: This function only support coplanar objects!
+  bool intersect(
+      ray const &ray,                 //!< Input ray
       circle const &circle,           //!< Input circle
       segment &segment = segment_goat //!< Ouput segment
   );

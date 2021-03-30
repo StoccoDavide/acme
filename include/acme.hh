@@ -96,8 +96,8 @@ namespace acme
 
   static real_type const PI = real_type(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ input
   static real_type const PI2 = real_type(6.283185307179586476925286766559000);        //!< \f$ 2\pi \f$ input
-  static real_type const PIDiv180 = real_type(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ input
-  static real_type const _180DivPI = real_type(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ input
+  static real_type const PIdiv180 = real_type(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ input
+  static real_type const _180divPI = real_type(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ input
 
   static vec2 const NaN_vec2 = vec2::Constant(NaN);    //!< Not-a-Number vec2 type
   static mat2 const NaN_mat2 = mat2::Constant(NaN);    //!< Not-a-Number mat2 type
@@ -105,6 +105,7 @@ namespace acme
   static mat2 const Zeros_mat2 = mat2::Constant(0.0);  //!< Zeros mat2 type
   static vec2 const Ones_vec2 = vec2::Constant(1.0);   //!< Ones vec2 type
   static mat2 const Ones_mat2 = mat2::Constant(1.0);   //!< Ones mat2 type
+  static mat2 const Identity_mat2 = mat2::Identity();  //!< Identity mat2 type
 
   static vec3 const NaN_vec3 = vec3::Constant(NaN);   //!< Not-a-Number vec3 type
   static mat3 const NaN_mat3 = mat3::Constant(NaN);   //!< Not-a-Number mat3 type
@@ -112,6 +113,7 @@ namespace acme
   static mat3 const Zeros_mat3 = mat3::Constant(0.0); //!< Zeros mat3 type
   static vec3 const Ones_vec3 = vec3::Constant(1.0);  //!< Ones vec3 type
   static mat3 const Ones_mat3 = mat3::Constant(1.0);  //!< Ones mat3 type
+  static mat3 const Identity_mat3 = mat3::Identity(); //!< Identity mat3 type
 
   static vec4 const NaN_vec4 = vec4::Constant(NaN);   //!< Not-a-Number vec4 type
   static mat4 const NaN_mat4 = mat4::Constant(NaN);   //!< Not-a-Number mat4 type
@@ -119,6 +121,7 @@ namespace acme
   static mat4 const Zeros_mat4 = mat4::Constant(0.0); //!< Zeros mat4 type
   static vec4 const Ones_vec4 = vec4::Constant(1.0);  //!< Ones vec4 type
   static mat4 const Ones_mat4 = mat4::Constant(1.0);  //!< Ones mat4 type
+  static mat4 const Identity_mat4 = mat4::Identity(); //!< Identity mat4 type
 
   static vec2 vec2_goat = vec2(NaN_vec2); //!< Scapegoat vec2 type (throwaway non-const object)
   static vec3 vec3_goat = vec3(NaN_vec3); //!< Scapegoat vec3 type (throwaway non-const object)

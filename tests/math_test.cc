@@ -12,7 +12,7 @@ int main(void)
   // EPSILON TEST
   acme::real_type Epsilon_machine = acme::Epsilon_Machine;
   acme::real_type Epsilon_acme = acme::epsilon();
-  std::cout << "EPSILON TEST" << std::endl
+  std::cout << "Epsilon TEST" << std::endl
             << "Epsilon (machine) = " << Epsilon_machine << std::endl
             << "Epsilon (acme)    = " << Epsilon_acme << std::endl
             << std::endl;
