@@ -68,14 +68,29 @@ namespace acme
   typedef int int_type;              //!< Integer number type
   typedef std::ostream ostream_type; //!< Output stream type
 
-  typedef Eigen::Matrix<real_type, 2, 1> vec2; //!< Vector type 2x1 (column vector)
-  typedef Eigen::Matrix<real_type, 2, 2> mat2; //!< Matrix type 2x2
+  typedef Eigen::Matrix<real_type, Eigen::Dynamic, 1> vecN;              //!< Nx1 vector of real number type (column vector)
+  typedef Eigen::Matrix<real_type, Eigen::Dynamic, Eigen::Dynamic> matN; //!< NxN matrix of real number type
 
-  typedef Eigen::Matrix<real_type, 3, 1> vec3; //!< Vector type 3x1 (column vector)
-  typedef Eigen::Matrix<real_type, 3, 3> mat3; //!< Matrix type 3x3
+  typedef Eigen::Matrix<real_type, 2, 1> vec2;                          //!< 2x1 vector type (column vector)
+  typedef Eigen::Matrix<real_type, 2, 2> mat2;                          //!< 2x2 matrix type
+  typedef Eigen::Matrix<vec2, Eigen::Dynamic, 1> vec_vec2;              //!< Nx1 vector of 2x1 vector type (column vector)
+  typedef Eigen::Matrix<mat2, Eigen::Dynamic, 1> vec_mat2;              //!< Nx1 vector of 2x2 matrix type
+  typedef Eigen::Matrix<vec2, Eigen::Dynamic, Eigen::Dynamic> mat_vec2; //!< NxN matrix of 2x1 vector type (column vector)
+  typedef Eigen::Matrix<mat2, Eigen::Dynamic, Eigen::Dynamic> mat_mat2; //!< NxN matrix of 2x2 matrix type
 
-  typedef Eigen::Matrix<real_type, 4, 1> vec4; //!< Vector type 4x1 (column vector)
-  typedef Eigen::Matrix<real_type, 4, 4> mat4; //!< Matrix type 4x4
+  typedef Eigen::Matrix<real_type, 3, 1> vec3;                          //!< 3x1 vector type (column vector)
+  typedef Eigen::Matrix<real_type, 3, 3> mat3;                          //!< 3x3 matrix type
+  typedef Eigen::Matrix<vec3, Eigen::Dynamic, 1> vec_vec3;              //!< Nx1 vector of 3x1 vector type (column vector)
+  typedef Eigen::Matrix<mat3, Eigen::Dynamic, 1> vec_mat3;              //!< Nx1 vector of 3x3 matrix type
+  typedef Eigen::Matrix<vec3, Eigen::Dynamic, Eigen::Dynamic> mat_vec3; //!< NxN matrix of 3x1 vector type (column vector)
+  typedef Eigen::Matrix<mat3, Eigen::Dynamic, Eigen::Dynamic> mat_mat3; //!< NxN matrix of 3x3 matrix type
+
+  typedef Eigen::Matrix<real_type, 4, 1> vec4;                          //!< 4x1 vector type (column vector)
+  typedef Eigen::Matrix<real_type, 4, 4> mat4;                          //!< 4x4 matrix type
+  typedef Eigen::Matrix<vec4, Eigen::Dynamic, 1> vec_vec4;              //!< Nx1 vector of 4x1 vector type (column vector)
+  typedef Eigen::Matrix<mat4, Eigen::Dynamic, 1> vec_mat4;              //!< Nx1 vector of 4x4 matrix type
+  typedef Eigen::Matrix<vec4, Eigen::Dynamic, Eigen::Dynamic> mat_vec4; //!< NxN matrix of 4x1 vector type (column vector)
+  typedef Eigen::Matrix<mat4, Eigen::Dynamic, Eigen::Dynamic> mat_mat4; //!< NxN matrix of 4x4 matrix type
 
   /*\
    |    ____                _              _       

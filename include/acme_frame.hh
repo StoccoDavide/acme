@@ -125,7 +125,7 @@ namespace acme
     //! Get origin
     vec3 const origin(void) const;
 
-    //! Set rotation
+    //! Set origin
     void origin(
         vec3 const &input //!< Input
     );
@@ -157,17 +157,17 @@ namespace acme
     //! Get 4x4 affine transformation matrix
     mat4 affine(void) const;
 
-    //! Get current Euler angle [rad] for x-axis \n
+    //! Get current Euler angle [rad] for x axis \n
     //! WARNING: Factor as [Rz][Rx][Ry]!
     // https://www.geometrictools.com/Documentation/EulerAngles.pdf
     real_type euler_angle_x(void) const;
 
-    //! Get current Euler angle [rad] for y-axis \n
+    //! Get current Euler angle [rad] for y axis \n
     //! WARNING: Factor as [Rz][Rx][Ry]!
     // https://www.geometrictools.com/Documentation/EulerAngles.pdf
     real_type euler_angle_y(void) const;
 
-    //! Get current Euler angle [rad] for z-axis \n
+    //! Get current Euler angle [rad] for z axis \n
     //! WARNING: Factor as [Rz][Rx][Ry]!
     // https://www.geometrictools.com/Documentation/EulerAngles.pdf
     real_type euler_angle_z(void) const;

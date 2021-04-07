@@ -62,6 +62,12 @@ namespace acme
       real_type input //!< Input
   );
 
+  //! Power
+  real_type pow(
+      real_type base,    //!< Input base
+      real_type exponent //!< Input exponent
+  );
+
   //! Absolute value
   real_type abs(real_type input //!< Input
   );

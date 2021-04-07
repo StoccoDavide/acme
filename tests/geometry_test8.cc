@@ -45,8 +45,8 @@ int main()
       << "Point  (ground) = " << point << std::endl
       << "Vector (ground) = " << vector << std::endl
       << std::endl
-      << "Point  (mov. frame) = " << mov_point << std::endl
-      << "Vector (mov. frame) = " << mov_vector << std::endl
+      << "Point  (moving frame) = " << mov_point << std::endl
+      << "Vector (moving frame) = " << mov_vector << std::endl
       << std::endl
       << "Point  (back to ground) = " << ground_point << std::endl
       << "Vector (back to ground) = " << ground_vector << std::endl

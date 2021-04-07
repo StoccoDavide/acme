@@ -71,6 +71,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  real_type pow(
+      real_type base,
+      real_type exponent)
+  {
+    return std::pow(base, exponent);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   real_type abs(real_type input)
   {
     return std::abs(input);
