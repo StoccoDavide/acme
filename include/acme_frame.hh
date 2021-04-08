@@ -51,7 +51,7 @@ namespace acme
 #else
     typedef frame const *ptr; //!< Pointer to frame
 #endif
-
+ 
     typedef std::vector<ptr> ptrVec; //!< Vector of pointers to frame
 
   private:

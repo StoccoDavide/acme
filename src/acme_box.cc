@@ -386,7 +386,7 @@ namespace acme
 
   int_type const &box::pos() const { return this->_ipos; }
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -z
 
 } // namespace acme
 
