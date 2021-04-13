@@ -74,15 +74,18 @@ namespace acme
 
     //! Class constructor
     box(
-        real_type x_min,  //<! Input x value of minimum point
-        real_type y_min,  //<! Input y value of minimum point
-        real_type z_min,  //<! Input z value of minimum point
-        real_type x_max,  //<! Input x value of maximum point
-        real_type y_max,  //<! Input y value of maximum point
-        real_type z_max,  //<! Input z value of maximum point
-        int_type id = 0,  //<! Input id value
-        int_type ipos = 0 //<! Input rank value
-        ) : _point_min(vec3(x_min, y_min, z_min)), _point_max(vec3(x_max, y_max, z_max)), _id(id), _ipos(ipos)
+        real_type x_min, //<! Input x value of minimum point
+        real_type y_min, //<! Input y value of minimum point
+        real_type z_min, //<! Input z value of minimum point
+        real_type x_max, //<! Input x value of maximum point
+        real_type y_max, //<! Input y value of maximum point
+        real_type z_max, //<! Input z value of maximum point
+        int_type id,     //<! Input id value
+        int_type ipos    //<! Input rank value
+        ) : _point_min(vec3(x_min, y_min, z_min)),
+            _point_max(vec3(x_max, y_max, z_max)),
+            _id(id),
+            _ipos(ipos)
     {
     }
 
@@ -90,8 +93,8 @@ namespace acme
     box(
         vec3 const &point_min, //!< Input minimum point
         vec3 const &point_max, //!< Input maximum point
-        int_type id = 0,       //<! Input id value
-        int_type ipos = 0      //<! Input rank value
+        int_type id,           //<! Input id value
+        int_type ipos          //<! Input rank value
         ) : _point_min(point_min), _point_max(point_max), _id(id), _ipos(ipos)
     {
     }
@@ -99,8 +102,8 @@ namespace acme
     //! Class constructor
     box(
         std::vector<box::ptr> const &boxes, //!< Input poiter to vector of boxes
-        int_type id = 0,                    //<! Input id value
-        int_type ipos = 0                   //<! Input rank value
+        int_type id,                        //<! Input id value
+        int_type ipos                       //<! Input rank value
     )
     {
       this->_id = id;
@@ -151,6 +154,14 @@ namespace acme
     void point_min(
         vec3 const &input //!< Input
     );
+
+    //! Set min point
+    void point_min(
+        real_type x, //!< Input x point
+        real_type y, //!< Input y point
+        real_type z  //!< Input z point
+    );
+
     //! Set min point x value
     void x_min(
         real_type input //!<Input
@@ -192,6 +203,13 @@ namespace acme
     //! Set max point
     void point_max(
         vec3 const &input //!< Input
+    );
+
+    //! Set max point
+    void point_max(
+        real_type x, //!< Input x point
+        real_type y, //!< Input y point
+        real_type z  //!< Input z point
     );
 
     //! Set max point x value

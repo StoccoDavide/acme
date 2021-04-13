@@ -154,62 +154,62 @@ namespace acme
     real_type ymax = ptrbox->y_max();
     real_type zmax = ptrbox->z_max();
 
-    std::vector<box::ptr> posBoxes;
-    std::vector<box::ptr> negBoxes;
+    std::vector<box::ptr> pos_boxes;
+    std::vector<box::ptr> neg_boxes;
 
     if ((xmax - xmin) > (ymax - ymin) && (xmax - xmin) > (zmax - zmin))
     {
-      real_type cutPos = (xmax + xmin) / 2;
+      real_type cut_pos = (xmax + xmin) / 2;
       std::vector<box::ptr>::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
         real_type xmid = ((*it)->x_min() + (*it)->x_max()) / 2;
-        if (xmid > cutPos)
-          posBoxes.push_back(*it);
+        if (xmid > cut_pos)
+          pos_boxes.push_back(*it);
         else
-          negBoxes.push_back(*it);
+          neg_boxes.push_back(*it);
       }
     }
     else if ((ymax - ymin) > (xmax - xmin) && (ymax - ymin) > (zmax - zmin))
     {
-      real_type cutPos = (ymax + ymin) / 2;
+      real_type cut_pos = (ymax + ymin) / 2;
       std::vector<box::ptr>::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
         real_type ymid = ((*it)->y_min() + (*it)->y_max()) / 2;
-        if (ymid > cutPos)
-          posBoxes.push_back(*it);
+        if (ymid > cut_pos)
+          pos_boxes.push_back(*it);
         else
-          negBoxes.push_back(*it);
+          neg_boxes.push_back(*it);
       }
     }
     else
     {
-      real_type cutPos = (zmax + zmin) / 2;
+      real_type cut_pos = (zmax + zmin) / 2;
       std::vector<box::ptr>::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
         real_type zmid = ((*it)->z_min() + (*it)->z_max()) / 2;
-        if (zmid > cutPos)
-          posBoxes.push_back(*it);
+        if (zmid > cut_pos)
+          pos_boxes.push_back(*it);
         else
-          negBoxes.push_back(*it);
+          neg_boxes.push_back(*it);
       }
     }
 
-    if (negBoxes.empty())
+    if (neg_boxes.empty())
     {
-      std::vector<box::ptr>::iterator midIdx;
-      midIdx = posBoxes.begin() + posBoxes.size() / 2;
-      negBoxes.insert(negBoxes.end(), midIdx, posBoxes.end());
-      posBoxes.erase(midIdx, posBoxes.end());
+      std::vector<box::ptr>::iterator mid_idx;
+      mid_idx = pos_boxes.begin() + pos_boxes.size() / 2;
+      neg_boxes.insert(neg_boxes.end(), mid_idx, pos_boxes.end());
+      pos_boxes.erase(mid_idx, pos_boxes.end());
     }
-    else if (posBoxes.empty())
+    else if (pos_boxes.empty())
     {
-      std::vector<box::ptr>::iterator midIdx;
-      midIdx = negBoxes.begin() + negBoxes.size() / 2;
-      posBoxes.insert(posBoxes.end(), midIdx, negBoxes.end());
-      negBoxes.erase(midIdx, negBoxes.end());
+      std::vector<box::ptr>::iterator mid_idx;
+      mid_idx = neg_boxes.begin() + neg_boxes.size() / 2;
+      pos_boxes.insert(pos_boxes.end(), mid_idx, neg_boxes.end());
+      neg_boxes.erase(mid_idx, neg_boxes.end());
     }
 
 #ifdef ACME_USE_CXX11
@@ -220,11 +220,11 @@ namespace acme
     AABBtree::ptr pos = new AABBtree();
 #endif
 
-    neg->build(negBoxes);
+    neg->build(neg_boxes);
     if (!neg->is_empty())
       children.push_back(neg);
 
-    pos->build(posBoxes);
+    pos->build(pos_boxes);
     if (!pos->is_empty())
       children.push_back(pos);
   }
@@ -257,7 +257,7 @@ namespace acme
   void
   AABBtree::intersect(
       AABBtree const &tree,
-      box::ptrPairVec &intersectionList,
+      box::ptrPairVec &intersection_list,
       bool swap_tree) const
   {
 
@@ -272,22 +272,22 @@ namespace acme
     {
     case 0: // Both are leafs
       if (swap_tree)
-        intersectionList.push_back(box::ptrPair(tree.ptrbox, ptrbox));
+        intersection_list.push_back(box::ptrPair(tree.ptrbox, ptrbox));
       else
-        intersectionList.push_back(box::ptrPair(ptrbox, tree.ptrbox));
+        intersection_list.push_back(box::ptrPair(ptrbox, tree.ptrbox));
       break;
     case 1: // First is a tree, second is a leaf
     {
       std::vector<AABBtree::ptr>::const_iterator it;
       for (it = children.begin(); it != children.end(); ++it)
-        tree.intersect(**it, intersectionList, !swap_tree);
+        tree.intersect(**it, intersection_list, !swap_tree);
     }
     break;
     case 2: // First leaf, second is a tree
     {
       std::vector<AABBtree::ptr>::const_iterator it;
       for (it = tree.children.begin(); it != tree.children.end(); ++it)
-        this->intersect(**it, intersectionList, swap_tree);
+        this->intersect(**it, intersection_list, swap_tree);
     }
     break;
     case 3: // First is a tree, second is a tree
@@ -296,7 +296,7 @@ namespace acme
       std::vector<AABBtree::ptr>::const_iterator c2;
       for (c1 = children.begin(); c1 != children.end(); ++c1)
         for (c2 = tree.children.begin(); c2 != tree.children.end(); ++c2)
-          (*c1)->intersect(**c2, intersectionList, swap_tree);
+          (*c1)->intersect(**c2, intersection_list, swap_tree);
     }
     break;
     }
@@ -338,7 +338,7 @@ namespace acme
       vec3 const &point,
       real_type distance,
       AABBtree const &tree,
-      box::ptrVec &candidateList)
+      box::ptrVec &candidate_list)
   {
     std::vector<AABBtree::ptr> const &children = tree.children;
     real_type dst = tree.ptrbox->distance(point);
@@ -346,14 +346,14 @@ namespace acme
     {
       if (children.empty())
       {
-        candidateList.push_back(tree.ptrbox);
+        candidate_list.push_back(tree.ptrbox);
       }
       else
       {
         // check box with
         std::vector<AABBtree::ptr>::const_iterator it;
         for (it = children.begin(); it != children.end(); ++it)
-          min_maxdist_select(point, distance, **it, candidateList);
+          min_maxdist_select(point, distance, **it, candidate_list);
       }
     }
   }
@@ -363,11 +363,11 @@ namespace acme
   void
   AABBtree::min_distance(
       vec3 const &point,
-      box::ptrVec &candidateList) const
+      box::ptrVec &candidate_list) const
   {
     real_type distance = this->min_maxdist(
         point, *this, acme::infinity());
-    this->min_maxdist_select(point, distance, *this, candidateList);
+    this->min_maxdist_select(point, distance, *this, candidate_list);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

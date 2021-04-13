@@ -6,6 +6,7 @@
 
 #include "acme.hh"
 #include "acme_intersect.hh"
+#include "acme_math.hh"
 #include "acme_triangle.hh"
 #include "acme_box.hh"
 
@@ -88,6 +89,7 @@ int main()
       << std::endl
       << "Triangle 1 face normal = " << N1 << std::endl
       << "Triangle 2 face normal = " << N2 << std::endl
+      << "Pow = " << acme::pow(2.0,2.0) << std::endl
       << std::endl
       << std::endl
       << "GEOMETRY TEST 1: Completed" << std::endl;

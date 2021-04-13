@@ -101,7 +101,7 @@ namespace acme
     if (!(box0.collision(box1)))
       return false;
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; ++i)
     {
       if (box0.max(i) <= box1.max(i))
         box.max(i, box0.max(i));
@@ -504,7 +504,7 @@ namespace acme
     // |      1      |      0      |      0      |      0      |
     else
     {
-      ACME_ERROR("acme::intersect(segment, segment -> segment): Cannot handle exception.")
+      ACME_ERROR("acme::intersect(segment, segment, segment): Cannot handle exception.")
       return false;
     }
   }

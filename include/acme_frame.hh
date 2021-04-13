@@ -51,7 +51,7 @@ namespace acme
 #else
     typedef frame const *ptr; //!< Pointer to frame
 #endif
- 
+
     typedef std::vector<ptr> ptrVec; //!< Vector of pointers to frame
 
   private:
@@ -72,11 +72,19 @@ namespace acme
     frame(
         vec3 const &origin,  //!< Input origin
         mat3 const &rotation //!< Input rotation
-        ) : _origin(origin), _rotation(rotation)
+        ) : _origin(origin),
+            _rotation(rotation)
     {
     }
 
-  public:
+    //! Class constructor
+    frame(
+        mat4 const &affine //!<4x4 affine transformation matrix
+        ) : _origin(affine.block<3, 1>(0, 3)),
+            _rotation(affine.block<3, 3>(0, 0))
+    {
+    }
+
     //! Clear data
     void clear(void);
 
@@ -198,8 +206,8 @@ namespace acme
   );
 
   static frame const ground = frame(acme::Zeros_vec3, acme::Identity_mat3); //!< Ground frame
-  static frame const NaN_frame = frame(acme::NaN_vec3, acme::NaN_mat3); //!< Not-a-Number frame type
-  static frame frame_goat = frame(NaN_frame);                           //!< Scapegoat frame type (throwaway non-const object)
+  static frame const NaN_frame = frame(acme::NaN_vec3, acme::NaN_mat3);     //!< Not-a-Number frame type
+  static frame frame_goat = frame(NaN_frame);                               //!< Scapegoat frame type (throwaway non-const object)
 
 } // namespace acme
 

@@ -20,7 +20,7 @@ PWD = $(shell pwd)
 SOURCES       = $(wildcard src/*.cc)
 OBJECTS       = $(patsubst src/%.cc, build/%.o, $(SOURCES))
 TESTS_SOURCES = $(wildcard tests/*.cc)
-INCLUDEDIRS   = -Iinclude
+INCLUDEDIRS   = -Iinclude -Isubmodules/acme/lib/include
 
 CXXFLAGS      = $(INCLUDEDIRS) $(shell pkg-config --cflags eigen3) 
 LIBS          = -L./lib -lacme
@@ -32,7 +32,7 @@ DYNAMIC_EXT   = .so
 ifneq (,$(findstring Linux, $(OS)))
 	CC        = gcc
 	CXX       = g++
-	LIBS     += #-static -L./lib -lacme
+	LIBS     += -L./lib -lacme
 	CXXFLAGS += -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment $(RPATH)
 	AR        = ar rcs
 	LDCONFIG  = sudo ldconfig
@@ -40,7 +40,7 @@ endif
 
 # check if the OS string contains 'MINGW'
 ifneq (,$(findstring MINGW, $(OS)))
-	LIBS     += #-static -L./lib -lacme
+	LIBS     += -L./lib -lacme
 	CXXFLAGS += -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment
 	AR        = ar rcs
 	LDCONFIG  = sudo ldconfig
@@ -48,7 +48,7 @@ endif
 
 # check if the OS string contains 'Darwin'
 ifneq (,$(findstring Darwin, $(OS)))
-	LIBS       += #-static -L./lib -lacme
+	LIBS       += -L./lib -lacme
 	WARN        = -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
 	CC          = clang
 	CXX         = clang++ -std=c++11 -g
@@ -60,7 +60,7 @@ endif
 
 LIB_ACME = libacme
 MKDIR = mkdir -p
-DEPS  = include/acme_utilities.hh include/acme.hh
+DEPS  = include/acme.hh include/acme_AABBtree.hh include/acme_box.hh
 
 # prefix for installation, use make PREFIX=/new/prefix install
 # to override
@@ -126,7 +126,7 @@ test_math: $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/math_test.cc  -o bin/math_test  $(LIBS)
 
 run_test_math:
-	./bin/test_math
+	./bin/math_test
 
 test_geometry: $(OBJECTS) $(TESTS_SOURCES)
 	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/geometry_test1.cc  -o bin/geometry_test1  $(LIBS)

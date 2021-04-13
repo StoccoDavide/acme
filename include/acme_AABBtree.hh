@@ -64,16 +64,10 @@ namespace acme
   {
   public:
 #ifdef ACME_USE_CXX11
-    //typedef shared_ptr<box const> boxPtr; //!< Shared pointer to box;;
     typedef shared_ptr<AABBtree> ptr; //!< Shared pointer to tree
 #else
-    //typedef box const *boxPtr; //!< Pointer to box
     typedef AABBtree *ptr; //!< Pointer to tree
 #endif
-
-    //typedef std::pair<boxPtr, boxPtr> boxPtrPair;  //!< Pair of box
-    //typedef std::vector<boxPtr> boxPtrVec;         //!< Vector of pointers to box
-    //typedef std::vector<boxPtrPair> boxPtrPairVec; //!< Vector of pointers to pair of box
 
   private:
     box::ptr ptrbox; //!< Pointer to box of tree
@@ -143,7 +137,7 @@ namespace acme
 
       switch (icase)
       {
-      case 0: // both leaf, use GeomPrimitive intersection algorithm
+      case 0: // both leaf, use box intersection algorithm
         if (swap_tree)
           return fun(tree.ptrbox, ptrbox);
         else

@@ -30,5 +30,9 @@ int main(void)
             << "Cos(PI) = " << acme::cos(value) << std::endl
             << "Tan(PI) = " << acme::tan(value) << std::endl;
 
+  // POW TEST
+  std::cout << "POW TEST" << std::endl
+            << "Pow(2.0, 2.0) = " << acme::pow(2.0, 2.0) << std::endl;
+
   return 0;
 }

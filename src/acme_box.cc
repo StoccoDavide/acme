@@ -146,6 +146,18 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void box::point_min(
+      real_type x,
+      real_type y,
+      real_type z)
+  {
+    this->_point_min.x() = x;
+    this->_point_min.y() = y;
+    this->_point_min.z() = z;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void box::x_min(
       real_type input)
   {
@@ -212,6 +224,18 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void box::point_max(
+      real_type x,
+      real_type y,
+      real_type z)
+  {
+    this->_point_max.x() = x;
+    this->_point_max.y() = y;
+    this->_point_max.z() = z;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void box::x_max(
       real_type input)
   {
@@ -268,7 +292,8 @@ namespace acme
       frame const &frameB) const
   {
     return box(acme::transform_point(this->_point_min, frameA, frameB),
-               acme::transform_point(this->_point_max, frameA, frameB));
+               acme::transform_point(this->_point_max, frameA, frameB),
+               this->_id, this->_ipos);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -301,19 +326,19 @@ namespace acme
 
       for (++it; it != boxes.end(); ++it)
       {
-        box const &curBox = **it;
-        if (curBox._point_min.x() < this->_point_min.x())
-          this->_point_min.x() = curBox._point_min.x();
-        if (curBox._point_min.y() < this->_point_min.y())
-          this->_point_min.y() = curBox._point_min.y();
-        if (curBox._point_min.z() < this->_point_min.z())
-          this->_point_min.z() = curBox._point_min.z();
-        if (curBox._point_max.x() > this->_point_max.x())
-          this->_point_max.x() = curBox._point_max.x();
-        if (curBox._point_max.y() > this->_point_max.y())
-          this->_point_max.y() = curBox._point_max.y();
-        if (curBox._point_max.z() > this->_point_max.z())
-          this->_point_max.z() = curBox._point_max.z();
+        box const &cur_box = **it;
+        if (cur_box._point_min.x() < this->_point_min.x())
+          this->_point_min.x() = cur_box._point_min.x();
+        if (cur_box._point_min.y() < this->_point_min.y())
+          this->_point_min.y() = cur_box._point_min.y();
+        if (cur_box._point_min.z() < this->_point_min.z())
+          this->_point_min.z() = cur_box._point_min.z();
+        if (cur_box._point_max.x() > this->_point_max.x())
+          this->_point_max.x() = cur_box._point_max.x();
+        if (cur_box._point_max.y() > this->_point_max.y())
+          this->_point_max.y() = cur_box._point_max.y();
+        if (cur_box._point_max.z() > this->_point_max.z())
+          this->_point_max.z() = cur_box._point_max.z();
       }
     }
   }
