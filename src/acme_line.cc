@@ -118,9 +118,20 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  line line::transform(
+  void line::transform(
       frame const &frameA,
-      frame const &frameB) const
+      frame const &frameB)
+  {
+    this->_origin = acme::transform_point(this->_origin, frameA, frameB);
+    this->_direction = acme::transform_vector(this->_direction, frameA, frameB);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  line line::transformed(
+      frame const &frameA,
+      frame const &frameB)
+      const
   {
     return line(acme::transform_point(this->_origin, frameA, frameB),
                 acme::transform_vector(this->_direction, frameA, frameB));

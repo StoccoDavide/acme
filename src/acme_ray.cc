@@ -118,9 +118,20 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ray ray::transform(
+  void ray::transform(
       frame const &frameA,
-      frame const &frameB) const
+      frame const &frameB)
+  {
+    this->_origin = acme::transform_point(this->_origin, frameA, frameB);
+    this->_direction = acme::transform_vector(this->_direction, frameA, frameB);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ray ray::transformed(
+      frame const &frameA,
+      frame const &frameB)
+      const
   {
     return ray(acme::transform_point(this->_origin, frameA, frameB),
                acme::transform_vector(this->_direction, frameA, frameB));

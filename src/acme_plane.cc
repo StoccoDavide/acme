@@ -118,9 +118,20 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane plane::transform(
+  void plane::transform(
       frame const &frameA,
-      frame const &frameB) const
+      frame const &frameB)
+  {
+    this->_origin = acme::transform_point(this->_origin, frameA, frameB);
+    this->_normal = acme::transform_vector(this->_normal, frameA, frameB);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane plane::transformed(
+      frame const &frameA,
+      frame const &frameB)
+      const
   {
     return plane(acme::transform_point(this->_origin, frameA, frameB),
                  acme::transform_vector(this->_normal, frameA, frameB));

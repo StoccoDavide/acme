@@ -243,8 +243,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform box from frameA to frameB
-    box transform(
+    //! Transform box from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transform box from frameA to frameB
+    box transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

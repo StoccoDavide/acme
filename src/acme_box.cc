@@ -287,9 +287,20 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  box box::transform(
+  void box::transform(
       frame const &frameA,
-      frame const &frameB) const
+      frame const &frameB)
+  {
+    this->_point_min = acme::transform_point(this->_point_min, frameA, frameB);
+    this->_point_max = acme::transform_point(this->_point_max, frameA, frameB);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  box box::transformed(
+      frame const &frameA,
+      frame const &frameB)
+      const
   {
     return box(acme::transform_point(this->_point_min, frameA, frameB),
                acme::transform_point(this->_point_max, frameA, frameB),

@@ -23,7 +23,7 @@ TESTS_SOURCES = $(wildcard tests/*.cc)
 INCLUDEDIRS   = -Iinclude -Isubmodules/acme/lib/include
 
 CXXFLAGS      = $(INCLUDEDIRS) $(shell pkg-config --cflags eigen3) 
-LIBS          = -L./lib -lacme
+LIBS          = 
 DEFS          =
 STATIC_EXT    = .a
 DYNAMIC_EXT   = .so
@@ -32,7 +32,11 @@ DYNAMIC_EXT   = .so
 ifneq (,$(findstring Linux, $(OS)))
 	CC        = gcc
 	CXX       = g++
+<<<<<<< HEAD
 	LIBS     += -L./lib -lacme
+=======
+	LIBS     += 
+>>>>>>> develop
 	CXXFLAGS += -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment $(RPATH)
 	AR        = ar rcs
 	LDCONFIG  = sudo ldconfig
@@ -40,7 +44,11 @@ endif
 
 # check if the OS string contains 'MINGW'
 ifneq (,$(findstring MINGW, $(OS)))
+<<<<<<< HEAD
 	LIBS     += -L./lib -lacme
+=======
+	LIBS     += 
+>>>>>>> develop
 	CXXFLAGS += -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment
 	AR        = ar rcs
 	LDCONFIG  = sudo ldconfig
@@ -48,7 +56,11 @@ endif
 
 # check if the OS string contains 'Darwin'
 ifneq (,$(findstring Darwin, $(OS)))
+<<<<<<< HEAD
 	LIBS       += -L./lib -lacme
+=======
+	LIBS       +=
+>>>>>>> develop
 	WARN        = -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
 	CC          = clang
 	CXX         = clang++ -std=c++11 -g
@@ -85,7 +97,7 @@ src/%.o: build/%.c $(DEPS)
 
 lib/libacme.a: $(OBJECTS) include_local
 	@$(MKDIR) lib
-	$(AR) lib/libacme.a $(OBJECTS)
+	$(AR) lib/libacme_static.a $(OBJECTS)
 
 lib/libacme.dylib: $(OBJECTS) include_local
 	@$(MKDIR) lib
@@ -112,9 +124,6 @@ dir:
 	mkdir -p build
 	mkdir -p bin
 
-doc:
-	doxygen
-
 build/%.o: src/%.cc
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
@@ -122,6 +131,7 @@ clean:
 	rm -rf $(TARGET)
 	rm -rf $(OBJECTS)
 
+<<<<<<< HEAD
 test_math: $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/math_test.cc  -o bin/math_test  $(LIBS)
 
@@ -147,6 +157,29 @@ run_test_geometry:
 	#./bin/geometry_test6
 	#./bin/geometry_test7
 	./bin/geometry_test8
+=======
+tests: $(OBJECTS) $(TESTS_SOURCES)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc  -o bin/acme-test0  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc  -o bin/acme-test1  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc  -o bin/acme-test2  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc  -o bin/acme-test3  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc  -o bin/acme-test4  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc  -o bin/acme-test5  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc  -o bin/acme-test6  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc  -o bin/acme-test7  $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc  -o bin/acme-test8  $(LIBS)
+
+tests_run:
+	./bin/acme-test0
+	./bin/acme-test1
+	./bin/acme-test2
+	./bin/acme-test3
+	./bin/acme-test4
+	./bin/acme-test5
+	./bin/acme-test6
+	./bin/acme-test7
+	./bin/acme-test8
+>>>>>>> develop
 
 #
 # That's All Folks!

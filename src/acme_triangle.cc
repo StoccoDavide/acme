@@ -236,9 +236,21 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  triangle triangle::transform(
+  void triangle::transform(
       frame const &frameA,
-      frame const &frameB) const
+      frame const &frameB)
+  {
+    this->_vertex[0] = acme::transform_point(this->_vertex[0], frameA, frameB);
+    this->_vertex[1] = acme::transform_point(this->_vertex[1], frameA, frameB);
+    this->_vertex[2] = acme::transform_point(this->_vertex[2], frameA, frameB);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  triangle triangle::transformed(
+      frame const &frameA,
+      frame const &frameB)
+      const
   {
     return triangle(acme::transform_point(this->_vertex[0], frameA, frameB),
                     acme::transform_point(this->_vertex[1], frameA, frameB),
