@@ -48,7 +48,7 @@ endif
 
 # check if the OS string contains 'Darwin'
 ifneq (,$(findstring Darwin, $(OS)))
-	LIBS       += 
+	LIBS       +=
 	WARN        = -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
 	CC          = clang
 	CXX         = clang++ -std=c++11 -g
