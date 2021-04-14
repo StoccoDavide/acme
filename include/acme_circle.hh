@@ -141,8 +141,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform circle from frameA to frameB
-    circle transform(
+    //! Transform circle from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transformed circle from frameA to frameB
+    circle transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

@@ -176,8 +176,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform triangle from frameA to frameB
-    triangle transform(
+    //! Transform triangle from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transform triangle from frameA to frameB
+    triangle transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

@@ -58,8 +58,8 @@ int main()
     //rotation = acme::rotation_x(angle);
     tmp_frame.rotation(acme::rotation_x(angle));
 
-    tmp_Triangle1 = Triangle1.transform(ground, tmp_frame);
-    tmp_Triangle2 = Triangle2.transform(ground, tmp_frame);
+    tmp_Triangle1 = Triangle1.transformed(ground, tmp_frame);
+    tmp_Triangle2 = Triangle2.transformed(ground, tmp_frame);
 
     IntersectionBoolTri1 = intersect(Ray, tmp_Triangle1, IntersectionPointTri1);
     IntersectionBoolTri2 = intersect(Ray, tmp_Triangle2, IntersectionPointTri2);

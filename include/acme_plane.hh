@@ -76,7 +76,8 @@ namespace acme
         real_type dx, //<! Input x normal value
         real_type dy, //<! Input y normal value
         real_type dz  //<! Input z normal value
-        ) : _origin(vec3(ox, oy, oz)), _normal(vec3(dx, dy, dz))
+        ) : _origin(vec3(ox, oy, oz)),
+            _normal(vec3(dx, dy, dz))
     {
     }
 
@@ -84,7 +85,8 @@ namespace acme
     plane(
         vec3 const &origin, //!< Input origin
         vec3 const &normal  //!< Input normal
-        ) : _origin(origin), _normal(normal)
+        ) : _origin(origin),
+            _normal(normal)
     {
     }
 
@@ -128,8 +130,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform plane from frameA to frameB
-    plane transform(
+    //! Transform plane from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transform plane from frameA to frameB
+    plane transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

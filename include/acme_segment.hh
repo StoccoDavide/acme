@@ -117,6 +117,9 @@ namespace acme
         vec3 const &input //!< Input object
     );
 
+    //! Get segment mid point
+    vec3 point_mid(void) const;
+
     //! Get i-th point
     vec3 const &point(
         unsigned i //!< Intput i-th vertex
@@ -150,8 +153,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform segment from frameA to frameB
-    segment transform(
+    //! Transform segment from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transform segment from frameA to frameB
+    segment transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

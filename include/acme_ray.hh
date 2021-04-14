@@ -119,8 +119,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform ray from frameA to frameB
-    ray transform(
+    //! Transform ray from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transform ray from frameA to frameB
+    ray transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

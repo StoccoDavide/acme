@@ -128,8 +128,14 @@ namespace acme
         mat3 const &input //!< Input
     );
 
-    //! Tranform line from frameA to frameB
-    line transform(
+    //! Transform line from frameA to frameB
+    void transform(
+        frame const &frameA, //!< Actual reference coordinate system
+        frame const &frameB  //!< Future reference coordinate system
+    );
+
+    //! Get transformed line from frameA to frameB
+    line transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;

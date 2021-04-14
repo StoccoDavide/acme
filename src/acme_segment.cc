@@ -124,6 +124,14 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  vec3 segment::point_mid(void)
+      const
+  {
+    return (this->_point[0] + this->_point[1]) / 2.0;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   vec3 const &segment::point(
       unsigned i) const
   {
@@ -183,9 +191,20 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment segment::transform(
+  void segment::transform(
       frame const &frameA,
-      frame const &frameB) const
+      frame const &frameB)
+  {
+    this->_point[0] = acme::transform_point(this->_point[0], frameA, frameB);
+    this->_point[1] = acme::transform_point(this->_point[1], frameA, frameB);
+  }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  segment segment::transformed(
+      frame const &frameA,
+      frame const &frameB)
+      const
   {
     return segment(acme::transform_point(this->_point[0], frameA, frameB),
                    acme::transform_point(this->_point[1], frameA, frameB));
