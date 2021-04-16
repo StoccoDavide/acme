@@ -102,21 +102,21 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;acme.hh&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;acme_math.hh&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;acme_plane.hh&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;acme_frame.hh&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../db/d32/namespaceacme.html">acme</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">/*\</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">   |        _          _      </span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">   |    ___(_)_ __ ___| | ___ </span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">   |   / __| | &#39;__/ __| |/ _ \</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">   |  | (__| | | | (__| |  __/</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">   |   \___|_|_|  \___|_|\___|</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">   |                          </span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  \*/</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../db/d32/namespaceacme.html">acme</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">class </span>frame;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">/*\</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">   |        _          _      </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">   |    ___(_)_ __ ___| | ___ </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">   |   / __| | &#39;__/ __| |/ _ \</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">   |  | (__| | | | (__| |  __/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">   |   \___|_|_|  \___|_|\___|</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">   |                          </span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">  \*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d0/ddb/classacme_1_1circle.html">   47</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../d0/ddb/classacme_1_1circle.html">circle</a></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">public</span>:</div>
@@ -250,15 +250,15 @@ $(function() {
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }; <span class="comment">// class circle</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d0/ddb/classacme_1_1circle.html">circle</a> <span class="keyword">const</span> NaN_circle = <a class="code" href="../../d0/ddb/classacme_1_1circle.html">circle</a>(acme::NaN, acme::NaN_plane); </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d0/ddb/classacme_1_1circle.html">circle</a> circle_goat = <a class="code" href="../../d0/ddb/classacme_1_1circle.html">circle</a>(NaN_circle);                      </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="comment">//static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!&lt; Not-a-Number triangle type</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="comment">//static circle circle_goat = circle(NaN_circle);                      //!&lt; Scapegoat circle type (throwaway non-const object)</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;} <span class="comment">// namespace acme</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">///</span></div>
-<div class="ttc" id="aclassacme_1_1circle_html"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html">acme::circle</a></div><div class="ttdoc">Circle class container.</div><div class="ttdef"><b>Definition:</b> acme_circle.hh:48</div></div>
+<div class="ttc" id="aclassacme_1_1circle_html"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html">acme::circle</a></div><div class="ttdef"><b>Definition:</b> acme_circle.hh:48</div></div>
 <div class="ttc" id="aclassacme_1_1circle_html_a0ed1860ef42ccce593accb1df1128337"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html#a0ed1860ef42ccce593accb1df1128337">acme::circle::laying_plane</a></div><div class="ttdeci">plane const  &amp; laying_plane(void) const</div><div class="ttdoc">Get cicle laying plane.</div></div>
 <div class="ttc" id="aclassacme_1_1circle_html_a2404267038b57aec85a0ba99e08996a4"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html#a2404267038b57aec85a0ba99e08996a4">acme::circle::radius</a></div><div class="ttdeci">real_type radius(void) const</div><div class="ttdoc">Get circle radius.</div></div>
 <div class="ttc" id="aclassacme_1_1circle_html_a2738d43319cfc6cf1269b0888258b209"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html#a2738d43319cfc6cf1269b0888258b209">acme::circle::circle</a></div><div class="ttdeci">circle(real_type radius, vec3 const &amp;center, vec3 const &amp;normal)</div><div class="ttdoc">Class constructor.</div><div class="ttdef"><b>Definition:</b> acme_circle.hh:84</div></div>
@@ -289,7 +289,7 @@ $(function() {
 <div class="ttc" id="aclassacme_1_1circle_html_ad7fd0f9b8106694f085a6860577ce88f"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html#ad7fd0f9b8106694f085a6860577ce88f">acme::circle::is_inside</a></div><div class="ttdeci">bool is_inside(vec3 const &amp;point) const</div></div>
 <div class="ttc" id="aclassacme_1_1circle_html_ae8d61279beef506c5352693e08c211b3"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html#ae8d61279beef506c5352693e08c211b3">acme::circle::vecptr</a></div><div class="ttdeci">std::vector&lt; ptr &gt; vecptr</div><div class="ttdoc">Vector of pointers to circle objects.</div><div class="ttdef"><b>Definition:</b> acme_circle.hh:57</div></div>
 <div class="ttc" id="aclassacme_1_1circle_html_aee32049216e8e7a89d2a971a42db952e"><div class="ttname"><a href="../../d0/ddb/classacme_1_1circle.html#aee32049216e8e7a89d2a971a42db952e">acme::circle::radius</a></div><div class="ttdeci">void radius(real_type input)</div><div class="ttdoc">Set circle radius.</div></div>
-<div class="ttc" id="aclassacme_1_1frame_html"><div class="ttname"><a href="../../d9/d70/classacme_1_1frame.html">acme::frame</a></div><div class="ttdoc">Rotation class container.</div><div class="ttdef"><b>Definition:</b> acme_frame.hh:47</div></div>
+<div class="ttc" id="aclassacme_1_1frame_html"><div class="ttname"><a href="../../d9/d70/classacme_1_1frame.html">acme::frame</a></div><div class="ttdef"><b>Definition:</b> acme_frame.hh:46</div></div>
 <div class="ttc" id="aclassacme_1_1plane_html"><div class="ttname"><a href="../../dd/d62/classacme_1_1plane.html">acme::plane</a></div><div class="ttdoc">Plane class container.</div><div class="ttdef"><b>Definition:</b> acme_plane.hh:47</div></div>
 <div class="ttc" id="anamespaceacme_html"><div class="ttname"><a href="../../db/d32/namespaceacme.html">acme</a></div><div class="ttdoc">Namespace containing all acme typedefs, classes and routines.</div><div class="ttdef"><b>Definition:</b> acme.hh:59</div></div>
 <div class="ttc" id="anamespaceacme_html_a272dfe5817fa47009716a1fc85ab2629"><div class="ttname"><a href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">acme::real_type</a></div><div class="ttdeci">double real_type</div><div class="ttdoc">Real number type.</div><div class="ttdef"><b>Definition:</b> acme.hh:70</div></div>

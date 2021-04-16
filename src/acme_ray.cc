@@ -220,62 +220,7 @@ namespace acme
   {
     return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon;
   }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  ray::intersect(
-      ray const &ray,
-      vec3 &point)
-      const
-  {
-    return acme::intersect(*this, ray, point);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  ray::intersect(
-      plane const &plane,
-      vec3 &point)
-      const
-  {
-    return acme::intersect(*this, plane, point);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  ray::intersect(
-      circle const &circle,
-      vec3 &point)
-      const
-  {
-    return acme::intersect(*this, circle, point);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  ray::intersect(
-      segment const &segment_in,
-      segment &segment_out)
-      const
-  {
-    return acme::intersect(*this, segment_in, segment_out);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  ray::intersect(
-      circle const &circle,
-      segment &segment)
-      const
-  {
-    return acme::intersect(*this, circle, segment);
-  }
-
+  
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme

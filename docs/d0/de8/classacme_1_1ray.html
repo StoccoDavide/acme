@@ -82,9 +82,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Ray class container.  
- <a href="../../d0/de8/classacme_1_1ray.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="../../d2/d8e/acme__ray_8hh_source.html">acme_ray.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -191,12 +188,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="separator:a3f7e28c1fe2748d4a2f08358b8c22495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e3a4092a1f26b34294d1744d996ce19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a2e3a4092a1f26b34294d1744d996ce19">is_inside</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point) const</td></tr>
 <tr class="separator:a2e3a4092a1f26b34294d1744d996ce19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d0d1e47af63153b105c265d6d7dadd7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a3d0d1e47af63153b105c265d6d7dadd7">intersect</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point=vec3_goat) const</td></tr>
-<tr class="separator:a3d0d1e47af63153b105c265d6d7dadd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Ray class container. </p>
-<p>Infinite ray in 3D space and defined by any point lying on the line and a direction vector. </p>
+<div class="textblock"><p>Infinite ray in 3D space and defined by any point lying on the line and a direction vector. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2540ddd396c263edf4596b4bb6db0b9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2540ddd396c263edf4596b4bb6db0b9d">&#9670;&nbsp;</a></span>ray()</h2>
@@ -264,43 +258,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>input ray object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3d0d1e47af63153b105c265d6d7dadd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d0d1e47af63153b105c265d6d7dadd7">&#9670;&nbsp;</a></span>intersect()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool acme::ray::intersect </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;&#160;</td>
-          <td class="paramname"><em>plane</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;&#160;</td>
-          <td class="paramname"><em>point</em> = <code>vec3_goat</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Intersect ray with plane <br  />
-WARNING: This function does not support coplanarity! </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">plane</td><td>Input plane </td></tr>
-    <tr><td class="paramname">point</td><td>Output point </td></tr>
   </table>
   </dd>
 </dl>

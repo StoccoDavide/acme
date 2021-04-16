@@ -25,7 +25,6 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_intersect.hh"
 #include "acme_line.hh"
 #include "acme_ray.hh"
 #include "acme_plane.hh"

@@ -25,19 +25,10 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_plane.hh"
-#include "acme_intersect.hh"
+#include "acme_frame.hh"
 
 namespace acme
 {
-
-  class ray;
-  class plane;
-  class segment;
-  class triangle;
-  class box;
-  class circle;
-  class frame;
 
   /*\
    |   _ _            
@@ -200,53 +191,6 @@ namespace acme
     bool
     is_inside(
         vec3 const &point //!< Query point
-    ) const;
-
-    //! Intersect between two lines \n
-    //! WARNING: This function does not support parallel objects!
-    bool
-    intersect(
-        line const &line, //!< Input line
-        vec3 &point       //!< Output point
-    ) const;
-
-    //! Intersect line with plane \n
-    //! WARNING: This function does not support coplanarity!
-    bool intersect(
-        plane const &plane, //!< Input plane
-        vec3 &point         //!< Output point
-    ) const;
-
-    //! Intersect line with triangle (no precalculated normal) \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        triangle const &triangle, //!< Input triangle
-        vec3 &point               //!< Output point
-    ) const;
-
-    //! Intersect line and circle \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        circle const &circle, //!< Input circle
-        vec3 &point           //!< Ouput point
-    ) const;
-
-    //! Intersection between line and segment \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        segment const &segment_in, //!< Input segment
-        segment &segment_out       //!< Output segment
-    ) const;
-
-    //! Intersect line with circle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        circle const &circle, //!< Input circle
-        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class line

@@ -25,19 +25,12 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-
-#include "acme_intersect.hh"
+#include "acme_plane.hh"
 
 namespace acme
 {
 
-  class line;
-  class ray;
-  class plane;
-  class segment;
-  class triangle;
   class frame;
-
 
   /*\
    |        _          _      
@@ -205,70 +198,6 @@ namespace acme
     bool
     is_inside(
         vec3 const &point //!< Query point
-    ) const;
-
-    //! Intersect line and circle \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        line const &line, //!< Input line
-        vec3 &point       //!< Ouput point
-    ) const;
-
-    //! Intersect ray with circle \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        ray const &ray, //!< Input ray
-        vec3 &point     //!< Ouput point
-    ) const;
-
-    //! Intersect segment with circle \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        segment const &segment, //!< Input segment
-        vec3 &point             //!< Ouput point
-    ) const;
-
-    //! Intersect line with circle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        line const &line, //!< Input line
-        segment &segment  //!< Ouput segment
-    ) const;
-
-    //! Intersect ray with circle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        ray const &ray,  //!< Input ray
-        segment &segment //!< Ouput segment
-    ) const;
-
-    // //! Intersect plane with circle \n
-    // //! WARNING: This function only support coplanar objects!
-    // bool
-    // intersect(
-    //     plane const &plane, //!< Input plane
-    //     segment &segment    //!< Ouput segment
-    // ) const;
-
-    //! Intersect segment with circle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        segment const &segment_in, //!< Input segment
-        segment &segment_out       //!< Ouput segment
-    ) const;
-
-    //! Intersect circle with triangle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        triangle const &triangle, //!< Input triangle
-        segment &segment          //!< Ouput segment
     ) const;
 
   }; // class circle

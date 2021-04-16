@@ -25,13 +25,10 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_intersect.hh"
+#include "acme_frame.hh"
 
 namespace acme
 {
-
-  class frame;
-
 
   /*\
    |   _               
@@ -347,13 +344,6 @@ namespace acme
     //!< Return box position
     int_type const &
     pos(void) const;
-
-    //! Intersect between two boxes \n
-    bool
-    intersect(
-        box const &box_in, //!< Input box
-        box &box_out       //!< Output box
-    ) const;
 
   }; //class box
 

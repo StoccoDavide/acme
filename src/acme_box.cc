@@ -497,17 +497,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  box::intersect(
-      box const &box_in,
-      box &box_out)
-      const
-  {
-    return acme::intersect(box_in, *this, box_out);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 } // namespace acme
 
 ///

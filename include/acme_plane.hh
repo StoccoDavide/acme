@@ -26,15 +26,9 @@
 #include "acme.hh"
 #include "acme_math.hh"
 #include "acme_frame.hh"
-#include "acme_intersect.hh"
 
 namespace acme
 {
-  class line;
-  class ray;
-  class segment;
-  class triangle;
-  class circle;
 
   /*\
    |         _                  
@@ -198,62 +192,6 @@ namespace acme
     bool
     is_inside(
         vec3 const &point //!< Input
-    ) const;
-
-    //! Intersect between three planes \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        plane const &plane0, //!< Input plane 0
-        plane const &plane1, //!< Input plane 1
-        vec3 &point          //!< Output point
-    ) const;
-
-    //! Intersect between two planes \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        plane const &plane, //!< Input plane 1
-        line &line          //!< Output line
-    ) const;
-
-    //! Intersect ray with plane \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        ray const &ray, //!< Input ray
-        vec3 &point     //!< Output point
-    ) const;
-
-    //! Intersect line with plane \n
-    //! WARNING: This function does not support coplanarity!
-    bool intersect(
-        line const &line, //!< Input line
-        vec3 &point       //!< Output point
-    ) const;
-
-    //! Intersect segment with plane (no precalculated normal) \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        segment const &segment, //!< Input segment
-        vec3 &point             //!< Output point
-    ) const;
-
-    //! Intersect plane with triangle \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        triangle const &triangle, //!< Input triangle
-        segment &segment          //!< Ouput plane
-    ) const;
-
-    //! Intersect plane with circle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        circle const &circle, //!< Input circle
-        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class plane

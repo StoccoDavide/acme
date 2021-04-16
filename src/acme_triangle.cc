@@ -426,50 +426,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  triangle::intersect(
-      ray const &ray,
-      vec3 &point)
-      const
-  {
-    return acme::intersect(ray, *this, point);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  triangle::intersect(
-      line const &line,
-      vec3 &point)
-      const
-  {
-    return acme::intersect(line, *this, point);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  triangle::intersect(
-      plane const &plane,
-      segment &segment)
-      const
-  {
-    return acme::intersect(plane, *this, segment);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  triangle::intersect(
-      circle const &circle,
-      segment &segment)
-      const
-  {
-    return acme::intersect(circle, *this, segment);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 } // namespace acme
 
 ///

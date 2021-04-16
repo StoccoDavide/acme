@@ -25,18 +25,12 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
+#include "acme_frame.hh"
+#include "acme_segment.hh"
 #include "acme_box.hh"
-#include "acme_intersect.hh"
 
 namespace acme
 {
-
-  class line;
-  class ray;
-  class plane;
-  class segment;
-  class circle;
-  class frame;
 
   /*\
    |   _        _                   _      
@@ -277,38 +271,6 @@ namespace acme
         real_type &u,      //!< Output barycentric coordinate u
         real_type &v,      //!< Output barycentric coordinate v
         real_type &w       //!< Output barycentric coordinate w
-    ) const;
-
-    //! Intersect ray with triangle (no precalculated normal) \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        ray const &ray, //!< Input ray
-        vec3 &point     //!< Output point
-    ) const;
-
-    //! Intersect line with triangle (no precalculated normal) \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        line const &line, //!< Input line
-        vec3 &point       //!< Output point
-    ) const;
-
-    //! Intersect plane with triangle \n
-    //! WARNING: This function does not support coplanarity!
-    bool
-    intersect(
-        plane const &plane, //!< Input plane
-        segment &segment    //!< Ouput plane
-    ) const;
-
-    //! Intersect circle with triangle \n
-    //! WARNING: This function only support coplanar objects!
-    bool
-    intersect(
-        circle const &circle, //!< Input circle
-        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class triangle
