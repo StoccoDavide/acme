@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::clear(void)
+  void
+  frame::clear(void)
   {
     this->_origin = acme::NaN_vec3;
     this->_rotation = acme::NaN_mat3;
@@ -44,7 +45,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  frame &frame::operator=(
+  frame &
+  frame::operator=(
       frame const &input)
   {
     if (this == &input)
@@ -61,7 +63,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool frame::is_equal(
+  bool
+  frame::is_equal(
       frame const &input)
       const
   {
@@ -71,15 +74,30 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const frame::x(void) const { return this->_rotation.col(0); }
+  vec3
+  frame::x(void)
+      const
+  {
+    return this->_rotation.col(0);
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const frame::y(void) const { return this->_rotation.col(1); }
+  vec3
+  frame::y(void)
+      const
+  {
+    return this->_rotation.col(1);
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const frame::z(void) const { return this->_rotation.col(2); }
+  vec3
+  frame::z(void)
+      const
+  {
+    return this->_rotation.col(2);
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

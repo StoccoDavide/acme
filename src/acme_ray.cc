@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ray &ray::operator=(
+  ray &
+  ray::operator=(
       ray const &input)
   {
     if (this == &input)
@@ -53,7 +54,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool ray::is_equal(
+  bool
+  ray::is_equal(
       ray const &input)
       const
   {
@@ -63,7 +65,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool ray::is_degenerated(void)
+  bool
+  ray::is_degenerated(void)
       const
   {
     return acme::is_degenerated(this->_direction);
@@ -71,21 +74,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &ray::origin() const
+  vec3 const &
+  ray::origin() const
   {
     return this->_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &ray::direction() const
+  vec3 const &
+  ray::direction() const
   {
     return this->_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void ray::origin(
+  void
+  ray::origin(
       vec3 const &input)
   {
     this->_origin = input;
@@ -93,7 +99,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void ray::direction(
+  void
+  ray::direction(
       vec3 const &input)
   {
     this->_direction = input;
@@ -101,7 +108,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void ray::translate(
+  void
+  ray::translate(
       vec3 const &input)
   {
     this->_origin = input + this->_origin;
@@ -109,7 +117,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void ray::rotate(
+  void
+  ray::rotate(
       mat3 const &input)
   {
     this->_origin = input * this->_origin;
@@ -118,7 +127,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void ray::transform(
+  void
+  ray::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -139,7 +149,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void ray::reverse(void) { this->_direction = -this->_direction; }
+  void
+  ray::reverse(void) { this->_direction = -this->_direction; }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -150,7 +161,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool ray::is_inside(
+  bool
+  ray::is_inside(
       vec3 const &point)
       const
   {

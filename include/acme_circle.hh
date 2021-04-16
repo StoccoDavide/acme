@@ -41,9 +41,9 @@ namespace acme
   \*/
 
   //! Circle class container
-  /*!
-  Circle in 3D space and defined by a radius and a plane (circle center + normal vector).
-  */
+  /**
+   * Circle in 3D space and defined by a radius and a plane (circle center + normal vector).
+   */
   class circle
   {
   public:
@@ -53,7 +53,9 @@ namespace acme
     typedef circle const *ptr; //!< Pointer to circle
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to circle
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to circle objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to circle objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to circle objects
 
   private:
     real_type _radius; //!< Circle radius

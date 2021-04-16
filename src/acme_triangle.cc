@@ -70,7 +70,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  triangle &triangle::operator=(
+  triangle &
+  triangle::operator=(
       triangle const &input)
   {
     if (this == &input)
@@ -88,7 +89,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool triangle::is_equal(
+  bool
+  triangle::is_equal(
       triangle const &input)
       const
   {
@@ -99,7 +101,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool triangle::is_degenerated(void)
+  bool
+  triangle::is_degenerated(void)
       const
   {
     return acme::is_equal((this->_vertex[0] - this->_vertex[1]).norm(), 0.0) ||
@@ -109,11 +112,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &triangle::vertex_0(void) const { return this->_vertex[0]; }
+  vec3 const &
+  triangle::vertex_0(void)
+      const
+  {
+    return this->_vertex[0];
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::vertex_0(
+  void
+  triangle::vertex_0(
       vec3 const &input)
   {
     this->_vertex[0] = input;
@@ -121,11 +130,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &triangle::vertex_1(void) const { return this->_vertex[1]; }
+  vec3 const &
+  triangle::vertex_1(void)
+      const
+  {
+    return this->_vertex[1];
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::vertex_1(
+  void
+  triangle::vertex_1(
       vec3 const &input)
   {
     this->_vertex[1] = input;
@@ -133,11 +148,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &triangle::vertex_2(void) const { return this->_vertex[2]; }
+  vec3 const &
+  triangle::vertex_2(void)
+      const
+  {
+    return this->_vertex[2];
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::vertex_2(
+  void
+  triangle::vertex_2(
       vec3 const &input)
   {
     this->_vertex[2] = input;
@@ -145,7 +166,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &triangle::vertex(
+  vec3 const &
+  triangle::vertex(
       unsigned i) const
   {
     return this->_vertex[i];
@@ -153,7 +175,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::vertex(
+  void
+  triangle::vertex(
       unsigned i,
       vec3 const &input)
   {
@@ -162,7 +185,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::vertices(
+  void
+  triangle::vertices(
       vec3 const &vertex0,
       vec3 const &vertex1,
       vec3 const &vertex2)
@@ -174,7 +198,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::vertices(
+  void
+  triangle::vertices(
       vec3 const vertex[3])
   {
     this->_vertex[0] = vertex[0];
@@ -184,7 +209,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment const triangle::edge_0(void)
+  segment
+  triangle::edge_0(void)
       const
   {
     return segment(this->_vertex[0], this->_vertex[1]);
@@ -192,7 +218,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment const triangle::edge_1(void)
+  segment
+  triangle::edge_1(void)
       const
   {
     return segment(this->_vertex[1], this->_vertex[2]);
@@ -200,7 +227,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment const triangle::edge_2(void)
+  segment
+  triangle::edge_2(void)
       const
   {
     return segment(this->_vertex[2], this->_vertex[0]);
@@ -208,7 +236,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const triangle::normal(void)
+  vec3
+  triangle::normal(void)
       const
   {
     return (this->_vertex[1] - this->_vertex[0]).cross(this->_vertex[2] - this->_vertex[0]).normalized();
@@ -226,7 +255,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::rotate(
+  void
+  triangle::rotate(
       mat3 const &input)
   {
     this->_vertex[0] = input * this->_vertex[0];
@@ -236,7 +266,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::transform(
+  void
+  triangle::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -247,7 +278,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  triangle triangle::transformed(
+  triangle
+  triangle::transformed(
       frame const &frameA,
       frame const &frameB)
       const
@@ -259,7 +291,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::swap(
+  void
+  triangle::swap(
       unsigned i,
       unsigned j)
   {
@@ -271,7 +304,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::min_box(
+  void
+  triangle::min_box(
       box &input)
       const
   {
@@ -285,7 +319,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type triangle::perimeter(void) const
+  real_type
+  triangle::perimeter(void) const
   {
     return (this->_vertex[0] - this->_vertex[1]).norm() +
            (this->_vertex[1] - this->_vertex[2]).norm() +
@@ -294,14 +329,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type triangle::area(void) const
+  real_type
+  triangle::area(void) const
   {
     return 0.5 * ((this->_vertex[1] - this->_vertex[0]).cross(this->_vertex[2] - this->_vertex[0])).norm();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool triangle::is_inside(
+  bool
+  triangle::is_inside(
       vec3 const &point)
       const
   {
@@ -310,18 +347,15 @@ namespace acme
     if ((u >= 0.0 && u <= 1.0) &&
         (v >= 0.0 && v <= 1.0) &&
         (w >= 0.0 && w <= 1.0))
-    {
       return true;
-    }
     else
-    {
       return false;
-    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void triangle::barycentric(
+  void
+  triangle::barycentric(
       vec3 const &point,
       real_type &u,
       real_type &v,

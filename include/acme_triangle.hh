@@ -42,177 +42,206 @@ namespace acme
   \*/
 
   //! Triangle class container
-  /*!
-  Triangle in 3D space. It is defined by three arbitrary points.
-  */
+  /**
+   * Triangle in 3D space. The triangle is defined by three arbitrary points.
+   */
   class triangle
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<triangle const> ptr; //!< Shared pointer to triangle
+    typedef std::shared_ptr<triangle const> ptr; //!< Shared pointer to triangle object
 #else
-    typedef triangle const *ptr; //!< Pointer to triangle
+    typedef triangle const *ptr; //!< Pointer to triangle object
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to triangle
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to triangle objects
 
   private:
-    vec3 _vertex[3]; //!< Vertices as points
+    vec3 _vertex[3]; //!< Triangle vertices
 
   public:
-    //! Class destructor
+    //! Triangle class destructor
     ~triangle() {}
 
-    //! Copy constructor
+    //! Triangle copy constructor
     triangle(triangle const &) = default;
 
-    //! Class constructor
+    //! Triangle class constructor
     triangle() {}
 
-    //! Class constructor
+    //! Triangle class constructor
     triangle(
-        real_type x0, //<! Input x value of first point
-        real_type y0, //<! Input y value of first point
-        real_type z0, //<! Input z value of first point
-        real_type x1, //<! Input x value of second point
-        real_type y1, //<! Input y value of second point
-        real_type z1, //<! Input z value of second point
-        real_type x2, //<! Input x value of third point
-        real_type y2, //<! Input y value of third point
-        real_type z2  //<! Input z value of third point
+        real_type x0, //<! Input x value of first triangle vertex
+        real_type y0, //<! Input y value of first triangle vertex
+        real_type z0, //<! Input z value of first triangle vertex
+        real_type x1, //<! Input x value of second triangle vertex
+        real_type y1, //<! Input y value of second triangle vertex
+        real_type z1, //<! Input z value of second triangle vertex
+        real_type x2, //<! Input x value of third triangle vertex
+        real_type y2, //<! Input y value of third triangle vertex
+        real_type z2  //<! Input z value of third triangle vertex
     );
 
-    //! Class constructor
+    //! Triangle class constructor
     triangle(
-        vec3 const &point0, //!< Input
-        vec3 const &point1, //!< Input
-        vec3 const &point2  //!< Input
+        vec3 const &point0, //!< Input first triangle vertex point
+        vec3 const &point1, //!< Input second triangle vertex point
+        vec3 const &point2  //!< Input third triangle vertex point
     );
 
-    //! Class constructor
+    //! Triangle class constructor
     triangle(
-        vec3 const point[3] //!< Input points
+        vec3 const point[3] //!< Input triangle verices
     );
 
     //! Equality operator
-    triangle &operator=(
-        triangle const &input //!< Input object
+    triangle &
+    operator=(
+        triangle const &input //!< Input triangle object
     );
 
     //! Check if objects are (almost) equal
-    bool is_equal(
-        triangle const &input //!< Input object
+    bool
+    is_equal(
+        triangle const &input //!< Input triangle object
     ) const;
 
-    //! Check if triangle is degenerated
-    bool is_degenerated(void) const;
+    //! Check if triangle is degenerated to point or segment
+    bool
+    is_degenerated(void) const;
 
-    //! Get first point
-    vec3 const &vertex_0(void) const;
+    //! Get first triangle vertex
+    vec3 const &
+    vertex_0(void) const;
 
-    //! Set first vertex
-    void vertex_0(
-        vec3 const &input //!< Input object
+    //! Set first triangle vertex
+    void
+    vertex_0(
+        vec3 const &input //!< New triangle vertex
     );
 
-    //! Get second vertex
-    vec3 const &vertex_1(void) const;
+    //! Get second triangle vertex
+    vec3 const &
+    vertex_1(void) const;
 
-    //! Set second vertex
-    void vertex_1(
-        vec3 const &input //!< Input object
+    //! Set second triangle vertex
+    void
+    vertex_1(
+        vec3 const &input //!< New triangle vertex
     );
 
-    //! Get third vertex
-    vec3 const &vertex_2(void) const;
+    //! Get third triangle vertex
+    vec3 const &
+    vertex_2(void) const;
 
-    //! Set third vertex
-    void vertex_2(
-        vec3 const &input //!< Input object
+    //! Set third triangle vertex
+    void
+    vertex_2(
+        vec3 const &input //!< New triangle vertex
     );
 
-    //! Get i-th vertex
-    vec3 const &vertex(
-        unsigned i //!< Intput i-th vertex
+    //! Get i-th triangle vertex
+    vec3 const &
+    vertex(
+        unsigned i //!< New triangle vertex
     ) const;
 
-    //! Set i-th vertex
-    void vertex(
-        unsigned i,       //!< Intput i-th vertex
-        vec3 const &input //!< Input
+    //! Set i-th triangle vertex
+    void
+    vertex(
+        unsigned i,       //!< Triangle i-th vertex index
+        vec3 const &input //!< New triangle vertex
     );
 
-    //! Set vertices points
-    void vertices(
-        vec3 const &vertex0, //!< Input 0
-        vec3 const &vertex1, //!< Input 1
-        vec3 const &vertex2  //!< Input 2
+    //! Set triangle vertices
+    void
+    vertices(
+        vec3 const &vertex0, //!< Input first triangle vertex
+        vec3 const &vertex1, //!< Input second triangle vertex
+        vec3 const &vertex2  //!< Input third triangle vertex
     );
 
-    //! Set vertices points
-    void vertices(
-        vec3 const vertex[3] //!< Input
+    //! Set triangle vertices vertices
+    void
+    vertices(
+        vec3 const vertex[3] //!< New triangle vertices
     );
 
-    //! Get first edge
-    segment const edge_0(void) const;
+    //! Get first triangle edge
+    segment
+    edge_0(void) const;
 
-    //! Get second edge
-    segment const edge_1(void) const;
+    //! Get second triangle edge
+    segment
+    edge_1(void) const;
 
-    //! Get third edge
-    segment const edge_2(void) const;
+    //! Get third triangle edge
+    segment
+    edge_2(void) const;
 
-    //! Get face (normalized) normal
-    vec3 const normal(void) const;
+    //! Get triangle face normal (normalized vector)
+    vec3
+    normal(void) const;
 
-    //! Translate by vector
-    void translate(
-        vec3 const &input //!< Input
+    //! Translate triangle by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
     );
 
-    //! Rotate by matrix
-    void rotate(
-        mat3 const &input //!< Input
+    //! Rotate triangle by matrix
+    void
+    rotate(
+        mat3 const &input //!< Input 3x3 rotation matrix
     );
 
     //! Transform triangle from frameA to frameB
-    void transform(
+    void
+    transform(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     );
 
-    //! Get transform triangle from frameA to frameB
-    triangle transformed(
+    //! Get transformed triangle from frameA to frameB
+    triangle
+    transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;
 
-    //! Swap triangle points
-    void swap(
-        unsigned i, //!< Input i-th vertex
-        unsigned j  //!< Input j-th vertex
+    //! Swap triangle vertices
+    void
+    swap(
+        unsigned i, //!< Triangle i-th vertex index
+        unsigned j  //!< Triangle j-th vertex index
     );
 
-    //! Get minimum bounding box
-    void min_box(
-        box &input //!< Input
+    //! Get minimum bounding box of current triangle object
+    void
+    min_box(
+        box &input //!< Input box object
     ) const;
 
-    //! Calculate perimeter length
-    real_type perimeter(void) const;
+    //! Calculate triangle perimeter length
+    real_type
+    perimeter(void)
+        const;
 
-    //! Calculate area
-    real_type area(void) const;
+    //! Calculate triangle area
+    real_type
+    area(void)
+        const;
 
     //! Check if a point lays inside the triangle
-    bool is_inside(
-        vec3 const &point //!< Input
+    bool
+    is_inside(
+        vec3 const &point //!< Input point
     ) const;
 
-    // Compute barycentric coordinates (u,v,w) for point
-    void barycentric(
-        vec3 const &point, //!< Input
+    //! Compute barycentric coordinates (u,v,w) for point
+    void
+    barycentric(
+        vec3 const &point, //!< Input point
         real_type &u,      //!< Output barycentric coordinate u
         real_type &v,      //!< Output barycentric coordinate v
         real_type &w       //!< Output barycentric coordinate w

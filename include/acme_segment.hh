@@ -40,140 +40,160 @@ namespace acme
   \*/
 
   //! Segment class container
-  /*!
-  Segment in 3D space. It is defined by two arbitrary points.
+  /**
+  * Segment in 3D space. The segment is defined by two arbitrary points.
   */
   class segment
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment
+    typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment object
 #else
-    typedef segment const *ptr; //!< Pointer to segment
+    typedef segment const *ptr; //!< Pointer to segment object
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to segment
+    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to segment objects
 
   private:
-    vec3 _point[2]; //!< Point
+    vec3 _point[2]; //!< Segment extrema points
 
   public:
-    //! Class destructor
+    //! Segment class destructor
     ~segment() {}
 
-    //! Copy constructor
+    //! Segment copy constructor
     segment(segment const &) = default;
 
-    //! Class constructor
+    //! Segment class constructor
     segment() {}
 
-    //! Class constructor
+    //! Segment class constructor
     segment(
-        real_type x0, //<! Input x value of first point
-        real_type y0, //<! Input y value of first point
-        real_type z0, //<! Input z value of first point
-        real_type x1, //<! Input x value of second point
-        real_type y1, //<! Input y value of second point
-        real_type z1  //<! Input z value of second point
+        real_type x0, //<! Input x value of first segment point
+        real_type y0, //<! Input y value of first segment point
+        real_type z0, //<! Input z value of first segment point
+        real_type x1, //<! Input x value of second segment point
+        real_type y1, //<! Input y value of second segment point
+        real_type z1  //<! Input z value of second segment point
     );
 
-    //! Class constructor
+    //! Segment class constructor
     segment(
-        vec3 const &point0, //!< Input object
-        vec3 const &point1  //!< Input object
+        vec3 const &point0, //!< Input first segment point
+        vec3 const &point1  //!< Input second segment point
     );
 
-    //! Class constructor
+    //! Segment class constructor
     segment(
-        vec3 const point[2] //!< Input points
+        vec3 const point[2] //!< Input segment points
     );
 
     //! Equality operator
-    segment &operator=(
-        segment const &input //!< Input object
+    segment &
+    operator=(
+        segment const &input //!< Input segment object
     );
 
-    //! Check if rays are (almost) equal
-    bool is_equal(
+    //! Check if segments are (almost) equal
+    bool
+    is_equal(
         segment const &input //!< Input object
     ) const;
 
-    //! Check if segment is degenerated
-    bool is_degenerated(void) const;
+    //! Check if segment is degenerated to point
+    bool
+    is_degenerated(void) const;
 
-    //! Get first vector
-    vec3 const &point_0(void) const;
+    //! Get first segment point
+    vec3 const &
+    point_0(void) const;
 
-    //! Set first vector
-    void point_0(
-        vec3 const &input //!< Input object
+    //! Set first segment point
+    void
+    point_0(
+        vec3 const &input //!< New segment point
     );
 
-    //! Get second vector
-    vec3 const &point_1(void) const;
+    //! Get second segment point
+    vec3 const &
+    point_1(void) const;
 
-    //! Set second vector
-    void point_1(
-        vec3 const &input //!< Input object
+    //! Set second segment point
+    void
+    point_1(
+        vec3 const &input //!< New segment point
     );
 
-    //! Get segment mid point
-    vec3 point_mid(void) const;
+    //! Get segment mid segment point
+    vec3
+    point_mid(void) const;
 
-    //! Get i-th point
-    vec3 const &point(
-        unsigned i //!< Intput i-th vertex
+    //! Get segment i-th point
+    vec3 const &
+    point(
+        unsigned i //!< Intput segment i-th point index
     ) const;
 
-    //! Set i-th point
-    void point(
-        unsigned i,       //!< Intput i-th vertex
-        vec3 const &input //!< Input
+    //! Set segment i-th point
+    void
+    point(
+        unsigned i,       //!< Intput segment i-th point index
+        vec3 const &input //!< New segment point
     );
 
-    //! Set points
-    void points(
-        vec3 const &input0, //!< Input object 0
-        vec3 const &input1  //!< Input object 1
+    //! Set segment points
+    void
+    points(
+        vec3 const &input0, //!< New first segment point
+        vec3 const &input1  //!< New second segment point
     );
 
-    //! Convert to vector
-    vec3 to_vector(void) const;
+    //! Convert segment to vector
+    vec3
+    to_vector(void) const;
 
-    //! Convert to normalized vector
-    vec3 to_normalized_vector(void) const;
+    //! Convert segment to normalized vector
+    vec3
+    to_normalized_vector(void) const;
 
-    //! Translate by vector
-    void translate(
-        vec3 const &input //!< Input
+    //! Translate segment by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
     );
 
     //! Rotate by matrix
-    void rotate(
-        mat3 const &input //!< Input
+    void
+    rotate(
+        mat3 const &input //!< Input 3x3 rotation matrix
     );
 
     //! Transform segment from frameA to frameB
-    void transform(
+    void
+    transform(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     );
 
-    //! Get transform segment from frameA to frameB
-    segment transformed(
+    //! Get transformed segment from frameA to frameB
+    segment
+    transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;
 
     //! Swap segment points
-    void swap(void);
+    void
+    swap(void);
 
     //! Calculate segment length
-    real_type length(void) const;
+    real_type
+    length(void) const;
 
     // Check whether the point is inside the segment
-    bool is_inside(
-        vec3 const &point //!< Input
+    bool
+    is_inside(
+        vec3 const &point //!< Input point
     ) const;
 
   }; // class segment

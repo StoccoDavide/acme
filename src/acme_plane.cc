@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane &plane::operator=(
+  plane &
+  plane::operator=(
       plane const &input)
   {
     if (this == &input)
@@ -53,7 +54,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool plane::is_equal(
+  bool
+  plane::is_equal(
       plane const &input)
       const
   {
@@ -63,7 +65,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool plane::is_degenerated(void)
+  bool
+  plane::is_degenerated(void)
       const
   {
     return acme::is_degenerated(this->_normal);
@@ -71,21 +74,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &plane::origin() const
+  vec3 const &
+  plane::origin() const
   {
     return this->_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &plane::normal() const
+  vec3 const &
+  plane::normal() const
   {
     return this->_normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void plane::origin(
+  void
+  plane::origin(
       vec3 const &input)
   {
     this->_origin = input;
@@ -93,7 +99,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void plane::normal(
+  void
+  plane::normal(
       vec3 const &input)
   {
     this->_normal = input;
@@ -101,7 +108,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void plane::translate(
+  void
+  plane::translate(
       vec3 const &input)
   {
     this->_origin = input + this->_origin;
@@ -109,7 +117,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void plane::rotate(
+  void
+  plane::rotate(
       mat3 const &input)
   {
     this->_origin = input * this->_origin;
@@ -118,7 +127,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void plane::transform(
+  void
+  plane::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -128,7 +138,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane plane::transformed(
+  plane
+  plane::transformed(
       frame const &frameA,
       frame const &frameB)
       const
@@ -139,22 +150,34 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void plane::reverse(void) { this->_normal = -this->_normal; }
+  void
+  plane::reverse(void)
+  {
+    this->_normal = -this->_normal;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane plane::reversed(void) const
+  plane
+  plane::reversed(void)
+      const
   {
     return plane(this->_origin, -this->_normal);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type plane::d(void) const { return -this->_origin.dot(this->_normal); }
+  real_type
+  plane::d(void)
+      const
+  {
+    return -this->_origin.dot(this->_normal);
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type plane::distance(
+  real_type
+  plane::distance(
       vec3 const &input)
       const
   {
@@ -163,7 +186,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool plane::is_inside(
+  bool
+  plane::is_inside(
       vec3 const &point)
       const
   {

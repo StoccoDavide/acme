@@ -56,17 +56,23 @@ namespace acme
 
 #ifdef ACME_USE_CXX11
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   AABBtree::AABBtree()
   {
     box::ptr.reset();
     children.clear();
   }
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   AABBtree::~AABBtree()
   {
     box::ptr.reset();
     children.clear();
   }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   AABBtree::clear()
@@ -75,13 +81,20 @@ namespace acme
     children.clear();
   }
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool
-  AABBtree::is_empty() const
+  AABBtree::is_empty()
+      const
   {
     return children.empty() && !box::ptr;
   }
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 #else
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   AABBtree::AABBtree()
       : ptrbox(nullptr)
@@ -99,6 +112,8 @@ namespace acme
     children.clear();
   }
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   AABBtree::clear()
   {
@@ -110,18 +125,24 @@ namespace acme
     children.clear();
   }
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool
-  AABBtree::is_empty() const
+  AABBtree::is_empty()
+      const
   {
     return children.empty() && ptrbox == nullptr;
   }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #endif
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  AABBtree::build(std::vector<box::ptr> const &boxes)
+  AABBtree::build(
+      std::vector<box::ptr> const &boxes)
   {
     clear();
 
@@ -232,7 +253,10 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  AABBtree::print(ostream_type &os, int_type level) const
+  AABBtree::print(
+      ostream_type &os,
+      int_type level)
+      const
   {
     if (this->is_empty())
     {
@@ -258,7 +282,8 @@ namespace acme
   AABBtree::intersect(
       AABBtree const &tree,
       box::ptrPairVec &intersection_list,
-      bool swap_tree) const
+      bool swap_tree)
+      const
   {
 
     // Check box with
@@ -363,7 +388,8 @@ namespace acme
   void
   AABBtree::min_distance(
       vec3 const &point,
-      box::ptrVec &candidate_list) const
+      box::ptrVec &candidate_list)
+      const
   {
     real_type distance = this->min_maxdist(
         point, *this, acme::infinity());

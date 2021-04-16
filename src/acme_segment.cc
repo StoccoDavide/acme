@@ -65,7 +65,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment &segment::operator=(
+  segment &
+  segment::operator=(
       segment const &input)
   {
     if (this == &input)
@@ -82,7 +83,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool segment::is_equal(
+  bool
+  segment::is_equal(
       segment const &input)
       const
   {
@@ -92,7 +94,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool segment::is_degenerated(void)
+  bool
+  segment::is_degenerated(void)
       const
   {
     return acme::is_equal((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
@@ -100,7 +103,12 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &segment::point_0(void) const { return this->_point[0]; }
+  vec3 const &
+  segment::point_0(void)
+      const
+  {
+    return this->_point[0];
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -112,11 +120,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &segment::point_1(void) const { return this->_point[1]; }
+  vec3 const &
+  segment::point_1(void)
+      const
+  {
+    return this->_point[1];
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::point_1(
+  void
+  segment::point_1(
       vec3 const &input)
   {
     this->_point[1] = input;
@@ -124,7 +138,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 segment::point_mid(void)
+  vec3
+  segment::point_mid(void)
       const
   {
     return (this->_point[0] + this->_point[1]) / 2.0;
@@ -132,7 +147,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &segment::point(
+  vec3 const &
+  segment::point(
       unsigned i) const
   {
     return this->_point[i];
@@ -140,7 +156,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::point(
+  void
+  segment::point(
       unsigned i,
       vec3 const &input)
   {
@@ -149,7 +166,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::points(
+  void
+  segment::points(
       vec3 const &input0,
       vec3 const &input1)
   {
@@ -159,21 +177,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 segment::to_vector(void) const
+  vec3
+  segment::to_vector(void) const
   {
     return vec3(this->_point[1] - this->_point[0]);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 segment::to_normalized_vector(void) const
+  vec3
+  segment::to_normalized_vector(void) const
   {
     return (this->_point[1] - this->_point[0]).normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::translate(
+  void
+  segment::translate(
       vec3 const &input)
   {
     this->_point[0] = input + this->_point[0];
@@ -182,7 +203,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::rotate(
+  void
+  segment::rotate(
       mat3 const &input)
   {
     this->_point[0] = input * this->_point[0];
@@ -191,7 +213,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::transform(
+  void
+  segment::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -199,9 +222,10 @@ namespace acme
     this->_point[1] = acme::transform_point(this->_point[1], frameA, frameB);
   }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment segment::transformed(
+  segment
+  segment::transformed(
       frame const &frameA,
       frame const &frameB)
       const
@@ -212,7 +236,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void segment::swap(void)
+  void
+  segment::swap(void)
   {
     vec3 tmp_point_0(this->_point[0]);
     vec3 tmp_point_1(this->_point[1]);
@@ -222,14 +247,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type segment::length(void) const
+  real_type
+  segment::length(void) const
   {
     return (this->_point[0] - this->_point[1]).norm();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool segment::is_inside(
+  bool
+  segment::is_inside(
       vec3 const &point)
       const
   {

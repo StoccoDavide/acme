@@ -35,7 +35,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       line const &obj)
   {
@@ -55,7 +56,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       ray const &obj)
   {
@@ -75,7 +77,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       plane const &obj)
   {
@@ -95,7 +98,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       segment const &obj)
   {
@@ -115,7 +119,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       box const &obj)
   {
@@ -135,7 +140,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       triangle const &obj)
   {
@@ -159,7 +165,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       circle const &obj)
   {
@@ -181,7 +188,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &operator<<(
+  ostream_type &
+  operator<<(
       ostream_type &os,
       frame const &obj)
   {

@@ -38,7 +38,8 @@ namespace acme
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,
     acme::vec2 const &obj)
 {
@@ -51,7 +52,8 @@ std::ostream &operator<<(
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,
     acme::mat2 const &obj)
 {
@@ -67,7 +69,8 @@ std::ostream &operator<<(
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,
     acme::vec3 const &obj)
 {
@@ -80,7 +83,8 @@ std::ostream &operator<<(
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,
     acme::mat3 const &obj)
 {
@@ -97,7 +101,8 @@ std::ostream &operator<<(
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,
     acme::vec4 const &obj)
 {
@@ -110,7 +115,8 @@ std::ostream &operator<<(
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,
     acme::mat4 const &obj)
 {

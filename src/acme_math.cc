@@ -36,42 +36,48 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type infinity(void)
+  real_type
+  infinity(void)
   {
     return std::numeric_limits<real_type>::infinity();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type epsilon(void)
+  real_type
+  epsilon(void)
   {
     return Epsilon;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type sqr(real_type input)
+  real_type
+  sqr(real_type input)
   {
     return input * input;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type cub(real_type input)
+  real_type
+  cub(real_type input)
   {
     return input * input * input;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type sqrt(real_type input)
+  real_type
+  sqrt(real_type input)
   {
     return std::sqrt(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type pow(
+  real_type
+  pow(
       real_type base,
       real_type exponent)
   {
@@ -80,14 +86,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type abs(real_type input)
+  real_type
+  abs(real_type input)
   {
     return std::abs(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type max(
+  real_type
+  max(
       real_type input0,
       real_type input1)
   {
@@ -96,7 +104,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type min(
+  real_type
+  min(
       real_type input0,
       real_type input1)
   {
@@ -105,22 +114,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type max(
+  real_type
+  max(
       real_type input0,
       real_type input1,
       real_type input2)
   {
-    return max(input0, max(input1, input2));
+    return acme::max(input0, acme::max(input1, input2));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type min(
+  real_type
+  min(
       real_type input0,
       real_type input1,
       real_type input2)
   {
-    return min(input0, min(input1, input2));
+    return acme::min(input0, acme::min(input1, input2));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -136,49 +147,56 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type sin(real_type input)
+  real_type
+  sin(real_type input)
   {
     return std::sin(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type cos(real_type input)
+  real_type
+  cos(real_type input)
   {
     return std::cos(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type tan(real_type input)
+  real_type
+  tan(real_type input)
   {
     return std::tan(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type asin(real_type input)
+  real_type
+  asin(real_type input)
   {
     return std::asin(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type acos(real_type input)
+  real_type
+  acos(real_type input)
   {
     return std::acos(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type atan(real_type input)
+  real_type
+  atan(real_type input)
   {
     return std::atan(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type atan2(
+  real_type
+  atan2(
       real_type input0,
       real_type input1)
   {
@@ -187,7 +205,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type clamp(
+  real_type
+  clamp(
       real_type input,
       real_type low,
       real_type high)
@@ -202,7 +221,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_equal(
+  bool
+  is_equal(
       real_type input0,
       real_type input1,
       real_type tolerance)
@@ -212,7 +232,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_equal(
+  bool
+  is_equal(
       vec3 const &input0,
       vec3 const &input1,
       real_type tolerance)
@@ -222,7 +243,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_equal(
+  bool
+  is_equal(
       mat3 const &input0,
       mat3 const &input1,
       real_type tolerance)
@@ -232,7 +254,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_degenerated(
+  bool
+  is_degenerated(
       vec3 const &input,
       real_type tolerance)
   {
@@ -241,7 +264,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_normalized(
+  bool
+  is_normalized(
       vec3 const &input,
       real_type tolerance)
   {
@@ -250,7 +274,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_ortogonal(
+  bool
+  is_ortogonal(
       vec3 const &input0,
       vec3 const &input1,
       real_type tolerance)
@@ -260,7 +285,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_parallel(
+  bool
+  is_parallel(
       vec3 const &input0,
       vec3 const &input1,
       real_type tolerance)
@@ -270,7 +296,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool is_ortonormal(
+  bool
+  is_ortonormal(
       mat3 const &input,
       real_type tolerance)
   {
@@ -284,7 +311,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 const rotation_x(
+  mat3
+  rotation_x(
       real_type input)
   {
     mat3 rot;
@@ -296,7 +324,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 const rotation_y(
+  mat3
+  rotation_y(
       real_type input)
   {
     mat3 rot;
@@ -308,7 +337,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 const rotation_z(
+  mat3
+  rotation_z(
       real_type input)
   {
     mat3 rot;
@@ -320,7 +350,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type angle_rad(
+  real_type
+  angle_rad(
       vec3 const &input0,
       vec3 const &input1)
   {
@@ -329,7 +360,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type angle_deg(
+  real_type
+  angle_deg(
       vec3 const &input0,
       vec3 const &input1)
   {

@@ -53,7 +53,9 @@ namespace acme
     typedef line const *ptr; //!< Pointer to line
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to line
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to line objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to line objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to line objects
 
   private:
     vec3 _origin;    //!< Origin (point)

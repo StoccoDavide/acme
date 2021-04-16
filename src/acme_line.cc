@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  line &line::operator=(
+  line &
+  line::operator=(
       line const &input)
   {
     if (this == &input)
@@ -53,7 +54,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool line::is_equal(
+  bool
+  line::is_equal(
       line const &input)
       const
   {
@@ -63,7 +65,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool line::is_degenerated(void)
+  bool
+  line::is_degenerated(void)
       const
   {
     return acme::is_degenerated(this->_direction);
@@ -71,21 +74,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &line::origin() const
+  vec3 const &
+  line::origin() const
   {
     return this->_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &line::direction() const
+  vec3 const &
+  line::direction() const
   {
     return this->_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void line::origin(
+  void
+  line::origin(
       vec3 const &input)
   {
     this->_origin = input;
@@ -93,7 +99,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void line::direction(
+  void
+  line::direction(
       vec3 const &input)
   {
     this->_direction = input;
@@ -101,7 +108,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void line::translate(
+  void
+  line::translate(
       vec3 const &input)
   {
     this->_origin = input + this->_origin;
@@ -109,7 +117,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void line::rotate(
+  void
+  line::rotate(
       mat3 const &input)
   {
     this->_origin = input * this->_origin;
@@ -118,7 +127,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void line::transform(
+  void
+  line::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -128,7 +138,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  line line::transformed(
+  line
+  line::transformed(
       frame const &frameA,
       frame const &frameB)
       const
@@ -139,18 +150,25 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void line::reverse(void) { this->_direction = -this->_direction; }
+  void
+  line::reverse(void)
+  {
+    this->_direction = -this->_direction;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  line line::reversed(void) const
+  line
+  line::reversed(void)
+      const
   {
     return line(this->_origin, -this->_direction);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool line::is_inside(
+  bool
+  line::is_inside(
       vec3 const &point)
       const
   {

@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       line const &line0,
       line const &line1,
       vec3 &point)
@@ -63,7 +64,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       ray const &ray0,
       ray const &ray1,
       vec3 &point)
@@ -78,7 +80,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       segment const &segment0,
       segment const &segment1,
       vec3 &point)
@@ -93,7 +96,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       box const &box0,
       box const &box1,
       box &box)
@@ -118,7 +122,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       plane const &plane0,
       plane const &plane1,
       plane const &plane2,
@@ -147,7 +152,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       plane const &plane0,
       plane const &plane1,
       line &line)
@@ -172,7 +178,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       ray const &ray,
       plane const &plane,
       vec3 &point)
@@ -199,7 +206,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       line const &line,
       plane const &plane,
       vec3 &point)
@@ -219,7 +227,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       segment const &segment,
       plane const &plane,
       vec3 &point)
@@ -240,7 +249,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       ray const &ray,
       triangle const &triangle,
       vec3 &point)
@@ -281,7 +291,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       line const &line,
       triangle const &triangle,
       vec3 &point)
@@ -317,7 +328,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       plane const &plane,
       triangle const &triangle,
       segment &segment)
@@ -351,7 +363,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       line const &line,
       circle const &circle,
       vec3 &point)
@@ -371,7 +384,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       ray const &ray,
       circle const &circle,
       vec3 &point)
@@ -384,7 +398,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       segment const &segment,
       circle const &circle,
       vec3 &point)
@@ -397,7 +412,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       segment const &segment0,
       segment const &segment1,
       segment &segment)
@@ -511,7 +527,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       line const &line,
       segment const &segment_in,
       segment &segment_out)
@@ -529,7 +546,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       ray const &ray,
       segment const &segment_in,
       segment &segment_out)
@@ -560,7 +578,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       line const &line,
       circle const &circle,
       segment &segment)
@@ -603,7 +622,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       ray const &ray,
       circle const &circle,
       segment &segment_out)
@@ -620,7 +640,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       plane const &plane,
       circle const &circle,
       segment &segment)
@@ -628,7 +649,7 @@ namespace acme
     // Compute the intersection of circle plane with the input plane
     line int_line;
     // Compute the intersection of resulting line with the circle
-    if(acme::intersect(circle.laying_plane(), plane, int_line))
+    if (acme::intersect(circle.laying_plane(), plane, int_line))
       return acme::intersect(int_line, circle, segment);
     else
       return false;
@@ -636,7 +657,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       segment const &segment_in,
       circle const &circle,
       segment &segment_out)
@@ -653,7 +675,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersect(
+  bool
+  intersect(
       circle const &circle,
       triangle const &triangle,
       segment &segment_out)

@@ -51,7 +51,7 @@
 #include <vector>
 #include <cassert>
 
-//! Namepaces containing all objects classes and routines
+//!  Namespace containing all acme typedefs, classes and routines
 namespace acme
 {
 
@@ -101,12 +101,12 @@ namespace acme
    |                                               
   \*/
 
-  static real_type const Epsilon_Machine = std::numeric_limits<real_type>::epsilon(); //!< Machine espilon \f$ \varepsilon \f$
-  static real_type const Epsilon_High = 1.0E-16;                                      //!< High precision epsilon constant
-  static real_type const Epsilon_Medium = 1.0E-10;                                    //!< Medium precision epsilon constant
-  static real_type const Epsilon_Low = 1.0E-07;                                       //!< Low precision epsilon constant
-  static real_type const Epsilon = Epsilon_Medium;                                    //!< Standard precision epsilon constant
-  static real_type const Infinity = std::numeric_limits<real_type>::infinity();       //!< Infinity constant
+  static real_type const Epsilon_Machine = std::numeric_limits<real_type>::epsilon(); //!< Machine epsilon \f$ \varepsilon \f$
+  static real_type const Epsilon_High = 1.0E-16;                                      //!< High precision epsilon
+  static real_type const Epsilon_Medium = 1.0E-10;                                    //!< Medium precision epsilon
+  static real_type const Epsilon_Low = 1.0E-07;                                       //!< Low precision epsilon
+  static real_type const Epsilon = Epsilon_Medium;                                    //!< Standard precision epsilon
+  static real_type const Infinity = std::numeric_limits<real_type>::infinity();       //!< Infinity
   static real_type const NaN = std::numeric_limits<real_type>::quiet_NaN();           //!< Not-a-Number type
 
   static real_type const PI = real_type(3.141592653589793238462643383279500);         //!< \f$ \pi \f$ input
@@ -148,37 +148,43 @@ namespace acme
 } // namespace acme
 
 //!< Overload stream out operator for acme::vec2 object
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,     //!< Output stream
     acme::vec2 const &obj //!< Vector object
 );
 
 //!< Overload stream out operator for acme::mat2 object
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,     //!< Output stream
     acme::mat2 const &obj //!< Vector object
 );
 
 //!< Overload stream out operator for acme::vec3 object
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,     //!< Output stream
     acme::vec3 const &obj //!< Vector object
 );
 
 //!< Overload stream out operator for acme::mat3 object
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,     //!< Output stream
     acme::mat3 const &obj //!< Vector object
 );
 
 //!< Overload stream out operator for acme::vec4 object
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,     //!< Output stream
     acme::vec4 const &obj //!< Vector object
 );
 
 //!< Overload stream out operator for acme::mat4 object
-std::ostream &operator<<(
+std::ostream &
+operator<<(
     std::ostream &os,     //!< Output stream
     acme::mat4 const &obj //!< Vector object
 );

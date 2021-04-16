@@ -40,9 +40,9 @@ namespace acme
   \*/
 
   //! Plane class container
-  /*!
-  3D plane defined by the normal vector to plane and an arbitraty point laying on the plane.
-  */
+  /**
+   * 3D plane defined by the normal vector to plane and an arbitraty point laying on the plane.
+   */
   class plane
   {
   public:

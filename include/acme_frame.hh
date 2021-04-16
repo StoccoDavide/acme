@@ -52,7 +52,9 @@ namespace acme
     typedef frame const *ptr; //!< Pointer to frame
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to frame
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to frame objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to frame objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to frame objects
 
   private:
     vec3 _origin;   //!< Origin (point)

@@ -40,106 +40,122 @@ namespace acme
   \*/
 
   //! Ray class container
-  /*!
-  Infinite ray in 3D space and defined by any point lying on the line and a direction
-  vector.
+  /**
+   * Infinite ray in 3D space and defined by any point lying on the line and a direction
+   * vector.
   */
   class ray
   {
   private:
-    vec3 _origin;    //!< Origin
-    vec3 _direction; //!< Direction
+    vec3 _origin;    //!< Ray origin point
+    vec3 _direction; //!< Ray direction vector
 
   public:
-    //! Class destructor
+    //! Ray class destructor
     ~ray() {}
 
-    //! Class constructor
+    //! Ray class constructor
     ray() {}
 
-    //! Copy constructor
+    //! Ray copy constructor
     ray(ray const &) = default;
 
-    //! Class constructor
+    //! Ray class constructor
     ray(
-        real_type ox, //<! Input x origin value
-        real_type oy, //<! Input y origin value
-        real_type oz, //<! Input z origin value
-        real_type dx, //<! Input x direction value
-        real_type dy, //<! Input y direction value
-        real_type dz  //<! Input z direction value
-        ) : _origin(vec3(ox, oy, oz)), _direction(vec3(dx, dy, dz))
+        real_type ox, //<! Input x value of ray origin point
+        real_type oy, //<! Input y value of ray origin point
+        real_type oz, //<! Input z value of ray origin point
+        real_type dx, //<! Input x value of ray direction
+        real_type dy, //<! Input y value of ray direction
+        real_type dz  //<! Input z value of ray direction
+        ) : _origin(vec3(ox, oy, oz)),
+            _direction(vec3(dx, dy, dz))
     {
     }
 
-    //! Class constructor
+    //! Ray class constructor
     ray(
-        vec3 const &origin,   //!< Input origin
-        vec3 const &direction //!< Input direction
-        ) : _origin(origin), _direction(direction)
+        vec3 const &origin,   //!< Input ray origin point
+        vec3 const &direction //!< Input ray direction vector
+        ) : _origin(origin),
+            _direction(direction)
     {
     }
 
     //! Equality operator
-    ray &operator=(
-        ray const &input //!< Input object
+    ray &
+    operator=(
+        ray const &input //!< Input ray object
     );
 
-    //! Check if objects are (almost) equal
-    bool is_equal(
-        ray const &input //!< Input object
+    //! Check if ray objects are (almost) equal
+    bool
+    is_equal(
+        ray const &input //!< Input ray object
     ) const;
 
-    //! Check if ray is degenerated
-    bool is_degenerated(void) const;
+    //! Check if ray is degenerated (null vector)
+    bool
+    is_degenerated(void) const;
 
-    //! Return origin
-    vec3 const &origin() const;
+    //! Return ray origin point
+    vec3 const &
+    origin() const;
 
-    //! Return direction
-    vec3 const &direction() const;
+    //! Return ray direction vector
+    vec3 const &
+    direction() const;
 
-    //! Set origin
-    void origin(
-        vec3 const &input //!< input object
+    //! Set ray origin point
+    void
+    origin(
+        vec3 const &input //!< input ray object
     );
 
-    //! Set direction
-    void direction(
-        vec3 const &input //!< input object
+    //! Set ray direction vector
+    void
+    direction(
+        vec3 const &input //!< input ray object
     );
 
-    //! Translate by vector
-    void translate(
-        vec3 const &input //!< Input
+    //! Translate ray by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
     );
 
-    //! Rotate by matrix
-    void rotate(
-        mat3 const &input //!< Input
+    //! Rotate ray by matrix
+    void
+    rotate(
+        mat3 const &input //!< Input 3x3 rotation matrix
     );
 
     //! Transform ray from frameA to frameB
-    void transform(
+    void
+    transform(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     );
 
-    //! Get transform ray from frameA to frameB
-    ray transformed(
+    //! Get transformed ray from frameA to frameB
+    ray
+    transformed(
         frame const &frameA, //!< Actual reference coordinate system
         frame const &frameB  //!< Future reference coordinate system
     ) const;
 
-    //! Reverse direction
-    void reverse(void);
+    //! Reverse ray direction
+    void
+    reverse(void);
 
-    //! Get reversed ray
-    ray reversed(void) const;
+    //! Get reversed direction ray
+    ray
+    reversed(void) const;
 
     // Check whether the point is inside the ray
-    bool is_inside(
-        vec3 const &point //!< Input
+    bool
+    is_inside(
+        vec3 const &point //!< Input point
     ) const;
 
   }; // class ray

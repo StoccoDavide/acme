@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  circle &circle::operator=(
+  circle &
+  circle::operator=(
       circle const &input)
   {
     if (this == &input)
@@ -53,7 +54,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool circle::is_equal(
+  bool
+  circle::is_equal(
       circle const &input)
       const
   {
@@ -64,7 +66,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool circle::is_degenerated(void)
+  bool
+  circle::is_degenerated(void)
       const
   {
     return acme::is_equal(this->_radius, 0.0);
@@ -72,35 +75,40 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type circle::radius() const
+  real_type
+  circle::radius() const
   {
     return this->_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &circle::center() const
+  vec3 const &
+  circle::center() const
   {
     return this->_plane.origin();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &circle::normal() const
+  vec3 const &
+  circle::normal() const
   {
     return this->_plane.normal();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane const &circle::laying_plane() const
+  plane const &
+  circle::laying_plane() const
   {
     return this->_plane;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::radius(
+  void
+  circle::radius(
       real_type input)
   {
     this->_radius = input;
@@ -108,7 +116,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::center(
+  void
+  circle::center(
       vec3 const &input)
   {
     this->_plane.origin(input);
@@ -116,7 +125,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::normal(
+  void
+  circle::normal(
       vec3 const &input)
   {
     this->_plane.normal(input);
@@ -124,7 +134,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::laying_plane(
+  void
+  circle::laying_plane(
       plane const &input)
   {
     this->_plane = input;
@@ -132,7 +143,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::translate(
+  void
+  circle::translate(
       vec3 const &input)
   {
     this->_plane.translate(input);
@@ -140,7 +152,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::rotate(
+  void
+  circle::rotate(
       mat3 const &input)
   {
     this->_plane.rotate(input);
@@ -148,7 +161,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::transform(
+  void
+  circle::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -157,7 +171,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  circle circle::transformed(
+  circle
+  circle::transformed(
       frame const &frameA,
       frame const &frameB)
       const
@@ -167,18 +182,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void circle::reverse(void) { this->_plane.reverse(); }
+  void
+  circle::reverse(void)
+  {
+    this->_plane.reverse();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  circle circle::reversed(void) const
+  circle
+  circle::reversed(void) const
   {
     return circle(this->_radius, this->_plane.reversed());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool circle::is_inside(
+  bool
+  circle::is_inside(
       vec3 const &point)
       const
   {

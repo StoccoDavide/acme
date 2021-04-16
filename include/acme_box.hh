@@ -52,15 +52,15 @@ namespace acme
     typedef box const *ptr; //!< Pointer to box
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of box
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to box
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pointers to pair of box
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to box objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to box objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to box objects
 
   private:
     vec3 _point_min; //!< Point min
     vec3 _point_max; //!< Point max
-    int_type _id;    //!< Id of the box
-    int_type _ipos;  //!< Rank of the bounding box (used in external algorithms)
+    int_type _id;    //!< Box id (may be used in external algorithms)
+    int_type _ipos;  //!< Box rank (may be used in external algorithms)
 
   public:
     //! Class destructor

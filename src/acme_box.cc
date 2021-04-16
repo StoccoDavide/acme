@@ -36,7 +36,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  box &box::operator=(
+  box &
+  box::operator=(
       box const &input)
   {
     if (this == &input)
@@ -65,7 +66,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool box::is_equal(
+  bool
+  box::is_equal(
       box const &input)
       const
   {
@@ -75,7 +77,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool box::is_degenerated(void)
+  bool
+  box::is_degenerated(void)
       const
   {
     return acme::is_equal((this->_point_min - this->_point_max).norm(), real_type(0.0));
@@ -83,7 +86,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool box::check_max_min(void)
+  bool
+  box::check_max_min(void)
       const
   {
     return this->_point_max.x() >= this->_point_min.x() &&
@@ -93,7 +97,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool box::update_max_min(void)
+  bool
+  box::update_max_min(void)
   {
     bool output = true;
     real_type point_max_tmp, point_min_tmp;
@@ -113,23 +118,44 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &box::point_min(void) const { return this->_point_min; }
+  vec3 const &
+  box::point_min(void)
+      const
+  {
+    return this->_point_min;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::x_min(void) const { return this->_point_min.x(); }
+  real_type
+  box::x_min(void)
+      const
+  {
+    return this->_point_min.x();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::y_min(void) const { return this->_point_min.y(); }
+  real_type
+  box::y_min(void)
+      const
+  {
+    return this->_point_min.y();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::z_min(void) const { return this->_point_min.z(); }
+  real_type
+  box::z_min(void)
+      const
+  {
+    return this->_point_min.z();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::min(
+  real_type
+  box::min(
       unsigned i)
       const
   {
@@ -138,7 +164,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::point_min(
+  void
+  box::point_min(
       vec3 const &input)
   {
     this->_point_min = input;
@@ -146,7 +173,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::point_min(
+  void
+  box::point_min(
       real_type x,
       real_type y,
       real_type z)
@@ -158,7 +186,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::x_min(
+  void
+  box::x_min(
       real_type input)
   {
     this->_point_min.x() = input;
@@ -166,7 +195,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::y_min(
+  void
+  box::y_min(
       real_type input)
   {
     this->_point_min.y() = input;
@@ -174,7 +204,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::z_min(
+  void
+  box::z_min(
       real_type input)
   {
     this->_point_min.z() = input;
@@ -182,7 +213,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::min(
+  void
+  box::min(
       unsigned i,
       real_type input)
   {
@@ -195,19 +227,35 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::x_max(void) const { return this->_point_max.x(); }
+  real_type
+  box::x_max(void)
+      const
+  {
+    return this->_point_max.x();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::y_max(void) const { return this->_point_max.y(); }
+  real_type
+  box::y_max(void)
+      const
+  {
+    return this->_point_max.y();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::z_max(void) const { return this->_point_max.z(); }
+  real_type
+  box::z_max(void)
+      const
+  {
+    return this->_point_max.z();
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::max(
+  real_type
+  box::max(
       unsigned i)
       const
   {
@@ -216,7 +264,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::point_max(
+  void
+  box::point_max(
       vec3 const &input)
   {
     this->_point_max = input;
@@ -224,7 +273,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::point_max(
+  void
+  box::point_max(
       real_type x,
       real_type y,
       real_type z)
@@ -236,7 +286,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::x_max(
+  void
+  box::x_max(
       real_type input)
   {
     this->_point_max.x() = input;
@@ -244,7 +295,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::y_max(
+  void
+  box::y_max(
       real_type input)
   {
     this->_point_max.y() = input;
@@ -252,7 +304,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::z_max(
+  void
+  box::z_max(
       real_type input)
   {
     this->_point_max.z() = input;
@@ -260,7 +313,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::max(
+  void
+  box::max(
       unsigned i,
       real_type input)
   {
@@ -269,7 +323,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::translate(
+  void
+  box::translate(
       vec3 const &input)
   {
     this->_point_min = input + this->_point_min;
@@ -278,7 +333,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::rotate(
+  void
+  box::rotate(
       mat3 const &input)
   {
     this->_point_min = input * this->_point_min;
@@ -287,7 +343,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::transform(
+  void
+  box::transform(
       frame const &frameA,
       frame const &frameB)
   {
@@ -309,7 +366,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool box::collision(
+  bool
+  box::collision(
       box const &input)
       const
   {
@@ -320,7 +378,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::join(
+  void
+  box::join(
       std::vector<box::ptr> const &boxes)
   {
     if (boxes.empty())
@@ -356,7 +415,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::distance(
+  real_type
+  box::distance(
       vec3 const &point)
       const
   {
@@ -377,7 +437,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type box::max_distance(
+  real_type
+  box::max_distance(
       vec3 const &point) const
   {
     real_type dx = acme::max(acme::abs(point.x() - this->_point_min.x()), acme::abs(point.x() - this->_point_max.x()));
@@ -388,7 +449,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::minimum_box(
+  void
+  box::minimum_box(
       vec3 const &point_0,
       vec3 const &point_1,
       vec3 const &point_2)
@@ -403,7 +465,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void box::minimum_box(
+  void
+  box::minimum_box(
       vec3 const points[3])
   {
     this->_point_min.x() = acme::min(points[0].x(), points[1].x(), points[2].x());
@@ -416,11 +479,21 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  int_type const &box::id() const { return this->_id; }
+  int_type const &
+  box::id(void)
+      const
+  {
+    return this->_id;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  int_type const &box::pos() const { return this->_ipos; }
+  int_type const &
+  box::pos(void)
+      const
+  {
+    return this->_ipos;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -z
 
