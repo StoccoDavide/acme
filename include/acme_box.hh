@@ -39,6 +39,7 @@ namespace acme
    |                   
   \*/
 
+  //! Box class container
   /**
    * Box in 3D space and defined by a "maximum" and a "minimum" point.
   */

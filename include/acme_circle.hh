@@ -41,6 +41,7 @@ namespace acme
    |                          
   \*/
 
+  //! Circle class container
   /**
    * Circle in 3D space and defined by a radius and a plane (circle center + normal vector).
   */

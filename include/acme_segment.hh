@@ -40,6 +40,7 @@ namespace acme
    |            |___/                          
   \*/
 
+  //! Segment class container
   /**
   * Segment in 3D space. The segment is defined by two arbitrary points.
   */

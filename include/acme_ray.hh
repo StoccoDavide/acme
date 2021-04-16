@@ -39,6 +39,7 @@ namespace acme
    |             |___/ 
   \*/
 
+  //! Ray class container
   /**
    * Infinite ray in 3D space and defined by any point lying on the line and a direction
    * vector.

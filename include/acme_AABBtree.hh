@@ -41,6 +41,7 @@ namespace acme
    |  /_/   \_\/_/   \_\____/|____/ \__|_|  \___|\___|
   \*/
 
+  //! AABB tree class container
   /**
    * Axis-Aligned Bouding Box tree.
   */

@@ -38,6 +38,7 @@ namespace acme
    |                                
   \*/
 
+  //! Reference frame class container
   /**!
    *Class representing a frame in 3D space. It is constructed by
    *a origin and a rotation matrix.

@@ -41,6 +41,7 @@ namespace acme
    |                          |___/        
   \*/
 
+  //! Triangle class container
   /**
    * Triangle in 3D space. The triangle is defined by three arbitrary points.
    */
