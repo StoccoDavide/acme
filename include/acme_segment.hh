@@ -52,7 +52,9 @@ namespace acme
     typedef segment const *ptr; //!< Pointer to segment object
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to segment objects
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to segment objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to segment objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to segment objects
 
   private:
     vec3 _point[2]; //!< Segment extrema points

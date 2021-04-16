@@ -54,7 +54,9 @@ namespace acme
     typedef triangle const *ptr; //!< Pointer to triangle object
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to triangle objects
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to triangle objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to triangle objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to triangle objects
 
   private:
     vec3 _vertex[3]; //!< Triangle vertices

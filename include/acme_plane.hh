@@ -52,7 +52,9 @@ namespace acme
     typedef plane const *ptr; //!< Pointer to plane
 #endif
 
-    typedef std::vector<ptr> ptrVec; //!< Vector of pointers to plane
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to plane objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to plane objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to plane objects
 
   private:
     vec3 _origin; //!< Origin vector

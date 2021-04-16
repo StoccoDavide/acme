@@ -46,6 +46,17 @@ namespace acme
   */
   class ray
   {
+  public:
+#ifdef ACME_USE_CXX11
+    typedef std::shared_ptr<ray const> ptr; //!< Shared pointer to ray object
+#else
+    typedef ray const *ptr; //!< Pointer to ray object
+#endif
+
+    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to ray objects
+    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to ray objects
+    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to ray objects
+
   private:
     vec3 _origin;    //!< Ray origin point
     vec3 _direction; //!< Ray direction vector
