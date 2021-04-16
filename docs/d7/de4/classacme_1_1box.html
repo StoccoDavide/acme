@@ -30,7 +30,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME
    </div>
-   <div id="projectbrief">A small 3D geometric library</div>
+   <div id="projectbrief">A small 3D computational geometry library</div>
   </td>
  </tr>
  </tbody>
@@ -91,54 +91,54 @@ $(function() {
 Public Types</h2></td></tr>
 <tr class="memitem:aba23b22d1447354f741d267ef0de66d6"><td class="memItemLeft" align="right" valign="top"><a id="aba23b22d1447354f741d267ef0de66d6"></a>
 typedef <a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a></td></tr>
-<tr class="memdesc:aba23b22d1447354f741d267ef0de66d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to box. <br /></td></tr>
+<tr class="memdesc:aba23b22d1447354f741d267ef0de66d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to box object. <br /></td></tr>
 <tr class="separator:aba23b22d1447354f741d267ef0de66d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb7ff0c6e8e46b887cbc0dbab5f8723c"><td class="memItemLeft" align="right" valign="top"><a id="afb7ff0c6e8e46b887cbc0dbab5f8723c"></a>
-typedef std::pair&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a>, <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#afb7ff0c6e8e46b887cbc0dbab5f8723c">ptrPair</a></td></tr>
-<tr class="memdesc:afb7ff0c6e8e46b887cbc0dbab5f8723c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair of box. <br /></td></tr>
-<tr class="separator:afb7ff0c6e8e46b887cbc0dbab5f8723c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45351b1458ecbcdb92d90bdad2ab14ef"><td class="memItemLeft" align="right" valign="top"><a id="a45351b1458ecbcdb92d90bdad2ab14ef"></a>
-typedef std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a45351b1458ecbcdb92d90bdad2ab14ef">ptrVec</a></td></tr>
-<tr class="memdesc:a45351b1458ecbcdb92d90bdad2ab14ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to box. <br /></td></tr>
-<tr class="separator:a45351b1458ecbcdb92d90bdad2ab14ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bd1e70ac99c26a5b690784f50b82e2f"><td class="memItemLeft" align="right" valign="top"><a id="a6bd1e70ac99c26a5b690784f50b82e2f"></a>
-typedef std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#afb7ff0c6e8e46b887cbc0dbab5f8723c">ptrPair</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a6bd1e70ac99c26a5b690784f50b82e2f">ptrPairVec</a></td></tr>
-<tr class="memdesc:a6bd1e70ac99c26a5b690784f50b82e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to pair of box. <br /></td></tr>
-<tr class="separator:a6bd1e70ac99c26a5b690784f50b82e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a448b06a1ccaa31b4d670fa20ea4afc84"><td class="memItemLeft" align="right" valign="top"><a id="a448b06a1ccaa31b4d670fa20ea4afc84"></a>
+typedef std::pair&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a>, <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a448b06a1ccaa31b4d670fa20ea4afc84">pairptr</a></td></tr>
+<tr class="memdesc:a448b06a1ccaa31b4d670fa20ea4afc84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair of pointers to box objects. <br /></td></tr>
+<tr class="separator:a448b06a1ccaa31b4d670fa20ea4afc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178f2b832c3ca82d639449f9485f7fcf"><td class="memItemLeft" align="right" valign="top"><a id="a178f2b832c3ca82d639449f9485f7fcf"></a>
+typedef std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">vecptr</a></td></tr>
+<tr class="memdesc:a178f2b832c3ca82d639449f9485f7fcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to box objects. <br /></td></tr>
+<tr class="separator:a178f2b832c3ca82d639449f9485f7fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98462b6fd779b49a55d705346ca6917"><td class="memItemLeft" align="right" valign="top"><a id="ac98462b6fd779b49a55d705346ca6917"></a>
+typedef std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#a448b06a1ccaa31b4d670fa20ea4afc84">pairptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ac98462b6fd779b49a55d705346ca6917">vecpairptr</a></td></tr>
+<tr class="memdesc:ac98462b6fd779b49a55d705346ca6917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pairs of pointers to box objects. <br /></td></tr>
+<tr class="separator:ac98462b6fd779b49a55d705346ca6917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afac01453f423d2bc8c34a86796fac272"><td class="memItemLeft" align="right" valign="top"><a id="afac01453f423d2bc8c34a86796fac272"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#afac01453f423d2bc8c34a86796fac272">~box</a> ()</td></tr>
-<tr class="memdesc:afac01453f423d2bc8c34a86796fac272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor. <br /></td></tr>
+<tr class="memdesc:afac01453f423d2bc8c34a86796fac272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box class destructor. <br /></td></tr>
 <tr class="separator:afac01453f423d2bc8c34a86796fac272"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28e3d8db7979af4435298d5aa06c45e9"><td class="memItemLeft" align="right" valign="top"><a id="a28e3d8db7979af4435298d5aa06c45e9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a28e3d8db7979af4435298d5aa06c45e9">box</a> (const <a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;)=default</td></tr>
-<tr class="memdesc:a28e3d8db7979af4435298d5aa06c45e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="memdesc:a28e3d8db7979af4435298d5aa06c45e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box copy constructor. <br /></td></tr>
 <tr class="separator:a28e3d8db7979af4435298d5aa06c45e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f1d637dfe1a054e2892814c77b038bf"><td class="memItemLeft" align="right" valign="top"><a id="a3f1d637dfe1a054e2892814c77b038bf"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a3f1d637dfe1a054e2892814c77b038bf">box</a> ()</td></tr>
-<tr class="memdesc:a3f1d637dfe1a054e2892814c77b038bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. <br /></td></tr>
+<tr class="memdesc:a3f1d637dfe1a054e2892814c77b038bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box class constructor. <br /></td></tr>
 <tr class="separator:a3f1d637dfe1a054e2892814c77b038bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56981fe12382118cebdb7859ee1740ef"><td class="memItemLeft" align="right" valign="top"><a id="a56981fe12382118cebdb7859ee1740ef"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a56981fe12382118cebdb7859ee1740ef">box</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a1e3eb21138850d0fe60bf572d7c73cf6">x_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a2f351a757dee3af6f57c2c973f1b7f97">y_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#ac5120f4fd3f4c59b20d135a4ef449c1d">z_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a6470e05fdda78c6d85cb56a9195a95de">x_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a7bbe341d83167536c8492e21047ee3af">y_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#accbafe0965461eb06ecc7c1fb88bcef8">z_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a964177dd1c28e287b35e185bf88628cf">id</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> ipos)</td></tr>
-<tr class="memdesc:a56981fe12382118cebdb7859ee1740ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. <br /></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a56981fe12382118cebdb7859ee1740ef">box</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a1e3eb21138850d0fe60bf572d7c73cf6">x_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a2f351a757dee3af6f57c2c973f1b7f97">y_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#ac5120f4fd3f4c59b20d135a4ef449c1d">z_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a6470e05fdda78c6d85cb56a9195a95de">x_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a7bbe341d83167536c8492e21047ee3af">y_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#accbafe0965461eb06ecc7c1fb88bcef8">z_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#ad45ce3d753a8115a7f823f0154fec032">id</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> ipos)</td></tr>
+<tr class="memdesc:a56981fe12382118cebdb7859ee1740ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box class constructor. <br /></td></tr>
 <tr class="separator:a56981fe12382118cebdb7859ee1740ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6220dde97af748f5e6aeea9e973183db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a6220dde97af748f5e6aeea9e973183db">box</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d7/de4/classacme_1_1box.html#a48732365603a6150f6166f2b59e51b68">point_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d7/de4/classacme_1_1box.html#a41c859ab96b02ed6dbc440450eddf831">point_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a964177dd1c28e287b35e185bf88628cf">id</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> ipos)</td></tr>
-<tr class="memdesc:a6220dde97af748f5e6aeea9e973183db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="../../d7/de4/classacme_1_1box.html#a6220dde97af748f5e6aeea9e973183db">More...</a><br /></td></tr>
+<tr class="memitem:a6220dde97af748f5e6aeea9e973183db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a6220dde97af748f5e6aeea9e973183db">box</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d7/de4/classacme_1_1box.html#ae22a2b8a93686d6205c67bca0ad11c29">point_min</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d7/de4/classacme_1_1box.html#a8dea53112d65ee14c4b001e949fc1111">point_max</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#ad45ce3d753a8115a7f823f0154fec032">id</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> ipos)</td></tr>
+<tr class="memdesc:a6220dde97af748f5e6aeea9e973183db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box class constructor.  <a href="../../d7/de4/classacme_1_1box.html#a6220dde97af748f5e6aeea9e973183db">More...</a><br /></td></tr>
 <tr class="separator:a6220dde97af748f5e6aeea9e973183db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4dd96d9f70c446b33240619bf5f7379"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ad4dd96d9f70c446b33240619bf5f7379">box</a> (std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">box::ptr</a> &gt; const &amp;boxes, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#a964177dd1c28e287b35e185bf88628cf">id</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> ipos)</td></tr>
-<tr class="memdesc:ad4dd96d9f70c446b33240619bf5f7379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="../../d7/de4/classacme_1_1box.html#ad4dd96d9f70c446b33240619bf5f7379">More...</a><br /></td></tr>
+<tr class="memitem:ad4dd96d9f70c446b33240619bf5f7379"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ad4dd96d9f70c446b33240619bf5f7379">box</a> (std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">box::ptr</a> &gt; const &amp;boxes, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> <a class="el" href="../../d7/de4/classacme_1_1box.html#ad45ce3d753a8115a7f823f0154fec032">id</a>, <a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> ipos)</td></tr>
+<tr class="memdesc:ad4dd96d9f70c446b33240619bf5f7379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box class constructor.  <a href="../../d7/de4/classacme_1_1box.html#ad4dd96d9f70c446b33240619bf5f7379">More...</a><br /></td></tr>
 <tr class="separator:ad4dd96d9f70c446b33240619bf5f7379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc346458e53c9b8401275d4903eaff1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#adc346458e53c9b8401275d4903eaff1b">operator=</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;input)</td></tr>
-<tr class="memdesc:adc346458e53c9b8401275d4903eaff1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d7/de4/classacme_1_1box.html#adc346458e53c9b8401275d4903eaff1b">More...</a><br /></td></tr>
-<tr class="separator:adc346458e53c9b8401275d4903eaff1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ff660d3a8c2bec529677420e848649"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a49ff660d3a8c2bec529677420e848649">operator=</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;input)</td></tr>
+<tr class="memdesc:a49ff660d3a8c2bec529677420e848649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d7/de4/classacme_1_1box.html#a49ff660d3a8c2bec529677420e848649">More...</a><br /></td></tr>
+<tr class="separator:a49ff660d3a8c2bec529677420e848649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1cd668e34e0cf28b24b5f4293f03a50"><td class="memItemLeft" align="right" valign="top"><a id="ad1cd668e34e0cf28b24b5f4293f03a50"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ad1cd668e34e0cf28b24b5f4293f03a50">clear</a> (void)</td></tr>
-<tr class="memdesc:ad1cd668e34e0cf28b24b5f4293f03a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the box domain (set to NaN) <br /></td></tr>
+<tr class="memdesc:ad1cd668e34e0cf28b24b5f4293f03a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the box domain (set to Not-a-Number) <br /></td></tr>
 <tr class="separator:ad1cd668e34e0cf28b24b5f4293f03a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bccc1a958cd29d4c13a04122fb96325"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a0bccc1a958cd29d4c13a04122fb96325">is_equal</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;input) const</td></tr>
-<tr class="memdesc:a0bccc1a958cd29d4c13a04122fb96325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if objects are (almost) equal.  <a href="../../d7/de4/classacme_1_1box.html#a0bccc1a958cd29d4c13a04122fb96325">More...</a><br /></td></tr>
+<tr class="memdesc:a0bccc1a958cd29d4c13a04122fb96325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if box objects are (almost) equal.  <a href="../../d7/de4/classacme_1_1box.html#a0bccc1a958cd29d4c13a04122fb96325">More...</a><br /></td></tr>
 <tr class="separator:a0bccc1a958cd29d4c13a04122fb96325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af262d24e22122d54948d3b0de89e8022"><td class="memItemLeft" align="right" valign="top"><a id="af262d24e22122d54948d3b0de89e8022"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#af262d24e22122d54948d3b0de89e8022">is_degenerated</a> (void) const</td></tr>
@@ -152,103 +152,109 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#abe6d234f2049e477f5e868af919d7487">update_max_min</a> (void)</td></tr>
 <tr class="memdesc:abe6d234f2049e477f5e868af919d7487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update and check box max and min points. <br /></td></tr>
 <tr class="separator:abe6d234f2049e477f5e868af919d7487"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48732365603a6150f6166f2b59e51b68"><td class="memItemLeft" align="right" valign="top"><a id="a48732365603a6150f6166f2b59e51b68"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a48732365603a6150f6166f2b59e51b68">point_min</a> (void) const</td></tr>
-<tr class="memdesc:a48732365603a6150f6166f2b59e51b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get min point. <br /></td></tr>
-<tr class="separator:a48732365603a6150f6166f2b59e51b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22a2b8a93686d6205c67bca0ad11c29"><td class="memItemLeft" align="right" valign="top"><a id="ae22a2b8a93686d6205c67bca0ad11c29"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ae22a2b8a93686d6205c67bca0ad11c29">point_min</a> (void) const</td></tr>
+<tr class="memdesc:ae22a2b8a93686d6205c67bca0ad11c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get min point. <br /></td></tr>
+<tr class="separator:ae22a2b8a93686d6205c67bca0ad11c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e3eb21138850d0fe60bf572d7c73cf6"><td class="memItemLeft" align="right" valign="top"><a id="a1e3eb21138850d0fe60bf572d7c73cf6"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a1e3eb21138850d0fe60bf572d7c73cf6">x_min</a> (void) const</td></tr>
-<tr class="memdesc:a1e3eb21138850d0fe60bf572d7c73cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get min point x value. <br /></td></tr>
+<tr class="memdesc:a1e3eb21138850d0fe60bf572d7c73cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box minimum point x value. <br /></td></tr>
 <tr class="separator:a1e3eb21138850d0fe60bf572d7c73cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f351a757dee3af6f57c2c973f1b7f97"><td class="memItemLeft" align="right" valign="top"><a id="a2f351a757dee3af6f57c2c973f1b7f97"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a2f351a757dee3af6f57c2c973f1b7f97">y_min</a> (void) const</td></tr>
-<tr class="memdesc:a2f351a757dee3af6f57c2c973f1b7f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get min point y value. <br /></td></tr>
+<tr class="memdesc:a2f351a757dee3af6f57c2c973f1b7f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box minimum point y value. <br /></td></tr>
 <tr class="separator:a2f351a757dee3af6f57c2c973f1b7f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5120f4fd3f4c59b20d135a4ef449c1d"><td class="memItemLeft" align="right" valign="top"><a id="ac5120f4fd3f4c59b20d135a4ef449c1d"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ac5120f4fd3f4c59b20d135a4ef449c1d">z_min</a> (void) const</td></tr>
-<tr class="memdesc:ac5120f4fd3f4c59b20d135a4ef449c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get min point z value. <br /></td></tr>
+<tr class="memdesc:ac5120f4fd3f4c59b20d135a4ef449c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box minimum point z value. <br /></td></tr>
 <tr class="separator:ac5120f4fd3f4c59b20d135a4ef449c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84839ab8da5a9a3d73f5a954a41f2fec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a84839ab8da5a9a3d73f5a954a41f2fec">min</a> (unsigned i) const</td></tr>
-<tr class="memdesc:a84839ab8da5a9a3d73f5a954a41f2fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get min i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#a84839ab8da5a9a3d73f5a954a41f2fec">More...</a><br /></td></tr>
+<tr class="memdesc:a84839ab8da5a9a3d73f5a954a41f2fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box minimum i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#a84839ab8da5a9a3d73f5a954a41f2fec">More...</a><br /></td></tr>
 <tr class="separator:a84839ab8da5a9a3d73f5a954a41f2fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1898ddec19f48296a30a39517153268"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aa1898ddec19f48296a30a39517153268">point_min</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
-<tr class="memdesc:aa1898ddec19f48296a30a39517153268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set min point.  <a href="../../d7/de4/classacme_1_1box.html#aa1898ddec19f48296a30a39517153268">More...</a><br /></td></tr>
+<tr class="memdesc:aa1898ddec19f48296a30a39517153268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box minimum point.  <a href="../../d7/de4/classacme_1_1box.html#aa1898ddec19f48296a30a39517153268">More...</a><br /></td></tr>
 <tr class="separator:aa1898ddec19f48296a30a39517153268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f2a23c3b8610cd5771f5285ab10974d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a7f2a23c3b8610cd5771f5285ab10974d">point_min</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> x, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> y, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> z)</td></tr>
-<tr class="memdesc:a7f2a23c3b8610cd5771f5285ab10974d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set min point.  <a href="../../d7/de4/classacme_1_1box.html#a7f2a23c3b8610cd5771f5285ab10974d">More...</a><br /></td></tr>
+<tr class="memdesc:a7f2a23c3b8610cd5771f5285ab10974d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box minimum point.  <a href="../../d7/de4/classacme_1_1box.html#a7f2a23c3b8610cd5771f5285ab10974d">More...</a><br /></td></tr>
 <tr class="separator:a7f2a23c3b8610cd5771f5285ab10974d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9de8d3cb2af189e7f5394efa0e955a23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a9de8d3cb2af189e7f5394efa0e955a23">x_min</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:a9de8d3cb2af189e7f5394efa0e955a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set min point x value.  <a href="../../d7/de4/classacme_1_1box.html#a9de8d3cb2af189e7f5394efa0e955a23">More...</a><br /></td></tr>
+<tr class="memdesc:a9de8d3cb2af189e7f5394efa0e955a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box minimum point x value.  <a href="../../d7/de4/classacme_1_1box.html#a9de8d3cb2af189e7f5394efa0e955a23">More...</a><br /></td></tr>
 <tr class="separator:a9de8d3cb2af189e7f5394efa0e955a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a215c7a0d11b7e8a164325309518710a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a215c7a0d11b7e8a164325309518710a1">y_min</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:a215c7a0d11b7e8a164325309518710a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set min point y value.  <a href="../../d7/de4/classacme_1_1box.html#a215c7a0d11b7e8a164325309518710a1">More...</a><br /></td></tr>
+<tr class="memdesc:a215c7a0d11b7e8a164325309518710a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box minimum point y value.  <a href="../../d7/de4/classacme_1_1box.html#a215c7a0d11b7e8a164325309518710a1">More...</a><br /></td></tr>
 <tr class="separator:a215c7a0d11b7e8a164325309518710a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad64c1c1b8427b56e0cc4c8ca02862172"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ad64c1c1b8427b56e0cc4c8ca02862172">z_min</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:ad64c1c1b8427b56e0cc4c8ca02862172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set min point z value.  <a href="../../d7/de4/classacme_1_1box.html#ad64c1c1b8427b56e0cc4c8ca02862172">More...</a><br /></td></tr>
+<tr class="memdesc:ad64c1c1b8427b56e0cc4c8ca02862172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box minimum point z value.  <a href="../../d7/de4/classacme_1_1box.html#ad64c1c1b8427b56e0cc4c8ca02862172">More...</a><br /></td></tr>
 <tr class="separator:ad64c1c1b8427b56e0cc4c8ca02862172"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae25fa858658fc4620ca1e3d27569c5cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ae25fa858658fc4620ca1e3d27569c5cf">min</a> (unsigned i, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:ae25fa858658fc4620ca1e3d27569c5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set min i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#ae25fa858658fc4620ca1e3d27569c5cf">More...</a><br /></td></tr>
+<tr class="memdesc:ae25fa858658fc4620ca1e3d27569c5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box minimum i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#ae25fa858658fc4620ca1e3d27569c5cf">More...</a><br /></td></tr>
 <tr class="separator:ae25fa858658fc4620ca1e3d27569c5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41c859ab96b02ed6dbc440450eddf831"><td class="memItemLeft" align="right" valign="top"><a id="a41c859ab96b02ed6dbc440450eddf831"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a41c859ab96b02ed6dbc440450eddf831">point_max</a> (void) const</td></tr>
-<tr class="memdesc:a41c859ab96b02ed6dbc440450eddf831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get max point. <br /></td></tr>
-<tr class="separator:a41c859ab96b02ed6dbc440450eddf831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dea53112d65ee14c4b001e949fc1111"><td class="memItemLeft" align="right" valign="top"><a id="a8dea53112d65ee14c4b001e949fc1111"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a8dea53112d65ee14c4b001e949fc1111">point_max</a> (void) const</td></tr>
+<tr class="memdesc:a8dea53112d65ee14c4b001e949fc1111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box maximum point. <br /></td></tr>
+<tr class="separator:a8dea53112d65ee14c4b001e949fc1111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6470e05fdda78c6d85cb56a9195a95de"><td class="memItemLeft" align="right" valign="top"><a id="a6470e05fdda78c6d85cb56a9195a95de"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a6470e05fdda78c6d85cb56a9195a95de">x_max</a> (void) const</td></tr>
-<tr class="memdesc:a6470e05fdda78c6d85cb56a9195a95de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get max point x value. <br /></td></tr>
+<tr class="memdesc:a6470e05fdda78c6d85cb56a9195a95de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box maximum point x value. <br /></td></tr>
 <tr class="separator:a6470e05fdda78c6d85cb56a9195a95de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bbe341d83167536c8492e21047ee3af"><td class="memItemLeft" align="right" valign="top"><a id="a7bbe341d83167536c8492e21047ee3af"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a7bbe341d83167536c8492e21047ee3af">y_max</a> (void) const</td></tr>
-<tr class="memdesc:a7bbe341d83167536c8492e21047ee3af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get max point y value. <br /></td></tr>
+<tr class="memdesc:a7bbe341d83167536c8492e21047ee3af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box maximum point y value. <br /></td></tr>
 <tr class="separator:a7bbe341d83167536c8492e21047ee3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accbafe0965461eb06ecc7c1fb88bcef8"><td class="memItemLeft" align="right" valign="top"><a id="accbafe0965461eb06ecc7c1fb88bcef8"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#accbafe0965461eb06ecc7c1fb88bcef8">z_max</a> (void) const</td></tr>
-<tr class="memdesc:accbafe0965461eb06ecc7c1fb88bcef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get max point z value. <br /></td></tr>
+<tr class="memdesc:accbafe0965461eb06ecc7c1fb88bcef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box maximum point z value. <br /></td></tr>
 <tr class="separator:accbafe0965461eb06ecc7c1fb88bcef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab4fd81721f3241cd86eeb315cd3a410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aab4fd81721f3241cd86eeb315cd3a410">max</a> (unsigned i) const</td></tr>
-<tr class="memdesc:aab4fd81721f3241cd86eeb315cd3a410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get max i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#aab4fd81721f3241cd86eeb315cd3a410">More...</a><br /></td></tr>
+<tr class="memdesc:aab4fd81721f3241cd86eeb315cd3a410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get box maximum i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#aab4fd81721f3241cd86eeb315cd3a410">More...</a><br /></td></tr>
 <tr class="separator:aab4fd81721f3241cd86eeb315cd3a410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19c7251124e1832547aed9cc4411e4c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a19c7251124e1832547aed9cc4411e4c0">point_max</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
-<tr class="memdesc:a19c7251124e1832547aed9cc4411e4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set max point.  <a href="../../d7/de4/classacme_1_1box.html#a19c7251124e1832547aed9cc4411e4c0">More...</a><br /></td></tr>
+<tr class="memdesc:a19c7251124e1832547aed9cc4411e4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box maximum point.  <a href="../../d7/de4/classacme_1_1box.html#a19c7251124e1832547aed9cc4411e4c0">More...</a><br /></td></tr>
 <tr class="separator:a19c7251124e1832547aed9cc4411e4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c54046fdf74002e57977e81ffc20f1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a1c54046fdf74002e57977e81ffc20f1d">point_max</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> x, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> y, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> z)</td></tr>
-<tr class="memdesc:a1c54046fdf74002e57977e81ffc20f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set max point.  <a href="../../d7/de4/classacme_1_1box.html#a1c54046fdf74002e57977e81ffc20f1d">More...</a><br /></td></tr>
+<tr class="memdesc:a1c54046fdf74002e57977e81ffc20f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box maximum point.  <a href="../../d7/de4/classacme_1_1box.html#a1c54046fdf74002e57977e81ffc20f1d">More...</a><br /></td></tr>
 <tr class="separator:a1c54046fdf74002e57977e81ffc20f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3ab6a83636537174ff22b7621d37b6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#af3ab6a83636537174ff22b7621d37b6b">x_max</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:af3ab6a83636537174ff22b7621d37b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set max point x value.  <a href="../../d7/de4/classacme_1_1box.html#af3ab6a83636537174ff22b7621d37b6b">More...</a><br /></td></tr>
+<tr class="memdesc:af3ab6a83636537174ff22b7621d37b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box maximum point x value.  <a href="../../d7/de4/classacme_1_1box.html#af3ab6a83636537174ff22b7621d37b6b">More...</a><br /></td></tr>
 <tr class="separator:af3ab6a83636537174ff22b7621d37b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc6ef435f3a753e529d737f49d027be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#abc6ef435f3a753e529d737f49d027be1">y_max</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:abc6ef435f3a753e529d737f49d027be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set max point y value.  <a href="../../d7/de4/classacme_1_1box.html#abc6ef435f3a753e529d737f49d027be1">More...</a><br /></td></tr>
+<tr class="memdesc:abc6ef435f3a753e529d737f49d027be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box maximum point y value.  <a href="../../d7/de4/classacme_1_1box.html#abc6ef435f3a753e529d737f49d027be1">More...</a><br /></td></tr>
 <tr class="separator:abc6ef435f3a753e529d737f49d027be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9090f1ada8c9bbf4971986707ccb5bdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a9090f1ada8c9bbf4971986707ccb5bdd">z_max</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:a9090f1ada8c9bbf4971986707ccb5bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set max point z value.  <a href="../../d7/de4/classacme_1_1box.html#a9090f1ada8c9bbf4971986707ccb5bdd">More...</a><br /></td></tr>
+<tr class="memdesc:a9090f1ada8c9bbf4971986707ccb5bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box maximum point z value.  <a href="../../d7/de4/classacme_1_1box.html#a9090f1ada8c9bbf4971986707ccb5bdd">More...</a><br /></td></tr>
 <tr class="separator:a9090f1ada8c9bbf4971986707ccb5bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70aa231e9526310c66c0ed9a7a717a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aa70aa231e9526310c66c0ed9a7a717a2">max</a> (unsigned i, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:aa70aa231e9526310c66c0ed9a7a717a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set max i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#aa70aa231e9526310c66c0ed9a7a717a2">More...</a><br /></td></tr>
+<tr class="memdesc:aa70aa231e9526310c66c0ed9a7a717a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set box maximum i-th point axis value.  <a href="../../d7/de4/classacme_1_1box.html#aa70aa231e9526310c66c0ed9a7a717a2">More...</a><br /></td></tr>
 <tr class="separator:aa70aa231e9526310c66c0ed9a7a717a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a3efb58599a5638909bb30755d15bc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a2a3efb58599a5638909bb30755d15bc3">translate</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
-<tr class="memdesc:a2a3efb58599a5638909bb30755d15bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate by vector.  <a href="../../d7/de4/classacme_1_1box.html#a2a3efb58599a5638909bb30755d15bc3">More...</a><br /></td></tr>
+<tr class="memdesc:a2a3efb58599a5638909bb30755d15bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate box by vector.  <a href="../../d7/de4/classacme_1_1box.html#a2a3efb58599a5638909bb30755d15bc3">More...</a><br /></td></tr>
 <tr class="separator:a2a3efb58599a5638909bb30755d15bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdcd36be5c6ba15c3bdfb7bfe0439364"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#abdcd36be5c6ba15c3bdfb7bfe0439364">translated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
+<tr class="memdesc:abdcd36be5c6ba15c3bdfb7bfe0439364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get translated box by vector.  <a href="../../d7/de4/classacme_1_1box.html#abdcd36be5c6ba15c3bdfb7bfe0439364">More...</a><br /></td></tr>
+<tr class="separator:abdcd36be5c6ba15c3bdfb7bfe0439364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33588b7cf1fb8bed9a257bb97fd06cee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a33588b7cf1fb8bed9a257bb97fd06cee">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input)</td></tr>
-<tr class="memdesc:a33588b7cf1fb8bed9a257bb97fd06cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate by matrix.  <a href="../../d7/de4/classacme_1_1box.html#a33588b7cf1fb8bed9a257bb97fd06cee">More...</a><br /></td></tr>
+<tr class="memdesc:a33588b7cf1fb8bed9a257bb97fd06cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate box by matrix.  <a href="../../d7/de4/classacme_1_1box.html#a33588b7cf1fb8bed9a257bb97fd06cee">More...</a><br /></td></tr>
 <tr class="separator:a33588b7cf1fb8bed9a257bb97fd06cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1c334249d62d60cac2282ff9ce32e99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#af1c334249d62d60cac2282ff9ce32e99">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB)</td></tr>
-<tr class="memdesc:af1c334249d62d60cac2282ff9ce32e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform box from frameA to frameB.  <a href="../../d7/de4/classacme_1_1box.html#af1c334249d62d60cac2282ff9ce32e99">More...</a><br /></td></tr>
-<tr class="separator:af1c334249d62d60cac2282ff9ce32e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94fe48fa4d12e2e1efcaee9e67c3bcc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a94fe48fa4d12e2e1efcaee9e67c3bcc5">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB) const</td></tr>
-<tr class="memdesc:a94fe48fa4d12e2e1efcaee9e67c3bcc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transform box from frameA to frameB.  <a href="../../d7/de4/classacme_1_1box.html#a94fe48fa4d12e2e1efcaee9e67c3bcc5">More...</a><br /></td></tr>
-<tr class="separator:a94fe48fa4d12e2e1efcaee9e67c3bcc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e6afa141bfd7db17f00f0152300f0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a39e6afa141bfd7db17f00f0152300f0d">rotated</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input)</td></tr>
+<tr class="memdesc:a39e6afa141bfd7db17f00f0152300f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rotated box by matrix.  <a href="../../d7/de4/classacme_1_1box.html#a39e6afa141bfd7db17f00f0152300f0d">More...</a><br /></td></tr>
+<tr class="separator:a39e6afa141bfd7db17f00f0152300f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b3f1afe11523b7568bf575f1089e8e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a8b3f1afe11523b7568bf575f1089e8e1">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
+<tr class="memdesc:a8b3f1afe11523b7568bf575f1089e8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform box from two coordinate frames.  <a href="../../d7/de4/classacme_1_1box.html#a8b3f1afe11523b7568bf575f1089e8e1">More...</a><br /></td></tr>
+<tr class="separator:a8b3f1afe11523b7568bf575f1089e8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada04ba9156dc3e373500102d2fcea749"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ada04ba9156dc3e373500102d2fcea749">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame) const</td></tr>
+<tr class="memdesc:ada04ba9156dc3e373500102d2fcea749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transform box from two coordinate frames.  <a href="../../d7/de4/classacme_1_1box.html#ada04ba9156dc3e373500102d2fcea749">More...</a><br /></td></tr>
+<tr class="separator:ada04ba9156dc3e373500102d2fcea749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8632750ad9eeb9e3c0f8bd2b554acb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aa8632750ad9eeb9e3c0f8bd2b554acb6">collision</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;input) const</td></tr>
 <tr class="memdesc:aa8632750ad9eeb9e3c0f8bd2b554acb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if boxes collide.  <a href="../../d7/de4/classacme_1_1box.html#aa8632750ad9eeb9e3c0f8bd2b554acb6">More...</a><br /></td></tr>
 <tr class="separator:aa8632750ad9eeb9e3c0f8bd2b554acb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa057c320bfc6ee92b5f514b79d7b0bd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aa057c320bfc6ee92b5f514b79d7b0bd7">join</a> (std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">box::ptr</a> &gt; const &amp;boxes)</td></tr>
-<tr class="memdesc:aa057c320bfc6ee92b5f514b79d7b0bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build box wirh a list of boxes.  <a href="../../d7/de4/classacme_1_1box.html#aa057c320bfc6ee92b5f514b79d7b0bd7">More...</a><br /></td></tr>
-<tr class="separator:aa057c320bfc6ee92b5f514b79d7b0bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a64062e53b174d5bbd1d92106aab68a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a8a64062e53b174d5bbd1d92106aab68a">join</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">box::vecptr</a> const &amp;boxes)</td></tr>
+<tr class="memdesc:a8a64062e53b174d5bbd1d92106aab68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build box with a vector of pointers to boxes.  <a href="../../d7/de4/classacme_1_1box.html#a8a64062e53b174d5bbd1d92106aab68a">More...</a><br /></td></tr>
+<tr class="separator:a8a64062e53b174d5bbd1d92106aab68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a344f7bf5453b0722440f06e608b1fecf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a344f7bf5453b0722440f06e608b1fecf">distance</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point) const</td></tr>
-<tr class="memdesc:a344f7bf5453b0722440f06e608b1fecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance of the point to the box.  <a href="../../d7/de4/classacme_1_1box.html#a344f7bf5453b0722440f06e608b1fecf">More...</a><br /></td></tr>
+<tr class="memdesc:a344f7bf5453b0722440f06e608b1fecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance of a point to the box.  <a href="../../d7/de4/classacme_1_1box.html#a344f7bf5453b0722440f06e608b1fecf">More...</a><br /></td></tr>
 <tr class="separator:a344f7bf5453b0722440f06e608b1fecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6443a19cb4d75f79ec7f6432e686be29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a6443a19cb4d75f79ec7f6432e686be29">max_distance</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point) const</td></tr>
-<tr class="memdesc:a6443a19cb4d75f79ec7f6432e686be29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum distance of the point to the point of box.  <a href="../../d7/de4/classacme_1_1box.html#a6443a19cb4d75f79ec7f6432e686be29">More...</a><br /></td></tr>
+<tr class="memdesc:a6443a19cb4d75f79ec7f6432e686be29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum distance of a point to the box.  <a href="../../d7/de4/classacme_1_1box.html#a6443a19cb4d75f79ec7f6432e686be29">More...</a><br /></td></tr>
 <tr class="separator:a6443a19cb4d75f79ec7f6432e686be29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1af556f01bf0be12fbbf3ee9d0f59e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aa1af556f01bf0be12fbbf3ee9d0f59e5">minimum_box</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point2)</td></tr>
 <tr class="memdesc:aa1af556f01bf0be12fbbf3ee9d0f59e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the box as the minimum bounding box containing three input points.  <a href="../../d7/de4/classacme_1_1box.html#aa1af556f01bf0be12fbbf3ee9d0f59e5">More...</a><br /></td></tr>
@@ -256,13 +262,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="memitem:aaaff2a3eef938d47b6b0ab2236d831e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#aaaff2a3eef938d47b6b0ab2236d831e3">minimum_box</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const points[3])</td></tr>
 <tr class="memdesc:aaaff2a3eef938d47b6b0ab2236d831e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the box as the minimum bounding box containing three input points.  <a href="../../d7/de4/classacme_1_1box.html#aaaff2a3eef938d47b6b0ab2236d831e3">More...</a><br /></td></tr>
 <tr class="separator:aaaff2a3eef938d47b6b0ab2236d831e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a964177dd1c28e287b35e185bf88628cf"><td class="memItemLeft" align="right" valign="top"><a id="a964177dd1c28e287b35e185bf88628cf"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#a964177dd1c28e287b35e185bf88628cf">id</a> () const</td></tr>
-<tr class="memdesc:a964177dd1c28e287b35e185bf88628cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">return box position <br /></td></tr>
-<tr class="separator:a964177dd1c28e287b35e185bf88628cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a049ce506f36eee5633aab5f65d379267"><td class="memItemLeft" align="right" valign="top"><a id="a049ce506f36eee5633aab5f65d379267"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b> () const</td></tr>
-<tr class="separator:a049ce506f36eee5633aab5f65d379267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45ce3d753a8115a7f823f0154fec032"><td class="memItemLeft" align="right" valign="top"><a id="ad45ce3d753a8115a7f823f0154fec032"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de4/classacme_1_1box.html#ad45ce3d753a8115a7f823f0154fec032">id</a> (void) const</td></tr>
+<tr class="memdesc:ad45ce3d753a8115a7f823f0154fec032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return box position. <br /></td></tr>
+<tr class="separator:ad45ce3d753a8115a7f823f0154fec032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38abd9c84e9355c8c3e800b36871219e"><td class="memItemLeft" align="right" valign="top"><a id="a38abd9c84e9355c8c3e800b36871219e"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#a0d5cadd5f2ec3eef34fd7eef05db9357">int_type</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b> (void) const</td></tr>
+<tr class="separator:a38abd9c84e9355c8c3e800b36871219e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Box class container. </p>
@@ -314,11 +320,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </table>
 </div><div class="memdoc">
 
-<p>Class constructor. </p>
+<p>Box class constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point_min</td><td>Input minimum point </td></tr>
-    <tr><td class="paramname">point_max</td><td>Input maximum point </td></tr>
+    <tr><td class="paramname">point_min</td><td>Input box minimum point </td></tr>
+    <tr><td class="paramname">point_max</td><td>Input box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -365,10 +371,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </table>
 </div><div class="memdoc">
 
-<p>Class constructor. </p>
+<p>Box class constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">boxes</td><td>Input poiter to vector of boxes </td></tr>
+    <tr><td class="paramname">boxes</td><td>Input pointer to vector of boxes </td></tr>
   </table>
   </dd>
 </dl>
@@ -418,10 +424,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Distance of the point to the box. </p>
+<p>Distance of a point to the box. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input </td></tr>
+    <tr><td class="paramname">point</td><td>Query point </td></tr>
   </table>
   </dd>
 </dl>
@@ -444,7 +450,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Check if objects are (almost) equal. </p>
+<p>Check if box objects are (almost) equal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input </td></tr>
@@ -454,8 +460,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="aa057c320bfc6ee92b5f514b79d7b0bd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa057c320bfc6ee92b5f514b79d7b0bd7">&#9670;&nbsp;</a></span>join()</h2>
+<a id="a8a64062e53b174d5bbd1d92106aab68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a64062e53b174d5bbd1d92106aab68a">&#9670;&nbsp;</a></span>join()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,14 +469,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
         <tr>
           <td class="memname">void acme::box::join </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">box::ptr</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">box::vecptr</a> const &amp;&#160;</td>
           <td class="paramname"><em>boxes</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Build box wirh a list of boxes. </p>
+<p>Build box with a vector of pointers to boxes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">boxes</td><td>Input poiter to vector of boxes </td></tr>
@@ -496,7 +502,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get max i-th point axis value. </p>
+<p>Get box maximum i-th point axis value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Input i-th value </td></tr>
@@ -532,11 +538,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set max i-th point axis value. </p>
+<p>Set box maximum i-th point axis value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Input i-th value </td></tr>
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input value of box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -559,10 +565,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Maximum distance of the point to the point of box. </p>
+<p>Maximum distance of a point to the box. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input </td></tr>
+    <tr><td class="paramname">point</td><td>Query point </td></tr>
   </table>
   </dd>
 </dl>
@@ -585,7 +591,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get min i-th point axis value. </p>
+<p>Get box minimum i-th point axis value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Input i-th value </td></tr>
@@ -621,11 +627,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set min i-th point axis value. </p>
+<p>Set box minimum i-th point axis value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Input i-th value </td></tr>
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input value of box minimum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -667,9 +673,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <p>Resize the box as the minimum bounding box containing three input points. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point0</td><td>Input </td></tr>
-    <tr><td class="paramname">point1</td><td>Input </td></tr>
-    <tr><td class="paramname">point2</td><td>Input </td></tr>
+    <tr><td class="paramname">point0</td><td>Input point 0 </td></tr>
+    <tr><td class="paramname">point1</td><td>Input point 1 </td></tr>
+    <tr><td class="paramname">point2</td><td>Input point 2 </td></tr>
   </table>
   </dd>
 </dl>
@@ -693,24 +699,24 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </div><div class="memdoc">
 
 <p>Resize the box as the minimum bounding box containing three input points. </p>
-<p>return box id </p>
+<p>Return box id </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">points</td><td>Input </td></tr>
+    <tr><td class="paramname">points</td><td>Input points </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="adc346458e53c9b8401275d4903eaff1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc346458e53c9b8401275d4903eaff1b">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a49ff660d3a8c2bec529677420e848649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ff660d3a8c2bec529677420e848649">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp; acme::box::operator= </td>
+          <td class="memname"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>&amp; acme::box::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -761,12 +767,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set max point. </p>
+<p>Set box maximum point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Input x point </td></tr>
-    <tr><td class="paramname">y</td><td>Input y point </td></tr>
-    <tr><td class="paramname">z</td><td>Input z point </td></tr>
+    <tr><td class="paramname">x</td><td>Input x value of box maximum point </td></tr>
+    <tr><td class="paramname">y</td><td>Input y value of box maximum point </td></tr>
+    <tr><td class="paramname">z</td><td>Input z value of box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -789,10 +795,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set max point. </p>
+<p>Set box maximum point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -831,12 +837,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set min point. </p>
+<p>Set box minimum point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Input x point </td></tr>
-    <tr><td class="paramname">y</td><td>Input y point </td></tr>
-    <tr><td class="paramname">z</td><td>Input z point </td></tr>
+    <tr><td class="paramname">x</td><td>Input x value of box minimum point </td></tr>
+    <tr><td class="paramname">y</td><td>Input y value of box minimum point </td></tr>
+    <tr><td class="paramname">z</td><td>Input z value of box minimum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -859,10 +865,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set min point. </p>
+<p>Set box minimum point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>New box minimum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -885,18 +891,44 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Rotate by matrix. </p>
+<p>Rotate box by matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation matrix </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af1c334249d62d60cac2282ff9ce32e99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1c334249d62d60cac2282ff9ce32e99">&#9670;&nbsp;</a></span>transform()</h2>
+<a id="a39e6afa141bfd7db17f00f0152300f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39e6afa141bfd7db17f00f0152300f0d">&#9670;&nbsp;</a></span>rotated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> acme::box::rotated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get rotated box by matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b3f1afe11523b7568bf575f1089e8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b3f1afe11523b7568bf575f1089e8e1">&#9670;&nbsp;</a></span>transform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -905,13 +937,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname">void acme::box::transform </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -921,19 +953,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Transform box from frameA to frameB. </p>
+<p>Transform box from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a94fe48fa4d12e2e1efcaee9e67c3bcc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94fe48fa4d12e2e1efcaee9e67c3bcc5">&#9670;&nbsp;</a></span>transformed()</h2>
+<a id="ada04ba9156dc3e373500102d2fcea749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada04ba9156dc3e373500102d2fcea749">&#9670;&nbsp;</a></span>transformed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -942,13 +974,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> acme::box::transformed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -958,11 +990,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get transform box from frameA to frameB. </p>
+<p>Get transform box from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
@@ -985,10 +1017,36 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Translate by vector. </p>
+<p>Translate box by vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abdcd36be5c6ba15c3bdfb7bfe0439364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdcd36be5c6ba15c3bdfb7bfe0439364">&#9670;&nbsp;</a></span>translated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> acme::box::translated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get translated box by vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -1011,10 +1069,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set max point x value. </p>
+<p>Set box maximum point x value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input x value of box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -1037,10 +1095,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set min point x value. </p>
+<p>Set box minimum point x value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input x value of box minimum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -1063,10 +1121,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set max point y value. </p>
+<p>Set box maximum point y value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input y value of box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -1089,10 +1147,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set min point y value. </p>
+<p>Set box minimum point y value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input y value of box minimum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -1115,10 +1173,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set max point z value. </p>
+<p>Set box maximum point z value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input z value of box maximum point </td></tr>
   </table>
   </dd>
 </dl>
@@ -1141,19 +1199,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set min point z value. </p>
+<p>Set box minimum point z value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input z value of box minimum point </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="../../d2/dae/acme__box_8hh_source.html">acme_box.hh</a></li>
-<li>src/acme_box.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

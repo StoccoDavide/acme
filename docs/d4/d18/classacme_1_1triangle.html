@@ -30,7 +30,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME
    </div>
-   <div id="projectbrief">A small 3D geometric library</div>
+   <div id="projectbrief">A small 3D computational geometry library</div>
   </td>
  </tr>
  </tbody>
@@ -93,10 +93,18 @@ Public Types</h2></td></tr>
 typedef <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8dcce49072968d2ff3c00300c308c02c">ptr</a></td></tr>
 <tr class="memdesc:a8dcce49072968d2ff3c00300c308c02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to triangle object. <br /></td></tr>
 <tr class="separator:a8dcce49072968d2ff3c00300c308c02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2cd79621b0554e067f2edfe5d7df54a"><td class="memItemLeft" align="right" valign="top"><a id="ad2cd79621b0554e067f2edfe5d7df54a"></a>
-typedef std::vector&lt; <a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8dcce49072968d2ff3c00300c308c02c">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ad2cd79621b0554e067f2edfe5d7df54a">ptrVec</a></td></tr>
-<tr class="memdesc:ad2cd79621b0554e067f2edfe5d7df54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to triangle objects. <br /></td></tr>
-<tr class="separator:ad2cd79621b0554e067f2edfe5d7df54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4871d3e87182f3fa87181fb9ae57d92"><td class="memItemLeft" align="right" valign="top"><a id="ad4871d3e87182f3fa87181fb9ae57d92"></a>
+typedef std::pair&lt; <a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8dcce49072968d2ff3c00300c308c02c">ptr</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8dcce49072968d2ff3c00300c308c02c">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ad4871d3e87182f3fa87181fb9ae57d92">pairptr</a></td></tr>
+<tr class="memdesc:ad4871d3e87182f3fa87181fb9ae57d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair of pointers to triangle objects. <br /></td></tr>
+<tr class="separator:ad4871d3e87182f3fa87181fb9ae57d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1293e3433079608eebacc38f70901bd0"><td class="memItemLeft" align="right" valign="top"><a id="a1293e3433079608eebacc38f70901bd0"></a>
+typedef std::vector&lt; <a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8dcce49072968d2ff3c00300c308c02c">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a1293e3433079608eebacc38f70901bd0">vecptr</a></td></tr>
+<tr class="memdesc:a1293e3433079608eebacc38f70901bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to triangle objects. <br /></td></tr>
+<tr class="separator:a1293e3433079608eebacc38f70901bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7078e34809021cbcb6654d967ba1190"><td class="memItemLeft" align="right" valign="top"><a id="ab7078e34809021cbcb6654d967ba1190"></a>
+typedef std::vector&lt; <a class="el" href="../../d4/d18/classacme_1_1triangle.html#ad4871d3e87182f3fa87181fb9ae57d92">pairptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ab7078e34809021cbcb6654d967ba1190">vecpairptr</a></td></tr>
+<tr class="memdesc:ab7078e34809021cbcb6654d967ba1190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pairs of pointers to triangle objects. <br /></td></tr>
+<tr class="separator:ab7078e34809021cbcb6654d967ba1190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -122,9 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac4466a788cb3c9104271c611a4108110"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ac4466a788cb3c9104271c611a4108110">triangle</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const point[3])</td></tr>
 <tr class="memdesc:ac4466a788cb3c9104271c611a4108110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triangle class constructor.  <a href="../../d4/d18/classacme_1_1triangle.html#ac4466a788cb3c9104271c611a4108110">More...</a><br /></td></tr>
 <tr class="separator:ac4466a788cb3c9104271c611a4108110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5d42bc4ba9184bce3fbe42000d3bb3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#aa5d42bc4ba9184bce3fbe42000d3bb3c">operator=</a> (<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;input)</td></tr>
-<tr class="memdesc:aa5d42bc4ba9184bce3fbe42000d3bb3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d4/d18/classacme_1_1triangle.html#aa5d42bc4ba9184bce3fbe42000d3bb3c">More...</a><br /></td></tr>
-<tr class="separator:aa5d42bc4ba9184bce3fbe42000d3bb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c0fdad7e0c886554fddb5b9c10fbd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a86c0fdad7e0c886554fddb5b9c10fbd0">operator=</a> (<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;input)</td></tr>
+<tr class="memdesc:a86c0fdad7e0c886554fddb5b9c10fbd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d4/d18/classacme_1_1triangle.html#a86c0fdad7e0c886554fddb5b9c10fbd0">More...</a><br /></td></tr>
+<tr class="separator:a86c0fdad7e0c886554fddb5b9c10fbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8592af7ecb12092712012e603d5f3f82"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8592af7ecb12092712012e603d5f3f82">is_equal</a> (<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;input) const</td></tr>
 <tr class="memdesc:a8592af7ecb12092712012e603d5f3f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if objects are (almost) equal.  <a href="../../d4/d18/classacme_1_1triangle.html#a8592af7ecb12092712012e603d5f3f82">More...</a><br /></td></tr>
 <tr class="separator:a8592af7ecb12092712012e603d5f3f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,74 +140,85 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a26ed44c489a2d60206585f8697040958">is_degenerated</a> (void) const</td></tr>
 <tr class="memdesc:a26ed44c489a2d60206585f8697040958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if triangle is degenerated to point or segment. <br /></td></tr>
 <tr class="separator:a26ed44c489a2d60206585f8697040958"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37a84eef8a94d7e0469dc96acb821a95"><td class="memItemLeft" align="right" valign="top"><a id="a37a84eef8a94d7e0469dc96acb821a95"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a37a84eef8a94d7e0469dc96acb821a95">vertex_0</a> (void) const</td></tr>
-<tr class="memdesc:a37a84eef8a94d7e0469dc96acb821a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get first triangle vertex. <br /></td></tr>
-<tr class="separator:a37a84eef8a94d7e0469dc96acb821a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aade0129b019b7a18885476be4551495d"><td class="memItemLeft" align="right" valign="top"><a id="aade0129b019b7a18885476be4551495d"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#aade0129b019b7a18885476be4551495d">vertex_0</a> (void) const</td></tr>
+<tr class="memdesc:aade0129b019b7a18885476be4551495d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get first triangle vertex. <br /></td></tr>
+<tr class="separator:aade0129b019b7a18885476be4551495d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634286efe824419df53a92b6d10ee52b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a634286efe824419df53a92b6d10ee52b">vertex_0</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a634286efe824419df53a92b6d10ee52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set first triangle vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#a634286efe824419df53a92b6d10ee52b">More...</a><br /></td></tr>
 <tr class="separator:a634286efe824419df53a92b6d10ee52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e3257609b37759dec1e571162064a12"><td class="memItemLeft" align="right" valign="top"><a id="a0e3257609b37759dec1e571162064a12"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a0e3257609b37759dec1e571162064a12">vertex_1</a> (void) const</td></tr>
-<tr class="memdesc:a0e3257609b37759dec1e571162064a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get second triangle vertex. <br /></td></tr>
-<tr class="separator:a0e3257609b37759dec1e571162064a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae78d82519d2e7ed230ba0729fa878d55"><td class="memItemLeft" align="right" valign="top"><a id="ae78d82519d2e7ed230ba0729fa878d55"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ae78d82519d2e7ed230ba0729fa878d55">vertex_1</a> (void) const</td></tr>
+<tr class="memdesc:ae78d82519d2e7ed230ba0729fa878d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get second triangle vertex. <br /></td></tr>
+<tr class="separator:ae78d82519d2e7ed230ba0729fa878d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c96cd56733d05b92fad3baf3365398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a60c96cd56733d05b92fad3baf3365398">vertex_1</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a60c96cd56733d05b92fad3baf3365398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set second triangle vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#a60c96cd56733d05b92fad3baf3365398">More...</a><br /></td></tr>
 <tr class="separator:a60c96cd56733d05b92fad3baf3365398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33c7163bd34e0e510577097806fd7337"><td class="memItemLeft" align="right" valign="top"><a id="a33c7163bd34e0e510577097806fd7337"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a33c7163bd34e0e510577097806fd7337">vertex_2</a> (void) const</td></tr>
-<tr class="memdesc:a33c7163bd34e0e510577097806fd7337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get third triangle vertex. <br /></td></tr>
-<tr class="separator:a33c7163bd34e0e510577097806fd7337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec9106d7d172ef383535dd692a2065fa"><td class="memItemLeft" align="right" valign="top"><a id="aec9106d7d172ef383535dd692a2065fa"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#aec9106d7d172ef383535dd692a2065fa">vertex_2</a> (void) const</td></tr>
+<tr class="memdesc:aec9106d7d172ef383535dd692a2065fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get third triangle vertex. <br /></td></tr>
+<tr class="separator:aec9106d7d172ef383535dd692a2065fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab116c17791655ac8b10b639acc9e25b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ab116c17791655ac8b10b639acc9e25b2">vertex_2</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:ab116c17791655ac8b10b639acc9e25b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set third triangle vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#ab116c17791655ac8b10b639acc9e25b2">More...</a><br /></td></tr>
 <tr class="separator:ab116c17791655ac8b10b639acc9e25b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6b24a6103dc695287ef0a28b486bd53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#aa6b24a6103dc695287ef0a28b486bd53">vertex</a> (unsigned i) const</td></tr>
-<tr class="memdesc:aa6b24a6103dc695287ef0a28b486bd53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get i-th triangle vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#aa6b24a6103dc695287ef0a28b486bd53">More...</a><br /></td></tr>
-<tr class="separator:aa6b24a6103dc695287ef0a28b486bd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9efc23de28a4a9f7107e9f6288fbd184"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a9efc23de28a4a9f7107e9f6288fbd184">vertex</a> (unsigned i) const</td></tr>
+<tr class="memdesc:a9efc23de28a4a9f7107e9f6288fbd184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get i-th triangle vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#a9efc23de28a4a9f7107e9f6288fbd184">More...</a><br /></td></tr>
+<tr class="separator:a9efc23de28a4a9f7107e9f6288fbd184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b32ff9f39a173491de7a50fa837b9a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a2b32ff9f39a173491de7a50fa837b9a8">vertex</a> (unsigned i, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a2b32ff9f39a173491de7a50fa837b9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set i-th triangle vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#a2b32ff9f39a173491de7a50fa837b9a8">More...</a><br /></td></tr>
 <tr class="separator:a2b32ff9f39a173491de7a50fa837b9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d820fad3e744b71fc588056ad867591"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8d820fad3e744b71fc588056ad867591">vertices</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;vertex0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;vertex1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;vertex2)</td></tr>
 <tr class="memdesc:a8d820fad3e744b71fc588056ad867591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set triangle vertices.  <a href="../../d4/d18/classacme_1_1triangle.html#a8d820fad3e744b71fc588056ad867591">More...</a><br /></td></tr>
 <tr class="separator:a8d820fad3e744b71fc588056ad867591"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad84cd348d2e16e9de82bcc287273d8a7"><td class="memItemLeft" align="right" valign="top"><a id="ad84cd348d2e16e9de82bcc287273d8a7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ad84cd348d2e16e9de82bcc287273d8a7">vertices</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const <a class="el" href="../../d4/d18/classacme_1_1triangle.html#aa6b24a6103dc695287ef0a28b486bd53">vertex</a>[3] &amp;)</td></tr>
-<tr class="memdesc:ad84cd348d2e16e9de82bcc287273d8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set triangle vertices vertices. <br /></td></tr>
-<tr class="separator:ad84cd348d2e16e9de82bcc287273d8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac455cd7c56ccb715e38e4c58f4ec7213"><td class="memItemLeft" align="right" valign="top"><a id="ac455cd7c56ccb715e38e4c58f4ec7213"></a>
-<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ac455cd7c56ccb715e38e4c58f4ec7213">edge_0</a> (void) const</td></tr>
-<tr class="memdesc:ac455cd7c56ccb715e38e4c58f4ec7213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get first triangle edge. <br /></td></tr>
-<tr class="separator:ac455cd7c56ccb715e38e4c58f4ec7213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e3f7f72501d5074d9c1f4b6a0adc230"><td class="memItemLeft" align="right" valign="top"><a id="a8e3f7f72501d5074d9c1f4b6a0adc230"></a>
-<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8e3f7f72501d5074d9c1f4b6a0adc230">edge_1</a> (void) const</td></tr>
-<tr class="memdesc:a8e3f7f72501d5074d9c1f4b6a0adc230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get second triangle edge. <br /></td></tr>
-<tr class="separator:a8e3f7f72501d5074d9c1f4b6a0adc230"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac881dfa7ec2eebdcff0bbb183acf114b"><td class="memItemLeft" align="right" valign="top"><a id="ac881dfa7ec2eebdcff0bbb183acf114b"></a>
-<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ac881dfa7ec2eebdcff0bbb183acf114b">edge_2</a> (void) const</td></tr>
-<tr class="memdesc:ac881dfa7ec2eebdcff0bbb183acf114b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get third triangle edge. <br /></td></tr>
-<tr class="separator:ac881dfa7ec2eebdcff0bbb183acf114b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47a1064b3db49f77a03cf4cd35007a48"><td class="memItemLeft" align="right" valign="top"><a id="a47a1064b3db49f77a03cf4cd35007a48"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a47a1064b3db49f77a03cf4cd35007a48">normal</a> (void) const</td></tr>
-<tr class="memdesc:a47a1064b3db49f77a03cf4cd35007a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get triangle face normal (normalized vector) <br /></td></tr>
-<tr class="separator:a47a1064b3db49f77a03cf4cd35007a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98448a05eee12ae65da344aef5257b3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a98448a05eee12ae65da344aef5257b3d">vertices</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const <a class="el" href="../../d4/d18/classacme_1_1triangle.html#a9efc23de28a4a9f7107e9f6288fbd184">vertex</a>[3])</td></tr>
+<tr class="memdesc:a98448a05eee12ae65da344aef5257b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set triangle vertices vertices.  <a href="../../d4/d18/classacme_1_1triangle.html#a98448a05eee12ae65da344aef5257b3d">More...</a><br /></td></tr>
+<tr class="separator:a98448a05eee12ae65da344aef5257b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa71d59b5c9d942e7be5a6404e727ac9e"><td class="memItemLeft" align="right" valign="top"><a id="aa71d59b5c9d942e7be5a6404e727ac9e"></a>
+<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#aa71d59b5c9d942e7be5a6404e727ac9e">edge_0</a> (void) const</td></tr>
+<tr class="memdesc:aa71d59b5c9d942e7be5a6404e727ac9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get first triangle edge. <br /></td></tr>
+<tr class="separator:aa71d59b5c9d942e7be5a6404e727ac9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1623651539af526af0eb6717eff65ee4"><td class="memItemLeft" align="right" valign="top"><a id="a1623651539af526af0eb6717eff65ee4"></a>
+<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a1623651539af526af0eb6717eff65ee4">edge_1</a> (void) const</td></tr>
+<tr class="memdesc:a1623651539af526af0eb6717eff65ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get second triangle edge. <br /></td></tr>
+<tr class="separator:a1623651539af526af0eb6717eff65ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89224b30243029738a5dd525e141ba52"><td class="memItemLeft" align="right" valign="top"><a id="a89224b30243029738a5dd525e141ba52"></a>
+<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a89224b30243029738a5dd525e141ba52">edge_2</a> (void) const</td></tr>
+<tr class="memdesc:a89224b30243029738a5dd525e141ba52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get third triangle edge. <br /></td></tr>
+<tr class="separator:a89224b30243029738a5dd525e141ba52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603e845a4c2b73315f1a6b87104e9e52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a603e845a4c2b73315f1a6b87104e9e52">edge</a> (unsigned i) const</td></tr>
+<tr class="memdesc:a603e845a4c2b73315f1a6b87104e9e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get i-th triangle edge.  <a href="../../d4/d18/classacme_1_1triangle.html#a603e845a4c2b73315f1a6b87104e9e52">More...</a><br /></td></tr>
+<tr class="separator:a603e845a4c2b73315f1a6b87104e9e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ee44fe15201d10c8165a4718fb5a3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a76ee44fe15201d10c8165a4718fb5a3a">edge</a> (unsigned i, unsigned j) const</td></tr>
+<tr class="memdesc:a76ee44fe15201d10c8165a4718fb5a3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get triangle edge created by i-th and j-th vertex.  <a href="../../d4/d18/classacme_1_1triangle.html#a76ee44fe15201d10c8165a4718fb5a3a">More...</a><br /></td></tr>
+<tr class="separator:a76ee44fe15201d10c8165a4718fb5a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfa6e5a394f26cf1a917ecc734ae76d"><td class="memItemLeft" align="right" valign="top"><a id="a5dfa6e5a394f26cf1a917ecc734ae76d"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a5dfa6e5a394f26cf1a917ecc734ae76d">normal</a> (void) const</td></tr>
+<tr class="memdesc:a5dfa6e5a394f26cf1a917ecc734ae76d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get triangle face normal (normalized vector) <br /></td></tr>
+<tr class="separator:a5dfa6e5a394f26cf1a917ecc734ae76d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a065b1dd396fb9d92a90b758a8d84a596"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a065b1dd396fb9d92a90b758a8d84a596">translate</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a065b1dd396fb9d92a90b758a8d84a596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate triangle by vector.  <a href="../../d4/d18/classacme_1_1triangle.html#a065b1dd396fb9d92a90b758a8d84a596">More...</a><br /></td></tr>
 <tr class="separator:a065b1dd396fb9d92a90b758a8d84a596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad637fb5835f8f1c890d8b68026897ab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ad637fb5835f8f1c890d8b68026897ab9">translated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:ad637fb5835f8f1c890d8b68026897ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get translated triangle by vector.  <a href="../../d4/d18/classacme_1_1triangle.html#ad637fb5835f8f1c890d8b68026897ab9">More...</a><br /></td></tr>
+<tr class="separator:ad637fb5835f8f1c890d8b68026897ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbfdedd2023bc328ef594c3fbd2f8976"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#abbfdedd2023bc328ef594c3fbd2f8976">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input)</td></tr>
 <tr class="memdesc:abbfdedd2023bc328ef594c3fbd2f8976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate triangle by matrix.  <a href="../../d4/d18/classacme_1_1triangle.html#abbfdedd2023bc328ef594c3fbd2f8976">More...</a><br /></td></tr>
 <tr class="separator:abbfdedd2023bc328ef594c3fbd2f8976"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af47371f6825a6c4210dd1322baa2b9c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#af47371f6825a6c4210dd1322baa2b9c3">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB)</td></tr>
-<tr class="memdesc:af47371f6825a6c4210dd1322baa2b9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform triangle from frameA to frameB.  <a href="../../d4/d18/classacme_1_1triangle.html#af47371f6825a6c4210dd1322baa2b9c3">More...</a><br /></td></tr>
-<tr class="separator:af47371f6825a6c4210dd1322baa2b9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb53b1ae39b697e2e19a43c82dc2b54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a8fb53b1ae39b697e2e19a43c82dc2b54">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB) const</td></tr>
-<tr class="memdesc:a8fb53b1ae39b697e2e19a43c82dc2b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed triangle from frameA to frameB.  <a href="../../d4/d18/classacme_1_1triangle.html#a8fb53b1ae39b697e2e19a43c82dc2b54">More...</a><br /></td></tr>
-<tr class="separator:a8fb53b1ae39b697e2e19a43c82dc2b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a805bcfbb3f7696abeee6451bbc2add56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a805bcfbb3f7696abeee6451bbc2add56">rotated</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:a805bcfbb3f7696abeee6451bbc2add56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rotated triangle by matrix.  <a href="../../d4/d18/classacme_1_1triangle.html#a805bcfbb3f7696abeee6451bbc2add56">More...</a><br /></td></tr>
+<tr class="separator:a805bcfbb3f7696abeee6451bbc2add56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037c8fa78f9ebb2f8601a1ea003099fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a037c8fa78f9ebb2f8601a1ea003099fd">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
+<tr class="memdesc:a037c8fa78f9ebb2f8601a1ea003099fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform triangle from two coordinate frames.  <a href="../../d4/d18/classacme_1_1triangle.html#a037c8fa78f9ebb2f8601a1ea003099fd">More...</a><br /></td></tr>
+<tr class="separator:a037c8fa78f9ebb2f8601a1ea003099fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b90f07cd0330aaf8ca73aef5fa340e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a3b90f07cd0330aaf8ca73aef5fa340e5">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame) const</td></tr>
+<tr class="memdesc:a3b90f07cd0330aaf8ca73aef5fa340e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed triangle from two coordinate frames.  <a href="../../d4/d18/classacme_1_1triangle.html#a3b90f07cd0330aaf8ca73aef5fa340e5">More...</a><br /></td></tr>
+<tr class="separator:a3b90f07cd0330aaf8ca73aef5fa340e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fe8a552f6c31f1a5283d27812f78a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a6fe8a552f6c31f1a5283d27812f78a4f">swap</a> (unsigned i, unsigned j)</td></tr>
 <tr class="memdesc:a6fe8a552f6c31f1a5283d27812f78a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap triangle vertices.  <a href="../../d4/d18/classacme_1_1triangle.html#a6fe8a552f6c31f1a5283d27812f78a4f">More...</a><br /></td></tr>
 <tr class="separator:a6fe8a552f6c31f1a5283d27812f78a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af28e831b18e64834205eb8c91523410f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#af28e831b18e64834205eb8c91523410f">min_box</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;input) const</td></tr>
-<tr class="memdesc:af28e831b18e64834205eb8c91523410f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get minimum bounding box of current triangle object.  <a href="../../d4/d18/classacme_1_1triangle.html#af28e831b18e64834205eb8c91523410f">More...</a><br /></td></tr>
-<tr class="separator:af28e831b18e64834205eb8c91523410f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c249aa0f7494f9a6c5994c73ec25f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#ad4c249aa0f7494f9a6c5994c73ec25f7">minimum_box</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;input) const</td></tr>
+<tr class="memdesc:ad4c249aa0f7494f9a6c5994c73ec25f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get minimum box containing the current triangle object.  <a href="../../d4/d18/classacme_1_1triangle.html#ad4c249aa0f7494f9a6c5994c73ec25f7">More...</a><br /></td></tr>
+<tr class="separator:ad4c249aa0f7494f9a6c5994c73ec25f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a832cbb824ac5c333bb576a642a387f7b"><td class="memItemLeft" align="right" valign="top"><a id="a832cbb824ac5c333bb576a642a387f7b"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/classacme_1_1triangle.html#a832cbb824ac5c333bb576a642a387f7b">perimeter</a> (void) const</td></tr>
 <tr class="memdesc:a832cbb824ac5c333bb576a642a387f7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate triangle perimeter length. <br /></td></tr>
@@ -341,6 +360,69 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
+<a id="a603e845a4c2b73315f1a6b87104e9e52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a603e845a4c2b73315f1a6b87104e9e52">&#9670;&nbsp;</a></span>edge() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> acme::triangle::edge </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get i-th triangle edge. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Triangle i-th vertex index </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a76ee44fe15201d10c8165a4718fb5a3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ee44fe15201d10c8165a4718fb5a3a">&#9670;&nbsp;</a></span>edge() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> acme::triangle::edge </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get triangle edge created by i-th and j-th vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Triangle i-th vertex index </td></tr>
+    <tr><td class="paramname">j</td><td>Triangle j-th vertex index </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a8592af7ecb12092712012e603d5f3f82"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8592af7ecb12092712012e603d5f3f82">&#9670;&nbsp;</a></span>is_equal()</h2>
 
@@ -386,21 +468,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <p>Check if a point lays inside the triangle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input point </td></tr>
+    <tr><td class="paramname">point</td><td>Query point </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af28e831b18e64834205eb8c91523410f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af28e831b18e64834205eb8c91523410f">&#9670;&nbsp;</a></span>min_box()</h2>
+<a id="ad4c249aa0f7494f9a6c5994c73ec25f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4c249aa0f7494f9a6c5994c73ec25f7">&#9670;&nbsp;</a></span>minimum_box()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void acme::triangle::min_box </td>
+          <td class="memname">void acme::triangle::minimum_box </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -409,7 +491,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get minimum bounding box of current triangle object. </p>
+<p>Get minimum box containing the current triangle object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input box object </td></tr>
@@ -419,14 +501,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="aa5d42bc4ba9184bce3fbe42000d3bb3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5d42bc4ba9184bce3fbe42000d3bb3c">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a86c0fdad7e0c886554fddb5b9c10fbd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c0fdad7e0c886554fddb5b9c10fbd0">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> &amp; acme::triangle::operator= </td>
+          <td class="memname"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>&amp; acme::triangle::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -462,6 +544,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </div><div class="memdoc">
 
 <p>Rotate triangle by matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a805bcfbb3f7696abeee6451bbc2add56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a805bcfbb3f7696abeee6451bbc2add56">&#9670;&nbsp;</a></span>rotated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> acme::triangle::rotated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get rotated triangle by matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input 3x3 rotation matrix </td></tr>
@@ -508,8 +616,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="af47371f6825a6c4210dd1322baa2b9c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af47371f6825a6c4210dd1322baa2b9c3">&#9670;&nbsp;</a></span>transform()</h2>
+<a id="a037c8fa78f9ebb2f8601a1ea003099fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a037c8fa78f9ebb2f8601a1ea003099fd">&#9670;&nbsp;</a></span>transform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,13 +626,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname">void acme::triangle::transform </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -534,19 +642,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Transform triangle from frameA to frameB. </p>
+<p>Transform triangle from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a8fb53b1ae39b697e2e19a43c82dc2b54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fb53b1ae39b697e2e19a43c82dc2b54">&#9670;&nbsp;</a></span>transformed()</h2>
+<a id="a3b90f07cd0330aaf8ca73aef5fa340e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b90f07cd0330aaf8ca73aef5fa340e5">&#9670;&nbsp;</a></span>transformed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -555,13 +663,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> acme::triangle::transformed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -571,11 +679,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get transformed triangle from frameA to frameB. </p>
+<p>Get transformed triangle from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
@@ -608,14 +716,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="aa6b24a6103dc695287ef0a28b486bd53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6b24a6103dc695287ef0a28b486bd53">&#9670;&nbsp;</a></span>vertex() <span class="overload">[1/2]</span></h2>
+<a id="ad637fb5835f8f1c890d8b68026897ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad637fb5835f8f1c890d8b68026897ab9">&#9670;&nbsp;</a></span>translated()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp; acme::triangle::vertex </td>
+          <td class="memname"><a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> acme::triangle::translated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get translated triangle by vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9efc23de28a4a9f7107e9f6288fbd184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9efc23de28a4a9f7107e9f6288fbd184">&#9670;&nbsp;</a></span>vertex() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const&amp; acme::triangle::vertex </td>
           <td>(</td>
           <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -750,7 +884,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </div>
 </div>
 <a id="a8d820fad3e744b71fc588056ad867591"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d820fad3e744b71fc588056ad867591">&#9670;&nbsp;</a></span>vertices()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d820fad3e744b71fc588056ad867591">&#9670;&nbsp;</a></span>vertices() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -793,9 +927,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="a98448a05eee12ae65da344aef5257b3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98448a05eee12ae65da344aef5257b3d">&#9670;&nbsp;</a></span>vertices() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void acme::triangle::vertices </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const&#160;</td>
+          <td class="paramname"><em>vertex</em>[3]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set triangle vertices vertices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertex</td><td>New triangle vertices </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="../../da/dc6/acme__triangle_8hh_source.html">acme_triangle.hh</a></li>
-<li>src/acme_triangle.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

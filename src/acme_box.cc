@@ -345,22 +345,22 @@ namespace acme
 
   void
   box::transform(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    this->_point_min = acme::transform_point(this->_point_min, frameA, frameB);
-    this->_point_max = acme::transform_point(this->_point_max, frameA, frameB);
+    this->_point_min = acme::transform_point(this->_point_min, from_frame, to_frame);
+    this->_point_max = acme::transform_point(this->_point_max, from_frame, to_frame);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   box box::transformed(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
       const
   {
-    return box(acme::transform_point(this->_point_min, frameA, frameB),
-               acme::transform_point(this->_point_max, frameA, frameB),
+    return box(acme::transform_point(this->_point_min, from_frame, to_frame),
+               acme::transform_point(this->_point_max, from_frame, to_frame),
                this->_id, this->_ipos);
   }
 
@@ -495,7 +495,18 @@ namespace acme
     return this->_ipos;
   }
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -z
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  box::intersect(
+      box const &box_in,
+      box &box_out)
+      const
+  {
+    return acme::intersect(box_in, *this, box_out);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
 

@@ -75,7 +75,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  line::origin() const
+  line::origin(void)
+      const
   {
     return this->_origin;
   }
@@ -83,7 +84,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  line::direction() const
+  line::direction(void)
+      const
   {
     return this->_direction;
   }
@@ -109,10 +111,47 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
+  line::normalize_direction(void)
+  {
+    this->_direction.normalize();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  vec3
+  line::to_vector(void)
+      const
+  {
+    return this->_direction;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  vec3
+  line::to_normalized_vector(void)
+      const
+  {
+    return this->_direction.normalized();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
   line::translate(
       vec3 const &input)
   {
     this->_origin = input + this->_origin;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  line
+  line::translated(
+      vec3 const &input)
+      const
+  {
+    return line(input + this->_origin,
+                this->_direction);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -127,25 +166,36 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  line
+  line::rotated(
+      mat3 const &input)
+      const
+  {
+    return line(input * this->_origin,
+                input * this->_direction);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   line::transform(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    this->_origin = acme::transform_point(this->_origin, frameA, frameB);
-    this->_direction = acme::transform_vector(this->_direction, frameA, frameB);
+    this->_origin = acme::transform_point(this->_origin, from_frame, to_frame);
+    this->_direction = acme::transform_vector(this->_direction, from_frame, to_frame);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   line
   line::transformed(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
       const
   {
-    return line(acme::transform_point(this->_origin, frameA, frameB),
-                acme::transform_vector(this->_direction, frameA, frameB));
+    return line(acme::transform_point(this->_origin, from_frame, to_frame),
+                acme::transform_vector(this->_direction, from_frame, to_frame));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -173,6 +223,72 @@ namespace acme
       const
   {
     return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::intersect(
+      line const &line,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, line, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::intersect(
+      plane const &plane,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, plane, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::intersect(
+      triangle const &triangle,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, triangle, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::intersect(
+      circle const &circle,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, circle, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::intersect(
+      segment const &segment_in,
+      segment &segment_out)
+      const
+  {
+    return acme::intersect(*this, segment_in, segment_out);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::intersect(
+      circle const &circle,
+      segment &segment)
+      const
+  {
+    return acme::intersect(*this, circle, segment);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

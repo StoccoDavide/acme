@@ -30,7 +30,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME
    </div>
-   <div id="projectbrief">A small 3D geometric library</div>
+   <div id="projectbrief">A small 3D computational geometry library</div>
   </td>
  </tr>
  </tbody>
@@ -74,6 +74,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../df/d52/classacme_1_1ray-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -86,6 +87,25 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="../../d2/d8e/acme__ray_8hh_source.html">acme_ray.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae785ebac94ecdc0e1b3aec3a6f26bf79"><td class="memItemLeft" align="right" valign="top"><a id="ae785ebac94ecdc0e1b3aec3a6f26bf79"></a>
+typedef <a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#ae785ebac94ecdc0e1b3aec3a6f26bf79">ptr</a></td></tr>
+<tr class="memdesc:ae785ebac94ecdc0e1b3aec3a6f26bf79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ray object. <br /></td></tr>
+<tr class="separator:ae785ebac94ecdc0e1b3aec3a6f26bf79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbec60f57b0ae400d9253548e3bdb1ce"><td class="memItemLeft" align="right" valign="top"><a id="acbec60f57b0ae400d9253548e3bdb1ce"></a>
+typedef std::pair&lt; <a class="el" href="../../d0/de8/classacme_1_1ray.html#ae785ebac94ecdc0e1b3aec3a6f26bf79">ptr</a>, <a class="el" href="../../d0/de8/classacme_1_1ray.html#ae785ebac94ecdc0e1b3aec3a6f26bf79">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#acbec60f57b0ae400d9253548e3bdb1ce">pairptr</a></td></tr>
+<tr class="memdesc:acbec60f57b0ae400d9253548e3bdb1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair of pointers to ray objects. <br /></td></tr>
+<tr class="separator:acbec60f57b0ae400d9253548e3bdb1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9072166c9e653e959ed6734ecf34094c"><td class="memItemLeft" align="right" valign="top"><a id="a9072166c9e653e959ed6734ecf34094c"></a>
+typedef std::vector&lt; <a class="el" href="../../d0/de8/classacme_1_1ray.html#ae785ebac94ecdc0e1b3aec3a6f26bf79">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a9072166c9e653e959ed6734ecf34094c">vecptr</a></td></tr>
+<tr class="memdesc:a9072166c9e653e959ed6734ecf34094c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to ray objects. <br /></td></tr>
+<tr class="separator:a9072166c9e653e959ed6734ecf34094c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137f8ab1aeab3fefc3ccfd1c38945644"><td class="memItemLeft" align="right" valign="top"><a id="a137f8ab1aeab3fefc3ccfd1c38945644"></a>
+typedef std::vector&lt; <a class="el" href="../../d0/de8/classacme_1_1ray.html#acbec60f57b0ae400d9253548e3bdb1ce">pairptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a137f8ab1aeab3fefc3ccfd1c38945644">vecpairptr</a></td></tr>
+<tr class="memdesc:a137f8ab1aeab3fefc3ccfd1c38945644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pairs of pointers to ray objects. <br /></td></tr>
+<tr class="separator:a137f8ab1aeab3fefc3ccfd1c38945644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aabc35263c86842a40c75f737752506a0"><td class="memItemLeft" align="right" valign="top"><a id="aabc35263c86842a40c75f737752506a0"></a>
@@ -104,12 +124,12 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a4cca584a390f67b3f952040121f414a6">ray</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> ox, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> oy, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> oz, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> dx, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> dy, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> dz)</td></tr>
 <tr class="memdesc:a4cca584a390f67b3f952040121f414a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ray class constructor. <br /></td></tr>
 <tr class="separator:a4cca584a390f67b3f952040121f414a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2540ddd396c263edf4596b4bb6db0b9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a2540ddd396c263edf4596b4bb6db0b9d">ray</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html#af3c781c7f8ed230424dcc61113422418">origin</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html#a24302c0caf72eaab1e42010e7385c11d">direction</a>)</td></tr>
+<tr class="memitem:a2540ddd396c263edf4596b4bb6db0b9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a2540ddd396c263edf4596b4bb6db0b9d">ray</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html#a8c16efee66db2b933709acdf55962a1f">origin</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html#a6169b30bcd2e820315e9a1c18da6a194">direction</a>)</td></tr>
 <tr class="memdesc:a2540ddd396c263edf4596b4bb6db0b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ray class constructor.  <a href="../../d0/de8/classacme_1_1ray.html#a2540ddd396c263edf4596b4bb6db0b9d">More...</a><br /></td></tr>
 <tr class="separator:a2540ddd396c263edf4596b4bb6db0b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a854a393aa6748ef3e2adc38fc0bf9b60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a854a393aa6748ef3e2adc38fc0bf9b60">operator=</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;input)</td></tr>
-<tr class="memdesc:a854a393aa6748ef3e2adc38fc0bf9b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d0/de8/classacme_1_1ray.html#a854a393aa6748ef3e2adc38fc0bf9b60">More...</a><br /></td></tr>
-<tr class="separator:a854a393aa6748ef3e2adc38fc0bf9b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21806cc64d7da61e8b39fdefaa942d3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a21806cc64d7da61e8b39fdefaa942d3b">operator=</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;input)</td></tr>
+<tr class="memdesc:a21806cc64d7da61e8b39fdefaa942d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d0/de8/classacme_1_1ray.html#a21806cc64d7da61e8b39fdefaa942d3b">More...</a><br /></td></tr>
+<tr class="separator:a21806cc64d7da61e8b39fdefaa942d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa53e8b1c0510a8071a06d60c575444f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#aa53e8b1c0510a8071a06d60c575444f4">is_equal</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;input) const</td></tr>
 <tr class="memdesc:aa53e8b1c0510a8071a06d60c575444f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if ray objects are (almost) equal.  <a href="../../d0/de8/classacme_1_1ray.html#aa53e8b1c0510a8071a06d60c575444f4">More...</a><br /></td></tr>
 <tr class="separator:aa53e8b1c0510a8071a06d60c575444f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,32 +137,50 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#aeb8080c758a460baac5009fc10c5220b">is_degenerated</a> (void) const</td></tr>
 <tr class="memdesc:aeb8080c758a460baac5009fc10c5220b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if ray is degenerated (null vector) <br /></td></tr>
 <tr class="separator:aeb8080c758a460baac5009fc10c5220b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3c781c7f8ed230424dcc61113422418"><td class="memItemLeft" align="right" valign="top"><a id="af3c781c7f8ed230424dcc61113422418"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#af3c781c7f8ed230424dcc61113422418">origin</a> () const</td></tr>
-<tr class="memdesc:af3c781c7f8ed230424dcc61113422418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ray origin point. <br /></td></tr>
-<tr class="separator:af3c781c7f8ed230424dcc61113422418"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24302c0caf72eaab1e42010e7385c11d"><td class="memItemLeft" align="right" valign="top"><a id="a24302c0caf72eaab1e42010e7385c11d"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a24302c0caf72eaab1e42010e7385c11d">direction</a> () const</td></tr>
-<tr class="memdesc:a24302c0caf72eaab1e42010e7385c11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ray direction vector. <br /></td></tr>
-<tr class="separator:a24302c0caf72eaab1e42010e7385c11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c16efee66db2b933709acdf55962a1f"><td class="memItemLeft" align="right" valign="top"><a id="a8c16efee66db2b933709acdf55962a1f"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a8c16efee66db2b933709acdf55962a1f">origin</a> () const</td></tr>
+<tr class="memdesc:a8c16efee66db2b933709acdf55962a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ray origin point. <br /></td></tr>
+<tr class="separator:a8c16efee66db2b933709acdf55962a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6169b30bcd2e820315e9a1c18da6a194"><td class="memItemLeft" align="right" valign="top"><a id="a6169b30bcd2e820315e9a1c18da6a194"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a6169b30bcd2e820315e9a1c18da6a194">direction</a> () const</td></tr>
+<tr class="memdesc:a6169b30bcd2e820315e9a1c18da6a194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ray direction vector. <br /></td></tr>
+<tr class="separator:a6169b30bcd2e820315e9a1c18da6a194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a151beb98113293d7fb775f322303a329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a151beb98113293d7fb775f322303a329">origin</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a151beb98113293d7fb775f322303a329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set ray origin point.  <a href="../../d0/de8/classacme_1_1ray.html#a151beb98113293d7fb775f322303a329">More...</a><br /></td></tr>
 <tr class="separator:a151beb98113293d7fb775f322303a329"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69320f08dd133b6ad206bafb289ac140"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a69320f08dd133b6ad206bafb289ac140">direction</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a69320f08dd133b6ad206bafb289ac140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set ray direction vector.  <a href="../../d0/de8/classacme_1_1ray.html#a69320f08dd133b6ad206bafb289ac140">More...</a><br /></td></tr>
 <tr class="separator:a69320f08dd133b6ad206bafb289ac140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8280b30f4438865d453dea7db1f4a7"><td class="memItemLeft" align="right" valign="top"><a id="a5d8280b30f4438865d453dea7db1f4a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a5d8280b30f4438865d453dea7db1f4a7">normalize_direction</a> (void)</td></tr>
+<tr class="memdesc:a5d8280b30f4438865d453dea7db1f4a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize ray direction vector. <br /></td></tr>
+<tr class="separator:a5d8280b30f4438865d453dea7db1f4a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d28ce61ca247d80c5b301155b001080"><td class="memItemLeft" align="right" valign="top"><a id="a2d28ce61ca247d80c5b301155b001080"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a2d28ce61ca247d80c5b301155b001080">to_vector</a> (void) const</td></tr>
+<tr class="memdesc:a2d28ce61ca247d80c5b301155b001080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert ray to vector. <br /></td></tr>
+<tr class="separator:a2d28ce61ca247d80c5b301155b001080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a423a4c01d817168584b5ea03d41fe049"><td class="memItemLeft" align="right" valign="top"><a id="a423a4c01d817168584b5ea03d41fe049"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a423a4c01d817168584b5ea03d41fe049">to_normalized_vector</a> (void) const</td></tr>
+<tr class="memdesc:a423a4c01d817168584b5ea03d41fe049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert ray to normalized vector. <br /></td></tr>
+<tr class="separator:a423a4c01d817168584b5ea03d41fe049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa643338f24d5f1ed7f1d61837bd57b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#aa643338f24d5f1ed7f1d61837bd57b0b">translate</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:aa643338f24d5f1ed7f1d61837bd57b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate ray by vector.  <a href="../../d0/de8/classacme_1_1ray.html#aa643338f24d5f1ed7f1d61837bd57b0b">More...</a><br /></td></tr>
 <tr class="separator:aa643338f24d5f1ed7f1d61837bd57b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2345c2ede25451af7c76c17e462d55d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#ad2345c2ede25451af7c76c17e462d55d">translated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:ad2345c2ede25451af7c76c17e462d55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get translated ray by vector.  <a href="../../d0/de8/classacme_1_1ray.html#ad2345c2ede25451af7c76c17e462d55d">More...</a><br /></td></tr>
+<tr class="separator:ad2345c2ede25451af7c76c17e462d55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39a408cdebc269880957f054740ded9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a39a408cdebc269880957f054740ded9c">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a39a408cdebc269880957f054740ded9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate ray by matrix.  <a href="../../d0/de8/classacme_1_1ray.html#a39a408cdebc269880957f054740ded9c">More...</a><br /></td></tr>
 <tr class="separator:a39a408cdebc269880957f054740ded9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f1b3f95926846e4e60ccea192f41de3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a9f1b3f95926846e4e60ccea192f41de3">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB)</td></tr>
-<tr class="memdesc:a9f1b3f95926846e4e60ccea192f41de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform ray from frameA to frameB.  <a href="../../d0/de8/classacme_1_1ray.html#a9f1b3f95926846e4e60ccea192f41de3">More...</a><br /></td></tr>
-<tr class="separator:a9f1b3f95926846e4e60ccea192f41de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57ad31e6c785082924fc46b9beeccd4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a57ad31e6c785082924fc46b9beeccd4d">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB) const</td></tr>
-<tr class="memdesc:a57ad31e6c785082924fc46b9beeccd4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed ray from frameA to frameB.  <a href="../../d0/de8/classacme_1_1ray.html#a57ad31e6c785082924fc46b9beeccd4d">More...</a><br /></td></tr>
-<tr class="separator:a57ad31e6c785082924fc46b9beeccd4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a129d5e784f3419737274c3fccd3123b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a129d5e784f3419737274c3fccd3123b5">rotated</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:a129d5e784f3419737274c3fccd3123b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rotated ray by matrix.  <a href="../../d0/de8/classacme_1_1ray.html#a129d5e784f3419737274c3fccd3123b5">More...</a><br /></td></tr>
+<tr class="separator:a129d5e784f3419737274c3fccd3123b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08953e7a2bdc644f8b53d6b5f5ef6ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#ad08953e7a2bdc644f8b53d6b5f5ef6ae">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
+<tr class="memdesc:ad08953e7a2bdc644f8b53d6b5f5ef6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform ray from two coordinate frames.  <a href="../../d0/de8/classacme_1_1ray.html#ad08953e7a2bdc644f8b53d6b5f5ef6ae">More...</a><br /></td></tr>
+<tr class="separator:ad08953e7a2bdc644f8b53d6b5f5ef6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09bba071f22a05d2fbcadd279c7dd0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#ad09bba071f22a05d2fbcadd279c7dd0d">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame) const</td></tr>
+<tr class="memdesc:ad09bba071f22a05d2fbcadd279c7dd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed ray from two coordinate frames.  <a href="../../d0/de8/classacme_1_1ray.html#ad09bba071f22a05d2fbcadd279c7dd0d">More...</a><br /></td></tr>
+<tr class="separator:ad09bba071f22a05d2fbcadd279c7dd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b1cdc44b984a069c70caf4841ca2a3"><td class="memItemLeft" align="right" valign="top"><a id="a89b1cdc44b984a069c70caf4841ca2a3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a89b1cdc44b984a069c70caf4841ca2a3">reverse</a> (void)</td></tr>
 <tr class="memdesc:a89b1cdc44b984a069c70caf4841ca2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse ray direction. <br /></td></tr>
@@ -153,6 +191,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="separator:a3f7e28c1fe2748d4a2f08358b8c22495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e3a4092a1f26b34294d1744d996ce19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a2e3a4092a1f26b34294d1744d996ce19">is_inside</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point) const</td></tr>
 <tr class="separator:a2e3a4092a1f26b34294d1744d996ce19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d0d1e47af63153b105c265d6d7dadd7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/classacme_1_1ray.html#a3d0d1e47af63153b105c265d6d7dadd7">intersect</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point=vec3_goat) const</td></tr>
+<tr class="separator:a3d0d1e47af63153b105c265d6d7dadd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ray class container. </p>
@@ -230,6 +270,43 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
+<a id="a3d0d1e47af63153b105c265d6d7dadd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d0d1e47af63153b105c265d6d7dadd7">&#9670;&nbsp;</a></span>intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool acme::ray::intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;&#160;</td>
+          <td class="paramname"><em>plane</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em> = <code>vec3_goat</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Intersect ray with plane <br  />
+WARNING: This function does not support coplanarity! </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plane</td><td>Input plane </td></tr>
+    <tr><td class="paramname">point</td><td>Output point </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa53e8b1c0510a8071a06d60c575444f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa53e8b1c0510a8071a06d60c575444f4">&#9670;&nbsp;</a></span>is_equal()</h2>
 
@@ -273,21 +350,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input point </td></tr>
+    <tr><td class="paramname">point</td><td>Query point </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a854a393aa6748ef3e2adc38fc0bf9b60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a854a393aa6748ef3e2adc38fc0bf9b60">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a21806cc64d7da61e8b39fdefaa942d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21806cc64d7da61e8b39fdefaa942d3b">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> &amp; acme::ray::operator= </td>
+          <td class="memname"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>&amp; acme::ray::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -358,8 +435,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="a9f1b3f95926846e4e60ccea192f41de3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f1b3f95926846e4e60ccea192f41de3">&#9670;&nbsp;</a></span>transform()</h2>
+<a id="a129d5e784f3419737274c3fccd3123b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129d5e784f3419737274c3fccd3123b5">&#9670;&nbsp;</a></span>rotated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> acme::ray::rotated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get rotated ray by matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad08953e7a2bdc644f8b53d6b5f5ef6ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08953e7a2bdc644f8b53d6b5f5ef6ae">&#9670;&nbsp;</a></span>transform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,13 +471,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname">void acme::ray::transform </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -384,19 +487,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Transform ray from frameA to frameB. </p>
+<p>Transform ray from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a57ad31e6c785082924fc46b9beeccd4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57ad31e6c785082924fc46b9beeccd4d">&#9670;&nbsp;</a></span>transformed()</h2>
+<a id="ad09bba071f22a05d2fbcadd279c7dd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09bba071f22a05d2fbcadd279c7dd0d">&#9670;&nbsp;</a></span>transformed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,13 +508,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> acme::ray::transformed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -421,11 +524,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get transformed ray from frameA to frameB. </p>
+<p>Get transformed ray from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
@@ -458,9 +561,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="ad2345c2ede25451af7c76c17e462d55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2345c2ede25451af7c76c17e462d55d">&#9670;&nbsp;</a></span>translated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> acme::ray::translated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get translated ray by vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="../../d2/d8e/acme__ray_8hh_source.html">acme_ray.hh</a></li>
-<li>src/acme_ray.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

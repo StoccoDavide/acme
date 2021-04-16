@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['radius_85',['radius',['../d0/ddb/classacme_1_1circle.html#a608d7a2afb974ecf6bdaaaa587fe10c4',1,'acme::circle::radius() const'],['../d0/ddb/classacme_1_1circle.html#aee32049216e8e7a89d2a971a42db952e',1,'acme::circle::radius(real_type input)']]],
+  ['radius_85',['radius',['../d0/ddb/classacme_1_1circle.html#a2404267038b57aec85a0ba99e08996a4',1,'acme::circle::radius(void) const'],['../d0/ddb/classacme_1_1circle.html#aee32049216e8e7a89d2a971a42db952e',1,'acme::circle::radius(real_type input)']]],
   ['ray_86',['ray',['../d0/de8/classacme_1_1ray.html',1,'acme::ray'],['../d0/de8/classacme_1_1ray.html#ab28addfbb35c83e9db7e9476cc2214b1',1,'acme::ray::ray()'],['../d0/de8/classacme_1_1ray.html#a07ca798442ced888b65d025a0db50254',1,'acme::ray::ray(ray const &amp;)=default'],['../d0/de8/classacme_1_1ray.html#a4cca584a390f67b3f952040121f414a6',1,'acme::ray::ray(real_type ox, real_type oy, real_type oz, real_type dx, real_type dy, real_type dz)'],['../d0/de8/classacme_1_1ray.html#a2540ddd396c263edf4596b4bb6db0b9d',1,'acme::ray::ray(vec3 const &amp;origin, vec3 const &amp;direction)']]],
   ['real_5ftype_87',['real_type',['../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629',1,'acme']]],
   ['reverse_88',['reverse',['../d0/ddb/classacme_1_1circle.html#a6614e8840211116b16eaab696619fb37',1,'acme::circle::reverse()'],['../d1/dcd/classacme_1_1line.html#aefdcde39d9179f8fca99d1ab6df9c0f3',1,'acme::line::reverse()'],['../dd/d62/classacme_1_1plane.html#ae2bbf763daa0a6f268f7d59a01b6b9ce',1,'acme::plane::reverse()'],['../d0/de8/classacme_1_1ray.html#a89b1cdc44b984a069c70caf4841ca2a3',1,'acme::ray::reverse()']]],
@@ -9,8 +9,9 @@ var searchData=
   ['rotate_5fx_91',['rotate_x',['../d9/d70/classacme_1_1frame.html#a596ec1bdb25ca3c393f3f685b1993a1d',1,'acme::frame']]],
   ['rotate_5fy_92',['rotate_y',['../d9/d70/classacme_1_1frame.html#aade74aaae2b482956aa4670b4f8a8c4f',1,'acme::frame']]],
   ['rotate_5fz_93',['rotate_z',['../d9/d70/classacme_1_1frame.html#a9a520da9686263351393ab95b4e3855a',1,'acme::frame']]],
-  ['rotation_94',['rotation',['../d9/d70/classacme_1_1frame.html#a7817d1c0203bafa91fcce027b4c109a9',1,'acme::frame::rotation(void) const'],['../d9/d70/classacme_1_1frame.html#a287b56de8babd73eca26643d706800af',1,'acme::frame::rotation(mat3 const &amp;input)']]],
-  ['rotation_5fx_95',['rotation_x',['../db/d32/namespaceacme.html#a61cac01d2a48abccef2486c925932c4b',1,'acme']]],
-  ['rotation_5fy_96',['rotation_y',['../db/d32/namespaceacme.html#a77101c2898c239ff345bce9311cf4a19',1,'acme']]],
-  ['rotation_5fz_97',['rotation_z',['../db/d32/namespaceacme.html#a8767ef1239c6dfcd3c4a96225c251f74',1,'acme']]]
+  ['rotated_94',['rotated',['../d7/de4/classacme_1_1box.html#a39e6afa141bfd7db17f00f0152300f0d',1,'acme::box::rotated()'],['../d0/ddb/classacme_1_1circle.html#a482a63d999347f625b50522b353c033b',1,'acme::circle::rotated()'],['../d1/dcd/classacme_1_1line.html#ab4bbec5c318ff635c73ff49813397586',1,'acme::line::rotated()'],['../dd/d62/classacme_1_1plane.html#a94ba3c5892d04dca3ec097866c02e5b4',1,'acme::plane::rotated()'],['../d0/de8/classacme_1_1ray.html#a129d5e784f3419737274c3fccd3123b5',1,'acme::ray::rotated()'],['../d5/ddc/classacme_1_1segment.html#ade6e1fcbf835b8959c0be285eab8ab45',1,'acme::segment::rotated()'],['../d4/d18/classacme_1_1triangle.html#a805bcfbb3f7696abeee6451bbc2add56',1,'acme::triangle::rotated()']]],
+  ['rotation_95',['rotation',['../d9/d70/classacme_1_1frame.html#abbe9473901aca71d1bd1ff9aec64c692',1,'acme::frame::rotation(void) const'],['../d9/d70/classacme_1_1frame.html#a287b56de8babd73eca26643d706800af',1,'acme::frame::rotation(mat3 const &amp;input)']]],
+  ['rotation_5fx_96',['rotation_x',['../db/d32/namespaceacme.html#aa69eddd1c68cb3fc6df1a048d50ea4d8',1,'acme']]],
+  ['rotation_5fy_97',['rotation_y',['../db/d32/namespaceacme.html#a2e0d5834f83cfcaee414850d253c47e7',1,'acme']]],
+  ['rotation_5fz_98',['rotation_z',['../db/d32/namespaceacme.html#a4e3889e523069417ceafec851464d25e',1,'acme']]]
 ];

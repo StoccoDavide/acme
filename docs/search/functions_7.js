@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['join_199',['join',['../d7/de4/classacme_1_1box.html#aa057c320bfc6ee92b5f514b79d7b0bd7',1,'acme::box']]]
+  ['join_204',['join',['../d7/de4/classacme_1_1box.html#a8a64062e53b174d5bbd1d92106aab68a',1,'acme::box']]]
 ];

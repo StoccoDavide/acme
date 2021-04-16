@@ -67,8 +67,8 @@ int main()
     Triangle1.vertices(VerticesTri1);
     Triangle2.vertices(VerticesTri2);
 
-    IntersectionBoolTri1 = intersect(Ray, Triangle1, IntersectionPointTri1);
-    IntersectionBoolTri2 = intersect(Ray, Triangle2, IntersectionPointTri2);
+    IntersectionBoolTri1 = Triangle1.intersect(Ray, IntersectionPointTri1);
+    IntersectionBoolTri2 = Triangle2.intersect(Ray, IntersectionPointTri2);
 
     std::cout
         << angle * 180.0 / PI << "°\t"

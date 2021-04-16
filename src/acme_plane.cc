@@ -109,10 +109,29 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
+  plane::normalize_normal(void)
+  {
+    this->_normal.normalize();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
   plane::translate(
       vec3 const &input)
   {
     this->_origin = input + this->_origin;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane
+  plane::translated(
+      vec3 const &input)
+      const
+  {
+    return plane(input + this->_origin,
+                 this->_normal);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -127,25 +146,36 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  plane
+  plane::rotated(
+      mat3 const &input)
+      const
+  {
+    return plane(input * this->_origin,
+                 input * this->_normal);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   plane::transform(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    this->_origin = acme::transform_point(this->_origin, frameA, frameB);
-    this->_normal = acme::transform_vector(this->_normal, frameA, frameB);
+    this->_origin = acme::transform_point(this->_origin, from_frame, to_frame);
+    this->_normal = acme::transform_vector(this->_normal, from_frame, to_frame);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   plane
   plane::transformed(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
       const
   {
-    return plane(acme::transform_point(this->_origin, frameA, frameB),
-                 acme::transform_vector(this->_normal, frameA, frameB));
+    return plane(acme::transform_point(this->_origin, from_frame, to_frame),
+                 acme::transform_vector(this->_normal, from_frame, to_frame));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -192,6 +222,84 @@ namespace acme
       const
   {
     return this->distance(point) < acme::Epsilon;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      plane const &plane0,
+      plane const &plane1,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, plane0, plane1, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      plane const &plane,
+      line &line)
+      const
+  {
+    return acme::intersect(*this, plane, line);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      ray const &ray,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(ray, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      line const &line,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(line, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      segment const &segment,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(segment, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      triangle const &triangle,
+      segment &segment)
+      const
+  {
+    return acme::intersect(*this, triangle, segment);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::intersect(
+      circle const &circle,
+      segment &segment)
+      const
+  {
+    return acme::intersect(*this, circle, segment);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -75,7 +75,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  ray::origin() const
+  ray::origin()
+      const
   {
     return this->_origin;
   }
@@ -83,7 +84,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  ray::direction() const
+  ray::direction()
+      const
   {
     return this->_direction;
   }
@@ -109,10 +111,46 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
+  ray::normalize_direction(void)
+  {
+    this->_direction.normalize();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  vec3
+  ray::to_vector(void)
+      const
+  {
+    return this->_direction;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  vec3
+  ray::to_normalized_vector(void)
+      const
+  {
+    return this->_direction.normalized();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
   ray::translate(
       vec3 const &input)
   {
     this->_origin = input + this->_origin;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ray ray::translated(
+      vec3 const &input)
+      const
+  {
+    return ray(input + this->_origin,
+               this->_direction);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -127,34 +165,48 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  ray ray::rotated(
+      mat3 const &input)
+      const
+  {
+    return ray(input * this->_origin,
+               input * this->_direction);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   ray::transform(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    this->_origin = acme::transform_point(this->_origin, frameA, frameB);
-    this->_direction = acme::transform_vector(this->_direction, frameA, frameB);
+    this->_origin = acme::transform_point(this->_origin, from_frame, to_frame);
+    this->_direction = acme::transform_vector(this->_direction, from_frame, to_frame);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   ray ray::transformed(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
       const
   {
-    return ray(acme::transform_point(this->_origin, frameA, frameB),
-               acme::transform_vector(this->_direction, frameA, frameB));
+    return ray(acme::transform_point(this->_origin, from_frame, to_frame),
+               acme::transform_vector(this->_direction, from_frame, to_frame));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  ray::reverse(void) { this->_direction = -this->_direction; }
+  ray::reverse(void)
+  {
+    this->_direction = -this->_direction;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ray ray::reversed(void) const
+  ray ray::reversed(void)
+      const
   {
     return ray(this->_origin, -this->_direction);
   }
@@ -167,6 +219,61 @@ namespace acme
       const
   {
     return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  ray::intersect(
+      ray const &ray,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, ray, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  ray::intersect(
+      plane const &plane,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, plane, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  ray::intersect(
+      circle const &circle,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, circle, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  ray::intersect(
+      segment const &segment_in,
+      segment &segment_out)
+      const
+  {
+    return acme::intersect(*this, segment_in, segment_out);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  ray::intersect(
+      circle const &circle,
+      segment &segment)
+      const
+  {
+    return acme::intersect(*this, circle, segment);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

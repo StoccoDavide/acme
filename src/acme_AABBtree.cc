@@ -281,7 +281,7 @@ namespace acme
   void
   AABBtree::intersect(
       AABBtree const &tree,
-      box::ptrPairVec &intersection_list,
+      box::vecpairptr &intersection_list,
       bool swap_tree)
       const
   {
@@ -297,9 +297,9 @@ namespace acme
     {
     case 0: // Both are leafs
       if (swap_tree)
-        intersection_list.push_back(box::ptrPair(tree.ptrbox, ptrbox));
+        intersection_list.push_back(box::pairptr(tree.ptrbox, ptrbox));
       else
-        intersection_list.push_back(box::ptrPair(ptrbox, tree.ptrbox));
+        intersection_list.push_back(box::pairptr(ptrbox, tree.ptrbox));
       break;
     case 1: // First is a tree, second is a leaf
     {
@@ -363,7 +363,7 @@ namespace acme
       vec3 const &point,
       real_type distance,
       AABBtree const &tree,
-      box::ptrVec &candidate_list)
+      box::vecptr &candidate_list)
   {
     std::vector<AABBtree::ptr> const &children = tree.children;
     real_type dst = tree.ptrbox->distance(point);
@@ -388,7 +388,7 @@ namespace acme
   void
   AABBtree::min_distance(
       vec3 const &point,
-      box::ptrVec &candidate_list)
+      box::vecptr &candidate_list)
       const
   {
     real_type distance = this->min_maxdist(

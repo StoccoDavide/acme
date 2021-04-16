@@ -30,7 +30,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME
    </div>
-   <div id="projectbrief">A small 3D geometric library</div>
+   <div id="projectbrief">A small 3D computational geometry library</div>
   </td>
  </tr>
  </tbody>
@@ -93,10 +93,18 @@ Public Types</h2></td></tr>
 typedef <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ae825f03227288dd43b6c879e092715b7">ptr</a></td></tr>
 <tr class="memdesc:ae825f03227288dd43b6c879e092715b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to segment object. <br /></td></tr>
 <tr class="separator:ae825f03227288dd43b6c879e092715b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1494d90143902b98d1d347996c87036e"><td class="memItemLeft" align="right" valign="top"><a id="a1494d90143902b98d1d347996c87036e"></a>
-typedef std::vector&lt; <a class="el" href="../../d5/ddc/classacme_1_1segment.html#ae825f03227288dd43b6c879e092715b7">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a1494d90143902b98d1d347996c87036e">ptrVec</a></td></tr>
-<tr class="memdesc:a1494d90143902b98d1d347996c87036e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to segment objects. <br /></td></tr>
-<tr class="separator:a1494d90143902b98d1d347996c87036e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3647a8ce01502a43d1299efc74dcb786"><td class="memItemLeft" align="right" valign="top"><a id="a3647a8ce01502a43d1299efc74dcb786"></a>
+typedef std::pair&lt; <a class="el" href="../../d5/ddc/classacme_1_1segment.html#ae825f03227288dd43b6c879e092715b7">ptr</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html#ae825f03227288dd43b6c879e092715b7">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a3647a8ce01502a43d1299efc74dcb786">pairptr</a></td></tr>
+<tr class="memdesc:a3647a8ce01502a43d1299efc74dcb786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair of pointers to segment objects. <br /></td></tr>
+<tr class="separator:a3647a8ce01502a43d1299efc74dcb786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f5101d9abde199cdbef5dad7d7010c"><td class="memItemLeft" align="right" valign="top"><a id="a83f5101d9abde199cdbef5dad7d7010c"></a>
+typedef std::vector&lt; <a class="el" href="../../d5/ddc/classacme_1_1segment.html#ae825f03227288dd43b6c879e092715b7">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a83f5101d9abde199cdbef5dad7d7010c">vecptr</a></td></tr>
+<tr class="memdesc:a83f5101d9abde199cdbef5dad7d7010c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to segment objects. <br /></td></tr>
+<tr class="separator:a83f5101d9abde199cdbef5dad7d7010c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120aa66d9acf3e5d78cec26f981a3291"><td class="memItemLeft" align="right" valign="top"><a id="a120aa66d9acf3e5d78cec26f981a3291"></a>
+typedef std::vector&lt; <a class="el" href="../../d5/ddc/classacme_1_1segment.html#a3647a8ce01502a43d1299efc74dcb786">pairptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a120aa66d9acf3e5d78cec26f981a3291">vecpairptr</a></td></tr>
+<tr class="memdesc:a120aa66d9acf3e5d78cec26f981a3291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pairs of pointers to segment objects. <br /></td></tr>
+<tr class="separator:a120aa66d9acf3e5d78cec26f981a3291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -119,12 +127,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6810584664495cd8ff0f4cc57a793d02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a6810584664495cd8ff0f4cc57a793d02">segment</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point1)</td></tr>
 <tr class="memdesc:a6810584664495cd8ff0f4cc57a793d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Segment class constructor.  <a href="../../d5/ddc/classacme_1_1segment.html#a6810584664495cd8ff0f4cc57a793d02">More...</a><br /></td></tr>
 <tr class="separator:a6810584664495cd8ff0f4cc57a793d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a463e23889473fa68310aa487444fcbb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a463e23889473fa68310aa487444fcbb3">segment</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const <a class="el" href="../../d5/ddc/classacme_1_1segment.html#a4129b0867847d93bff1197289bec83d2">point</a>[2])</td></tr>
+<tr class="memitem:a463e23889473fa68310aa487444fcbb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a463e23889473fa68310aa487444fcbb3">segment</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const <a class="el" href="../../d5/ddc/classacme_1_1segment.html#a80bca7d0eb909d030711ad407d51fe06">point</a>[2])</td></tr>
 <tr class="memdesc:a463e23889473fa68310aa487444fcbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Segment class constructor.  <a href="../../d5/ddc/classacme_1_1segment.html#a463e23889473fa68310aa487444fcbb3">More...</a><br /></td></tr>
 <tr class="separator:a463e23889473fa68310aa487444fcbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacded89e5fb928f3925fd0c66831321f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#aacded89e5fb928f3925fd0c66831321f">operator=</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;input)</td></tr>
-<tr class="memdesc:aacded89e5fb928f3925fd0c66831321f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d5/ddc/classacme_1_1segment.html#aacded89e5fb928f3925fd0c66831321f">More...</a><br /></td></tr>
-<tr class="separator:aacded89e5fb928f3925fd0c66831321f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9990218ddf82cd7d08f0b9a55f0c8df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#aa9990218ddf82cd7d08f0b9a55f0c8df">operator=</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;input)</td></tr>
+<tr class="memdesc:aa9990218ddf82cd7d08f0b9a55f0c8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d5/ddc/classacme_1_1segment.html#aa9990218ddf82cd7d08f0b9a55f0c8df">More...</a><br /></td></tr>
+<tr class="separator:aa9990218ddf82cd7d08f0b9a55f0c8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fa130d3bd85bfc6a3c0e639d985f440"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a8fa130d3bd85bfc6a3c0e639d985f440">is_equal</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;input) const</td></tr>
 <tr class="memdesc:a8fa130d3bd85bfc6a3c0e639d985f440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if segments are (almost) equal.  <a href="../../d5/ddc/classacme_1_1segment.html#a8fa130d3bd85bfc6a3c0e639d985f440">More...</a><br /></td></tr>
 <tr class="separator:a8fa130d3bd85bfc6a3c0e639d985f440"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,27 +140,27 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ab5d29b847bf165f7bd39344b71f88ece">is_degenerated</a> (void) const</td></tr>
 <tr class="memdesc:ab5d29b847bf165f7bd39344b71f88ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if segment is degenerated to point. <br /></td></tr>
 <tr class="separator:ab5d29b847bf165f7bd39344b71f88ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a075d3b0ec40d6fd22615e284ec149c57"><td class="memItemLeft" align="right" valign="top"><a id="a075d3b0ec40d6fd22615e284ec149c57"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a075d3b0ec40d6fd22615e284ec149c57">point_0</a> (void) const</td></tr>
-<tr class="memdesc:a075d3b0ec40d6fd22615e284ec149c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get first segment point. <br /></td></tr>
-<tr class="separator:a075d3b0ec40d6fd22615e284ec149c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a958f643ac0e87489597b55434db3e9a4"><td class="memItemLeft" align="right" valign="top"><a id="a958f643ac0e87489597b55434db3e9a4"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a958f643ac0e87489597b55434db3e9a4">point_0</a> (void) const</td></tr>
+<tr class="memdesc:a958f643ac0e87489597b55434db3e9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get first segment point. <br /></td></tr>
+<tr class="separator:a958f643ac0e87489597b55434db3e9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacf2be5d1439ab61be5d00a892032dc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#aacf2be5d1439ab61be5d00a892032dc6">point_0</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:aacf2be5d1439ab61be5d00a892032dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set first segment point.  <a href="../../d5/ddc/classacme_1_1segment.html#aacf2be5d1439ab61be5d00a892032dc6">More...</a><br /></td></tr>
 <tr class="separator:aacf2be5d1439ab61be5d00a892032dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af47d23fe6fd89740892e4f1d50701b8c"><td class="memItemLeft" align="right" valign="top"><a id="af47d23fe6fd89740892e4f1d50701b8c"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#af47d23fe6fd89740892e4f1d50701b8c">point_1</a> (void) const</td></tr>
-<tr class="memdesc:af47d23fe6fd89740892e4f1d50701b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get second segment point. <br /></td></tr>
-<tr class="separator:af47d23fe6fd89740892e4f1d50701b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac10aa19bbf95b7db4f12976f86b831cb"><td class="memItemLeft" align="right" valign="top"><a id="ac10aa19bbf95b7db4f12976f86b831cb"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ac10aa19bbf95b7db4f12976f86b831cb">point_1</a> (void) const</td></tr>
+<tr class="memdesc:ac10aa19bbf95b7db4f12976f86b831cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get second segment point. <br /></td></tr>
+<tr class="separator:ac10aa19bbf95b7db4f12976f86b831cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2c88592f4e9ce3f6d9090e8c7a41561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#af2c88592f4e9ce3f6d9090e8c7a41561">point_1</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:af2c88592f4e9ce3f6d9090e8c7a41561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set second segment point.  <a href="../../d5/ddc/classacme_1_1segment.html#af2c88592f4e9ce3f6d9090e8c7a41561">More...</a><br /></td></tr>
 <tr class="separator:af2c88592f4e9ce3f6d9090e8c7a41561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac59a352544c0e4dab000d4ac784f3b70"><td class="memItemLeft" align="right" valign="top"><a id="ac59a352544c0e4dab000d4ac784f3b70"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ac59a352544c0e4dab000d4ac784f3b70">point_mid</a> (void) const</td></tr>
-<tr class="memdesc:ac59a352544c0e4dab000d4ac784f3b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get segment mid segment point. <br /></td></tr>
-<tr class="separator:ac59a352544c0e4dab000d4ac784f3b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4129b0867847d93bff1197289bec83d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a4129b0867847d93bff1197289bec83d2">point</a> (unsigned i) const</td></tr>
-<tr class="memdesc:a4129b0867847d93bff1197289bec83d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get segment i-th point.  <a href="../../d5/ddc/classacme_1_1segment.html#a4129b0867847d93bff1197289bec83d2">More...</a><br /></td></tr>
-<tr class="separator:a4129b0867847d93bff1197289bec83d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72d6934058301275bd863d0d4e49ffe4"><td class="memItemLeft" align="right" valign="top"><a id="a72d6934058301275bd863d0d4e49ffe4"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a72d6934058301275bd863d0d4e49ffe4">midpoint</a> (void) const</td></tr>
+<tr class="memdesc:a72d6934058301275bd863d0d4e49ffe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get segment midpoint. <br /></td></tr>
+<tr class="separator:a72d6934058301275bd863d0d4e49ffe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80bca7d0eb909d030711ad407d51fe06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a80bca7d0eb909d030711ad407d51fe06">point</a> (unsigned i) const</td></tr>
+<tr class="memdesc:a80bca7d0eb909d030711ad407d51fe06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get segment i-th point.  <a href="../../d5/ddc/classacme_1_1segment.html#a80bca7d0eb909d030711ad407d51fe06">More...</a><br /></td></tr>
+<tr class="separator:a80bca7d0eb909d030711ad407d51fe06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a636fbadb5673dfbe60e095a5845f539b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a636fbadb5673dfbe60e095a5845f539b">point</a> (unsigned i, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a636fbadb5673dfbe60e095a5845f539b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set segment i-th point.  <a href="../../d5/ddc/classacme_1_1segment.html#a636fbadb5673dfbe60e095a5845f539b">More...</a><br /></td></tr>
 <tr class="separator:a636fbadb5673dfbe60e095a5845f539b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,15 +178,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="memitem:aba3cdeebabe77822ec8d4081b9abdf32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#aba3cdeebabe77822ec8d4081b9abdf32">translate</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
 <tr class="memdesc:aba3cdeebabe77822ec8d4081b9abdf32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate segment by vector.  <a href="../../d5/ddc/classacme_1_1segment.html#aba3cdeebabe77822ec8d4081b9abdf32">More...</a><br /></td></tr>
 <tr class="separator:aba3cdeebabe77822ec8d4081b9abdf32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3387f2eb2388fda20fbbef5fe3bbf9b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a3387f2eb2388fda20fbbef5fe3bbf9b9">translated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:a3387f2eb2388fda20fbbef5fe3bbf9b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get translated segment by vector.  <a href="../../d5/ddc/classacme_1_1segment.html#a3387f2eb2388fda20fbbef5fe3bbf9b9">More...</a><br /></td></tr>
+<tr class="separator:a3387f2eb2388fda20fbbef5fe3bbf9b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0149517f84d9e338ec8fa983340fd469"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a0149517f84d9e338ec8fa983340fd469">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input)</td></tr>
 <tr class="memdesc:a0149517f84d9e338ec8fa983340fd469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate by matrix.  <a href="../../d5/ddc/classacme_1_1segment.html#a0149517f84d9e338ec8fa983340fd469">More...</a><br /></td></tr>
 <tr class="separator:a0149517f84d9e338ec8fa983340fd469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd5c4ea69c6f03e4c8f3921267ae34f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a5bd5c4ea69c6f03e4c8f3921267ae34f">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB)</td></tr>
-<tr class="memdesc:a5bd5c4ea69c6f03e4c8f3921267ae34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform segment from frameA to frameB.  <a href="../../d5/ddc/classacme_1_1segment.html#a5bd5c4ea69c6f03e4c8f3921267ae34f">More...</a><br /></td></tr>
-<tr class="separator:a5bd5c4ea69c6f03e4c8f3921267ae34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa46e7c6b9b8dc77ce9521179c3529cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#afa46e7c6b9b8dc77ce9521179c3529cd">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB) const</td></tr>
-<tr class="memdesc:afa46e7c6b9b8dc77ce9521179c3529cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed segment from frameA to frameB.  <a href="../../d5/ddc/classacme_1_1segment.html#afa46e7c6b9b8dc77ce9521179c3529cd">More...</a><br /></td></tr>
-<tr class="separator:afa46e7c6b9b8dc77ce9521179c3529cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade6e1fcbf835b8959c0be285eab8ab45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ade6e1fcbf835b8959c0be285eab8ab45">rotated</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:ade6e1fcbf835b8959c0be285eab8ab45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rotated by matrix.  <a href="../../d5/ddc/classacme_1_1segment.html#ade6e1fcbf835b8959c0be285eab8ab45">More...</a><br /></td></tr>
+<tr class="separator:ade6e1fcbf835b8959c0be285eab8ab45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649a3fbbf9718bb00e8e20eb7e21418e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a649a3fbbf9718bb00e8e20eb7e21418e">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
+<tr class="memdesc:a649a3fbbf9718bb00e8e20eb7e21418e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform segment from two coordinate frames.  <a href="../../d5/ddc/classacme_1_1segment.html#a649a3fbbf9718bb00e8e20eb7e21418e">More...</a><br /></td></tr>
+<tr class="separator:a649a3fbbf9718bb00e8e20eb7e21418e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bfbc51a91b94696ff77ffd1c0de5b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#a3bfbc51a91b94696ff77ffd1c0de5b30">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame) const</td></tr>
+<tr class="memdesc:a3bfbc51a91b94696ff77ffd1c0de5b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed segment from two coordinate frames.  <a href="../../d5/ddc/classacme_1_1segment.html#a3bfbc51a91b94696ff77ffd1c0de5b30">More...</a><br /></td></tr>
+<tr class="separator:a3bfbc51a91b94696ff77ffd1c0de5b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add9c4777eac1c228a2d01248b35f4e69"><td class="memItemLeft" align="right" valign="top"><a id="add9c4777eac1c228a2d01248b35f4e69"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#add9c4777eac1c228a2d01248b35f4e69">swap</a> (void)</td></tr>
 <tr class="memdesc:add9c4777eac1c228a2d01248b35f4e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap segment points. <br /></td></tr>
@@ -187,7 +201,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ad56b35f8d4a0d90f8b9f3dd61a565f1b">length</a> (void) const</td></tr>
 <tr class="memdesc:ad56b35f8d4a0d90f8b9f3dd61a565f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate segment length. <br /></td></tr>
 <tr class="separator:ad56b35f8d4a0d90f8b9f3dd61a565f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7650221543d7c93341815b0172aee19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ad7650221543d7c93341815b0172aee19">is_inside</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html#a4129b0867847d93bff1197289bec83d2">point</a>) const</td></tr>
+<tr class="memitem:ad7650221543d7c93341815b0172aee19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/ddc/classacme_1_1segment.html#ad7650221543d7c93341815b0172aee19">is_inside</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html#a80bca7d0eb909d030711ad407d51fe06">point</a>) const</td></tr>
 <tr class="separator:ad7650221543d7c93341815b0172aee19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -301,21 +315,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input point </td></tr>
+    <tr><td class="paramname">point</td><td>Query point </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aacded89e5fb928f3925fd0c66831321f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacded89e5fb928f3925fd0c66831321f">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="aa9990218ddf82cd7d08f0b9a55f0c8df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9990218ddf82cd7d08f0b9a55f0c8df">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp; acme::segment::operator= </td>
+          <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>&amp; acme::segment::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -334,14 +348,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="a4129b0867847d93bff1197289bec83d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4129b0867847d93bff1197289bec83d2">&#9670;&nbsp;</a></span>point() <span class="overload">[1/2]</span></h2>
+<a id="a80bca7d0eb909d030711ad407d51fe06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80bca7d0eb909d030711ad407d51fe06">&#9670;&nbsp;</a></span>point() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp; acme::segment::point </td>
+          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const&amp; acme::segment::point </td>
           <td>(</td>
           <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -512,8 +526,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<a id="a5bd5c4ea69c6f03e4c8f3921267ae34f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bd5c4ea69c6f03e4c8f3921267ae34f">&#9670;&nbsp;</a></span>transform()</h2>
+<a id="ade6e1fcbf835b8959c0be285eab8ab45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6e1fcbf835b8959c0be285eab8ab45">&#9670;&nbsp;</a></span>rotated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> acme::segment::rotated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get rotated by matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a649a3fbbf9718bb00e8e20eb7e21418e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a649a3fbbf9718bb00e8e20eb7e21418e">&#9670;&nbsp;</a></span>transform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,13 +562,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname">void acme::segment::transform </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -538,19 +578,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Transform segment from frameA to frameB. </p>
+<p>Transform segment from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="afa46e7c6b9b8dc77ce9521179c3529cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa46e7c6b9b8dc77ce9521179c3529cd">&#9670;&nbsp;</a></span>transformed()</h2>
+<a id="a3bfbc51a91b94696ff77ffd1c0de5b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfbc51a91b94696ff77ffd1c0de5b30">&#9670;&nbsp;</a></span>transformed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -559,13 +599,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> acme::segment::transformed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -575,11 +615,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get transformed segment from frameA to frameB. </p>
+<p>Get transformed segment from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
@@ -612,9 +652,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="a3387f2eb2388fda20fbbef5fe3bbf9b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3387f2eb2388fda20fbbef5fe3bbf9b9">&#9670;&nbsp;</a></span>translated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> acme::segment::translated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get translated segment by vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="../../db/d09/acme__segment_8hh_source.html">acme_segment.hh</a></li>
-<li>src/acme_segment.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

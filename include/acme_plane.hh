@@ -26,9 +26,15 @@
 #include "acme.hh"
 #include "acme_math.hh"
 #include "acme_frame.hh"
+#include "acme_intersect.hh"
 
 namespace acme
 {
+  class line;
+  class ray;
+  class segment;
+  class triangle;
+  class circle;
 
   /*\
    |         _                  
@@ -47,120 +53,207 @@ namespace acme
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<plane const> ptr; //!< Shared pointer to plane
+    typedef std::shared_ptr<plane const> ptr; //!< Shared pointer to plane object
 #else
-    typedef plane const *ptr; //!< Pointer to plane
+    typedef plane const *ptr; //!< Pointer to plane object
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to plane objects
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to plane objects
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to plane objects
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to plane objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to plane objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to plane objects
 
   private:
-    vec3 _origin; //!< Origin vector
-    vec3 _normal; //!< Normal vector
+    vec3 _origin; //!< Plane origin vector
+    vec3 _normal; //!< Plane normal vector
 
   public:
-    //! Class destructor
+    //! Plane class destructor
     ~plane() {}
 
-    //! Class constructor
+    //! Plane class constructor
     plane() {}
 
-    //! Copy constructor
+    //! Plane copy constructor
     plane(plane const &) = default;
 
-    //! Class constructor for plane
+    //! Plane class constructor for plane
     plane(
-        real_type ox, //<! Input x origin value
-        real_type oy, //<! Input y origin value
-        real_type oz, //<! Input z origin value
-        real_type dx, //<! Input x normal value
-        real_type dy, //<! Input y normal value
-        real_type dz  //<! Input z normal value
+        real_type ox, //<! Input x value of plane origin point
+        real_type oy, //<! Input y value of plane origin point
+        real_type oz, //<! Input z value of plane origin point
+        real_type dx, //<! Input x value of plane normal vector
+        real_type dy, //<! Input y value of plane normal vector
+        real_type dz  //<! Input z value of plane normal vector
         ) : _origin(vec3(ox, oy, oz)),
             _normal(vec3(dx, dy, dz))
     {
     }
 
-    //! Class constructor
+    //! Plane class constructor
     plane(
-        vec3 const &origin, //!< Input origin
-        vec3 const &normal  //!< Input normal
+        vec3 const &origin, //!< Input plane origin point
+        vec3 const &normal  //!< Input plane normal vector
         ) : _origin(origin),
             _normal(normal)
     {
     }
 
     //! Equality operator
-    plane &operator=(
-        plane const &input //!< Input
+    plane &
+    operator=(
+        plane const &input //!< Input plane object
     );
 
     //! Check if objects are (almost) equal
-    bool is_equal(
-        plane const &input //!< Input
+    bool
+    is_equal(
+        plane const &input //!< Input plane object
     ) const;
 
-    //! Check if plane is degenerated
-    bool is_degenerated(void)
-        const;
+    //! Check if plane is degenerated (normal has zero norm)
+    bool
+    is_degenerated(void) const;
 
-    //! Return origin
-    vec3 const &origin() const;
+    //! Return plane origin point
+    vec3 const &
+    origin(void) const;
 
-    //! Return normal
-    vec3 const &normal() const;
+    //! Return plane normal vector
+    vec3 const &
+    normal(void) const;
 
-    //! Set origin
-    void origin(
-        vec3 const &input //!< input
+    //! Normalize plane normal vector
+    void
+    normalize_normal(void);
+
+    //! Set plane origin point
+    void
+    origin(
+        vec3 const &input //!< input plane origin point
     );
 
-    //! Set normal
-    void normal(
-        vec3 const &input //!< input
+    //! Set plane normal
+    void
+    normal(
+        vec3 const &input //!< input plane origin vector
     );
 
-    //! Translate by vector
-    void translate(
-        vec3 const &input //!< Input
+    //! Translate plane by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
     );
 
-    //! Rotate by matrix
-    void rotate(
-        mat3 const &input //!< Input
-    );
-
-    //! Transform plane from frameA to frameB
-    void transform(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
-    );
-
-    //! Get transform plane from frameA to frameB
-    plane transformed(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+    //! Get translated plane by vector
+    plane
+    translated(
+        vec3 const &input //!< Input translation vector
     ) const;
 
-    //! Reverse normal
-    void reverse(void);
+    //! Rotate plane by matrix
+    void
+    rotate(
+        mat3 const &input //!< Input 3x3 rotation matrix
+    );
 
-    //! Get reversed ray
-    plane reversed(void) const;
+    //! Get rotated plane by matrix
+    plane
+    rotated(
+        mat3 const &input //!< Input 3x3 rotation matrix
+    ) const;
 
-    //! Return d value
-    real_type d(void) const;
+    //! Transform plane from two coordinate frames
+    void
+    transform(
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
+    );
+
+    //! Get transform plane from two coordinate frames
+    plane
+    transformed(
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
+    ) const;
+
+    //! Reverse plane normal vector
+    void
+    reverse(void);
+
+    //! Get plane wirh reversed ray direction
+    plane
+    reversed(void) const;
+
+    //! Return plane equation d value (ax + by + cz + d = 0)
+    real_type
+    d(void) const;
 
     //! Distance between point and plane
-    real_type distance(
+    real_type
+    distance(
         vec3 const &input //!< Input
     ) const;
 
-    // checks whether a point lays on the plane
-    bool is_inside(
+    // Check whether a point lays on the plane
+    bool
+    is_inside(
         vec3 const &point //!< Input
+    ) const;
+
+    //! Intersect between three planes \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        plane const &plane0, //!< Input plane 0
+        plane const &plane1, //!< Input plane 1
+        vec3 &point          //!< Output point
+    ) const;
+
+    //! Intersect between two planes \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        plane const &plane, //!< Input plane 1
+        line &line          //!< Output line
+    ) const;
+
+    //! Intersect ray with plane \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        ray const &ray, //!< Input ray
+        vec3 &point     //!< Output point
+    ) const;
+
+    //! Intersect line with plane \n
+    //! WARNING: This function does not support coplanarity!
+    bool intersect(
+        line const &line, //!< Input line
+        vec3 &point       //!< Output point
+    ) const;
+
+    //! Intersect segment with plane (no precalculated normal) \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        segment const &segment, //!< Input segment
+        vec3 &point             //!< Output point
+    ) const;
+
+    //! Intersect plane with triangle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        triangle const &triangle, //!< Input triangle
+        segment &segment          //!< Ouput plane
+    ) const;
+
+    //! Intersect plane with circle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        circle const &circle, //!< Input circle
+        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class plane

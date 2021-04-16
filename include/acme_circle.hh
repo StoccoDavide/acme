@@ -25,11 +25,19 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_plane.hh"
-#include "acme_frame.hh"
+
+#include "acme_intersect.hh"
 
 namespace acme
 {
+
+  class line;
+  class ray;
+  class plane;
+  class segment;
+  class triangle;
+  class frame;
+
 
   /*\
    |        _          _      
@@ -40,10 +48,9 @@ namespace acme
    |                          
   \*/
 
-  //! Circle class container
   /**
    * Circle in 3D space and defined by a radius and a plane (circle center + normal vector).
-   */
+  */
   class circle
   {
   public:
@@ -53,9 +60,9 @@ namespace acme
     typedef circle const *ptr; //!< Pointer to circle
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to circle objects
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to circle objects
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to circle objects
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to circle objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to circle objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to circle objects
 
   private:
     real_type _radius; //!< Circle radius
@@ -73,103 +80,201 @@ namespace acme
 
     //! Class constructor
     circle(
-        real_type radius,  //!< Input
-        plane const &plane //!< Input
-        ) : _radius(radius), _plane(plane)
+        real_type radius,  //!< Input circle radius
+        plane const &plane //!< Input circle laying plane
+        ) : _radius(radius),
+            _plane(plane)
     {
     }
 
     //! Class constructor
     circle(
-        real_type radius,   //!< Input
-        vec3 const &center, //!< Input
-        vec3 const &normal  //!< Input
-        ) : _radius(radius), _plane(center, normal)
+        real_type radius,   //!< Input circle radius
+        vec3 const &center, //!< Input circle center
+        vec3 const &normal  //!< Input circle normal to the laying plane
+        ) : _radius(radius),
+            _plane(center, normal)
     {
     }
 
     //! Equality operator
-    circle &operator=(
-        circle const &input //!< Input
+    circle &
+    operator=(
+        circle const &input //!< Input circle object
     );
 
-    //! Check if objects are (almost) equal
-    bool is_equal(
-        circle const &input //!< Input
+    //! Check if circles are (almost) equal
+    bool
+    is_equal(
+        circle const &input //!< Input circle object
     ) const;
 
-    //! Check if ray is degenerated
-    bool is_degenerated(void) const;
+    //! Check if circle is degenerated
+    bool
+    is_degenerated(void) const;
 
-    //! Get radius
-    real_type radius() const;
+    //! Get circle radius
+    real_type
+    radius(void) const;
 
-    //! Get center point
-    vec3 const &center() const;
+    //! Get circle center point
+    vec3 const &
+    center(void) const;
 
-    //! Get normal vector
-    vec3 const &normal() const;
+    //! Get circle laying plane normal vector
+    vec3 const &
+    normal(void) const;
 
-    //! Get plane
-    plane const &laying_plane() const;
+    //! Get cicle laying plane
+    plane const &
+    laying_plane(void) const;
 
-    //! Set center point
-    void radius(
-        real_type input //!< Input
+    //! Set circle radius
+    void
+    radius(
+        real_type input //!< New circle radius
     );
 
-    //! Set center point
-    void center(
-        vec3 const &input //!< Input
+    //! Set circle center point
+    void
+    center(
+        vec3 const &input //!< New circle center point
     );
 
-    //! Set normal vector
-    void normal(
-        vec3 const &input //!< Input
+    //! Set circle laying plane normal vector
+    void
+    normal(
+        vec3 const &input //!< New circle laying plane normal vector
     );
 
-    //! Set plane
-    void laying_plane(
-        plane const &input //!< Input
+    //! Normalize circle normal vector
+    void
+    normalize_normal(void);
+
+    //! Set circle laying plane
+    void
+    laying_plane(
+        plane const &input //!< Input plane object
     );
 
     //! Translate by vector
-    void translate(
-        vec3 const &input //!< Input
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
     );
+
+    //! Get translated circle by vector
+    circle
+    translated(
+        vec3 const &input //!< Input translation vector
+    ) const;
 
     //! Rotate by matrix
-    void rotate(
-        mat3 const &input //!< Input
+    void
+    rotate(
+        mat3 const &input //!< Input 3x3 rotation matrix
     );
 
-    //! Transform circle from frameA to frameB
+    //! Get rotated circle by matrix
+    circle
+    rotated(
+        mat3 const &input //!< Input 3x3 rotation matrix
+    ) const;
+
+    //! Transform circle from two coordinate frames
     void transform(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     );
 
-    //! Get transformed circle from frameA to frameB
+    //! Get transformed circle from two coordinate frames
     circle transformed(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     ) const;
 
     //! Reverse direction
-    void reverse(void);
+    void
+    reverse(void);
 
-    //! Get reversed circle
-    circle reversed(void) const;
+    //! Get circle with reversed plane normal direction
+    circle
+    reversed(void) const;
 
     // Check whether the point is inside the circle
-    bool is_inside(
-        vec3 const &point //!< Input
+    bool
+    is_inside(
+        vec3 const &point //!< Query point
+    ) const;
+
+    //! Intersect line and circle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        line const &line, //!< Input line
+        vec3 &point       //!< Ouput point
+    ) const;
+
+    //! Intersect ray with circle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        ray const &ray, //!< Input ray
+        vec3 &point     //!< Ouput point
+    ) const;
+
+    //! Intersect segment with circle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        segment const &segment, //!< Input segment
+        vec3 &point             //!< Ouput point
+    ) const;
+
+    //! Intersect line with circle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        line const &line, //!< Input line
+        segment &segment  //!< Ouput segment
+    ) const;
+
+    //! Intersect ray with circle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        ray const &ray,  //!< Input ray
+        segment &segment //!< Ouput segment
+    ) const;
+
+    // //! Intersect plane with circle \n
+    // //! WARNING: This function only support coplanar objects!
+    // bool
+    // intersect(
+    //     plane const &plane, //!< Input plane
+    //     segment &segment    //!< Ouput segment
+    // ) const;
+
+    //! Intersect segment with circle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        segment const &segment_in, //!< Input segment
+        segment &segment_out       //!< Ouput segment
+    ) const;
+
+    //! Intersect circle with triangle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        triangle const &triangle, //!< Input triangle
+        segment &segment          //!< Ouput segment
     ) const;
 
   }; // class circle
 
-  static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!< Not-a-Number triangle type
-  static circle circle_goat = circle(NaN_circle);                      //!< Scapegoat circle type (throwaway non-const object)
+  //static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!< Not-a-Number triangle type
+  //static circle circle_goat = circle(NaN_circle);                      //!< Scapegoat circle type (throwaway non-const object)
 
 } // namespace acme
 

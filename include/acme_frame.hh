@@ -38,10 +38,9 @@ namespace acme
    |                                
   \*/
 
-  //! Rotation class container
-  /*!
-  Class representing a frame in 3D space. It is constructed by
-  a origin and a rotation matrix.
+  /**!
+   *Class representing a frame in 3D space. It is constructed by
+   *a origin and a rotation matrix.
   */
   class frame
   {
@@ -52,109 +51,129 @@ namespace acme
     typedef frame const *ptr; //!< Pointer to frame
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to frame objects
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to frame objects
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to frame objects
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to frame objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to frame objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to frame objects
 
   private:
-    vec3 _origin;   //!< Origin (point)
-    mat3 _rotation; //!< Rotation matrix
+    vec3 _origin;   //!< Frame origin point
+    mat3 _rotation; //!< Frame rotation matrix
 
   public:
-    //! Class destructor
+    //! Frame class destructor
     ~frame() {}
 
-    //! Copy constructor
+    //! Frame copy constructor
     frame(frame const &) = default;
 
-    //! Class constructor
-    frame() { this->clear(); }
+    //! Frame class constructor
+    frame()
+    {
+      this->clear();
+    }
 
-    //! Class constructor
+    //! Frame class constructor
     frame(
-        vec3 const &origin,  //!< Input origin
-        mat3 const &rotation //!< Input rotation
+        vec3 const &origin,  //!< Input frame origin point
+        mat3 const &rotation //!< Input frame rotation matrix
         ) : _origin(origin),
             _rotation(rotation)
     {
     }
 
-    //! Class constructor
+    //! Frame class constructor
     frame(
-        mat4 const &affine //!<4x4 affine transformation matrix
+        mat4 const &affine //!< 4x4 affine transformation matrix
         ) : _origin(affine.block<3, 1>(0, 3)),
             _rotation(affine.block<3, 3>(0, 0))
     {
     }
 
-    //! Clear data
-    void clear(void);
+    //! Clear frame origin point and rotation matrix (set to Not-a-Number)
+    void
+    clear(void);
 
     //! Equality operator
-    frame &operator=(
-        frame const &input //!< Input object
+    frame &
+    operator=(
+        frame const &input //!< Input frame object
     );
 
-    //! Check if objects are (almost) equal
-    bool is_equal(
-        frame const &input //!< Input object
+    //! Check if frames are (almost) equal
+    bool
+    is_equal(
+        frame const &input //!< Input frame object
     ) const;
 
-    //! Get x vector
-    vec3 const x(void) const;
+    //! Get x direction vector
+    vec3
+    x(void) const;
 
-    //! Get y vector
-    vec3 const y(void) const;
+    //! Get y direction vector
+    vec3
+    y(void) const;
 
-    //! Get z vector
-    vec3 const z(void) const;
+    //! Get z direction vector
+    vec3
+    z(void) const;
 
-    //! Set x vector
-    void x(
-        vec3 const &input //!< Input object
+    //! Set x direction vector
+    void
+    x(
+        vec3 const &input //!< Input x direction vector
     );
 
-    //! Set y vector
-    void y(
-        vec3 const &input //!< Input object
+    //! Set y direction vector
+    void
+    y(
+        vec3 const &input //!< Input y direction vector
     );
 
-    //! Set z vector
-    void z(
-        vec3 const &input //!< Input object
+    //! Set z direction vector
+    void
+    z(
+        vec3 const &input //!< Input z direction vector
     );
 
-    //! Get rotation
-    mat3 const &rotation(void) const;
+    //! Get rotation matrix
+    mat3 const &
+    rotation(void) const;
 
-    //! Set rotation
-    void rotation(
+    //! Set rotation matrix
+    void
+    rotation(
         mat3 const &input //!< Input
     );
 
-    //! Get origin
-    vec3 const origin(void) const;
+    //! Get frame origin point
+    vec3 const &
+    origin(void) const;
 
-    //! Set origin
-    void origin(
+    //! Set frame origin point
+    void
+    origin(
         vec3 const &input //!< Input
     );
 
-    //! Check if rotation mat3 is othonormal
-    bool is_ortonormal(void) const;
+    //! Check if rotation matrix is othonormal
+    bool
+    is_ortonormal(void) const;
 
-    //! Perform rotation on x-axis
-    void rotate_x(
+    //! Perform rotation on x axis
+    void
+    rotate_x(
         real_type input //!< Input angle [rad]
     );
 
-    //! Perform rotation on y-axis
-    void rotate_y(
+    //! Perform rotation on y axis
+    void
+    rotate_y(
         real_type input //!< Input angle [rad]
     );
 
-    //! Perform rotation on z-axis
-    void rotate_z(
+    //! Perform rotation on z axis
+    void
+    rotate_z(
         real_type input //!< Input angle [rad]
     );
 
@@ -165,22 +184,26 @@ namespace acme
     );
 
     //! Get 4x4 affine transformation matrix
-    mat4 affine(void) const;
+    mat4
+    affine(void) const;
 
     //! Get current Euler angle [rad] for x axis \n
     //! WARNING: Factor as [Rz][Rx][Ry]!
     // https://www.geometrictools.com/Documentation/EulerAngles.pdf
-    real_type euler_angle_x(void) const;
+    real_type
+    euler_angle_x(void) const;
 
     //! Get current Euler angle [rad] for y axis \n
     //! WARNING: Factor as [Rz][Rx][Ry]!
     // https://www.geometrictools.com/Documentation/EulerAngles.pdf
-    real_type euler_angle_y(void) const;
+    real_type
+    euler_angle_y(void) const;
 
     //! Get current Euler angle [rad] for z axis \n
     //! WARNING: Factor as [Rz][Rx][Ry]!
     // https://www.geometrictools.com/Documentation/EulerAngles.pdf
-    real_type euler_angle_z(void) const;
+    real_type
+    euler_angle_z(void) const;
 
   }; // class frame
 
@@ -193,21 +216,23 @@ namespace acme
    |                                                     
   \*/
 
-  //! Tranform VECTOR from frameA to frameB
-  vec3 transform_vector(
-      vec3 const &vector,  //!< Input
-      frame const &frameA, //!< Actual reference coordinate system
-      frame const &frameB  //!< Future reference coordinate system
+  //! Tranform VECTOR from two coordinate frames
+  vec3
+  transform_vector(
+      vec3 const &vector,      //!< Input vector
+      frame const &from_frame, //!< Actual reference coordinate system
+      frame const &to_frame    //!< Future reference coordinate system
   );
 
-  //! Tranform point from frameA to frameB
-  vec3 transform_point(
-      vec3 const &point,   //!< Input
-      frame const &frameA, //!< Actual reference coordinate system
-      frame const &frameB  //!< Future reference coordinate system
+  //! Tranform POINT from two coordinate frames
+  vec3
+  transform_point(
+      vec3 const &point,       //!< Input point
+      frame const &from_frame, //!< Actual reference coordinate system
+      frame const &to_frame    //!< Future reference coordinate system
   );
 
-  static frame const ground = frame(acme::Zeros_vec3, acme::Identity_mat3); //!< Ground frame
+  static frame const ground = frame(acme::Zeros_vec3, acme::Identity_mat3); //!< Ground reference frame
   static frame const NaN_frame = frame(acme::NaN_vec3, acme::NaN_mat3);     //!< Not-a-Number frame type
   static frame frame_goat = frame(NaN_frame);                               //!< Scapegoat frame type (throwaway non-const object)
 

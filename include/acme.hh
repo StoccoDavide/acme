@@ -40,8 +40,8 @@
   ACME_ERROR(MSG)
 #endif
 
+// Standard libraries
 #include <memory>
-#include <Eigen/Dense>
 #include <cstddef>
 #include <limits>
 #include <algorithm>
@@ -50,6 +50,9 @@
 #include <iomanip>
 #include <vector>
 #include <cassert>
+
+// Eigen libraries
+#include <Eigen/Dense>
 
 //!  Namespace containing all acme typedefs, classes and routines
 namespace acme
@@ -145,7 +148,27 @@ namespace acme
   static mat3 mat3_goat = mat3(NaN_mat3); //!< Scapegoat mat3 type (throwaway non-const object)
   static mat4 mat4_goat = mat4(NaN_mat4); //!< Scapegoat mat4 type (throwaway non-const object)
 
+  /*\
+   |    ____ _                         
+   |   / ___| | __ _ ___ ___  ___  ___ 
+   |  | |   | |/ _` / __/ __|/ _ \/ __|
+   |  | |___| | (_| \__ \__ \  __/\__ \
+   |   \____|_|\__,_|___/___/\___||___/
+   |                                   
+  \*/
+
+  //class line;     //! Line class container
+  //class ray;      //! Ray class container
+  //class plane;    //! Plane class container
+  //class segment;  //! Segment class container
+  //class triangle; //! Triangle class container
+  //class circle;   //! Circle class container
+  //class box;      //! Box class container
+  //class AABBtree; //! AABB tree class container
+
 } // namespace acme
+
+
 
 //!< Overload stream out operator for acme::vec2 object
 std::ostream &

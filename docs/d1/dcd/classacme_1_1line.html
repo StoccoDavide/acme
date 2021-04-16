@@ -30,7 +30,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ACME
    </div>
-   <div id="projectbrief">A small 3D geometric library</div>
+   <div id="projectbrief">A small 3D computational geometry library</div>
   </td>
  </tr>
  </tbody>
@@ -93,75 +93,101 @@ Public Types</h2></td></tr>
 typedef <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#afdc7e93757a1ebe55eb88ab23695043e">ptr</a></td></tr>
 <tr class="memdesc:afdc7e93757a1ebe55eb88ab23695043e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to line. <br /></td></tr>
 <tr class="separator:afdc7e93757a1ebe55eb88ab23695043e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41c6e2129a63c3df209bb69884c10047"><td class="memItemLeft" align="right" valign="top"><a id="a41c6e2129a63c3df209bb69884c10047"></a>
-typedef std::vector&lt; <a class="el" href="../../d1/dcd/classacme_1_1line.html#afdc7e93757a1ebe55eb88ab23695043e">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a41c6e2129a63c3df209bb69884c10047">ptrVec</a></td></tr>
-<tr class="memdesc:a41c6e2129a63c3df209bb69884c10047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to line. <br /></td></tr>
-<tr class="separator:a41c6e2129a63c3df209bb69884c10047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a6d13f66064cf66ebc57addd70770e"><td class="memItemLeft" align="right" valign="top"><a id="a95a6d13f66064cf66ebc57addd70770e"></a>
+typedef std::pair&lt; <a class="el" href="../../d1/dcd/classacme_1_1line.html#afdc7e93757a1ebe55eb88ab23695043e">ptr</a>, <a class="el" href="../../d1/dcd/classacme_1_1line.html#afdc7e93757a1ebe55eb88ab23695043e">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a95a6d13f66064cf66ebc57addd70770e">pairptr</a></td></tr>
+<tr class="memdesc:a95a6d13f66064cf66ebc57addd70770e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair of pointers to line objects. <br /></td></tr>
+<tr class="separator:a95a6d13f66064cf66ebc57addd70770e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9234617b1cd17ffabbf1254d11a3a453"><td class="memItemLeft" align="right" valign="top"><a id="a9234617b1cd17ffabbf1254d11a3a453"></a>
+typedef std::vector&lt; <a class="el" href="../../d1/dcd/classacme_1_1line.html#afdc7e93757a1ebe55eb88ab23695043e">ptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a9234617b1cd17ffabbf1254d11a3a453">vecptr</a></td></tr>
+<tr class="memdesc:a9234617b1cd17ffabbf1254d11a3a453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to line objects. <br /></td></tr>
+<tr class="separator:a9234617b1cd17ffabbf1254d11a3a453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed901e1605c19f8185c28e9e8571b257"><td class="memItemLeft" align="right" valign="top"><a id="aed901e1605c19f8185c28e9e8571b257"></a>
+typedef std::vector&lt; <a class="el" href="../../d1/dcd/classacme_1_1line.html#a95a6d13f66064cf66ebc57addd70770e">pairptr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#aed901e1605c19f8185c28e9e8571b257">vecpairptr</a></td></tr>
+<tr class="memdesc:aed901e1605c19f8185c28e9e8571b257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pairs of pointers to line objects. <br /></td></tr>
+<tr class="separator:aed901e1605c19f8185c28e9e8571b257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a440d9dd080db37a59c6d8913d881b917"><td class="memItemLeft" align="right" valign="top"><a id="a440d9dd080db37a59c6d8913d881b917"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a440d9dd080db37a59c6d8913d881b917">~line</a> ()</td></tr>
-<tr class="memdesc:a440d9dd080db37a59c6d8913d881b917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class destructor. <br /></td></tr>
+<tr class="memdesc:a440d9dd080db37a59c6d8913d881b917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line class destructor. <br /></td></tr>
 <tr class="separator:a440d9dd080db37a59c6d8913d881b917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40b15afc1bdb8902ff68486654f0bfaa"><td class="memItemLeft" align="right" valign="top"><a id="a40b15afc1bdb8902ff68486654f0bfaa"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a40b15afc1bdb8902ff68486654f0bfaa">line</a> ()</td></tr>
-<tr class="memdesc:a40b15afc1bdb8902ff68486654f0bfaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. <br /></td></tr>
+<tr class="memdesc:a40b15afc1bdb8902ff68486654f0bfaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line class constructor. <br /></td></tr>
 <tr class="separator:a40b15afc1bdb8902ff68486654f0bfaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addee9c97135d05fb1de331127bdd0ff3"><td class="memItemLeft" align="right" valign="top"><a id="addee9c97135d05fb1de331127bdd0ff3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#addee9c97135d05fb1de331127bdd0ff3">line</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;)=default</td></tr>
-<tr class="memdesc:addee9c97135d05fb1de331127bdd0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="memdesc:addee9c97135d05fb1de331127bdd0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line copy constructor. <br /></td></tr>
 <tr class="separator:addee9c97135d05fb1de331127bdd0ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac144898e9b718ab3703768fc508e7d4c"><td class="memItemLeft" align="right" valign="top"><a id="ac144898e9b718ab3703768fc508e7d4c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#ac144898e9b718ab3703768fc508e7d4c">line</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> ox, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> oy, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> oz, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> dx, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> dy, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> dz)</td></tr>
-<tr class="memdesc:ac144898e9b718ab3703768fc508e7d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for line. <br /></td></tr>
+<tr class="memdesc:ac144898e9b718ab3703768fc508e7d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line class constructor for line. <br /></td></tr>
 <tr class="separator:ac144898e9b718ab3703768fc508e7d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52d65f545e51b4ea815431c4f5a07c63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a52d65f545e51b4ea815431c4f5a07c63">line</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html#ae1cd5f7f0218c4c01e410e7693576263">origin</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html#ad3924b50b3c44052f93dc6a5210fc227">direction</a>)</td></tr>
-<tr class="memdesc:a52d65f545e51b4ea815431c4f5a07c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="../../d1/dcd/classacme_1_1line.html#a52d65f545e51b4ea815431c4f5a07c63">More...</a><br /></td></tr>
+<tr class="memitem:a52d65f545e51b4ea815431c4f5a07c63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a52d65f545e51b4ea815431c4f5a07c63">line</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html#a6d9754120972370da36d448030599614">origin</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html#ae80ff2ae46012d5ab3980b6ebf9d1959">direction</a>)</td></tr>
+<tr class="memdesc:a52d65f545e51b4ea815431c4f5a07c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line class constructor.  <a href="../../d1/dcd/classacme_1_1line.html#a52d65f545e51b4ea815431c4f5a07c63">More...</a><br /></td></tr>
 <tr class="separator:a52d65f545e51b4ea815431c4f5a07c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec599794a8eefd922b89537b9aae05f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#afec599794a8eefd922b89537b9aae05f">operator=</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;input)</td></tr>
-<tr class="memdesc:afec599794a8eefd922b89537b9aae05f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d1/dcd/classacme_1_1line.html#afec599794a8eefd922b89537b9aae05f">More...</a><br /></td></tr>
-<tr class="separator:afec599794a8eefd922b89537b9aae05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd696b1b2879392a4745bb823b2e7ce3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#acd696b1b2879392a4745bb823b2e7ce3">operator=</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;input)</td></tr>
+<tr class="memdesc:acd696b1b2879392a4745bb823b2e7ce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="../../d1/dcd/classacme_1_1line.html#acd696b1b2879392a4745bb823b2e7ce3">More...</a><br /></td></tr>
+<tr class="separator:acd696b1b2879392a4745bb823b2e7ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeca0fbb47eb16a91076e2584af0101f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#aeca0fbb47eb16a91076e2584af0101f4">is_equal</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;input) const</td></tr>
 <tr class="memdesc:aeca0fbb47eb16a91076e2584af0101f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if objects are (almost) equal.  <a href="../../d1/dcd/classacme_1_1line.html#aeca0fbb47eb16a91076e2584af0101f4">More...</a><br /></td></tr>
 <tr class="separator:aeca0fbb47eb16a91076e2584af0101f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c8a9ab4a38f88ac4099f4065eef96de"><td class="memItemLeft" align="right" valign="top"><a id="a3c8a9ab4a38f88ac4099f4065eef96de"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a3c8a9ab4a38f88ac4099f4065eef96de">is_degenerated</a> (void) const</td></tr>
-<tr class="memdesc:a3c8a9ab4a38f88ac4099f4065eef96de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if line is degenerated. <br /></td></tr>
+<tr class="memdesc:a3c8a9ab4a38f88ac4099f4065eef96de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if line is degenerated (direction vector has zero norm) <br /></td></tr>
 <tr class="separator:a3c8a9ab4a38f88ac4099f4065eef96de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1cd5f7f0218c4c01e410e7693576263"><td class="memItemLeft" align="right" valign="top"><a id="ae1cd5f7f0218c4c01e410e7693576263"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#ae1cd5f7f0218c4c01e410e7693576263">origin</a> () const</td></tr>
-<tr class="memdesc:ae1cd5f7f0218c4c01e410e7693576263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return origin. <br /></td></tr>
-<tr class="separator:ae1cd5f7f0218c4c01e410e7693576263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3924b50b3c44052f93dc6a5210fc227"><td class="memItemLeft" align="right" valign="top"><a id="ad3924b50b3c44052f93dc6a5210fc227"></a>
-<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#ad3924b50b3c44052f93dc6a5210fc227">direction</a> () const</td></tr>
-<tr class="memdesc:ad3924b50b3c44052f93dc6a5210fc227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return direction. <br /></td></tr>
-<tr class="separator:ad3924b50b3c44052f93dc6a5210fc227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9754120972370da36d448030599614"><td class="memItemLeft" align="right" valign="top"><a id="a6d9754120972370da36d448030599614"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a6d9754120972370da36d448030599614">origin</a> (void) const</td></tr>
+<tr class="memdesc:a6d9754120972370da36d448030599614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return line origin point. <br /></td></tr>
+<tr class="separator:a6d9754120972370da36d448030599614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80ff2ae46012d5ab3980b6ebf9d1959"><td class="memItemLeft" align="right" valign="top"><a id="ae80ff2ae46012d5ab3980b6ebf9d1959"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#ae80ff2ae46012d5ab3980b6ebf9d1959">direction</a> (void) const</td></tr>
+<tr class="memdesc:ae80ff2ae46012d5ab3980b6ebf9d1959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return line direction vector. <br /></td></tr>
+<tr class="separator:ae80ff2ae46012d5ab3980b6ebf9d1959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf2831730ac9b618b43309b3db39d2a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#acf2831730ac9b618b43309b3db39d2a8">origin</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
-<tr class="memdesc:acf2831730ac9b618b43309b3db39d2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set origin.  <a href="../../d1/dcd/classacme_1_1line.html#acf2831730ac9b618b43309b3db39d2a8">More...</a><br /></td></tr>
+<tr class="memdesc:acf2831730ac9b618b43309b3db39d2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set line origin point.  <a href="../../d1/dcd/classacme_1_1line.html#acf2831730ac9b618b43309b3db39d2a8">More...</a><br /></td></tr>
 <tr class="separator:acf2831730ac9b618b43309b3db39d2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ff4b21079306f4b3a763e4fa63d78f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a3ff4b21079306f4b3a763e4fa63d78f1">direction</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
-<tr class="memdesc:a3ff4b21079306f4b3a763e4fa63d78f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set direction.  <a href="../../d1/dcd/classacme_1_1line.html#a3ff4b21079306f4b3a763e4fa63d78f1">More...</a><br /></td></tr>
+<tr class="memdesc:a3ff4b21079306f4b3a763e4fa63d78f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set line direction vector.  <a href="../../d1/dcd/classacme_1_1line.html#a3ff4b21079306f4b3a763e4fa63d78f1">More...</a><br /></td></tr>
 <tr class="separator:a3ff4b21079306f4b3a763e4fa63d78f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79022fab94c43b9bce1a27ab752e297f"><td class="memItemLeft" align="right" valign="top"><a id="a79022fab94c43b9bce1a27ab752e297f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a79022fab94c43b9bce1a27ab752e297f">normalize_direction</a> (void)</td></tr>
+<tr class="memdesc:a79022fab94c43b9bce1a27ab752e297f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize line direction vector. <br /></td></tr>
+<tr class="separator:a79022fab94c43b9bce1a27ab752e297f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f07c65ce17d39ecfce84272ddd56b5d"><td class="memItemLeft" align="right" valign="top"><a id="a2f07c65ce17d39ecfce84272ddd56b5d"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a2f07c65ce17d39ecfce84272ddd56b5d">to_vector</a> (void) const</td></tr>
+<tr class="memdesc:a2f07c65ce17d39ecfce84272ddd56b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert line to vector. <br /></td></tr>
+<tr class="separator:a2f07c65ce17d39ecfce84272ddd56b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e2780db11ddb2cec1be35c322d1cb2"><td class="memItemLeft" align="right" valign="top"><a id="aa6e2780db11ddb2cec1be35c322d1cb2"></a>
+<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#aa6e2780db11ddb2cec1be35c322d1cb2">to_normalized_vector</a> (void) const</td></tr>
+<tr class="memdesc:aa6e2780db11ddb2cec1be35c322d1cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert line to normalized vector. <br /></td></tr>
+<tr class="separator:aa6e2780db11ddb2cec1be35c322d1cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bea3e43a11cb0b6b5a846273bf6e9e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a7bea3e43a11cb0b6b5a846273bf6e9e6">translate</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input)</td></tr>
-<tr class="memdesc:a7bea3e43a11cb0b6b5a846273bf6e9e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate by vector.  <a href="../../d1/dcd/classacme_1_1line.html#a7bea3e43a11cb0b6b5a846273bf6e9e6">More...</a><br /></td></tr>
+<tr class="memdesc:a7bea3e43a11cb0b6b5a846273bf6e9e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate line by vector.  <a href="../../d1/dcd/classacme_1_1line.html#a7bea3e43a11cb0b6b5a846273bf6e9e6">More...</a><br /></td></tr>
 <tr class="separator:a7bea3e43a11cb0b6b5a846273bf6e9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115c57fd1f93d4057a43d82968d932c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a115c57fd1f93d4057a43d82968d932c9">translated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:a115c57fd1f93d4057a43d82968d932c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get translated line by vector.  <a href="../../d1/dcd/classacme_1_1line.html#a115c57fd1f93d4057a43d82968d932c9">More...</a><br /></td></tr>
+<tr class="separator:a115c57fd1f93d4057a43d82968d932c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1acf22c9cde32b3f293297261973a279"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a1acf22c9cde32b3f293297261973a279">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input)</td></tr>
-<tr class="memdesc:a1acf22c9cde32b3f293297261973a279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate by matrix.  <a href="../../d1/dcd/classacme_1_1line.html#a1acf22c9cde32b3f293297261973a279">More...</a><br /></td></tr>
+<tr class="memdesc:a1acf22c9cde32b3f293297261973a279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get rotated line by matrix.  <a href="../../d1/dcd/classacme_1_1line.html#a1acf22c9cde32b3f293297261973a279">More...</a><br /></td></tr>
 <tr class="separator:a1acf22c9cde32b3f293297261973a279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adefd15154e464df49c9bda552653fc32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#adefd15154e464df49c9bda552653fc32">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB)</td></tr>
-<tr class="memdesc:adefd15154e464df49c9bda552653fc32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform line from frameA to frameB.  <a href="../../d1/dcd/classacme_1_1line.html#adefd15154e464df49c9bda552653fc32">More...</a><br /></td></tr>
-<tr class="separator:adefd15154e464df49c9bda552653fc32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7542bfe7cc02d6ef5894a662d0385512"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a7542bfe7cc02d6ef5894a662d0385512">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameA, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;frameB) const</td></tr>
-<tr class="memdesc:a7542bfe7cc02d6ef5894a662d0385512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed line from frameA to frameB.  <a href="../../d1/dcd/classacme_1_1line.html#a7542bfe7cc02d6ef5894a662d0385512">More...</a><br /></td></tr>
-<tr class="separator:a7542bfe7cc02d6ef5894a662d0385512"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4bbec5c318ff635c73ff49813397586"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#ab4bbec5c318ff635c73ff49813397586">rotated</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input) const</td></tr>
+<tr class="memdesc:ab4bbec5c318ff635c73ff49813397586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate line by matrix.  <a href="../../d1/dcd/classacme_1_1line.html#ab4bbec5c318ff635c73ff49813397586">More...</a><br /></td></tr>
+<tr class="separator:ab4bbec5c318ff635c73ff49813397586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ea57767e7949eb714eca5eb27fc4a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a25ea57767e7949eb714eca5eb27fc4a4">transform</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
+<tr class="memdesc:a25ea57767e7949eb714eca5eb27fc4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform line from two coordinate frames.  <a href="../../d1/dcd/classacme_1_1line.html#a25ea57767e7949eb714eca5eb27fc4a4">More...</a><br /></td></tr>
+<tr class="separator:a25ea57767e7949eb714eca5eb27fc4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad366e2acbf78e44e351de45d1e379b81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#ad366e2acbf78e44e351de45d1e379b81">transformed</a> (<a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame) const</td></tr>
+<tr class="memdesc:ad366e2acbf78e44e351de45d1e379b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get transformed line from two coordinate frames.  <a href="../../d1/dcd/classacme_1_1line.html#ad366e2acbf78e44e351de45d1e379b81">More...</a><br /></td></tr>
+<tr class="separator:ad366e2acbf78e44e351de45d1e379b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefdcde39d9179f8fca99d1ab6df9c0f3"><td class="memItemLeft" align="right" valign="top"><a id="aefdcde39d9179f8fca99d1ab6df9c0f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#aefdcde39d9179f8fca99d1ab6df9c0f3">reverse</a> (void)</td></tr>
-<tr class="memdesc:aefdcde39d9179f8fca99d1ab6df9c0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse direction. <br /></td></tr>
+<tr class="memdesc:aefdcde39d9179f8fca99d1ab6df9c0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse line direction. <br /></td></tr>
 <tr class="separator:aefdcde39d9179f8fca99d1ab6df9c0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ff5cf8431bc762864a0f26f15701a1d"><td class="memItemLeft" align="right" valign="top"><a id="a5ff5cf8431bc762864a0f26f15701a1d"></a>
 <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a5ff5cf8431bc762864a0f26f15701a1d">reversed</a> (void) const</td></tr>
-<tr class="memdesc:a5ff5cf8431bc762864a0f26f15701a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get reversed line. <br /></td></tr>
+<tr class="memdesc:a5ff5cf8431bc762864a0f26f15701a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get ray with reversed direction. <br /></td></tr>
 <tr class="separator:a5ff5cf8431bc762864a0f26f15701a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa550ca6946bf22686cda51bfed872e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html#a9aa550ca6946bf22686cda51bfed872e">is_inside</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point) const</td></tr>
 <tr class="separator:a9aa550ca6946bf22686cda51bfed872e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,11 +230,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </table>
 </div><div class="memdoc">
 
-<p>Class constructor. </p>
+<p>Line class constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">origin</td><td>Input origin </td></tr>
-    <tr><td class="paramname">direction</td><td>Input direction </td></tr>
+    <tr><td class="paramname">origin</td><td>Input line origin point </td></tr>
+    <tr><td class="paramname">direction</td><td>Input line direction vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -232,10 +258,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set direction. </p>
+<p>Set line direction vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>input vec3 object </td></tr>
+    <tr><td class="paramname">input</td><td>input line direction vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,7 +287,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <p>Check if objects are (almost) equal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input object </td></tr>
+    <tr><td class="paramname">input</td><td>Input line object </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,21 +311,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input </td></tr>
+    <tr><td class="paramname">point</td><td>Query point </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="afec599794a8eefd922b89537b9aae05f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec599794a8eefd922b89537b9aae05f">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="acd696b1b2879392a4745bb823b2e7ce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd696b1b2879392a4745bb823b2e7ce3">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> &amp; acme::line::operator= </td>
+          <td class="memname"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>&amp; acme::line::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -311,7 +337,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <p>Equality operator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input object </td></tr>
+    <tr><td class="paramname">input</td><td>Input line object </td></tr>
   </table>
   </dd>
 </dl>
@@ -334,10 +360,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Set origin. </p>
+<p>Set line origin point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>input vec3 object </td></tr>
+    <tr><td class="paramname">input</td><td>input line origin point </td></tr>
   </table>
   </dd>
 </dl>
@@ -360,18 +386,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Rotate by matrix. </p>
+<p>Get rotated line by matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation vector </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="adefd15154e464df49c9bda552653fc32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adefd15154e464df49c9bda552653fc32">&#9670;&nbsp;</a></span>transform()</h2>
+<a id="ab4bbec5c318ff635c73ff49813397586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4bbec5c318ff635c73ff49813397586">&#9670;&nbsp;</a></span>rotated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> acme::line::rotated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotate line by matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input 3x3 rotation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a25ea57767e7949eb714eca5eb27fc4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ea57767e7949eb714eca5eb27fc4a4">&#9670;&nbsp;</a></span>transform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,13 +432,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname">void acme::line::transform </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -396,19 +448,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Transform line from frameA to frameB. </p>
+<p>Transform line from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a7542bfe7cc02d6ef5894a662d0385512"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7542bfe7cc02d6ef5894a662d0385512">&#9670;&nbsp;</a></span>transformed()</h2>
+<a id="ad366e2acbf78e44e351de45d1e379b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad366e2acbf78e44e351de45d1e379b81">&#9670;&nbsp;</a></span>transformed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,13 +469,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
           <td class="memname"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> acme::line::transformed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameA</em>, </td>
+          <td class="paramname"><em>from_frame</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>frameB</em>&#160;</td>
+          <td class="paramname"><em>to_frame</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -433,11 +485,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Get transformed line from frameA to frameB. </p>
+<p>Get transformed line from two coordinate frames. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameA</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">frameB</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
+    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
   </table>
   </dd>
 </dl>
@@ -460,19 +512,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
       </table>
 </div><div class="memdoc">
 
-<p>Translate by vector. </p>
+<p>Translate line by vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input </td></tr>
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="a115c57fd1f93d4057a43d82968d932c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a115c57fd1f93d4057a43d82968d932c9">&#9670;&nbsp;</a></span>translated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> acme::line::translated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get translated line by vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input translation vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="../../d1/d1e/acme__line_8hh_source.html">acme_line.hh</a></li>
-<li>src/acme_line.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

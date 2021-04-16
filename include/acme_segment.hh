@@ -25,10 +25,18 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
+#include "acme_box.hh"
+#include "acme_intersect.hh"
 
 namespace acme
 {
+
+  class line;
+  class ray;
+  class plane;
+  class triangle;
+  class circle;
+  class circle;
 
   /*\
    |                                       _   
@@ -39,7 +47,6 @@ namespace acme
    |            |___/                          
   \*/
 
-  //! Segment class container
   /**
   * Segment in 3D space. The segment is defined by two arbitrary points.
   */
@@ -52,9 +59,9 @@ namespace acme
     typedef segment const *ptr; //!< Pointer to segment object
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to segment objects
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to segment objects
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to segment objects
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to segment objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to segment objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to segment objects
 
   private:
     vec3 _point[2]; //!< Segment extrema points
@@ -126,9 +133,9 @@ namespace acme
         vec3 const &input //!< New segment point
     );
 
-    //! Get segment mid segment point
+    //! Get segment midpoint
     vec3
-    point_mid(void) const;
+    midpoint(void) const;
 
     //! Get segment i-th point
     vec3 const &
@@ -164,29 +171,47 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
+    //! Get translated segment by vector
+    segment
+    translated(
+        vec3 const &input //!< Input translation vector
+    ) const;
+
     //! Rotate by matrix
     void
     rotate(
         mat3 const &input //!< Input 3x3 rotation matrix
     );
 
-    //! Transform segment from frameA to frameB
+    //! Get rotated by matrix
+    segment
+    rotated(
+        mat3 const &input //!< Input 3x3 rotation matrix
+    ) const;
+
+    //! Transform segment from two coordinate frames
     void
     transform(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     );
 
-    //! Get transformed segment from frameA to frameB
+    //! Get transformed segment from two coordinate frames
     segment
     transformed(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     ) const;
 
     //! Swap segment points
     void
     swap(void);
+
+    //! Get minimum box containing the current segment object
+    void
+    minimum_box(
+        box &input //!< Input box object
+    ) const;
 
     //! Calculate segment length
     real_type
@@ -195,15 +220,68 @@ namespace acme
     // Check whether the point is inside the segment
     bool
     is_inside(
-        vec3 const &point //!< Input point
+        vec3 const &point //!< Query point
+    ) const;
+
+    //! Intersect between two segments \n
+    //! WARNING: This function does not support parallel objects!
+    bool
+    intersect(
+        segment const &segment, //!< Input segment
+        vec3 &point             //!< Output point
+    ) const;
+
+    //! Intersect segment with plane (no precalculated normal) \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        plane const &plane, //!< Input plane
+        vec3 &point         //!< Output point
+    ) const;
+
+    //! Intersect segment with circle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        circle const &circle, //!< Input circle
+        vec3 &point           //!< Ouput point
+    ) const;
+
+    //! Intersection between two segments \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        segment const &segment_in, //!< Input segment
+        segment &segment_out       //!< Output segment
+    ) const;
+
+    //! Intersection between line and segment \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        line const &line, //!< Input line
+        segment &segment  //!< Output segment
+    ) const;
+
+    //! Intersection between ray and segment \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        ray const &ray,  //!< Input ray
+        segment &segment //!< Output segment
+    ) const;
+
+    //! Intersect segment with circle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        circle const &circle, //!< Input circle
+        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class segment
 
-  static segment const NaN_segment = segment(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number segment type
-  static segment segment_goat = segment(NaN_segment);                         //!< Scapegoat segment type (throwaway non-const object)
-
-} // namespace acme
+  } // namespace acme
 
 #endif
 

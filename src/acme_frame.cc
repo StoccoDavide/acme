@@ -101,7 +101,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::x(
+  void
+  frame::x(
       vec3 const &input)
   {
     this->_rotation.col(0) = input;
@@ -109,7 +110,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::y(
+  void
+  frame::y(
       vec3 const &input)
   {
     this->_rotation.col(1) = input;
@@ -117,7 +119,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::z(
+  void
+  frame::z(
       vec3 const &input)
   {
     this->_rotation.col(2) = input;
@@ -125,11 +128,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3 const &frame::rotation(void) const { return this->_rotation; }
+  mat3 const &
+  frame::rotation(void)
+      const
+  {
+    return this->_rotation;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::rotation(
+  void
+  frame::rotation(
       mat3 const &input)
   {
     this->_rotation = input;
@@ -137,11 +146,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const frame::origin(void) const { return this->_origin; }
+  vec3 const &
+  frame::origin(void)
+      const
+  {
+    return this->_origin;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::origin(
+  void
+  frame::origin(
       vec3 const &input)
   {
     this->_origin = input;
@@ -149,38 +164,43 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool frame::is_ortonormal(void) const
+  bool
+  frame::is_ortonormal(void) const
   {
     return acme::is_ortonormal(this->_rotation);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::rotate_x(
+  void
+  frame::rotate_x(
       real_type input)
   {
-    this->_rotation *acme::rotation_x(input);
+    this->_rotation * acme::rotation_x(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::rotate_y(
+  void
+  frame::rotate_y(
       real_type input)
   {
-    this->_rotation *acme::rotation_y(input);
+    this->_rotation * acme::rotation_y(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::rotate_z(
+  void
+  frame::rotate_z(
       real_type input)
   {
-    this->_rotation *acme::rotation_y(input);
+    this->_rotation * acme::rotation_y(input);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void frame::affine(
+  void
+  frame::affine(
       mat4 const &input)
   {
     this->_origin = input.block<3, 1>(0, 3);
@@ -189,7 +209,9 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat4 frame::affine(void) const
+  mat4
+  frame::affine(void)
+      const
   {
     mat4 output;
     output << this->_rotation, this->_origin, vec4(0.0, 0.0, 0.0, 1.0).transpose();
@@ -198,57 +220,43 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type frame::euler_angle_x(void) const
+  real_type
+  frame::euler_angle_x(void)
+      const
   {
     real_type r21 = this->_rotation(2, 1);
     if (r21 < 1.0)
-    {
       if (r21 > -1.0)
-      {
         return acme::asin(r21);
-      }
       else
-      { // r21 == -1.0
-        // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
-        return -acme::PI / 2.0;
-      }
-    }
+        return -acme::PI / 2.0; // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
     else
-    { // r21 == 1.0
-      // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
-      return acme::PI / 2.0;
-    }
+      return acme::PI / 2.0; // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type frame::euler_angle_y(void) const
+  real_type
+  frame::euler_angle_y(void)
+      const
   {
     real_type r20 = this->_rotation(2, 0);
     real_type r21 = this->_rotation(2, 1);
     real_type r22 = this->_rotation(2, 2);
     if (r21 < 1.0)
-    {
       if (r21 > -1.0)
-      {
         return acme::atan2(-r20, r22);
-      }
       else
-      { // r21 == -1.0
-        // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
-        return 0.0;
-      }
-    }
+        return 0.0; // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
     else
-    { // r21 == 1.0
-      // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
-      return 0.0;
-    }
+      return 0.0; // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type frame::euler_angle_z(void) const
+  real_type
+  frame::euler_angle_z(void)
+      const
   {
     real_type r00 = this->_rotation(0, 0);
     real_type r01 = this->_rotation(0, 1);
@@ -256,22 +264,12 @@ namespace acme
     real_type r11 = this->_rotation(1, 1);
     real_type r21 = this->_rotation(2, 1);
     if (r21 < 1.0)
-    {
       if (r21 > -1.0)
-      {
         return acme::atan2(-r01, r11);
-      }
       else
-      { // r21 == -1.0
-        // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
-        return -acme::atan2(r02, r00);
-      }
-    }
+        return -acme::atan2(r02, r00); // Not a unique solution : thetaY - thetaZ = atan2( r02 , r00 )
     else
-    { // r21 == 1.0
-      // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
-      return acme::atan2(r02, r00);
-    }
+      return acme::atan2(r02, r00); // Not a unique solution : thetaY + thetaZ = atan2( r02 , r00 )
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -287,22 +285,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 transform_vector(
+  vec3
+  transform_vector(
       vec3 const &vector,
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    return frameB.rotation().transpose() * (frameA.rotation() * vector);
+    return to_frame.rotation().transpose() * (from_frame.rotation() * vector);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 transform_point(
+  vec3
+  transform_point(
       vec3 const &point,
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    return frameB.rotation().transpose() * (frameA.rotation() * point + frameA.origin() - frameB.origin());
+    return to_frame.rotation().transpose() * (from_frame.rotation() * point + from_frame.origin() - to_frame.origin());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

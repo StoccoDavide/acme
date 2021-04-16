@@ -1,4 +1,10 @@
 # ACME
-A 3D computational geometric library
+A small 3D computational geometry library
 
-# That's All Folks!
+Author: __Davide Stocco__<br/>
+University of Trento
+Department of Industrial Engineering
+<davide.stocco@unitn.it>
+
+
+## That's All Folks!

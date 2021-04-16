@@ -70,13 +70,14 @@ namespace acme
   circle::is_degenerated(void)
       const
   {
-    return acme::is_equal(this->_radius, 0.0);
+    return acme::is_equal(this->_radius, 0.0) && this->_plane.is_degenerated();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type
-  circle::radius() const
+  circle::radius(void)
+      const
   {
     return this->_radius;
   }
@@ -84,7 +85,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  circle::center() const
+  circle::center(void)
+      const
   {
     return this->_plane.origin();
   }
@@ -92,7 +94,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  circle::normal() const
+  circle::normal(void)
+      const
   {
     return this->_plane.normal();
   }
@@ -100,7 +103,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   plane const &
-  circle::laying_plane() const
+  circle::laying_plane(void)
+      const
   {
     return this->_plane;
   }
@@ -135,6 +139,13 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
+  circle::normalize_normal(void)
+  {
+    this->_plane.normalize_normal();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  void
   circle::laying_plane(
       plane const &input)
   {
@@ -152,6 +163,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  circle
+  circle::translated(
+      vec3 const &input)
+      const
+  {
+    return circle(this->_radius,
+                  this->_plane.translated(input));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   circle::rotate(
       mat3 const &input)
@@ -161,23 +183,35 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  circle
+  circle::rotated(
+      mat3 const &input)
+      const
+  {
+    return circle(this->_radius,
+                  this->_plane.rotated(input));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   circle::transform(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    this->_plane.transform(frameA, frameB);
+    this->_plane.transform(from_frame, to_frame);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   circle
   circle::transformed(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
       const
   {
-    return circle(this->_radius, this->_plane.transformed(frameA, frameB));
+    return circle(this->_radius,
+                  this->_plane.transformed(from_frame, to_frame));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -191,9 +225,11 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   circle
-  circle::reversed(void) const
+  circle::reversed(void)
+      const
   {
-    return circle(this->_radius, this->_plane.reversed());
+    return circle(this->_radius,
+                  this->_plane.reversed());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -203,8 +239,95 @@ namespace acme
       vec3 const &point)
       const
   {
-
     return this->_plane.is_inside(point) && (this->_plane.origin() - point).norm() <= this->_radius;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      line const &line,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(line, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      ray const &ray,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(ray, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      segment const &segment,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(segment, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      line const &line,
+      segment &segment)
+      const
+  {
+    return acme::intersect(line, *this, segment);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      ray const &ray,
+      segment &segment)
+      const
+  {
+    return acme::intersect(ray, *this, segment);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  //bool
+  //circle::intersect(
+  //    plane const &plane,
+  //    segment &segment)
+  //    const
+  //{
+  //  return acme::intersect(plane, *this, segment);
+  //}
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      segment const &segment_in,
+      segment &segment_out)
+      const
+  {
+    return acme::intersect(segment_in, *this, segment_out);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::intersect(
+      triangle const &triangle,
+      segment &segment)
+      const
+  {
+    return acme::intersect(*this, triangle, segment);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

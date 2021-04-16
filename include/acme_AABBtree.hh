@@ -41,50 +41,32 @@ namespace acme
    |  /_/   \_\/_/   \_\____/|____/ \__|_|  \___|\___|
   \*/
 
-  //! Class to manage AABB tree
-  /*!
-  Axis-Aligned Bouding Box tree.
+  /**
+   * Axis-Aligned Bouding Box tree.
   */
   class AABBtree
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef shared_ptr<AABBtree> ptr; //!< Shared pointer to tree
+    typedef shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
 #else
-    typedef AABBtree *ptr; //!< Pointer to tree
+    typedef AABBtree *ptr; //!< Pointer to AABB tree object
 #endif
 
   private:
-    box::ptr ptrbox; //!< Pointer to box of tree
+    box::ptr ptrbox; //!< Pointer to AABB tree box
     std::vector<AABBtree::ptr> children;
 
     AABBtree(AABBtree const &tree);
 
-    //! Compute the minimum of the maximum distance between a point
-    static real_type
-    min_maxdist(
-        vec3 const &point,    //!< Input point
-        AABBtree const &tree, //!< Input tree
-        real_type distance    //!< Output distance
-    );
-
-    //! Select the candidate which box have distance less than distance
-    static void
-    min_maxdist_select(
-        vec3 const &point,         //!< Input point
-        real_type distance,        //!< Input distance
-        AABBtree const &tree,      //!< Input tree
-        box::ptrVec &candidateList //!< Output candidate list
-    );
-
   public:
-    //! Class destructor
+    //! AABB tree class destructor
     ~AABBtree();
 
-    //! Class constructor
+    //! AABB tree class constructor
     AABBtree();
 
-    //! Initialize tree
+    //! Clear AABB tree data
     void clear(void);
 
     //! Check if AABB tree is empty
@@ -104,12 +86,12 @@ namespace acme
     ) const;
 
     //! Check if two AABB tree collide
-    template <typename COLLISION_FUNCTION>
+    template <typename collision>
     bool
     collision(
-        AABBtree const &tree,   //!< AABB tree used to check collision
-        COLLISION_FUNCTION fun, //!< Function to check if the contents of two box collide
-        bool swap_tree = false  //!< If true exchange the tree in computation
+        AABBtree const &tree,  //!< AABB tree used to check collision
+        collision function,    //!< Function to check if the contents of two box collide
+        bool swap_tree = false //!< If true exchange the tree in computation
     ) const
     {
 
@@ -124,14 +106,14 @@ namespace acme
       {
       case 0: // both leaf, use box intersection algorithm
         if (swap_tree)
-          return fun(tree.ptrbox, ptrbox);
+          return function(tree.ptrbox, ptrbox);
         else
-          return fun(ptrbox, tree.ptrbox);
+          return function(ptrbox, tree.ptrbox);
       case 1: // first is a tree, second is a leaf
       {
         typename std::vector<AABBtree::ptr>::const_iterator it;
         for (it = children.begin(); it != children.end(); ++it)
-          if (tree.collision(**it, fun, !swap_tree))
+          if (tree.collision(**it, function, !swap_tree))
             return true;
       }
       break;
@@ -140,7 +122,7 @@ namespace acme
         typename std::vector<AABBtree::ptr>::const_iterator it;
         for (it = tree.children.begin();
              it != tree.children.end(); ++it)
-          if (this->collision(**it, fun, swap_tree))
+          if (this->collision(**it, function, swap_tree))
             return true;
       }
       break;
@@ -151,7 +133,7 @@ namespace acme
         for (it1 = children.begin(); it1 != children.end(); ++it1)
           for (it2 = tree.children.begin();
                it2 != tree.children.end(); ++it2)
-            if ((*it1)->collision(**it2, fun, swap_tree))
+            if ((*it1)->collision(**it2, function, swap_tree))
               return true;
       }
       break;
@@ -163,15 +145,33 @@ namespace acme
     void
     intersect(
         AABBtree const &tree,              //!< AABB tree used to check collision
-        box::ptrPairVec &intersectionList, //!< List of pair box that overlaps
+        box::vecpairptr &intersectionList, //!< List of pair box that overlaps
         bool swap_tree = false             //!< If true exchange the tree in computation
     ) const;
 
     //! Find the candidate at minimum distance from point
     void min_distance(
         vec3 const &point,         //!< Input point
-        box::ptrVec &candidateList //!< Output candidate list
+        box::vecptr &candidateList //!< Output candidate list
     ) const;
+
+  private:
+    //! Compute the minimum of the maximum distance between a point
+    static real_type
+    min_maxdist(
+        vec3 const &point,    //!< Input point
+        AABBtree const &tree, //!< Input tree
+        real_type distance    //!< Output distance
+    );
+
+    //! Select the candidate which box have distance less than distance
+    static void
+    min_maxdist_select(
+        vec3 const &point,         //!< Input point
+        real_type distance,        //!< Input distance
+        AABBtree const &tree,      //!< Input tree
+        box::vecptr &candidateList //!< Output candidate list
+    );
 
   }; // class AABBtree
 

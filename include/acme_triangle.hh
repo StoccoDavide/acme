@@ -26,11 +26,17 @@
 #include "acme.hh"
 #include "acme_math.hh"
 #include "acme_box.hh"
-#include "acme_segment.hh"
-#include "acme_frame.hh"
+#include "acme_intersect.hh"
 
 namespace acme
 {
+
+  class line;
+  class ray;
+  class plane;
+  class segment;
+  class circle;
+  class frame;
 
   /*\
    |   _        _                   _      
@@ -41,7 +47,6 @@ namespace acme
    |                          |___/        
   \*/
 
-  //! Triangle class container
   /**
    * Triangle in 3D space. The triangle is defined by three arbitrary points.
    */
@@ -54,9 +59,9 @@ namespace acme
     typedef triangle const *ptr; //!< Pointer to triangle object
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to triangle objects
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to triangle objects
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to triangle objects
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to triangle objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to triangle objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to triangle objects
 
   private:
     vec3 _vertex[3]; //!< Triangle vertices
@@ -181,6 +186,19 @@ namespace acme
     segment
     edge_2(void) const;
 
+    //! Get i-th triangle edge
+    segment
+    edge(
+        unsigned i //!< Triangle i-th vertex index
+    ) const;
+
+    //! Get triangle edge created by i-th and j-th vertex
+    segment
+    edge(
+        unsigned i, //!< Triangle i-th vertex index
+        unsigned j  //!< Triangle j-th vertex index
+    ) const;
+
     //! Get triangle face normal (normalized vector)
     vec3
     normal(void) const;
@@ -191,24 +209,36 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
+    //! Get translated triangle by vector
+    triangle
+    translated(
+        vec3 const &input //!< Input translation vector
+    ) const;
+
     //! Rotate triangle by matrix
     void
     rotate(
         mat3 const &input //!< Input 3x3 rotation matrix
     );
 
-    //! Transform triangle from frameA to frameB
+    //! Get rotated triangle by matrix
+    triangle
+    rotated(
+        mat3 const &input //!< Input 3x3 rotation matrix
+    ) const;
+
+    //! Transform triangle from two coordinate frames
     void
     transform(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     );
 
-    //! Get transformed triangle from frameA to frameB
+    //! Get transformed triangle from two coordinate frames
     triangle
     transformed(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     ) const;
 
     //! Swap triangle vertices
@@ -218,9 +248,9 @@ namespace acme
         unsigned j  //!< Triangle j-th vertex index
     );
 
-    //! Get minimum bounding box of current triangle object
+    //! Get minimum box containing the current triangle object
     void
-    min_box(
+    minimum_box(
         box &input //!< Input box object
     ) const;
 
@@ -237,7 +267,7 @@ namespace acme
     //! Check if a point lays inside the triangle
     bool
     is_inside(
-        vec3 const &point //!< Input point
+        vec3 const &point //!< Query point
     ) const;
 
     //! Compute barycentric coordinates (u,v,w) for point
@@ -247,6 +277,38 @@ namespace acme
         real_type &u,      //!< Output barycentric coordinate u
         real_type &v,      //!< Output barycentric coordinate v
         real_type &w       //!< Output barycentric coordinate w
+    ) const;
+
+    //! Intersect ray with triangle (no precalculated normal) \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        ray const &ray, //!< Input ray
+        vec3 &point     //!< Output point
+    ) const;
+
+    //! Intersect line with triangle (no precalculated normal) \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        line const &line, //!< Input line
+        vec3 &point       //!< Output point
+    ) const;
+
+    //! Intersect plane with triangle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        plane const &plane, //!< Input plane
+        segment &segment    //!< Ouput plane
+    ) const;
+
+    //! Intersect circle with triangle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        circle const &circle, //!< Input circle
+        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class triangle

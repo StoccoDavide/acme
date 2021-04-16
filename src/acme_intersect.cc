@@ -111,7 +111,6 @@ namespace acme
         box.max(i, box0.max(i));
       else
         box.max(i, box1.max(i));
-
       if (box0.min(i) <= box1.min(i))
         box.min(i, box1.min(i));
       else

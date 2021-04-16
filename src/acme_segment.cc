@@ -139,7 +139,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  segment::point_mid(void)
+  segment::midpoint(void)
       const
   {
     return (this->_point[0] + this->_point[1]) / 2.0;
@@ -203,6 +203,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  segment
+  segment::translated(
+      vec3 const &input)
+      const
+  {
+    return segment(input + this->_point[0],
+                   input + this->_point[1]);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   segment::rotate(
       mat3 const &input)
@@ -213,25 +224,36 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  segment
+  segment::rotated(
+      mat3 const &input)
+      const
+  {
+    return segment(input * this->_point[0],
+                   input * this->_point[1]);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   segment::transform(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
   {
-    this->_point[0] = acme::transform_point(this->_point[0], frameA, frameB);
-    this->_point[1] = acme::transform_point(this->_point[1], frameA, frameB);
+    this->_point[0] = acme::transform_point(this->_point[0], from_frame, to_frame);
+    this->_point[1] = acme::transform_point(this->_point[1], from_frame, to_frame);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment
   segment::transformed(
-      frame const &frameA,
-      frame const &frameB)
+      frame const &from_frame,
+      frame const &to_frame)
       const
   {
-    return segment(acme::transform_point(this->_point[0], frameA, frameB),
-                   acme::transform_point(this->_point[1], frameA, frameB));
+    return segment(acme::transform_point(this->_point[0], from_frame, to_frame),
+                   acme::transform_point(this->_point[1], from_frame, to_frame));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -239,10 +261,24 @@ namespace acme
   void
   segment::swap(void)
   {
-    vec3 tmp_point_0(this->_point[0]);
-    vec3 tmp_point_1(this->_point[1]);
-    this->_point[0] = tmp_point_1;
-    this->_point[1] = tmp_point_0;
+    vec3 tmp_point(this->_point[0]);
+    this->_point[0] = this->_point[1];
+    this->_point[1] = tmp_point;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  segment::minimum_box(
+      box &input)
+      const
+  {
+    input.x_min(acme::min(this->_point[0].x(), this->_point[1].x()));
+    input.y_min(acme::min(this->_point[0].y(), this->_point[1].y()));
+    input.z_min(acme::min(this->_point[0].z(), this->_point[1].z()));
+    input.x_max(acme::max(this->_point[0].x(), this->_point[1].x()));
+    input.y_max(acme::max(this->_point[0].y(), this->_point[1].y()));
+    input.z_max(acme::max(this->_point[0].z(), this->_point[1].z()));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -264,6 +300,83 @@ namespace acme
     real_type d1 = (point - this->_point[0]).norm();
     real_type d2 = (point - this->_point[1]).norm();
     return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      segment const &segment,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(segment, *this, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      plane const &plane,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, plane, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      circle const &circle,
+      vec3 &point)
+      const
+  {
+    return acme::intersect(*this, circle, point);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      segment const &segment_in,
+      segment &segment_out)
+      const
+  {
+    return acme::intersect(segment_in, *this, segment_out);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      line const &line,
+      segment &segment)
+      const
+  {
+    return acme::intersect(line, *this, segment);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      ray const &ray,
+      segment &segment)
+      const
+  {
+    return acme::intersect(ray, *this, segment);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::intersect(
+      circle const &circle,
+      segment &segment)
+      const
+  {
+    return acme::intersect(*this, circle, segment);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -25,10 +25,18 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
+#include "acme_intersect.hh"
 
 namespace acme
 {
+
+  class line;
+  class ray;
+  class plane;
+  class segment;
+  class triangle;
+  class circle;
+  class frame;
 
   /*\
    |                   
@@ -39,7 +47,6 @@ namespace acme
    |             |___/ 
   \*/
 
-  //! Ray class container
   /**
    * Infinite ray in 3D space and defined by any point lying on the line and a direction
    * vector.
@@ -53,9 +60,9 @@ namespace acme
     typedef ray const *ptr; //!< Pointer to ray object
 #endif
 
-    typedef std::pair<ptr, ptr> ptrPair;     //!< Pair of pointers to ray objects
-    typedef std::vector<ptr> ptrVec;         //!< Vector of pointers to ray objects
-    typedef std::vector<ptrPair> ptrPairVec; //!< Vector of pairs of pointers to ray objects
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
 
   private:
     vec3 _origin;    //!< Ray origin point
@@ -129,11 +136,29 @@ namespace acme
         vec3 const &input //!< input ray object
     );
 
+    //! Normalize ray direction vector
+    void
+    normalize_direction(void);
+
+    //! Convert ray to vector
+    vec3
+    to_vector(void) const;
+
+    //! Convert ray to normalized vector
+    vec3
+    to_normalized_vector(void) const;
+
     //! Translate ray by vector
     void
     translate(
         vec3 const &input //!< Input translation vector
     );
+
+    //! Get translated ray by vector
+    ray
+    translated(
+        vec3 const &input //!< Input translation vector
+    ) const;
 
     //! Rotate ray by matrix
     void
@@ -141,18 +166,24 @@ namespace acme
         mat3 const &input //!< Input 3x3 rotation matrix
     );
 
-    //! Transform ray from frameA to frameB
+    //! Get rotated ray by matrix
+    ray
+    rotated(
+        mat3 const &input //!< Input 3x3 rotation matrix
+    ) const;
+
+    //! Transform ray from two coordinate frames
     void
     transform(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     );
 
-    //! Get transformed ray from frameA to frameB
+    //! Get transformed ray from two coordinate frames
     ray
     transformed(
-        frame const &frameA, //!< Actual reference coordinate system
-        frame const &frameB  //!< Future reference coordinate system
+        frame const &from_frame, //!< Actual reference coordinate system
+        frame const &to_frame    //!< Future reference coordinate system
     ) const;
 
     //! Reverse ray direction
@@ -166,7 +197,47 @@ namespace acme
     // Check whether the point is inside the ray
     bool
     is_inside(
-        vec3 const &point //!< Input point
+        vec3 const &point //!< Query point
+    ) const;
+
+    //! Intersect between two rays \n
+    //! WARNING: This function does not support parallel objects!
+    bool
+    intersect(
+        ray const &ray, //!< Input ray
+        vec3 &point     //!< Output point
+    ) const;
+
+    //! Intersect ray with plane \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        plane const &plane, //!< Input plane
+        vec3 &point         //!< Output point
+    ) const;
+
+    //! Intersect ray with circle \n
+    //! WARNING: This function does not support coplanarity!
+    bool
+    intersect(
+        circle const &circle, //!< Input circle
+        vec3 &point           //!< Ouput point
+    ) const;
+
+    //! Intersection between ray and segment \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        segment const &segment_in, //!< Input segment
+        segment &segment_out       //!< Output segment
+    ) const;
+
+    //! Intersect ray with circle \n
+    //! WARNING: This function only support coplanar objects!
+    bool
+    intersect(
+        circle const &circle, //!< Input circle
+        segment &segment      //!< Ouput segment
     ) const;
 
   }; // class ray
