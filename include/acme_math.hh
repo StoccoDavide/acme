@@ -23,11 +23,9 @@
 #ifndef INCLUDE_ACME_MATH
 #define INCLUDE_ACME_MATH
 
-#include <cmath>
-#include <limits>
-#include <algorithm>
-
 #include "acme.hh"
+
+#include <Eigen/Geometry>
 
 namespace acme
 {
@@ -173,7 +171,7 @@ namespace acme
 
   //! Checks if elements are almost equal
   bool
-  is_equal(
+  isApprox(
       real_type input0,             //!< Input value 0
       real_type input1,             //!< Input value 1
       real_type tolerance = Epsilon //!< Tolerance
@@ -181,7 +179,7 @@ namespace acme
 
   //! Checks if elements are almost equal
   bool
-  is_equal(
+  isApprox(
       vec3 const &input0,           //!< Input value 0
       vec3 const &input1,           //!< Input value 1
       real_type tolerance = Epsilon //!< Tolerance
@@ -189,7 +187,7 @@ namespace acme
 
   //! Checks if elements are almost equal
   bool
-  is_equal(
+  isApprox(
       mat3 const &input0,           //!< Input value 0
       mat3 const &input1,           //!< Input value 1
       real_type tolerance = Epsilon //!< Tolerance
@@ -197,71 +195,69 @@ namespace acme
 
   //! Check if vec3 is degenerated
   bool
-  is_degenerated(
-      vec3 const &input,            //!< Input value
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vec3 is normalized
-  bool
-  is_normalized(
-      vec3 const &input,            //!< Input value
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vectors are ortogonal
-  bool
-  is_ortogonal(
-      vec3 const &input0,           //!< Input value 0
-      vec3 const &input1,           //!< Input value 1
+  isDegenerated(
+      vec3 const &input,            //!< Input vector
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if vectors are parallel
   bool
-  is_parallel(
-      vec3 const &input0,           //!< Input value 0
-      vec3 const &input1,           //!< Input value 1
+  isParallel(
+      vec3 const &input0,           //!< Input vector 0
+      vec3 const &input1,           //!< Input vector 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 
-  //! Check if rotation mat3 is othonormal
+  //! Check if 3x3 matrix is othonormal
   bool
-  is_ortonormal(
+  isOrthonormal(
       mat3 const &input,            //!< Input value
       real_type tolerance = Epsilon //!< Tolerance
   );
 
-  //! Returns rotation on x-axis
-  mat3
-  rotation_x(
-      real_type input //!< Input angle [rad]
+  //! Returns a rotation as a rotation angle around an arbitrary axis
+  angleaxis
+  rotate(
+      real_type angle, //!< Input angle [rad]
+      vec3 const &axis //!< Input axis
+
   );
 
-  //! Returns rotation on y-axis
-  mat3
-  rotation_y(
-      real_type input //!< Input angle [rad]
+  //! Returns a rotation as a rotation angle around an arbitrary axis
+  angleaxis
+  rotate(
+      real_type angle,        //!< Input angle [rad]
+      std::string const &axis //!< Input axis
   );
 
-  //! Returns rotation on z-axis
-  mat3
-  rotation_z(
-      real_type input //!< Input angle [rad]
-  );
-
-  //! Angle between objects [rad]
+  //! Angle between vectors [rad]
   real_type
-  angle_rad(
-      vec3 const &input0, //!< Input value 0
-      vec3 const &input1  //!< Input value 1
+  angle(
+      vec3 const &input0, //!< Input vector 0
+      vec3 const &input1  //!< Input vector 1
   );
 
-  //! Angle between objects [deg]
-  real_type
-  angle_deg(
-      vec3 const &input0, //!< Input value 0
-      vec3 const &input1  //!< Input value 1
+  /*\
+   |   _____                     __                      
+   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
+   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
+   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
+   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
+   |                                                     
+  \*/
+
+  //! Transform VECTOR with affine transformation matrix
+  void
+  transformVector(
+      vec3 &vector,        //!< Input vector
+      affine const &matrix //!< 4x4 transformation matrix
+  );
+
+  //! Transform POINT with affine transformation matrix
+  void
+  transformPoint(
+      vec3 &vector,        //!< Input point
+      affine const &matrix //!< 4x4 transformation matrix
   );
 
 } // namespace acme

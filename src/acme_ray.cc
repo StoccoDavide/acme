@@ -55,21 +55,21 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  ray::is_equal(
+  ray::isApprox(
       ray const &input)
       const
   {
-    return acme::is_equal(this->_origin, input._origin) &&
-           acme::is_equal(this->_direction, input._direction);
+    return this->_origin.isApprox(input._origin) &&
+           this->_direction.isApprox(input._direction);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  ray::is_degenerated(void)
+  ray::isDegenerated(void)
       const
   {
-    return acme::is_degenerated(this->_direction);
+    return acme::isDegenerated(this->_direction);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -111,7 +111,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  ray::normalize_direction(void)
+  ray::normalize(void)
   {
     this->_direction.normalize();
   }
@@ -119,7 +119,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  ray::to_vector(void)
+  ray::toVector(void)
       const
   {
     return this->_direction;
@@ -128,7 +128,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  ray::to_normalized_vector(void)
+  ray::toNormalizedVector(void)
       const
   {
     return this->_direction.normalized();
@@ -145,54 +145,12 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ray ray::translated(
-      vec3 const &input)
-      const
-  {
-    return ray(input + this->_origin,
-               this->_direction);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  ray::rotate(
-      mat3 const &input)
-  {
-    this->_origin = input * this->_origin;
-    this->_direction = input * this->_direction;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  ray ray::rotated(
-      mat3 const &input)
-      const
-  {
-    return ray(input * this->_origin,
-               input * this->_direction);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   void
   ray::transform(
-      frame const &from_frame,
-      frame const &to_frame)
+      affine const &matrix)
   {
-    this->_origin = acme::transform_point(this->_origin, from_frame, to_frame);
-    this->_direction = acme::transform_vector(this->_direction, from_frame, to_frame);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  ray ray::transformed(
-      frame const &from_frame,
-      frame const &to_frame)
-      const
-  {
-    return ray(acme::transform_point(this->_origin, from_frame, to_frame),
-               acme::transform_vector(this->_direction, from_frame, to_frame));
+    acme::transformPoint(this->_origin, matrix);
+    acme::transformVector(this->_direction, matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -205,22 +163,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ray ray::reversed(void)
-      const
-  {
-    return ray(this->_origin, -this->_direction);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   bool
-  ray::is_inside(
+  ray::isInside(
       vec3 const &point)
       const
   {
-    return (point - this->_origin).normalized().cross(this->_direction).norm() <= acme::Epsilon;
+    return acme::isApprox((point - this->_origin).normalized().cross(this->_direction).norm(),
+                          real_type(0.0));
   }
-  
+
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme

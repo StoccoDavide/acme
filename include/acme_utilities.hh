@@ -93,13 +93,6 @@ namespace acme
       circle const &obj //!< Circle object
   );
 
-  //!< Stream out operator for frame object
-  ostream_type &
-  operator<<(
-      ostream_type &os, //!< Output stream
-      frame const &obj  //!< Frame object
-  );
-
 } // namespace acme
 
 #endif

@@ -55,22 +55,22 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  circle::is_equal(
+  circle::isApprox(
       circle const &input)
       const
   {
-    return acme::is_equal(this->_radius, input._radius) &&
-           acme::is_equal(this->_plane.origin(), input._plane.origin()) &&
-           acme::is_equal(this->_plane.normal(), input._plane.normal());
+    return acme::isApprox(this->_radius, input._radius) &&
+           this->_plane.origin().isApprox(input._plane.origin()) &&
+           this->_plane.normal().isApprox(input._plane.normal());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  circle::is_degenerated(void)
+  circle::isDegenerated(void)
       const
   {
-    return acme::is_equal(this->_radius, 0.0) && this->_plane.is_degenerated();
+    return acme::isApprox(this->_radius, 0.0) && this->_plane.isDegenerated();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -139,9 +139,9 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  circle::normalize_normal(void)
+  circle::normalize(void)
   {
-    this->_plane.normalize_normal();
+    this->_plane.normalize();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -163,55 +163,11 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  circle
-  circle::translated(
-      vec3 const &input)
-      const
-  {
-    return circle(this->_radius,
-                  this->_plane.translated(input));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  circle::rotate(
-      mat3 const &input)
-  {
-    this->_plane.rotate(input);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  circle
-  circle::rotated(
-      mat3 const &input)
-      const
-  {
-    return circle(this->_radius,
-                  this->_plane.rotated(input));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   void
   circle::transform(
-      frame const &from_frame,
-      frame const &to_frame)
+      affine const &matrix)
   {
-    this->_plane.transform(from_frame, to_frame);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  circle
-  circle::transformed(
-      frame const &from_frame,
-      frame const &to_frame)
-      const
-  {
-    return circle(this->_radius,
-                  this->_plane.transformed(from_frame, to_frame));
+    this->_plane.transform(matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -224,22 +180,13 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  circle
-  circle::reversed(void)
-      const
-  {
-    return circle(this->_radius,
-                  this->_plane.reversed());
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   bool
-  circle::is_inside(
+  circle::isInside(
       vec3 const &point)
       const
   {
-    return this->_plane.is_inside(point) && (this->_plane.origin() - point).norm() <= this->_radius;
+    return this->_plane.isInside(point) &&
+           (this->_plane.origin() - point).norm() <= this->_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

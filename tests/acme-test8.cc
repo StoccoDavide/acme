@@ -4,10 +4,11 @@
 #include <iostream>
 #include <string>
 
+#include <Eigen/Geometry>
+
 #include "acme.hh"
-#include "acme_intersect.hh"
+#include "acme_intersection.hh"
 #include "acme_triangle.hh"
-#include "acme_frame.hh"
 #include "acme_box.hh"
 #include "acme_utilities.hh"
 
@@ -21,26 +22,24 @@ int main()
   vec3 vector(0.0, 0.0, 1.0);
 
   // Initialize rotation matrix
-  vec3 origin(0.0, 0.0, -1.0);
-  mat3 rotation(rotation_x(PI / 4));
-  frame mov_frame(origin, rotation);
+  affine tranformation = translate(0.0, 0.0, -1.0) * rotate(PI / 4, "X");
 
   // Transform objects
-  vec3 mov_point(acme::transform_point(point, ground, mov_frame));
-  vec3 mov_vector(acme::transform_vector(vector, ground, mov_frame));
+  vec3 mov_point(point);
+  vec3 mov_vector(vector);
+  acme::transformPoint(mov_point, tranformation);
+  acme::transformVector(mov_vector, tranformation);
 
   // Transform objects back
-  vec3 ground_point(acme::transform_point(mov_point, mov_frame, ground));
-  vec3 ground_vector(acme::transform_vector(mov_vector, mov_frame, ground));
+  vec3 ground_point(mov_point);
+  vec3 ground_vector(mov_vector);
+  acme::transformPoint(ground_point, tranformation.inverse());
+  acme::transformVector(ground_vector, tranformation.inverse());
 
   // Display results
   std::cout
       << std::endl
       << "GEOMETRY TEST 8 - POINT/VECTOR TRANSFORMATION" << std::endl
-      << std::endl
-      << "Ground = " << ground << std::endl
-      << std::endl
-      << "Moving Frame = " << mov_frame << std::endl
       << std::endl
       << "Point  (ground) = " << point << std::endl
       << "Vector (ground) = " << vector << std::endl

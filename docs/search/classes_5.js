@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['plane_155',['plane',['../dd/d62/classacme_1_1plane.html',1,'acme']]]
+  ['ray_129',['ray',['../d0/de8/classacme_1_1ray.html',1,'acme']]]
 ];

@@ -5,7 +5,7 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_intersect.hh"
+#include "acme_intersection.hh"
 #include "acme_segment.hh"
 
 using namespace acme;
@@ -22,15 +22,15 @@ int main()
   vec3 PointBorder(1.0, 1.0, 0.5);
 
   // Calculate intersection
-  bool PtInBool = Segment.is_inside(PointIn);
-  bool PtOutBool = Segment.is_inside(PointOut);
-  bool PtBordBool = Segment.is_inside(PointBorder);
+  bool PtInBool = Segment.isInside(PointIn);
+  bool PtOutBool = Segment.isInside(PointOut);
+  bool PtBordBool = Segment.isInside(PointBorder);
 
   std::cout
       << "GEOMETRY TEST 4 - POINT ON SEGMENT" << std::endl
       << std::endl
-      << "Segment Point 0 = " << Segment.point_0() << std::endl
-      << "Segment Point 1 = " << Segment.point_1() << std::endl
+      << "Segment Point 0 = " << Segment.point(0) << std::endl
+      << "Segment Point 1 = " << Segment.point(1) << std::endl
       << std::endl;
 
   // Show results

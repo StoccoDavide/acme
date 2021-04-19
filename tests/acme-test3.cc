@@ -5,7 +5,7 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_intersect.hh"
+#include "acme_intersection.hh"
 #include "acme_triangle.hh"
 #include "acme_box.hh"
 
@@ -25,9 +25,9 @@ int main()
   bool PtInBool, PtOutBool, PtBordBool;
 
   // Calculate intersection
-  PtInBool = Circle.is_inside(PointIn);
-  PtOutBool = Circle.is_inside(PointOut);
-  PtBordBool = Circle.is_inside(PointBorder);
+  PtInBool = Circle.isInside(PointIn);
+  PtOutBool = Circle.isInside(PointOut);
+  PtBordBool = Circle.isInside(PointBorder);
 
   std::cout
       << "GEOMETRY TEST 3 - POINT INSIDE DISK" << std::endl

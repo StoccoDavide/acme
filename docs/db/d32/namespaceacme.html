@@ -92,9 +92,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Circle class container.  <a href="../../d0/ddb/classacme_1_1circle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference frame class container.  <a href="../../d9/d70/classacme_1_1frame.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line class container.  <a href="../../d1/dcd/classacme_1_1line.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,63 +202,73 @@ typedef Eigen::Matrix&lt; <a class="el" href="../../db/d32/namespaceacme.html#ac
 typedef Eigen::Matrix&lt; <a class="el" href="../../db/d32/namespaceacme.html#ab2c5752524f35a0b3edb0e0f1eacdef9">mat4</a>, Eigen::Dynamic, Eigen::Dynamic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a9e9f24b6802125cc1ed4195ebe428f90">mat_mat4</a></td></tr>
 <tr class="memdesc:a9e9f24b6802125cc1ed4195ebe428f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">NxN matrix of 4x4 matrix type. <br /></td></tr>
 <tr class="separator:a9e9f24b6802125cc1ed4195ebe428f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5974262f10de16d060c815dc8691d513"><td class="memItemLeft" align="right" valign="top"><a id="a5974262f10de16d060c815dc8691d513"></a>
+typedef Eigen::DiagonalMatrix&lt; <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a5974262f10de16d060c815dc8691d513">scale</a></td></tr>
+<tr class="memdesc:a5974262f10de16d060c815dc8691d513"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D scaling transformation type <br /></td></tr>
+<tr class="separator:a5974262f10de16d060c815dc8691d513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea64f4cad7249cf502146992ed65ffd"><td class="memItemLeft" align="right" valign="top"><a id="afea64f4cad7249cf502146992ed65ffd"></a>
+typedef Eigen::Translation&lt; <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#afea64f4cad7249cf502146992ed65ffd">translate</a></td></tr>
+<tr class="memdesc:afea64f4cad7249cf502146992ed65ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D translation transformation type <br /></td></tr>
+<tr class="separator:afea64f4cad7249cf502146992ed65ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864a228d249155bd916d80cbd8f708dd"><td class="memItemLeft" align="right" valign="top"><a id="a864a228d249155bd916d80cbd8f708dd"></a>
+typedef Eigen::AngleAxis&lt; <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a864a228d249155bd916d80cbd8f708dd">angleaxis</a></td></tr>
+<tr class="memdesc:a864a228d249155bd916d80cbd8f708dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D rotation transformation type <br /></td></tr>
+<tr class="separator:a864a228d249155bd916d80cbd8f708dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2896221ec7335d14461e76759dce3c44"><td class="memItemLeft" align="right" valign="top"><a id="a2896221ec7335d14461e76759dce3c44"></a>
+typedef Eigen::Transform&lt; <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>, 3, Eigen::Affine &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a2896221ec7335d14461e76759dce3c44">affine</a></td></tr>
+<tr class="memdesc:a2896221ec7335d14461e76759dce3c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D affine tranformation type <br /></td></tr>
+<tr class="separator:a2896221ec7335d14461e76759dce3c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abbc1fcfb22126f8cd79c2477fb88090d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#abbc1fcfb22126f8cd79c2477fb88090d">transform_vector</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;vector, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
-<tr class="memdesc:abbc1fcfb22126f8cd79c2477fb88090d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranform VECTOR from two coordinate frames.  <a href="../../db/d32/namespaceacme.html#abbc1fcfb22126f8cd79c2477fb88090d">More...</a><br /></td></tr>
-<tr class="separator:abbc1fcfb22126f8cd79c2477fb88090d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adabb5cde001218ad9bb9cb59d95c2673"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#adabb5cde001218ad9bb9cb59d95c2673">transform_point</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;from_frame, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;to_frame)</td></tr>
-<tr class="memdesc:adabb5cde001218ad9bb9cb59d95c2673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranform POINT from two coordinate frames.  <a href="../../db/d32/namespaceacme.html#adabb5cde001218ad9bb9cb59d95c2673">More...</a><br /></td></tr>
-<tr class="separator:adabb5cde001218ad9bb9cb59d95c2673"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88122456f9a27cdb9a6f3b7688584a90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a88122456f9a27cdb9a6f3b7688584a90">intersect</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;line0, <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;line1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a88122456f9a27cdb9a6f3b7688584a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d61c2abd0a9eb7f5f8f7e4d174d5c0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a8d61c2abd0a9eb7f5f8f7e4d174d5c0f">intersect</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;ray0, <a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;ray1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a8d61c2abd0a9eb7f5f8f7e4d174d5c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c720f3dad9a125e84c8988ae41b8f7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a6c720f3dad9a125e84c8988ae41b8f7d">intersect</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment0, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a6c720f3dad9a125e84c8988ae41b8f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4e6b8acb843e3aae9196fdcdd91e054"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ac4e6b8acb843e3aae9196fdcdd91e054">intersect</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;box0, <a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;box1, <a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>)</td></tr>
-<tr class="memdesc:ac4e6b8acb843e3aae9196fdcdd91e054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intersect between two boxes <br  />
-.  <a href="../../db/d32/namespaceacme.html#ac4e6b8acb843e3aae9196fdcdd91e054">More...</a><br /></td></tr>
-<tr class="separator:ac4e6b8acb843e3aae9196fdcdd91e054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa0cf1d61a9d63fa7f9d106e90a04246"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#afa0cf1d61a9d63fa7f9d106e90a04246">intersect</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane0, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane1, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane2, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:afa0cf1d61a9d63fa7f9d106e90a04246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19b9fc46e34a7412672a6951cce7b731"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a19b9fc46e34a7412672a6951cce7b731">intersect</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane0, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane1, <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>)</td></tr>
-<tr class="separator:a19b9fc46e34a7412672a6951cce7b731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77cfa81ad566e0755ecb27bd2be133d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a77cfa81ad566e0755ecb27bd2be133d2">intersect</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a77cfa81ad566e0755ecb27bd2be133d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a5e1c079a5261bc2a8ca6504951fd4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ac4a5e1c079a5261bc2a8ca6504951fd4">intersect</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:ac4a5e1c079a5261bc2a8ca6504951fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb962f63b8fd9fafb748afe61e7dbe11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#abb962f63b8fd9fafb748afe61e7dbe11">intersect</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:abb962f63b8fd9fafb748afe61e7dbe11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae7cc871ed4d1e1fed277def5c4bb645"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#aae7cc871ed4d1e1fed277def5c4bb645">intersect</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:aae7cc871ed4d1e1fed277def5c4bb645"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4044fc00bb07d21ab308f3051d6ba260"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a4044fc00bb07d21ab308f3051d6ba260">intersect</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a4044fc00bb07d21ab308f3051d6ba260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae16a444c16d5eeb0e3da67dde5a9757f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ae16a444c16d5eeb0e3da67dde5a9757f">intersect</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
-<tr class="separator:ae16a444c16d5eeb0e3da67dde5a9757f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f843e48cd326c7f799d152b99e09313"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a5f843e48cd326c7f799d152b99e09313">intersect</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a5f843e48cd326c7f799d152b99e09313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a2bbb674f80d922fcbfbcc02a31388d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a0a2bbb674f80d922fcbfbcc02a31388d">intersect</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a0a2bbb674f80d922fcbfbcc02a31388d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4043851ed946edff251d149ece88d067"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a4043851ed946edff251d149ece88d067">intersect</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
-<tr class="separator:a4043851ed946edff251d149ece88d067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c3d1979a2e31745e1ee4214f33dfd9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a0c3d1979a2e31745e1ee4214f33dfd9a">intersect</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment0, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment1, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
-<tr class="separator:a0c3d1979a2e31745e1ee4214f33dfd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19e3b0fbc5ccf8aef7cbd2c6a102fc43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a19e3b0fbc5ccf8aef7cbd2c6a102fc43">intersect</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment_in, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;segment_out)</td></tr>
-<tr class="separator:a19e3b0fbc5ccf8aef7cbd2c6a102fc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ababcb4f8342d0b9c61084252c77919dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ababcb4f8342d0b9c61084252c77919dc">intersect</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment_in, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;segment_out)</td></tr>
-<tr class="separator:ababcb4f8342d0b9c61084252c77919dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac433b599efe89367ba65ec054f8dd7fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ac433b599efe89367ba65ec054f8dd7fc">intersect</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
-<tr class="separator:ac433b599efe89367ba65ec054f8dd7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af45aa61015f88838ebbda5ff9efe05a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#af45aa61015f88838ebbda5ff9efe05a8">intersect</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
-<tr class="separator:af45aa61015f88838ebbda5ff9efe05a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc9b5a1720edccc7d4e815cf4b09cd8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#acc9b5a1720edccc7d4e815cf4b09cd8c">intersect</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
-<tr class="separator:acc9b5a1720edccc7d4e815cf4b09cd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b688e6cb8783b868200899a26fb4e5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a1b688e6cb8783b868200899a26fb4e5a">intersect</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment_in, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;segment_out)</td></tr>
-<tr class="separator:a1b688e6cb8783b868200899a26fb4e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92c2dc236f69b0f6b4473fb10ea91a37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a92c2dc236f69b0f6b4473fb10ea91a37">intersect</a> (<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
-<tr class="separator:a92c2dc236f69b0f6b4473fb10ea91a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a446b8e8a83d2bd289053a3435b3ad9c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a446b8e8a83d2bd289053a3435b3ad9c3">intersection</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;line0, <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;line1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a446b8e8a83d2bd289053a3435b3ad9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4fc9f6f090245e6124a31ffd65e133"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ade4fc9f6f090245e6124a31ffd65e133">intersection</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;ray0, <a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;ray1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:ade4fc9f6f090245e6124a31ffd65e133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f4c3c62f7347921643529f97403a9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a35f4c3c62f7347921643529f97403a9d">intersection</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment0, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment1, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a35f4c3c62f7347921643529f97403a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821575bbd978f96e95211aca0a895094"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a821575bbd978f96e95211aca0a895094">intersection</a> (<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;box0, <a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;box1, <a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> &amp;<a class="el" href="../../d7/de4/classacme_1_1box.html">box</a>)</td></tr>
+<tr class="memdesc:a821575bbd978f96e95211aca0a895094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intersection between two boxes <br  />
+.  <a href="../../db/d32/namespaceacme.html#a821575bbd978f96e95211aca0a895094">More...</a><br /></td></tr>
+<tr class="separator:a821575bbd978f96e95211aca0a895094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa62dfa4cc1d5177abd9c719e1a72d1c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#aa62dfa4cc1d5177abd9c719e1a72d1c0">intersection</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane0, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane1, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane2, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:aa62dfa4cc1d5177abd9c719e1a72d1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00bb10d339f1c06f00a7c407de5271cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a00bb10d339f1c06f00a7c407de5271cf">intersection</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane0, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;plane1, <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>)</td></tr>
+<tr class="separator:a00bb10d339f1c06f00a7c407de5271cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa231c61b27b345588d01108b7639657"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#afa231c61b27b345588d01108b7639657">intersection</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:afa231c61b27b345588d01108b7639657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f8c17c563569984c2933c1ed940a5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a63f8c17c563569984c2933c1ed940a5b">intersection</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a63f8c17c563569984c2933c1ed940a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dd3fa0537c88318f9c7f00e073b484f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a8dd3fa0537c88318f9c7f00e073b484f">intersection</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>, <a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a8dd3fa0537c88318f9c7f00e073b484f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b11f5f46eae9eb8c80571a67ee2cce7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a7b11f5f46eae9eb8c80571a67ee2cce7">intersection</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a7b11f5f46eae9eb8c80571a67ee2cce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3146ca43afe5e54d9b3bfc89a358fdae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a3146ca43afe5e54d9b3bfc89a358fdae">intersection</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a3146ca43afe5e54d9b3bfc89a358fdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2170d86ee6f51582f685dd41d63aa7af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a2170d86ee6f51582f685dd41d63aa7af">intersection</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
+<tr class="separator:a2170d86ee6f51582f685dd41d63aa7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614732646ee3c3cdcf70f50a5263f427"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a614732646ee3c3cdcf70f50a5263f427">intersection</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a614732646ee3c3cdcf70f50a5263f427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ceb92f08c60e987b56c950270a2aaa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ab1ceb92f08c60e987b56c950270a2aaa">intersection</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:ab1ceb92f08c60e987b56c950270a2aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a31bd1d88eccb293dadeaddcfc441de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a9a31bd1d88eccb293dadeaddcfc441de">intersection</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;point)</td></tr>
+<tr class="separator:a9a31bd1d88eccb293dadeaddcfc441de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18807fad2d2d65ccca03fdd10f5efbab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a18807fad2d2d65ccca03fdd10f5efbab">intersection</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment0, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment1, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
+<tr class="separator:a18807fad2d2d65ccca03fdd10f5efbab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af250594c6e489bb7d9d433856ebcfeae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#af250594c6e489bb7d9d433856ebcfeae">intersection</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment_in, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;segment_out)</td></tr>
+<tr class="separator:af250594c6e489bb7d9d433856ebcfeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a710baf3a0b6ac7269bbcd0cbe5d914"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a5a710baf3a0b6ac7269bbcd0cbe5d914">intersection</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment_in, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;segment_out)</td></tr>
+<tr class="separator:a5a710baf3a0b6ac7269bbcd0cbe5d914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aea348ea6da1938bdf1564d3343ddb8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a4aea348ea6da1938bdf1564d3343ddb8">intersection</a> (<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;<a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
+<tr class="separator:a4aea348ea6da1938bdf1564d3343ddb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14e78613d5c1bbdab62c723597fd2df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ab14e78613d5c1bbdab62c723597fd2df">intersection</a> (<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;<a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
+<tr class="separator:ab14e78613d5c1bbdab62c723597fd2df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b646e8c271991cbfc5260b7a144e521"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a5b646e8c271991cbfc5260b7a144e521">intersection</a> (<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;<a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a>, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
+<tr class="separator:a5b646e8c271991cbfc5260b7a144e521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc0a956e0cd830efadfd6a73da7b0e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a7cc0a956e0cd830efadfd6a73da7b0e2">intersection</a> (<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;segment_in, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;segment_out)</td></tr>
+<tr class="separator:a7cc0a956e0cd830efadfd6a73da7b0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6025103f562cb40b4e1eef58b786a83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ad6025103f562cb40b4e1eef58b786a83">intersection</a> (<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;<a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a>, <a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a> const &amp;<a class="el" href="../../d4/d18/classacme_1_1triangle.html">triangle</a>, <a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> &amp;<a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a>)</td></tr>
+<tr class="separator:ad6025103f562cb40b4e1eef58b786a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad095ce37dc49a3b0fd1f25d2178d1dfa"><td class="memItemLeft" align="right" valign="top"><a id="ad095ce37dc49a3b0fd1f25d2178d1dfa"></a>
 <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ad095ce37dc49a3b0fd1f25d2178d1dfa">infinity</a> (void)</td></tr>
 <tr class="memdesc:ad095ce37dc49a3b0fd1f25d2178d1dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return infinity. <br /></td></tr>
@@ -321,45 +328,39 @@ Functions</h2></td></tr>
 <tr class="memitem:a24abdc5ae38e6fd9f8609c043c33b7f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a24abdc5ae38e6fd9f8609c043c33b7f7">clamp</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> low, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> high)</td></tr>
 <tr class="memdesc:a24abdc5ae38e6fd9f8609c043c33b7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the input input bounded between low and high inputs.  <a href="../../db/d32/namespaceacme.html#a24abdc5ae38e6fd9f8609c043c33b7f7">More...</a><br /></td></tr>
 <tr class="separator:a24abdc5ae38e6fd9f8609c043c33b7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8ae05389da36cf8789355501590f2ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ab8ae05389da36cf8789355501590f2ea">is_equal</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input0, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:ab8ae05389da36cf8789355501590f2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if elements are almost equal.  <a href="../../db/d32/namespaceacme.html#ab8ae05389da36cf8789355501590f2ea">More...</a><br /></td></tr>
-<tr class="separator:ab8ae05389da36cf8789355501590f2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f083c44cc8fce467de849989297c89c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a2f083c44cc8fce467de849989297c89c">is_equal</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:a2f083c44cc8fce467de849989297c89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if elements are almost equal.  <a href="../../db/d32/namespaceacme.html#a2f083c44cc8fce467de849989297c89c">More...</a><br /></td></tr>
-<tr class="separator:a2f083c44cc8fce467de849989297c89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70992569d27f9f1868fbca1bab9434d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a70992569d27f9f1868fbca1bab9434d6">is_equal</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:a70992569d27f9f1868fbca1bab9434d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if elements are almost equal.  <a href="../../db/d32/namespaceacme.html#a70992569d27f9f1868fbca1bab9434d6">More...</a><br /></td></tr>
-<tr class="separator:a70992569d27f9f1868fbca1bab9434d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f00cfea755d385851d00a036b5d286d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a1f00cfea755d385851d00a036b5d286d">is_degenerated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:a1f00cfea755d385851d00a036b5d286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vec3 is degenerated.  <a href="../../db/d32/namespaceacme.html#a1f00cfea755d385851d00a036b5d286d">More...</a><br /></td></tr>
-<tr class="separator:a1f00cfea755d385851d00a036b5d286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ae183304f5909447051cafc69f92829"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a0ae183304f5909447051cafc69f92829">is_normalized</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:a0ae183304f5909447051cafc69f92829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vec3 is normalized.  <a href="../../db/d32/namespaceacme.html#a0ae183304f5909447051cafc69f92829">More...</a><br /></td></tr>
-<tr class="separator:a0ae183304f5909447051cafc69f92829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc990a5fba8a7e2c60eefb154e193c64"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#afc990a5fba8a7e2c60eefb154e193c64">is_ortogonal</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:afc990a5fba8a7e2c60eefb154e193c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vectors are ortogonal.  <a href="../../db/d32/namespaceacme.html#afc990a5fba8a7e2c60eefb154e193c64">More...</a><br /></td></tr>
-<tr class="separator:afc990a5fba8a7e2c60eefb154e193c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89eb5868a42e4aa708f806e07fbda11c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a89eb5868a42e4aa708f806e07fbda11c">is_parallel</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:a89eb5868a42e4aa708f806e07fbda11c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vectors are parallel.  <a href="../../db/d32/namespaceacme.html#a89eb5868a42e4aa708f806e07fbda11c">More...</a><br /></td></tr>
-<tr class="separator:a89eb5868a42e4aa708f806e07fbda11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87028513bafe151b1358e4eb1d18f405"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a87028513bafe151b1358e4eb1d18f405">is_ortonormal</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
-<tr class="memdesc:a87028513bafe151b1358e4eb1d18f405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if rotation mat3 is othonormal.  <a href="../../db/d32/namespaceacme.html#a87028513bafe151b1358e4eb1d18f405">More...</a><br /></td></tr>
-<tr class="separator:a87028513bafe151b1358e4eb1d18f405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa69eddd1c68cb3fc6df1a048d50ea4d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#aa69eddd1c68cb3fc6df1a048d50ea4d8">rotation_x</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:aa69eddd1c68cb3fc6df1a048d50ea4d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns rotation on x-axis.  <a href="../../db/d32/namespaceacme.html#aa69eddd1c68cb3fc6df1a048d50ea4d8">More...</a><br /></td></tr>
-<tr class="separator:aa69eddd1c68cb3fc6df1a048d50ea4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e0d5834f83cfcaee414850d253c47e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a2e0d5834f83cfcaee414850d253c47e7">rotation_y</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:a2e0d5834f83cfcaee414850d253c47e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns rotation on y-axis.  <a href="../../db/d32/namespaceacme.html#a2e0d5834f83cfcaee414850d253c47e7">More...</a><br /></td></tr>
-<tr class="separator:a2e0d5834f83cfcaee414850d253c47e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e3889e523069417ceafec851464d25e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a4e3889e523069417ceafec851464d25e">rotation_z</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input)</td></tr>
-<tr class="memdesc:a4e3889e523069417ceafec851464d25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns rotation on z-axis.  <a href="../../db/d32/namespaceacme.html#a4e3889e523069417ceafec851464d25e">More...</a><br /></td></tr>
-<tr class="separator:a4e3889e523069417ceafec851464d25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57b1f48715fd6d9a54afeb926cbf4112"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a57b1f48715fd6d9a54afeb926cbf4112">angle_rad</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1)</td></tr>
-<tr class="memdesc:a57b1f48715fd6d9a54afeb926cbf4112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle between objects [rad].  <a href="../../db/d32/namespaceacme.html#a57b1f48715fd6d9a54afeb926cbf4112">More...</a><br /></td></tr>
-<tr class="separator:a57b1f48715fd6d9a54afeb926cbf4112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6de48a904bc6835ccf918d037c4ec1ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a6de48a904bc6835ccf918d037c4ec1ad">angle_deg</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1)</td></tr>
-<tr class="memdesc:a6de48a904bc6835ccf918d037c4ec1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle between objects [deg].  <a href="../../db/d32/namespaceacme.html#a6de48a904bc6835ccf918d037c4ec1ad">More...</a><br /></td></tr>
-<tr class="separator:a6de48a904bc6835ccf918d037c4ec1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0716c304cbddbcfaa8dd98e212d0722a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a0716c304cbddbcfaa8dd98e212d0722a">isApprox</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input0, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
+<tr class="memdesc:a0716c304cbddbcfaa8dd98e212d0722a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if elements are almost equal.  <a href="../../db/d32/namespaceacme.html#a0716c304cbddbcfaa8dd98e212d0722a">More...</a><br /></td></tr>
+<tr class="separator:a0716c304cbddbcfaa8dd98e212d0722a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3693ebbc2567df296cdd36f4dcc4b36"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ae3693ebbc2567df296cdd36f4dcc4b36">isApprox</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
+<tr class="memdesc:ae3693ebbc2567df296cdd36f4dcc4b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if elements are almost equal.  <a href="../../db/d32/namespaceacme.html#ae3693ebbc2567df296cdd36f4dcc4b36">More...</a><br /></td></tr>
+<tr class="separator:ae3693ebbc2567df296cdd36f4dcc4b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ff559b1d877b15e8af28c55b670a95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a94ff559b1d877b15e8af28c55b670a95">isApprox</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
+<tr class="memdesc:a94ff559b1d877b15e8af28c55b670a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if elements are almost equal.  <a href="../../db/d32/namespaceacme.html#a94ff559b1d877b15e8af28c55b670a95">More...</a><br /></td></tr>
+<tr class="separator:a94ff559b1d877b15e8af28c55b670a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc15339447658e957bd9cd4cbebfd70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#aebc15339447658e957bd9cd4cbebfd70">isDegenerated</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
+<tr class="memdesc:aebc15339447658e957bd9cd4cbebfd70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vec3 is degenerated.  <a href="../../db/d32/namespaceacme.html#aebc15339447658e957bd9cd4cbebfd70">More...</a><br /></td></tr>
+<tr class="separator:aebc15339447658e957bd9cd4cbebfd70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3184d6d465eb6b96cd2f5110eefc93fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a3184d6d465eb6b96cd2f5110eefc93fe">isParallel</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
+<tr class="memdesc:a3184d6d465eb6b96cd2f5110eefc93fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if vectors are parallel.  <a href="../../db/d32/namespaceacme.html#a3184d6d465eb6b96cd2f5110eefc93fe">More...</a><br /></td></tr>
+<tr class="separator:a3184d6d465eb6b96cd2f5110eefc93fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f592dffe8fb1f4b2e87530ca65263e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a2f592dffe8fb1f4b2e87530ca65263e8">isOrthonormal</a> (<a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;input, <a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> tolerance=Epsilon)</td></tr>
+<tr class="memdesc:a2f592dffe8fb1f4b2e87530ca65263e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if 3x3 matrix is othonormal.  <a href="../../db/d32/namespaceacme.html#a2f592dffe8fb1f4b2e87530ca65263e8">More...</a><br /></td></tr>
+<tr class="separator:a2f592dffe8fb1f4b2e87530ca65263e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ff6970b25f25c8ee986f608997b87f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a864a228d249155bd916d80cbd8f708dd">angleaxis</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#ad1ff6970b25f25c8ee986f608997b87f">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../db/d32/namespaceacme.html#a3cda389ee3643e55bcb261bad395d809">angle</a>, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;axis)</td></tr>
+<tr class="memdesc:ad1ff6970b25f25c8ee986f608997b87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a rotation as a rotation angle around an arbitrary axis.  <a href="../../db/d32/namespaceacme.html#ad1ff6970b25f25c8ee986f608997b87f">More...</a><br /></td></tr>
+<tr class="separator:ad1ff6970b25f25c8ee986f608997b87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abee3c3dddead504c7db6e7ef4c3438e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a864a228d249155bd916d80cbd8f708dd">angleaxis</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#abee3c3dddead504c7db6e7ef4c3438e2">rotate</a> (<a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> <a class="el" href="../../db/d32/namespaceacme.html#a3cda389ee3643e55bcb261bad395d809">angle</a>, std::string const &amp;axis)</td></tr>
+<tr class="memdesc:abee3c3dddead504c7db6e7ef4c3438e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a rotation as a rotation angle around an arbitrary axis.  <a href="../../db/d32/namespaceacme.html#abee3c3dddead504c7db6e7ef4c3438e2">More...</a><br /></td></tr>
+<tr class="separator:abee3c3dddead504c7db6e7ef4c3438e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cda389ee3643e55bcb261bad395d809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a3cda389ee3643e55bcb261bad395d809">angle</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input0, <a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;input1)</td></tr>
+<tr class="memdesc:a3cda389ee3643e55bcb261bad395d809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Angle between vectors [rad].  <a href="../../db/d32/namespaceacme.html#a3cda389ee3643e55bcb261bad395d809">More...</a><br /></td></tr>
+<tr class="separator:a3cda389ee3643e55bcb261bad395d809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe18f546ef98496c9c5d127ac404263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#acbe18f546ef98496c9c5d127ac404263">transformVector</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;vector, <a class="el" href="../../db/d32/namespaceacme.html#a2896221ec7335d14461e76759dce3c44">affine</a> const &amp;matrix)</td></tr>
+<tr class="memdesc:acbe18f546ef98496c9c5d127ac404263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform VECTOR with affine transformation matrix.  <a href="../../db/d32/namespaceacme.html#acbe18f546ef98496c9c5d127ac404263">More...</a><br /></td></tr>
+<tr class="separator:acbe18f546ef98496c9c5d127ac404263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b8ad70a045ff3edc2e79171b0a47d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a16b8ad70a045ff3edc2e79171b0a47d1">transformPoint</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;vector, <a class="el" href="../../db/d32/namespaceacme.html#a2896221ec7335d14461e76759dce3c44">affine</a> const &amp;matrix)</td></tr>
+<tr class="memdesc:a16b8ad70a045ff3edc2e79171b0a47d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform POINT with affine transformation matrix.  <a href="../../db/d32/namespaceacme.html#a16b8ad70a045ff3edc2e79171b0a47d1">More...</a><br /></td></tr>
+<tr class="separator:a16b8ad70a045ff3edc2e79171b0a47d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a213a81db5964fd88524198bab5205226"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a213a81db5964fd88524198bab5205226">operator&lt;&lt;</a> (<a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;os, <a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;obj)</td></tr>
 <tr class="memdesc:a213a81db5964fd88524198bab5205226"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Stream out operator for line object  <a href="../../db/d32/namespaceacme.html#a213a81db5964fd88524198bab5205226">More...</a><br /></td></tr>
 <tr class="separator:a213a81db5964fd88524198bab5205226"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -379,18 +380,14 @@ Functions</h2></td></tr>
 <tr class="memdesc:a20fd6e6ada6d17fafc712b1b25fa0a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream out operator for circle object.  <a href="../../db/d32/namespaceacme.html#a20fd6e6ada6d17fafc712b1b25fa0a32">More...</a><br /></td></tr>
 <tr class="separator:a20fd6e6ada6d17fafc712b1b25fa0a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0956ef0fc2a1c7515a4544e7b195e385"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#a0956ef0fc2a1c7515a4544e7b195e385">operator&lt;&lt;</a> (<a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;os, <a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;obj)</td></tr>
-<tr class="memdesc:a0956ef0fc2a1c7515a4544e7b195e385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream out operator for frame object.  <a href="../../db/d32/namespaceacme.html#a0956ef0fc2a1c7515a4544e7b195e385">More...</a><br /></td></tr>
 <tr class="separator:a0956ef0fc2a1c7515a4544e7b195e385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6cf0ad46ed95fa94f9ce3acde151325"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d32/namespaceacme.html#aa6cf0ad46ed95fa94f9ce3acde151325">operator&lt;&lt;</a> (<a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;os, <a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;obj)</td></tr>
-<tr class="separator:aa6cf0ad46ed95fa94f9ce3acde151325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace containing all acme typedefs, classes and routines. </p>
 <p>file: <a class="el" href="../../d9/de7/acme___a_a_b_btree_8hh_source.html">acme_AABBtree.hh</a></p>
 <p>file: <a class="el" href="../../d2/dae/acme__box_8hh_source.html">acme_box.hh</a></p>
 <p>file: <a class="el" href="../../de/dc8/acme__circle_8hh_source.html">acme_circle.hh</a></p>
-<p>file: <a class="el" href="../../d2/dd5/acme__frame_8hh_source.html">acme_frame.hh</a></p>
-<p>file: <a class="el" href="../../db/d28/acme__intersect_8hh_source.html">acme_intersect.hh</a></p>
+<p>file: <a class="el" href="../../dc/daf/acme__intersection_8hh_source.html">acme_intersection.hh</a></p>
 <p>file: <a class="el" href="../../d1/d1e/acme__line_8hh_source.html">acme_line.hh</a></p>
 <p>file: <a class="el" href="../../dd/df0/acme__math_8hh_source.html">acme_math.hh</a></p>
 <p>file: <a class="el" href="../../d6/df8/acme__plane_8hh_source.html">acme_plane.hh</a></p>
@@ -451,14 +448,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6de48a904bc6835ccf918d037c4ec1ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6de48a904bc6835ccf918d037c4ec1ad">&#9670;&nbsp;</a></span>angle_deg()</h2>
+<a id="a3cda389ee3643e55bcb261bad395d809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cda389ee3643e55bcb261bad395d809">&#9670;&nbsp;</a></span>angle()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> acme::angle_deg </td>
+          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> acme::angle </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
           <td class="paramname"><em>input0</em>, </td>
@@ -477,48 +474,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Angle between objects [deg]. </p>
+<p>Angle between vectors [rad]. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a57b1f48715fd6d9a54afeb926cbf4112"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57b1f48715fd6d9a54afeb926cbf4112">&#9670;&nbsp;</a></span>angle_rad()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a> acme::angle_rad </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Angle between objects [rad]. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
+    <tr><td class="paramname">input0</td><td>Input vector 0 </td></tr>
+    <tr><td class="paramname">input1</td><td>Input vector 1 </td></tr>
   </table>
   </dd>
 </dl>
@@ -710,14 +670,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4e6b8acb843e3aae9196fdcdd91e054"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4e6b8acb843e3aae9196fdcdd91e054">&#9670;&nbsp;</a></span>intersect() <span class="overload">[1/23]</span></h2>
+<a id="a821575bbd978f96e95211aca0a895094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821575bbd978f96e95211aca0a895094">&#9670;&nbsp;</a></span>intersection() <span class="overload">[1/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d7/de4/classacme_1_1box.html">box</a> const &amp;&#160;</td>
           <td class="paramname"><em>box0</em>, </td>
@@ -742,7 +702,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Intersect between two boxes <br  />
+<p>Intersection between two boxes <br  />
 . </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -755,14 +715,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a92c2dc236f69b0f6b4473fb10ea91a37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92c2dc236f69b0f6b4473fb10ea91a37">&#9670;&nbsp;</a></span>intersect() <span class="overload">[2/23]</span></h2>
+<a id="ad6025103f562cb40b4e1eef58b786a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6025103f562cb40b4e1eef58b786a83">&#9670;&nbsp;</a></span>intersection() <span class="overload">[2/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/ddb/classacme_1_1circle.html">circle</a> const &amp;&#160;</td>
           <td class="paramname"><em>circle</em>, </td>
@@ -786,7 +746,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect circle with triangle <br  />
+<p>Intersection circle with triangle <br  />
 WARNING: This function only support coplanar objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -799,14 +759,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="ac433b599efe89367ba65ec054f8dd7fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac433b599efe89367ba65ec054f8dd7fc">&#9670;&nbsp;</a></span>intersect() <span class="overload">[3/23]</span></h2>
+<a id="a4aea348ea6da1938bdf1564d3343ddb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aea348ea6da1938bdf1564d3343ddb8">&#9670;&nbsp;</a></span>intersection() <span class="overload">[3/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>line</em>, </td>
@@ -830,7 +790,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect line with circle <br  />
+<p>Intersection line with circle <br  />
 WARNING: This function only support coplanar objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -843,14 +803,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a5f843e48cd326c7f799d152b99e09313"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f843e48cd326c7f799d152b99e09313">&#9670;&nbsp;</a></span>intersect() <span class="overload">[4/23]</span></h2>
+<a id="a614732646ee3c3cdcf70f50a5263f427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614732646ee3c3cdcf70f50a5263f427">&#9670;&nbsp;</a></span>intersection() <span class="overload">[4/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>line</em>, </td>
@@ -874,7 +834,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect line and circle <br  />
+<p>Intersection line and circle <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -887,14 +847,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="ac4a5e1c079a5261bc2a8ca6504951fd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4a5e1c079a5261bc2a8ca6504951fd4">&#9670;&nbsp;</a></span>intersect() <span class="overload">[5/23]</span></h2>
+<a id="a63f8c17c563569984c2933c1ed940a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f8c17c563569984c2933c1ed940a5b">&#9670;&nbsp;</a></span>intersection() <span class="overload">[5/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>line</em>, </td>
@@ -918,7 +878,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect line with plane <br  />
+<p>Intersection line with plane <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -931,14 +891,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="a19e3b0fbc5ccf8aef7cbd2c6a102fc43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19e3b0fbc5ccf8aef7cbd2c6a102fc43">&#9670;&nbsp;</a></span>intersect() <span class="overload">[6/23]</span></h2>
+<a id="af250594c6e489bb7d9d433856ebcfeae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af250594c6e489bb7d9d433856ebcfeae">&#9670;&nbsp;</a></span>intersection() <span class="overload">[6/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>line</em>, </td>
@@ -975,14 +935,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a4044fc00bb07d21ab308f3051d6ba260"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4044fc00bb07d21ab308f3051d6ba260">&#9670;&nbsp;</a></span>intersect() <span class="overload">[7/23]</span></h2>
+<a id="a3146ca43afe5e54d9b3bfc89a358fdae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3146ca43afe5e54d9b3bfc89a358fdae">&#9670;&nbsp;</a></span>intersection() <span class="overload">[7/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>line</em>, </td>
@@ -1006,7 +966,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect line with triangle (no precalculated normal) <br  />
+<p>Intersection line with triangle (no precalculated normal) <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1019,14 +979,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="a88122456f9a27cdb9a6f3b7688584a90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88122456f9a27cdb9a6f3b7688584a90">&#9670;&nbsp;</a></span>intersect() <span class="overload">[8/23]</span></h2>
+<a id="a446b8e8a83d2bd289053a3435b3ad9c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446b8e8a83d2bd289053a3435b3ad9c3">&#9670;&nbsp;</a></span>intersection() <span class="overload">[8/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d1/dcd/classacme_1_1line.html">line</a> const &amp;&#160;</td>
           <td class="paramname"><em>line0</em>, </td>
@@ -1050,7 +1010,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect between two lines <br  />
+<p>Intersection between two lines <br  />
 WARNING: This function does not support parallel objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1063,14 +1023,14 @@ WARNING: This function does not support parallel objects! </p>
 
 </div>
 </div>
-<a id="acc9b5a1720edccc7d4e815cf4b09cd8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc9b5a1720edccc7d4e815cf4b09cd8c">&#9670;&nbsp;</a></span>intersect() <span class="overload">[9/23]</span></h2>
+<a id="a5b646e8c271991cbfc5260b7a144e521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b646e8c271991cbfc5260b7a144e521">&#9670;&nbsp;</a></span>intersection() <span class="overload">[9/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;&#160;</td>
           <td class="paramname"><em>plane</em>, </td>
@@ -1094,7 +1054,7 @@ WARNING: This function does not support parallel objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect plane with circle <br  />
+<p>Intersection plane with circle <br  />
 WARNING: This function only support coplanar objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1107,14 +1067,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="ae16a444c16d5eeb0e3da67dde5a9757f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae16a444c16d5eeb0e3da67dde5a9757f">&#9670;&nbsp;</a></span>intersect() <span class="overload">[10/23]</span></h2>
+<a id="a2170d86ee6f51582f685dd41d63aa7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2170d86ee6f51582f685dd41d63aa7af">&#9670;&nbsp;</a></span>intersection() <span class="overload">[10/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;&#160;</td>
           <td class="paramname"><em>plane</em>, </td>
@@ -1138,7 +1098,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect plane with triangle <br  />
+<p>Intersection plane with triangle <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1151,14 +1111,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="a19b9fc46e34a7412672a6951cce7b731"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19b9fc46e34a7412672a6951cce7b731">&#9670;&nbsp;</a></span>intersect() <span class="overload">[11/23]</span></h2>
+<a id="a00bb10d339f1c06f00a7c407de5271cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00bb10d339f1c06f00a7c407de5271cf">&#9670;&nbsp;</a></span>intersection() <span class="overload">[11/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;&#160;</td>
           <td class="paramname"><em>plane0</em>, </td>
@@ -1182,7 +1142,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect between two planes <br  />
+<p>Intersection between two planes <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1195,14 +1155,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="afa0cf1d61a9d63fa7f9d106e90a04246"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa0cf1d61a9d63fa7f9d106e90a04246">&#9670;&nbsp;</a></span>intersect() <span class="overload">[12/23]</span></h2>
+<a id="aa62dfa4cc1d5177abd9c719e1a72d1c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa62dfa4cc1d5177abd9c719e1a72d1c0">&#9670;&nbsp;</a></span>intersection() <span class="overload">[12/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dd/d62/classacme_1_1plane.html">plane</a> const &amp;&#160;</td>
           <td class="paramname"><em>plane0</em>, </td>
@@ -1232,7 +1192,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect between three planes <br  />
+<p>Intersection between three planes <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1246,14 +1206,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="af45aa61015f88838ebbda5ff9efe05a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af45aa61015f88838ebbda5ff9efe05a8">&#9670;&nbsp;</a></span>intersect() <span class="overload">[13/23]</span></h2>
+<a id="ab14e78613d5c1bbdab62c723597fd2df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab14e78613d5c1bbdab62c723597fd2df">&#9670;&nbsp;</a></span>intersection() <span class="overload">[13/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
@@ -1277,7 +1237,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect ray with circle <br  />
+<p>Intersection ray with circle <br  />
 WARNING: This function only support coplanar objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1290,14 +1250,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a0a2bbb674f80d922fcbfbcc02a31388d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a2bbb674f80d922fcbfbcc02a31388d">&#9670;&nbsp;</a></span>intersect() <span class="overload">[14/23]</span></h2>
+<a id="ab1ceb92f08c60e987b56c950270a2aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ceb92f08c60e987b56c950270a2aaa">&#9670;&nbsp;</a></span>intersection() <span class="overload">[14/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
@@ -1321,7 +1281,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect ray with circle <br  />
+<p>Intersection ray with circle <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1334,14 +1294,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="a77cfa81ad566e0755ecb27bd2be133d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77cfa81ad566e0755ecb27bd2be133d2">&#9670;&nbsp;</a></span>intersect() <span class="overload">[15/23]</span></h2>
+<a id="afa231c61b27b345588d01108b7639657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa231c61b27b345588d01108b7639657">&#9670;&nbsp;</a></span>intersection() <span class="overload">[15/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
@@ -1365,7 +1325,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect ray with plane <br  />
+<p>Intersection ray with plane <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1378,14 +1338,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="ababcb4f8342d0b9c61084252c77919dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ababcb4f8342d0b9c61084252c77919dc">&#9670;&nbsp;</a></span>intersect() <span class="overload">[16/23]</span></h2>
+<a id="a5a710baf3a0b6ac7269bbcd0cbe5d914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a710baf3a0b6ac7269bbcd0cbe5d914">&#9670;&nbsp;</a></span>intersection() <span class="overload">[16/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
@@ -1422,14 +1382,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="aae7cc871ed4d1e1fed277def5c4bb645"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae7cc871ed4d1e1fed277def5c4bb645">&#9670;&nbsp;</a></span>intersect() <span class="overload">[17/23]</span></h2>
+<a id="a7b11f5f46eae9eb8c80571a67ee2cce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b11f5f46eae9eb8c80571a67ee2cce7">&#9670;&nbsp;</a></span>intersection() <span class="overload">[17/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>ray</em>, </td>
@@ -1453,7 +1413,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect ray with triangle (no precalculated normal) <br  />
+<p>Intersection ray with triangle (no precalculated normal) <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1466,14 +1426,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="a8d61c2abd0a9eb7f5f8f7e4d174d5c0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d61c2abd0a9eb7f5f8f7e4d174d5c0f">&#9670;&nbsp;</a></span>intersect() <span class="overload">[18/23]</span></h2>
+<a id="ade4fc9f6f090245e6124a31ffd65e133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4fc9f6f090245e6124a31ffd65e133">&#9670;&nbsp;</a></span>intersection() <span class="overload">[18/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d0/de8/classacme_1_1ray.html">ray</a> const &amp;&#160;</td>
           <td class="paramname"><em>ray0</em>, </td>
@@ -1497,7 +1457,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect between two rays <br  />
+<p>Intersection between two rays <br  />
 WARNING: This function does not support parallel objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1510,14 +1470,14 @@ WARNING: This function does not support parallel objects! </p>
 
 </div>
 </div>
-<a id="a4043851ed946edff251d149ece88d067"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4043851ed946edff251d149ece88d067">&#9670;&nbsp;</a></span>intersect() <span class="overload">[19/23]</span></h2>
+<a id="a9a31bd1d88eccb293dadeaddcfc441de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a31bd1d88eccb293dadeaddcfc441de">&#9670;&nbsp;</a></span>intersection() <span class="overload">[19/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;&#160;</td>
           <td class="paramname"><em>segment</em>, </td>
@@ -1541,7 +1501,7 @@ WARNING: This function does not support parallel objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect segment with circle <br  />
+<p>Intersection segment with circle <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1554,14 +1514,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="abb962f63b8fd9fafb748afe61e7dbe11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb962f63b8fd9fafb748afe61e7dbe11">&#9670;&nbsp;</a></span>intersect() <span class="overload">[20/23]</span></h2>
+<a id="a8dd3fa0537c88318f9c7f00e073b484f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd3fa0537c88318f9c7f00e073b484f">&#9670;&nbsp;</a></span>intersection() <span class="overload">[20/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;&#160;</td>
           <td class="paramname"><em>segment</em>, </td>
@@ -1585,7 +1545,7 @@ WARNING: This function does not support coplanarity! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect segment with plane (no precalculated normal) <br  />
+<p>Intersection segment with plane (no precalculated normal) <br  />
 WARNING: This function does not support coplanarity! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1598,14 +1558,14 @@ WARNING: This function does not support coplanarity! </p>
 
 </div>
 </div>
-<a id="a0c3d1979a2e31745e1ee4214f33dfd9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c3d1979a2e31745e1ee4214f33dfd9a">&#9670;&nbsp;</a></span>intersect() <span class="overload">[21/23]</span></h2>
+<a id="a18807fad2d2d65ccca03fdd10f5efbab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18807fad2d2d65ccca03fdd10f5efbab">&#9670;&nbsp;</a></span>intersection() <span class="overload">[21/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;&#160;</td>
           <td class="paramname"><em>segment0</em>, </td>
@@ -1642,14 +1602,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a6c720f3dad9a125e84c8988ae41b8f7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c720f3dad9a125e84c8988ae41b8f7d">&#9670;&nbsp;</a></span>intersect() <span class="overload">[22/23]</span></h2>
+<a id="a35f4c3c62f7347921643529f97403a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f4c3c62f7347921643529f97403a9d">&#9670;&nbsp;</a></span>intersection() <span class="overload">[22/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;&#160;</td>
           <td class="paramname"><em>segment0</em>, </td>
@@ -1673,7 +1633,7 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect between two segments <br  />
+<p>Intersection between two segments <br  />
 WARNING: This function does not support parallel objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1686,14 +1646,14 @@ WARNING: This function does not support parallel objects! </p>
 
 </div>
 </div>
-<a id="a1b688e6cb8783b868200899a26fb4e5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b688e6cb8783b868200899a26fb4e5a">&#9670;&nbsp;</a></span>intersect() <span class="overload">[23/23]</span></h2>
+<a id="a7cc0a956e0cd830efadfd6a73da7b0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cc0a956e0cd830efadfd6a73da7b0e2">&#9670;&nbsp;</a></span>intersection() <span class="overload">[23/23]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::intersect </td>
+          <td class="memname">bool acme::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d5/ddc/classacme_1_1segment.html">segment</a> const &amp;&#160;</td>
           <td class="paramname"><em>segment_in</em>, </td>
@@ -1717,7 +1677,7 @@ WARNING: This function does not support parallel objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Intersect segment with circle <br  />
+<p>Intersection segment with circle <br  />
 WARNING: This function only support coplanar objects! </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1730,14 +1690,146 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a1f00cfea755d385851d00a036b5d286d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f00cfea755d385851d00a036b5d286d">&#9670;&nbsp;</a></span>is_degenerated()</h2>
+<a id="a94ff559b1d877b15e8af28c55b670a95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94ff559b1d877b15e8af28c55b670a95">&#9670;&nbsp;</a></span>isApprox() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::is_degenerated </td>
+          <td class="memname">bool acme::isApprox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if elements are almost equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
+    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
+    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0716c304cbddbcfaa8dd98e212d0722a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0716c304cbddbcfaa8dd98e212d0722a">&#9670;&nbsp;</a></span>isApprox() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool acme::isApprox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
+          <td class="paramname"><em>input0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
+          <td class="paramname"><em>input1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if elements are almost equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
+    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
+    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae3693ebbc2567df296cdd36f4dcc4b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3693ebbc2567df296cdd36f4dcc4b36">&#9670;&nbsp;</a></span>isApprox() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool acme::isApprox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>input1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
+          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if elements are almost equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
+    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
+    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aebc15339447658e957bd9cd4cbebfd70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc15339447658e957bd9cd4cbebfd70">&#9670;&nbsp;</a></span>isDegenerated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool acme::isDegenerated </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em>, </td>
@@ -1759,7 +1851,7 @@ WARNING: This function only support coplanar objects! </p>
 <p>Check if vec3 is degenerated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input value </td></tr>
+    <tr><td class="paramname">input</td><td>Input vector </td></tr>
     <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
   </table>
   </dd>
@@ -1767,227 +1859,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a70992569d27f9f1868fbca1bab9434d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70992569d27f9f1868fbca1bab9434d6">&#9670;&nbsp;</a></span>is_equal() <span class="overload">[1/3]</span></h2>
+<a id="a2f592dffe8fb1f4b2e87530ca65263e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f592dffe8fb1f4b2e87530ca65263e8">&#9670;&nbsp;</a></span>isOrthonormal()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::is_equal </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if elements are almost equal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
-    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab8ae05389da36cf8789355501590f2ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8ae05389da36cf8789355501590f2ea">&#9670;&nbsp;</a></span>is_equal() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool acme::is_equal </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>input0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>input1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if elements are almost equal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
-    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2f083c44cc8fce467de849989297c89c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f083c44cc8fce467de849989297c89c">&#9670;&nbsp;</a></span>is_equal() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool acme::is_equal </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if elements are almost equal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
-    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0ae183304f5909447051cafc69f92829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ae183304f5909447051cafc69f92829">&#9670;&nbsp;</a></span>is_normalized()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool acme::is_normalized </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if vec3 is normalized. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>Input value </td></tr>
-    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="afc990a5fba8a7e2c60eefb154e193c64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc990a5fba8a7e2c60eefb154e193c64">&#9670;&nbsp;</a></span>is_ortogonal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool acme::is_ortogonal </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>input1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>tolerance</em> = <code>Epsilon</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if vectors are ortogonal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
-    <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a87028513bafe151b1358e4eb1d18f405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87028513bafe151b1358e4eb1d18f405">&#9670;&nbsp;</a></span>is_ortonormal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool acme::is_ortonormal </td>
+          <td class="memname">bool acme::isOrthonormal </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> const &amp;&#160;</td>
           <td class="paramname"><em>input</em>, </td>
@@ -2006,7 +1885,7 @@ WARNING: This function only support coplanar objects! </p>
       </table>
 </div><div class="memdoc">
 
-<p>Check if rotation mat3 is othonormal. </p>
+<p>Check if 3x3 matrix is othonormal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Input value </td></tr>
@@ -2017,14 +1896,14 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="a89eb5868a42e4aa708f806e07fbda11c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89eb5868a42e4aa708f806e07fbda11c">&#9670;&nbsp;</a></span>is_parallel()</h2>
+<a id="a3184d6d465eb6b96cd2f5110eefc93fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3184d6d465eb6b96cd2f5110eefc93fe">&#9670;&nbsp;</a></span>isParallel()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool acme::is_parallel </td>
+          <td class="memname">bool acme::isParallel </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
           <td class="paramname"><em>input0</em>, </td>
@@ -2052,8 +1931,8 @@ WARNING: This function only support coplanar objects! </p>
 <p>Check if vectors are parallel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input0</td><td>Input value 0 </td></tr>
-    <tr><td class="paramname">input1</td><td>Input value 1 </td></tr>
+    <tr><td class="paramname">input0</td><td>Input vector 0 </td></tr>
+    <tr><td class="paramname">input1</td><td>Input vector 1 </td></tr>
     <tr><td class="paramname">tolerance</td><td>Tolerance </td></tr>
   </table>
   </dd>
@@ -2224,7 +2103,7 @@ WARNING: This function only support coplanar objects! </p>
 </div>
 </div>
 <a id="a1a2f018515ed49968963765461727ce3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a2f018515ed49968963765461727ce3">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a2f018515ed49968963765461727ce3">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2261,7 +2140,7 @@ WARNING: This function only support coplanar objects! </p>
 </div>
 </div>
 <a id="a0956ef0fc2a1c7515a4544e7b195e385"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0956ef0fc2a1c7515a4544e7b195e385">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0956ef0fc2a1c7515a4544e7b195e385">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2285,8 +2164,6 @@ WARNING: This function only support coplanar objects! </p>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Stream out operator for frame object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">os</td><td>Output stream </td></tr>
@@ -2297,43 +2174,8 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="aa6cf0ad46ed95fa94f9ce3acde151325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6cf0ad46ed95fa94f9ce3acde151325">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a>&amp; acme::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>obj</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">os</td><td>Output stream </td></tr>
-    <tr><td class="paramname">obj</td><td>Frame object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a213a81db5964fd88524198bab5205226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a213a81db5964fd88524198bab5205226">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a213a81db5964fd88524198bab5205226">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[3/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2371,7 +2213,7 @@ WARNING: This function only support coplanar objects! </p>
 </div>
 </div>
 <a id="ac353d34329a51c5022e9568f34935c60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac353d34329a51c5022e9568f34935c60">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[5/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac353d34329a51c5022e9568f34935c60">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[4/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2408,7 +2250,7 @@ WARNING: This function only support coplanar objects! </p>
 </div>
 </div>
 <a id="a4cf633671d010c1de8dc193c6cf17d8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cf633671d010c1de8dc193c6cf17d8c">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[6/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cf633671d010c1de8dc193c6cf17d8c">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[5/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2445,7 +2287,7 @@ WARNING: This function only support coplanar objects! </p>
 </div>
 </div>
 <a id="a208774b3f75b8dc4fc43b72f386e2666"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a208774b3f75b8dc4fc43b72f386e2666">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[7/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a208774b3f75b8dc4fc43b72f386e2666">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[6/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2482,7 +2324,7 @@ WARNING: This function only support coplanar objects! </p>
 </div>
 </div>
 <a id="a20fd6e6ada6d17fafc712b1b25fa0a32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20fd6e6ada6d17fafc712b1b25fa0a32">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[8/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a20fd6e6ada6d17fafc712b1b25fa0a32">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[7/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2555,78 +2397,74 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="aa69eddd1c68cb3fc6df1a048d50ea4d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa69eddd1c68cb3fc6df1a048d50ea4d8">&#9670;&nbsp;</a></span>rotation_x()</h2>
+<a id="abee3c3dddead504c7db6e7ef4c3438e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee3c3dddead504c7db6e7ef4c3438e2">&#9670;&nbsp;</a></span>rotate() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> acme::rotation_x </td>
+          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a864a228d249155bd916d80cbd8f708dd">angleaxis</a> acme::rotate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns rotation on x-axis. </p>
+<p>Returns a rotation as a rotation angle around an arbitrary axis. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input angle [rad] </td></tr>
+    <tr><td class="paramname">angle</td><td>Input angle [rad] </td></tr>
+    <tr><td class="paramname">axis</td><td>Input axis </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a2e0d5834f83cfcaee414850d253c47e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e0d5834f83cfcaee414850d253c47e7">&#9670;&nbsp;</a></span>rotation_y()</h2>
+<a id="ad1ff6970b25f25c8ee986f608997b87f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ff6970b25f25c8ee986f608997b87f">&#9670;&nbsp;</a></span>rotate() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> acme::rotation_y </td>
+          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a864a228d249155bd916d80cbd8f708dd">angleaxis</a> acme::rotate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"><em>angle</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns rotation on y-axis. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>Input angle [rad] </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4e3889e523069417ceafec851464d25e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e3889e523069417ceafec851464d25e">&#9670;&nbsp;</a></span>rotation_z()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#a5e50f5e06e26c0cf45d0e8f0d8cec95d">mat3</a> acme::rotation_z </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a272dfe5817fa47009716a1fc85ab2629">real_type</a>&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns rotation on z-axis. </p>
+<p>Returns a rotation as a rotation angle around an arbitrary axis. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Input angle [rad] </td></tr>
+    <tr><td class="paramname">angle</td><td>Input angle [rad] </td></tr>
+    <tr><td class="paramname">axis</td><td>Input axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -2737,29 +2575,23 @@ WARNING: This function only support coplanar objects! </p>
 
 </div>
 </div>
-<a id="adabb5cde001218ad9bb9cb59d95c2673"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adabb5cde001218ad9bb9cb59d95c2673">&#9670;&nbsp;</a></span>transform_point()</h2>
+<a id="a16b8ad70a045ff3edc2e79171b0a47d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b8ad70a045ff3edc2e79171b0a47d1">&#9670;&nbsp;</a></span>transformPoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> acme::transform_point </td>
+          <td class="memname">void acme::transformPoint </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>point</em>, </td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>from_frame</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>to_frame</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a2896221ec7335d14461e76759dce3c44">affine</a> const &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2769,41 +2601,34 @@ WARNING: This function only support coplanar objects! </p>
       </table>
 </div><div class="memdoc">
 
-<p>Tranform POINT from two coordinate frames. </p>
+<p>Transform POINT with affine transformation matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Input point </td></tr>
-    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">vector</td><td>Input point </td></tr>
+    <tr><td class="paramname">matrix</td><td>4x4 transformation matrix </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="abbc1fcfb22126f8cd79c2477fb88090d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbc1fcfb22126f8cd79c2477fb88090d">&#9670;&nbsp;</a></span>transform_vector()</h2>
+<a id="acbe18f546ef98496c9c5d127ac404263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe18f546ef98496c9c5d127ac404263">&#9670;&nbsp;</a></span>transformVector()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> acme::transform_vector </td>
+          <td class="memname">void acme::transformVector </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> &amp;&#160;</td>
           <td class="paramname"><em>vector</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>from_frame</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/d70/classacme_1_1frame.html">frame</a> const &amp;&#160;</td>
-          <td class="paramname"><em>to_frame</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#a2896221ec7335d14461e76759dce3c44">affine</a> const &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2813,12 +2638,11 @@ WARNING: This function only support coplanar objects! </p>
       </table>
 </div><div class="memdoc">
 
-<p>Tranform VECTOR from two coordinate frames. </p>
+<p>Transform VECTOR with affine transformation matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vector</td><td>Input vector </td></tr>
-    <tr><td class="paramname">from_frame</td><td>Actual reference coordinate system </td></tr>
-    <tr><td class="paramname">to_frame</td><td>Future reference coordinate system </td></tr>
+    <tr><td class="paramname">matrix</td><td>4x4 transformation matrix </td></tr>
   </table>
   </dd>
 </dl>

@@ -5,7 +5,7 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_intersect.hh"
+#include "acme_intersection.hh"
 #include "acme_math.hh"
 #include "acme_triangle.hh"
 #include "acme_box.hh"
@@ -51,7 +51,7 @@ int main()
        angle += PI / 360.0)
   {
 
-    Rot_X = rotation_x(angle);
+    Rot_X = rotate(angle, "X");
 
     // Initialize vertices
     vec3 VerticesTri1[3], VerticesTri2[3];
@@ -67,8 +67,8 @@ int main()
     Triangle1.vertices(VerticesTri1);
     Triangle2.vertices(VerticesTri2);
 
-    IntersectionBoolTri1 = Triangle1.intersect(Ray, IntersectionPointTri1);
-    IntersectionBoolTri2 = Triangle2.intersect(Ray, IntersectionPointTri2);
+    IntersectionBoolTri1 = acme::intersection(Ray, Triangle1, IntersectionPointTri1);
+    IntersectionBoolTri2 = acme::intersection(Ray, Triangle2, IntersectionPointTri2);
 
     std::cout
         << angle * 180.0 / PI << "°\t"

@@ -25,7 +25,6 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
 #include "acme_box.hh"
 
 namespace acme
@@ -99,37 +98,17 @@ namespace acme
 
     //! Check if segments are (almost) equal
     bool
-    is_equal(
+    isApprox(
         segment const &input //!< Input object
     ) const;
 
     //! Check if segment is degenerated to point
     bool
-    is_degenerated(void) const;
-
-    //! Get first segment point
-    vec3 const &
-    point_0(void) const;
-
-    //! Set first segment point
-    void
-    point_0(
-        vec3 const &input //!< New segment point
-    );
-
-    //! Get second segment point
-    vec3 const &
-    point_1(void) const;
-
-    //! Set second segment point
-    void
-    point_1(
-        vec3 const &input //!< New segment point
-    );
+    isDegenerated(void) const;
 
     //! Get segment midpoint
     vec3
-    midpoint(void) const;
+    pointMiddle(void) const;
 
     //! Get segment i-th point
     vec3 const &
@@ -138,26 +117,18 @@ namespace acme
     ) const;
 
     //! Set segment i-th point
-    void
+    vec3 &
     point(
-        unsigned i,       //!< Intput segment i-th point index
-        vec3 const &input //!< New segment point
-    );
-
-    //! Set segment points
-    void
-    points(
-        vec3 const &input0, //!< New first segment point
-        vec3 const &input1  //!< New second segment point
+        unsigned i //!< Intput segment i-th point index
     );
 
     //! Convert segment to vector
     vec3
-    to_vector(void) const;
+    toVector(void) const;
 
     //! Convert segment to normalized vector
     vec3
-    to_normalized_vector(void) const;
+    toNormalizedVector(void) const;
 
     //! Translate segment by vector
     void
@@ -165,37 +136,11 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Get translated segment by vector
-    segment
-    translated(
-        vec3 const &input //!< Input translation vector
-    ) const;
-
-    //! Rotate by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    );
-
-    //! Get rotated by matrix
-    segment
-    rotated(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    ) const;
-
-    //! Transform segment from two coordinate frames
+    //! Transform segment with affine transformation matrix
     void
     transform(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
+        affine const &matrix //!< 4x4 affine transformation matrix
     );
-
-    //! Get transformed segment from two coordinate frames
-    segment
-    transformed(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
-    ) const;
 
     //! Swap segment points
     void
@@ -203,7 +148,7 @@ namespace acme
 
     //! Get minimum box containing the current segment object
     void
-    minimum_box(
+    clamp(
         box &input //!< Input box object
     ) const;
 
@@ -213,13 +158,13 @@ namespace acme
 
     // Check whether the point is inside the segment
     bool
-    is_inside(
+    isInside(
         vec3 const &point //!< Query point
     ) const;
 
   }; // class segment
 
-  } // namespace acme
+} // namespace acme
 
 #endif
 

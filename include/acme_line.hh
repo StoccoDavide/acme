@@ -25,7 +25,6 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
 
 namespace acme
 {
@@ -101,13 +100,13 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool
-    is_equal(
+    isApprox(
         line const &input //!< Input line object
     ) const;
 
     //! Check if line is degenerated (direction vector has zero norm)
     bool
-    is_degenerated(void) const;
+    isDegenerated(void) const;
 
     //! Return line origin point
     vec3 const &
@@ -131,15 +130,15 @@ namespace acme
 
     //! Normalize line direction vector
     void
-    normalize_direction(void);
+    normalize(void);
 
     //! Convert line to vector
     vec3
-    to_vector(void) const;
+    toVector(void) const;
 
     //! Convert line to normalized vector
     vec3
-    to_normalized_vector(void) const;
+    toNormalizedVector(void) const;
 
     //! Translate line by vector
     void
@@ -147,49 +146,19 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Get translated line by vector
-    line
-    translated(
-        vec3 const &input //!< Input translation vector
-    ) const;
-
-    //! Get rotated line by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation vector
-    );
-
-    //! Rotate line by matrix
-    line
-    rotated(
-        mat3 const &input //!< Input 3x3 rotation vector
-    ) const;
-
-    //! Transform line from two coordinate frames
+    //! Transform line with affine transformation matrix
     void
     transform(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
+        affine const &matrix //!< 4x4 affine transformation matrix
     );
-
-    //! Get transformed line from two coordinate frames
-    line
-    transformed(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
-    ) const;
 
     //! Reverse line direction
     void
     reverse(void);
 
-    //! Get ray with reversed direction
-    line
-    reversed(void) const;
-
     // Check whether the point is inside the line
     bool
-    is_inside(
+    isInside(
         vec3 const &point //!< Query point
     ) const;
 

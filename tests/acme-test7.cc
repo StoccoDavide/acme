@@ -5,7 +5,7 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_intersect.hh"
+#include "acme_intersection.hh"
 #include "acme_triangle.hh"
 #include "acme_box.hh"
 
@@ -28,10 +28,10 @@ int main()
   bool boolIn1, boolIn2, boolOut, boolTan;
 
   // Calculate intersections
-  boolIn1 = intersect(In1, Circle, IntIn1);
-  boolIn2 = intersect(In2, Circle, IntIn2);
-  boolOut = intersect(Out, Circle, IntOut);
-  boolTan = intersect(Tan, Circle, IntTan);
+  boolIn1 = intersection(In1, Circle, IntIn1);
+  boolIn2 = intersection(In2, Circle, IntIn2);
+  boolOut = intersection(Out, Circle, IntOut);
+  boolTan = intersection(Tan, Circle, IntTan);
 
   // Display results
   std::cout
@@ -45,26 +45,26 @@ int main()
       << "Ray 1 with two intersections: bool(" << boolIn1 << ") intersection found" << std::endl
       << "Ray origin   \t= " << In1.origin() << std::endl
       << "Ray direction\t= " << In1.direction() << std::endl
-      << "Intersection Point 0\t= " << IntIn1.point_0() << std::endl
-      << "Intersection Point 1\t= " << IntIn1.point_1() << std::endl
+      << "Intersection Point 0\t= " << IntIn1.point(0) << std::endl
+      << "Intersection Point 1\t= " << IntIn1.point(1) << std::endl
       << std::endl
       << "Ray 2 with two intersections: bool(" << boolIn2 << ") intersection found" << std::endl
       << "Ray origin   \t= " << In2.origin() << std::endl
       << "Ray direction\t= " << In2.direction() << std::endl
-      << "Intersection Point 0\t= " << IntIn2.point_0() << std::endl
-      << "Intersection Point 1\t= " << IntIn2.point_1() << std::endl
+      << "Intersection Point 0\t= " << IntIn2.point(0) << std::endl
+      << "Intersection Point 1\t= " << IntIn2.point(1) << std::endl
       << std::endl
       << "Ray with no intersections:  bool(" << boolOut << ") intersection found" << std::endl
       << "Ray origin   \t= " << Out.origin() << std::endl
       << "Ray direction\t= " << Out.direction() << std::endl
-      << "Intersection Point 0\t= " << IntOut.point_0() << std::endl
-      << "Intersection Point 1\t= " << IntOut.point_1() << std::endl
+      << "Intersection Point 0\t= " << IntOut.point(0) << std::endl
+      << "Intersection Point 1\t= " << IntOut.point(1) << std::endl
       << std::endl
       << "Ray with one intersection:  bool(" << boolTan << ") intersection found" << std::endl
       << "Ray origin   \t= " << Tan.origin() << std::endl
       << "Ray direction\t= " << Tan.direction() << std::endl
-      << "Intersection Point 0\t= " << IntTan.point_0() << std::endl
-      << "Intersection Point 1\t= " << IntTan.point_1() << std::endl
+      << "Intersection Point 0\t= " << IntTan.point(0) << std::endl
+      << "Intersection Point 1\t= " << IntTan.point(1) << std::endl
       << std::endl
       << "Check the results..." << std::endl
       << std::endl

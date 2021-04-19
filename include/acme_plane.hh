@@ -25,7 +25,6 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
 
 namespace acme
 {
@@ -100,13 +99,13 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool
-    is_equal(
+    isApprox(
         plane const &input //!< Input plane object
     ) const;
 
     //! Check if plane is degenerated (normal has zero norm)
     bool
-    is_degenerated(void) const;
+    isDegenerated(void) const;
 
     //! Return plane origin point
     vec3 const &
@@ -118,7 +117,7 @@ namespace acme
 
     //! Normalize plane normal vector
     void
-    normalize_normal(void);
+    normalize(void);
 
     //! Set plane origin point
     void
@@ -138,45 +137,21 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Get translated plane by vector
-    plane
-    translated(
-        vec3 const &input //!< Input translation vector
-    ) const;
-
     //! Rotate plane by matrix
     void
     rotate(
         mat3 const &input //!< Input 3x3 rotation matrix
     );
 
-    //! Get rotated plane by matrix
-    plane
-    rotated(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    ) const;
-
-    //! Transform plane from two coordinate frames
+    //! Transform plane from with affine transformation matrix
     void
     transform(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
+        affine const &matrix //!< 4x4 affine transformation matrix
     );
-
-    //! Get transform plane from two coordinate frames
-    plane
-    transformed(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
-    ) const;
 
     //! Reverse plane normal vector
     void
     reverse(void);
-
-    //! Get plane wirh reversed ray direction
-    plane
-    reversed(void) const;
 
     //! Return plane equation d value (ax + by + cz + d = 0)
     real_type
@@ -188,9 +163,21 @@ namespace acme
         vec3 const &input //!< Input
     ) const;
 
+    //! Squared distance between point and plane
+    real_type
+    squaredDistance(
+        vec3 const &input //!< Input
+    ) const;
+
+    //! Signed distance between point and plane
+    real_type
+    signedDistance(
+        vec3 const &input //!< Input
+    ) const;
+
     // Check whether a point lays on the plane
     bool
-    is_inside(
+    isInside(
         vec3 const &point //!< Input
     ) const;
 

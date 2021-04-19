@@ -40,6 +40,8 @@
   ACME_ERROR(MSG)
 #endif
 
+#define ACME_USE_CXX11 
+
 // Standard libraries
 #include <memory>
 #include <cstddef>
@@ -53,6 +55,7 @@
 
 // Eigen libraries
 #include <Eigen/Dense>
+#include <Eigen/Geometry>
 
 //!  Namespace containing all acme typedefs, classes and routines
 namespace acme
@@ -95,10 +98,15 @@ namespace acme
   typedef Eigen::Matrix<vec4, Eigen::Dynamic, Eigen::Dynamic> mat_vec4; //!< NxN matrix of 4x1 vector type (column vector)
   typedef Eigen::Matrix<mat4, Eigen::Dynamic, Eigen::Dynamic> mat_mat4; //!< NxN matrix of 4x4 matrix type
 
+  typedef Eigen::DiagonalMatrix<real_type, 3> scale;            //!< 3D scaling transformation type
+  typedef Eigen::Translation<real_type, 3> translate;           //!< 3D translation transformation type
+  typedef Eigen::AngleAxis<real_type> angleaxis;                //!< 3D rotation transformation type
+  typedef Eigen::Transform<real_type, 3, Eigen::Affine> affine; //!< 3D affine tranformation type
+
   /*\
    |    ____                _              _       
    |   / ___|___  _ __  ___| |_ __ _ _ __ | |_ ___ 
-   |  | |   / _ \| '_ \/ __| __/ _` | '_ \| __/ __|
+   |  | |   / _ \| '_ \/ __| __/ _` | '_ \| __/ __|¯
    |  | |__| (_) | | | \__ \ || (_| | | | | |_\__ \
    |   \____\___/|_| |_|___/\__\__,_|_| |_|\__|___/
    |                                               
@@ -117,26 +125,35 @@ namespace acme
   static real_type const PIdiv180 = real_type(0.017453292519943295769236907684886);   //!< \f$ \pi/180 \f$ input
   static real_type const _180divPI = real_type(57.295779513082320876798154814105000); //!< \f$ 180/\pi \f$ input
 
-  static vec2 const NaN_vec2 = vec2::Constant(NaN);    //!< Not-a-Number vec2 type
-  static mat2 const NaN_mat2 = mat2::Constant(NaN);    //!< Not-a-Number mat2 type
-  static vec2 const Zeros_vect2 = vec2::Constant(0.0); //!< Zeros vec2 type
-  static mat2 const Zeros_mat2 = mat2::Constant(0.0);  //!< Zeros mat2 type
-  static vec2 const Ones_vec2 = vec2::Constant(1.0);   //!< Ones vec2 type
-  static mat2 const Ones_mat2 = mat2::Constant(1.0);   //!< Ones mat2 type
-  static mat2 const Identity_mat2 = mat2::Identity();  //!< Identity mat2 type
+  static vec2 const UnitX_vec2 = vec2::UnitX();       //!< X axis unit vec2 type
+  static vec2 const UnitY_vec2 = vec2::UnitY();       //!< Y axis unit vec2 type
+  static vec2 const NaN_vec2 = vec2::Constant(NaN);   //!< Not-a-Number vec2 type
+  static mat2 const NaN_mat2 = mat2::Constant(NaN);   //!< Not-a-Number mat2 type
+  static vec2 const Zeros_vect2 = vec2::Zero();       //!< Zeros vec2 type
+  static mat2 const Zeros_mat2 = mat2::Zero();        //!< Zeros mat2 type
+  static vec2 const Ones_vec2 = vec2::Constant(1.0);  //!< Ones vec2 type
+  static mat2 const Ones_mat2 = mat2::Constant(1.0);  //!< Ones mat2 type
+  static mat2 const Identity_mat2 = mat2::Identity(); //!< Identity mat2 type
 
+  static vec3 const UnitX_vec3 = vec3::UnitX();       //!< X axis unit vec3 type
+  static vec3 const UnitY_vec3 = vec3::UnitY();       //!< Y axis unit vec3 type
+  static vec3 const UnitZ_vec3 = vec3::UnitZ();       //!< Z axis unit vec3 type
   static vec3 const NaN_vec3 = vec3::Constant(NaN);   //!< Not-a-Number vec3 type
   static mat3 const NaN_mat3 = mat3::Constant(NaN);   //!< Not-a-Number mat3 type
-  static vec3 const Zeros_vec3 = vec3::Constant(0.0); //!< Zeros vec3 type
-  static mat3 const Zeros_mat3 = mat3::Constant(0.0); //!< Zeros mat3 type
+  static vec3 const Zeros_vec3 = vec3::Zero();        //!< Zeros vec3 type
+  static mat3 const Zeros_mat3 = mat3::Zero();        //!< Zeros mat3 type
   static vec3 const Ones_vec3 = vec3::Constant(1.0);  //!< Ones vec3 type
   static mat3 const Ones_mat3 = mat3::Constant(1.0);  //!< Ones mat3 type
   static mat3 const Identity_mat3 = mat3::Identity(); //!< Identity mat3 type
 
+  static vec4 const UnitX_vec4 = vec4::UnitX();       //!< X axis unit vec4 type
+  static vec4 const UnitY_vec4 = vec4::UnitY();       //!< Y axis unit vec4 type
+  static vec4 const UnitZ_vec4 = vec4::UnitZ();       //!< Z axis unit vec4 type
+  static vec4 const UnitW_vec4 = vec4::UnitW();       //!< W axis unit vec4 type
   static vec4 const NaN_vec4 = vec4::Constant(NaN);   //!< Not-a-Number vec4 type
   static mat4 const NaN_mat4 = mat4::Constant(NaN);   //!< Not-a-Number mat4 type
-  static vec4 const Zeros_vec4 = vec4::Constant(0.0); //!< Zeros vec4 type
-  static mat4 const Zeros_mat4 = mat4::Constant(0.0); //!< Zeros mat4 type
+  static vec4 const Zeros_vec4 = vec4::Zero();        //!< Zeros vec4 type
+  static mat4 const Zeros_mat4 = mat4::Zero();        //!< Zeros mat4 type
   static vec4 const Ones_vec4 = vec4::Constant(1.0);  //!< Ones vec4 type
   static mat4 const Ones_mat4 = mat4::Constant(1.0);  //!< Ones mat4 type
   static mat4 const Identity_mat4 = mat4::Identity(); //!< Identity mat4 type
@@ -148,27 +165,7 @@ namespace acme
   static mat3 mat3_goat = mat3(NaN_mat3); //!< Scapegoat mat3 type (throwaway non-const object)
   static mat4 mat4_goat = mat4(NaN_mat4); //!< Scapegoat mat4 type (throwaway non-const object)
 
-  /*\
-   |    ____ _                         
-   |   / ___| | __ _ ___ ___  ___  ___ 
-   |  | |   | |/ _` / __/ __|/ _ \/ __|
-   |  | |___| | (_| \__ \__ \  __/\__ \
-   |   \____|_|\__,_|___/___/\___||___/
-   |                                   
-  \*/
-
-  //class line;     //! Line class container
-  //class ray;      //! Ray class container
-  //class plane;    //! Plane class container
-  //class segment;  //! Segment class container
-  //class triangle; //! Triangle class container
-  //class circle;   //! Circle class container
-  //class box;      //! Box class container
-  //class AABBtree; //! AABB tree class container
-
 } // namespace acme
-
-
 
 //!< Overload stream out operator for acme::vec2 object
 std::ostream &

@@ -49,7 +49,7 @@ namespace acme
   {
   public:
 #ifdef ACME_USE_CXX11
-    typedef shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
+    typedef std::shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
 #else
     typedef AABBtree *ptr; //!< Pointer to AABB tree object
 #endif
@@ -68,10 +68,12 @@ namespace acme
     AABBtree();
 
     //! Clear AABB tree data
-    void clear(void);
+    void
+    clear(void);
 
     //! Check if AABB tree is empty
-    bool is_empty(void) const;
+    bool
+    isEmpty(void) const;
 
     //! Build AABB tree given a list of boxes
     void
@@ -97,7 +99,7 @@ namespace acme
     {
 
       // check box with
-      if (!tree.ptrbox->collision(*ptrbox))
+      if (!tree.ptrbox->intersects(*ptrbox))
         return false;
 
       int icase = (children.empty() ? 0 : 1) +
@@ -144,14 +146,14 @@ namespace acme
 
     //! Compute all the intersection of AABB trees
     void
-    intersect(
+    intersection(
         AABBtree const &tree,              //!< AABB tree used to check collision
         box::vecpairptr &intersectionList, //!< List of pair box that overlaps
         bool swap_tree = false             //!< If true exchange the tree in computation
     ) const;
 
     //! Find the candidate at minimum distance from point
-    void min_distance(
+    void selectMinimumDistance(
         vec3 const &point,         //!< Input point
         box::vecptr &candidateList //!< Output candidate list
     ) const;
@@ -159,7 +161,7 @@ namespace acme
   private:
     //! Compute the minimum of the maximum distance between a point
     static real_type
-    min_maxdist(
+    minimumExteriorDistance(
         vec3 const &point,    //!< Input point
         AABBtree const &tree, //!< Input tree
         real_type distance    //!< Output distance
@@ -167,7 +169,7 @@ namespace acme
 
     //! Select the candidate which box have distance less than distance
     static void
-    min_maxdist_select(
+    selectLessThanDistance(
         vec3 const &point,         //!< Input point
         real_type distance,        //!< Input distance
         AABBtree const &tree,      //!< Input tree

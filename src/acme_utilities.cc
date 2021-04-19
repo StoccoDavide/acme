@@ -103,8 +103,8 @@ namespace acme
       ostream_type &os,
       segment const &obj)
   {
-    vec3 obj_point_0(obj.point_0());
-    vec3 obj_point_1(obj.point_1());
+    vec3 obj_point_0(obj.point(0));
+    vec3 obj_point_1(obj.point(1));
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -124,8 +124,8 @@ namespace acme
       ostream_type &os,
       box const &obj)
   {
-    vec3 obj_point_min(obj.point_min());
-    vec3 obj_point_max(obj.point_max());
+    vec3 obj_point_min(obj.min());
+    vec3 obj_point_max(obj.max());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -145,9 +145,9 @@ namespace acme
       ostream_type &os,
       triangle const &obj)
   {
-    vec3 obj_vertex_0(obj.vertex_0());
-    vec3 obj_vertex_2(obj.vertex_1());
-    vec3 obj_vertex_1(obj.vertex_2());
+    vec3 obj_vertex_0(obj.vertex(0));
+    vec3 obj_vertex_2(obj.vertex(1));
+    vec3 obj_vertex_1(obj.vertex(2));
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -191,21 +191,17 @@ namespace acme
   ostream_type &
   operator<<(
       ostream_type &os,
-      frame const &obj)
+      affine const &obj)
   {
-    vec3 obj_origin(obj.origin());
-    mat3 obj_rotation(obj.rotation());
     os << std::scientific
        << std::showpoint
        << std::setprecision(10)
        << std::endl
-       << "Origin   = "
-       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'"
-       << std::endl
-       << "Rotation = "
-       << "[ " << obj_rotation(0, 0) << ", " << obj_rotation(0, 1) << ", " << obj_rotation(0, 2) << " ]"
-       << "[ " << obj_rotation(1, 0) << ", " << obj_rotation(1, 1) << ", " << obj_rotation(1, 2) << " ]'"
-       << "[ " << obj_rotation(2, 0) << ", " << obj_rotation(2, 1) << ", " << obj_rotation(2, 2) << " ]'";
+       << "Affine = "
+       << "[ " << obj(0, 0) << ", " << obj(0, 1) << ", " << obj(0, 2) << ", " << obj(0, 3) << " ]"
+       << "[ " << obj(1, 0) << ", " << obj(1, 1) << ", " << obj(1, 2) << ", " << obj(1, 3) << " ]"
+       << "[ " << obj(2, 0) << ", " << obj(2, 1) << ", " << obj(2, 2) << ", " << obj(2, 3) << " ]"
+       << "[ " << obj(3, 0) << ", " << obj(3, 1) << ", " << obj(3, 2) << ", " << obj(3, 3) << " ]";
     return os;
   }
 

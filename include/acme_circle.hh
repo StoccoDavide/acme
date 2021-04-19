@@ -30,8 +30,6 @@
 namespace acme
 {
 
-  class frame;
-
   /*\
    |        _          _      
    |    ___(_)_ __ ___| | ___ 
@@ -99,13 +97,13 @@ namespace acme
 
     //! Check if circles are (almost) equal
     bool
-    is_equal(
+    isApprox(
         circle const &input //!< Input circle object
     ) const;
 
     //! Check if circle is degenerated
     bool
-    is_degenerated(void) const;
+    isDegenerated(void) const;
 
     //! Get circle radius
     real_type
@@ -143,7 +141,7 @@ namespace acme
 
     //! Normalize circle normal vector
     void
-    normalize_normal(void);
+    normalize(void);
 
     //! Set circle laying plane
     void
@@ -157,47 +155,18 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Get translated circle by vector
-    circle
-    translated(
-        vec3 const &input //!< Input translation vector
-    ) const;
-
-    //! Rotate by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    );
-
-    //! Get rotated circle by matrix
-    circle
-    rotated(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    ) const;
-
-    //! Transform circle from two coordinate frames
+    //! Transform circle with affine transformation matrix
     void transform(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
+        affine const &matrix //!< 4x4 affine transformation matrix
     );
-
-    //! Get transformed circle from two coordinate frames
-    circle transformed(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
-    ) const;
 
     //! Reverse direction
     void
     reverse(void);
 
-    //! Get circle with reversed plane normal direction
-    circle
-    reversed(void) const;
-
     // Check whether the point is inside the circle
     bool
-    is_inside(
+    isInside(
         vec3 const &point //!< Query point
     ) const;
 

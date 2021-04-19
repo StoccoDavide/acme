@@ -222,136 +222,111 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  is_equal(
+  isApprox(
       real_type input0,
       real_type input1,
       real_type tolerance)
   {
-    return abs(input0 - input1) < tolerance;
+    return std::abs(input0 - input1) < tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  is_equal(
+  isApprox(
       vec3 const &input0,
       vec3 const &input1,
       real_type tolerance)
   {
-    return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
+    return acme::isApprox((input0 - input1).norm(),
+                          real_type(0.0),
+                          tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  is_equal(
+  isApprox(
       mat3 const &input0,
       mat3 const &input1,
       real_type tolerance)
   {
-    return acme::is_equal((input0 - input1).norm(), 0.0, tolerance);
+    return acme::isApprox((input0 - input1).norm(),
+                          real_type(0.0),
+                          tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  is_degenerated(
+  isDegenerated(
       vec3 const &input,
       real_type tolerance)
   {
-    return acme::is_equal(input.norm(), 0.0, tolerance);
+    return acme::isApprox(input.norm(),
+                          real_type(0.0),
+                          tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  is_normalized(
-      vec3 const &input,
-      real_type tolerance)
-  {
-    return acme::is_equal(input.norm(), 1.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  is_ortogonal(
+  isParallel(
       vec3 const &input0,
       vec3 const &input1,
       real_type tolerance)
   {
-    return acme::is_equal(abs(input0.dot(input1)) / (input0.norm() * input1.norm()), 0.0, tolerance);
+    return acme::isApprox(input0.cross(input1).norm(),
+                          real_type(0.0),
+                          tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  is_parallel(
-      vec3 const &input0,
-      vec3 const &input1,
-      real_type tolerance)
-  {
-    return acme::is_equal(input0.cross(input1).norm(), 0.0, tolerance);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  is_ortonormal(
+  isOrthonormal(
       mat3 const &input,
       real_type tolerance)
   {
-    return acme::is_ortogonal(input.col(0), input.col(1), tolerance) &&
-           acme::is_ortogonal(input.col(1), input.col(2), tolerance) &&
-           acme::is_ortogonal(input.col(2), input.col(0), tolerance) &&
-           acme::is_normalized(vec3(input.col(0)), tolerance) &&
-           acme::is_normalized(vec3(input.col(1)), tolerance) &&
-           acme::is_normalized(vec3(input.col(2)), tolerance);
+    return input.col(0).isOrthogonal(input.col(1), tolerance) &&
+           input.col(1).isOrthogonal(input.col(2), tolerance) &&
+           input.col(2).isOrthogonal(input.col(0), tolerance) &&
+           input.col(0).isUnitary(tolerance) &&
+           input.col(1).isUnitary(tolerance) &&
+           input.col(2).isUnitary(tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3
-  rotation_x(
-      real_type input)
+  angleaxis
+  rotate(
+      real_type angle,
+      vec3 const &axis)
   {
-    mat3 rot;
-    rot << 1.0, 0.0, 0.0,
-        0.0, cos(input), -sin(input),
-        0.0, sin(input), cos(input);
-    return rot;
+    return Eigen::AngleAxis<real_type>(angle, axis);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  mat3
-  rotation_y(
-      real_type input)
+  angleaxis
+  rotate(
+      real_type angle,
+      std::string const &axis)
   {
-    mat3 rot;
-    rot << cos(input), 0.0, sin(input),
-        0.0, 1.0, 0.0,
-        -sin(input), 0.0, cos(input);
-    return rot;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  mat3
-  rotation_z(
-      real_type input)
-  {
-    mat3 rot;
-    rot << cos(input), -sin(input), 0.0,
-        sin(input), cos(input), 0.0,
-        0.0, 0.0, 1.0;
-    return rot;
+    if (axis == "X")
+      return Eigen::AngleAxis<real_type>(angle, UnitX_vec3);
+    else if (axis == "Y")
+      return Eigen::AngleAxis<real_type>(angle, UnitY_vec3);
+    else if (axis == "Z")
+      return Eigen::AngleAxis<real_type>(angle, UnitZ_vec3);
+    else
+      ACME_ERROR("acme::rotate(): invalid axis string.")
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type
-  angle_rad(
+  angle(
       vec3 const &input0,
       vec3 const &input1)
   {
@@ -360,12 +335,33 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  angle_deg(
-      vec3 const &input0,
-      vec3 const &input1)
+  /*\
+   |   _____                     __                      
+   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
+   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
+   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
+   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
+   |                                                     
+  \*/
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  transformVector(
+      vec3 &vector,
+      affine const &matrix)
   {
-    return acme::angle_rad(input0, input1) * 1 / PIdiv180;
+    vector = matrix.linear() * vector;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  transformPoint(
+      vec3 &point,
+      affine const &matrix)
+  {
+    point = matrix * point;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

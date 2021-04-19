@@ -25,7 +25,6 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
 
 namespace acme
 {
@@ -101,13 +100,13 @@ namespace acme
 
     //! Check if ray objects are (almost) equal
     bool
-    is_equal(
+    isApprox(
         ray const &input //!< Input ray object
     ) const;
 
     //! Check if ray is degenerated (null vector)
     bool
-    is_degenerated(void) const;
+    isDegenerated(void) const;
 
     //! Return ray origin point
     vec3 const &
@@ -131,15 +130,15 @@ namespace acme
 
     //! Normalize ray direction vector
     void
-    normalize_direction(void);
+    normalize(void);
 
     //! Convert ray to vector
     vec3
-    to_vector(void) const;
+    toVector(void) const;
 
     //! Convert ray to normalized vector
     vec3
-    to_normalized_vector(void) const;
+    toNormalizedVector(void) const;
 
     //! Translate ray by vector
     void
@@ -147,49 +146,19 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Get translated ray by vector
-    ray
-    translated(
-        vec3 const &input //!< Input translation vector
-    ) const;
-
-    //! Rotate ray by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    );
-
-    //! Get rotated ray by matrix
-    ray
-    rotated(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    ) const;
-
-    //! Transform ray from two coordinate frames
+    //! Transform ray with affine transformation matrix
     void
     transform(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
+        affine const &matrix //!< 4x4 affine transformation matrix
     );
-
-    //! Get transformed ray from two coordinate frames
-    ray
-    transformed(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
-    ) const;
 
     //! Reverse ray direction
     void
     reverse(void);
 
-    //! Get reversed direction ray
-    ray
-    reversed(void) const;
-
     // Check whether the point is inside the ray
     bool
-    is_inside(
+    isInside(
         vec3 const &point //!< Query point
     ) const;
 

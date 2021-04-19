@@ -84,62 +84,27 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  segment::is_equal(
+  segment::isApprox(
       segment const &input)
       const
   {
-    return acme::is_equal(this->_point[0], input._point[0]) &&
-           acme::is_equal(this->_point[1], input._point[1]);
+    return this->_point[0].isApprox(input._point[0]) &&
+           this->_point[1].isApprox(input._point[1]);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  segment::is_degenerated(void)
+  segment::isDegenerated(void)
       const
   {
-    return acme::is_equal((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  vec3 const &
-  segment::point_0(void)
-      const
-  {
-    return this->_point[0];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void segment::point_0(
-      vec3 const &input)
-  {
-    this->_point[0] = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  vec3 const &
-  segment::point_1(void)
-      const
-  {
-    return this->_point[1];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  segment::point_1(
-      vec3 const &input)
-  {
-    this->_point[1] = input;
+    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  segment::midpoint(void)
+  segment::pointMiddle(void)
       const
   {
     return (this->_point[0] + this->_point[1]) / 2.0;
@@ -149,36 +114,25 @@ namespace acme
 
   vec3 const &
   segment::point(
-      unsigned i) const
+      unsigned i)
+      const
   {
     return this->_point[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
+  vec3 &
   segment::point(
-      unsigned i,
-      vec3 const &input)
+      unsigned i)
   {
-    this->_point[i] = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  segment::points(
-      vec3 const &input0,
-      vec3 const &input1)
-  {
-    this->_point[0] = input0;
-    this->_point[1] = input1;
+    return this->_point[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  segment::to_vector(void) const
+  segment::toVector(void) const
   {
     return vec3(this->_point[1] - this->_point[0]);
   }
@@ -186,7 +140,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  segment::to_normalized_vector(void) const
+  segment::toNormalizedVector(void) const
   {
     return (this->_point[1] - this->_point[0]).normalized();
   }
@@ -203,57 +157,12 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment
-  segment::translated(
-      vec3 const &input)
-      const
-  {
-    return segment(input + this->_point[0],
-                   input + this->_point[1]);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  segment::rotate(
-      mat3 const &input)
-  {
-    this->_point[0] = input * this->_point[0];
-    this->_point[1] = input * this->_point[1];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  segment
-  segment::rotated(
-      mat3 const &input)
-      const
-  {
-    return segment(input * this->_point[0],
-                   input * this->_point[1]);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   void
   segment::transform(
-      frame const &from_frame,
-      frame const &to_frame)
+      affine const &matrix)
   {
-    this->_point[0] = acme::transform_point(this->_point[0], from_frame, to_frame);
-    this->_point[1] = acme::transform_point(this->_point[1], from_frame, to_frame);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  segment
-  segment::transformed(
-      frame const &from_frame,
-      frame const &to_frame)
-      const
-  {
-    return segment(acme::transform_point(this->_point[0], from_frame, to_frame),
-                   acme::transform_point(this->_point[1], from_frame, to_frame));
+    acme::transformPoint(this->_point[0], matrix);
+    acme::transformPoint(this->_point[1], matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -269,16 +178,16 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  segment::minimum_box(
+  segment::clamp(
       box &input)
       const
   {
-    input.x_min(acme::min(this->_point[0].x(), this->_point[1].x()));
-    input.y_min(acme::min(this->_point[0].y(), this->_point[1].y()));
-    input.z_min(acme::min(this->_point[0].z(), this->_point[1].z()));
-    input.x_max(acme::max(this->_point[0].x(), this->_point[1].x()));
-    input.y_max(acme::max(this->_point[0].y(), this->_point[1].y()));
-    input.z_max(acme::max(this->_point[0].z(), this->_point[1].z()));
+    input.minX(acme::min(this->_point[0].x(), this->_point[1].x()));
+    input.minY(acme::min(this->_point[0].y(), this->_point[1].y()));
+    input.minZ(acme::min(this->_point[0].z(), this->_point[1].z()));
+    input.maxX(acme::max(this->_point[0].x(), this->_point[1].x()));
+    input.maxY(acme::max(this->_point[0].y(), this->_point[1].y()));
+    input.maxZ(acme::max(this->_point[0].z(), this->_point[1].z()));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -292,7 +201,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  segment::is_inside(
+  segment::isInside(
       vec3 const &point)
       const
   {

@@ -6,9 +6,8 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_intersect.hh"
+#include "acme_intersection.hh"
 #include "acme_triangle.hh"
-#include "acme_frame.hh"
 #include "acme_utilities.hh"
 
 using namespace acme;
@@ -37,9 +36,8 @@ int main()
   triangle tmp_Triangle2(V2);
 
   // Initialize rotation matrix
-  vec3 origin(-1.0, 0.0, 0.0);
-  mat3 rotation(rotation_x(0.0));
-  frame tmp_frame(origin, rotation);
+  affine tmp_affine;
+  tmp_affine = translate(-1.0, 0.0, 0.0);
 
   // Initialize intersection point
   vec3 IntersectionPointTri1, IntersectionPointTri2;
@@ -53,23 +51,24 @@ int main()
   // Perform intersection
   for (real_type angle = 0;
        angle < PI;
-       angle += 2*PIdiv180)
+       angle += PIdiv180)
   {
-    //rotation = acme::rotation_x(angle);
-    tmp_frame.rotation(acme::rotation_x(angle));
+    tmp_affine = translate(-1.0, 0.0, 0.0) * rotate(angle, "X");
 
-    tmp_Triangle1 = Triangle1.transformed(ground, tmp_frame);
-    tmp_Triangle2 = Triangle2.transformed(ground, tmp_frame);
+    tmp_Triangle1 = Triangle1;
+    tmp_Triangle2 = Triangle2;
+    tmp_Triangle1.transform(tmp_affine);
+    tmp_Triangle2.transform(tmp_affine);
 
-    IntersectionBoolTri1 = intersect(Ray, tmp_Triangle1, IntersectionPointTri1);
-    IntersectionBoolTri2 = intersect(Ray, tmp_Triangle2, IntersectionPointTri2);
+    IntersectionBoolTri1 = intersection(Ray, tmp_Triangle1, IntersectionPointTri1);
+    IntersectionBoolTri2 = intersection(Ray, tmp_Triangle2, IntersectionPointTri2);
 
     std::cout
         << angle * _180divPI << "°\t"
-        << "Triangle 1 = " << tmp_Triangle1 << std::endl
-        << "Triangle 2 = " << tmp_Triangle2 << std::endl
-        << "T1 -> " << IntersectionBoolTri1 << ", T2 -> " << IntersectionBoolTri2 << std::endl
-        << std::endl;
+        //<< "Triangle 1 = " << tmp_Triangle1 << std::endl
+        //<< "Triangle 2 = " << tmp_Triangle2 << std::endl
+        << "T1 -> " << IntersectionBoolTri1 << ", T2 -> " << IntersectionBoolTri2 << std::endl;
+        //<< std::endl;
 
     // ERROR if no one of the two triangles is hit
     if (!IntersectionBoolTri1 && !IntersectionBoolTri2)

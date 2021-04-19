@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['perimeter_220',['perimeter',['../d4/d18/classacme_1_1triangle.html#a832cbb824ac5c333bb576a642a387f7b',1,'acme::triangle']]],
-  ['plane_221',['plane',['../dd/d62/classacme_1_1plane.html#aa40e6f58c335caff1842d8502c8ffb6e',1,'acme::plane::plane()'],['../dd/d62/classacme_1_1plane.html#a3389e016780769c9e76eadfaf4bf94ce',1,'acme::plane::plane(plane const &amp;)=default'],['../dd/d62/classacme_1_1plane.html#ad5d53bd31bae25f46d2b60eec9b6bcf3',1,'acme::plane::plane(real_type ox, real_type oy, real_type oz, real_type dx, real_type dy, real_type dz)'],['../dd/d62/classacme_1_1plane.html#a95a75e3c266e28eb41b07f115b6a3768',1,'acme::plane::plane(vec3 const &amp;origin, vec3 const &amp;normal)']]],
-  ['point_222',['point',['../d5/ddc/classacme_1_1segment.html#a80bca7d0eb909d030711ad407d51fe06',1,'acme::segment::point(unsigned i) const'],['../d5/ddc/classacme_1_1segment.html#a636fbadb5673dfbe60e095a5845f539b',1,'acme::segment::point(unsigned i, vec3 const &amp;input)']]],
-  ['point_5f0_223',['point_0',['../d5/ddc/classacme_1_1segment.html#a958f643ac0e87489597b55434db3e9a4',1,'acme::segment::point_0(void) const'],['../d5/ddc/classacme_1_1segment.html#aacf2be5d1439ab61be5d00a892032dc6',1,'acme::segment::point_0(vec3 const &amp;input)']]],
-  ['point_5f1_224',['point_1',['../d5/ddc/classacme_1_1segment.html#ac10aa19bbf95b7db4f12976f86b831cb',1,'acme::segment::point_1(void) const'],['../d5/ddc/classacme_1_1segment.html#af2c88592f4e9ce3f6d9090e8c7a41561',1,'acme::segment::point_1(vec3 const &amp;input)']]],
-  ['point_5fmax_225',['point_max',['../d7/de4/classacme_1_1box.html#a8dea53112d65ee14c4b001e949fc1111',1,'acme::box::point_max(void) const'],['../d7/de4/classacme_1_1box.html#a19c7251124e1832547aed9cc4411e4c0',1,'acme::box::point_max(vec3 const &amp;input)'],['../d7/de4/classacme_1_1box.html#a1c54046fdf74002e57977e81ffc20f1d',1,'acme::box::point_max(real_type x, real_type y, real_type z)']]],
-  ['point_5fmin_226',['point_min',['../d7/de4/classacme_1_1box.html#ae22a2b8a93686d6205c67bca0ad11c29',1,'acme::box::point_min(void) const'],['../d7/de4/classacme_1_1box.html#aa1898ddec19f48296a30a39517153268',1,'acme::box::point_min(vec3 const &amp;input)'],['../d7/de4/classacme_1_1box.html#a7f2a23c3b8610cd5771f5285ab10974d',1,'acme::box::point_min(real_type x, real_type y, real_type z)']]],
-  ['points_227',['points',['../d5/ddc/classacme_1_1segment.html#a0b4b8861e7b75ae5c04f11eab0365da8',1,'acme::segment']]],
-  ['pow_228',['pow',['../db/d32/namespaceacme.html#a6fbd073cd37c29f58cc86e5704ade97d',1,'acme']]],
-  ['print_229',['print',['../d3/d76/classacme_1_1_a_a_b_btree.html#a0e2885464abb4c83960e5cd490dd20e6',1,'acme::AABBtree']]]
+  ['segment_196',['segment',['../d5/ddc/classacme_1_1segment.html#a0f09598fc9e3bc130f470b5e7041cfd1',1,'acme::segment::segment(segment const &amp;)=default'],['../d5/ddc/classacme_1_1segment.html#af85fb1cb18801ba0f3791e3a1f4c88f9',1,'acme::segment::segment()'],['../d5/ddc/classacme_1_1segment.html#aabc79db82edf7afd80438d0e9ae9c871',1,'acme::segment::segment(real_type x0, real_type y0, real_type z0, real_type x1, real_type y1, real_type z1)'],['../d5/ddc/classacme_1_1segment.html#a6810584664495cd8ff0f4cc57a793d02',1,'acme::segment::segment(vec3 const &amp;point0, vec3 const &amp;point1)'],['../d5/ddc/classacme_1_1segment.html#a463e23889473fa68310aa487444fcbb3',1,'acme::segment::segment(vec3 const point[2])']]],
+  ['selectminimumdistance_197',['selectMinimumDistance',['../d3/d76/classacme_1_1_a_a_b_btree.html#a4a229b269bcf643e51f0e2b9c3be6eed',1,'acme::AABBtree']]],
+  ['setempty_198',['setEmpty',['../d7/de4/classacme_1_1box.html#a66ea858bd57d9c0b888800b708de3dd8',1,'acme::box']]],
+  ['signeddistance_199',['signedDistance',['../dd/d62/classacme_1_1plane.html#a8001ce049b7edced4c0ed441e6f77e23',1,'acme::plane']]],
+  ['sin_200',['sin',['../db/d32/namespaceacme.html#a7229909830f1975fc713dd6eb53b86cc',1,'acme']]],
+  ['sqr_201',['sqr',['../db/d32/namespaceacme.html#a078eeed227051dc6ecc4e448852f79e1',1,'acme']]],
+  ['sqrt_202',['sqrt',['../db/d32/namespaceacme.html#a0c7c7cb53fa8943ef8f2ee578e25367d',1,'acme']]],
+  ['squaredcenterdistance_203',['squaredCenterDistance',['../d7/de4/classacme_1_1box.html#aca478bf18f4366f25a418e3ed0a11ea0',1,'acme::box']]],
+  ['squareddistance_204',['squaredDistance',['../dd/d62/classacme_1_1plane.html#ad8ca28a4c5ef908ac6ce514cf44dfe29',1,'acme::plane']]],
+  ['squaredexteriordistance_205',['squaredExteriorDistance',['../d7/de4/classacme_1_1box.html#a1b5d2e9f7cdde4547f540bbc1512e91a',1,'acme::box']]],
+  ['swap_206',['swap',['../d5/ddc/classacme_1_1segment.html#add9c4777eac1c228a2d01248b35f4e69',1,'acme::segment::swap()'],['../d4/d18/classacme_1_1triangle.html#a6fe8a552f6c31f1a5283d27812f78a4f',1,'acme::triangle::swap()']]]
 ];

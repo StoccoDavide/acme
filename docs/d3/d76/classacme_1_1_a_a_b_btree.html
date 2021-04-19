@@ -89,10 +89,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a0911bc3102d7b792f24f4690d79d99ec"><td class="memItemLeft" align="right" valign="top"><a id="a0911bc3102d7b792f24f4690d79d99ec"></a>
-typedef <a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html">AABBtree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a0911bc3102d7b792f24f4690d79d99ec">ptr</a></td></tr>
-<tr class="memdesc:a0911bc3102d7b792f24f4690d79d99ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to AABB tree object. <br /></td></tr>
-<tr class="separator:a0911bc3102d7b792f24f4690d79d99ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d335513f3bdca20441084d20d272e13"><td class="memItemLeft" align="right" valign="top"><a id="a7d335513f3bdca20441084d20d272e13"></a>
+typedef std::shared_ptr&lt; <a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html">AABBtree</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a7d335513f3bdca20441084d20d272e13">ptr</a></td></tr>
+<tr class="memdesc:a7d335513f3bdca20441084d20d272e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared pointer to AABB tree object. <br /></td></tr>
+<tr class="separator:a7d335513f3bdca20441084d20d272e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -108,11 +108,11 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a5331c3c9a0a206cf3aae9274e873e86e">clear</a> (void)</td></tr>
 <tr class="memdesc:a5331c3c9a0a206cf3aae9274e873e86e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear AABB tree data. <br /></td></tr>
 <tr class="separator:a5331c3c9a0a206cf3aae9274e873e86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad79e3bbad840b8905f093af5d5f64ac5"><td class="memItemLeft" align="right" valign="top"><a id="ad79e3bbad840b8905f093af5d5f64ac5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#ad79e3bbad840b8905f093af5d5f64ac5">is_empty</a> (void) const</td></tr>
-<tr class="memdesc:ad79e3bbad840b8905f093af5d5f64ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if AABB tree is empty. <br /></td></tr>
-<tr class="separator:ad79e3bbad840b8905f093af5d5f64ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ae64b8ae9dd3f6650741740ff8c270f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a9ae64b8ae9dd3f6650741740ff8c270f">build</a> (std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">box::ptr</a> &gt; const &amp;boxes)</td></tr>
+<tr class="memitem:a7ca96fdb2cdc438cbe394b230b63000e"><td class="memItemLeft" align="right" valign="top"><a id="a7ca96fdb2cdc438cbe394b230b63000e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a7ca96fdb2cdc438cbe394b230b63000e">isEmpty</a> (void) const</td></tr>
+<tr class="memdesc:a7ca96fdb2cdc438cbe394b230b63000e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if AABB tree is empty. <br /></td></tr>
+<tr class="separator:a7ca96fdb2cdc438cbe394b230b63000e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ae64b8ae9dd3f6650741740ff8c270f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a9ae64b8ae9dd3f6650741740ff8c270f">build</a> (std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#a517786c962aabee4236eb25d9c156998">box::ptr</a> &gt; const &amp;boxes)</td></tr>
 <tr class="memdesc:a9ae64b8ae9dd3f6650741740ff8c270f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build AABB tree given a list of boxes.  <a href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a9ae64b8ae9dd3f6650741740ff8c270f">More...</a><br /></td></tr>
 <tr class="separator:a9ae64b8ae9dd3f6650741740ff8c270f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2885464abb4c83960e5cd490dd20e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a0e2885464abb4c83960e5cd490dd20e6">print</a> (<a class="el" href="../../db/d32/namespaceacme.html#a3153cb637a32de1a6a395802a8c39b1d">ostream_type</a> &amp;stream, int level=0) const</td></tr>
@@ -122,12 +122,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="memitem:ac6df038a159f05285749df15b0c3d1be"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#ac6df038a159f05285749df15b0c3d1be">collision</a> (<a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html">AABBtree</a> const &amp;tree, collision function, bool swap_tree=false) const</td></tr>
 <tr class="memdesc:ac6df038a159f05285749df15b0c3d1be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two AABB tree collide.  <a href="../../d3/d76/classacme_1_1_a_a_b_btree.html#ac6df038a159f05285749df15b0c3d1be">More...</a><br /></td></tr>
 <tr class="separator:ac6df038a159f05285749df15b0c3d1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad156d79a0c0f33a9c5ed8b98dc94dcb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#ad156d79a0c0f33a9c5ed8b98dc94dcb0">intersect</a> (<a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html">AABBtree</a> const &amp;tree, <a class="el" href="../../d7/de4/classacme_1_1box.html#ac98462b6fd779b49a55d705346ca6917">box::vecpairptr</a> &amp;intersectionList, bool swap_tree=false) const</td></tr>
-<tr class="memdesc:ad156d79a0c0f33a9c5ed8b98dc94dcb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all the intersection of AABB trees.  <a href="../../d3/d76/classacme_1_1_a_a_b_btree.html#ad156d79a0c0f33a9c5ed8b98dc94dcb0">More...</a><br /></td></tr>
-<tr class="separator:ad156d79a0c0f33a9c5ed8b98dc94dcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18dfd6969010ded3be1e03a685649cd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a18dfd6969010ded3be1e03a685649cd5">min_distance</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point, <a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">box::vecptr</a> &amp;candidateList) const</td></tr>
-<tr class="memdesc:a18dfd6969010ded3be1e03a685649cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the candidate at minimum distance from point.  <a href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a18dfd6969010ded3be1e03a685649cd5">More...</a><br /></td></tr>
-<tr class="separator:a18dfd6969010ded3be1e03a685649cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2202aebb79d910d8c1e6d583f47710ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a2202aebb79d910d8c1e6d583f47710ea">intersection</a> (<a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html">AABBtree</a> const &amp;tree, <a class="el" href="../../d7/de4/classacme_1_1box.html#ac98462b6fd779b49a55d705346ca6917">box::vecpairptr</a> &amp;intersectionList, bool swap_tree=false) const</td></tr>
+<tr class="memdesc:a2202aebb79d910d8c1e6d583f47710ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute all the intersection of AABB trees.  <a href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a2202aebb79d910d8c1e6d583f47710ea">More...</a><br /></td></tr>
+<tr class="separator:a2202aebb79d910d8c1e6d583f47710ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a229b269bcf643e51f0e2b9c3be6eed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a4a229b269bcf643e51f0e2b9c3be6eed">selectMinimumDistance</a> (<a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;point, <a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">box::vecptr</a> &amp;candidateList) const</td></tr>
+<tr class="memdesc:a4a229b269bcf643e51f0e2b9c3be6eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the candidate at minimum distance from point.  <a href="../../d3/d76/classacme_1_1_a_a_b_btree.html#a4a229b269bcf643e51f0e2b9c3be6eed">More...</a><br /></td></tr>
+<tr class="separator:a4a229b269bcf643e51f0e2b9c3be6eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>AABB tree class container. </p>
@@ -142,7 +142,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
         <tr>
           <td class="memname">void acme::AABBtree::build </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#aba23b22d1447354f741d267ef0de66d6">box::ptr</a> &gt; const &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d7/de4/classacme_1_1box.html#a517786c962aabee4236eb25d9c156998">box::ptr</a> &gt; const &amp;&#160;</td>
           <td class="paramname"><em>boxes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -213,14 +213,14 @@ template&lt;typename collision &gt; </div>
 
 </div>
 </div>
-<a id="ad156d79a0c0f33a9c5ed8b98dc94dcb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad156d79a0c0f33a9c5ed8b98dc94dcb0">&#9670;&nbsp;</a></span>intersect()</h2>
+<a id="a2202aebb79d910d8c1e6d583f47710ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2202aebb79d910d8c1e6d583f47710ea">&#9670;&nbsp;</a></span>intersection()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void acme::AABBtree::intersect </td>
+          <td class="memname">void acme::AABBtree::intersection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d3/d76/classacme_1_1_a_a_b_btree.html">AABBtree</a> const &amp;&#160;</td>
           <td class="paramname"><em>tree</em>, </td>
@@ -251,43 +251,6 @@ template&lt;typename collision &gt; </div>
     <tr><td class="paramname">tree</td><td>AABB tree used to check collision </td></tr>
     <tr><td class="paramname">intersectionList</td><td>List of pair box that overlaps </td></tr>
     <tr><td class="paramname">swap_tree</td><td>If true exchange the tree in computation </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a18dfd6969010ded3be1e03a685649cd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18dfd6969010ded3be1e03a685649cd5">&#9670;&nbsp;</a></span>min_distance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void acme::AABBtree::min_distance </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
-          <td class="paramname"><em>point</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">box::vecptr</a> &amp;&#160;</td>
-          <td class="paramname"><em>candidateList</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the candidate at minimum distance from point. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">point</td><td>Input point </td></tr>
-    <tr><td class="paramname">candidateList</td><td>Output candidate list </td></tr>
   </table>
   </dd>
 </dl>
@@ -325,6 +288,43 @@ template&lt;typename collision &gt; </div>
   <table class="params">
     <tr><td class="paramname">stream</td><td>Output stream </td></tr>
     <tr><td class="paramname">level</td><td>Level to print </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4a229b269bcf643e51f0e2b9c3be6eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a229b269bcf643e51f0e2b9c3be6eed">&#9670;&nbsp;</a></span>selectMinimumDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void acme::AABBtree::selectMinimumDistance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d32/namespaceacme.html#af87a2fdbe8786580672abb79e82920d2">vec3</a> const &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/de4/classacme_1_1box.html#a178f2b832c3ca82d639449f9485f7fcf">box::vecptr</a> &amp;&#160;</td>
+          <td class="paramname"><em>candidateList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the candidate at minimum distance from point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>Input point </td></tr>
+    <tr><td class="paramname">candidateList</td><td>Output candidate list </td></tr>
   </table>
   </dd>
 </dl>

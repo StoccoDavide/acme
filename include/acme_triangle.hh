@@ -25,7 +25,6 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_frame.hh"
 #include "acme_segment.hh"
 #include "acme_box.hh"
 
@@ -104,43 +103,13 @@ namespace acme
 
     //! Check if objects are (almost) equal
     bool
-    is_equal(
+    isApprox(
         triangle const &input //!< Input triangle object
     ) const;
 
     //! Check if triangle is degenerated to point or segment
     bool
-    is_degenerated(void) const;
-
-    //! Get first triangle vertex
-    vec3 const &
-    vertex_0(void) const;
-
-    //! Set first triangle vertex
-    void
-    vertex_0(
-        vec3 const &input //!< New triangle vertex
-    );
-
-    //! Get second triangle vertex
-    vec3 const &
-    vertex_1(void) const;
-
-    //! Set second triangle vertex
-    void
-    vertex_1(
-        vec3 const &input //!< New triangle vertex
-    );
-
-    //! Get third triangle vertex
-    vec3 const &
-    vertex_2(void) const;
-
-    //! Set third triangle vertex
-    void
-    vertex_2(
-        vec3 const &input //!< New triangle vertex
-    );
+    isDegenerated(void) const;
 
     //! Get i-th triangle vertex
     vec3 const &
@@ -148,11 +117,10 @@ namespace acme
         unsigned i //!< New triangle vertex
     ) const;
 
-    //! Set i-th triangle vertex
-    void
+    //! Get i-th triangle vertex
+    vec3 &
     vertex(
-        unsigned i,       //!< Triangle i-th vertex index
-        vec3 const &input //!< New triangle vertex
+        unsigned i //!< New triangle vertex
     );
 
     //! Set triangle vertices
@@ -168,18 +136,6 @@ namespace acme
     vertices(
         vec3 const vertex[3] //!< New triangle vertices
     );
-
-    //! Get first triangle edge
-    segment
-    edge_0(void) const;
-
-    //! Get second triangle edge
-    segment
-    edge_1(void) const;
-
-    //! Get third triangle edge
-    segment
-    edge_2(void) const;
 
     //! Get i-th triangle edge
     segment
@@ -204,37 +160,11 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Get translated triangle by vector
-    triangle
-    translated(
-        vec3 const &input //!< Input translation vector
-    ) const;
-
-    //! Rotate triangle by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    );
-
-    //! Get rotated triangle by matrix
-    triangle
-    rotated(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    ) const;
-
-    //! Transform triangle from two coordinate frames
+    //! Transform triangle with affine transformation matrix
     void
     transform(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
+        affine const &matrix //!< 4x4 affine transformation matrix
     );
-
-    //! Get transformed triangle from two coordinate frames
-    triangle
-    transformed(
-        frame const &from_frame, //!< Actual reference coordinate system
-        frame const &to_frame    //!< Future reference coordinate system
-    ) const;
 
     //! Swap triangle vertices
     void
@@ -245,7 +175,7 @@ namespace acme
 
     //! Get minimum box containing the current triangle object
     void
-    minimum_box(
+    clamp(
         box &input //!< Input box object
     ) const;
 
@@ -261,7 +191,7 @@ namespace acme
 
     //! Check if a point lays inside the triangle
     bool
-    is_inside(
+    isInside(
         vec3 const &point //!< Query point
     ) const;
 
