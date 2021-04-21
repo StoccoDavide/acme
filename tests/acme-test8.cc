@@ -22,19 +22,19 @@ int main()
   vec3 vector(0.0, 0.0, 1.0);
 
   // Initialize rotation matrix
-  affine tranformation = translate(0.0, 0.0, -1.0) * rotate(PI / 4, "X");
+  affine transformation = translate(0.0, 0.0, -1.0) * rotate(PI / 4, "X");
 
   // Transform objects
   vec3 mov_point(point);
   vec3 mov_vector(vector);
-  acme::transformPoint(mov_point, tranformation);
-  acme::transformVector(mov_vector, tranformation);
+  acme::transformPoint(mov_point, transformation);
+  acme::transformVector(mov_vector, transformation);
 
   // Transform objects back
   vec3 ground_point(mov_point);
   vec3 ground_vector(mov_vector);
-  acme::transformPoint(ground_point, tranformation.inverse());
-  acme::transformVector(ground_vector, tranformation.inverse());
+  acme::transformPoint(ground_point, transformation.inverse());
+  acme::transformVector(ground_vector, transformation.inverse());
 
   // Display results
   std::cout

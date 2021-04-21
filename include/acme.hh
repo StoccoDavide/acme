@@ -40,7 +40,7 @@
   ACME_ERROR(MSG)
 #endif
 
-#define ACME_USE_CXX11 
+//#define ACME_USE_CXX11 
 
 // Standard libraries
 #include <memory>
@@ -101,7 +101,7 @@ namespace acme
   typedef Eigen::DiagonalMatrix<real_type, 3> scale;            //!< 3D scaling transformation type
   typedef Eigen::Translation<real_type, 3> translate;           //!< 3D translation transformation type
   typedef Eigen::AngleAxis<real_type> angleaxis;                //!< 3D rotation transformation type
-  typedef Eigen::Transform<real_type, 3, Eigen::Affine> affine; //!< 3D affine tranformation type
+  typedef Eigen::Transform<real_type, 3, Eigen::Affine> affine; //!< 3D affine transformation type
 
   /*\
    |    ____                _              _       

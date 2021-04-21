@@ -157,7 +157,7 @@ namespace acme
       vec3 const &input)
       const
   {
-    return acme::abs((input - this->_origin).dot(this->_normal));
+    return acme::abs(this->signedDistance(input));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -167,7 +167,7 @@ namespace acme
       vec3 const &input)
       const
   {
-    return acme::sqr(this->distance(input));
+    return acme::sqr(this->signedDistance(input));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

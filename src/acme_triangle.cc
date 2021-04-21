@@ -157,16 +157,6 @@ namespace acme
 
   segment
   triangle::edge(
-      size_t i)
-      const
-  {
-    return segment(this->_vertex[i], this->_vertex[i + 1]);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  segment
-  triangle::edge(
       size_t i,
       size_t j)
       const

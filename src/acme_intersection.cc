@@ -232,17 +232,27 @@ namespace acme
       plane const &plane,
       vec3 &point)
   {
-    real_type d0 = plane.distance(segment.point(0));
-    real_type d1 = plane.distance(segment.point(1));
-    if (d0 * d1 > 0)
+    real_type d0 = plane.signedDistance(segment.point(0));
+    real_type d1 = plane.signedDistance(segment.point(1));
+    if (acme::isApprox(d0, real_type(0.0)))
     {
-      return false;
+      point = segment.point(0);
+      return true;
     }
-    else
+    else if (acme::isApprox(d1, real_type(0.0)))
+    {
+      point = segment.point(1);
+      return true;
+    }
+    else if (d0 * d1 < 0)
     {
       real_type t = d0 / (d0 - d1);
       point = segment.point(0) + t * (segment.point(1) - segment.point(0));
       return true;
+    }
+    else
+    {
+      return false;
     }
   }
 
@@ -335,27 +345,53 @@ namespace acme
   {
     vec3 point0, point1, point2;
     bool bool0, bool1, bool2;
-    bool0 = intersection(triangle.edge(0), plane, point0);
-    bool1 = intersection(triangle.edge(1), plane, point1);
-    bool2 = intersection(triangle.edge(2), plane, point2);
+    bool0 = intersection(triangle.edge(0, 1), plane, point0);
+    bool1 = intersection(triangle.edge(1, 2), plane, point1);
+    bool2 = intersection(triangle.edge(2, 0), plane, point2);
 
-    if (bool0 && bool1)
+    if (bool0 && bool1 && !bool2)
     {
       segment.point(0) = point0;
       segment.point(1) = point1;
       return true;
     }
-    else if (bool1 && bool2)
+    else if (!bool0 && bool1 && bool2)
     {
       segment.point(0) = point1;
       segment.point(1) = point2;
       return true;
     }
-    else if (bool2 && bool0)
+    else if (bool0 && !bool1 && bool2)
     {
       segment.point(0) = point2;
       segment.point(1) = point0;
       return true;
+    }
+    else if (bool0 && bool1 && bool2)
+    {
+      if (point0.isApprox(point1))
+      {
+        segment.point(0) = point1;
+        segment.point(1) = point2;
+        return true;
+      }
+      else if (point1.isApprox(point2))
+      {
+        segment.point(0) = point0;
+        segment.point(1) = point1;
+        return true;
+      }
+      else if (point0.isApprox(point2))
+      {
+        segment.point(0) = point0;
+        segment.point(1) = point1;
+        return true;
+      }
+      else
+      {
+        ACME_ERROR("acme::intersection(plane, triangle, segment): exception not handled.")
+        return false;
+      }
     }
     else
     {

@@ -156,7 +156,8 @@ namespace acme
     );
 
     //! Transform circle with affine transformation matrix
-    void transform(
+    void
+    transform(
         affine const &matrix //!< 4x4 affine transformation matrix
     );
 

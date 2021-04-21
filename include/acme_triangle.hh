@@ -137,12 +137,6 @@ namespace acme
         vec3 const vertex[3] //!< New triangle vertices
     );
 
-    //! Get i-th triangle edge
-    segment
-    edge(
-        size_t i //!< Triangle i-th vertex index
-    ) const;
-
     //! Get triangle edge created by i-th and j-th vertex
     segment
     edge(

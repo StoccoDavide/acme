@@ -164,6 +164,9 @@ namespace acme
 
   }; // class segment
 
+  static segment const NaN_segment = segment(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number segment type
+  static segment segment_goat = segment(NaN_segment);                         //!< Scapegoat segment type (throwaway non-const object)
+
 } // namespace acme
 
 #endif
