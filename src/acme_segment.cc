@@ -114,7 +114,7 @@ namespace acme
 
   vec3 const &
   segment::point(
-      unsigned i)
+      size_t i)
       const
   {
     return this->_point[i];
@@ -124,7 +124,7 @@ namespace acme
 
   vec3 &
   segment::point(
-      unsigned i)
+      size_t i)
   {
     return this->_point[i];
   }

@@ -90,12 +90,12 @@ namespace acme
 
     //! Box class constructor
     box(
-        vec3 const &point_min, //!< Input box minimum point
-        vec3 const &point_max, //!< Input box maximum point
+        vec3 const &min, //!< Input box minimum point
+        vec3 const &max, //!< Input box maximum point
         int_type id,           //<! Input box id value
         int_type ipos          //<! Input box rank value
-        ) : _min(point_min),
-            _max(point_max),
+        ) : _min(min),
+            _max(max),
             _id(id),
             _ipos(ipos)
     {
@@ -119,7 +119,7 @@ namespace acme
 
     //! Clear the box domain (set to Not-a-Number)
     void
-    setEmpty(void);
+    clear(void);
 
     //! Check if box objects are (almost) equal
     bool
@@ -158,7 +158,7 @@ namespace acme
     //! Get box minimum i-th point axis value
     real_type
     min(
-        unsigned i //!< Input i-th value
+        size_t i //!< Input i-th value
     ) const;
 
     //! Set box minimum point
@@ -196,7 +196,7 @@ namespace acme
     //! Set box minimum i-th point axis value
     void
     min(
-        unsigned i,     //!< Input i-th value
+        size_t i,     //!< Input i-th value
         real_type input //!< Input value of box minimum point
     );
 
@@ -219,7 +219,7 @@ namespace acme
     //! Get box maximum i-th point axis value
     real_type
     max(
-        unsigned i //!< Input i-th value
+        size_t i //!< Input i-th value
     ) const;
 
     //! Set box maximum point
@@ -257,7 +257,7 @@ namespace acme
     //! Set box maximum i-th point axis value
     void
     max(
-        unsigned i,     //!< Input i-th value
+        size_t i,     //!< Input i-th value
         real_type input //!< Input value of box maximum point
     );
 
@@ -291,21 +291,9 @@ namespace acme
         vec3 const &point //!< Query point
     ) const;
 
-    //! Distance of a point to the box
-    real_type
-    squaredCenterDistance(
-        vec3 const &point //!< Query point
-    ) const;
-
     //! Maximum distance of a point to the box
     real_type
     exteriorDistance(
-        vec3 const &point //!< Query point
-    ) const;
-
-    //! Maximum distance of a point to the box
-    real_type
-    squaredExteriorDistance(
         vec3 const &point //!< Query point
     ) const;
 

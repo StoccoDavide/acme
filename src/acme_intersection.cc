@@ -272,14 +272,14 @@ namespace acme
     f = 1.0 / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < 0.0 || u > 1.0)
+    if (u < real_type(0.0) || u > real_type(1.0))
       return false;
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < 0.0 || u + v > 1.0)
+    if (v < real_type(0.0) || u + v > real_type(1.0))
       return false;
     float t = f * edge2.dot(q);
-    if (t >= 0.0)
+    if (t >= real_type(0.0))
     {
       point = origin + direction * t;
       return true;
@@ -314,11 +314,11 @@ namespace acme
     f = 1.0 / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < 0.0 || u > 1.0)
+    if (u < real_type(0.0) || u > real_type(1.0))
       return false;
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < 0.0 || u + v > 1.0)
+    if (v < real_type(0.0) || u + v > real_type(1.0))
       return false;
     float t = f * edge2.dot(q);
     point = origin + direction * t;

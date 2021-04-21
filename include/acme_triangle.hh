@@ -114,13 +114,13 @@ namespace acme
     //! Get i-th triangle vertex
     vec3 const &
     vertex(
-        unsigned i //!< New triangle vertex
+        size_t i //!< New triangle vertex
     ) const;
 
     //! Get i-th triangle vertex
     vec3 &
     vertex(
-        unsigned i //!< New triangle vertex
+        size_t i //!< New triangle vertex
     );
 
     //! Set triangle vertices
@@ -140,14 +140,14 @@ namespace acme
     //! Get i-th triangle edge
     segment
     edge(
-        unsigned i //!< Triangle i-th vertex index
+        size_t i //!< Triangle i-th vertex index
     ) const;
 
     //! Get triangle edge created by i-th and j-th vertex
     segment
     edge(
-        unsigned i, //!< Triangle i-th vertex index
-        unsigned j  //!< Triangle j-th vertex index
+        size_t i, //!< Triangle i-th vertex index
+        size_t j  //!< Triangle j-th vertex index
     ) const;
 
     //! Get triangle face normal (normalized vector)
@@ -169,8 +169,8 @@ namespace acme
     //! Swap triangle vertices
     void
     swap(
-        unsigned i, //!< Triangle i-th vertex index
-        unsigned j  //!< Triangle j-th vertex index
+        size_t i, //!< Triangle i-th vertex index
+        size_t j  //!< Triangle j-th vertex index
     );
 
     //! Get minimum box containing the current triangle object

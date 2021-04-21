@@ -57,7 +57,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::setEmpty(
+  box::clear(
       void)
   {
     this->_min = NaN_vec3;
@@ -157,7 +157,7 @@ namespace acme
 
   real_type
   box::min(
-      unsigned i)
+      size_t i)
       const
   {
     return this->_min[i];
@@ -216,7 +216,7 @@ namespace acme
 
   void
   box::min(
-      unsigned i,
+      size_t i,
       real_type input)
   {
     this->_min[i] = input;
@@ -262,7 +262,7 @@ namespace acme
 
   real_type
   box::max(
-      unsigned i)
+      size_t i)
       const
   {
     return this->_max[i];
@@ -321,7 +321,7 @@ namespace acme
 
   void
   box::max(
-      unsigned i,
+      size_t i,
       real_type input)
   {
     this->_max[i] = input;
@@ -399,43 +399,20 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real_type
-  box::squaredCenterDistance(
+  box::centerDistance(
       vec3 const &point)
       const
   {
     vec3 center((this->_max + this->_min) / 2);
     vec3 point_max_centered(this->_max - center);
     vec3 point_centered(point - center);
-    real_type x_scale = acme::abs(1.0 / point_max_centered.x());
-    real_type y_scale = acme::abs(1.0 / point_max_centered.y());
-    real_type z_scale = acme::abs(1.0 / point_max_centered.z());
-    real_type dx = acme::max(0.0, acme::abs(point_centered.x()) * x_scale - 1.0) / x_scale;
-    real_type dy = acme::max(0.0, acme::abs(point_centered.y()) * y_scale - 1.0) / y_scale;
-    real_type dz = acme::max(0.0, acme::abs(point_centered.z()) * z_scale - 1.0) / z_scale;
-    return dx * dx + dy * dy + dz * dz;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real_type
-  box::centerDistance(
-      vec3 const &point)
-      const
-  {
-    return acme::sqrt(this->squaredCenterDistance(point));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real_type
-  box::squaredExteriorDistance(
-      vec3 const &point)
-      const
-  {
-    real_type dx = acme::max(acme::abs(point.x() - this->_min.x()), acme::abs(point.x() - this->_max.x()));
-    real_type dy = acme::max(acme::abs(point.y() - this->_min.y()), acme::abs(point.y() - this->_max.y()));
-    real_type dz = acme::max(acme::abs(point.z() - this->_min.z()), acme::abs(point.z() - this->_max.z()));
-    return dx * dx + dy * dy + dz * dz;
+    real_type x_scale = acme::abs(real_type(1.0) / point_max_centered.x());
+    real_type y_scale = acme::abs(real_type(1.0) / point_max_centered.y());
+    real_type z_scale = acme::abs(real_type(1.0) / point_max_centered.z());
+    real_type dx = acme::max(real_type(0.0), acme::abs(point_centered.x()) * x_scale - real_type(1.0)) / x_scale;
+    real_type dy = acme::max(real_type(0.0), acme::abs(point_centered.y()) * y_scale - real_type(1.0)) / y_scale;
+    real_type dz = acme::max(real_type(0.0), acme::abs(point_centered.z()) * z_scale - real_type(1.0)) / z_scale;
+    return acme::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -445,7 +422,10 @@ namespace acme
       vec3 const &point)
       const
   {
-    return acme::sqrt(this->squaredExteriorDistance(point));
+    real_type dx = acme::max(acme::abs(point.x() - this->_min.x()), acme::abs(point.x() - this->_max.x()));
+    real_type dy = acme::max(acme::abs(point.y() - this->_min.y()), acme::abs(point.y() - this->_max.y()));
+    real_type dz = acme::max(acme::abs(point.z() - this->_min.z()), acme::abs(point.z() - this->_max.z()));
+    return acme::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

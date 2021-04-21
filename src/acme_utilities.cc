@@ -153,11 +153,9 @@ namespace acme
        << std::setprecision(6)
        << std::endl
        << "Vertex 0 = "
-       << "[ " << obj_vertex_0[0] << ", " << obj_vertex_0[1] << ", " << obj_vertex_0[2] << " ]'"
-       << std::endl
+       << "[ " << obj_vertex_0[0] << ", " << obj_vertex_0[1] << ", " << obj_vertex_0[2] << " ]'" << std::endl
        << "Vertex 1 = "
-       << "[ " << obj_vertex_1[0] << ", " << obj_vertex_1[1] << ", " << obj_vertex_1[2] << " ]'"
-       << std::endl
+       << "[ " << obj_vertex_1[0] << ", " << obj_vertex_1[1] << ", " << obj_vertex_1[2] << " ]'" << std::endl
        << "Vertex 2 = "
        << "[ " << obj_vertex_2[0] << ", " << obj_vertex_2[1] << ", " << obj_vertex_2[2] << " ]'";
     return os;

@@ -113,13 +113,13 @@ namespace acme
     //! Get segment i-th point
     vec3 const &
     point(
-        unsigned i //!< Intput segment i-th point index
+        size_t i //!< Intput segment i-th point index
     ) const;
 
     //! Set segment i-th point
     vec3 &
     point(
-        unsigned i //!< Intput segment i-th point index
+        size_t i //!< Intput segment i-th point index
     );
 
     //! Convert segment to vector

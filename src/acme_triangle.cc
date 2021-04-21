@@ -105,16 +105,17 @@ namespace acme
   triangle::isDegenerated(void)
       const
   {
-    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), 0.0) ||
-           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), 0.0) ||
-           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), 0.0);
+    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real_type(0.0)) ||
+           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real_type(0.0)) ||
+           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real_type(0.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
   triangle::vertex(
-      unsigned i) const
+      size_t i)
+      const
   {
     return this->_vertex[i];
   }
@@ -123,7 +124,7 @@ namespace acme
 
   vec3 &
   triangle::vertex(
-      unsigned i)
+      size_t i)
   {
     return this->_vertex[i];
   }
@@ -156,7 +157,7 @@ namespace acme
 
   segment
   triangle::edge(
-      unsigned i)
+      size_t i)
       const
   {
     return segment(this->_vertex[i], this->_vertex[i + 1]);
@@ -166,8 +167,8 @@ namespace acme
 
   segment
   triangle::edge(
-      unsigned i,
-      unsigned j)
+      size_t i,
+      size_t j)
       const
   {
     return segment(this->_vertex[i], this->_vertex[j]);
@@ -208,8 +209,8 @@ namespace acme
 
   void
   triangle::swap(
-      unsigned i,
-      unsigned j)
+      size_t i,
+      size_t j)
   {
     vec3 tmp_vertex_i(this->_vertex[i]);
     vec3 tmp_vertex_j(this->_vertex[j]);
@@ -261,9 +262,9 @@ namespace acme
   {
     real_type u, v, w;
     this->barycentric(point, u, v, w);
-    if ((u >= 0.0 && u <= 1.0) &&
-        (v >= 0.0 && v <= 1.0) &&
-        (w >= 0.0 && w <= 1.0))
+    if ((u >= real_type(0.0) && u <= real_type(1.0)) &&
+        (v >= real_type(0.0) && v <= real_type(1.0)) &&
+        (w >= real_type(0.0) && w <= real_type(1.0)))
       return true;
     else
       return false;
