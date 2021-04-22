@@ -40,7 +40,8 @@
   ACME_ERROR(MSG)
 #endif
 
-//#define ACME_USE_CXX11 
+// Use CXX11 features
+#define ACME_USE_CXX11
 
 // Standard libraries
 #include <memory>
@@ -98,10 +99,14 @@ namespace acme
   typedef Eigen::Matrix<vec4, Eigen::Dynamic, Eigen::Dynamic> mat_vec4; //!< NxN matrix of 4x1 vector type (column vector)
   typedef Eigen::Matrix<mat4, Eigen::Dynamic, Eigen::Dynamic> mat_mat4; //!< NxN matrix of 4x4 matrix type
 
-  typedef Eigen::DiagonalMatrix<real_type, 3> scale;            //!< 3D scaling transformation type
-  typedef Eigen::Translation<real_type, 3> translate;           //!< 3D translation transformation type
-  typedef Eigen::AngleAxis<real_type> angleaxis;                //!< 3D rotation transformation type
-  typedef Eigen::Transform<real_type, 3, Eigen::Affine> affine; //!< 3D affine transformation type
+  typedef Eigen::DiagonalMatrix<real_type, 3> scale;                 //!< 3D scaling transformation type
+  typedef Eigen::Translation<real_type, 3> translate;                //!< 3D translation transformation type
+  typedef Eigen::AngleAxis<real_type> angleaxis;                     //!< 3D rotation transformation type
+  typedef Eigen::Transform<real_type, 3, Eigen::Affine> affine;      //!< 3D affine transformation type
+  typedef Eigen::Matrix<scale, Eigen::Dynamic, 1> vec_scale;         //!< Nx1 vector of 3D scaling transformation type
+  typedef Eigen::Matrix<translate, Eigen::Dynamic, 1> vec_translate; //!< Nx1 vector of 3D translation transformation type
+  typedef Eigen::Matrix<angleaxis, Eigen::Dynamic, 1> vec_angleaxis; //!< Nx1 vector of 3D rotation transformation type
+  typedef Eigen::Matrix<affine, Eigen::Dynamic, 1> vec_affine;       //!< Nx1 vector of 3D affine transformation type
 
   /*\
    |    ____                _              _       

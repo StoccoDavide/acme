@@ -62,7 +62,7 @@ namespace acme
 
   public:
     //! Triangle class destructor
-    ~triangle() {}
+    //~triangle() {}
 
     //! Triangle copy constructor
     triangle(triangle const &) = default;

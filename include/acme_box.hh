@@ -86,6 +86,7 @@ namespace acme
             _id(id),
             _ipos(ipos)
     {
+      this->updateMaxMin();
     }
 
     //! Box class constructor
@@ -99,6 +100,7 @@ namespace acme
             _id(id),
             _ipos(ipos)
     {
+      this->updateMaxMin();
     }
 
     //! Box class constructor
@@ -110,6 +112,7 @@ namespace acme
             _ipos(ipos)
     {
       this->merged(boxes);
+      this->updateMaxMin();
     }
 
     //! Equality operator

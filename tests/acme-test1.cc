@@ -32,46 +32,45 @@ int main()
   // Initialize triangle
   triangle Triangle1(V1);
   triangle Triangle2(V2);
+  triangle tmp_Triangle1(V1);
+  triangle tmp_Triangle2(V2);
 
   // Initialize rotation matrix
-  mat3 Rot_X;
+  affine tmp_affine;
+  tmp_affine = translate(0.0, 0.0, 0.0);
 
   // Initialize intersection point
   vec3 IntersectionPointTri1, IntersectionPointTri2;
   bool IntersectionBoolTri1, IntersectionBoolTri2;
 
   // Initialize Ray
-  vec3 RayOrigin = vec3(0.0, 0.0, 0.0);
+  vec3 RayOrigin = vec3(0.0, 0.0, 1.0);
   vec3 RayDirection = vec3(0.0, 0.0, -1.0);
   ray Ray(RayOrigin, RayDirection);
 
+  real_type step = PI / 360.0;
   // Perform intersection at 0.5° step
   for (real_type angle = 0;
        angle < PI;
-       angle += PI / 360.0)
+       angle += step)
   {
 
-    Rot_X = rotate(angle, "X");
+    tmp_affine = rotate(angle, "X");
+    angle += step;
 
     // Initialize vertices
     vec3 VerticesTri1[3], VerticesTri2[3];
 
-    VerticesTri1[0] = Rot_X * V1[0];
-    VerticesTri1[1] = Rot_X * V1[1];
-    VerticesTri1[2] = Rot_X * V1[2];
+    tmp_Triangle1 = Triangle1;
+    tmp_Triangle2 = Triangle2;
+    tmp_Triangle1.transform(tmp_affine);
+    tmp_Triangle2.transform(tmp_affine);
 
-    VerticesTri2[0] = Rot_X * V2[0];
-    VerticesTri2[1] = Rot_X * V2[1];
-    VerticesTri2[2] = Rot_X * V2[2];
-
-    Triangle1.vertices(VerticesTri1);
-    Triangle2.vertices(VerticesTri2);
-
-    IntersectionBoolTri1 = acme::intersection(Ray, Triangle1, IntersectionPointTri1);
-    IntersectionBoolTri2 = acme::intersection(Ray, Triangle2, IntersectionPointTri2);
+    IntersectionBoolTri1 = intersection(Ray, tmp_Triangle1, IntersectionPointTri1);
+    IntersectionBoolTri2 = intersection(Ray, tmp_Triangle2, IntersectionPointTri2);
 
     std::cout
-        << angle * 180.0 / PI << "°\t"
+        << angle * _180divPI << "°\t"
         << "T1 -> " << IntersectionBoolTri1 << ","
         << "T2 -> " << IntersectionBoolTri2 << std::endl;
 
@@ -89,7 +88,7 @@ int main()
       << std::endl
       << "Triangle 1 face normal = " << N1 << std::endl
       << "Triangle 2 face normal = " << N2 << std::endl
-      << "Pow = " << acme::pow(2.0,2.0) << std::endl
+      << "Pow = " << acme::pow(2.0, 2.0) << std::endl
       << std::endl
       << std::endl
       << "GEOMETRY TEST 1: Completed" << std::endl;

@@ -16,7 +16,7 @@ using namespace acme;
 int main()
 {
   std::cout
-      << " GEOMETRY TEST 5 - RAY/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl
+      << " GEOMETRY TEST 5 - LINE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl
       << "Angle\tIntersections" << std::endl;
 
   vec3 V1[3];
@@ -37,38 +37,38 @@ int main()
 
   // Initialize rotation matrix
   affine tmp_affine;
-  tmp_affine = translate(-1.0, 0.0, 0.0);
+  tmp_affine = translate(0.0, 0.0, 0.0);
 
   // Initialize intersection point
   vec3 IntersectionPointTri1, IntersectionPointTri2;
   bool IntersectionBoolTri1, IntersectionBoolTri2;
 
   // Initialize Ray
-  vec3 RayOrigin(0.0, 0.0, 0.1);
-  vec3 RayDirection(0.0, 0.0, -1.0);
-  ray Ray(RayOrigin, RayDirection);
+  vec3 LineOrigin(0.0, 0.0, 1.0);
+  vec3 LineDirection(0.0, 0.0, -1.0);
+  line Line(LineOrigin, LineDirection);
 
-  // Perform intersection
+  real_type step = PI / 360.0;
+  // Perform intersection at 0.5° step
   for (real_type angle = 0;
        angle < PI;
-       angle += PIdiv180)
+       angle += step)
   {
-    tmp_affine = translate(-1.0, 0.0, 0.0) * rotate(angle, "X");
+
+    tmp_affine = rotate(angle, "X");
+    angle += step;
 
     tmp_Triangle1 = Triangle1;
     tmp_Triangle2 = Triangle2;
     tmp_Triangle1.transform(tmp_affine);
     tmp_Triangle2.transform(tmp_affine);
 
-    IntersectionBoolTri1 = intersection(Ray, tmp_Triangle1, IntersectionPointTri1);
-    IntersectionBoolTri2 = intersection(Ray, tmp_Triangle2, IntersectionPointTri2);
+    IntersectionBoolTri1 = intersection(Line, tmp_Triangle1, IntersectionPointTri1);
+    IntersectionBoolTri2 = intersection(Line, tmp_Triangle2, IntersectionPointTri2);
 
     std::cout
         << angle * _180divPI << "°\t"
-        //<< "Triangle 1 = " << tmp_Triangle1 << std::endl
-        //<< "Triangle 2 = " << tmp_Triangle2 << std::endl
         << "T1 -> " << IntersectionBoolTri1 << ", T2 -> " << IntersectionBoolTri2 << std::endl;
-        //<< std::endl;
 
     // ERROR if no one of the two triangles is hit
     if (!IntersectionBoolTri1 && !IntersectionBoolTri2)
