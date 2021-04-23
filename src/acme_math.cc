@@ -335,6 +335,22 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void
+  eulerAngles(
+      mat3 const &rotation,
+      size_t i,
+      size_t j,
+      size_t k,
+      vec3 &angles)
+  {
+    vec3 angles_tmp(rotation.eulerAngles(i, j, k));
+    angles[i] = angles_tmp[0];
+    angles[j] = angles_tmp[1];
+    angles[k] = angles_tmp[2];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   /*\
    |   _____                     __                      
    |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  

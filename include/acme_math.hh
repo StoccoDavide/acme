@@ -237,6 +237,16 @@ namespace acme
       vec3 const &input1  //!< Input vector 1
   );
 
+  //! Calculate Euler angles [rad]
+  void
+  eulerAngles(
+      mat3 const &rotation, //!< 3x3 rotation matrix
+      size_t i,             //!< Rotation index
+      size_t j,             //!< Rotation index
+      size_t k,             //!< Rotation index
+      vec3 &angles          //!< Output euler angles [rad]
+  );
+
   /*\
    |   _____                     __                      
    |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
