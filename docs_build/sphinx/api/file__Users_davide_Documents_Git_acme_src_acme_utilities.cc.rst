@@ -47,6 +47,8 @@ Functions
 ---------
 
 
+- :ref:`exhale_function_namespaceacme_1a5538ab24f65c9a78953a6619376a618a`
+
 - :ref:`exhale_function_namespaceacme_1a98088cafcb6f5a89d6ae3ba9ce899578`
 
 - :ref:`exhale_function_namespaceacme_1a1a24d4246b0c81542da1c4ac1f065bfb`
@@ -60,6 +62,4 @@ Functions
 - :ref:`exhale_function_namespaceacme_1afda8ecc83eadfa61da669e6557c73247`
 
 - :ref:`exhale_function_namespaceacme_1aad675a9ff31d76d10cea21801f8374a6`
-
-- :ref:`exhale_function_namespaceacme_1a5538ab24f65c9a78953a6619376a618a`
 

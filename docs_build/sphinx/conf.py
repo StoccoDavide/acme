@@ -113,65 +113,65 @@ primary_domain = 'cpp'
 # Tell sphinx what the pygments highlight language should be.
 highlight_language = 'cpp'
 
-html_theme = 'cloud'
+html_theme = 'alabaster'
 html_logo  = '../logo.png'
 
 email_automode = True
 autodoc_member_order = 'bysource'
 
-html_theme_options = {
-  "lighter_header_decor" : False,
-  "borderless_decor"     : False,
-  "bodyfont"             : "Arial, sans-serif",
-  "headfont"             : "Arial, sans-serif",
-
-  #styling for document body
-  "bgcolor"         : "#f8f8f8",
-  "linkcolor"       : "#006906",
-  
-  #styling for document headers
-  "headlinkcolor"   : "#327438",
-  
-  #styling for section headers
-  "sectiontextcolor"  : "inherit",
-  "sectionbgcolor"    : "#75c47c",
-  "sectiontrimcolor"  : "rgba(0,0,0,.1)",
-  "rubricbgcolor"     : "#d2e7d0",
-  ##"rubric_trim_color" : "rgba(0,0,0,0.05)",
-
-  "object_default_color"   : "#e4e4e4",
-  "object_function_color"  : "#eefbff",
-  "object_class_color"     : "#fff3df",
-  "object_attribute_color  : "#ffd5ff",
-  ##"object_exception_color  : "#e9ffd0",
-
-  #styling for footer / html background
-  "footerbgcolor" : "#6f6700", ## #565B57",
-  
-  #styling for sidebar
-  "sidebarbgcolor"   : "#ededed",
-  "sidebarlinkcolor" : "#006906",
-  "sidebarhighcolor" : "#FFF5DD",
-  "bodytrimcolor"    : "rgba(0,0,0,.15)",
-  
-  #styling for top & bottom relbars
-  "relbarbgcolor" : "#57A75E",
-  
-  # code blocks
-  "codebgcolor"   : "#e8ffe6", #"#d6d6d6",
-  "codetrimcolor" : "#129100", #"rgba(0,0,0,.15)",
-  
-  # admonitions
-  "admonition_note_color"       : "#D9E4F1",
-  "admonition_warning_color"    : "#EBC5A7",
-  "admonition_seealso_color"    : "#eeeeee",
-  "admonition_deprecated_color" : "#ffebab",
-  "admonition_todo_color"       : "#eeeeee",
-  
-  # inline literals
-  "quotebgcolor"   : "rgba(0,0,0,.06)",
-  "quotetrimcolor" : "transparent",
-  
-  # index page
-  "index_category_color" : "#999999"
-}
+#html_theme_options = {
+#  "lighter_header_decor" : False,
+#  "borderless_decor"     : False,
+#  "bodyfont"             : "Arial, sans-serif",
+#  "headfont"             : "Arial, sans-serif",
+#
+#  #styling for document body
+#  "bgcolor"         : "#f8f8f8",
+#  "linkcolor"       : "#006906",
+#  
+#  #styling for document headers
+#  "headlinkcolor"   : "#327438",
+#  
+#  #styling for section headers
+#  "sectiontextcolor"  : "inherit",
+#  "sectionbgcolor"    : "#75c47c",
+#  "sectiontrimcolor"  : "rgba(0,0,0,.1)",
+#  "rubricbgcolor"     : "#d2e7d0",
+#  ##"rubric_trim_color" : "rgba(0,0,0,0.05)",
+#
+#  "object_default_color"   : "#e4e4e4",
+#  "object_function_color"  : "#eefbff",
+#  "object_class_color"     : "#fff3df",
+#  "object_attribute_color  : "#ffd5ff",
+#  ##"object_exception_color  : "#e9ffd0",
+#
+#  #styling for footer / html background
+#  "footerbgcolor" : "#6f6700", ## #565B57",
+#  
+#  #styling for sidebar
+#  "sidebarbgcolor"   : "#ededed",
+#  "sidebarlinkcolor" : "#006906",
+#  "sidebarhighcolor" : "#FFF5DD",
+#  "bodytrimcolor"    : "rgba(0,0,0,.15)",
+#  
+#  #styling for top & bottom relbars
+#  "relbarbgcolor" : "#57A75E",
+#  
+#  # code blocks
+#  "codebgcolor"   : "#e8ffe6", #"#d6d6d6",
+#  "codetrimcolor" : "#129100", #"rgba(0,0,0,.15)",
+#  
+#  # admonitions
+#  "admonition_note_color"       : "#D9E4F1",
+#  "admonition_warning_color"    : "#EBC5A7",
+#  "admonition_seealso_color"    : "#eeeeee",
+#  "admonition_deprecated_color" : "#ffebab",
+#  "admonition_todo_color"       : "#eeeeee",
+#  
+#  # inline literals
+#  "quotebgcolor"   : "rgba(0,0,0,.06)",
+#  "quotetrimcolor" : "transparent",
+#  
+#  # index page
+#  "index_category_color" : "#999999"
+#}
