@@ -1,0 +1,13 @@
+.. _exhale_variable_namespaceacme_1a024657ac992032fe8708965542546726:
+
+Variable acme::Ones_mat2
+========================
+
+- Defined in :ref:`file__Users_davide_Documents_Git_acme_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::Ones_mat2

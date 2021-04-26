@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="acme__plane_8hh" kind="file" language="C++">
+    <compoundname>acme_plane.hh</compoundname>
+    <includes refid="acme_8hh" local="yes">acme.hh</includes>
+    <includes refid="acme__math_8hh" local="yes">acme_math.hh</includes>
+    <includedby refid="acme__plane_8cc" local="yes">/Users/davide/Documents/Git/acme/src/acme_plane.cc</includedby>
+    <includedby refid="acme__circle_8hh" local="yes">/Users/davide/Documents/Git/acme/include/acme_circle.hh</includedby>
+    <includedby refid="acme__intersection_8hh" local="yes">/Users/davide/Documents/Git/acme/include/acme_intersection.hh</includedby>
+    <includedby refid="acme__utilities_8hh" local="yes">/Users/davide/Documents/Git/acme/include/acme_utilities.hh</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>iomanip</label>
+      </node>
+      <node id="5">
+        <label>limits</label>
+      </node>
+      <node id="7">
+        <label>iterator</label>
+      </node>
+      <node id="13">
+        <label>Eigen/Geometry</label>
+      </node>
+      <node id="11">
+        <label>cassert</label>
+      </node>
+      <node id="12">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="2">
+        <label>acme.hh</label>
+        <link refid="acme_8hh"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>/Users/davide/Documents/Git/acme/include/acme_plane.hh</label>
+        <link refid="acme__plane_8hh"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstddef</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="14">
+        <label>acme_math.hh</label>
+        <link refid="acme__math_8hh"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>/Users/davide/Documents/Git/acme/include/acme_intersection.hh</label>
+        <link refid="acme__intersection_8hh"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/davide/Documents/Git/acme/src/acme_intersection.cc</label>
+        <link refid="acme__intersection_8cc"/>
+      </node>
+      <node id="8">
+        <label>/Users/davide/Documents/Git/acme/src/acme_utilities.cc</label>
+        <link refid="acme__utilities_8cc"/>
+      </node>
+      <node id="2">
+        <label>/Users/davide/Documents/Git/acme/src/acme_plane.cc</label>
+        <link refid="acme__plane_8cc"/>
+      </node>
+      <node id="1">
+        <label>/Users/davide/Documents/Git/acme/include/acme_plane.hh</label>
+        <link refid="acme__plane_8hh"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/davide/Documents/Git/acme/include/acme_utilities.hh</label>
+        <link refid="acme__utilities_8hh"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/Users/davide/Documents/Git/acme/include/acme_circle.hh</label>
+        <link refid="acme__circle_8hh"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/Users/davide/Documents/Git/acme/src/acme_circle.cc</label>
+        <link refid="acme__circle_8cc"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classacme_1_1plane" prot="public">acme::plane</innerclass>
+    <innernamespace refid="namespaceacme">acme</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">(***********************************************************************)</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">(*<sp/>The<sp/>ACME<sp/>project<sp/>-<sp/>Release<sp/>Version<sp/>0.0.0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">(*<sp/>Copyright<sp/>(c)<sp/>2020<sp/>Davide<sp/>Stocco,<sp/>All<sp/>Rights<sp/>Reserved.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">(*<sp/>The<sp/>ACME<sp/>project<sp/>and<sp/>its<sp/>components<sp/>are<sp/>supplied<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>*)</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">(*<sp/>the<sp/>open<sp/>source<sp/>BSD<sp/>2-Clause<sp/>License.<sp/>The<sp/>contents<sp/>of<sp/>the<sp/>ACME<sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">(*<sp/>project<sp/>and<sp/>its<sp/>components<sp/>may<sp/>not<sp/>be<sp/>copied<sp/>or<sp/>disclosed<sp/>except<sp/>in<sp/>*)</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">(*<sp/>accordance<sp/>with<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>BSD<sp/>2-Clause<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">(*<sp/>URL:<sp/>https://opensource.org/licenses/BSD-2-Clause<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Davide<sp/>Stocco<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>davide.stocco@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">(***********************************************************************)</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INCLUDE_ACME_PLANE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_ACME_PLANE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="acme_8hh" kindref="compound">acme.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="acme__math_8hh" kindref="compound">acme_math.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceacme" kindref="compound">acme</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>_<sp/>__<sp/>|<sp/>|<sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>___<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>&apos;_<sp/>\|<sp/>|/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>__/</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>.__/|_|\__,_|_|<sp/>|_|\___|</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|_|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classacme_1_1plane" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classacme_1_1plane" kindref="compound">plane</ref></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ACME_USE_CXX11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classacme_1_1plane_1af41c4fce45a7b097229699e692a8aede" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;plane<sp/>const&gt;<sp/><ref refid="classacme_1_1plane_1af41c4fce45a7b097229699e692a8aede" kindref="member">ptr</ref>;<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="classacme_1_1plane_1af41c4fce45a7b097229699e692a8aede" kindref="member">ptr</ref>;<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classacme_1_1plane_1afd291f997846b76a4a81969306c873de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;ptr,<sp/>ptr&gt;<sp/><ref refid="classacme_1_1plane_1afd291f997846b76a4a81969306c873de" kindref="member">pairptr</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59" refid="classacme_1_1plane_1a02f887d7463962af80aaef2eb362fab7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;ptr&gt;<sp/><ref refid="classacme_1_1plane_1a02f887d7463962af80aaef2eb362fab7" kindref="member">vecptr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="classacme_1_1plane_1a27ff81c8e484849677def987e6c8d6ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;pairptr&gt;<sp/><ref refid="classacme_1_1plane_1a27ff81c8e484849677def987e6c8d6ed" kindref="member">vecpairptr</ref>;<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/>_origin;<sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/>_normal;<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="68" refid="classacme_1_1plane_1a50a5cdb91fa15db4495f613dc33cd201" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a50a5cdb91fa15db4495f613dc33cd201" kindref="member">~plane</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classacme_1_1plane_1a0499a7127e34a654120e447b24c03770" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a0499a7127e34a654120e447b24c03770" kindref="member">plane</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classacme_1_1plane_1afc2f916f98086feff3c12a016cdd4796" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1afc2f916f98086feff3c12a016cdd4796" kindref="member">plane</ref>(<ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classacme_1_1plane_1aa06498a3c7d2a752fd4378453590aae6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1aa06498a3c7d2a752fd4378453590aae6" kindref="member">plane</ref>(</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref><sp/>ox,<sp/></highlight><highlight class="comment">//&lt;!<sp/>Input<sp/>x<sp/>value<sp/>of<sp/>plane<sp/>origin<sp/>point</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref><sp/>oy,<sp/></highlight><highlight class="comment">//&lt;!<sp/>Input<sp/>y<sp/>value<sp/>of<sp/>plane<sp/>origin<sp/>point</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref><sp/>oz,<sp/></highlight><highlight class="comment">//&lt;!<sp/>Input<sp/>z<sp/>value<sp/>of<sp/>plane<sp/>origin<sp/>point</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref><sp/>dx,<sp/></highlight><highlight class="comment">//&lt;!<sp/>Input<sp/>x<sp/>value<sp/>of<sp/>plane<sp/>normal<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref><sp/>dy,<sp/></highlight><highlight class="comment">//&lt;!<sp/>Input<sp/>y<sp/>value<sp/>of<sp/>plane<sp/>normal<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref><sp/>dz<sp/><sp/></highlight><highlight class="comment">//&lt;!<sp/>Input<sp/>z<sp/>value<sp/>of<sp/>plane<sp/>normal<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>:<sp/>_origin(<ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref>(ox,<sp/>oy,<sp/>oz)),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_normal(<ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref>(dx,<sp/>dy,<sp/>dz))</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classacme_1_1plane_1a528f7c743fa1fa0742f37feab2b25ae0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a528f7c743fa1fa0742f37feab2b25ae0" kindref="member">plane</ref>(</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<ref refid="classacme_1_1plane_1ac1d57684ab4d15e46143c19a3dfe6924" kindref="member">origin</ref>,<sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<ref refid="classacme_1_1plane_1a10866c92d1b375a6696dfbb20e1f1973" kindref="member">normal</ref><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>:<sp/>_origin(<ref refid="classacme_1_1plane_1ac1d57684ab4d15e46143c19a3dfe6924" kindref="member">origin</ref>),</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_normal(<ref refid="classacme_1_1plane_1a10866c92d1b375a6696dfbb20e1f1973" kindref="member">normal</ref>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/>&amp;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1ab338b44d6842dab40b9b226a95944e33" kindref="member">operator=</ref>(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1ac1507703314d832e86af404c5da05d37" kindref="member">isApprox</ref>(</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a355643d37f8a75f23270e0fe8bea6f39" kindref="member">isDegenerated</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1ac1d57684ab4d15e46143c19a3dfe6924" kindref="member">origin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a10866c92d1b375a6696dfbb20e1f1973" kindref="member">normal</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a7494eb6e7ee0d104f3a01dcceed8607a" kindref="member">normalize</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1ac1d57684ab4d15e46143c19a3dfe6924" kindref="member">origin</ref>(</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a10866c92d1b375a6696dfbb20e1f1973" kindref="member">normal</ref>(</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a145b38d9af4c52f0b0c19523b3f3d6ee" kindref="member">translate</ref>(</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="classacme_1_1plane_1a3db8cac178975e06a5c2d18015106db6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a3db8cac178975e06a5c2d18015106db6" kindref="member">rotate</ref>(</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ab2913501a2445692638388aac959ab3a" kindref="member">mat3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a39557f09c28bc8dd1df4164b6ac97d4b" kindref="member">transform</ref>(</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1af09177c36f0e535fb9684dfae20630b5" kindref="member">affine</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;matrix<sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a84dbd5c935dbc893d6c2bf646a8edcf4" kindref="member">reverse</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a9eaad6de3b71f4e4af2822e1c6e448b8" kindref="member">d</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a3a3c21b706053ca7fb71decb7ca4e207" kindref="member">distance</ref>(</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a36d0ece8c3eee7d241367e0a2076fcdc" kindref="member">squaredDistance</ref>(</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1a5e3080d5f95afb730ad9ac48e7ecf0e5" kindref="member">signedDistance</ref>(</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;input<sp/></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>whether<sp/>a<sp/>point<sp/>lays<sp/>on<sp/>the<sp/>plane</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classacme_1_1plane_1ac5b5b39a91e580b9166d47c9462532fe" kindref="member">isInside</ref>(</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;point<sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>};<sp/></highlight><highlight class="comment">//<sp/>class<sp/>plane</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="namespaceacme_1a06cef766bd30f2a1d018b0ca084b5208" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacme_1a06cef766bd30f2a1d018b0ca084b5208" kindref="member">NaN_plane</ref><sp/>=<sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref>(<ref refid="namespaceacme_1a8940a38a2f1226d510edf9b5941f9367" kindref="member">acme::NaN_vec3</ref>,<sp/><ref refid="namespaceacme_1a8940a38a2f1226d510edf9b5941f9367" kindref="member">acme::NaN_vec3</ref>);<sp/></highlight></codeline>
+<codeline lineno="191" refid="namespaceacme_1a73f5dcc6075456102357638502fcfd1e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespaceacme_1a73f5dcc6075456102357638502fcfd1e" kindref="member">plane_goat</ref><sp/>=<sp/><ref refid="classacme_1_1plane" kindref="compound">plane</ref>(<ref refid="namespaceacme_1a06cef766bd30f2a1d018b0ca084b5208" kindref="member">NaN_plane</ref>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>acme</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment">///</highlight></codeline>
+    </programlisting>
+    <location file="/Users/davide/Documents/Git/acme/include/acme_plane.hh"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,338 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class AABBtree &#8212; ACME  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class box" href="classacme_1_1box.html" />
+    <link rel="prev" title="Namespace acme" href="namespace_acme.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="classacme_1_1box.html" title="Class box"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="namespace_acme.html" title="Namespace acme"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME  documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="library_root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class AABBtree</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-aabbtree">
+<span id="exhale-class-classacme-1-1-a-a-b-btree"></span><h1>Class AABBtree<a class="headerlink" href="#class-aabbtree" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file__Users_davide_Documents_Git_acme_include_acme_AABBtree.hh.html#file-users-davide-documents-git-acme-include-acme-aabbtree-hh"><span class="std std-ref">File acme_AABBtree.hh</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt id="_CPPv4N4acme8AABBtreeE">
+<span id="_CPPv3N4acme8AABBtreeE"></span><span id="_CPPv2N4acme8AABBtreeE"></span><span id="acme::AABBtree"></span><span class="target" id="classacme_1_1_a_a_b_btree"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">AABBtree</span></code><a class="headerlink" href="#_CPPv4N4acme8AABBtreeE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>AABB tree class container. </p>
+<p>Axis-Aligned Bouding Box tree. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N4acme8AABBtree3ptrE">
+<span id="_CPPv3N4acme8AABBtree3ptrE"></span><span id="_CPPv2N4acme8AABBtree3ptrE"></span><span id="acme::AABBtree::ptr"></span><span class="target" id="classacme_1_1_a_a_b_btree_1a168beccb1937c1fe540e88be0117a9d5"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">shared_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme8AABBtreeE" title="acme::AABBtree"><span class="pre">AABBtree</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">ptr</span></code><a class="headerlink" href="#_CPPv4N4acme8AABBtree3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shared pointer to AABB tree object. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8AABBtreeD0Ev">
+<span id="_CPPv3N4acme8AABBtreeD0Ev"></span><span id="_CPPv2N4acme8AABBtreeD0Ev"></span><span id="acme::AABBtree::~AABBtree"></span><span class="target" id="classacme_1_1_a_a_b_btree_1adb42ed99721c0e3da1ef34d4cb8dbf00"></span><code class="sig-name descname"><span class="pre">~AABBtree</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8AABBtreeD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>AABB tree class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8AABBtree8AABBtreeEv">
+<span id="_CPPv3N4acme8AABBtree8AABBtreeEv"></span><span id="_CPPv2N4acme8AABBtree8AABBtreeEv"></span><span id="acme::AABBtree::AABBtree"></span><span class="target" id="classacme_1_1_a_a_b_btree_1a47a07aad340e67d5aadb5ca133693ff4"></span><code class="sig-name descname"><span class="pre">AABBtree</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8AABBtree8AABBtreeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>AABB tree class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8AABBtree5clearEv">
+<span id="_CPPv3N4acme8AABBtree5clearEv"></span><span id="_CPPv2N4acme8AABBtree5clearEv"></span><span id="acme::AABBtree::clear__void"></span><span class="target" id="classacme_1_1_a_a_b_btree_1ae683fe63c33c388e9ba1c6392dd477eb"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8AABBtree5clearEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Clear AABB tree data. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8AABBtree7isEmptyEv">
+<span id="_CPPv3NK4acme8AABBtree7isEmptyEv"></span><span id="_CPPv2NK4acme8AABBtree7isEmptyEv"></span><span id="acme::AABBtree::isEmpty__voidC"></span><span class="target" id="classacme_1_1_a_a_b_btree_1aeb4b12e574edb5e794ee1dbf6443eea0"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isEmpty</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8AABBtree7isEmptyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if AABB tree is empty. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8AABBtree5buildERKNSt6vectorIN3box3ptrEEE">
+<span id="_CPPv3N4acme8AABBtree5buildERKNSt6vectorIN3box3ptrEEE"></span><span id="_CPPv2N4acme8AABBtree5buildERKNSt6vectorIN3box3ptrEEE"></span><span id="acme::AABBtree::build__std::vector:box::ptr:CR"></span><span class="target" id="classacme_1_1_a_a_b_btree_1add7387c1f3828230ba61e177d465b972"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="classacme_1_1box.html#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a><span class="pre">::</span><a class="reference internal" href="classacme_1_1box.html#_CPPv4N4acme3box3ptrE" title="acme::box::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">boxes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8AABBtree5buildERKNSt6vectorIN3box3ptrEEE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Build AABB tree given a list of boxes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>boxes</strong> – List of boxes </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8AABBtree5printER12ostream_typei">
+<span id="_CPPv3NK4acme8AABBtree5printER12ostream_typei"></span><span id="_CPPv2NK4acme8AABBtree5printER12ostream_typei"></span><span id="acme::AABBtree::print__ostream_typeR.iC"></span><span class="target" id="classacme_1_1_a_a_b_btree_1a8edd69c3e87f3228196eb745dca056d1"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">print</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespaceacme_1af9a793b801973447e8834bdca49350e9.html#_CPPv4N4acme12ostream_typeE" title="acme::ostream_type"><span class="pre">ostream_type</span></a> <span class="pre">&amp;</span><em><span class="pre">stream</span></em>, <span class="pre">int</span> <em><span class="pre">level</span></em> <span class="pre">=</span> <span class="pre">0</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8AABBtree5printER12ostream_typei" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Print AABB tree content. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>stream</strong> – Output stream </p></li>
+<li><p><strong>level</strong> – Level to print </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0ENK4acme8AABBtree9collisionEbRK8AABBtree9collisionb">
+<span id="_CPPv3I0ENK4acme8AABBtree9collisionERK8AABBtree9collisionb"></span><span id="_CPPv2I0ENK4acme8AABBtree9collisionERK8AABBtree9collisionb"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">collision</span></code><span class="pre">&gt;</span><br><span class="target" id="classacme_1_1_a_a_b_btree_1a65072055a1ea45bf1f618403fc88c1a5"></span><em class="property"><span class="pre">inline</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">collision</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8AABBtreeE" title="acme::AABBtree"><span class="pre">AABBtree</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">tree</span></em>, <a class="reference internal" href="#_CPPv4I0ENK4acme8AABBtree9collisionEbRK8AABBtree9collisionb" title="acme::AABBtree::collision"><span class="pre">collision</span></a> <em><span class="pre">function</span></em>, <span class="pre">bool</span> <em><span class="pre">swap_tree</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4I0ENK4acme8AABBtree9collisionEbRK8AABBtree9collisionb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if two AABB tree collide. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>tree</strong> – AABB tree used to check collision </p></li>
+<li><p><strong>function</strong> – Function to check if the contents of two box collide </p></li>
+<li><p><strong>swap_tree</strong> – If true exchange the tree in computation </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8AABBtree12intersectionERK8AABBtreeRN3box10vecpairptrEb">
+<span id="_CPPv3NK4acme8AABBtree12intersectionERK8AABBtreeRN3box10vecpairptrEb"></span><span id="_CPPv2NK4acme8AABBtree12intersectionERK8AABBtreeRN3box10vecpairptrEb"></span><span id="acme::AABBtree::intersection__AABBtreeCR.box::vecpairptrR.bC"></span><span class="target" id="classacme_1_1_a_a_b_btree_1a4ece06a363511ad6a9c94a9d3d1570d4"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8AABBtreeE" title="acme::AABBtree"><span class="pre">AABBtree</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">tree</span></em>, <a class="reference internal" href="classacme_1_1box.html#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a><span class="pre">::</span><a class="reference internal" href="classacme_1_1box.html#_CPPv4N4acme3box10vecpairptrE" title="acme::box::vecpairptr"><span class="pre">vecpairptr</span></a> <span class="pre">&amp;</span><em><span class="pre">intersectionList</span></em>, <span class="pre">bool</span> <em><span class="pre">swap_tree</span></em> <span class="pre">=</span> <span class="pre">false</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8AABBtree12intersectionERK8AABBtreeRN3box10vecpairptrEb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Compute all the intersection of AABB trees. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>tree</strong> – AABB tree used to check collision </p></li>
+<li><p><strong>intersectionList</strong> – List of pair box that overlaps </p></li>
+<li><p><strong>swap_tree</strong> – If true exchange the tree in computation </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8AABBtree21selectMinimumDistanceERK4vec3RN3box6vecptrE">
+<span id="_CPPv3NK4acme8AABBtree21selectMinimumDistanceERK4vec3RN3box6vecptrE"></span><span id="_CPPv2NK4acme8AABBtree21selectMinimumDistanceERK4vec3RN3box6vecptrE"></span><span id="acme::AABBtree::selectMinimumDistance__vec3CR.box::vecptrRC"></span><span class="target" id="classacme_1_1_a_a_b_btree_1a08cff8cd783eb10747979931e52d5459"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">selectMinimumDistance</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point</span></em>, <a class="reference internal" href="classacme_1_1box.html#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a><span class="pre">::</span><a class="reference internal" href="classacme_1_1box.html#_CPPv4N4acme3box6vecptrE" title="acme::box::vecptr"><span class="pre">vecptr</span></a> <span class="pre">&amp;</span><em><span class="pre">candidateList</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8AABBtree21selectMinimumDistanceERK4vec3RN3box6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Find the candidate at minimum distance from point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point</strong> – Input point </p></li>
+<li><p><strong>candidateList</strong> – Output candidate list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Class AABBtree</a><ul>
+<li><a class="reference internal" href="#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="namespace_acme.html"
+                          title="Previous page">&larr; Namespace acme</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="classacme_1_1box.html"
+                          title="Next page">&rarr; Class box</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/classacme_1_1_a_a_b_btree.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="classacme_1_1box.html" title="Class box"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="namespace_acme.html" title="Namespace acme"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME  documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="library_root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class AABBtree</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
