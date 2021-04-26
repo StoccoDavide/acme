@@ -13,9 +13,9 @@
 (* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
 (*                                                                     *)
 (*    Davide Stocco                                                    *)
-(*    University of Trento                                             *)
 (*    Department of Industrial Engineering                             *)
-(*    davide.stocco@unitn.it                                           *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
 (*                                                                     *)
 (***********************************************************************)
 */
