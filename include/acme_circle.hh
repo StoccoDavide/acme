@@ -123,7 +123,7 @@ namespace acme
 
     //! Get cicle laying plane
     plane const &
-    laying_plane(void) const;
+    layingPlane(void) const;
 
     //! Set circle radius
     void
@@ -149,7 +149,7 @@ namespace acme
 
     //! Set circle laying plane
     void
-    laying_plane(
+    layingPlane(
         plane const &input //!< Input plane object
     );
 

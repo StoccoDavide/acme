@@ -411,7 +411,7 @@ namespace acme
       circle const &circle,
       vec3 &point)
   {
-    if (acme::intersection(line, circle.laying_plane(), point))
+    if (acme::intersection(line, circle.layingPlane(), point))
     {
       if ((circle.center() - point).norm() <= circle.radius())
         return true;
@@ -432,7 +432,7 @@ namespace acme
       circle const &circle,
       vec3 &point)
   {
-    if (acme::intersection(line(ray.origin(), ray.direction()), circle.laying_plane(), point))
+    if (acme::intersection(line(ray.origin(), ray.direction()), circle.layingPlane(), point))
       return ray.isInside(point);
     else
       return false;
@@ -446,7 +446,7 @@ namespace acme
       circle const &circle,
       vec3 &point)
   {
-    if (acme::intersection(line(segment.point(0), segment.toNormalizedVector()), circle.laying_plane(), point))
+    if (acme::intersection(line(segment.point(0), segment.toNormalizedVector()), circle.layingPlane(), point))
       return segment.isInside(point);
     else
       return false;
@@ -705,7 +705,7 @@ namespace acme
     // Compute the intersection of circle plane with the input plane
     line int_line;
     // Compute the intersection of resulting line with the circle
-    if (acme::intersection(circle.laying_plane(), plane, int_line))
+    if (acme::intersection(circle.layingPlane(), plane, int_line))
       return acme::intersection(int_line, circle, segment);
     else
       return false;
@@ -738,7 +738,7 @@ namespace acme
       segment &segment_out)
   {
     segment tmp_segment;
-    if (acme::intersection(circle.laying_plane(), triangle, tmp_segment))
+    if (acme::intersection(circle.layingPlane(), triangle, tmp_segment))
       return acme::intersection(tmp_segment, circle, segment_out);
     else
       return false;

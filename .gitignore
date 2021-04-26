@@ -35,10 +35,11 @@
 .vscode/*
 
 # Folders
-docs/*
-doclatex/*
 build/*
 bin/*
 lib/*
+docs_build/sphinx/_build
+docs_build/sphinx/api
+docs_build/xml
 
 

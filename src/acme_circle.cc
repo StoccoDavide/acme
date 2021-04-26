@@ -107,7 +107,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   plane const &
-  circle::laying_plane(void)
+  circle::layingPlane(void)
       const
   {
     return this->_plane;
@@ -150,7 +150,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   void
-  circle::laying_plane(
+  circle::layingPlane(
       plane const &input)
   {
     this->_plane = input;
