@@ -93,12 +93,20 @@ namespace acme
       this->updateMaxMin();
     }
 
+    //!
     //! Box class constructor
+    //!
+    //! \param min  Input box minimum point
+    //! \param max  Input box maximum point
+    //! \param id   Input box id value
+    //! \param ipos Input box rank value
+    //!
+    //!
     box(
-        vec3 const &min, //!< Input box minimum point
-        vec3 const &max, //!< Input box maximum point
-        int_type id,           //<! Input box id value
-        int_type ipos          //<! Input box rank value
+        vec3 const &min, 
+        vec3 const &max, 
+        int_type id,
+        int_type ipos 
         ) : _min(min),
             _max(max),
             _id(id),
@@ -107,11 +115,18 @@ namespace acme
       this->updateMaxMin();
     }
 
+    //!
     //! Box class constructor
+    //!
+    //! \param boxes Input reference to vector of boxes
+    //! \param id    Input box id value
+    //! \param ipos  Input box rank value
+    //!
+    //!
     box(
-        std::vector<box::ptr> const &boxes, //!< Input pointer to vector of boxes
-        int_type id,                        //<! Input box id value
-        int_type ipos                       //<! Input box rank value
+        std::vector<box::ptr> const &boxes, 
+        int_type id,
+        int_type ipos
         ) : _id(id),
             _ipos(ipos)
     {

@@ -48,49 +48,63 @@ namespace acme
    |                                   
   \*/
 
-  //!< Stream out operator for line object
+  //!
+  //! Stream out operator for line object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os, //!< Output stream
       line const &obj   //!< Line object
   );
 
-  //!< Stream out operator for ray object
+  //!
+  //! Stream out operator for ray object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os, //!< Output stream
       ray const &obj    //!< Ray object
   );
 
-  //!< Stream out operator for plane object
+  //!
+  //! Stream out operator for plane object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os, //!< Output stream
       plane const &obj  //!< Plane object
   );
 
-  //!< Stream out operator for segment object
+  //!
+  //! Stream out operator for segment object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os,  //!< Output stream
       segment const &obj //!< Segment object
   );
 
-  //!< Stream out operator for box object
+  //!
+  //! Stream out operator for box object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os, //!< Output stream
       box const &obj    //!< Box object
   );
 
-  //!< Stream out operator for triangle object
+  //!
+  //! Stream out operator for triangle object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os,   //!< Output stream
       triangle const &obj //!< Triangle object
   );
 
-  //!< Stream out operator for circle object
+  //!
+  //! Stream out operator for circle object
+  //!
   ostream_type &
   operator<<(
       ostream_type &os, //!< Output stream

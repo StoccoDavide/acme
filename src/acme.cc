@@ -26,6 +26,8 @@
 
 #include "acme.hh"
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 namespace acme
 {
 
@@ -135,6 +137,8 @@ operator<<(
      << "]";
   return os;
 }
+
+#endif
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

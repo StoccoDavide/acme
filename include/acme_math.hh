@@ -260,18 +260,28 @@ namespace acme
    |                                                     
   \*/
 
+  //!
   //! Transform VECTOR with affine transformation matrix
+  //!
+  //! \param vector Input point
+  //! \param matrix 4x4 transformation matrix
+  //!
   void
   transformVector(
-      vec3 &vector,        //!< Input vector
-      affine const &matrix //!< 4x4 transformation matrix
+      vec3 &vector,
+      affine const &matrix
   );
 
+  //!
   //! Transform POINT with affine transformation matrix
+  //!
+  //! \param vector Input point
+  //! \param matrix 4x4 transformation matrix
+  //!
   void
   transformPoint(
-      vec3 &vector,        //!< Input point
-      affine const &matrix //!< 4x4 transformation matrix
+      vec3 &vector,
+      affine const &matrix
   );
 
 } // namespace acme

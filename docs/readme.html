@@ -5,11 +5,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The ACME library &#8212; ACME  documentation</title>
+    <title>The ACME library &#8212; ACME v</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -18,7 +19,7 @@
     <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="manual.html" />
+    <link rel="next" title="C++ API" href="api/library_root.html" />
     <link rel="prev" title="ACME" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -39,20 +40,46 @@
   <div class="section" id="the-acme-library">
 <h1>The ACME library<a class="headerlink" href="#the-acme-library" title="Permalink to this headline">¶</a>
 </h1>
-<p>Given the amount of material out there one could certainly wonder why develop a new geometric library that will surely have fewer features than other libraries that represent the standard in the field. During my master thesis a large part of this code was developed [1]. The desire to extend the previous thesis work has made it necessary to better formalize and make more efficient the previously developed code.</p>
-<p>ACME is small 3D computational geometry library which is currently still being developed. The library was build to be efficient, readable and easy-to-use. On the other hand users must remember the reference coordinate system of each geometrical object. The objects have not the possibility to store the coordinate system in which they are defined. For this reason, all transformations must be carried out by the user whenever necessary.</p>
-<p>Since our design goals are the speed and robustness, we decided to embed the <a class="reference external" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> template linear algebra library. In specific, dense matrix and array manipulation, space transformations are carried out by respecively using <a class="reference external" href="https://eigen.tuxfamily.org/dox/group__TutorialMatrixClass.html">Eigen Matrix</a> class and <a class="reference external" href="https://eigen.tuxfamily.org/dox/group__Geometry__chapter.html">Eigen Geometry</a> module.</p>
-<p>ACME is currently the foundation of a terrain server sofware running on a hard real-time DIL driving simulator. It resolves the geometrical intersection problems with a real-time factor (RTF) of 50.</p>
+<p>Given the amount of material out there one could certainly wonder
+why develop a new geometric library that will surely have fewer
+features than other libraries that represent the standard in the field.
+During my master thesis a large part of this code was developed [1].
+The desire to extend the previous thesis work has made it necessary
+to better formalize and make more efficient the previously developed code.</p>
+<p>ACME is small 3D computational geometry library which is currently
+still being developed. The library was build to be efficient,
+readable and easy-to-use. On the other hand users must remember the
+reference coordinate system of each geometrical object.
+The objects have not the possibility to store the coordinate system
+in which they are defined. For this reason, all transformations
+must be carried out by the user whenever necessary.</p>
+<p>Since our design goals are the speed and robustness,
+we decided to embed the <a class="reference external" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a>
+template linear algebra library.
+In specific, dense matrix and array manipulation, space transformations
+are carried out by respecively using
+<a class="reference external" href="https://eigen.tuxfamily.org/dox/group__TutorialMatrixClass.html">Eigen Matrix</a>
+class and <a class="reference external" href="https://eigen.tuxfamily.org/dox/group__Geometry__chapter.html">Eigen Geometry</a>
+module.</p>
+<p>ACME is currently the foundation of a terrain server sofware running
+on a hard real-time DIL driving simulator.
+It resolves the geometrical intersection problems with a real-time factor
+(RTF) of 50.</p>
 <div class="section" id="online-documentation">
 <h2>Online documentation<a class="headerlink" href="#online-documentation" title="Permalink to this headline">¶</a>
 </h2>
-<p>Available at: <a class="reference external" href="https://stoccodavide.github.io/acme/">https://stoccodavide.github.io/acme/</a></p>
+<p>Available at: <a class="reference external" href="https://stoccodavide.github.io/acme">https://stoccodavide.github.io/acme</a></p>
 </div>
 <div class="section" id="maintenance">
 <h2>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a>
 </h2>
-<p>Library is being tested on Linux and MacOS, it will be soon tested also on Windows. If you have questions regarding the library or you want to report a bug, please open an <a class="reference external" href="https://github.com/StoccoDavide/acme/issues/new">issue</a> at GitHub. If your request would contain confidential information, please <script type="text/javascript">document.write(
-    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:qnivqr\056fgbppb%40havga\056vg\">fraq zr na rznvy<\057n>".replace(/[a-zA-Z]/g,
+<p>Library is being tested on Linux and MacOS, it will be soon tested also on Windows.
+If you have questions regarding the library or you want to report a bug,
+please open an <a class="reference external" href="https://github.com/StoccoDavide/acme/issues/new">issue</a>
+at GitHub.
+If your request would contain confidential information,
+please send me an email :<script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:qnivqr\056fgbppb%40havga\056vg\">znvygb:qnivqr<fcna>\056<\057fcna>fgbppb<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
         function(c){
             return String.fromCharCode(
                 (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
@@ -64,28 +91,32 @@
 <div class="section" id="about-the-author">
 <h2>About the author<a class="headerlink" href="#about-the-author" title="Permalink to this headline">¶</a>
 </h2>
-<p><strong>Davide Stocco</strong><span class="raw-html-m2r"><br></span>
-Department of Industrial Engineering<span class="raw-html-m2r"><br></span>
-University of Trento<span class="raw-html-m2r"><br></span>
-e-mail: <script type="text/javascript">document.write(
-    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:qnivqr\056fgbppb%40havga\056vg\">qnivqr<fcna>\056<\057fcna>fgbppb<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+<div class="line-block">
+<div class="line">Davide Stocco</div>
+<div class="line">Department of Industrial Engineering</div>
+<div class="line">University of Trento</div>
+<div class="line"><script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:qnivqr\056fgbppb%40havga\056vg\">znvygb:qnivqr<fcna>\056<\057fcna>fgbppb<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
         function(c){
             return String.fromCharCode(
                 (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
             );
         }
     )
-);</script></p>
+);</script></div>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a>
 </h2>
-<ol class="arabic simple">
-<li><p><em>D. Stocco</em>,
-<strong>Real-Time Computation of Tire/Road Contact using Tailored Algorithms</strong>,
+<dl class="simple">
+<dt>1 <em>D. Stocco</em>,</dt>
+<dd>
+<p><strong>Real-Time Computation of Tire/Road Contact using Tailored Algorithms</strong>,
 2020, Master Thesis (<em>in Italian</em>),
-<a class="reference external" href="https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf">PDF</a>.</p></li>
-</ol>
+<a class="reference external" href="https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf">PDF</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -100,36 +131,6 @@ e-mail: <script type="text/javascript">document.write(
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/logo.png" alt="Logo"/>
             </a></p>
-<h1 class="logo"><a href="index.html">ACME</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">The ACME library</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#online-documentation">Online documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#maintenance">Maintenance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#about-the-author">About the author</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">C++ API</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">ACME</a></li>
-      <li>Next: <a href="manual.html" title="next chapter">&lt;no title&gt;</a></li>
-  </ul></li>
-</ul>
-</div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -140,13 +141,17 @@ e-mail: <script type="text/javascript">document.write(
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The ACME library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#online-documentation">Online documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maintenance">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#about-the-author">About the author</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">C++ API</a></li>
+</ul>
 
         </div>
       </div>
@@ -159,9 +164,6 @@ e-mail: <script type="text/javascript">document.write(
       Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
-      |
-      <a href="_sources/readme.rst.txt"
-          rel="nofollow">Page source</a>
     </div>
 
     
