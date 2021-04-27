@@ -1,0 +1,1835 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++ API &#8212; ACME  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Namespace acme" href="namespace_acme.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../manual.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="c-api">
+<h1>C++ API<a class="headerlink" href="#c-api" title="Permalink to this headline">¶</a>
+</h1>
+<div class="section" id="class-hierarchy">
+<h2>Class Hierarchy<a class="headerlink" href="#class-hierarchy" title="Permalink to this headline">¶</a>
+</h2>
+<ul class="treeView" id="class-treeView">
+  <li>
+    <ul class="collapsibleList">
+      <li class="lastChild">Namespace <a href="namespace_acme.html#namespace-acme">acme</a><ul>
+<li>Class <a href="classacme_1_1_a_a_b_btree.html#exhale-class-classacme-1-1-a-a-b-btree">AABBtree</a>
+</li>
+<li>Class <a href="classacme_1_1box.html#exhale-class-classacme-1-1box">box</a>
+</li>
+<li>Class <a href="classacme_1_1circle.html#exhale-class-classacme-1-1circle">circle</a>
+</li>
+<li>Class <a href="classacme_1_1line.html#exhale-class-classacme-1-1line">line</a>
+</li>
+<li>Class <a href="classacme_1_1plane.html#exhale-class-classacme-1-1plane">plane</a>
+</li>
+<li>Class <a href="classacme_1_1ray.html#exhale-class-classacme-1-1ray">ray</a>
+</li>
+<li>Class <a href="classacme_1_1segment.html#exhale-class-classacme-1-1segment">segment</a>
+</li>
+<li class="lastChild">Class <a href="classacme_1_1triangle.html#exhale-class-classacme-1-1triangle">triangle</a>
+</li>
+</ul>
+</li>
+    </ul>
+  </li>
+<!-- only tree view element -->
+</ul>
+<!-- /treeView class-treeView -->
+</div>
+<div class="section" id="file-hierarchy">
+<h2>File Hierarchy<a class="headerlink" href="#file-hierarchy" title="Permalink to this headline">¶</a>
+</h2>
+<ul class="treeView" id="file-treeView">
+  <li>
+    <ul class="collapsibleList">
+      <li>Directory <a href="dir__Users_davide_Documents_Git_acme_include.html#dir-Users-davide-Documents-Git-acme-include">include</a><ul>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme.hh.html#file-Users-davide-Documents-Git-acme-include-acme.hh">acme.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_AABBtree.hh.html#file-Users-davide-Documents-Git-acme-include-acme-AABBtree.hh">acme_AABBtree.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_box.hh.html#file-Users-davide-Documents-Git-acme-include-acme-box.hh">acme_box.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_circle.hh.html#file-Users-davide-Documents-Git-acme-include-acme-circle.hh">acme_circle.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_intersection.hh.html#file-Users-davide-Documents-Git-acme-include-acme-intersection.hh">acme_intersection.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_line.hh.html#file-Users-davide-Documents-Git-acme-include-acme-line.hh">acme_line.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_math.hh.html#file-Users-davide-Documents-Git-acme-include-acme-math.hh">acme_math.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_plane.hh.html#file-Users-davide-Documents-Git-acme-include-acme-plane.hh">acme_plane.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_ray.hh.html#file-Users-davide-Documents-Git-acme-include-acme-ray.hh">acme_ray.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_segment.hh.html#file-Users-davide-Documents-Git-acme-include-acme-segment.hh">acme_segment.hh</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_include_acme_triangle.hh.html#file-Users-davide-Documents-Git-acme-include-acme-triangle.hh">acme_triangle.hh</a>
+</li>
+<li class="lastChild">File <a href="file__Users_davide_Documents_Git_acme_include_acme_utilities.hh.html#file-Users-davide-Documents-Git-acme-include-acme-utilities.hh">acme_utilities.hh</a>
+</li>
+</ul>
+</li>
+<li class="lastChild">Directory <a href="dir__Users_davide_Documents_Git_acme_src.html#dir-Users-davide-Documents-Git-acme-src">src</a><ul>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme.cc.html#file-Users-davide-Documents-Git-acme-src-acme.cc">acme.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_AABBtree.cc.html#file-Users-davide-Documents-Git-acme-src-acme-AABBtree.cc">acme_AABBtree.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_box.cc.html#file-Users-davide-Documents-Git-acme-src-acme-box.cc">acme_box.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_circle.cc.html#file-Users-davide-Documents-Git-acme-src-acme-circle.cc">acme_circle.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_intersection.cc.html#file-Users-davide-Documents-Git-acme-src-acme-intersection.cc">acme_intersection.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_line.cc.html#file-Users-davide-Documents-Git-acme-src-acme-line.cc">acme_line.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_math.cc.html#file-Users-davide-Documents-Git-acme-src-acme-math.cc">acme_math.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_plane.cc.html#file-Users-davide-Documents-Git-acme-src-acme-plane.cc">acme_plane.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_ray.cc.html#file-Users-davide-Documents-Git-acme-src-acme-ray.cc">acme_ray.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_segment.cc.html#file-Users-davide-Documents-Git-acme-src-acme-segment.cc">acme_segment.cc</a>
+</li>
+<li>File <a href="file__Users_davide_Documents_Git_acme_src_acme_triangle.cc.html#file-Users-davide-Documents-Git-acme-src-acme-triangle.cc">acme_triangle.cc</a>
+</li>
+<li class="lastChild">File <a href="file__Users_davide_Documents_Git_acme_src_acme_utilities.cc.html#file-Users-davide-Documents-Git-acme-src-acme-utilities.cc">acme_utilities.cc</a>
+</li>
+</ul>
+</li>
+    </ul>
+  </li>
+<!-- only tree view element -->
+</ul>
+<!-- /treeView file-treeView -->
+</div>
+<div class="section" id="full-api">
+<h2>Full API<a class="headerlink" href="#full-api" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="namespaces">
+<h3>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="namespace_acme.html">Namespace acme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namespace_acme.html#detailed-description">Detailed Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_acme.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_acme.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_acme.html#typedefs">Typedefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace_acme.html#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="classes-and-structs">
+<h3>Classes and Structs<a class="headerlink" href="#classes-and-structs" title="Permalink to this headline">¶</a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1_a_a_b_btree.html">Class AABBtree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1_a_a_b_btree.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1box.html">Class box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1box.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1circle.html">Class circle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1circle.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1line.html">Class line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1line.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1plane.html">Class plane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1plane.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1ray.html">Class ray</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1ray.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1segment.html">Class segment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1segment.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="classacme_1_1triangle.html">Class triangle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="classacme_1_1triangle.html#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a065e81dd13cdee1801ef09f652acba65.html">Function acme::abs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a065e81dd13cdee1801ef09f652acba65.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a5cfd2b9d11b8f33ffbe4ad99837c32c7.html">Function acme::acos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a5cfd2b9d11b8f33ffbe4ad99837c32c7.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ad9a86861ab9c9bb9089424c7fb925a73.html">Function acme::angle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ad9a86861ab9c9bb9089424c7fb925a73.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aadfd8f0c36936e14371c7baa953ba48b.html">Function acme::asin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aadfd8f0c36936e14371c7baa953ba48b.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a11aa3bcfb18ad3e690480b32632ca806.html">Function acme::atan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a11aa3bcfb18ad3e690480b32632ca806.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1accb60f5bc8e4740f437c8666c57b2a10.html">Function acme::atan2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1accb60f5bc8e4740f437c8666c57b2a10.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a2becbddcf5f1e6c4fc9daf88285f5573.html">Function acme::clamp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a2becbddcf5f1e6c4fc9daf88285f5573.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a4db792b661a922abf59fa297b9495779.html">Function acme::cos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a4db792b661a922abf59fa297b9495779.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a07159d12eeb17b2b57c918ca6830989d.html">Function acme::cub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a07159d12eeb17b2b57c918ca6830989d.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a2e43a6aab5cf59cd689827bc9737c617.html">Function acme::epsilon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a2e43a6aab5cf59cd689827bc9737c617.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a1a46dba4aba27ae018a474d93a2bb34b.html">Function acme::eulerAngles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a1a46dba4aba27ae018a474d93a2bb34b.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a38821c8c8ce9efabd64e279271120f4d.html">Function acme::infinity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a38821c8c8ce9efabd64e279271120f4d.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a83a949e44714165c4f7bc3b29fc69d95.html">Function acme::intersection(line const&amp;, line const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a83a949e44714165c4f7bc3b29fc69d95.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a1ee38606670e03a6904e408168118fdf.html">Function acme::intersection(ray const&amp;, ray const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a1ee38606670e03a6904e408168118fdf.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ae1882d0813c338c09e6352eec9b02184.html">Function acme::intersection(segment const&amp;, segment const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ae1882d0813c338c09e6352eec9b02184.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a2127741ec9909e966a77ce42503aa71c.html">Function acme::intersection(box const&amp;, box const&amp;, box&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a2127741ec9909e966a77ce42503aa71c.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a9d6d486dcb064f87f5af2dbfa8482c47.html">Function acme::intersection(plane const&amp;, plane const&amp;, plane const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a9d6d486dcb064f87f5af2dbfa8482c47.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a9ee7e46779f818212aa7f13af74b52e7.html">Function acme::intersection(plane const&amp;, plane const&amp;, line&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a9ee7e46779f818212aa7f13af74b52e7.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a1930fe5160333c532287555c17a1b03b.html">Function acme::intersection(ray const&amp;, plane const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a1930fe5160333c532287555c17a1b03b.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a5b25b823b8db64f28040fa00b98d8d7d.html">Function acme::intersection(line const&amp;, plane const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a5b25b823b8db64f28040fa00b98d8d7d.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a56ab590aebe3e89f81149ddb35084ad4.html">Function acme::intersection(segment const&amp;, plane const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a56ab590aebe3e89f81149ddb35084ad4.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a8941fed6218ee88b1b204b24a9ad3abb.html">Function acme::intersection(ray const&amp;, triangle const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a8941fed6218ee88b1b204b24a9ad3abb.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a9b9786cf2c618f02c1d0b3002261a665.html">Function acme::intersection(line const&amp;, triangle const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a9b9786cf2c618f02c1d0b3002261a665.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a31719eb9e541292c34d7805948971658.html">Function acme::intersection(plane const&amp;, triangle const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a31719eb9e541292c34d7805948971658.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a78c321191a3c6e25540d4b9f969e58b4.html">Function acme::intersection(line const&amp;, circle const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a78c321191a3c6e25540d4b9f969e58b4.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ab4d24b87ea7ec3032b532c9af1f438f7.html">Function acme::intersection(ray const&amp;, circle const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ab4d24b87ea7ec3032b532c9af1f438f7.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1af4a680346088a1eeb1c9daaedff73911.html">Function acme::intersection(segment const&amp;, circle const&amp;, vec3&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1af4a680346088a1eeb1c9daaedff73911.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a50217497abfc4faadd7000200587057c.html">Function acme::intersection(segment const&amp;, segment const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a50217497abfc4faadd7000200587057c.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a67e3c120ddc0c3d0e9b75d73dd7a914d.html">Function acme::intersection(line const&amp;, segment const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a67e3c120ddc0c3d0e9b75d73dd7a914d.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a971c863304240a9da8d528c7294a2b55.html">Function acme::intersection(ray const&amp;, segment const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a971c863304240a9da8d528c7294a2b55.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a687b50d1ce248dd3db20e6121c053855.html">Function acme::intersection(line const&amp;, circle const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a687b50d1ce248dd3db20e6121c053855.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a680b74ca0585b3fbc185e8d736234827.html">Function acme::intersection(ray const&amp;, circle const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a680b74ca0585b3fbc185e8d736234827.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a851d58115aa210c92aaf1806e6df5c85.html">Function acme::intersection(plane const&amp;, circle const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a851d58115aa210c92aaf1806e6df5c85.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ad175a435e619678208ae9fc61b481450.html">Function acme::intersection(segment const&amp;, circle const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ad175a435e619678208ae9fc61b481450.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1af87f09d0bebc0daca2249c475b8c2544.html">Function acme::intersection(circle const&amp;, triangle const&amp;, segment&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1af87f09d0bebc0daca2249c475b8c2544.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aa4704e0132775c2d05b51bbc2f4a3e15.html">Function acme::isApprox(real_type, real_type, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aa4704e0132775c2d05b51bbc2f4a3e15.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a88d4dfb88df201646d101a5147d378b2.html">Function acme::isApprox(vec3 const&amp;, vec3 const&amp;, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a88d4dfb88df201646d101a5147d378b2.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a98a009f23ee2ae45192b0128ef0f19ce.html">Function acme::isApprox(mat3 const&amp;, mat3 const&amp;, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a98a009f23ee2ae45192b0128ef0f19ce.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aef1773d32788911c39ec95ff6bd4cdeb.html">Function acme::isDegenerated</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aef1773d32788911c39ec95ff6bd4cdeb.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ad45ef8868e1f44b4eb2ff2047ed29ec3.html">Function acme::isOrthonormal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ad45ef8868e1f44b4eb2ff2047ed29ec3.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a8bb585410109dbd5ad9e7d0ec2747695.html">Function acme::isParallel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a8bb585410109dbd5ad9e7d0ec2747695.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a40e494274276ef8a36723b1b25a24aea.html">Function acme::max(real_type, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a40e494274276ef8a36723b1b25a24aea.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ac1ff3a6da574a0510276dcd4db9fd95a.html">Function acme::max(real_type, real_type, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ac1ff3a6da574a0510276dcd4db9fd95a.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a520d438bd7de5e4c98204e4b62adfdd7.html">Function acme::min(real_type, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a520d438bd7de5e4c98204e4b62adfdd7.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a98ec4a40dd32998615acdf2f8ebbf01b.html">Function acme::min(real_type, real_type, real_type)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a98ec4a40dd32998615acdf2f8ebbf01b.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a5538ab24f65c9a78953a6619376a618a.html">Function acme::operator&lt;&lt;(ostream_type&amp;, line const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a5538ab24f65c9a78953a6619376a618a.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a98088cafcb6f5a89d6ae3ba9ce899578.html">Function acme::operator&lt;&lt;(ostream_type&amp;, ray const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a98088cafcb6f5a89d6ae3ba9ce899578.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a1a24d4246b0c81542da1c4ac1f065bfb.html">Function acme::operator&lt;&lt;(ostream_type&amp;, plane const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a1a24d4246b0c81542da1c4ac1f065bfb.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aff0f64c913fb909da9657b9cc8859954.html">Function acme::operator&lt;&lt;(ostream_type&amp;, segment const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aff0f64c913fb909da9657b9cc8859954.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a5f66ddfc2210a61de93d19113839e72d.html">Function acme::operator&lt;&lt;(ostream_type&amp;, box const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a5f66ddfc2210a61de93d19113839e72d.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a5e4a69a9e1251691fe5a5d438554205e.html">Function acme::operator&lt;&lt;(ostream_type&amp;, triangle const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a5e4a69a9e1251691fe5a5d438554205e.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1afda8ecc83eadfa61da669e6557c73247.html">Function acme::operator&lt;&lt;(ostream_type&amp;, circle const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1afda8ecc83eadfa61da669e6557c73247.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aad675a9ff31d76d10cea21801f8374a6.html">Function acme::operator&lt;&lt;(ostream_type&amp;, affine const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aad675a9ff31d76d10cea21801f8374a6.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aca89904f979589d813ea4f8b26a8ba40.html">Function acme::pow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aca89904f979589d813ea4f8b26a8ba40.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1abedb96159c25c897a36245e2ed9ee890.html">Function acme::rotate(real_type, vec3 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1abedb96159c25c897a36245e2ed9ee890.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a3be0ba810ccd762aaf3c20282474fb2d.html">Function acme::rotate(real_type, std::string const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a3be0ba810ccd762aaf3c20282474fb2d.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ae13b768d3ecb20412fc02bdc984aac6a.html">Function acme::sin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ae13b768d3ecb20412fc02bdc984aac6a.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1abc4a3ad644d979cd3bd0efc15113f6d2.html">Function acme::sqr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1abc4a3ad644d979cd3bd0efc15113f6d2.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1aa9a465256d9ab42dc93ced0c44166fcb.html">Function acme::sqrt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1aa9a465256d9ab42dc93ced0c44166fcb.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1a6d014c7da031b440fda92a581bb5980f.html">Function acme::tan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1a6d014c7da031b440fda92a581bb5980f.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1ac91fbacab25fab18f1a8db48303ab26e.html">Function acme::transformPoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1ac91fbacab25fab18f1a8db48303ab26e.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_namespaceacme_1adf17b90b1e454d03cb5063a83a2db367.html">Function acme::transformVector</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_namespaceacme_1adf17b90b1e454d03cb5063a83a2db367.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8hh_1aa45f79657dc7b18d6ee500d859b12ebb.html">Function operator&lt;&lt;(std::ostream&amp;, acme::vec2 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8hh_1aa45f79657dc7b18d6ee500d859b12ebb.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8hh_1ae5f94586e529f0d2a3a81f65414aed80.html">Function operator&lt;&lt;(std::ostream&amp;, acme::mat2 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8hh_1ae5f94586e529f0d2a3a81f65414aed80.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8hh_1a18491dddd566b679feff4a153c59b1b0.html">Function operator&lt;&lt;(std::ostream&amp;, acme::vec3 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8hh_1a18491dddd566b679feff4a153c59b1b0.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8hh_1ae89ad4d04dde56d870e059a5187e17d4.html">Function operator&lt;&lt;(std::ostream&amp;, acme::mat3 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8hh_1ae89ad4d04dde56d870e059a5187e17d4.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8hh_1ac987d47241c393ad2374dfa54c2cb28c.html">Function operator&lt;&lt;(std::ostream&amp;, acme::vec4 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8hh_1ac987d47241c393ad2374dfa54c2cb28c.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8hh_1a2de034b62b57716517cccf1f7ec682fc.html">Function operator&lt;&lt;(std::ostream&amp;, acme::mat4 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8hh_1a2de034b62b57716517cccf1f7ec682fc.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8cc_1aa45f79657dc7b18d6ee500d859b12ebb.html">Function operator&lt;&lt;(std::ostream&amp;, acme::vec2 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8cc_1aa45f79657dc7b18d6ee500d859b12ebb.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8cc_1ae5f94586e529f0d2a3a81f65414aed80.html">Function operator&lt;&lt;(std::ostream&amp;, acme::mat2 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8cc_1ae5f94586e529f0d2a3a81f65414aed80.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8cc_1a18491dddd566b679feff4a153c59b1b0.html">Function operator&lt;&lt;(std::ostream&amp;, acme::vec3 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8cc_1a18491dddd566b679feff4a153c59b1b0.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8cc_1ae89ad4d04dde56d870e059a5187e17d4.html">Function operator&lt;&lt;(std::ostream&amp;, acme::mat3 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8cc_1ae89ad4d04dde56d870e059a5187e17d4.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8cc_1ac987d47241c393ad2374dfa54c2cb28c.html">Function operator&lt;&lt;(std::ostream&amp;, acme::vec4 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8cc_1ac987d47241c393ad2374dfa54c2cb28c.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_acme_8cc_1a2de034b62b57716517cccf1f7ec682fc.html">Function operator&lt;&lt;(std::ostream&amp;, acme::mat4 const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_acme_8cc_1a2de034b62b57716517cccf1f7ec682fc.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ada5a21f7b6e22a96af8d545fa607c17f.html">Variable acme::_180divPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ada5a21f7b6e22a96af8d545fa607c17f.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a76648c3fe2164dfaec07aa55500751fe.html">Variable acme::box_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a76648c3fe2164dfaec07aa55500751fe.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a4f0d424feef859c5dbf78c0b2527fd45.html">Variable acme::Epsilon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a4f0d424feef859c5dbf78c0b2527fd45.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1af5fd13eb1169f1030848d00668f6b050.html">Variable acme::Epsilon_High</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1af5fd13eb1169f1030848d00668f6b050.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a0155fda5e41403be2fc7702dbaf957b9.html">Variable acme::Epsilon_Low</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a0155fda5e41403be2fc7702dbaf957b9.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a8bb96402fe1371b429c592fd314e8e41.html">Variable acme::Epsilon_Machine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a8bb96402fe1371b429c592fd314e8e41.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a335a2930accda2e8095ecf25ab3e9f6c.html">Variable acme::Epsilon_Medium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a335a2930accda2e8095ecf25ab3e9f6c.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a1c2081a2344ff6c581390a470b1fa18f.html">Variable acme::Identity_mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a1c2081a2344ff6c581390a470b1fa18f.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a5bd2c6db4c9fdc60c7f6413cc8de6fe3.html">Variable acme::Identity_mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a5bd2c6db4c9fdc60c7f6413cc8de6fe3.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1adfeb541d8d4170cedcc12574767d4a90.html">Variable acme::Identity_mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1adfeb541d8d4170cedcc12574767d4a90.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a403e087893d30165e0e55bad46fb79e9.html">Variable acme::Infinity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a403e087893d30165e0e55bad46fb79e9.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1af85d93ea3a85fce884819fa538273c0b.html">Variable acme::line_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1af85d93ea3a85fce884819fa538273c0b.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ae35e2e11129d75b193474f3485fae286.html">Variable acme::mat2_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ae35e2e11129d75b193474f3485fae286.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a6d9b2e7b68cbfbf7161b2f790d769374.html">Variable acme::mat3_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a6d9b2e7b68cbfbf7161b2f790d769374.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a47f55a1d8644e8c5468037a91edee528.html">Variable acme::mat4_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a47f55a1d8644e8c5468037a91edee528.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a65d3c31b4dc55a9c20639b6b8d759115.html">Variable acme::NaN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a65d3c31b4dc55a9c20639b6b8d759115.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a503e0ebe6bd11518ae6090dda8bda8fe.html">Variable acme::NaN_box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a503e0ebe6bd11518ae6090dda8bda8fe.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a518c4245f4621703dde2d33b1e66124e.html">Variable acme::NaN_line</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a518c4245f4621703dde2d33b1e66124e.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a55e88a087d958b5819bb86596be95b89.html">Variable acme::NaN_mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a55e88a087d958b5819bb86596be95b89.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a672b9f4a58b62ea41c5fcbdce3997a71.html">Variable acme::NaN_mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a672b9f4a58b62ea41c5fcbdce3997a71.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1aefe5af49098b0dcc36c17b4777e7388c.html">Variable acme::NaN_mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1aefe5af49098b0dcc36c17b4777e7388c.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a06cef766bd30f2a1d018b0ca084b5208.html">Variable acme::NaN_plane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a06cef766bd30f2a1d018b0ca084b5208.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ac73e52625fa81263a229f6a644ead9d2.html">Variable acme::NaN_ray</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ac73e52625fa81263a229f6a644ead9d2.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ab875894428dcb76833fcf7020615ad36.html">Variable acme::NaN_segment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ab875894428dcb76833fcf7020615ad36.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ab3cade0a0f509539e4230e1a5c80748b.html">Variable acme::NaN_triangle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ab3cade0a0f509539e4230e1a5c80748b.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a5341ff980adac63b1127dd52bca9b137.html">Variable acme::NaN_vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a5341ff980adac63b1127dd52bca9b137.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a8940a38a2f1226d510edf9b5941f9367.html">Variable acme::NaN_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a8940a38a2f1226d510edf9b5941f9367.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a1573025b5584031f9ab5dc309e4be0c0.html">Variable acme::NaN_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a1573025b5584031f9ab5dc309e4be0c0.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a024657ac992032fe8708965542546726.html">Variable acme::Ones_mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a024657ac992032fe8708965542546726.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a89402a4d57b4cabe25a34abb07570011.html">Variable acme::Ones_mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a89402a4d57b4cabe25a34abb07570011.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ae84c11548e827049de439849ae3c2c0e.html">Variable acme::Ones_mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ae84c11548e827049de439849ae3c2c0e.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ac27f3e3d647a1dc880cb0dacda184fce.html">Variable acme::Ones_vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ac27f3e3d647a1dc880cb0dacda184fce.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ace0529d8204ca6b0d15603cc68890c03.html">Variable acme::Ones_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ace0529d8204ca6b0d15603cc68890c03.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a69cfeeca3649721260a8ece69c6787b2.html">Variable acme::Ones_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a69cfeeca3649721260a8ece69c6787b2.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a94cd33426cc01eeb2b170cead4f74b36.html">Variable acme::PI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a94cd33426cc01eeb2b170cead4f74b36.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a9b758bb4a6910ca11d958c093dc6911e.html">Variable acme::PI2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a9b758bb4a6910ca11d958c093dc6911e.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ab2c84fc2f2030fefa569b590e47a6c66.html">Variable acme::PIdiv180</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ab2c84fc2f2030fefa569b590e47a6c66.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a73f5dcc6075456102357638502fcfd1e.html">Variable acme::plane_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a73f5dcc6075456102357638502fcfd1e.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a15f2bd5cde96ac18fb04021d2b0152c4.html">Variable acme::ray_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a15f2bd5cde96ac18fb04021d2b0152c4.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1af08c1aad1c29e0e8937c8a01bcba03ce.html">Variable acme::segment_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1af08c1aad1c29e0e8937c8a01bcba03ce.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a313b490f314acad37f0008c2f7871ca4.html">Variable acme::triangle_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a313b490f314acad37f0008c2f7871ca4.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1aa1ae08342378261cebd989875454624a.html">Variable acme::UnitW_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1aa1ae08342378261cebd989875454624a.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a8e3867e9d4af5c03b6c481ea5d92a6c8.html">Variable acme::UnitX_vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a8e3867e9d4af5c03b6c481ea5d92a6c8.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a705ecf2eeb8d5231b8d545fb65c44e37.html">Variable acme::UnitX_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a705ecf2eeb8d5231b8d545fb65c44e37.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a5762fde74799a226fd54d880e0de5946.html">Variable acme::UnitX_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a5762fde74799a226fd54d880e0de5946.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a24000f928943c1a9108034e09f5db034.html">Variable acme::UnitY_vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a24000f928943c1a9108034e09f5db034.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1abcc9b357edc17617f9a0dd8826ff8222.html">Variable acme::UnitY_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1abcc9b357edc17617f9a0dd8826ff8222.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a9c9cf93ffba9763c22023767138458cf.html">Variable acme::UnitY_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a9c9cf93ffba9763c22023767138458cf.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ad396dd16fe49ce4b3c200f260ebcd310.html">Variable acme::UnitZ_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ad396dd16fe49ce4b3c200f260ebcd310.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a89b4718ffa05a80575c1ef9f5c19c440.html">Variable acme::UnitZ_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a89b4718ffa05a80575c1ef9f5c19c440.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a4befad2c8ea16ae9e6000add47932bae.html">Variable acme::vec2_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a4befad2c8ea16ae9e6000add47932bae.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1afd9f5586d47a1f57cc3b0ace03d43ea9.html">Variable acme::vec3_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1afd9f5586d47a1f57cc3b0ace03d43ea9.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a9816c0da2db6d7938391bf9a63fdc716.html">Variable acme::vec4_goat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a9816c0da2db6d7938391bf9a63fdc716.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a8e601b36fede9b76e1a2724b9841e0a7.html">Variable acme::Zeros_mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a8e601b36fede9b76e1a2724b9841e0a7.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ae9749863a7ad34200b1acf09349d398e.html">Variable acme::Zeros_mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ae9749863a7ad34200b1acf09349d398e.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1aeb3204c3e683e7c37f3f693cd7afa8a2.html">Variable acme::Zeros_mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1aeb3204c3e683e7c37f3f693cd7afa8a2.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a1ed1ac59d078725d1b6222d71db66a04.html">Variable acme::Zeros_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a1ed1ac59d078725d1b6222d71db66a04.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1ac5c76fa7cc197b97fa8ad0e094031017.html">Variable acme::Zeros_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1ac5c76fa7cc197b97fa8ad0e094031017.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="variable_namespaceacme_1a01740f1cef0eccf5c8c8d848e24e9d91.html">Variable acme::Zeros_vect2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable_namespaceacme_1a01740f1cef0eccf5c8c8d848e24e9d91.html#variable-documentation">Variable Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="defines">
+<h3>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="define_acme_8hh_1a4e071e9b33386a9a652f019d24f54ff8.html">Define ACME_ASSERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define_acme_8hh_1a4e071e9b33386a9a652f019d24f54ff8.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="define_acme_8hh_1ae07d613b9140034699328bc954b3f038.html">Define ACME_ERROR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define_acme_8hh_1ae07d613b9140034699328bc954b3f038.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="define_acme_8hh_1a212d6598ffe0887042dd60d5c054dfca.html">Define ACME_USE_CXX11</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="define_acme_8hh_1a212d6598ffe0887042dd60d5c054dfca.html#define-documentation">Define Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="typedefs">
+<h3>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a>
+</h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1af09177c36f0e535fb9684dfae20630b5.html">Typedef acme::affine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1af09177c36f0e535fb9684dfae20630b5.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ae4ab45bf9b8c29407877ad7501951707.html">Typedef acme::angleaxis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ae4ab45bf9b8c29407877ad7501951707.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ac4de9d9335536ac22821171deec8d39e.html">Typedef acme::int_type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ac4de9d9335536ac22821171deec8d39e.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a7ec4c927dc2333696fdbaba6ed21928a.html">Typedef acme::mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a7ec4c927dc2333696fdbaba6ed21928a.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ab2913501a2445692638388aac959ab3a.html">Typedef acme::mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ab2913501a2445692638388aac959ab3a.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a175e64268781919fdedb53d0f92781ae.html">Typedef acme::mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a175e64268781919fdedb53d0f92781ae.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1afd592c9c993325658913aafaef90a8a9.html">Typedef acme::mat_mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1afd592c9c993325658913aafaef90a8a9.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ab319bbb50a2d7f5397ea95070e3fa8b5.html">Typedef acme::mat_mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ab319bbb50a2d7f5397ea95070e3fa8b5.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1abe6fb3cd6b6da050f0b1f0e7227fa153.html">Typedef acme::mat_mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1abe6fb3cd6b6da050f0b1f0e7227fa153.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a8d1d0b20842488658263868b59b48359.html">Typedef acme::mat_vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a8d1d0b20842488658263868b59b48359.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a5a60fa415e4c66c478cd0456bfadefe1.html">Typedef acme::mat_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a5a60fa415e4c66c478cd0456bfadefe1.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1acfb077d8c912fd6992eba353fc01402b.html">Typedef acme::mat_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1acfb077d8c912fd6992eba353fc01402b.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ad738f944bd5d7f12606289e00ab89ece.html">Typedef acme::matN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ad738f944bd5d7f12606289e00ab89ece.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1af9a793b801973447e8834bdca49350e9.html">Typedef acme::ostream_type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1af9a793b801973447e8834bdca49350e9.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa.html">Typedef acme::real_type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a5666b2a54000e6584c30f7e90694caf7.html">Typedef acme::scale</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a5666b2a54000e6584c30f7e90694caf7.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a5872b9727a22c13c9841e9ad605d485e.html">Typedef acme::translate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a5872b9727a22c13c9841e9ad605d485e.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ac96add4cca33011f37f16bdf23bd42d7.html">Typedef acme::vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ac96add4cca33011f37f16bdf23bd42d7.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9.html">Typedef acme::vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a0a0542c148a09eb136a719edc6fdbf97.html">Typedef acme::vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a0a0542c148a09eb136a719edc6fdbf97.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1aafeea22824f3c92c6a7ccaba65e797de.html">Typedef acme::vec_affine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1aafeea22824f3c92c6a7ccaba65e797de.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a12fb4f495d82babc0a3e045c4fb4cf59.html">Typedef acme::vec_angleaxis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a12fb4f495d82babc0a3e045c4fb4cf59.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1af2012ad1b032dc61911039bcb399d89f.html">Typedef acme::vec_mat2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1af2012ad1b032dc61911039bcb399d89f.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a960533891656e635c476aec3c6cd0fcf.html">Typedef acme::vec_mat3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a960533891656e635c476aec3c6cd0fcf.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a839066d1ed1a8447be88df15a1fb54eb.html">Typedef acme::vec_mat4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a839066d1ed1a8447be88df15a1fb54eb.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1ab685333fc1f664e4a5fe7773cfe1f247.html">Typedef acme::vec_scale</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1ab685333fc1f664e4a5fe7773cfe1f247.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a7f45d6aae169673d69d95350dedc4352.html">Typedef acme::vec_translate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a7f45d6aae169673d69d95350dedc4352.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a4d9d383c84decc30da0584a4b8fdb4c9.html">Typedef acme::vec_vec2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a4d9d383c84decc30da0584a4b8fdb4c9.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a657999786c001b6b809828cdcfc78372.html">Typedef acme::vec_vec3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a657999786c001b6b809828cdcfc78372.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a53bf74d40de48e8ca919df692bcda04d.html">Typedef acme::vec_vec4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a53bf74d40de48e8ca919df692bcda04d.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="typedef_namespaceacme_1a92b8475373957b4753e42687cab65be7.html">Typedef acme::vecN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_namespaceacme_1a92b8475373957b4753e42687cab65be7.html#typedef-documentation">Typedef Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">ACME</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C++ API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-api">Full API</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../manual.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="namespace_acme.html" title="next chapter">Namespace acme</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/library_root.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

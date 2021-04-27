@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>/Users/davide/Documents/Git/acme/include</compoundname>
+    <innerfile refid="acme_8hh">acme.hh</innerfile>
+    <innerfile refid="acme___a_a_b_btree_8hh">acme_AABBtree.hh</innerfile>
+    <innerfile refid="acme__box_8hh">acme_box.hh</innerfile>
+    <innerfile refid="acme__circle_8hh">acme_circle.hh</innerfile>
+    <innerfile refid="acme__intersection_8hh">acme_intersection.hh</innerfile>
+    <innerfile refid="acme__line_8hh">acme_line.hh</innerfile>
+    <innerfile refid="acme__math_8hh">acme_math.hh</innerfile>
+    <innerfile refid="acme__plane_8hh">acme_plane.hh</innerfile>
+    <innerfile refid="acme__ray_8hh">acme_ray.hh</innerfile>
+    <innerfile refid="acme__segment_8hh">acme_segment.hh</innerfile>
+    <innerfile refid="acme__triangle_8hh">acme_triangle.hh</innerfile>
+    <innerfile refid="acme__utilities_8hh">acme_utilities.hh</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/davide/Documents/Git/acme/include/"/>
+  </compounddef>
+</doxygen>

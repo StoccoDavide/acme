@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classacme_1_1_a_a_b_btree" kind="class" language="C++" prot="public">
+    <compoundname>acme::AABBtree</compoundname>
+    <includes refid="acme___a_a_b_btree_8hh" local="no">acme_AABBtree.hh</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classacme_1_1_a_a_b_btree_1a168beccb1937c1fe540e88be0117a9d5" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classacme_1_1_a_a_b_btree" kindref="compound">AABBtree</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;AABBtree&gt; ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to AABB tree object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="60" column="29" bodyfile="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classacme_1_1_a_a_b_btree_1a1b73683db95d332c936987c9ea29a972" prot="private" static="no" mutable="no">
+        <type><ref refid="classacme_1_1box_1a34e70512478406509c9847ec50066252" kindref="member">box::ptr</ref></type>
+        <definition>box::ptr ptrbox</definition>
+        <argsstring></argsstring>
+        <name>ptrbox</name>
+        <briefdescription>
+<para>Pointer to AABB tree box. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="66" column="14" bodyfile="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classacme_1_1_a_a_b_btree_1ad20a1cb4b2e531cef1f2f6a815b68a7b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classacme_1_1_a_a_b_btree_1a168beccb1937c1fe540e88be0117a9d5" kindref="member">AABBtree::ptr</ref> &gt;</type>
+        <definition>std::vector&lt;AABBtree::ptr&gt; children</definition>
+        <argsstring></argsstring>
+        <name>children</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="67" column="17" bodyfile="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1ab5400c1196b0af56dd22b98e8c511671" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AABBtree</definition>
+        <argsstring>(AABBtree const &amp;tree)</argsstring>
+        <name>AABBtree</name>
+        <param>
+          <type><ref refid="classacme_1_1_a_a_b_btree" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="69" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1adb42ed99721c0e3da1ef34d4cb8dbf00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~AABBtree</definition>
+        <argsstring>()</argsstring>
+        <name>~AABBtree</name>
+        <briefdescription>
+<para>AABB tree class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="73" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="98" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a47a07aad340e67d5aadb5ca133693ff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AABBtree</definition>
+        <argsstring>()</argsstring>
+        <name>AABBtree</name>
+        <briefdescription>
+<para>AABB tree class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="76" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="92" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1ae683fe63c33c388e9ba1c6392dd477eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear</definition>
+        <argsstring>(void)</argsstring>
+        <name>clear</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clear AABB tree data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="80" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="111" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1aeb4b12e574edb5e794ee1dbf6443eea0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isEmpty</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isEmpty</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if AABB tree is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="84" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="124" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1add7387c1f3828230ba61e177d465b972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void build</definition>
+        <argsstring>(std::vector&lt; box::ptr &gt; const &amp;boxes)</argsstring>
+        <name>build</name>
+        <param>
+          <type>std::vector&lt; <ref refid="classacme_1_1box_1a34e70512478406509c9847ec50066252" kindref="member">box::ptr</ref> &gt; const &amp;</type>
+          <declname>boxes</declname>
+          <briefdescription><para>List of boxes </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Build AABB tree given a list of boxes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="88" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="137" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a8edd69c3e87f3228196eb745dca056d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print</definition>
+        <argsstring>(ostream_type &amp;stream, int level=0) const</argsstring>
+        <name>print</name>
+        <param>
+          <type><ref refid="namespaceacme_1af9a793b801973447e8834bdca49350e9" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>stream</declname>
+          <briefdescription><para>Output stream </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+          <defval>0</defval>
+          <briefdescription><para>Level to print </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Print AABB tree content. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="94" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="249" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a65072055a1ea45bf1f618403fc88c1a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="classacme_1_1_a_a_b_btree_1a65072055a1ea45bf1f618403fc88c1a5" kindref="member">collision</ref></type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool collision</definition>
+        <argsstring>(AABBtree const &amp;tree, collision function, bool swap_tree=false) const</argsstring>
+        <name>collision</name>
+        <param>
+          <type><ref refid="classacme_1_1_a_a_b_btree" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>AABB tree used to check collision </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>collision</type>
+          <declname>function</declname>
+          <briefdescription><para>Function to check if the contents of two box collide </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>swap_tree</declname>
+          <defval>false</defval>
+          <briefdescription><para>If true exchange the tree in computation </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if two AABB tree collide. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="102" column="5" bodyfile="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" bodystart="102" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a4ece06a363511ad6a9c94a9d3d1570d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void intersection</definition>
+        <argsstring>(AABBtree const &amp;tree, box::vecpairptr &amp;intersectionList, bool swap_tree=false) const</argsstring>
+        <name>intersection</name>
+        <param>
+          <type><ref refid="classacme_1_1_a_a_b_btree" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>AABB tree used to check collision </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classacme_1_1box_1a27ff81c8e484849677def987e6c8d6ed" kindref="member">box::vecpairptr</ref> &amp;</type>
+          <declname>intersectionList</declname>
+          <briefdescription><para>List of pair box that overlaps </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>swap_tree</declname>
+          <defval>false</defval>
+          <briefdescription><para>If true exchange the tree in computation </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Compute all the intersection of AABB trees. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="157" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="276" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a08cff8cd783eb10747979931e52d5459" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void selectMinimumDistance</definition>
+        <argsstring>(vec3 const &amp;point, box::vecptr &amp;candidateList) const</argsstring>
+        <name>selectMinimumDistance</name>
+        <param>
+          <type><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref> const &amp;</type>
+          <declname>point</declname>
+          <briefdescription><para>Input point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classacme_1_1box_1a02f887d7463962af80aaef2eb362fab7" kindref="member">box::vecptr</ref> &amp;</type>
+          <declname>candidateList</declname>
+          <briefdescription><para>Output candidate list </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Find the candidate at minimum distance from point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="164" column="10" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="375" bodyend="382"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a82e43deb88a454dee5315f8a634b21c8" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></type>
+        <definition>real_type minimumExteriorDistance</definition>
+        <argsstring>(vec3 const &amp;point, AABBtree const &amp;tree, real_type distance)</argsstring>
+        <name>minimumExteriorDistance</name>
+        <param>
+          <type><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref> const &amp;</type>
+          <declname>point</declname>
+          <briefdescription><para>Input point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classacme_1_1_a_a_b_btree" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>Input tree </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></type>
+          <declname>distance</declname>
+          <briefdescription><para>Output distance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Compute the minimum of the maximum distance between a point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="172" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="324" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classacme_1_1_a_a_b_btree_1a49d5587e46bad1da2872ba7fc83a4db1" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void selectLessThanDistance</definition>
+        <argsstring>(vec3 const &amp;point, real_type distance, AABBtree const &amp;tree, box::vecptr &amp;candidateList)</argsstring>
+        <name>selectLessThanDistance</name>
+        <param>
+          <type><ref refid="namespaceacme_1a0587d7b89f96b43f1654230eabe43ef9" kindref="member">vec3</ref> const &amp;</type>
+          <declname>point</declname>
+          <briefdescription><para>Input point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="namespaceacme_1ac0b09ba58a37f5f3ca415be4a02ec7aa" kindref="member">real_type</ref></type>
+          <declname>distance</declname>
+          <briefdescription><para>Input distance </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classacme_1_1_a_a_b_btree" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>Input tree </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="classacme_1_1box_1a02f887d7463962af80aaef2eb362fab7" kindref="member">box::vecptr</ref> &amp;</type>
+          <declname>candidateList</declname>
+          <briefdescription><para>Output candidate list </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Select the candidate which box have distance less than distance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="180" column="5" bodyfile="/Users/davide/Documents/Git/acme/src/acme_AABBtree.cc" bodystart="348" bodyend="370"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>AABB tree class container. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Axis-Aligned Bouding Box tree. </para>
+    </detaileddescription>
+    <location file="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" line="56" column="3" bodyfile="/Users/davide/Documents/Git/acme/include/acme_AABBtree.hh" bodystart="57" bodyend="187"/>
+    <listofallmembers>
+      <member refid="classacme_1_1_a_a_b_btree_1ab5400c1196b0af56dd22b98e8c511671" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>AABBtree</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a47a07aad340e67d5aadb5ca133693ff4" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>AABBtree</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1add7387c1f3828230ba61e177d465b972" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>build</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1ad20a1cb4b2e531cef1f2f6a815b68a7b" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>children</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1ae683fe63c33c388e9ba1c6392dd477eb" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>clear</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a65072055a1ea45bf1f618403fc88c1a5" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>collision</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a4ece06a363511ad6a9c94a9d3d1570d4" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>intersection</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1aeb4b12e574edb5e794ee1dbf6443eea0" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>isEmpty</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a82e43deb88a454dee5315f8a634b21c8" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>minimumExteriorDistance</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a8edd69c3e87f3228196eb745dca056d1" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>print</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a168beccb1937c1fe540e88be0117a9d5" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>ptr</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a1b73683db95d332c936987c9ea29a972" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>ptrbox</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a49d5587e46bad1da2872ba7fc83a4db1" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>selectLessThanDistance</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1a08cff8cd783eb10747979931e52d5459" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>selectMinimumDistance</name></member>
+      <member refid="classacme_1_1_a_a_b_btree_1adb42ed99721c0e3da1ef34d4cb8dbf00" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>~AABBtree</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

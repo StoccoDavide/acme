@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespaceacme_1a8d1d0b20842488658263868b59b48359:
+
+Typedef acme::mat_vec2
+======================
+
+- Defined in :ref:`file__Users_davide_Documents_Git_acme_include_acme.hh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: acme::mat_vec2
