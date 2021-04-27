@@ -141,12 +141,6 @@ namespace acme
         vec3 const &input //!< Input translation vector
     );
 
-    //! Rotate plane by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    );
-
     //! Transform plane from with affine transformation matrix
     void
     transform(

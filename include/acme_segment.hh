@@ -110,9 +110,9 @@ namespace acme
     bool
     isDegenerated(void) const;
 
-    //! Get segment midpoint
+    //! Get segment centroid
     vec3
-    pointMiddle(void) const;
+    centroid(void) const;
 
     //! Get segment i-th point
     vec3 const &

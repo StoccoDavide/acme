@@ -108,7 +108,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  segment::pointMiddle(void)
+  segment::centroid(void)
       const
   {
     return (this->_point[0] + this->_point[1]) / 2.0;

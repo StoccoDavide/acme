@@ -212,6 +212,14 @@ namespace acme
       real_type tolerance = Epsilon //!< Tolerance
   );
 
+  //! Check if vectors are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &input0,           //!< Input vector 0
+      vec3 const &input1,           //!< Input vector 1
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
   //! Check if 3x3 matrix is othonormal
   bool
   isOrthonormal(

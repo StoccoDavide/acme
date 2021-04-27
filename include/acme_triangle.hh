@@ -29,6 +29,7 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
+#include "acme_plane.hh"
 #include "acme_segment.hh"
 #include "acme_box.hh"
 
@@ -141,6 +142,10 @@ namespace acme
         vec3 const vertex[3] //!< New triangle vertices
     );
 
+    //! Get triangle centroid
+    vec3
+    centroid(void) const;
+
     //! Get triangle edge created by i-th and j-th vertex
     segment
     edge(
@@ -201,6 +206,10 @@ namespace acme
         real_type &v,      //!< Output barycentric coordinate v
         real_type &w       //!< Output barycentric coordinate w
     ) const;
+
+    //! Get triangle laying plane
+    plane
+    layingPlane(void) const;
 
   }; // class triangle
 

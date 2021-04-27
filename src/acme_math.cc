@@ -288,6 +288,19 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
+  isOrthogonal(
+      vec3 const &input0,
+      vec3 const &input1,
+      real_type tolerance)
+  {
+    return acme::isApprox(input0.dot(input1),
+                          real_type(0.0),
+                          tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
   isOrthonormal(
       mat3 const &input,
       real_type tolerance)

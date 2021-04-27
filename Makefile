@@ -34,7 +34,7 @@ DYNAMIC_EXT		= .so
 
 # check if the OS string contains 'Linux'
 ifneq (,$(findstring Linux, $(OS)))
-	LIBS			+= -static -L./lib -lacme
+	LIBS			+= #-static -L./lib -lacme
 	CXXFLAGS 	+= -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment $(RPATH)
 	AR				= ar rcs
 	LDCONFIG	= sudo ldconfig
@@ -42,7 +42,7 @@ endif
 
 # check if the OS string contains 'MINGW'
 ifneq (,$(findstring MINGW, $(OS)))
-	LIBS			+= -static -L./lib -lacme
+	LIBS			+= #-static -L./lib -lacme
 	CXXFLAGS 	+= -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment
 	AR				= ar rcs
 	LDCONFIG	= sudo ldconfig
@@ -50,7 +50,7 @@ endif
 
 # check if the OS string contains 'Darwin'
 ifneq (,$(findstring Darwin, $(OS)))
-	LIBS				+= -L./lib -lacme
+	LIBS				+= #-L./lib -lacme
 	WARN				= -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
 	CC					= clang
 	CXX					= clang++ -std=c++11 -g

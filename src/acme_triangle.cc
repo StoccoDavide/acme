@@ -159,6 +159,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  vec3
+  triangle::centroid(void)
+      const
+  {
+    return (this->_vertex[0] + this->_vertex[1] + this->_vertex[2]) / 3.0;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   segment
   triangle::edge(
       size_t i,
@@ -286,6 +295,15 @@ namespace acme
     v = (d11 * d20 - d01 * d21) / denom;
     w = (d00 * d21 - d01 * d20) / denom;
     u = 1.0 - v - w;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane
+  triangle::layingPlane(void)
+      const
+  {
+    return plane(this->centroid(), this->normal());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
