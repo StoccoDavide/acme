@@ -71,11 +71,11 @@ Functions
 
 - :ref:`exhale_function_namespaceacme_1a38821c8c8ce9efabd64e279271120f4d`
 
+- :ref:`exhale_function_namespaceacme_1aa4704e0132775c2d05b51bbc2f4a3e15`
+
 - :ref:`exhale_function_namespaceacme_1a88d4dfb88df201646d101a5147d378b2`
 
 - :ref:`exhale_function_namespaceacme_1a98a009f23ee2ae45192b0128ef0f19ce`
-
-- :ref:`exhale_function_namespaceacme_1aa4704e0132775c2d05b51bbc2f4a3e15`
 
 - :ref:`exhale_function_namespaceacme_1aef1773d32788911c39ec95ff6bd4cdeb`
 
