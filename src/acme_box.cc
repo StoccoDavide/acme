@@ -82,16 +82,6 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::isDegenerated(void)
-      const
-  {
-    return this->_min.isApprox(this->_max) &&
-           this->checkMaxMin();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
   box::checkMaxMin(void)
       const
   {
@@ -333,26 +323,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  box::translate(
-      vec3 const &input)
-  {
-    this->_min = input + this->_min;
-    this->_max = input + this->_max;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  box::transform(
-      affine const &matrix)
-  {
-    acme::transformPoint(this->_min, matrix);
-    acme::transformPoint(this->_max, matrix);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   bool
   box::intersects(
       box const &input)
@@ -478,6 +448,47 @@ namespace acme
       const
   {
     return this->_ipos;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  box::translate(
+      vec3 const &input)
+  {
+    this->_min = input + this->_min;
+    this->_max = input + this->_max;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  box::transform(
+      affine const &matrix)
+  {
+    acme::transformPoint(this->_min, matrix);
+    acme::transformPoint(this->_max, matrix);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  box::isInside(
+      vec3 const &point)
+      const
+  {
+    return this->_min.x() < point.x() && this->_min.y() < point.y() && this->_min.z() < point.z() &&
+           this->_max.x() > point.x() && this->_max.y() > point.y() && this->_max.z() > point.z();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  box::isDegenerated(void)
+      const
+  {
+    return this->_min.isApprox(this->_max) &&
+           this->checkMaxMin();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

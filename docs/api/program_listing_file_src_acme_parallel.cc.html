@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File acme_parallel.cc &#8212; ACME v</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-acme-parallel-cc">
+<span id="program-listing-file-src-acme-parallel-cc"></span><h1>Program Listing for File acme_parallel.cc<a class="headerlink" href="#program-listing-for-file-acme-parallel-cc" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_src_acme_parallel.cc.html#file-src-acme-parallel-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/acme_parallel.cc</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ACME project - Release Version 0.0.0                            *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
+<span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
+<span class="cm">(* project and its components may not be copied or disclosed except in *)</span>
+<span class="cm">(* accordance with the terms of the BSD 2-Clause License.              *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Davide Stocco                                                    *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#include</span> <span class="cpf">"acme_parallel.hh"</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">acme</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   ____                 _ _      _</span>
+<span class="cm">   |  |  _ \ __ _ _ __ __ _| | | ___| |</span>
+<span class="cm">   |  | |_) / _` | '__/ _` | | |/ _ \ |</span>
+<span class="cm">   |  |  __/ (_| | | | (_| | | |  __/ |</span>
+<span class="cm">   |  |_|   \__,_|_|  \__,_|_|_|\___|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">line1</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">ray0</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">ray1</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">segment0</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                            <span class="n">segment1</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">triangle0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">triangle1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">circle0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">circle1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                              <span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                              <span class="n">triangle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                              <span class="n">circle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                              <span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                            <span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                              <span class="n">triangle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span>
+                              <span class="n">circle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                              <span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">triangle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">circle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                              <span class="n">triangle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">(),</span>
+                              <span class="n">circle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                              <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isParallel</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">circle</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span>
+                            <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+<span class="p">}</span> <span class="c1">// namespace acme</span>
+
+<span class="c1">///</span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

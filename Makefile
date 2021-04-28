@@ -34,7 +34,7 @@ DYNAMIC_EXT		= .so
 
 # check if the OS string contains 'Linux'
 ifneq (,$(findstring Linux, $(OS)))
-	LIBS			+= -static -L./lib -lacme
+	LIBS			+= #-static -L./lib -lacme
 	CXXFLAGS 	+= -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment $(RPATH)
 	AR				= ar rcs
 	LDCONFIG	= sudo ldconfig
@@ -42,7 +42,7 @@ endif
 
 # check if the OS string contains 'MINGW'
 ifneq (,$(findstring MINGW, $(OS)))
-	LIBS			+= -static -L./lib -lacme
+	LIBS			+= #-static -L./lib -lacme
 	CXXFLAGS 	+= -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment
 	AR				= ar rcs
 	LDCONFIG	= sudo ldconfig
@@ -50,7 +50,7 @@ endif
 
 # check if the OS string contains 'Darwin'
 ifneq (,$(findstring Darwin, $(OS)))
-	LIBS				+= -L./lib -lacme
+	LIBS				+= #-L./lib -lacme
 	WARN				= -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
 	CC					= clang
 	CXX					= clang++ -std=c++11 -g
@@ -63,6 +63,7 @@ endif
 LIB_ACME = libacme
 MKDIR = mkdir -p
 DEPS	= include/acme.hh \
+				include/acme_matrix.hh \
 				include/acme_AABBtree.hh \
 				include/acme_box.hh \
 				include/acme_circle.hh \
@@ -133,32 +134,34 @@ clean:
 	rm -rf $(OBJECTS)
 
 tests: $(OBJECTS) $(TESTS_SOURCES)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc -o bin/acme-test2 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc -o bin/acme-test3 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc -o bin/acme-test4 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc -o bin/acme-test5 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc -o bin/acme-test6 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc -o bin/acme-test7 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc -o bin/acme-test8 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test9.cc -o bin/acme-test9 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc -o bin/acme-test2 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc -o bin/acme-test3 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc -o bin/acme-test4 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc -o bin/acme-test5 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc -o bin/acme-test6 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc -o bin/acme-test7 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc -o bin/acme-test8 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test9.cc -o bin/acme-test9 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test12.cc -o bin/acme-test12 $(LIBS)
 
 tests_run:
-	./bin/acme-test0
-	./bin/acme-test1
-	./bin/acme-test2
-	./bin/acme-test3
-	./bin/acme-test4
-	./bin/acme-test5
-	./bin/acme-test6
-	./bin/acme-test7
-	./bin/acme-test8
-	./bin/acme-test9
-	./bin/acme-test10
-	./bin/acme-test11
+	#./bin/acme-test0
+	#./bin/acme-test1
+	#./bin/acme-test2
+	#./bin/acme-test3
+	#./bin/acme-test4
+	#./bin/acme-test5
+	#./bin/acme-test6
+	#./bin/acme-test7
+	#./bin/acme-test8
+	#./bin/acme-test9
+	#./bin/acme-test10
+	#./bin/acme-test11
+	./bin/acme-test12
 
 #
 # That's All Folks!

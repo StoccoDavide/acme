@@ -68,6 +68,7 @@
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_math.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_box.hh"</span><span class="cp"></span>
 
@@ -164,6 +165,9 @@
         <span class="n">vec3</span> <span class="k">const</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     <span class="p">);</span>
 
+    <span class="n">vec3</span>
+    <span class="nf">centroid</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
     <span class="n">segment</span>
     <span class="nf">edge</span><span class="p">(</span>
         <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
@@ -214,6 +218,9 @@
         <span class="n">real_type</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">,</span>
         <span class="n">real_type</span> <span class="o">&amp;</span><span class="n">w</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">plane</span>
+    <span class="nf">layingPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
   <span class="p">};</span> <span class="c1">// class triangle</span>
 

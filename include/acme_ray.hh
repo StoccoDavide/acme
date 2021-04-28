@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_RAY
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 
 namespace acme
 {
@@ -47,15 +47,10 @@ namespace acme
    * Infinite ray in 3D space and defined by any point lying on the line and a direction
    * vector.
   */
-  class ray
+  class ray : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<ray const> ptr; //!< Shared pointer to ray object
-#else
-    typedef ray const *ptr; //!< Pointer to ray object
-#endif
-
+    typedef ray const *ptr;                  //!< Pointer to ray object
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
@@ -108,10 +103,6 @@ namespace acme
         ray const &input //!< Input ray object
     ) const;
 
-    //! Check if ray is degenerated (null vector)
-    bool
-    isDegenerated(void) const;
-
     //! Return ray origin point
     vec3 const &
     origin() const;
@@ -144,6 +135,10 @@ namespace acme
     vec3
     toNormalizedVector(void) const;
 
+    //! Reverse ray direction
+    void
+    reverse(void);
+
     //! Translate ray by vector
     void
     translate(
@@ -156,15 +151,45 @@ namespace acme
         affine const &matrix //!< 4x4 affine transformation matrix
     );
 
-    //! Reverse ray direction
-    void
-    reverse(void);
-
     // Check whether the point is inside the ray
     bool
     isInside(
         vec3 const &point //!< Query point
     ) const;
+
+    //! Check if ray is degenerated (null vector)
+    bool
+    isDegenerated(void) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 4; }
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return false; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return true; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return false; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return false; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return false; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return false; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return false; }
 
   }; // class ray
 

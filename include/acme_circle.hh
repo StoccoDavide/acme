@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_CIRCLE
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 #include "acme_plane.hh"
 
 namespace acme
@@ -47,18 +47,13 @@ namespace acme
   /**
    * Circle in 3D space and defined by a radius and a plane (circle center + normal vector).
   */
-  class circle
+  class circle : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
     typedef std::shared_ptr<circle const> ptr; //!< Shared pointer to circle
-#else
-    typedef circle const *ptr; //!< Pointer to circle
-#endif
-
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to circle objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to circle objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to circle objects
+    typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to circle objects
+    typedef std::vector<ptr> vecptr;           //!< Vector of pointers to circle objects
+    typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to circle objects
 
   private:
     real_type _radius; //!< Circle radius
@@ -105,10 +100,6 @@ namespace acme
         circle const &input //!< Input circle object
     ) const;
 
-    //! Check if circle is degenerated
-    bool
-    isDegenerated(void) const;
-
     //! Get circle radius
     real_type
     radius(void) const;
@@ -153,6 +144,10 @@ namespace acme
         plane const &input //!< Input plane object
     );
 
+    //! Reverse direction
+    void
+    reverse(void);
+
     //! Translate by vector
     void
     translate(
@@ -165,15 +160,45 @@ namespace acme
         affine const &matrix //!< 4x4 affine transformation matrix
     );
 
-    //! Reverse direction
-    void
-    reverse(void);
-
     // Check whether the point is inside the circle
     bool
     isInside(
         vec3 const &point //!< Query point
     ) const;
+
+    //! Check if circle is degenerated
+    bool
+    isDegenerated(void) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 8; }
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return false; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return false; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return false; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return false; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return false; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return true; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return false; }
 
   }; // class circle
 

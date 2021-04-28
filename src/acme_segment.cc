@@ -98,17 +98,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  segment::isDegenerated(void)
-      const
-  {
-    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   vec3
-  segment::pointMiddle(void)
+  segment::centroid(void)
       const
   {
     return (this->_point[0] + this->_point[1]) / 2.0;
@@ -152,26 +143,6 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  segment::translate(
-      vec3 const &input)
-  {
-    this->_point[0] = input + this->_point[0];
-    this->_point[1] = input + this->_point[1];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  segment::transform(
-      affine const &matrix)
-  {
-    acme::transformPoint(this->_point[0], matrix);
-    acme::transformPoint(this->_point[1], matrix);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
   segment::swap(void)
   {
     vec3 tmp_point(this->_point[0]);
@@ -204,6 +175,26 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void
+  segment::translate(
+      vec3 const &input)
+  {
+    this->_point[0] = input + this->_point[0];
+    this->_point[1] = input + this->_point[1];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  segment::transform(
+      affine const &matrix)
+  {
+    acme::transformPoint(this->_point[0], matrix);
+    acme::transformPoint(this->_point[1], matrix);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool
   segment::isInside(
       vec3 const &point)
@@ -213,6 +204,15 @@ namespace acme
     real_type d1 = (point - this->_point[0]).norm();
     real_type d2 = (point - this->_point[1]).norm();
     return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  segment::isDegenerated(void)
+      const
+  {
+    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

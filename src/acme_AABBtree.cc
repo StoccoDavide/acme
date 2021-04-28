@@ -47,22 +47,20 @@ namespace acme
    |  /_/   \_\/_/   \_\____/|____/ \__|_|  \___|\___|
   \*/
 
-#ifdef ACME_USE_CXX11
-
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   AABBtree::AABBtree()
   {
-    ptrbox.reset();
-    children.clear();
+    this->_ptrbox.reset();
+    this->_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   AABBtree::~AABBtree()
   {
-    ptrbox.reset();
-    children.clear();
+    this->_ptrbox.reset();
+    this->_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -70,8 +68,8 @@ namespace acme
   void
   AABBtree::clear()
   {
-    ptrbox.reset();
-    children.clear();
+    this->_ptrbox.reset();
+    this->_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -80,56 +78,8 @@ namespace acme
   AABBtree::isEmpty()
       const
   {
-    return children.empty() && !ptrbox;
+    return this->_children.empty() && !this->_ptrbox;
   }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-#else
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  AABBtree::AABBtree()
-      : ptrbox(nullptr)
-  {
-    children.clear();
-  }
-
-  AABBtree::~AABBtree()
-  {
-    if (ptrbox != nullptr)
-    {
-      delete ptrbox;
-      ptrbox = nullptr;
-    }
-    children.clear();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  AABBtree::clear()
-  {
-    if (ptrbox != nullptr)
-    {
-      delete ptrbox;
-      ptrbox = nullptr;
-    }
-    children.clear();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  AABBtree::isEmpty()
-      const
-  {
-    return children.empty() && ptrbox == nullptr;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-#endif
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -146,27 +96,18 @@ namespace acme
 
     if (size == 1)
     {
-      this->ptrbox = boxes.front();
+      this->_ptrbox = boxes.front();
       return;
     }
 
-#ifdef ACME_USE_CXX11
-    ptrbox = std::shared_ptr<box>(new box(boxes, 0, 0));
-#else
-    if (ptrbox != nullptr)
-    {
-      delete ptrbox;
-      ptrbox = nullptr;
-    }
-    ptrbox = new box(boxes, 0, 0);
-#endif
+    this->_ptrbox = std::make_shared<box>(boxes, 0, 0);
 
-    real_type xmin = ptrbox->minX();
-    real_type ymin = ptrbox->minY();
-    real_type zmin = ptrbox->minZ();
-    real_type xmax = ptrbox->maxX();
-    real_type ymax = ptrbox->maxY();
-    real_type zmax = ptrbox->maxZ();
+    real_type xmin = this->_ptrbox->minX();
+    real_type ymin = this->_ptrbox->minY();
+    real_type zmin = this->_ptrbox->minZ();
+    real_type xmax = this->_ptrbox->maxX();
+    real_type ymax = this->_ptrbox->maxY();
+    real_type zmax = this->_ptrbox->maxZ();
 
     std::vector<box::ptr> pos_boxes;
     std::vector<box::ptr> neg_boxes;
@@ -226,21 +167,16 @@ namespace acme
       neg_boxes.erase(mid_idx, neg_boxes.end());
     }
 
-#ifdef ACME_USE_CXX11
     AABBtree::ptr neg = std::make_shared<AABBtree>();
     AABBtree::ptr pos = std::make_shared<AABBtree>();
-#else
-    AABBtree::ptr neg = new AABBtree();
-    AABBtree::ptr pos = new AABBtree();
-#endif
 
     neg->build(neg_boxes);
     if (!neg->isEmpty())
-      children.push_back(neg);
+      this->_children.push_back(neg);
 
     pos->build(pos_boxes);
     if (!pos->isEmpty())
-      children.push_back(pos);
+      this->_children.push_back(pos);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -261,11 +197,11 @@ namespace acme
          << std::showpoint
          << std::setprecision(10)
          << "Box =" << std::endl
-         << "Minimum = [ " << ptrbox->minX() << ", " << ptrbox->minY() << ", " << ptrbox->minZ() << " ]'" << std::endl
-         << "Maximum = [ " << ptrbox->maxX() << ", " << ptrbox->maxY() << ", " << ptrbox->maxZ() << " ]'" << std::endl
+         << "Minimum = [ " << this->_ptrbox->minX() << ", " << this->_ptrbox->minY() << ", " << this->_ptrbox->minZ() << " ]'" << std::endl
+         << "Maximum = [ " << this->_ptrbox->maxX() << ", " << this->_ptrbox->maxY() << ", " << this->_ptrbox->maxZ() << " ]'" << std::endl
          << std::endl;
       std::vector<AABBtree::ptr>::const_iterator it;
-      for (it = children.begin(); it != children.end(); ++it)
+      for (it = this->_children.begin(); it != this->_children.end(); ++it)
         (*it)->print(os, level + 1);
     }
   }
@@ -280,29 +216,29 @@ namespace acme
       const
   {
     // Check box with
-    if (!tree.ptrbox->intersects(*ptrbox))
+    if (!tree._ptrbox->intersects(*this->_ptrbox))
       return;
-    int icase = (children.empty() ? 0 : 1) +
-                (tree.children.empty() ? 0 : 2);
+    int icase = (this->_children.empty() ? 0 : 1) +
+                (tree._children.empty() ? 0 : 2);
     switch (icase)
     {
     case 0: // Both are leafs
       if (swap_tree)
-        intersection_list.push_back(box::pairptr(tree.ptrbox, ptrbox));
+        intersection_list.push_back(box::pairptr(tree._ptrbox, this->_ptrbox));
       else
-        intersection_list.push_back(box::pairptr(ptrbox, tree.ptrbox));
+        intersection_list.push_back(box::pairptr(this->_ptrbox, tree._ptrbox));
       break;
     case 1: // First is a tree, second is a leaf
     {
       std::vector<AABBtree::ptr>::const_iterator it;
-      for (it = children.begin(); it != children.end(); ++it)
+      for (it = this->_children.begin(); it != this->_children.end(); ++it)
         tree.intersection(**it, intersection_list, !swap_tree);
     }
     break;
     case 2: // First leaf, second is a tree
     {
       std::vector<AABBtree::ptr>::const_iterator it;
-      for (it = tree.children.begin(); it != tree.children.end(); ++it)
+      for (it = tree._children.begin(); it != tree._children.end(); ++it)
         this->intersection(**it, intersection_list, swap_tree);
     }
     break;
@@ -310,8 +246,8 @@ namespace acme
     {
       std::vector<AABBtree::ptr>::const_iterator c1;
       std::vector<AABBtree::ptr>::const_iterator c2;
-      for (c1 = children.begin(); c1 != children.end(); ++c1)
-        for (c2 = tree.children.begin(); c2 != tree.children.end(); ++c2)
+      for (c1 = this->_children.begin(); c1 != this->_children.end(); ++c1)
+        for (c2 = tree._children.begin(); c2 != tree._children.end(); ++c2)
           (*c1)->intersection(**c2, intersection_list, swap_tree);
     }
     break;
@@ -326,18 +262,18 @@ namespace acme
       AABBtree const &tree,
       real_type distance)
   {
-    std::vector<AABBtree::ptr> const &children = tree.children;
-    if (children.empty())
+    std::vector<AABBtree::ptr> const &tree_children = tree._children;
+    if (tree_children.empty())
     {
-      real_type dst = tree.ptrbox->exteriorDistance(point);
+      real_type dst = tree._ptrbox->exteriorDistance(point);
       return acme::min(dst, distance);
     }
-    real_type dmin = tree.ptrbox->centerDistance(point);
+    real_type dmin = tree._ptrbox->centerDistance(point);
     if (dmin > distance)
       return distance;
     // check box with
     std::vector<AABBtree::ptr>::const_iterator it;
-    for (it = children.begin(); it != children.end(); ++it)
+    for (it = tree_children.begin(); it != tree_children.end(); ++it)
       distance = minimumExteriorDistance(point, **it, distance);
     return distance;
   }
@@ -351,19 +287,19 @@ namespace acme
       AABBtree const &tree,
       box::vecptr &candidate_list)
   {
-    std::vector<AABBtree::ptr> const &children = tree.children;
-    real_type dst = tree.ptrbox->centerDistance(point);
+    std::vector<AABBtree::ptr> const &tree_children = tree._children;
+    real_type dst = tree._ptrbox->centerDistance(point);
     if (dst <= distance)
     {
-      if (children.empty())
+      if (tree_children.empty())
       {
-        candidate_list.push_back(tree.ptrbox);
+        candidate_list.push_back(tree._ptrbox);
       }
       else
       {
         // check box with
         std::vector<AABBtree::ptr>::const_iterator it;
-        for (it = children.begin(); it != children.end(); ++it)
+        for (it = tree_children.begin(); it != tree_children.end(); ++it)
           selectLessThanDistance(point, distance, **it, candidate_list);
       }
     }

@@ -69,15 +69,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  line::isDegenerated(void)
-      const
-  {
-    return acme::isDegenerated(this->_direction);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   vec3 const &
   line::origin(void)
       const
@@ -123,6 +114,14 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
+  line::reverse(void)
+  {
+    this->_direction = -this->_direction;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
   line::translate(
       vec3 const &input)
   {
@@ -141,14 +140,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  line::reverse(void)
-  {
-    this->_direction = -this->_direction;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   bool
   line::isInside(
       vec3 const &point)
@@ -156,6 +147,15 @@ namespace acme
   {
     return acme::isApprox(((point - this->_origin).normalized().cross(this->_direction)).norm(),
                           real_type(0.0));
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  line::isDegenerated(void)
+      const
+  {
+    return acme::isApprox(this->_direction.norm(), real_type(0.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

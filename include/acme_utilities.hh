@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_UTILTIES
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 #include "acme_ray.hh"
 #include "acme_line.hh"
 #include "acme_plane.hh"

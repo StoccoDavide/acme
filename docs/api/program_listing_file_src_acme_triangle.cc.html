@@ -198,6 +198,15 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
+  <span class="n">vec3</span>
+  <span class="n">triangle</span><span class="o">::</span><span class="n">centroid</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
   <span class="n">segment</span>
   <span class="n">triangle</span><span class="o">::</span><span class="n">edge</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
@@ -325,6 +334,15 @@
     <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="n">d11</span> <span class="o">*</span> <span class="n">d20</span> <span class="o">-</span> <span class="n">d01</span> <span class="o">*</span> <span class="n">d21</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom</span><span class="p">;</span>
     <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="n">d00</span> <span class="o">*</span> <span class="n">d21</span> <span class="o">-</span> <span class="n">d01</span> <span class="o">*</span> <span class="n">d20</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom</span><span class="p">;</span>
     <span class="n">u</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">v</span> <span class="o">-</span> <span class="n">w</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">plane</span>
+  <span class="n">triangle</span><span class="o">::</span><span class="n">layingPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">plane</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">centroid</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">normal</span><span class="p">());</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

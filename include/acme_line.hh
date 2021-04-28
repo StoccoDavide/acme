@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_LINE
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 
 namespace acme
 {
@@ -47,15 +47,10 @@ namespace acme
    * Infinite line in 3D space and defined by any point lying on the line and a direction
    * vector.
    */
-  class line
+  class line : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
     typedef std::shared_ptr<line const> ptr; //!< Shared pointer to line
-#else
-    typedef line const *ptr; //!< Pointer to line
-#endif
-
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to line objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to line objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to line objects
@@ -144,6 +139,10 @@ namespace acme
     vec3
     toNormalizedVector(void) const;
 
+    //! Reverse line direction
+    void
+    reverse(void);
+
     //! Translate line by vector
     void
     translate(
@@ -156,15 +155,41 @@ namespace acme
         affine const &matrix //!< 4x4 affine transformation matrix
     );
 
-    //! Reverse line direction
-    void
-    reverse(void);
-
     // Check whether the point is inside the line
     bool
     isInside(
         vec3 const &point //!< Query point
     ) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 3; }
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return true; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return false; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return false; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return false; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return false; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return false; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return false; }
 
   }; // class line
 

@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_SEGMENT
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 #include "acme_box.hh"
 
 namespace acme
@@ -47,18 +47,13 @@ namespace acme
   /**
   * Segment in 3D space. The segment is defined by two arbitrary points.
   */
-  class segment
+  class segment : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
     typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment object
-#else
-    typedef segment const *ptr; //!< Pointer to segment object
-#endif
-
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to segment objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to segment objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to segment objects
+    typedef std::pair<ptr, ptr> pairptr;        //!< Pair of pointers to segment objects
+    typedef std::vector<ptr> vecptr;            //!< Vector of pointers to segment objects
+    typedef std::vector<pairptr> vecpairptr;    //!< Vector of pairs of pointers to segment objects
 
   private:
     vec3 _point[2]; //!< Segment extrema points
@@ -106,13 +101,9 @@ namespace acme
         segment const &input //!< Input object
     ) const;
 
-    //! Check if segment is degenerated to point
-    bool
-    isDegenerated(void) const;
-
-    //! Get segment midpoint
+    //! Get segment centroid
     vec3
-    pointMiddle(void) const;
+    centroid(void) const;
 
     //! Get segment i-th point
     vec3 const &
@@ -134,18 +125,6 @@ namespace acme
     vec3
     toNormalizedVector(void) const;
 
-    //! Translate segment by vector
-    void
-    translate(
-        vec3 const &input //!< Input translation vector
-    );
-
-    //! Transform segment with affine transformation matrix
-    void
-    transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
-    );
-
     //! Swap segment points
     void
     swap(void);
@@ -160,11 +139,57 @@ namespace acme
     real_type
     length(void) const;
 
+    //! Translate segment by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
+    );
+
+    //! Transform segment with affine transformation matrix
+    void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+    );
+
     // Check whether the point is inside the segment
     bool
     isInside(
         vec3 const &point //!< Query point
     ) const;
+
+    //! Check if segment is degenerated to point
+    bool
+    isDegenerated(void) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 6; }
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return false; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return false; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return false; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return true; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return false; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return false; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return false; }
 
   }; // class segment
 

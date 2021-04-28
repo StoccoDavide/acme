@@ -69,15 +69,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  plane::isDegenerated(void)
-      const
-  {
-    return acme::isDegenerated(this->_normal);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   vec3 const &
   plane::origin() const
   {
@@ -116,25 +107,6 @@ namespace acme
   plane::normalize(void)
   {
     this->_normal.normalize();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  plane::translate(
-      vec3 const &input)
-  {
-    this->_origin = input + this->_origin;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  plane::transform(
-      affine const &matrix)
-  {
-    acme::transformPoint(this->_origin, matrix);
-    acme::transformVector(this->_normal, matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -186,12 +158,40 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void
+  plane::translate(
+      vec3 const &input)
+  {
+    this->_origin = input + this->_origin;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  plane::transform(
+      affine const &matrix)
+  {
+    acme::transformPoint(this->_origin, matrix);
+    acme::transformVector(this->_normal, matrix);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   bool
   plane::isInside(
       vec3 const &point)
       const
   {
     return this->signedDistance(point) < acme::Epsilon;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::isDegenerated(void)
+      const
+  {
+    return acme::isApprox(this->_normal.norm(), real_type(0.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

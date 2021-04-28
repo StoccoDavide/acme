@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_BOX
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 
 namespace acme
 {
@@ -46,24 +46,19 @@ namespace acme
   /**
    * Box in 3D space and defined by a "maximum" and a "minimum" point.
   */
-  class box
+  class box : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
-    typedef std::shared_ptr<box const> ptr; //!< Shared pointer to box object
-#else
-    typedef box const *ptr; //!< Pointer to box object
-#endif
-
+    typedef std::shared_ptr<box const> ptr;  //!< Shared pointer to box object
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to box objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to box objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to box objects
 
   private:
-    vec3 _min; //!< Box maximum point
-    vec3 _max; //!< Box minimum point
-    int_type _id;    //!< Box id (may be used in external algorithms)
-    int_type _ipos;  //!< Box rank (may be used in external algorithms)
+    vec3 _min;      //!< Box maximum point
+    vec3 _max;      //!< Box minimum point
+    int_type _id;   //!< Box id (may be used in external algorithms)
+    int_type _ipos; //!< Box rank (may be used in external algorithms)
 
   public:
     //! Box class destructor
@@ -73,7 +68,13 @@ namespace acme
     box(const box &) = default;
 
     //! Box class constructor
-    box() {}
+    box()
+        : _min(NaN_vec3),
+          _max(NaN_vec3),
+          _id(0),
+          _ipos(0)
+    {
+    }
 
     //! Box class constructor
     box(
@@ -83,8 +84,8 @@ namespace acme
         real_type maxX, //<! Input x value of box maximum point
         real_type maxY, //<! Input y value of box maximum point
         real_type maxZ, //<! Input z value of box maximum point
-        int_type id,     //<! Input id value
-        int_type ipos    //<! Input rank value
+        int_type id,    //<! Input id value
+        int_type ipos   //<! Input rank value
         ) : _min(vec3(minX, minY, minZ)),
             _max(vec3(maxX, maxY, maxZ)),
             _id(id),
@@ -103,14 +104,14 @@ namespace acme
     //!
     //!
     box(
-        vec3 const &min, 
-        vec3 const &max, 
+        vec3 const &min,
+        vec3 const &max,
         int_type id,
-        int_type ipos 
-        ) : _min(min),
-            _max(max),
-            _id(id),
-            _ipos(ipos)
+        int_type ipos)
+        : _min(min),
+          _max(max),
+          _id(id),
+          _ipos(ipos)
     {
       this->updateMaxMin();
     }
@@ -124,11 +125,11 @@ namespace acme
     //!
     //!
     box(
-        std::vector<box::ptr> const &boxes, 
+        std::vector<box::ptr> const &boxes,
         int_type id,
-        int_type ipos
-        ) : _id(id),
-            _ipos(ipos)
+        int_type ipos)
+        : _id(id),
+          _ipos(ipos)
     {
       this->merged(boxes);
       this->updateMaxMin();
@@ -148,10 +149,6 @@ namespace acme
     isApprox(
         box const &input //!< Input
     ) const;
-
-    //! Check if box is degenerated
-    bool
-    isDegenerated(void) const;
 
     //! Check box max and min points
     bool
@@ -218,7 +215,7 @@ namespace acme
     //! Set box minimum i-th point axis value
     void
     min(
-        size_t i,     //!< Input i-th value
+        size_t i,       //!< Input i-th value
         real_type input //!< Input value of box minimum point
     );
 
@@ -279,20 +276,8 @@ namespace acme
     //! Set box maximum i-th point axis value
     void
     max(
-        size_t i,     //!< Input i-th value
+        size_t i,       //!< Input i-th value
         real_type input //!< Input value of box maximum point
-    );
-
-    //! Translate box by vector
-    void
-    translate(
-        vec3 const &input //!< Input translation vector
-    );
-
-    //! Transform box with affine transformation matrix
-    void
-    transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
     );
 
     //! Detect if boxes collide
@@ -340,6 +325,58 @@ namespace acme
     //!< Return box position
     int_type const &
     pos(void) const;
+
+    //! Translate box by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
+    );
+
+    //! Transform box with affine transformation matrix
+    void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+    );
+
+    // Check whether the point is inside the box
+    bool
+    isInside(
+        vec3 const &point //!< Query point
+    ) const;
+
+    //! Check if box is degenerated
+    bool
+    isDegenerated(void) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 9; }
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return false; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return false; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return false; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return false; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return false; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return false; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return true; }
 
   }; //class box
 

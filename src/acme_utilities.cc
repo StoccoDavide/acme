@@ -26,9 +26,8 @@
 
 #include "acme_utilities.hh"
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
-namespace acme {
+namespace acme
+{
   /*\
    |         _   _ _ _ _   _           
    |   _   _| |_(_) (_) |_(_) ___  ___ 
@@ -211,8 +210,6 @@ namespace acme {
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
-
-#endif
 
 ///
 /// eof: acme_utilities.cc

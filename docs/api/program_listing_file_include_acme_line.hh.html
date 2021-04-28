@@ -82,7 +82,7 @@
 <span class="cm">  \*/</span>
 
 
-  <span class="k">class</span> <span class="nc">line</span>
+  <span class="k">class</span> <span class="nc">line</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
   <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
 <span class="cp">#ifdef ACME_USE_CXX11</span>
@@ -172,16 +172,65 @@
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
         <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
-    <span class="p">);</span>
+        <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+    <span class="nf">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="c1">// Check whether the point is inside the line</span>
     <span class="kt">bool</span>
     <span class="nf">isInside</span><span class="p">(</span>
         <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
 
   <span class="p">};</span> <span class="c1">// class line</span>
 

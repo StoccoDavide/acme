@@ -104,16 +104,9 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">box</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">box0</span><span class="p">,</span>
-      <span class="n">box</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">box1</span><span class="p">,</span>
-      <span class="n">box</span> <span class="o">&amp;</span><span class="n">box</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
+      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
@@ -126,19 +119,41 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
-      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">box</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">box0</span><span class="p">,</span>
+      <span class="n">box</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">box1</span><span class="p">,</span>
+      <span class="n">box</span> <span class="o">&amp;</span><span class="n">box</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
   <span class="p">);</span>
 
-  <span class="kt">bool</span> <span class="nf">intersection</span><span class="p">(</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
@@ -146,8 +161,36 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
   <span class="p">);</span>
 
@@ -160,8 +203,15 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
   <span class="p">);</span>
 
@@ -174,15 +224,15 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
   <span class="p">);</span>
 
@@ -191,6 +241,43 @@
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">point</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |    ____            _</span>
+<span class="cm">   |   / ___|___  _ __ | | __ _ _ __   __ _ _ __</span>
+<span class="cm">   |  | |   / _ \| '_ \| |/ _` | '_ \ / _` | '__|</span>
+<span class="cm">   |  | |__| (_) | |_) | | (_| | | | | (_| | |</span>
+<span class="cm">   |   \____\___/| .__/|_|\__,_|_| |_|\__,_|_|</span>
+<span class="cm">   |             |_|</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1</span><span class="p">,</span>
+      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="o">&amp;</span><span class="n">plane</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
@@ -202,9 +289,51 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="o">&amp;</span><span class="n">triangle</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="o">&amp;</span><span class="n">plane_out</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
@@ -216,8 +345,8 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
   <span class="p">);</span>
 
@@ -231,8 +360,29 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="o">&amp;</span><span class="n">triangle_out</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="o">&amp;</span><span class="n">circle_out</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
@@ -244,8 +394,8 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span>
   <span class="p">);</span>
 

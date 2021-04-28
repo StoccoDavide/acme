@@ -28,7 +28,8 @@
 #define INCLUDE_ACME_TRIANGLE
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
+#include "acme_plane.hh"
 #include "acme_segment.hh"
 #include "acme_box.hh"
 
@@ -48,18 +49,13 @@ namespace acme
   /**
    * Triangle in 3D space. The triangle is defined by three arbitrary points.
    */
-  class triangle
+  class triangle : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
     typedef std::shared_ptr<triangle const> ptr; //!< Shared pointer to triangle object
-#else
-    typedef triangle const *ptr; //!< Pointer to triangle object
-#endif
-
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to triangle objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to triangle objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to triangle objects
+    typedef std::pair<ptr, ptr> pairptr;         //!< Pair of pointers to triangle objects
+    typedef std::vector<ptr> vecptr;             //!< Vector of pointers to triangle objects
+    typedef std::vector<pairptr> vecpairptr;     //!< Vector of pairs of pointers to triangle objects
 
   private:
     vec3 _vertex[3]; //!< Triangle vertices
@@ -111,10 +107,6 @@ namespace acme
         triangle const &input //!< Input triangle object
     ) const;
 
-    //! Check if triangle is degenerated to point or segment
-    bool
-    isDegenerated(void) const;
-
     //! Get i-th triangle vertex
     vec3 const &
     vertex(
@@ -141,6 +133,10 @@ namespace acme
         vec3 const vertex[3] //!< New triangle vertices
     );
 
+    //! Get triangle centroid
+    vec3
+    centroid(void) const;
+
     //! Get triangle edge created by i-th and j-th vertex
     segment
     edge(
@@ -151,18 +147,6 @@ namespace acme
     //! Get triangle face normal (normalized vector)
     vec3
     normal(void) const;
-
-    //! Translate triangle by vector
-    void
-    translate(
-        vec3 const &input //!< Input translation vector
-    );
-
-    //! Transform triangle with affine transformation matrix
-    void
-    transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
-    );
 
     //! Swap triangle vertices
     void
@@ -184,14 +168,7 @@ namespace acme
 
     //! Calculate triangle area
     real_type
-    area(void)
-        const;
-
-    //! Check if a point lays inside the triangle
-    bool
-    isInside(
-        vec3 const &point //!< Query point
-    ) const;
+    area(void) const;
 
     //! Compute barycentric coordinates (u,v,w) for point
     void
@@ -201,6 +178,62 @@ namespace acme
         real_type &v,      //!< Output barycentric coordinate v
         real_type &w       //!< Output barycentric coordinate w
     ) const;
+
+    //! Get triangle laying plane
+    plane
+    layingPlane(void) const;
+
+    //! Translate triangle by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
+    );
+
+    //! Transform triangle with affine transformation matrix
+    void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+    );
+
+    //! Check if a point lays inside the triangle
+    bool
+    isInside(
+        vec3 const &point //!< Query point
+    ) const;
+
+    //! Check if triangle is degenerated to point or segment
+    bool
+    isDegenerated(void) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 7; }
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return false; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return false; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return false; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return false; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return true; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return false; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return false; }
 
   }; // class triangle
 

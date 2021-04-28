@@ -56,15 +56,11 @@ namespace acme
   class AABBtree
   {
   public:
-#ifdef ACME_USE_CXX11
     typedef std::shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
-#else
-    typedef AABBtree *ptr; //!< Pointer to AABB tree object
-#endif
 
   private:
-    box::ptr ptrbox; //!< Pointer to AABB tree box
-    std::vector<AABBtree::ptr> children;
+    box::ptr _ptrbox; //!< Pointer to AABB tree box
+    std::vector<AABBtree::ptr> _children;
 
     AABBtree(AABBtree const &tree);
 
@@ -107,23 +103,23 @@ namespace acme
     {
 
       // check box with
-      if (!tree.ptrbox->intersects(*ptrbox))
+      if (!tree._ptrbox->intersects(*this->_ptrbox))
         return false;
 
-      int icase = (children.empty() ? 0 : 1) +
-                  (tree.children.empty() ? 0 : 2);
+      int icase = (this->_children.empty() ? 0 : 1) +
+                  (tree._children.empty() ? 0 : 2);
 
       switch (icase)
       {
       case 0: // both leaf, use box intersection algorithm
         if (swap_tree)
-          return function(tree.ptrbox, ptrbox);
+          return function(tree._ptrbox, this->_ptrbox);
         else
-          return function(ptrbox, tree.ptrbox);
+          return function(this->_ptrbox, tree._ptrbox);
       case 1: // first is a tree, second is a leaf
       {
         typename std::vector<AABBtree::ptr>::const_iterator it;
-        for (it = children.begin(); it != children.end(); ++it)
+        for (it = this->_children.begin(); it != this->_children.end(); ++it)
           if (tree.collision(**it, function, !swap_tree))
             return true;
       }
@@ -131,8 +127,8 @@ namespace acme
       case 2: // first leaf, second is a tree
       {
         typename std::vector<AABBtree::ptr>::const_iterator it;
-        for (it = tree.children.begin();
-             it != tree.children.end(); ++it)
+        for (it = tree._children.begin();
+             it != tree._children.end(); ++it)
           if (this->collision(**it, function, swap_tree))
             return true;
       }
@@ -141,9 +137,9 @@ namespace acme
       {
         typename std::vector<AABBtree::ptr>::const_iterator it1;
         typename std::vector<AABBtree::ptr>::const_iterator it2;
-        for (it1 = children.begin(); it1 != children.end(); ++it1)
-          for (it2 = tree.children.begin();
-               it2 != tree.children.end(); ++it2)
+        for (it1 = this->_children.begin(); it1 != this->_children.end(); ++it1)
+          for (it2 = tree._children.begin();
+               it2 != tree._children.end(); ++it2)
             if ((*it1)->collision(**it2, function, swap_tree))
               return true;
       }

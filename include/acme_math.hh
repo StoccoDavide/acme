@@ -27,9 +27,9 @@
 #ifndef INCLUDE_ACME_MATH
 #define INCLUDE_ACME_MATH
 
-#include "acme.hh"
+#include <cmath>
 
-#include <Eigen/Geometry>
+#include "acme.hh"
 
 namespace acme
 {
@@ -94,7 +94,6 @@ namespace acme
   min(
       real_type input0, //!< Input value 0
       real_type input1  //!< Input value 1
-
   );
 
   //! Maximum between three inputs
@@ -112,15 +111,6 @@ namespace acme
       real_type input1, //!< Input value 1
       real_type input2  //!< Input value 2
   );
-
-  /*\
-   |   _____     _                                        _              
-   |  |_   _| __(_) __ _  ___  _ __   ___  _ __ ___   ___| |_ _ __ _   _ 
-   |    | || '__| |/ _` |/ _ \| '_ \ / _ \| '_ ` _ \ / _ \ __| '__| | | |
-   |    | || |  | | (_| | (_) | | | | (_) | | | | | |  __/ |_| |  | |_| |
-   |    |_||_|  |_|\__, |\___/|_| |_|\___/|_| |_| |_|\___|\__|_|   \__, |
-   |               |___/                                           |___/ 
-  \*/
 
   //! Sine function [rad]
   real_type
@@ -179,109 +169,6 @@ namespace acme
       real_type input0,             //!< Input value 0
       real_type input1,             //!< Input value 1
       real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Checks if elements are almost equal
-  bool
-  isApprox(
-      vec3 const &input0,           //!< Input value 0
-      vec3 const &input1,           //!< Input value 1
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Checks if elements are almost equal
-  bool
-  isApprox(
-      mat3 const &input0,           //!< Input value 0
-      mat3 const &input1,           //!< Input value 1
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vec3 is degenerated
-  bool
-  isDegenerated(
-      vec3 const &input,            //!< Input vector
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vectors are parallel
-  bool
-  isParallel(
-      vec3 const &input0,           //!< Input vector 0
-      vec3 const &input1,           //!< Input vector 1
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if 3x3 matrix is othonormal
-  bool
-  isOrthonormal(
-      mat3 const &input,            //!< Input value
-      real_type tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Returns a rotation as a rotation angle around an arbitrary axis
-  angleaxis
-  rotate(
-      real_type angle, //!< Input angle [rad]
-      vec3 const &axis //!< Input axis
-
-  );
-
-  //! Returns a rotation as a rotation angle around an arbitrary axis
-  angleaxis
-  rotate(
-      real_type angle,        //!< Input angle [rad]
-      std::string const &axis //!< Input axis
-  );
-
-  //! Angle between vectors [rad]
-  real_type
-  angle(
-      vec3 const &input0, //!< Input vector 0
-      vec3 const &input1  //!< Input vector 1
-  );
-
-  //! Calculate Euler angles [rad]
-  void
-  eulerAngles(
-      mat3 const &rotation, //!< 3x3 rotation matrix
-      size_t i,             //!< Rotation index
-      size_t j,             //!< Rotation index
-      size_t k,             //!< Rotation index
-      vec3 &angles          //!< Output euler angles [rad]
-  );
-
-  /*\
-   |   _____                     __                      
-   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
-   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
-   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
-   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
-   |                                                     
-  \*/
-
-  //!
-  //! Transform VECTOR with affine transformation matrix
-  //!
-  //! \param vector Input point
-  //! \param matrix 4x4 transformation matrix
-  //!
-  void
-  transformVector(
-      vec3 &vector,
-      affine const &matrix
-  );
-
-  //!
-  //! Transform POINT with affine transformation matrix
-  //!
-  //! \param vector Input point
-  //! \param matrix 4x4 transformation matrix
-  //!
-  void
-  transformPoint(
-      vec3 &vector,
-      affine const &matrix
   );
 
 } // namespace acme

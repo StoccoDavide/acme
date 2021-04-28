@@ -28,7 +28,7 @@
 #define INCLUDE_ACME_PLANE
 
 #include "acme.hh"
-#include "acme_math.hh"
+#include "acme_eigen.hh"
 
 namespace acme
 {
@@ -46,18 +46,13 @@ namespace acme
   /**
    * 3D plane defined by the normal vector to plane and an arbitraty point laying on the plane.
    */
-  class plane
+  class plane : public entity
   {
   public:
-#ifdef ACME_USE_CXX11
     typedef std::shared_ptr<plane const> ptr; //!< Shared pointer to plane object
-#else
-    typedef plane const *ptr; //!< Pointer to plane object
-#endif
-
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to plane objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to plane objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to plane objects
+    typedef std::pair<ptr, ptr> pairptr;      //!< Pair of pointers to plane objects
+    typedef std::vector<ptr> vecptr;          //!< Vector of pointers to plane objects
+    typedef std::vector<pairptr> vecpairptr;  //!< Vector of pairs of pointers to plane objects
 
   private:
     vec3 _origin; //!< Plane origin vector
@@ -107,10 +102,6 @@ namespace acme
         plane const &input //!< Input plane object
     ) const;
 
-    //! Check if plane is degenerated (normal has zero norm)
-    bool
-    isDegenerated(void) const;
-
     //! Return plane origin point
     vec3 const &
     origin(void) const;
@@ -135,28 +126,6 @@ namespace acme
         vec3 const &input //!< input plane origin vector
     );
 
-    //! Translate plane by vector
-    void
-    translate(
-        vec3 const &input //!< Input translation vector
-    );
-
-    //! Rotate plane by matrix
-    void
-    rotate(
-        mat3 const &input //!< Input 3x3 rotation matrix
-    );
-
-    //! Transform plane from with affine transformation matrix
-    void
-    transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
-    );
-
-    //! Reverse plane normal vector
-    void
-    reverse(void);
-
     //! Return plane equation d value (ax + by + cz + d = 0)
     real_type
     d(void) const;
@@ -179,11 +148,61 @@ namespace acme
         vec3 const &input //!< Input
     ) const;
 
+    //! Reverse plane normal vector
+    void
+    reverse(void);
+
+    //! Translate plane by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
+    );
+
+    //! Transform plane from with affine transformation matrix
+    void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+    );
+
     // Check whether a point lays on the plane
     bool
     isInside(
         vec3 const &point //!< Input
     ) const;
+
+    //! Return object type as string
+    size_t type(void) const override { return 5; }
+
+    //! Check if plane is degenerated (normal has zero norm)
+    bool
+    isDegenerated(void) const;
+
+    //! Check whether the object is a point
+    bool isMatrix(void) const override { return false; }
+
+    //! Check whether the object is a vector
+    bool isVector(void) const override { return false; }
+
+    //! Check whether the object is a line
+    bool isLine(void) const override { return false; }
+
+    //! Check whether the object is a ray
+    bool isRay(void) const override { return false; }
+
+    //! Check whether the object is a plane
+    bool isPlane(void) const override { return true; }
+
+    //! Check whether the object is a segment
+    bool isSegment(void) const override { return false; }
+
+    //! Check whether the object is a triangle
+    bool isTriangle(void) const override { return false; }
+
+    //! Check whether the object is a circle
+    bool isCircle(void) const override { return false; }
+
+    //! Check whether the object is a box
+    bool isBox(void) const override { return false; }
 
   }; // class plane
 

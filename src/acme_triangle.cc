@@ -105,17 +105,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  triangle::isDegenerated(void)
-      const
-  {
-    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real_type(0.0)) ||
-           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real_type(0.0)) ||
-           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real_type(0.0));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   vec3 const &
   triangle::vertex(
       size_t i)
@@ -159,6 +148,15 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  vec3
+  triangle::centroid(void)
+      const
+  {
+    return (this->_vertex[0] + this->_vertex[1] + this->_vertex[2]) / 3.0;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   segment
   triangle::edge(
       size_t i,
@@ -175,28 +173,6 @@ namespace acme
       const
   {
     return (this->_vertex[1] - this->_vertex[0]).cross(this->_vertex[2] - this->_vertex[0]).normalized();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  triangle::translate(
-      vec3 const &input)
-  {
-    this->_vertex[0] = input + this->_vertex[0];
-    this->_vertex[1] = input + this->_vertex[1];
-    this->_vertex[2] = input + this->_vertex[2];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  triangle::transform(
-      affine const &matrix)
-  {
-    acme::transformPoint(this->_vertex[0], matrix);
-    acme::transformPoint(this->_vertex[1], matrix);
-    acme::transformPoint(this->_vertex[2], matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -249,23 +225,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  triangle::isInside(
-      vec3 const &point)
-      const
-  {
-    real_type u, v, w;
-    this->barycentric(point, u, v, w);
-    if ((u >= real_type(0.0) && u <= real_type(1.0)) &&
-        (v >= real_type(0.0) && v <= real_type(1.0)) &&
-        (w >= real_type(0.0) && w <= real_type(1.0)))
-      return true;
-    else
-      return false;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   void
   triangle::barycentric(
       vec3 const &point,
@@ -286,6 +245,65 @@ namespace acme
     v = (d11 * d20 - d01 * d21) / denom;
     w = (d00 * d21 - d01 * d20) / denom;
     u = 1.0 - v - w;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane
+  triangle::layingPlane(void)
+      const
+  {
+    return plane(this->centroid(), this->normal());
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  triangle::translate(
+      vec3 const &input)
+  {
+    this->_vertex[0] = input + this->_vertex[0];
+    this->_vertex[1] = input + this->_vertex[1];
+    this->_vertex[2] = input + this->_vertex[2];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  triangle::transform(
+      affine const &matrix)
+  {
+    acme::transformPoint(this->_vertex[0], matrix);
+    acme::transformPoint(this->_vertex[1], matrix);
+    acme::transformPoint(this->_vertex[2], matrix);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  triangle::isInside(
+      vec3 const &point)
+      const
+  {
+    real_type u, v, w;
+    this->barycentric(point, u, v, w);
+    if ((u >= real_type(0.0) && u <= real_type(1.0)) &&
+        (v >= real_type(0.0) && v <= real_type(1.0)) &&
+        (w >= real_type(0.0) && w <= real_type(1.0)))
+      return true;
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  triangle::isDegenerated(void)
+      const
+  {
+    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real_type(0.0)) ||
+           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real_type(0.0)) ||
+           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real_type(0.0));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
