@@ -43,9 +43,9 @@
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* The ACME project - Release Version 0.0.0                            *)</span>
+<span class="cm">(* The ACME project                                                    *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)</span>
+<span class="cm">(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
 <span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
@@ -58,6 +58,11 @@
 <span class="cm">(*    Department of Industrial Engineering                             *)</span>
 <span class="cm">(*    University of Trento                                             *)</span>
 <span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">*/</span>
@@ -84,48 +89,49 @@
   <span class="k">class</span> <span class="nc">entity</span>
   <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
-<span class="cp">#ifdef ACME_USE_CXX11</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
-<span class="cp">#else</span>
-    <span class="k">typedef</span> <span class="n">line</span> <span class="k">const</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-<span class="cp">#endif</span>
-
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">entity</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pairptr</span><span class="o">&gt;</span> <span class="n">vecpairptr</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="kt">void</span>
-    <span class="n">translate</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-        <span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">//virtual bool</span>
+    <span class="c1">//isVector(void) const = 0;</span>
 
-    <span class="k">virtual</span> <span class="kt">void</span>
-    <span class="n">transform</span><span class="p">(</span>
-        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
-        <span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">protected</span><span class="o">:</span>
+    <span class="c1">// The problem that a virtual destructor is designed to avoid is this:</span>
+    <span class="c1">// If you call the non.virtual destructor through a pointer or reference</span>
+    <span class="c1">// to base class, only the base class destructor is called, even if the</span>
+    <span class="c1">// object is of a derived class.</span>
+    <span class="c1">// SOLUTION: virtual destructor must be protected!</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">entity</span><span class="p">(){};</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">entity</span><span class="p">(){};</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">size_t</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isMatrix</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span>
-    <span class="n">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
   <span class="p">};</span> <span class="c1">// class entity</span>
+
+  <span class="k">static</span> <span class="n">entity</span> <span class="o">*</span><span class="n">entity_goat</span><span class="p">;</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>
 

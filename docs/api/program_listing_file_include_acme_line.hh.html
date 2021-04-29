@@ -43,9 +43,9 @@
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* The ACME project - Release Version 0.0.0                            *)</span>
+<span class="cm">(* The ACME project                                                    *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)</span>
+<span class="cm">(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
 <span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
@@ -59,6 +59,11 @@
 <span class="cm">(*    University of Trento                                             *)</span>
 <span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
 <span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
+<span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">*/</span>
 
@@ -67,7 +72,7 @@
 <span class="cp">#define INCLUDE_ACME_LINE</span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_math.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_eigen.hh"</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">acme</span>
 <span class="p">{</span>
@@ -85,12 +90,7 @@
   <span class="k">class</span> <span class="nc">line</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
   <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
-<span class="cp">#ifdef ACME_USE_CXX11</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
-<span class="cp">#else</span>
-    <span class="k">typedef</span> <span class="n">line</span> <span class="k">const</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-<span class="cp">#endif</span>
-
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pairptr</span><span class="o">&gt;</span> <span class="n">vecpairptr</span><span class="p">;</span>
@@ -105,6 +105,8 @@
     <span class="n">line</span><span class="p">()</span> <span class="p">{}</span>
 
     <span class="n">line</span><span class="p">(</span><span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">line</span><span class="p">(</span><span class="n">line</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
     <span class="n">line</span><span class="p">(</span>
         <span class="n">real_type</span> <span class="n">ox</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of line origin point</span>
@@ -165,6 +167,9 @@
     <span class="nf">toNormalizedVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
+    <span class="nf">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
     <span class="nf">translate</span><span class="p">(</span>
         <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
     <span class="p">);</span>
@@ -172,65 +177,33 @@
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
         <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
-        <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+    <span class="p">);</span>
 
     <span class="c1">// Check whether the point is inside the line</span>
     <span class="kt">bool</span>
     <span class="nf">isInside</span><span class="p">(</span>
         <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">size_t</span> <span class="nf">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">3</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isMatrix</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-        <span class="k">const</span> <span class="k">override</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="nf">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="nf">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="nf">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
   <span class="p">};</span> <span class="c1">// class line</span>
 

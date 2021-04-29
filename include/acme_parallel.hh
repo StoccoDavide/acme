@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -47,6 +52,22 @@ namespace acme
    |  |_|   \__,_|_|  \__,_|_|_|\___|_|
    |                                   
   \*/
+
+  //! Check if geometrical entities are parallel
+  bool
+  isParallel(
+      entity const *entity0,        //!< Input entity 0
+      entity const *entity1,        //!< Input entity 1
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vectors are parallel
+  bool
+  isParallel(
+      vec3 const &vector0,          //!< Input vector 0
+      vec3 const &vector1,          //!< Input vector 1
+      real_type tolerance = Epsilon //!< Tolerance
+  );
 
   //! Check if lines are parallel
   bool
@@ -96,6 +117,54 @@ namespace acme
       real_type tolerance = Epsilon //!< Tolerance
   );
 
+  //! Check if vector and line are parallel
+  bool
+  isParallel(
+      vec3 const &vector,           //!< Input ray
+      line const &line,             //!< Input vector
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and ray are parallel
+  bool
+  isParallel(
+      vec3 const &vector,           //!< Input vector
+      ray const &ray,               //!< Input ray
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and plane are parallel
+  bool
+  isParallel(
+      vec3 const &vector,           //!< Input vector
+      plane const &plane,           //!< Input plane
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and segment are parallel
+  bool
+  isParallel(
+      vec3 const &vector,           //!< Input vector
+      segment const &segment,       //!< Input segment
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and triangle are parallel
+  bool
+  isParallel(
+      vec3 const &vector,           //!< Input vector
+      triangle const &triangle,     //!< Input triangle
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and circle are parallel
+  bool
+  isParallel(
+      vec3 const &vector,           //!< Input vector
+      circle const &circle,         //!< Input circle
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
   //! Check if line and ray are parallel
   bool
   isParallel(
@@ -120,7 +189,7 @@ namespace acme
       real_type tolerance = Epsilon //!< Tolerance
   );
 
-  //! Check if line and triangle laying plane are parallel
+  //! Check if line and triangle are parallel
   bool
   isParallel(
       line const &line,             //!< Input line
@@ -152,7 +221,7 @@ namespace acme
       real_type tolerance = Epsilon //!< Tolerance
   );
 
-  //! Check if ray and triangle laying plane are parallel
+  //! Check if ray and triangle are parallel
   bool
   isParallel(
       ray const &ray,               //!< Input ray

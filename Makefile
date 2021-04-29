@@ -1,8 +1,8 @@
 # (***********************************************************************)
 # (*                                                                     *)
-# (* The ACME project - Release Version 0.0.0                            *)
+# (* The ACME project                                                    *)
 # (*                                                                     *)
-# (* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+# (* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 # (*                                                                     *)
 # (* The ACME project and its components are supplied under the terms of *)
 # (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -15,6 +15,11 @@
 # (*    Department of Industrial Engineering                             *)
 # (*    University of Trento                                             *)
 # (*    e-mail: davide.stocco@unitn.it                                   *)
+# (*                                                                     *)
+# (*    Enrico Bertolazzi                                                *)
+# (*    Department of Industrial Engineering                             *)
+# (*    University of Trento                                             *)
+# (*    e-mail: enrico.bertolazzi@unitn.it                               *)
 # (*                                                                     *)
 # (***********************************************************************)
 
@@ -63,17 +68,21 @@ endif
 LIB_ACME = libacme
 MKDIR = mkdir -p
 DEPS	= include/acme.hh \
-				include/acme_matrix.hh \
+				include/acme_math.hh \
+				include/acme_eigen.hh \
 				include/acme_AABBtree.hh \
 				include/acme_box.hh \
 				include/acme_circle.hh \
-				include/acme_intersection.hh \
 				include/acme_line.hh \
-				include/acme_math.hh \
 				include/acme_plane.hh \
 				include/acme_ray.hh \
 				include/acme_segment.hh \
 				include/acme_triangle.hh \
+				include/acme_intersection.hh \
+				include/acme_collinear.hh \
+				include/acme_coplanar.hh \
+				include/acme_parallel.hh \
+				include/acme_orthogonal.hh \
 				include/acme_utilities.hh
 
 # prefix for installation, use make PREFIX=/new/prefix install
@@ -134,33 +143,33 @@ clean:
 	rm -rf $(OBJECTS)
 
 tests: $(OBJECTS) $(TESTS_SOURCES)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc -o bin/acme-test2 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc -o bin/acme-test3 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc -o bin/acme-test4 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc -o bin/acme-test5 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc -o bin/acme-test6 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc -o bin/acme-test7 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc -o bin/acme-test8 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test9.cc -o bin/acme-test9 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc -o bin/acme-test2 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc -o bin/acme-test3 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc -o bin/acme-test4 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc -o bin/acme-test5 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc -o bin/acme-test6 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc -o bin/acme-test7 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc -o bin/acme-test8 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test9.cc -o bin/acme-test9 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test12.cc -o bin/acme-test12 $(LIBS)
 
 tests_run:
-	#./bin/acme-test0
-	#./bin/acme-test1
-	#./bin/acme-test2
-	#./bin/acme-test3
-	#./bin/acme-test4
-	#./bin/acme-test5
-	#./bin/acme-test6
-	#./bin/acme-test7
-	#./bin/acme-test8
-	#./bin/acme-test9
-	#./bin/acme-test10
-	#./bin/acme-test11
+	./bin/acme-test0
+	./bin/acme-test1
+	./bin/acme-test2
+	./bin/acme-test3
+	./bin/acme-test4
+	./bin/acme-test5
+	./bin/acme-test6
+	./bin/acme-test7
+	./bin/acme-test8
+	./bin/acme-test9
+	./bin/acme-test10
+	./bin/acme-test11
 	./bin/acme-test12
 
 #

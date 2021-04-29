@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -60,16 +65,19 @@ namespace acme
     plane _plane;      //!< Circle plane (circle center + normal vector)
 
   public:
-    //! Class deconstructor
+    //! Circle class deconstructor
     ~circle() {}
 
-    //! Class constructor
+    //! Circle class constructor
     circle() {}
 
-    //! Copy constructor
+    //! Circle copy constructor
     circle(circle const &) = default;
 
-    //! Class constructor
+    //! Circle move constructor
+    circle(circle &&) = default;
+
+    //! Circle class constructor
     circle(
         real_type radius,  //!< Input circle radius
         plane const &plane //!< Input circle laying plane
@@ -78,7 +86,7 @@ namespace acme
     {
     }
 
-    //! Class constructor
+    //! Circle class constructor
     circle(
         real_type radius,   //!< Input circle radius
         vec3 const &center, //!< Input circle center
@@ -202,8 +210,8 @@ namespace acme
 
   }; // class circle
 
-  //static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!< Not-a-Number triangle type
-  //static circle circle_goat = circle(NaN_circle);                      //!< Scapegoat circle type (throwaway non-const object)
+  static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!< Not-a-Number circle type
+  static circle circle_goat = circle(NaN_circle);                             //!< Scapegoat circle type (throwaway non-const object)
 
 } // namespace acme
 

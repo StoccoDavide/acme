@@ -1,7 +1,7 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
 (* Copyright (c) 4040 Davide Stocco, All Rights Reserved.              *)
 (*                                                                     *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -42,237 +47,325 @@ namespace acme
 
   bool
   isOrthogonal(
-      entity const *entity0, //!< Input entity 0
-      entity const *entity1, //!< Input entity 1
-      real_type tolerance    //!< Tolerance
-  )
+      entity const *entity0,
+      entity const *entity1,
+      real_type tolerance)
   {
     int_type slide = entity0->type() * 100 + entity1->type();
     switch (slide)
     {
 
-    // LINE
+      // - - - - - - - - - - - - - - VECTOR - - - - - - - - - - - - - -
+
+    case 202:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const vec3 *>(entity1),
+                                tolerance);
+      break;
+
+    case 203:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const line *>(entity1),
+                                tolerance);
+      break;
+
+    case 204:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const ray *>(entity1),
+                                tolerance);
+      break;
+
+    case 205:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const plane *>(entity1),
+                                tolerance);
+      break;
+
+    case 206:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const segment *>(entity1),
+                                tolerance);
+      break;
+
+    case 207:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const triangle *>(entity1),
+                                tolerance);
+      break;
+
+    case 208:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
+                                tolerance);
+      break;
+
+      // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
+
+    case 302:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity1),
+                                *dynamic_cast<const line *>(entity0),
+                                tolerance);
+      break;
+
     case 303:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity0),
-                                dynamic_cast<const line *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity0),
+                                *dynamic_cast<const line *>(entity1),
                                 tolerance);
       break;
 
     case 304:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity0),
-                                dynamic_cast<const ray *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity0),
+                                *dynamic_cast<const ray *>(entity1),
                                 tolerance);
       break;
 
     case 305:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity0),
-                                dynamic_cast<const plane *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity0),
+                                *dynamic_cast<const plane *>(entity1),
                                 tolerance);
       break;
 
     case 306:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity0),
-                                dynamic_cast<const segment *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity0),
+                                *dynamic_cast<const segment *>(entity1),
                                 tolerance);
       break;
 
     case 307:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity0),
-                                dynamic_cast<const triangle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity0),
+                                *dynamic_cast<const triangle *>(entity1),
                                 tolerance);
       break;
 
     case 308:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity0),
-                                dynamic_cast<const circle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
                                 tolerance);
       break;
 
-    // RAY
+      // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
+
+    case 402:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const line *>(entity1),
+                                tolerance);
+      break;
+
     case 403:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity1),
-                                dynamic_cast<const ray *>(entity0), tolerance);
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity1),
+                                *dynamic_cast<const ray *>(entity0),
+                                tolerance);
       break;
 
     case 404:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity0),
-                                dynamic_cast<const ray *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity0),
+                                *dynamic_cast<const ray *>(entity1),
                                 tolerance);
       break;
 
     case 405:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity0),
-                                dynamic_cast<const plane *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity0),
+                                *dynamic_cast<const plane *>(entity1),
                                 tolerance);
       break;
 
     case 406:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity0),
-                                dynamic_cast<const segment *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity0),
+                                *dynamic_cast<const segment *>(entity1),
                                 tolerance);
       break;
 
     case 407:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity0),
-                                dynamic_cast<const triangle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity0),
+                                *dynamic_cast<const triangle *>(entity1),
                                 tolerance);
       break;
 
     case 408:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity0),
-                                dynamic_cast<const circle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
                                 tolerance);
       break;
 
-      // PLANE
+      // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
+
+    case 502:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity0),
+                                *dynamic_cast<const line *>(entity1),
+                                tolerance);
+      break;
+
     case 503:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity1),
-                                dynamic_cast<const plane *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity1),
+                                *dynamic_cast<const plane *>(entity0),
                                 tolerance);
       break;
 
     case 504:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity1),
-                                dynamic_cast<const plane *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity1),
+                                *dynamic_cast<const plane *>(entity0),
                                 tolerance);
       break;
 
     case 505:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity0),
-                                dynamic_cast<const plane *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity0),
+                                *dynamic_cast<const plane *>(entity1),
                                 tolerance);
       break;
 
     case 506:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity0),
-                                dynamic_cast<const segment *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity0),
+                                *dynamic_cast<const segment *>(entity1),
                                 tolerance);
       break;
 
     case 507:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity0),
-                                dynamic_cast<const triangle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity0),
+                                *dynamic_cast<const triangle *>(entity1),
                                 tolerance);
       break;
 
     case 508:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity0),
-                                dynamic_cast<const circle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
                                 tolerance);
       break;
 
-      // SEGMENT
+      // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
+
+    case 602:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity1),
+                                *dynamic_cast<const segment *>(entity0),
+                                tolerance);
+      break;
+
     case 603:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity1),
-                                dynamic_cast<const segment *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity1),
+                                *dynamic_cast<const segment *>(entity0),
                                 tolerance);
       break;
 
     case 604:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity1),
-                                dynamic_cast<const segment *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity1),
+                                *dynamic_cast<const segment *>(entity0),
                                 tolerance);
       break;
 
     case 605:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity1),
-                                dynamic_cast<const segment *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity1),
+                                *dynamic_cast<const segment *>(entity0),
                                 tolerance);
       break;
 
     case 606:
-      return acme::isOrthogonal(dynamic_cast<const segment *>(entity0),
-                                dynamic_cast<const segment *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const segment *>(entity0),
+                                *dynamic_cast<const segment *>(entity1),
                                 tolerance);
       break;
 
     case 607:
-      return acme::isOrthogonal(dynamic_cast<const segment *>(entity0),
-                                dynamic_cast<const triangle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const segment *>(entity0),
+                                *dynamic_cast<const triangle *>(entity1),
                                 tolerance);
       break;
 
     case 608:
-      return acme::isOrthogonal(dynamic_cast<const segment *>(entity0),
-                                dynamic_cast<const circle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const segment *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
                                 tolerance);
       break;
 
-      // TRIANGLE
+      // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
+
+    case 702:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity1),
+                                *dynamic_cast<const triangle *>(entity0),
+                                tolerance);
+      break;
+
     case 703:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity1),
-                                dynamic_cast<const triangle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity1),
+                                *dynamic_cast<const triangle *>(entity0),
                                 tolerance);
       break;
 
     case 704:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity1),
-                                dynamic_cast<const triangle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity1),
+                                *dynamic_cast<const triangle *>(entity0),
                                 tolerance);
       break;
 
     case 705:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity1),
-                                dynamic_cast<const triangle *>(entity0), tolerance);
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity1),
+                                *dynamic_cast<const triangle *>(entity0), tolerance);
       break;
 
     case 706:
-      return acme::isOrthogonal(dynamic_cast<const segment *>(entity1),
-                                dynamic_cast<const triangle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const segment *>(entity1),
+                                *dynamic_cast<const triangle *>(entity0),
                                 tolerance);
       break;
 
     case 707:
-      return acme::isOrthogonal(dynamic_cast<const triangle *>(entity0),
-                                dynamic_cast<const triangle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const triangle *>(entity0),
+                                *dynamic_cast<const triangle *>(entity1),
                                 tolerance);
       break;
 
     case 708:
-      return acme::isOrthogonal(dynamic_cast<const triangle *>(entity0),
-                                dynamic_cast<const circle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const triangle *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
                                 tolerance);
       break;
 
-      // CIRCLE
+    // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
+    case 802:
+      return acme::isOrthogonal(*dynamic_cast<const vec3 *>(entity1),
+                                *dynamic_cast<const circle *>(entity0),
+                                tolerance);
+      break;
+
     case 803:
-      return acme::isOrthogonal(dynamic_cast<const line *>(entity1),
-                                dynamic_cast<const circle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const line *>(entity1),
+                                *dynamic_cast<const circle *>(entity0),
                                 tolerance);
       break;
 
     case 804:
-      return acme::isOrthogonal(dynamic_cast<const ray *>(entity1),
-                                dynamic_cast<const circle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const ray *>(entity1),
+                                *dynamic_cast<const circle *>(entity0),
                                 tolerance);
       break;
 
     case 805:
-      return acme::isOrthogonal(dynamic_cast<const plane *>(entity1),
-                                dynamic_cast<const circle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const plane *>(entity1),
+                                *dynamic_cast<const circle *>(entity0),
                                 tolerance);
       break;
 
     case 806:
-      return acme::isOrthogonal(dynamic_cast<const segment *>(entity1),
-                                dynamic_cast<const circle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const segment *>(entity1),
+                                *dynamic_cast<const circle *>(entity0),
                                 tolerance);
       break;
 
     case 807:
-      return acme::isOrthogonal(dynamic_cast<const triangle *>(entity1),
-                                dynamic_cast<const circle *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<const triangle *>(entity1),
+                                *dynamic_cast<const circle *>(entity0),
                                 tolerance);
       break;
 
     case 808:
-      return acme::isOrthogonal(dynamic_cast<const circle *>(entity0),
-                                dynamic_cast<const circle *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<const circle *>(entity0),
+                                *dynamic_cast<const circle *>(entity1),
                                 tolerance);
       break;
 
+      // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
+
     default:
-      ACME_ERROR("acme::isOrthogonal(entity, entity): exception not handled.")
+      //ACME_ERROR("acme::isOrthogonal(entity, entity): exception not handled.")
+      return false;
       break;
     }
   }
@@ -281,231 +374,308 @@ namespace acme
 
   bool
   isOrthogonal(
-      line const *line0,
-      line const *line1,
+      vec3 const &vector0,
+      vec3 const &vector1,
       real_type tolerance)
   {
-    return line0->direction().isOrthogonal(line1->direction(), tolerance);
+    return vector0.isOrthogonal(vector1, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      ray const *ray0,
-      ray const *ray1,
+      vec3 const &vector,
+      line const &line,
       real_type tolerance)
   {
-    return ray0->direction().isOrthogonal(ray1->direction(), tolerance);
+    return vector.isOrthogonal(line.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      plane const *plane0,
-      plane const *plane1,
+      vec3 const &vector,
+      ray const &ray,
       real_type tolerance)
   {
-    return plane0->normal().isOrthogonal(plane1->normal(), tolerance);
+    return vector.isOrthogonal(ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      segment const *segment0,
-      segment const *segment1,
+      vec3 const &vector,
+      plane const &plane,
       real_type tolerance)
   {
-    return segment0->toNormalizedVector().isOrthogonal(segment1->toNormalizedVector(), tolerance);
+    return vector.isParallel(plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      triangle const *triangle0,
-      triangle const *triangle1,
+      vec3 const &vector,
+      segment const &segment,
       real_type tolerance)
   {
-    return triangle0->normal().isOrthogonal(triangle1->normal(), tolerance);
+    return vector.isOrthogonal(segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      circle const *circle0,
-      circle const *circle1,
+      vec3 const &vector,
+      triangle const &triangle,
       real_type tolerance)
   {
-    return circle0->normal().isOrthogonal(circle1->normal(), tolerance);
+    return vector.isParallel(triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      line const *line,
-      ray const *ray,
+      vec3 const &vector,
+      circle const &circle,
       real_type tolerance)
   {
-    return line->direction().isOrthogonal(ray->direction(), tolerance);
+    return vector.isParallel(circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      line const *line,
-      plane const *plane,
+      line const &line0,
+      line const &line1,
       real_type tolerance)
   {
-    return line->direction().isOrthogonal(plane->normal(), tolerance);
+    return line0.direction().isOrthogonal(line1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      line const *line,
-      segment const *segment,
+      ray const &ray0,
+      ray const &ray1,
       real_type tolerance)
   {
-    return line->direction().isOrthogonal(segment->toNormalizedVector(), tolerance);
+    return ray0.direction().isOrthogonal(ray1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      line const *line,
-      triangle const *triangle,
+      plane const &plane0,
+      plane const &plane1,
       real_type tolerance)
   {
-    return line->direction().isParallel(triangle->normal(), tolerance);
+    return plane0.normal().isOrthogonal(plane1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      line const *line,
-      circle const *circle,
+      segment const &segment0,
+      segment const &segment1,
       real_type tolerance)
   {
-    return line->direction().isParallel(circle->normal(), tolerance);
+    return segment0.toNormalizedVector().isOrthogonal(segment1.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      ray const *ray,
-      plane const *plane,
+      triangle const &triangle0,
+      triangle const &triangle1,
       real_type tolerance)
   {
-    return ray->direction().isParallel(plane->normal(), tolerance);
+    return triangle0.normal().isOrthogonal(triangle1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      ray const *ray,
-      segment const *segment,
+      circle const &circle0,
+      circle const &circle1,
       real_type tolerance)
   {
-    return ray->direction().isOrthogonal(segment->toNormalizedVector(), tolerance);
+    return circle0.normal().isOrthogonal(circle1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      ray const *ray,
-      triangle const *triangle,
+      line const &line,
+      ray const &ray,
       real_type tolerance)
   {
-    return ray->direction().isParallel(triangle->normal(), tolerance);
+    return line.direction().isOrthogonal(ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      ray const *ray,
-      circle const *circle,
+      line const &line,
+      plane const &plane,
       real_type tolerance)
   {
-    return ray->direction().isParallel(circle->normal(), tolerance);
+    return line.direction().isOrthogonal(plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      plane const *plane,
-      segment const *segment,
+      line const &line,
+      segment const &segment,
       real_type tolerance)
   {
-    return segment->toNormalizedVector().isParallel(plane->normal(), tolerance);
+    return line.direction().isOrthogonal(segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      plane const *plane,
-      triangle const *triangle,
+      line const &line,
+      triangle const &triangle,
       real_type tolerance)
   {
-    return plane->normal().isOrthogonal(triangle->normal(), tolerance);
+    return line.direction().isParallel(triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      plane const *plane,
-      circle const *circle,
+      line const &line,
+      circle const &circle,
       real_type tolerance)
   {
-    return plane->normal().isOrthogonal(circle->normal(), tolerance);
+    return line.direction().isParallel(circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      segment const *segment,
-      triangle const *triangle,
+      ray const &ray,
+      plane const &plane,
       real_type tolerance)
   {
-    return segment->toNormalizedVector().isParallel(triangle->normal(), tolerance);
+    return ray.direction().isParallel(plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      segment const *segment,
-      circle const *circle,
+      ray const &ray,
+      segment const &segment,
       real_type tolerance)
   {
-    return segment->toNormalizedVector().isParallel(circle->normal(), tolerance);
+    return ray.direction().isOrthogonal(segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      triangle const *triangle,
-      circle const *circle,
+      ray const &ray,
+      triangle const &triangle,
       real_type tolerance)
   {
-    return triangle->normal().isOrthogonal(circle->normal(), tolerance);
+    return ray.direction().isParallel(triangle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      ray const &ray,
+      circle const &circle,
+      real_type tolerance)
+  {
+    return ray.direction().isParallel(circle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      plane const &plane,
+      segment const &segment,
+      real_type tolerance)
+  {
+    return segment.toNormalizedVector().isParallel(plane.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      plane const &plane,
+      triangle const &triangle,
+      real_type tolerance)
+  {
+    return plane.normal().isOrthogonal(triangle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      plane const &plane,
+      circle const &circle,
+      real_type tolerance)
+  {
+    return plane.normal().isOrthogonal(circle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      segment const &segment,
+      triangle const &triangle,
+      real_type tolerance)
+  {
+    return segment.toNormalizedVector().isParallel(triangle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      segment const &segment,
+      circle const &circle,
+      real_type tolerance)
+  {
+    return segment.toNormalizedVector().isParallel(circle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      triangle const &triangle,
+      circle const &circle,
+      real_type tolerance)
+  {
+    return triangle.normal().isOrthogonal(circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -56,171 +61,227 @@ namespace acme
       real_type tolerance = Epsilon //!< Tolerance
   );
 
+  //! Check if vectors are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector0,          //!< Input vector 0
+      vec3 const &vector1,          //!< Input vector 1
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
   //! Check if lines are orthogonal
   bool
   isOrthogonal(
-      line const *line0,            //!< Input line 0
-      line const *line1,            //!< Input line 1
+      line const &line0,            //!< Input line 0
+      line const &line1,            //!< Input line 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if rays are orthogonal
   bool
   isOrthogonal(
-      ray const *ray0,              //!< Input ray 0
-      ray const *ray1,              //!< Input ray 1
+      ray const &ray0,              //!< Input ray 0
+      ray const &ray1,              //!< Input ray 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if planes are orthogonal
   bool
   isOrthogonal(
-      plane const *plane0,          //!< Input plane 0
-      plane const *plane1,          //!< Input plane 1
+      plane const &plane0,          //!< Input plane 0
+      plane const &plane1,          //!< Input plane 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if segments are orthogonal
   bool
   isOrthogonal(
-      segment const *segment0,      //!< Input segment 0
-      segment const *segment1,      //!< Input segment 1
+      segment const &segment0,      //!< Input segment 0
+      segment const &segment1,      //!< Input segment 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if triangles layng planes are are orthogonal
   bool
   isOrthogonal(
-      triangle const *triangle0,    //!< Input triangle 0
-      triangle const *triangle1,    //!< Input triangle 1
+      triangle const &triangle0,    //!< Input triangle 0
+      triangle const &triangle1,    //!< Input triangle 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if circles layng planes are orthogonal
   bool
   isOrthogonal(
-      circle const *circle0,        //!< Input circle 0
-      circle const *circle1,        //!< Input circle 1
+      circle const &circle0,        //!< Input circle 0
+      circle const &circle1,        //!< Input circle 1
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and line are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector,           //!< Input ray
+      line const &line,             //!< Input vector
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and ray are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector,           //!< Input vector
+      ray const &ray,               //!< Input ray
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and plane are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector,           //!< Input vector
+      plane const &plane,           //!< Input plane
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and segment are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector,           //!< Input vector
+      segment const &segment,       //!< Input segment
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and triangle are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector,           //!< Input vector
+      triangle const &triangle,     //!< Input triangle
+      real_type tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Check if vector and circle are orthogonal
+  bool
+  isOrthogonal(
+      vec3 const &vector,           //!< Input vector
+      circle const &circle,         //!< Input circle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if line and ray are orthogonal
   bool
   isOrthogonal(
-      line const *line,             //!< Input line
-      ray const *ray,               //!< Input ray
+      line const &line,             //!< Input line
+      ray const &ray,               //!< Input ray
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if line and plane are orthogonal
   bool
   isOrthogonal(
-      line const *line,             //!< Input line
-      plane const *plane,           //!< Input plane
+      line const &line,             //!< Input line
+      plane const &plane,           //!< Input plane
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if line and segment are orthogonal
   bool
   isOrthogonal(
-      line const *line,             //!< Input line
-      segment const *segment,       //!< Input segment
+      line const &line,             //!< Input line
+      segment const &segment,       //!< Input segment
       real_type tolerance = Epsilon //!< Tolerance
   );
 
-  //! Check if line and tringle laying plane are orthogonal
+  //! Check if line and triangle are orthogonal
   bool
   isOrthogonal(
-      line const *line,             //!< Input line
-      triangle const *triangle,     //!< Input triangle
+      line const &line,             //!< Input line
+      triangle const &triangle,     //!< Input triangle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if line and circle are orthogonal
   bool
   isOrthogonal(
-      line const *line,             //!< Input line
-      circle const *circle,         //!< Input circle
+      line const &line,             //!< Input line
+      circle const &circle,         //!< Input circle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if ray and plane are orthogonal
   bool
   isOrthogonal(
-      ray const *ray,               //!< Input ray
-      plane const *plane,           //!< Input plane
+      ray const &ray,               //!< Input ray
+      plane const &plane,           //!< Input plane
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if ray and segment are orthogonal
   bool
   isOrthogonal(
-      ray const *ray,               //!< Input ray
-      segment const *segment,       //!< Input segment
+      ray const &ray,               //!< Input ray
+      segment const &segment,       //!< Input segment
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if ray and triangle are orthogonal
   bool
   isOrthogonal(
-      ray const *ray,               //!< Input ray
-      triangle const *triangle,     //!< Input triangle
+      ray const &ray,               //!< Input ray
+      triangle const &triangle,     //!< Input triangle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if ray and circle are orthogonal
   bool
   isOrthogonal(
-      ray const *ray,               //!< Input ray
-      circle const *circle,         //!< Input circle
+      ray const &ray,               //!< Input ray
+      circle const &circle,         //!< Input circle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if segment and plane are orthogonal
   bool
   isOrthogonal(
-      plane const *plane,           //!< Input plane
-      segment const *segment,       //!< Input segment
+      plane const &plane,           //!< Input plane
+      segment const &segment,       //!< Input segment
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if plane and triangle are orthogonal
   bool
   isOrthogonal(
-      plane const *plane,           //!< Input plane
-      triangle const *triangle,     //!< Input triangle
+      plane const &plane,           //!< Input plane
+      triangle const &triangle,     //!< Input triangle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if plane and circle layng plane are orthogonal
   bool
   isOrthogonal(
-      plane const *plane,           //!< Input plane
-      circle const *circle,         //!< Input circle
+      plane const &plane,           //!< Input plane
+      circle const &circle,         //!< Input circle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if segment and triangle are orthogonal
   bool
   isOrthogonal(
-      segment const *segment,       //!< Input segment
-      triangle const *triangle,     //!< Input triangle
+      segment const &segment,       //!< Input segment
+      triangle const &triangle,     //!< Input triangle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if segment and circle are orthogonal
   bool
   isOrthogonal(
-      segment const *segment,       //!< Input segment
-      circle const *circle,         //!< Input circle
+      segment const &segment,       //!< Input segment
+      circle const &circle,         //!< Input circle
       real_type tolerance = Epsilon //!< Tolerance
   );
 
   //! Check if triangle and circle are orthogonal
   bool
   isOrthogonal(
-      triangle const *triangle,     //!< Input triangle
-      circle const *circle,         //!< Input circle
+      triangle const &triangle,     //!< Input triangle
+      circle const &circle,         //!< Input circle
       real_type tolerance = Epsilon //!< Tolerance
   );
 

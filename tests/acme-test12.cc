@@ -15,12 +15,12 @@ using namespace acme;
 int main()
 {
   std::cout
-      << " GEOMETRY TEST 11 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
+      << " GEOMETRY TEST 12 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
 
   entity *line0 = new line(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
   entity *line1 = new line(vec3(0.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0));
 
-  if (acme::isOrthogonal(line0, line1))
+  if (acme::isOrthogonal(line1, line0))
   {
     std::cout << "LINES ARE ORTHOGONAL!\n\n";
   }
@@ -28,7 +28,7 @@ int main()
   std::cout
       << std::endl
       << std::endl
-      << "GEOMETRY TEST 1: Completed" << std::endl;
+      << "GEOMETRY TEST 12: Completed" << std::endl;
 
   // Exit the program
   return 0;

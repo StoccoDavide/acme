@@ -4,9 +4,15 @@ The ACME library
 Given the amount of material out there one could certainly wonder
 why develop a new geometric library that will surely have fewer
 features than other libraries that represent the standard in the field.
-During my master thesis a large part of this code was developed [1].
+During my master thesis part of this code was developed [1]. The aim was to
+develop a small, hard real-time capable and easy to maintain geometric kernel
+that computes some geometrical parameters of a custom tire model in contact
+with the road. Moreover we want a geometric library that is written using
+`Eigen <https://eigen.tuxfamily.org/index.php?title=Main_Page>`__ template
+linear algebra library.
 The desire to extend the previous thesis work has made it necessary
-to better formalize and make more efficient the previously developed code.
+to better formalize and produce a more efficient and effective code.
+The newly born library has been ironically named ACME (A Code Making Everything).
 
 ACME is small 3D computational geometry library which is currently
 still being developed. The library was build to be efficient,
@@ -30,6 +36,8 @@ on a hard real-time DIL driving simulator.
 It resolves the geometrical intersection problems with a real-time factor
 (RTF) of 50.
 
+*Davide Stocco - Spring 2021*
+
 Online documentation
 --------------------
 
@@ -43,15 +51,20 @@ If you have questions regarding the library or you want to report a bug,
 please open an `issue <https://github.com/StoccoDavide/acme/issues/new>`__
 at GitHub.
 If your request would contain confidential information,
-please send me an email :mailto:davide.stocco@unitn.it.
+please send us an email.
 
-About the author
-----------------
+About the authors
+-----------------
 
-| Davide Stocco
+| **Davide Stocco**
 | Department of Industrial Engineering
 | University of Trento
-| mailto:davide.stocco@unitn.it
+| davide.stocco@unitn.it
+
+| **Enrico Bertolazzi**
+| Department of Industrial Engineering
+| University of Trento
+| enrico.bertolazzi@unitn.it
 
 References
 ----------

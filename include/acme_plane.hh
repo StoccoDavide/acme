@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -67,6 +72,9 @@ namespace acme
 
     //! Plane copy constructor
     plane(plane const &) = default;
+
+    //! Plane move constructor
+    plane(plane &&) = default;
 
     //! Plane class constructor for plane
     plane(
@@ -207,7 +215,7 @@ namespace acme
   }; // class plane
 
   static plane const NaN_plane = plane(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number plane type
-  static plane const plane_goat = plane(NaN_plane);                     //!< Scapegoat plane type (throwaway non-const object)
+  static plane plane_goat = plane(NaN_plane);                     //!< Scapegoat plane type (throwaway non-const object)
 
 } // namespace acme
 

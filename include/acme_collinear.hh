@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -43,6 +48,14 @@ namespace acme
    |   \____\___/|_|_|_|_| |_|\___|\__,_|_|   
    |                                          
   \*/
+
+  //! Check if entitys are collinear
+  bool
+  isCollinear(
+      entity const *entity0,        //!< Input entity 0
+      entity const *entity1,        //!< Input entity 1
+      real_type tolerance = Epsilon //!< Tolerance
+  );
 
   //! Check if lines are collinear
   bool

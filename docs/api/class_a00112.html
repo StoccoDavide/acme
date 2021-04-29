@@ -1,0 +1,850 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class box &#8212; ACME v</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class circle" href="class_a00116.html" />
+    <link rel="prev" title="Class AABBtree" href="class_a00108.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="class-box">
+<span id="exhale-class-a00112"></span><h1>Class box<a class="headerlink" href="#class-box" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_acme_box.hh.html#file-include-acme-box-hh"><span class="std std-ref">File acme_box.hh</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00128.html#exhale-class-a00128"><span class="std std-ref">Class entity</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt id="_CPPv4N4acme3boxE">
+<span id="_CPPv3N4acme3boxE"></span><span id="_CPPv2N4acme3boxE"></span><span id="acme::box"></span><span class="target" id="a00112"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">box</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">acme</span><span class="pre">::</span><a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><a class="headerlink" href="#_CPPv4N4acme3boxE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class container. </p>
+<p>Box in 3D space and defined by a “maximum” and a “minimum” point. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N4acme3box3ptrE">
+<span id="_CPPv3N4acme3box3ptrE"></span><span id="_CPPv2N4acme3box3ptrE"></span><span id="acme::box::ptr"></span><span class="target" id="a00112_1a517786c962aabee4236eb25d9c156998"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">shared_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">ptr</span></code><a class="headerlink" href="#_CPPv4N4acme3box3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shared pointer to box object. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N4acme3box7pairptrE">
+<span id="_CPPv3N4acme3box7pairptrE"></span><span id="_CPPv2N4acme3box7pairptrE"></span><span id="acme::box::pairptr"></span><span class="target" id="a00112_1a448b06a1ccaa31b4d670fa20ea4afc84"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">pair</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3box3ptrE" title="acme::box::ptr"><span class="pre">ptr</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N4acme3box3ptrE" title="acme::box::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">pairptr</span></code><a class="headerlink" href="#_CPPv4N4acme3box7pairptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Pair of pointers to box objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N4acme3box6vecptrE">
+<span id="_CPPv3N4acme3box6vecptrE"></span><span id="_CPPv2N4acme3box6vecptrE"></span><span id="acme::box::vecptr"></span><span class="target" id="a00112_1a178f2b832c3ca82d639449f9485f7fcf"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3box3ptrE" title="acme::box::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecptr</span></code><a class="headerlink" href="#_CPPv4N4acme3box6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to box objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N4acme3box10vecpairptrE">
+<span id="_CPPv3N4acme3box10vecpairptrE"></span><span id="_CPPv2N4acme3box10vecpairptrE"></span><span id="acme::box::vecpairptr"></span><span class="target" id="a00112_1ac98462b6fd779b49a55d705346ca6917"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3box7pairptrE" title="acme::box::pairptr"><span class="pre">pairptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecpairptr</span></code><a class="headerlink" href="#_CPPv4N4acme3box10vecpairptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pairs of pointers to box objects. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3boxD0Ev">
+<span id="_CPPv3N4acme3boxD0Ev"></span><span id="_CPPv2N4acme3boxD0Ev"></span><span id="acme::box::~box"></span><span class="target" id="a00112_1afac01453f423d2bc8c34a86796fac272"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">~box</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3boxD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3boxERK3box">
+<span id="_CPPv3N4acme3box3boxERK3box"></span><span id="_CPPv2N4acme3box3boxERK3box"></span><span id="acme::box::box__boxCR"></span><span class="target" id="a00112_1a28e3d8db7979af4435298d5aa06c45e9"></span><code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><em class="property"><span class="pre">const</span></em> <a class="reference internal" href="#_CPPv4N4acme3box3boxERK3box" title="acme::box::box"><span class="pre">box</span></a><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme3box3boxERK3box" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box copy constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3boxERR3box">
+<span id="_CPPv3N4acme3box3boxERR3box"></span><span id="_CPPv2N4acme3box3boxERR3box"></span><span id="acme::box::box__boxRR"></span><span class="target" id="a00112_1a5379c751e3218b32a5fc2a491d5602a8"></span><code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3box3boxERR3box" title="acme::box::box"><span class="pre">box</span></a><span class="pre">&amp;</span><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme3box3boxERR3box" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3boxEv">
+<span id="_CPPv3N4acme3box3boxEv"></span><span id="_CPPv2N4acme3box3boxEv"></span><span id="acme::box::box"></span><span class="target" id="a00112_1a3f1d637dfe1a054e2892814c77b038bf"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3boxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3boxE9real_type9real_type9real_type9real_type9real_type9real_type8int_type8int_type">
+<span id="_CPPv3N4acme3box3boxE9real_type9real_type9real_type9real_type9real_type9real_type8int_type8int_type"></span><span id="_CPPv2N4acme3box3boxE9real_type9real_type9real_type9real_type9real_type9real_type8int_type8int_type"></span><span id="acme::box::box__real_type.real_type.real_type.real_type.real_type.real_type.int_type.int_type"></span><span class="target" id="a00112_1ad17a6bb3e4a4006cc8796da9faa5093a"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">minX</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">minY</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">minZ</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">maxX</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">maxY</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">maxZ</span></em>, <a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em><span class="pre">id</span></em>, <a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em><span class="pre">ipos</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3boxE9real_type9real_type9real_type9real_type9real_type9real_type8int_type8int_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3boxERK4vec3RK4vec38int_type8int_type">
+<span id="_CPPv3N4acme3box3boxERK4vec3RK4vec38int_type8int_type"></span><span id="_CPPv2N4acme3box3boxERK4vec3RK4vec38int_type8int_type"></span><span id="acme::box::box__vec3CR.vec3CR.int_type.int_type"></span><span class="target" id="a00112_1ac40a430ba17eb07d8c5ef2b555a12f4a"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">min</span></em>, <a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">max</span></em>, <a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em><span class="pre">id</span></em>, <a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em><span class="pre">ipos</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3boxERK4vec3RK4vec38int_type8int_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min</strong> – Input box minimum point </p></li>
+<li><p><strong>max</strong> – Input box maximum point </p></li>
+<li><p><strong>id</strong> – Input box id value </p></li>
+<li><p><strong>ipos</strong> – Input box rank value </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3boxERKNSt6vectorIN3box3ptrEEE8int_type8int_type">
+<span id="_CPPv3N4acme3box3boxERKNSt6vectorIN3box3ptrEEE8int_type8int_type"></span><span id="_CPPv2N4acme3box3boxERKNSt6vectorIN3box3ptrEEE8int_type8int_type"></span><span id="acme::box::box__std::vector:box::ptr:CR.int_type.int_type"></span><span class="target" id="a00112_1ad4dd96d9f70c446b33240619bf5f7379"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">box</span></code><span class="sig-paren">(</span><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3box3boxERKNSt6vectorIN3box3ptrEEE8int_type8int_type" title="acme::box::box"><span class="pre">box</span></a><span class="pre">::</span><span class="pre">ptr</span><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">boxes</span></em>, <a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em><span class="pre">id</span></em>, <a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em><span class="pre">ipos</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3boxERKNSt6vectorIN3box3ptrEEE8int_type8int_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>boxes</strong> – Input reference to vector of boxes </p></li>
+<li><p><strong>id</strong> – Input box id value </p></li>
+<li><p><strong>ipos</strong> – Input box rank value </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3boxaSERK3box">
+<span id="_CPPv3N4acme3boxaSERK3box"></span><span id="_CPPv2N4acme3boxaSERK3box"></span><span id="acme::box::assign-operator__boxCR"></span><span class="target" id="a00112_1adc346458e53c9b8401275d4903eaff1b"></span><a class="reference internal" href="#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3boxaSERK3box" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Equality operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box5clearEv">
+<span id="_CPPv3N4acme3box5clearEv"></span><span id="_CPPv2N4acme3box5clearEv"></span><span id="acme::box::clear__void"></span><span class="target" id="a00112_1ad1cd668e34e0cf28b24b5f4293f03a50"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box5clearEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Clear the box domain (set to Not-a-Number) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box8isApproxERK3box">
+<span id="_CPPv3NK4acme3box8isApproxERK3box"></span><span id="_CPPv2NK4acme3box8isApproxERK3box"></span><span id="acme::box::isApprox__boxCRC"></span><span class="target" id="a00112_1a04a17986edcfa966b16e007430cbc3ea"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isApprox</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box8isApproxERK3box" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if box objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box11checkMaxMinEv">
+<span id="_CPPv3NK4acme3box11checkMaxMinEv"></span><span id="_CPPv2NK4acme3box11checkMaxMinEv"></span><span id="acme::box::checkMaxMin__voidC"></span><span class="target" id="a00112_1a1f027604f1999928dca453aac0661f63"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">checkMaxMin</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box11checkMaxMinEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check box max and min points. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box12updateMaxMinEv">
+<span id="_CPPv3N4acme3box12updateMaxMinEv"></span><span id="_CPPv2N4acme3box12updateMaxMinEv"></span><span id="acme::box::updateMaxMin__void"></span><span class="target" id="a00112_1a71c84ed66b40442e8d7f865a786d409b"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">updateMaxMin</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box12updateMaxMinEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update and check box max and min points. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box3minEv">
+<span id="_CPPv3NK4acme3box3minEv"></span><span id="_CPPv2NK4acme3box3minEv"></span><span id="acme::box::min__voidC"></span><span class="target" id="a00112_1aedcfd7975931ff54b72796b66ec83dfb"></span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box3minEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get min point. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4minXEv">
+<span id="_CPPv3NK4acme3box4minXEv"></span><span id="_CPPv2NK4acme3box4minXEv"></span><span id="acme::box::minX__voidC"></span><span class="target" id="a00112_1a3a88cc5e7192afaf7238d0e9f321e6e9"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">minX</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4minXEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box minimum point x value. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4minYEv">
+<span id="_CPPv3NK4acme3box4minYEv"></span><span id="_CPPv2NK4acme3box4minYEv"></span><span id="acme::box::minY__voidC"></span><span class="target" id="a00112_1a217face7e00a7d458ea4303c4dc92042"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">minY</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4minYEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box minimum point y value. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4minZEv">
+<span id="_CPPv3NK4acme3box4minZEv"></span><span id="_CPPv2NK4acme3box4minZEv"></span><span id="acme::box::minZ__voidC"></span><span class="target" id="a00112_1a62a700ffca60266bc24e6e27161b1342"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">minZ</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4minZEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box minimum point z value. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box3minE6size_t">
+<span id="_CPPv3NK4acme3box3minE6size_t"></span><span id="_CPPv2NK4acme3box3minE6size_t"></span><span id="acme::box::min__sC"></span><span class="target" id="a00112_1ac2e4caa7ca1c4936638826b55b2412eb"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><span class="pre">size_t</span> <em><span class="pre">i</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box3minE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box minimum i-th point axis value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3minERK4vec3">
+<span id="_CPPv3N4acme3box3minERK4vec3"></span><span id="_CPPv2N4acme3box3minERK4vec3"></span><span id="acme::box::min__vec3CR"></span><span class="target" id="a00112_1a5fc7331af7a83b5fa62cebd83393254c"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3minERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box minimum point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – New box minimum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3minE9real_type9real_type9real_type">
+<span id="_CPPv3N4acme3box3minE9real_type9real_type9real_type"></span><span id="_CPPv2N4acme3box3minE9real_type9real_type9real_type"></span><span id="acme::box::min__real_type.real_type.real_type"></span><span class="target" id="a00112_1a9164033895b6210dcc49a890f72577c2"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">x</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">y</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3minE9real_type9real_type9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box minimum point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>x</strong> – Input x value of box minimum point </p></li>
+<li><p><strong>y</strong> – Input y value of box minimum point </p></li>
+<li><p><strong>z</strong> – Input z value of box minimum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box4minXE9real_type">
+<span id="_CPPv3N4acme3box4minXE9real_type"></span><span id="_CPPv2N4acme3box4minXE9real_type"></span><span id="acme::box::minX__real_type"></span><span class="target" id="a00112_1aacd78fae05d5fe56b6671dc6e8a30bfc"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">minX</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box4minXE9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box minimum point x value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input x value of box minimum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box4minYE9real_type">
+<span id="_CPPv3N4acme3box4minYE9real_type"></span><span id="_CPPv2N4acme3box4minYE9real_type"></span><span id="acme::box::minY__real_type"></span><span class="target" id="a00112_1af62d247f8ae148b21ade54f9a21fe547"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">minY</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box4minYE9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box minimum point y value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input y value of box minimum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box4minZE9real_type">
+<span id="_CPPv3N4acme3box4minZE9real_type"></span><span id="_CPPv2N4acme3box4minZE9real_type"></span><span id="acme::box::minZ__real_type"></span><span class="target" id="a00112_1acb3d36b770a51af5b3f3996d8c696e0c"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">minZ</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box4minZE9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box minimum point z value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input z value of box minimum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3minE6size_t9real_type">
+<span id="_CPPv3N4acme3box3minE6size_t9real_type"></span><span id="_CPPv2N4acme3box3minE6size_t9real_type"></span><span id="acme::box::min__s.real_type"></span><span class="target" id="a00112_1a48e5c0f252ccfbd73a1dc65889bddef8"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><span class="pre">size_t</span> <em><span class="pre">i</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3minE6size_t9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box minimum i-th point axis value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>i</strong> – Input i-th value </p></li>
+<li><p><strong>input</strong> – Input value of box minimum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box3maxEv">
+<span id="_CPPv3NK4acme3box3maxEv"></span><span id="_CPPv2NK4acme3box3maxEv"></span><span id="acme::box::max__voidC"></span><span class="target" id="a00112_1a30df41c94b9e6bd63be6d3fb54aa9d90"></span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box3maxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box maximum point. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4maxXEv">
+<span id="_CPPv3NK4acme3box4maxXEv"></span><span id="_CPPv2NK4acme3box4maxXEv"></span><span id="acme::box::maxX__voidC"></span><span class="target" id="a00112_1ad0d49963785ee9ecfcc07f93c54aa2df"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">maxX</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4maxXEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box maximum point x value. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4maxYEv">
+<span id="_CPPv3NK4acme3box4maxYEv"></span><span id="_CPPv2NK4acme3box4maxYEv"></span><span id="acme::box::maxY__voidC"></span><span class="target" id="a00112_1adcfab8f62c2d0e0294453e214a8bf81f"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">maxY</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4maxYEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box maximum point y value. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4maxZEv">
+<span id="_CPPv3NK4acme3box4maxZEv"></span><span id="_CPPv2NK4acme3box4maxZEv"></span><span id="acme::box::maxZ__voidC"></span><span class="target" id="a00112_1a4790a8f5a44427ff434aba2c92b6aeda"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">maxZ</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4maxZEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box maximum point z value. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box3maxE6size_t">
+<span id="_CPPv3NK4acme3box3maxE6size_t"></span><span id="_CPPv2NK4acme3box3maxE6size_t"></span><span id="acme::box::max__sC"></span><span class="target" id="a00112_1a2315c6af2eeb9eaeb6fa21ad5cea97d5"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><span class="pre">size_t</span> <em><span class="pre">i</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box3maxE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get box maximum i-th point axis value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3maxERK4vec3">
+<span id="_CPPv3N4acme3box3maxERK4vec3"></span><span id="_CPPv2N4acme3box3maxERK4vec3"></span><span id="acme::box::max__vec3CR"></span><span class="target" id="a00112_1a1c3df5b9db40e9631a17f40e7c675ded"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3maxERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box maximum point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input box maximum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3maxE9real_type9real_type9real_type">
+<span id="_CPPv3N4acme3box3maxE9real_type9real_type9real_type"></span><span id="_CPPv2N4acme3box3maxE9real_type9real_type9real_type"></span><span id="acme::box::max__real_type.real_type.real_type"></span><span class="target" id="a00112_1a8cb8f34e3a87151acaf06d8b13f9031f"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">x</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">y</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3maxE9real_type9real_type9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box maximum point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>x</strong> – Input x value of box maximum point </p></li>
+<li><p><strong>y</strong> – Input y value of box maximum point </p></li>
+<li><p><strong>z</strong> – Input z value of box maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box4maxXE9real_type">
+<span id="_CPPv3N4acme3box4maxXE9real_type"></span><span id="_CPPv2N4acme3box4maxXE9real_type"></span><span id="acme::box::maxX__real_type"></span><span class="target" id="a00112_1a86cfa7451cb7afd7b507f9c9da66829d"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">maxX</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box4maxXE9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box maximum point x value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input x value of box maximum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box4maxYE9real_type">
+<span id="_CPPv3N4acme3box4maxYE9real_type"></span><span id="_CPPv2N4acme3box4maxYE9real_type"></span><span id="acme::box::maxY__real_type"></span><span class="target" id="a00112_1aaf120ac2751e5e9656c365c65818aa67"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">maxY</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box4maxYE9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box maximum point y value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input y value of box maximum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box4maxZE9real_type">
+<span id="_CPPv3N4acme3box4maxZE9real_type"></span><span id="_CPPv2N4acme3box4maxZE9real_type"></span><span id="acme::box::maxZ__real_type"></span><span class="target" id="a00112_1ada1aa438c16409425d8b96e5e2a4b315"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">maxZ</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box4maxZE9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box maximum point z value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input z value of box maximum point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box3maxE6size_t9real_type">
+<span id="_CPPv3N4acme3box3maxE6size_t9real_type"></span><span id="_CPPv2N4acme3box3maxE6size_t9real_type"></span><span id="acme::box::max__s.real_type"></span><span class="target" id="a00112_1a90f41e3982ae39f21da1eb54657d6d15"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><span class="pre">size_t</span> <em><span class="pre">i</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box3maxE6size_t9real_type" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set box maximum i-th point axis value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>i</strong> – Input i-th value </p></li>
+<li><p><strong>input</strong> – Input value of box maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box10intersectsERK3box">
+<span id="_CPPv3NK4acme3box10intersectsERK3box"></span><span id="_CPPv2NK4acme3box10intersectsERK3box"></span><span id="acme::box::intersects__boxCRC"></span><span class="target" id="a00112_1a854fe37bae1947f1945e6d0f387d8b75"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">intersects</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box10intersectsERK3box" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Detect if boxes collide. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box6mergedERKN3box6vecptrE">
+<span id="_CPPv3N4acme3box6mergedERKN3box6vecptrE"></span><span id="_CPPv2N4acme3box6mergedERKN3box6vecptrE"></span><span id="acme::box::merged__box::vecptrCR"></span><span class="target" id="a00112_1ab52465396fc5a30bbc84cfbd1240afae"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">merged</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3boxE" title="acme::box"><span class="pre">box</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N4acme3box6vecptrE" title="acme::box::vecptr"><span class="pre">vecptr</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">boxes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box6mergedERKN3box6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Build box with a vector of pointers to boxes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>boxes</strong> – Input poiter to vector of boxes </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box14centerDistanceERK4vec3">
+<span id="_CPPv3NK4acme3box14centerDistanceERK4vec3"></span><span id="_CPPv2NK4acme3box14centerDistanceERK4vec3"></span><span id="acme::box::centerDistance__vec3CRC"></span><span class="target" id="a00112_1a73addbff37c31664a85930b804f4bcc7"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">centerDistance</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box14centerDistanceERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Distance of a point to the box. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point</strong> – Query point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box16exteriorDistanceERK4vec3">
+<span id="_CPPv3NK4acme3box16exteriorDistanceERK4vec3"></span><span id="_CPPv2NK4acme3box16exteriorDistanceERK4vec3"></span><span id="acme::box::exteriorDistance__vec3CRC"></span><span class="target" id="a00112_1ac0e93dc3a66a5259622cf08560dffb49"></span><a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <code class="sig-name descname"><span class="pre">exteriorDistance</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box16exteriorDistanceERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Maximum distance of a point to the box. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point</strong> – Query point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box5clampERK4vec3RK4vec3RK4vec3">
+<span id="_CPPv3N4acme3box5clampERK4vec3RK4vec3RK4vec3"></span><span id="_CPPv2N4acme3box5clampERK4vec3RK4vec3RK4vec3"></span><span id="acme::box::clamp__vec3CR.vec3CR.vec3CR"></span><span class="target" id="a00112_1aebd309d089bd073f0f3af47840fa3087"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">clamp</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point0</span></em>, <a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point1</span></em>, <a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box5clampERK4vec3RK4vec3RK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Resize the box as the minimum bounding box containing three input points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point0</strong> – Input point 0 </p></li>
+<li><p><strong>point1</strong> – Input point 1 </p></li>
+<li><p><strong>point2</strong> – Input point 2 </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box5clampEAL3E_K4vec3">
+<span id="_CPPv3N4acme3box5clampEAL3E_K4vec3"></span><span id="_CPPv2N4acme3box5clampEA3_K4vec3"></span><span id="acme::box::clamp__vec3CA"></span><span class="target" id="a00112_1a273cdb30a433c45863901e738a28855e"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">clamp</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <em><span class="pre">points</span></em><span class="pre">[</span><span class="pre">3</span><span class="pre">]</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box5clampEAL3E_K4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Resize the box as the minimum bounding box containing three input points. </p>
+<p>Return box id </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>points</strong> – Input points </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box2idEv">
+<span id="_CPPv3NK4acme3box2idEv"></span><span id="_CPPv2NK4acme3box2idEv"></span><span id="acme::box::id__voidC"></span><span class="target" id="a00112_1a7d316335c0de3e7b96011dcf56911043"></span><a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">id</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box2idEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return box position. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box3posEv">
+<span id="_CPPv3NK4acme3box3posEv"></span><span id="_CPPv2NK4acme3box3posEv"></span><span id="acme::box::pos__voidC"></span><span class="target" id="a00112_1a57d42b00fa5a9eaf87528c13e94ceaa7"></span><a class="reference internal" href="typedef_a00104_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#_CPPv4N4acme8int_typeE" title="acme::int_type"><span class="pre">int_type</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">pos</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box3posEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box9translateERK4vec3">
+<span id="_CPPv3N4acme3box9translateERK4vec3"></span><span id="_CPPv2N4acme3box9translateERK4vec3"></span><span id="acme::box::translate__vec3CR"></span><span class="target" id="a00112_1a2a3efb58599a5638909bb30755d15bc3"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">translate</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box9translateERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Translate box by vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input translation vector </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme3box9transformERK6affine">
+<span id="_CPPv3N4acme3box9transformERK6affine"></span><span id="_CPPv2N4acme3box9transformERK6affine"></span><span id="acme::box::transform__affineCR"></span><span class="target" id="a00112_1abf61740cb20665e21a8ab1c0eb5be1ff"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1a2896221ec7335d14461e76759dce3c44.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="pre">affine</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3box9transformERK6affine" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Transform box with affine transformation matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>matrix</strong> – 4x4 affine transformation matrix </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box8isInsideERK4vec3">
+<span id="_CPPv3NK4acme3box8isInsideERK4vec3"></span><span id="_CPPv2NK4acme3box8isInsideERK4vec3"></span><span id="acme::box::isInside__vec3CRC"></span><span class="target" id="a00112_1a83bf64e517cf6ec005f12644437425c7"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isInside</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00104_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box8isInsideERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point</strong> – Query point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box13isDegeneratedEv">
+<span id="_CPPv3NK4acme3box13isDegeneratedEv"></span><span id="_CPPv2NK4acme3box13isDegeneratedEv"></span><span id="acme::box::isDegenerated__voidC"></span><span class="target" id="a00112_1ae62505532892fb4593a37408068de9c5"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDegenerated</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3box13isDegeneratedEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if box is degenerated. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box4typeEv">
+<span id="_CPPv3NK4acme3box4typeEv"></span><span id="_CPPv2NK4acme3box4typeEv"></span><span id="acme::box::type__voidC"></span><span class="target" id="a00112_1ac66ee9ccf44cf18c9facac92a4493425"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">type</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box4typeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return object type as string. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box8isMatrixEv">
+<span id="_CPPv3NK4acme3box8isMatrixEv"></span><span id="_CPPv2NK4acme3box8isMatrixEv"></span><span id="acme::box::isMatrix__voidC"></span><span class="target" id="a00112_1acb104a7f228734cf851cf300cddeac6e"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isMatrix</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box8isMatrixEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a point. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box8isVectorEv">
+<span id="_CPPv3NK4acme3box8isVectorEv"></span><span id="_CPPv2NK4acme3box8isVectorEv"></span><span id="acme::box::isVector__voidC"></span><span class="target" id="a00112_1ab8d733db088a14bc9682679b8e13772a"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isVector</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box8isVectorEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box6isLineEv">
+<span id="_CPPv3NK4acme3box6isLineEv"></span><span id="_CPPv2NK4acme3box6isLineEv"></span><span id="acme::box::isLine__voidC"></span><span class="target" id="a00112_1aa0287e45d88702ebf4142a9b0effa8ba"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isLine</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box6isLineEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a line. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box5isRayEv">
+<span id="_CPPv3NK4acme3box5isRayEv"></span><span id="_CPPv2NK4acme3box5isRayEv"></span><span id="acme::box::isRay__voidC"></span><span class="target" id="a00112_1af51cbb604b06dab31552ea752197e83a"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isRay</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box5isRayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a ray. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box7isPlaneEv">
+<span id="_CPPv3NK4acme3box7isPlaneEv"></span><span id="_CPPv2NK4acme3box7isPlaneEv"></span><span id="acme::box::isPlane__voidC"></span><span class="target" id="a00112_1a3c8c0114cea1beec3a5781a68fc86fa6"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box7isPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a plane. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box9isSegmentEv">
+<span id="_CPPv3NK4acme3box9isSegmentEv"></span><span id="_CPPv2NK4acme3box9isSegmentEv"></span><span id="acme::box::isSegment__voidC"></span><span class="target" id="a00112_1a3e2c7cbda80a67b2bda000e32836ff63"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSegment</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box9isSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a segment. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box10isTriangleEv">
+<span id="_CPPv3NK4acme3box10isTriangleEv"></span><span id="_CPPv2NK4acme3box10isTriangleEv"></span><span id="acme::box::isTriangle__voidC"></span><span class="target" id="a00112_1a4964dd175851fda6f80533a6c8b3dedf"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isTriangle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box10isTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a triangle. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box8isCircleEv">
+<span id="_CPPv3NK4acme3box8isCircleEv"></span><span id="_CPPv2NK4acme3box8isCircleEv"></span><span id="acme::box::isCircle__voidC"></span><span class="target" id="a00112_1af811936e851931c621c84dee5ff06c18"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isCircle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box8isCircleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a circle. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme3box5isBoxEv">
+<span id="_CPPv3NK4acme3box5isBoxEv"></span><span id="_CPPv2NK4acme3box5isBoxEv"></span><span id="acme::box::isBox__voidC"></span><span class="target" id="a00112_1a84ae291b793a3a64643b01ed9dd63659"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isBox</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3box5isBoxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a box. </p>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

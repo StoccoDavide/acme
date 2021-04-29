@@ -43,9 +43,9 @@
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* The ACME project - Release Version 0.0.0                            *)</span>
+<span class="cm">(* The ACME project                                                    *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)</span>
+<span class="cm">(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
 <span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
@@ -58,6 +58,11 @@
 <span class="cm">(*    Department of Industrial Engineering                             *)</span>
 <span class="cm">(*    University of Trento                                             *)</span>
 <span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">*/</span>
@@ -105,15 +110,6 @@
     <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">,</span> <span class="n">input</span><span class="p">.</span><span class="n">_radius</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
            <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">origin</span><span class="p">().</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_plane</span><span class="p">.</span><span class="n">origin</span><span class="p">())</span> <span class="o">&amp;&amp;</span>
            <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_plane</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="kt">bool</span>
-  <span class="n">circle</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -198,6 +194,14 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
+  <span class="n">circle</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
   <span class="n">circle</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
       <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
   <span class="p">{</span>
@@ -215,14 +219,6 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">void</span>
-  <span class="n">circle</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
   <span class="kt">bool</span>
   <span class="n">circle</span><span class="o">::</span><span class="n">isInside</span><span class="p">(</span>
       <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
@@ -233,6 +229,16 @@
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">circle</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">,</span> <span class="n">real_type</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span> <span class="o">&amp;&amp;</span>
+           <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -˚</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>
 

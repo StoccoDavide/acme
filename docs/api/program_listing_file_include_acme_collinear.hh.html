@@ -43,9 +43,9 @@
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* The ACME project - Release Version 0.0.0                            *)</span>
+<span class="cm">(* The ACME project                                                    *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)</span>
+<span class="cm">(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
 <span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
@@ -59,6 +59,11 @@
 <span class="cm">(*    University of Trento                                             *)</span>
 <span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
 <span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
+<span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
 <span class="cm">*/</span>
 
@@ -67,7 +72,6 @@
 <span class="cp">#define INCLUDE_ACME_COLLINEAR</span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_math.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
@@ -83,6 +87,13 @@
 <span class="cm">   |   \____\___/|_|_|_|_| |_|\___|\__,_|_|</span>
 <span class="cm">   |</span>
 <span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isCollinear</span><span class="p">(</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0</span><span class="p">,</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1</span><span class="p">,</span>
+      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCollinear</span><span class="p">(</span>

@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -68,6 +73,9 @@ namespace acme
     virtual ~entity(){};
 
   public:
+    //! Entity class destructor
+    entity(){};
+
     //! Return object type as string
     virtual size_t type(void) const = 0;
 
@@ -99,6 +107,8 @@ namespace acme
     virtual bool isBox(void) const = 0;
 
   }; // class entity
+
+  static entity *entity_goat; //!< Scapegoat entity type (throwaway non-const object)
 
 } // namespace acme
 

@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -16,6 +16,11 @@
 (*    Department of Industrial Engineering                             *)
 (*    University of Trento                                             *)
 (*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
 */
@@ -59,27 +64,27 @@
 namespace acme
 {
 
+
+
   /*\
-   |   _____                     _       __     
-   |  |_   _|   _ _ __   ___  __| | ___ / _|___ 
-   |    | || | | | '_ \ / _ \/ _` |/ _ \ |_/ __|
-   |    | || |_| | |_) |  __/ (_| |  __/  _\__ \
-   |    |_| \__, | .__/ \___|\__,_|\___|_| |___/
-   |        |___/|_|                            
+   |      _    ____ __  __ _____ 
+   |     / \  / ___|  \/  | ____|
+   |    / _ \| |   | |\/| |  _|  
+   |   / ___ \ |___| |  | | |___ 
+   |  /_/   \_\____|_|  |_|_____|
+   |                             
+   |  
+   |   ____      _                        ___   _ 
+   |  |  _ \ ___| | ___  __ _ ___  ___   / _ \ / |
+   |  | |_) / _ \ |/ _ \/ _` / __|/ _ \ | | | || |
+   |  |  _ <  __/ |  __/ (_| \__ \  __/ | |_| || |
+   |  |_| \_\___|_|\___|\__,_|___/\___|  \___(_)_|
+   |                      
   \*/
 
   typedef double real_type;          //!< Real number type
   typedef int int_type;              //!< Integer number type
   typedef std::ostream ostream_type; //!< Output stream type¯
-
-  /*\
-   |    ____                _              _       
-   |   / ___|___  _ __  ___| |_ __ _ _ __ | |_ ___ 
-   |  | |   / _ \| '_ \/ __| __/ _` | '_ \| __/ __|¯
-   |  | |__| (_) | | | \__ \ || (_| | | | | |_\__ \
-   |   \____\___/|_| |_|___/\__\__,_|_| |_|\__|___/
-   |                                               
-  \*/
 
   static real_type const Epsilon_Machine = std::numeric_limits<real_type>::epsilon(); //!< Machine epsilon \f$ \varepsilon \f$
   static real_type const Epsilon_High = 1.0E-16;                                      //!< High precision epsilon

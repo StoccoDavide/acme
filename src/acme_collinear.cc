@@ -1,9 +1,9 @@
 /*
 (***********************************************************************)
 (*                                                                     *)
-(* The ACME project - Release Version 0.0.0                            *)
+(* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020 Davide Stocco, All Rights Reserved.              *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -37,6 +37,87 @@ namespace acme
    |   \____\___/|_|_|_|_| |_|\___|\__,_|_|   
    |                                          
   \*/
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isCollinear(
+      entity const *entity0,
+      entity const *entity1,
+      real_type tolerance)
+  {
+    int_type slide = entity0->type() * 100 + entity1->type();
+    switch (slide)
+    {
+
+      // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
+
+    case 303:
+      return acme::isCollinear(*dynamic_cast<const line *>(entity0),
+                               *dynamic_cast<const line *>(entity1),
+                               tolerance);
+      break;
+
+    case 304:
+      return acme::isCollinear(*dynamic_cast<const line *>(entity0),
+                               *dynamic_cast<const ray *>(entity1),
+                               tolerance);
+      break;
+
+    case 306:
+      return acme::isCollinear(*dynamic_cast<const line *>(entity0),
+                               *dynamic_cast<const segment *>(entity1),
+                               tolerance);
+      break;
+
+      // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
+
+    case 403:
+      return acme::isCollinear(*dynamic_cast<const line *>(entity1),
+                               *dynamic_cast<const ray *>(entity0),
+                               tolerance);
+      break;
+
+    case 404:
+      return acme::isCollinear(*dynamic_cast<const ray *>(entity0),
+                               *dynamic_cast<const ray *>(entity1),
+                               tolerance);
+      break;
+
+    case 406:
+      return acme::isCollinear(*dynamic_cast<const ray *>(entity0),
+                               *dynamic_cast<const segment *>(entity1),
+                               tolerance);
+      break;
+
+      // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
+
+    case 603:
+      return acme::isCollinear(*dynamic_cast<const line *>(entity1),
+                               *dynamic_cast<const segment *>(entity0),
+                               tolerance);
+      break;
+
+    case 604:
+      return acme::isCollinear(*dynamic_cast<const ray *>(entity1),
+                               *dynamic_cast<const segment *>(entity0),
+                               tolerance);
+      break;
+
+    case 606:
+      return acme::isCollinear(*dynamic_cast<const segment *>(entity0),
+                               *dynamic_cast<const segment *>(entity1),
+                               tolerance);
+      break;
+
+      // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
+
+    default:
+      //ACME_ERROR("acme::isCollinear(entity, entity): exception not handled.")
+      return false;
+      break;
+    }
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
