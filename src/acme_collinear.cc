@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -46,7 +46,7 @@ namespace acme
       entity const *entity1,
       real_type tolerance)
   {
-    int_type slide = entity0->type() * 100 + entity1->type();
+    int_type slide = entity0->degree() * 100 + entity1->degree();
     switch (slide)
     {
 

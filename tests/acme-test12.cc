@@ -19,12 +19,12 @@ int main()
   std::cout
       << " GEOMETRY TEST 12 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
 
-  entity *line0 = new line(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-  entity *line1 = new line(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
+  entity *line0 = new ray(vec3(0.0, 0.0, 0.0), vec3(0.0, -1.0, 0.0));
+  entity *line1 = new ray(vec3(0.0, -1.0, 0.0), vec3(0.0, 1.0, 0.0));
   entity *entity_out = acme::intersection(line0, line1);
   //if (acme::intersection(line0, line1))
   //{
-    std::cout << "LINES INTERSECTS in: " << entity_out->isVector() << "\n";
+    std::cout << "LINES INTERSECTS in: " << entity_out->isSegment() << "\n";
   //}
 
   std::cout

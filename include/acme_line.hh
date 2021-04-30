@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -169,8 +169,14 @@ namespace acme
         vec3 const &point //!< Query point
     ) const;
 
+    //! Return object hierarchical degree
+    size_t degree(void) const override { return 3; }
+
     //! Return object type as string
-    size_t type(void) const override { return 3; }
+    std::string whattype(void) const override { return "line"; }
+
+    //! Check whether the object is no entity
+    bool isNone(void) const override { return false; }
 
     //! Check whether the object is a point
     bool isMatrix(void) const override { return false; }

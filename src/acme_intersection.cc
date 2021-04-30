@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -50,95 +50,122 @@ namespace acme
       entity const *entity0,
       entity const *entity1)
   {
-    int_type slide = entity0->type() * 100 + entity1->type();
+    int_type slide = entity0->degree() * 100 + entity1->degree();
+    bool check = false;
+    bool collide = false;
+    bool collide1 = false;
+    bool collide2 = false;
+    entity *entity_out_ray = new ray();
+    entity *entity_out_seg = new segment();
+    entity *entity_out = new none();
     if (acme::isCollinear(entity0, entity1))
     {
-
-      entity *entity_out = new line(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-      //line entity_out = line();
-      acme::intersection(*dynamic_cast<line const *>(entity0),
-                         *dynamic_cast<line const *>(entity1),
-                         *dynamic_cast<line *>(entity_out));
-      return entity_out;
       switch (slide)
       {
 
         // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
       case 303:
-        entity *entity_out = new line();
-        //line entity_out = line();
-        acme::intersection(*dynamic_cast<line const *>(entity0),
-                           *dynamic_cast<line const *>(entity1),
-                           *dynamic_cast<line *>(entity_out));
-        return entity_out;
+        entity_out = new line();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<line *>(entity_out));
+        check = true;
         break;
 
-      /*case 304:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<ray *>(entity_out));
+      case 304:
+        entity_out = new ray();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<ray *>(entity_out));
+        check = true;
         break;
 
       case 306:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
       case 403:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<ray *>(entity_out));
+        entity_out = new ray();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<ray *>(entity_out));
+        check = true;
         break;
 
       case 404:
-        if (
-            acme::intersection(*dynamic_cast<ray const *>(entity0),
-                               *dynamic_cast<ray const *>(entity1),
-                               *dynamic_cast<ray *>(entity_out)))
-          return true;
-        else if (acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                    *dynamic_cast<ray const *>(entity1),
-                                    *dynamic_cast<segment *>(entity_out)))
-          return true;
-        else
-          return false;
+        collide1 = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                      *dynamic_cast<ray const *>(entity1),
+                                      *dynamic_cast<ray *>(entity_out_ray));
+        collide2 = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                      *dynamic_cast<ray const *>(entity1),
+                                      *dynamic_cast<segment *>(entity_out_seg));
+        check = true;
+        if (collide1)
+        {
+          collide = true;
+          delete entity_out_seg;
+          entity_out = entity_out_ray;
+          return entity_out;
+        }
+        else if (collide2)
+        {
+          collide = true;
+          delete entity_out_ray;
+          entity_out = entity_out_seg;
+          return entity_out;
+        }
+
         break;
 
       case 406:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
       case 603:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 604:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 606:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
       default:
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
-        return false;
+        ACME_ASSERT(check == true, "acme::intersection(entity, entity): exception not handled.")
+        delete entity_out_ray;
+        delete entity_out_seg;
+        entity_out = new none();
+        return entity_out;
         break;
       }
     }
@@ -150,236 +177,307 @@ namespace acme
         // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
       case 303:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 304:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 305:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<line *>(entity_out));
+        entity_out = new line();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<line *>(entity_out));
+        check = true;
         break;
 
       case 306:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 307:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 308:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
       case 403:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 404:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 405:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<ray *>(entity_out));
+        entity_out = new ray();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<ray *>(entity_out));
+        check = true;
         break;
 
       case 406:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 407:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 408:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
       case 503:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<line *>(entity_out));
+        entity_out = new line();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<line *>(entity_out));
+        check = true;
         break;
 
       case 504:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<ray *>(entity_out));
+        entity_out = new ray();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<ray *>(entity_out));
+        check = true;
         break;
 
       case 505:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<plane *>(entity_out));
+        entity_out = new plane();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<plane *>(entity_out));
+        check = true;
         break;
 
       case 506:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 507:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<triangle *>(entity_out));
+        entity_out = new triangle();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<triangle *>(entity_out));
+        check = true;
         break;
 
       case 508:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<circle *>(entity_out));
+        entity_out = new circle();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<circle *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
       case 603:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 604:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 605:
-        return acme::intersection(*dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 606:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 607:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 608:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
       case 703:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 704:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 705:
-        return acme::intersection(*dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 706:
-        return acme::intersection(*dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // case 707:
-        //   return acme::intersection(*dynamic_cast<triangle const *>(entity0),
+        //   collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
         //                             *dynamic_cast<triangle const *>(entity1),
         //                             *dynamic_cast<???????? *>(entity_out));
+        //   check = true;
         //   break;
 
         // case 708:
-        //   return acme::intersection(*dynamic_cast<triangle const *>(entity0),
+        //   collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
         //                             *dynamic_cast<circle const *>(entity1),
         //                             *dynamic_cast<???????? *>(entity_out));
+        //   check = true;
         //   break;
 
         // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
       case 803:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 804:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 805:
-        return acme::intersection(*dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<circle *>(entity_out));
+        entity_out = new circle();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<circle *>(entity_out));
+        check = true;
         break;
 
       case 806:
-        return acme::intersection(*dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // case 807:
-        //   return acme::intersection(*dynamic_cast<triangle const *>(entity1),
+        //   collide = acme::intersection(*dynamic_cast<triangle const *>(entity1),
         //                             *dynamic_cast<circle const *>(entity0),
         //                             *dynamic_cast<???????? *>(entity_out));
+        //   check = true;
         //   break;
 
         // case 808:
-        //   return acme::intersection(*dynamic_cast<circle const *>(entity0),
+        //   collide = acme::intersection(*dynamic_cast<circle const *>(entity0),
         //                             *dynamic_cast<circle const *>(entity1),
         //                             *dynamic_cast<<???????? *>(entity_out));
+        //   check = true;
         //   break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
       default:
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
-        return false;
+        ACME_ASSERT(check == true, "acme::intersection(entity, entity): exception not handled.")
+        delete entity_out_ray;
+        delete entity_out_seg;
+        entity_out = new none();
+        return entity_out;
         break;
       }
     }
@@ -391,238 +489,333 @@ namespace acme
         // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
       case 303:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 304:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 305:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 306:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 307:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 308:
-        return acme::intersection(*dynamic_cast<line const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
       case 403:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 404:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 405:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 406:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 407:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 408:
-        return acme::intersection(*dynamic_cast<ray const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
       case 503:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 504:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 505:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<line *>(entity_out));
+        entity_out = new line();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<line *>(entity_out));
+        check = true;
         break;
 
       case 506:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 507:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 508:
-        return acme::intersection(*dynamic_cast<plane const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
       case 603:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 604:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 605:
-        return acme::intersection(*dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 606:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 607:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 608:
-        return acme::intersection(*dynamic_cast<segment const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
       case 703:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 704:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 705:
-        return acme::intersection(*dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 706:
-        return acme::intersection(*dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 707:
-        return acme::intersection(*dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 708:
-        return acme::intersection(*dynamic_cast<triangle const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
       case 803:
-        return acme::intersection(*dynamic_cast<line const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<line const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 804:
-        return acme::intersection(*dynamic_cast<ray const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 805:
-        return acme::intersection(*dynamic_cast<plane const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 806:
-        return acme::intersection(*dynamic_cast<segment const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        entity_out = new vec3();
+        collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<vec3 *>(entity_out));
+        check = true;
         break;
 
       case 807:
-        return acme::intersection(*dynamic_cast<triangle const *>(entity1),
-                                  *dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<triangle const *>(entity1),
+                                     *dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
       case 808:
-        return acme::intersection(*dynamic_cast<circle const *>(entity0),
-                                  *dynamic_cast<circle const *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        entity_out = new segment();
+        collide = acme::intersection(*dynamic_cast<circle const *>(entity0),
+                                     *dynamic_cast<circle const *>(entity1),
+                                     *dynamic_cast<segment *>(entity_out));
+        check = true;
         break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
-*/
+
       default:
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
-        //return false;
+        ACME_ASSERT(check == true, "acme::intersection(entity, entity): exception not handled.")
+        delete entity_out_ray;
+        delete entity_out_seg;
+        entity_out = new none();
+        return entity_out;
         break;
       }
+    }
+    if (check && collide)
+    {
+      delete entity_out_ray;
+      delete entity_out_seg;
+      return entity_out;
+    }
+    else if (check && !collide)
+    {
+      delete entity_out_ray;
+      delete entity_out_seg;
+      entity_out = new none();
+      return entity_out;
+    }
+    else
+    {
+      ACME_ERROR("acme::intersection(entity, entity): return exception not handled.")
+      delete entity_out_ray;
+      delete entity_out_seg;
+      entity_out = new none();
+      return entity_out;
     }
   }
 

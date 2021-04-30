@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -72,8 +72,14 @@ namespace acme
     //! Entity class destructor
     entity(){};
 
+    //! Return object hierarchical degree
+    virtual size_t degree(void) const = 0;
+
     //! Return object type as string
-    virtual size_t type(void) const = 0;
+    virtual std::string whattype(void) const = 0;
+
+    //! Check whether the object is no entity
+    virtual bool isNone(void) const = 0;
 
     //! Check whether the object is a matrix
     virtual bool isMatrix(void) const = 0;

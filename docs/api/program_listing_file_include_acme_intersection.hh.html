@@ -45,7 +45,7 @@
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project                                                    *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)</span>
+<span class="cm">(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
 <span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
@@ -79,6 +79,7 @@
 <span class="cp">#include</span> <span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_box.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_none.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_collinear.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_coplanar.hh"</span><span class="cp"></span>
 
@@ -94,11 +95,10 @@
 <span class="cm">   |</span>
 <span class="cm">  \*/</span>
 
-  <span class="kt">bool</span>
+  <span class="n">entity</span> <span class="o">*</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">entity0</span><span class="p">,</span>
-      <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">entity1</span><span class="p">,</span>
-      <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">entity_out</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0</span><span class="p">,</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1</span>
   <span class="p">);</span>
 
   <span class="cm">/*\</span>

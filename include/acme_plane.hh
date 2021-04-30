@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -178,12 +178,18 @@ namespace acme
         vec3 const &point //!< Input
     ) const;
 
-    //! Return object type as string
-    size_t type(void) const override { return 5; }
-
     //! Check if plane is degenerated (normal has zero norm)
     bool
     isDegenerated(void) const;
+
+    //! Return object hierarchical degree
+    size_t degree(void) const override { return 5; }
+
+    //! Return object type as string
+    std::string whattype(void) const override { return "plane"; }
+
+    //! Check whether the object is no entity
+    bool isNone(void) const override { return false; }
 
     //! Check whether the object is a point
     bool isMatrix(void) const override { return false; }
@@ -215,7 +221,7 @@ namespace acme
   }; // class plane
 
   static plane const NaN_plane = plane(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number plane type
-  static plane plane_goat = plane(NaN_plane);                     //!< Scapegoat plane type (throwaway non-const object)
+  static plane plane_goat = plane(NaN_plane);                           //!< Scapegoat plane type (throwaway non-const object)
 
 } // namespace acme
 

@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)
@@ -79,8 +79,14 @@ namespace acme
       return *this;
     }
 
+    //! Return object hierarchical degree
+    size_t degree(void) const override { return 1; }
+
     //! Return object type as string
-    size_t type(void) const override { return 1; }
+    std::string whattype(void) const override { return "matrix"; }
+
+    //! Check whether the object is no entity
+    bool isNone(void) const override { return false; }
 
     //! Check whether the object is a point
     bool isMatrix(void) const override { return true; }
@@ -160,8 +166,14 @@ namespace acme
       return acme::isApprox(this->dot(input), real_type(0.0), tolerance);
     }
 
+    //! Return object hierarchical degree
+    size_t degree(void) const override { return 2; }
+
     //! Return object type as string
-    size_t type(void) const override { return 2; }
+    std::string whattype(void) const override { return "vector"; }
+
+    //! Check whether the object is no entity
+    bool isNone(void) const override { return false; }
 
     //! Check whether the object is a point
     bool isMatrix(void) const override { return false; }
@@ -353,7 +365,7 @@ namespace acme
       vec3 &vector,
       affine const &matrix);
 
-/*\
+  /*\
  |   _____ _                          _   _ _ _ _   _           
  |  | ____(_) __ _  ___ _ __    _   _| |_(_) (_) |_(_) ___  ___ 
  |  |  _| | |/ _` |/ _ \ '_ \  | | | | __| | | | __| |/ _ \/ __|
