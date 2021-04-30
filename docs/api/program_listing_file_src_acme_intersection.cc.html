@@ -1168,19 +1168,19 @@
     <span class="p">}</span>
     <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">bool0</span> <span class="o">&amp;&amp;</span> <span class="n">bool1</span> <span class="o">&amp;&amp;</span> <span class="n">bool2</span><span class="p">)</span>
     <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">point0</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point1</span><span class="p">))</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">point0</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">))</span>
       <span class="p">{</span>
         <span class="n">segment</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">point1</span><span class="p">;</span>
         <span class="n">segment</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">point2</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">point1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point2</span><span class="p">))</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">point1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point2</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">))</span>
       <span class="p">{</span>
         <span class="n">segment</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">point0</span><span class="p">;</span>
         <span class="n">segment</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">point1</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">point0</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point2</span><span class="p">))</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">point0</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point2</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">))</span>
       <span class="p">{</span>
         <span class="n">segment</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">point0</span><span class="p">;</span>
         <span class="n">segment</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">point1</span><span class="p">;</span>
@@ -1188,6 +1188,9 @@
       <span class="p">}</span>
       <span class="k">else</span>
       <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"point0 = "</span> <span class="o">&lt;&lt;</span> <span class="n">point0</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"point1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">point1</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"point2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">point2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
         <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(plane, triangle, segment): exception not handled."</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
