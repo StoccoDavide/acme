@@ -89,7 +89,7 @@ namespace acme
 
     case 308:
       return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
+                              *dynamic_cast<circle const>(entity1),
                               tolerance);
       break;
 
@@ -127,7 +127,7 @@ namespace acme
 
     case 408:
       return acme::isCoplanar(*dynamic_cast<ray const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
+                              *dynamic_cast<circle const>(entity1),
                               tolerance);
       break;
 
@@ -165,7 +165,7 @@ namespace acme
 
     case 508:
       return acme::isCoplanar(*dynamic_cast<plane const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
+                              *dynamic_cast<circle const>(entity1),
                               tolerance);
       break;
 
@@ -203,7 +203,7 @@ namespace acme
 
     case 608:
       return acme::isCoplanar(*dynamic_cast<segment const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
+                              *dynamic_cast<circle const>(entity1),
                               tolerance);
       break;
 
@@ -240,7 +240,7 @@ namespace acme
 
     case 708:
       return acme::isCoplanar(*dynamic_cast<triangle const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
+                              *dynamic_cast<circle const>(entity1),
                               tolerance);
       break;
 
@@ -248,37 +248,37 @@ namespace acme
 
     case 803:
       return acme::isCoplanar(*dynamic_cast<line const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
+                              *dynamic_cast<circle const>(entity0),
                               tolerance);
       break;
 
     case 804:
       return acme::isCoplanar(*dynamic_cast<ray const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
+                              *dynamic_cast<circle const>(entity0),
                               tolerance);
       break;
 
     case 805:
       return acme::isCoplanar(*dynamic_cast<plane const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
+                              *dynamic_cast<circle const>(entity0),
                               tolerance);
       break;
 
     case 806:
       return acme::isCoplanar(*dynamic_cast<segment const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
+                              *dynamic_cast<circle const>(entity0),
                               tolerance);
       break;
 
     case 807:
       return acme::isCoplanar(*dynamic_cast<triangle const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
+                              *dynamic_cast<circle const>(entity0),
                               tolerance);
       break;
 
     case 808:
-      return acme::isCoplanar(*dynamic_cast<circle const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
+      return acme::isCoplanar(*dynamic_cast<circle const>(entity0),
+                              *dynamic_cast<circle const>(entity1),
                               tolerance);
       break;
 
