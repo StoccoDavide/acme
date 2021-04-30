@@ -68,8 +68,8 @@ namespace acme
       plane const &input)
       const
   {
-    return this->_origin.isApprox(input._origin) &&
-           this->_normal.isApprox(input._normal);
+    return this->_origin.isApprox(input._origin, acme::Epsilon) &&
+           this->_normal.isApprox(input._normal, acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -196,7 +196,7 @@ namespace acme
   plane::isDegenerated(void)
       const
   {
-    return acme::isApprox(this->_normal.norm(), real_type(0.0));
+    return acme::isApprox(this->_normal.norm(), real_type(0.0), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

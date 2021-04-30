@@ -97,8 +97,8 @@ namespace acme
       segment const &input)
       const
   {
-    return this->_point[0].isApprox(input._point[0]) &&
-           this->_point[1].isApprox(input._point[1]);
+    return this->_point[0].isApprox(input._point[0], acme::Epsilon) &&
+           this->_point[1].isApprox(input._point[1], acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -217,7 +217,7 @@ namespace acme
   segment::isDegenerated(void)
       const
   {
-    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real_type(0.0));
+    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real_type(0.0), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

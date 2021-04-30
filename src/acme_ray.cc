@@ -68,8 +68,8 @@ namespace acme
       ray const &input)
       const
   {
-    return this->_origin.isApprox(input._origin) &&
-           this->_direction.isApprox(input._direction);
+    return this->_origin.isApprox(input._origin, acme::Epsilon) &&
+           this->_direction.isApprox(input._direction, acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -169,7 +169,8 @@ namespace acme
       const
   {
     return acme::isApprox((point - this->_origin).normalized().cross(this->_direction).norm(),
-                          real_type(0.0));
+                          real_type(0.0),
+                          acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -178,7 +179,7 @@ namespace acme
   ray::isDegenerated(void)
       const
   {
-    return acme::isApprox(this->_direction.norm(), real_type(0.0));
+    return acme::isApprox(this->_direction.norm(), real_type(0.0), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

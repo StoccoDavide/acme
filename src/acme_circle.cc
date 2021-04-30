@@ -68,9 +68,9 @@ namespace acme
       circle const &input)
       const
   {
-    return acme::isApprox(this->_radius, input._radius) &&
-           this->_plane.origin().isApprox(input._plane.origin()) &&
-           this->_plane.normal().isApprox(input._plane.normal());
+    return acme::isApprox(this->_radius, input._radius, acme::Epsilon) &&
+           this->_plane.origin().isApprox(input._plane.origin(), acme::Epsilon) &&
+           this->_plane.normal().isApprox(input._plane.normal(), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -195,7 +195,7 @@ namespace acme
   circle::isDegenerated(void)
       const
   {
-    return acme::isApprox(this->_radius, real_type(0.0)) &&
+    return acme::isApprox(this->_radius, real_type(0.0), acme::Epsilon) &&
            this->_plane.isDegenerated();
   }
 

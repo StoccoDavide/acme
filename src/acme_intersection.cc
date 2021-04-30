@@ -1374,7 +1374,7 @@ namespace acme
 
     vec3 line_d = normal0.cross(normal1);
     real_type det = line_d.norm() * line_d.norm();
-    if (acme::isApprox(det, real_type(0.0)))
+    if (acme::isApprox(det, real_type(0.0), acme::Epsilon))
     {
       return false;
     }
@@ -1402,7 +1402,7 @@ namespace acme
     mat3 Mat;
     Mat << normal0, normal1, normal2;
     real_type det = Mat.determinant();
-    if (acme::isApprox(det, real_type(0.0)))
+    if (acme::isApprox(det, real_type(0.0), acme::Epsilon))
     {
       return false;
     }
@@ -1624,12 +1624,12 @@ namespace acme
   {
     real_type d0 = plane.signedDistance(segment.point(0));
     real_type d1 = plane.signedDistance(segment.point(1));
-    if (acme::isApprox(d0, real_type(0.0)))
+    if (acme::isApprox(d0, real_type(0.0), acme::Epsilon))
     {
       point = segment.point(0);
       return true;
     }
-    else if (acme::isApprox(d1, real_type(0.0)))
+    else if (acme::isApprox(d1, real_type(0.0), acme::Epsilon))
     {
       point = segment.point(1);
       return true;
