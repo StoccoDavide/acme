@@ -103,9 +103,9 @@ namespace acme
       triangle const &input)
       const
   {
-    return this->_vertex[0].isApprox(input._vertex[0]) &&
-           this->_vertex[1].isApprox(input._vertex[1]) &&
-           this->_vertex[2].isApprox(input._vertex[2]);
+    return this->_vertex[0].isApprox(input._vertex[0], acme::Epsilon) &&
+           this->_vertex[1].isApprox(input._vertex[1], acme::Epsilon) &&
+           this->_vertex[2].isApprox(input._vertex[2], acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -306,9 +306,9 @@ namespace acme
   triangle::isDegenerated(void)
       const
   {
-    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real_type(0.0)) ||
-           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real_type(0.0)) ||
-           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real_type(0.0));
+    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real_type(0.0), acme::Epsilon) ||
+           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real_type(0.0), acme::Epsilon) ||
+           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real_type(0.0), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

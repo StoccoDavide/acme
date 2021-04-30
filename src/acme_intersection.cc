@@ -1129,19 +1129,19 @@ namespace acme
     }
     else if (bool0 && bool1 && bool2)
     {
-      if (point0.isApprox(point1))
+      if (point0.isApprox(point1, acme::Epsilon))
       {
         segment.point(0) = point1;
         segment.point(1) = point2;
         return true;
       }
-      else if (point1.isApprox(point2))
+      else if (point1.isApprox(point2, acme::Epsilon))
       {
         segment.point(0) = point0;
         segment.point(1) = point1;
         return true;
       }
-      else if (point0.isApprox(point2))
+      else if (point0.isApprox(point2, acme::Epsilon))
       {
         segment.point(0) = point0;
         segment.point(1) = point1;
@@ -1149,6 +1149,9 @@ namespace acme
       }
       else
       {
+        std::cout << "point0 = " << point0 << std::endl;
+        std::cout << "point1 = " << point1 << std::endl;
+        std::cout << "point2 = " << point2 << std::endl;
         ACME_ERROR("acme::intersection(plane, triangle, segment): exception not handled.")
         return false;
       }

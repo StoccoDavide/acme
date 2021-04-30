@@ -142,7 +142,7 @@ namespace acme
     bool
     isParallel(
         vector<T, rows> const &input, //!< Input vector
-        T tolerance = Epsilon         //!< Tolerance
+        T tolerance = acme::Epsilon   //!< Tolerance
     )
         const
     {
@@ -153,7 +153,7 @@ namespace acme
     bool
     isOrthogonal(
         vector<T, rows> const &input, //!< Input vector
-        T tolerance = Epsilon         //!< Tolerance
+        T tolerance = acme::Epsilon   //!< Tolerance
     )
         const
     {
