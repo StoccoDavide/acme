@@ -42,8 +42,8 @@ namespace acme
 
   bool
   isCollinear(
-      entity::ptr const &entity0,
-      entity::ptr const &entity1,
+      entity const *entity0,
+      entity const *entity1,
       real_type tolerance)
   {
     int_type slide = entity0->type() * 100 + entity1->type();
@@ -53,60 +53,60 @@ namespace acme
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 303:
-      return acme::isCollinear(*std::dynamic_pointer_cast<line const>(entity0),
-                               *std::dynamic_pointer_cast<line const>(entity1),
+      return acme::isCollinear(*dynamic_cast<line const *>(entity0),
+                               *dynamic_cast<line const *>(entity1),
                                tolerance);
       break;
 
     case 304:
-      return acme::isCollinear(*std::dynamic_pointer_cast<line const>(entity0),
-                               *std::dynamic_pointer_cast<ray const>(entity1),
+      return acme::isCollinear(*dynamic_cast<line const *>(entity0),
+                               *dynamic_cast<ray const *>(entity1),
                                tolerance);
       break;
 
     case 306:
-      return acme::isCollinear(*std::dynamic_pointer_cast<line const>(entity0),
-                               *std::dynamic_pointer_cast<segment const>(entity1),
+      return acme::isCollinear(*dynamic_cast<line const *>(entity0),
+                               *dynamic_cast<segment const *>(entity1),
                                tolerance);
       break;
 
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 403:
-      return acme::isCollinear(*std::dynamic_pointer_cast<line const>(entity1),
-                               *std::dynamic_pointer_cast<ray const>(entity0),
+      return acme::isCollinear(*dynamic_cast<line const *>(entity1),
+                               *dynamic_cast<ray const *>(entity0),
                                tolerance);
       break;
 
     case 404:
-      return acme::isCollinear(*std::dynamic_pointer_cast<ray const>(entity0),
-                               *std::dynamic_pointer_cast<ray const>(entity1),
+      return acme::isCollinear(*dynamic_cast<ray const *>(entity0),
+                               *dynamic_cast<ray const *>(entity1),
                                tolerance);
       break;
 
     case 406:
-      return acme::isCollinear(*std::dynamic_pointer_cast<ray const>(entity0),
-                               *std::dynamic_pointer_cast<segment const>(entity1),
+      return acme::isCollinear(*dynamic_cast<ray const *>(entity0),
+                               *dynamic_cast<segment const *>(entity1),
                                tolerance);
       break;
 
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 603:
-      return acme::isCollinear(*std::dynamic_pointer_cast<line const>(entity1),
-                               *std::dynamic_pointer_cast<segment const>(entity0),
+      return acme::isCollinear(*dynamic_cast<line const *>(entity1),
+                               *dynamic_cast<segment const *>(entity0),
                                tolerance);
       break;
 
     case 604:
-      return acme::isCollinear(*std::dynamic_pointer_cast<ray const>(entity1),
-                               *std::dynamic_pointer_cast<segment const>(entity0),
+      return acme::isCollinear(*dynamic_cast<ray const *>(entity1),
+                               *dynamic_cast<segment const *>(entity0),
                                tolerance);
       break;
 
     case 606:
-      return acme::isCollinear(*std::dynamic_pointer_cast<segment const>(entity0),
-                               *std::dynamic_pointer_cast<segment const>(entity1),
+      return acme::isCollinear(*dynamic_cast<segment const *>(entity0),
+                               *dynamic_cast<segment const *>(entity1),
                                tolerance);
       break;
 

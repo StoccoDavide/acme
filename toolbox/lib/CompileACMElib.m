@@ -5,7 +5,7 @@ clear functions;
 old_dir = cd(fileparts(which(mfilename)));
 
 NAMES = {
-  'OPolyMexWrapper', ...
+  'ACMEmexWrapper', ...
 };
 
 lst_cc = dir('../src/*.cc');

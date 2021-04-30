@@ -52,8 +52,8 @@ namespace acme
   //! Check if entitys are collinear
   bool
   isCollinear(
-      entity::ptr const &entity0,        //!< Input entity 0
-      entity::ptr const &entity1,        //!< Input entity 1
+      entity const *entity0,        //!< Input entity 0
+      entity const *entity1,        //!< Input entity 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 

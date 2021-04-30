@@ -53,14 +53,10 @@ namespace acme
   class entity
   {
   public:
-    typedef std::shared_ptr<entity> ptr; //!< Shared pointer to geometrical entity
+    typedef std::shared_ptr<entity const> ptr; //!< Shared pointer to geometrical entity
     typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to geometrical entity objects
     typedef std::vector<ptr> vecptr;           //!< Vector of pointers to geometrical entity objects
     typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to geometrical entity objects
-
-    //! Check whether the object is a vector
-    //virtual bool
-    //isVector(void) const = 0;
 
   protected:
     // The problem that a virtual destructor is designed to avoid is this:
@@ -68,11 +64,11 @@ namespace acme
     // to base class, only the base class destructor is called, even if the
     // object is of a derived class.
     // SOLUTION: virtual destructor must be protected!
+    
+  public:
 
     //! Entity class destructor
     virtual ~entity(){};
-
-  public:
     //! Entity class destructor
     entity(){};
 

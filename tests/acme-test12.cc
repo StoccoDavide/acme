@@ -8,6 +8,8 @@
 #include "acme_eigen.hh"
 #include "acme_line.hh"
 #include "acme_orthogonal.hh"
+#include "acme_parallel.hh"
+#include "acme_intersection.hh"
 
 using namespace acme;
 
@@ -17,13 +19,13 @@ int main()
   std::cout
       << " GEOMETRY TEST 12 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
 
-  entity::ptr line0 = std::make_shared<line>(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-  entity::ptr line1 = std::make_shared<line>(vec3(0.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0));
-
-  if (acme::isOrthogonal(line1, line0))
-  {
-    std::cout << "LINES ARE ORTHOGONAL!\n\n";
-  }
+  entity *line0 = new line(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
+  entity *line1 = new line(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
+  entity *entity_out = acme::intersection(line0, line1);
+  //if (acme::intersection(line0, line1))
+  //{
+    std::cout << "LINES INTERSECTS in: " << entity_out->isVector() << "\n";
+  //}
 
   std::cout
       << std::endl

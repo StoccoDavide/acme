@@ -56,11 +56,10 @@ namespace acme
   \*/
 
   //! Intersection between two geometrical entities
-  bool
+  entity *
   intersection(
-      entity::ptr const &entity0,   //!< Input entity 0
-      entity::ptr const &entity1,   //!< Input entity 1
-      entity::ptr const &entity_out //!< Output entity
+      entity const *entity0, //!< Input entity 0
+      entity const *entity1  //!< Input entity 1
   );
 
   /*\

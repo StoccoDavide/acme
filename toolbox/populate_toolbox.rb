@@ -2,7 +2,7 @@
 
 require 'fileutils'
 
-FileUtils.rm_rf   "src"
+FileUtils.rm_rf "src"
 
 lst = Dir["../src/*.c*"]
 lst.each do |filename|
