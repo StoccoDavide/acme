@@ -55,7 +55,7 @@ namespace acme
   class ray : public entity
   {
   public:
-    typedef ray const *ptr;                  //!< Pointer to ray object
+    typedef std::shared_ptr<ray const> ptr;  //!< Pointer to ray object
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects

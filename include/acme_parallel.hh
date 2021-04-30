@@ -56,8 +56,8 @@ namespace acme
   //! Check if geometrical entities are parallel
   bool
   isParallel(
-      entity const *entity0,        //!< Input entity 0
-      entity const *entity1,        //!< Input entity 1
+      entity::ptr const &entity0,        //!< Input entity 0
+      entity::ptr const &entity1,        //!< Input entity 1
       real_type tolerance = Epsilon //!< Tolerance
   );
 

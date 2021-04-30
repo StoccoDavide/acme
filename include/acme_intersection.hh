@@ -58,9 +58,9 @@ namespace acme
   //! Intersection between two geometrical entities
   bool
   intersection(
-      entity const *entity0,           //!< Input entity 0
-      entity const *entity1,           //!< Input entity 1
-      entity *entity_out = entity_goat //!< Output entity
+      entity::ptr const &entity0,   //!< Input entity 0
+      entity::ptr const &entity1,   //!< Input entity 1
+      entity::ptr const &entity_out //!< Output entity
   );
 
   /*\
@@ -88,6 +88,15 @@ namespace acme
       ray const &ray0,        //!< Input ray 0
       ray const &ray1,        //!< Input ray 1
       ray &ray_out = ray_goat //!< Output ray
+  );
+
+  //! Intersection between two opposite rays \n
+  //! WARNING: This function only support collinear objects!
+  bool
+  intersection(
+      ray const &ray0,                    //!< Input ray 0
+      ray const &ray1,                    //!< Input ray 1
+      segment &segment_out = segment_goat //!< Output segment
   );
 
   //! Intersection between two segments \n

@@ -47,9 +47,9 @@ namespace acme
 
   bool
   intersect(
-      entity const *entity0,
-      entity const *entity1,
-      entity *entity_out)
+      entity::ptr const &entity0,
+      entity::ptr const &entity1,
+      entity::ptr const &entity_out)
   {
     int_type slide = entity0->type() * 100 + entity1->type();
     if (
@@ -61,61 +61,69 @@ namespace acme
         // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
       case 303:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<line *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<line>(entity_out));
         break;
 
       case 304:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<ray *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<ray>(entity_out));
         break;
 
       case 306:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
       case 403:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<ray *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<ray>(entity_out));
         break;
 
-        //case 404:
-        //  return acme::intersection(*dynamic_cast<const ray *>(entity0),
-        //                            *dynamic_cast<const ray *>(entity1),
-        //                            *dynamic_cast<ray *>(entity_out));
-        //  break;
+      case 404:
+        if (
+            acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                               *std::dynamic_pointer_cast<ray const>(entity1),
+                               *std::dynamic_pointer_cast<ray>(entity_out)))
+          return true;
+        else if (acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                    *std::dynamic_pointer_cast<ray const>(entity1),
+                                    *std::dynamic_pointer_cast<segment>(entity_out)))
+          return true;
+        else
+          return false;
+        break;
 
       case 406:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
       case 603:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 604:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 606:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
@@ -134,229 +142,229 @@ namespace acme
         // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
       case 303:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 304:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 305:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<line *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<line>(entity_out));
         break;
 
       case 306:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 307:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 308:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
       case 403:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 404:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 405:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<ray *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<ray>(entity_out));
         break;
 
       case 406:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 407:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 408:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
       case 503:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<line *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<line>(entity_out));
         break;
 
       case 504:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<ray *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<ray>(entity_out));
         break;
 
       case 505:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<plane *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<plane>(entity_out));
         break;
 
       case 506:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 507:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<triangle *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle>(entity_out));
         break;
 
       case 508:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<circle *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<circle>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
       case 603:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 604:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 605:
-        return acme::intersection(*dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 606:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 607:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 608:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
       case 703:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 704:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 705:
-        return acme::intersection(*dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 706:
-        return acme::intersection(*dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // case 707:
-        //   return acme::intersection(*dynamic_cast<const triangle *>(entity0),
-        //                             *dynamic_cast<const triangle *>(entity1),
-        //                             *dynamic_cast<???????? *>(entity_out));
+        //   return acme::intersection(*std::dynamic_pointer_cast<triangle const>(entity0),
+        //                             *std::dynamic_pointer_cast<triangle const>(entity1),
+        //                             *std::dynamic_pointer_cast<???????? *>(entity_out));
         //   break;
 
         // case 708:
-        //   return acme::intersection(*dynamic_cast<const triangle *>(entity0),
-        //                             *dynamic_cast<const circle *>(entity1),
-        //                             *dynamic_cast<???????? *>(entity_out));
+        //   return acme::intersection(*std::dynamic_pointer_cast<triangle const>(entity0),
+        //                             *std::dynamic_pointer_cast<circle const>(entity1),
+        //                             *std::dynamic_pointer_cast<???????? *>(entity_out));
         //   break;
 
         // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
       case 803:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 804:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 805:
-        return acme::intersection(*dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<circle *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<circle>(entity_out));
         break;
 
       case 806:
-        return acme::intersection(*dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // case 807:
-        //   return acme::intersection(*dynamic_cast<const triangle *>(entity1),
-        //                             *dynamic_cast<const circle *>(entity0),
-        //                             *dynamic_cast<???????? *>(entity_out));
+        //   return acme::intersection(*std::dynamic_pointer_cast<triangle const>(entity1),
+        //                             *std::dynamic_pointer_cast<circle const>(entity0),
+        //                             *std::dynamic_pointer_cast<???????? *>(entity_out));
         //   break;
 
         // case 808:
-        //   return acme::intersection(*dynamic_cast<const circle *>(entity0),
-        //                             *dynamic_cast<const circle *>(entity1),
-        //                             *dynamic_cast<<???????? *>(entity_out));
+        //   return acme::intersection(*std::dynamic_pointer_cast<circle const>(entity0),
+        //                             *std::dynamic_pointer_cast<circle const>(entity1),
+        //                             *std::dynamic_pointer_cast<<???????? *>(entity_out));
         //   break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
@@ -375,229 +383,229 @@ namespace acme
         // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
       case 303:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 304:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 305:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 306:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 307:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 308:
-        return acme::intersection(*dynamic_cast<const line *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
       case 403:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 404:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 405:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 406:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 407:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 408:
-        return acme::intersection(*dynamic_cast<const ray *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
       case 503:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 504:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 505:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<line *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<line>(entity_out));
         break;
 
       case 506:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 507:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 508:
-        return acme::intersection(*dynamic_cast<const plane *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
       case 603:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 604:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 605:
-        return acme::intersection(*dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 606:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 607:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 608:
-        return acme::intersection(*dynamic_cast<const segment *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
       case 703:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 704:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 705:
-        return acme::intersection(*dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 706:
-        return acme::intersection(*dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 707:
-        return acme::intersection(*dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 708:
-        return acme::intersection(*dynamic_cast<const triangle *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<triangle const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
       case 803:
-        return acme::intersection(*dynamic_cast<const line *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<line const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 804:
-        return acme::intersection(*dynamic_cast<const ray *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<ray const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 805:
-        return acme::intersection(*dynamic_cast<const plane *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<plane const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 806:
-        return acme::intersection(*dynamic_cast<const segment *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<vec3 *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<segment const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<vec3>(entity_out));
         break;
 
       case 807:
-        return acme::intersection(*dynamic_cast<const triangle *>(entity1),
-                                  *dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<triangle const>(entity1),
+                                  *std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
       case 808:
-        return acme::intersection(*dynamic_cast<const circle *>(entity0),
-                                  *dynamic_cast<const circle *>(entity1),
-                                  *dynamic_cast<segment *>(entity_out));
+        return acme::intersection(*std::dynamic_pointer_cast<circle const>(entity0),
+                                  *std::dynamic_pointer_cast<circle const>(entity1),
+                                  *std::dynamic_pointer_cast<segment>(entity_out));
         break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
@@ -623,8 +631,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line0,
       line const &line1,
       line &line_out)
@@ -642,16 +649,28 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray0,
       ray const &ray1,
       ray &ray_out)
   {
-    if (acme::isCollinear(ray0, ray1))
+    if (acme::isCollinear(ray0, ray1) &&
+        ray0.direction().dot(ray1.direction()) > 0)
     {
-      ACME_ERROR("acme::intersection(ray, ray ray|segment): function not supported yet.")
-      return false;
+      if (ray0.isInside(ray1.origin()))
+      {
+        ray_out = ray1;
+        return true;
+      }
+      else if (ray1.isInside(ray0.origin()))
+      {
+        ray_out = ray0;
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
     else
     {
@@ -661,8 +680,34 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
+      ray const &ray0,
+      ray const &ray1,
+      segment &segment_out)
+  {
+    if (acme::isCollinear(ray0, ray1) &&
+        ray0.direction().dot(ray1.direction()) < 0)
+    {
+      if (ray0.isInside(ray1.origin()) && ray1.isInside(ray0.origin()))
+      {
+        segment_out.point(0) = ray0.origin();
+        segment_out.point(1) = ray1.origin();
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool intersection(
       segment const &segment0,
       segment const &segment1,
       segment &segment_out)
@@ -794,8 +839,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       ray const &ray_in,
       ray &ray_out)
@@ -813,8 +857,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       segment const &segment_in,
       segment &segment_out)
@@ -832,8 +875,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       segment const &segment_in,
       segment &segment_out)
@@ -883,8 +925,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line0,
       line const &line1,
       vec3 &point)
@@ -917,8 +958,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray0,
       ray const &ray1,
       vec3 &point)
@@ -933,8 +973,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       segment const &segment0,
       segment const &segment1,
       vec3 &point)
@@ -949,8 +988,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line_in,
       ray const &ray,
       vec3 &point)
@@ -965,8 +1003,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line_in,
       segment const &segment,
       vec3 &point)
@@ -981,8 +1018,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       segment const &segment,
       vec3 &point)
@@ -1008,8 +1044,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane0,
       plane const &plane1,
       plane &plane_out)
@@ -1045,8 +1080,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line_in,
       plane const &plane,
       line &line_out)
@@ -1064,8 +1098,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       triangle const &triangle,
       segment &segment)
@@ -1128,8 +1161,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       circle const &circle,
       segment &segment)
@@ -1173,8 +1205,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray_in,
       plane const &plane,
       ray &ray_out)
@@ -1192,8 +1223,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       triangle const &triangle,
       segment &segment_out)
@@ -1210,8 +1240,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       circle const &circle,
       segment &segment_out)
@@ -1228,8 +1257,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane,
       segment const &segment_in,
       segment &segment_out)
@@ -1247,8 +1275,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane,
       triangle const &triangle_in,
       triangle &triangle_out)
@@ -1266,8 +1293,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane,
       circle const &circle_in,
       circle &circle_out)
@@ -1285,8 +1311,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       segment const &segment_in,
       triangle const &triangle,
       segment &segment_out)
@@ -1301,8 +1326,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       segment const &segment_in,
       circle const &circle,
       segment &segment_out)
@@ -1337,8 +1361,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane0,
       plane const &plane1,
       line &line)
@@ -1363,8 +1386,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane0,
       plane const &plane1,
       plane const &plane2,
@@ -1393,8 +1415,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       triangle const &triangle0,
       triangle const &triangle1,
       segment &segment_out)
@@ -1415,8 +1436,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       circle const &circle0,
       circle const &circle1,
       segment &segment_out)
@@ -1437,8 +1457,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       plane const &plane,
       vec3 &point)
@@ -1458,8 +1477,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       triangle const &triangle,
       vec3 &point)
@@ -1495,8 +1513,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       line const &line,
       circle const &circle,
       vec3 &point)
@@ -1516,8 +1533,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       plane const &plane,
       vec3 &point)
@@ -1544,8 +1560,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       triangle const &triangle,
       vec3 &point)
@@ -1586,8 +1601,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       ray const &ray,
       circle const &circle,
       vec3 &point)
@@ -1600,8 +1614,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane,
       segment const &segment,
       vec3 &point)
@@ -1632,8 +1645,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane,
       triangle const &triangle,
       segment &segment)
@@ -1649,8 +1661,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       plane const &plane,
       circle const &circle,
       segment &segment)
@@ -1666,8 +1677,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       segment const &segment,
       triangle const &triangle,
       vec3 &point)
@@ -1682,8 +1692,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       segment const &segment,
       circle const &circle,
       vec3 &point)
@@ -1698,8 +1707,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       triangle const &triangle,
       circle const &circle,
       segment &segment_out)
@@ -1724,8 +1732,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool
-  intersection(
+  bool intersection(
       box const &box0,
       box const &box1,
       box &box)

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Function acme::isOrthogonal(entity const *, entity const *, real_type) &#8212; ACME v</title>
+    <title>Function acme::isParallel(entity::ptr const&amp;, entity::ptr const&amp;, real_type) &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Function acme::isOrthogonal(vec3 const&amp;, vec3 const&amp;, real_type)" href="function_a00104_1a0a025c69f1dc58e209d3b0cb831721b7.html" />
-    <link rel="prev" title="Function acme::isCoplanar(triangle const&amp;, circle const&amp;, real_type)" href="function_a00104_1aa98b4e6d9af3f61fdb0421a968967f72.html" />
+    <link rel="next" title="Function acme::isParallel(vec3 const&amp;, vec3 const&amp;, real_type)" href="function_a00104_1a776b8e87b7d6798a46e9caae5a3d680b.html" />
+    <link rel="prev" title="Function acme::isOrthogonal(triangle const&amp;, circle const&amp;, real_type)" href="function_a00104_1ad93fb179517ffc824ff88ee200d552f6.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,21 +37,21 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="function-acme-isorthogonal-entity-const-entity-const-real-type">
-<span id="exhale-function-a00104-1a88b0b591463cce2865b190a5ab57d4c0"></span><h1>Function acme::isOrthogonal(entity const *, entity const *, real_type)<a class="headerlink" href="#function-acme-isorthogonal-entity-const-entity-const-real-type" title="Permalink to this headline">¶</a>
+  <div class="section" id="function-acme-isparallel-entity-ptr-const-entity-ptr-const-real-type">
+<span id="exhale-function-a00104-1a4566d32074a1a996e5b5503f5923c93d"></span><h1>Function acme::isParallel(entity::ptr const&amp;, entity::ptr const&amp;, real_type)<a class="headerlink" href="#function-acme-isparallel-entity-ptr-const-entity-ptr-const-real-type" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_src_acme_orthogonal.cc.html#file-src-acme-orthogonal-cc"><span class="std std-ref">File acme_orthogonal.cc</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_parallel.cc.html#file-src-acme-parallel-cc"><span class="std std-ref">File acme_parallel.cc</span></a></p></li>
 </ul>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <dl class="cpp function">
-<dt id="_CPPv4N4acme12isOrthogonalEPK6entityPK6entity9real_type">
-<span id="_CPPv3N4acme12isOrthogonalEPK6entityPK6entity9real_type"></span><span id="_CPPv2N4acme12isOrthogonalEPK6entityPK6entity9real_type"></span><span id="acme::isOrthogonal__entityCP.entityCP.real_type"></span><span class="target" id="a00104_1a88b0b591463cce2865b190a5ab57d4c0"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">isOrthogonal</span></code><span class="sig-paren">(</span><a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">entity0</span></em>, <a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">*</span><em><span class="pre">entity1</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00104_1a4ec562c6f09349241870dd75f53a1e6a.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme12isOrthogonalEPK6entityPK6entity9real_type" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme10isParallelERKN6entity3ptrERKN6entity3ptrE9real_type">
+<span id="_CPPv3N4acme10isParallelERKN6entity3ptrERKN6entity3ptrE9real_type"></span><span id="_CPPv2N4acme10isParallelERKN6entity3ptrERKN6entity3ptrE9real_type"></span><span id="acme::isParallel__entity::ptrCR.entity::ptrCR.real_type"></span><span class="target" id="a00104_1a4566d32074a1a996e5b5503f5923c93d"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">isParallel</span></code><span class="sig-paren">(</span><a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><span class="pre">::</span><a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="pre">ptr</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">entity0</span></em>, <a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><span class="pre">::</span><a class="reference internal" href="class_a00128.html#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="pre">ptr</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">entity1</span></em>, <a class="reference internal" href="typedef_a00104_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00104_1a4ec562c6f09349241870dd75f53a1e6a.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10isParallelERKN6entity3ptrERKN6entity3ptrE9real_type" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check if geometrical entities are orthogonal. </p>
+<p>Check if geometrical entities are parallel. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">

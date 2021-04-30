@@ -53,7 +53,7 @@ namespace acme
   class entity
   {
   public:
-    typedef std::shared_ptr<entity const> ptr; //!< Shared pointer to geometrical entity
+    typedef std::shared_ptr<entity> ptr; //!< Shared pointer to geometrical entity
     typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to geometrical entity objects
     typedef std::vector<ptr> vecptr;           //!< Vector of pointers to geometrical entity objects
     typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to geometrical entity objects
@@ -108,7 +108,7 @@ namespace acme
 
   }; // class entity
 
-  static entity *entity_goat; //!< Scapegoat entity type (throwaway non-const object)
+  static entity::ptr entity_goat = std::shared_ptr<entity>(); //!< Scapegoat entity type (throwaway non-const object)
 
 } // namespace acme
 

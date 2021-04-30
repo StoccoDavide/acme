@@ -96,9 +96,9 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0</span><span class="p">,</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1</span><span class="p">,</span>
-      <span class="n">entity</span> <span class="o">*</span><span class="n">entity_out</span> <span class="o">=</span> <span class="n">entity_goat</span>
+      <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">entity0</span><span class="p">,</span>
+      <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">entity1</span><span class="p">,</span>
+      <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">entity_out</span>
   <span class="p">);</span>
 
   <span class="cm">/*\</span>
@@ -122,6 +122,13 @@
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
       <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">ray_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
