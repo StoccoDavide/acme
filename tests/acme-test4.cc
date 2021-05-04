@@ -1,4 +1,31 @@
-// GEOMETRY TEST 4 - POINT ON SEGMENT
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ACME project                                                    *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
+(*                                                                     *)
+(* The ACME project and its components are supplied under the terms of *)
+(* the open source BSD 2-Clause License. The contents of the ACME      *)
+(* project and its components may not be copied or disclosed except in *)
+(* accordance with the terms of the BSD 2-Clause License.              *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(*                                                                     *)
+(*    Davide Stocco                                                    *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
+(*                                                                     *)
+(***********************************************************************)
+*/
+
+// TEST 4 - POINT ON SEGMENT
 
 #include <fstream>
 #include <iostream>
@@ -14,12 +41,12 @@ using namespace acme;
 int main()
 {
   // Initialize segment points
-  segment Segment(vec3(0.0, 0.0, 0.5), vec3(1.0, 1.0, 0.5));
+  segment Segment(point(0.0, 0.0, 0.5), point(1.0, 1.0, 0.5));
 
   // Query points and intersection bools
-  vec3 PointIn(0.5, 0.5, 0.5);
-  vec3 PointOut(-1.0, -1.0, 0.5);
-  vec3 PointBorder(1.0, 1.0, 0.5);
+  point PointIn(0.5, 0.5, 0.5);
+  point PointOut(-1.0, -1.0, 0.5);
+  point PointBorder(1.0, 1.0, 0.5);
 
   // Calculate intersection
   bool PtInBool = Segment.isInside(PointIn);
@@ -27,7 +54,7 @@ int main()
   bool PtBordBool = Segment.isInside(PointBorder);
 
   std::cout
-      << "GEOMETRY TEST 4 - POINT ON SEGMENT" << std::endl
+      << "TEST 4 - POINT ON SEGMENT" << std::endl
       << std::endl
       << "Segment Point 0 = " << Segment.point(0) << std::endl
       << "Segment Point 1 = " << Segment.point(1) << std::endl
@@ -44,10 +71,10 @@ int main()
   }
   else
   {
-    std::cout << "GEOMETRY TEST 4: Failed" << std::endl;
+    std::cout << "TEST 4: Failed" << std::endl;
   }
 
-  std::cout << "\nGEOMETRY TEST 4: Completed" << std::endl;
+  std::cout << "TEST 4: Completed" << std::endl;
 
   // Exit the program
   return 0;

@@ -1,14 +1,41 @@
-// GEOMETRY TEST 1 - RAY/TRIANGLE INTERSECTION ON TRIANGLE EDGE
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ACME project                                                    *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
+(*                                                                     *)
+(* The ACME project and its components are supplied under the terms of *)
+(* the open source BSD 2-Clause License. The contents of the ACME      *)
+(* project and its components may not be copied or disclosed except in *)
+(* accordance with the terms of the BSD 2-Clause License.              *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(*                                                                     *)
+(*    Davide Stocco                                                    *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
+(*                                                                     *)
+(***********************************************************************)
+*/
+
+// TEST 11 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE
 
 #include <fstream>
 #include <iostream>
 #include <string>
 
 #include "acme.hh"
+#include "acme_aabb.hh"
 #include "acme_intersection.hh"
 #include "acme_math.hh"
 #include "acme_triangle.hh"
-#include "acme_box.hh"
 #include "acme_utilities.hh"
 
 using namespace acme;
@@ -17,7 +44,7 @@ using namespace acme;
 int main()
 {
   std::cout
-      << " GEOMETRY TEST 11 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
+      << "TEST 11 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
 
   vec3 V1[3];
   V1[0] = vec3(1.0, 0.0, 0.0);
@@ -30,11 +57,6 @@ int main()
   // Initialize triangle
   plane Plane1(vec3(0.0, 0.0, 0.0),
                vec3(1.0, 0.0, 0.0));
-
-  // Initialize rotation matrix
-  //affine tmp_affine;
-  //tmp_affine = translate(0.0, 0.0, 0.0) * rotate(0.0, "X");
-  //Triangle1.transform(tmp_affine);
 
   // Initialize intersection point
   segment IntersectionSeg;
@@ -52,7 +74,7 @@ int main()
       << std::endl
       << std::endl
       << IntersectionSeg << std::endl
-      << "GEOMETRY TEST 1: Completed" << std::endl;
+      << "TEST 11: Completed" << std::endl;
 
   // Exit the program
   return 0;

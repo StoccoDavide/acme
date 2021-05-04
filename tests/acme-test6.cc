@@ -1,13 +1,40 @@
-// GEOMETRY TEST 6 - SEGMENT CIRCLE INTERSECTION
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ACME project                                                    *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
+(*                                                                     *)
+(* The ACME project and its components are supplied under the terms of *)
+(* the open source BSD 2-Clause License. The contents of the ACME      *)
+(* project and its components may not be copied or disclosed except in *)
+(* accordance with the terms of the BSD 2-Clause License.              *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(*                                                                     *)
+(*    Davide Stocco                                                    *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
+(*                                                                     *)
+(***********************************************************************)
+*/
+
+// TEST 6 - SEGMENT CIRCLE INTERSECTION
 
 #include <fstream>
 #include <iostream>
 #include <string>
 
 #include "acme.hh"
+#include "acme_aabb.hh"
 #include "acme_intersection.hh"
 #include "acme_triangle.hh"
-#include "acme_box.hh"
 
 using namespace acme;
 
@@ -15,13 +42,13 @@ using namespace acme;
 int main()
 {
   // Initialize circle
-  circle Circle(1.0, vec3(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
+  circle Circle(1.0, point(0.0, 0.0, 0.5), vector(0.0, 0.0, 1.0));
 
   // Initialize segments
-  line In1(vec3(0.0, 0.0, 0.5), vec3(1.0, 0.0, 0.0));
-  line In2(vec3(-2.0, 0.0, 0.5), vec3(1.0, 0.0, 0.0));
-  line Out(vec3(1.0, 2.0, 0.5), vec3(1.0, 0.0, 0.0));
-  line Tan(vec3(1.0, 1.0, 0.5), vec3(1.0, 0.0, 0.0));
+  line In1(point(0.0, 0.0, 0.5), vector(1.0, 0.0, 0.0));
+  line In2(point(-2.0, 0.0, 0.5), vector(1.0, 0.0, 0.0));
+  line Out(point(1.0, 2.0, 0.5), vector(1.0, 0.0, 0.0));
+  line Tan(point(1.0, 1.0, 0.5), vector(1.0, 0.0, 0.0));
 
   // Initialize intersection segments and output bools
   segment IntIn1, IntIn2, IntOut, IntTan;
@@ -36,7 +63,7 @@ int main()
   // Display results
   std::cout
       << std::endl
-      << "GEOMETRY TEST 6 - LINE DISK INTERSECTION" << std::endl
+      << "TEST 6 - LINE DISK INTERSECTION" << std::endl
       << std::endl
       << "Radius = " << Circle.radius() << std::endl
       << "Center = " << Circle.center() << std::endl
@@ -68,7 +95,7 @@ int main()
       << std::endl
       << "Check the results..." << std::endl
       << std::endl
-      << "GEOMETRY TEST 6: Completed" << std::endl;
+      << "TEST 6: Completed" << std::endl;
 
   // Exit the program
   return 0;

@@ -72,14 +72,14 @@
 <span class="cp">#define INCLUDE_ACME_UTILTIES</span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_eigen.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_box.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_vector_point.hh"</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">acme</span>
 <span class="p">{</span>
@@ -92,45 +92,51 @@
 <span class="cm">   |</span>
 <span class="cm">  \*/</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
+
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
-      <span class="n">box</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
   <span class="p">);</span>
 
@@ -167,6 +173,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 

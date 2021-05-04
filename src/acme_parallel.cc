@@ -49,52 +49,52 @@ namespace acme
   isParallel(
       entity const *entity0,
       entity const *entity1,
-      real_type tolerance)
+      real tolerance)
   {
-    int_type slide = entity0->degree() * 100 + entity1->degree();
+    integer slide = entity0->degree() * 100 + entity1->degree();
     switch (slide)
     {
 
       // - - - - - - - - - - - - - - VECTOR - - - - - - - - - - - - - -
 
     case 202:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
-                              *dynamic_cast<vec3 const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+                              *dynamic_cast<vector const *>(entity1),
                               tolerance);
       break;
 
     case 203:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<line const *>(entity1),
                               tolerance);
       break;
 
     case 204:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<ray const *>(entity1),
                               tolerance);
       break;
 
     case 205:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<plane const *>(entity1),
                               tolerance);
       break;
 
     case 206:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<segment const *>(entity1),
                               tolerance);
       break;
 
     case 207:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<triangle const *>(entity1),
                               tolerance);
       break;
 
     case 208:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<circle const *>(entity1),
                               tolerance);
       break;
@@ -102,7 +102,7 @@ namespace acme
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 302:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
                               *dynamic_cast<line const *>(entity0),
                               tolerance);
       break;
@@ -146,7 +146,7 @@ namespace acme
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 402:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<line const *>(entity1),
                               tolerance);
       break;
@@ -190,7 +190,7 @@ namespace acme
       // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 502:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
                               *dynamic_cast<line const *>(entity1),
                               tolerance);
       break;
@@ -234,7 +234,7 @@ namespace acme
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 602:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
                               *dynamic_cast<segment const *>(entity0),
                               tolerance);
       break;
@@ -278,7 +278,7 @@ namespace acme
       // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 702:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
                               *dynamic_cast<triangle const *>(entity0),
                               tolerance);
       break;
@@ -321,7 +321,7 @@ namespace acme
       // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 802:
-      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
                               *dynamic_cast<circle const *>(entity0),
                               tolerance);
       break;
@@ -375,77 +375,77 @@ namespace acme
 
   bool
   isParallel(
-      vec3 const &vector0,
-      vec3 const &vector1,
-      real_type tolerance)
+      vector const &vector0,
+      vector const &vector1,
+      real tolerance)
   {
-    return vector0.isParallel(vector1, tolerance);
+    return acme::isApprox((vector0.cross(vector1)).dot(vector0), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vector const &vector,
       line const &line,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isParallel(line.direction(), tolerance);
+    return acme::isParallel(vector, line.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vector const &vector,
       ray const &ray,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isParallel(ray.direction(), tolerance);
+    return acme::isParallel(vector, ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vector const &vector,
       plane const &plane,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isOrthogonal(plane.normal(), tolerance);
+    return acme::isOrthogonal(vector, plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vector const &vector,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isParallel(segment.toNormalizedVector(), tolerance);
+    return acme::isParallel(vector, segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vector const &vector,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isOrthogonal(triangle.normal(), tolerance);
+    return acme::isOrthogonal(vector, triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vector const &vector,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isOrthogonal(circle.normal(), tolerance);
+    return acme::isOrthogonal(vector, circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -454,9 +454,9 @@ namespace acme
   isParallel(
       line const &line0,
       line const &line1,
-      real_type tolerance)
+      real tolerance)
   {
-    return line0.direction().isParallel(line1.direction(), tolerance);
+    return acme::isParallel(line0.direction(), line1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -465,9 +465,9 @@ namespace acme
   isParallel(
       ray const &ray0,
       ray const &ray1,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray0.direction().isParallel(ray1.direction(), tolerance);
+    return acme::isParallel(ray0.direction(), ray1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -476,9 +476,9 @@ namespace acme
   isParallel(
       plane const &plane0,
       plane const &plane1,
-      real_type tolerance)
+      real tolerance)
   {
-    return plane0.normal().isParallel(plane1.normal(), tolerance);
+    return acme::isParallel(plane0.normal(), plane1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -487,9 +487,9 @@ namespace acme
   isParallel(
       segment const &segment0,
       segment const &segment1,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment0.toNormalizedVector().isParallel(segment1.toNormalizedVector(), tolerance);
+    return acme::isParallel(segment0.toNormalizedVector(), segment1.toNormalizedVector(), tolerance);
   }
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -497,9 +497,9 @@ namespace acme
   isParallel(
       triangle const &triangle0,
       triangle const &triangle1,
-      real_type tolerance)
+      real tolerance)
   {
-    return triangle0.normal().isParallel(triangle1.normal(), tolerance);
+    return acme::isParallel(triangle0.normal(), triangle1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -508,9 +508,9 @@ namespace acme
   isParallel(
       circle const &circle0,
       circle const &circle1,
-      real_type tolerance)
+      real tolerance)
   {
-    return circle0.normal().isParallel(circle1.normal(), tolerance);
+    return acme::isParallel(circle0.normal(), circle1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -519,9 +519,9 @@ namespace acme
   isParallel(
       line const &line,
       ray const &ray,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isParallel(ray.direction(), tolerance);
+    return acme::isParallel(line.direction(), ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -530,9 +530,9 @@ namespace acme
   isParallel(
       line const &line,
       plane const &plane,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isOrthogonal(plane.normal(), tolerance);
+    return acme::isOrthogonal(line.direction(), plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -541,9 +541,9 @@ namespace acme
   isParallel(
       line const &line,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isParallel(segment.toNormalizedVector(), tolerance);
+    return acme::isParallel(line.direction(), segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -552,9 +552,9 @@ namespace acme
   isParallel(
       line const &line,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isOrthogonal(triangle.normal(), tolerance);
+    return acme::isOrthogonal(line.direction(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -563,9 +563,9 @@ namespace acme
   isParallel(
       line const &line,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isOrthogonal(circle.normal(), tolerance);
+    return acme::isOrthogonal(line.direction(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -574,9 +574,9 @@ namespace acme
   isParallel(
       ray const &ray,
       plane const &plane,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isOrthogonal(plane.normal(), tolerance);
+    return acme::isOrthogonal(ray.direction(), plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -585,9 +585,9 @@ namespace acme
   isParallel(
       ray const &ray,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isParallel(segment.toNormalizedVector(), tolerance);
+    return acme::isParallel(ray.direction(), segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -596,9 +596,9 @@ namespace acme
   isParallel(
       ray const &ray,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isOrthogonal(triangle.normal(), tolerance);
+    return acme::isOrthogonal(ray.direction(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -607,9 +607,9 @@ namespace acme
   isParallel(
       ray const &ray,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isOrthogonal(circle.normal(), tolerance);
+    return acme::isOrthogonal(ray.direction(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -618,9 +618,9 @@ namespace acme
   isParallel(
       plane const &plane,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment.toNormalizedVector().isOrthogonal(plane.normal(), tolerance);
+    return acme::isOrthogonal(segment.toNormalizedVector(), plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -629,9 +629,9 @@ namespace acme
   isParallel(
       plane const &plane,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return plane.normal().isParallel(triangle.normal(), tolerance);
+    return acme::isParallel(plane.normal(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -640,9 +640,9 @@ namespace acme
   isParallel(
       plane const &plane,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return plane.normal().isParallel(circle.normal(), tolerance);
+    return acme::isParallel(plane.normal(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -651,9 +651,9 @@ namespace acme
   isParallel(
       segment const &segment,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment.toNormalizedVector().isOrthogonal(triangle.normal(), tolerance);
+    return acme::isOrthogonal(segment.toNormalizedVector(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -662,9 +662,9 @@ namespace acme
   isParallel(
       segment const &segment,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment.toNormalizedVector().isOrthogonal(circle.normal(), tolerance);
+    return acme::isOrthogonal(segment.toNormalizedVector(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -673,9 +673,9 @@ namespace acme
   isParallel(
       triangle const &triangle,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return triangle.normal().isParallel(circle.normal(), tolerance);
+    return acme::isParallel(triangle.normal(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

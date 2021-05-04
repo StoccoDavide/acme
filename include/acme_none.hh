@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_NONE
 
 #include "acme.hh"
-#include "acme_eigen.hh"
+#include "acme_vector_point.hh"
 
 namespace acme
 {
@@ -53,7 +53,7 @@ namespace acme
   */
   class none : public entity
   {
-  public:
+public:
     typedef std::shared_ptr<none const> ptr; //!< Shared pointer to none
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to circle objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to circle objects
@@ -66,19 +66,16 @@ namespace acme
     none() {}
 
     //! Return object hierarchical degree
-    size_t degree(void) const override { return 0; }
+    integer degree(void) const override { return 1; }
 
     //! Return object type as string
-    std::string whattype(void) const override { return "none"; }
+    std::string type(void) const override { return "none"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return true; }
 
-    //! Check whether the object is a point
-    bool isMatrix(void) const override { return false; }
-
     //! Check whether the object is a vector
-    bool isVector(void) const override { return false; }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
     bool isLine(void) const override { return false; }
@@ -98,10 +95,10 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a box
+    //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
-}; // class none
+  }; // class none
 
   static none none_goat = none(); //!< Scapegoat one type (throwaway non-const object)
 

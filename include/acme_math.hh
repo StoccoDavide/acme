@@ -49,131 +49,162 @@ namespace acme
   \*/
 
   //! Return infinity
-  real_type
+  real
   infinity(void);
 
   //! Return epsilon
-  real_type
+  real
   epsilon(void);
 
   //! Square
-  real_type
+  real
   sqr(
-      real_type input //!< Input
+      real input //!< Input
   );
 
   //! Cubic
-  real_type
+  real
   cub(
-      real_type input //!< Input
+      real input //!< Input
   );
 
   //! Square root
-  real_type
+  real
   sqrt(
-      real_type input //!< Input
+      real input //!< Input
   );
 
   //! Power
-  real_type
+  real
   pow(
-      real_type base,    //!< Input base
-      real_type exponent //!< Input exponent
+      real base,    //!< Input base
+      real exponent //!< Input exponent
   );
 
   //! Absolute value
-  real_type
+  real
   abs(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Maximum between inputs
-  real_type
+  real
   max(
-      real_type input0, //!< Input value 0
-      real_type input1  //!< Input value 1
+      real input0, //!< Input value 0
+      real input1  //!< Input value 1
   );
 
   //! Minimum between inputs
-  real_type
+  real
   min(
-      real_type input0, //!< Input value 0
-      real_type input1  //!< Input value 1
+      real input0, //!< Input value 0
+      real input1  //!< Input value 1
   );
 
   //! Maximum between three inputs
-  real_type
+  real
   max(
-      real_type input0, //!< Input value 0
-      real_type input1, //!< Input value 1
-      real_type input2  //!< Input value 2
+      real input0, //!< Input value 0
+      real input1, //!< Input value 1
+      real input2  //!< Input value 2
   );
 
   //! Minimum between three inputs
-  real_type
+  real
   min(
-      real_type input0, //!< Input value 0
-      real_type input1, //!< Input value 1
-      real_type input2  //!< Input value 2
+      real input0, //!< Input value 0
+      real input1, //!< Input value 1
+      real input2  //!< Input value 2
   );
 
   //! Sine function [rad]
-  real_type
+  real
   sin(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Cosine function [rad]
-  real_type
+  real
   cos(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Tangent function [rad]
-  real_type
+  real
   tan(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Arcsine function [rad]
-  real_type
+  real
   asin(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Arccosine function [rad]
-  real_type
+  real
   acos(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Arctangent function [rad]
-  real_type
+  real
   atan(
-      real_type input //!< Input value
+      real input //!< Input value
   );
 
   //! Arctangent function [rad]
-  real_type
+  real
   atan2(
-      real_type input0, //!< Input value 0
-      real_type input1  //!< Input value 1
+      real input0, //!< Input value 0
+      real input1  //!< Input value 1
   );
 
   //! Returns the input input bounded between low and high inputs
-  real_type
+  real
   clamp(
-      real_type input, //!< Input value
-      real_type low,   //!< Low-end bound
-      real_type high   //!< High-end bound
+      real input, //!< Input value
+      real low,   //!< Low-end bound
+      real high   //!< High-end bound
   );
 
   //! Checks if elements are almost equal
   bool
   isApprox(
-      real_type input0,             //!< Input value 0
-      real_type input1,             //!< Input value 1
-      real_type tolerance = Epsilon //!< Tolerance
+      real input0,             //!< Input value 0
+      real input1,             //!< Input value 1
+      real tolerance = Epsilon //!< Tolerance
+  );
+
+  //! Returns a rotation as a rotation angle around an arbitrary axis
+  angleaxis
+  rotate(
+      real angle,      //!< Input angle [rad]
+      vec3 const &axis //!< Input axis
+  );
+
+  //! Returns a rotation as a rotation angle around an arbitrary axis
+  angleaxis
+  rotate(
+      real angle,             //!< Input angle [rad]
+      std::string const &axis //!< Input axis
+  );
+
+  //! Angle between vectors [rad]
+  real
+  angle(
+      vec3 const &input0, //!< Input vector 0
+      vec3 const &input1  //!< Input vector 1
+  );
+
+  //! Calculate Euler angles [rad]
+  void
+  eulerAngles(
+      mat3 const &rotation, //!< 3x3 rotation matrix
+      integer i,            //!< Rotation index
+      integer j,            //!< Rotation index
+      integer k,            //!< Rotation index
+      vec3 &angles          //!< Output euler angles [rad]
   );
 
 } // namespace acme

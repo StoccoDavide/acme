@@ -64,6 +64,7 @@
 <h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a>
 </h2>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Eigen/Dense</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">algorithm</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cassert</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cstddef</span></code></p></li>
@@ -72,19 +73,18 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">iterator</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">limits</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">memory</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">vector</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vector</span></code> (<a class="reference internal" href="file_src_acme_vector_point.cc.html#file-src-acme-vector-point-cc"><span class="std std-ref">File acme_vector_point.cc</span></a>)</p></li>
 </ul>
 </div>
 <div class="section" id="included-by">
 <h2>Included By<a class="headerlink" href="#included-by" title="Permalink to this headline">¶</a>
 </h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="file_include_acme_AABBtree.hh.html#file-include-acme-aabbtree-hh"><span class="std std-ref">File acme_AABBtree.hh</span></a></p></li>
-<li><p><a class="reference internal" href="file_include_acme_box.hh.html#file-include-acme-box-hh"><span class="std std-ref">File acme_box.hh</span></a></p></li>
+<li><p><a class="reference internal" href="file_include_acme_aabb.hh.html#file-include-acme-aabb-hh"><span class="std std-ref">File acme_aabb.hh</span></a></p></li>
+<li><p><a class="reference internal" href="file_include_acme_aabbTree.hh.html#file-include-acme-aabbtree-hh"><span class="std std-ref">File acme_aabbTree.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_circle.hh.html#file-include-acme-circle-hh"><span class="std std-ref">File acme_circle.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_collinear.hh.html#file-include-acme-collinear-hh"><span class="std std-ref">File acme_collinear.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_coplanar.hh.html#file-include-acme-coplanar-hh"><span class="std std-ref">File acme_coplanar.hh</span></a></p></li>
-<li><p><a class="reference internal" href="file_include_acme_eigen.hh.html#file-include-acme-eigen-hh"><span class="std std-ref">File acme_eigen.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_entity.hh.html#file-include-acme-entity-hh"><span class="std std-ref">File acme_entity.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_intersection.hh.html#file-include-acme-intersection-hh"><span class="std std-ref">File acme_intersection.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_line.hh.html#file-include-acme-line-hh"><span class="std std-ref">File acme_line.hh</span></a></p></li>
@@ -97,6 +97,7 @@
 <li><p><a class="reference internal" href="file_include_acme_segment.hh.html#file-include-acme-segment-hh"><span class="std std-ref">File acme_segment.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_triangle.hh.html#file-include-acme-triangle-hh"><span class="std std-ref">File acme_triangle.hh</span></a></p></li>
 <li><p><a class="reference internal" href="file_include_acme_utilities.hh.html#file-include-acme-utilities-hh"><span class="std std-ref">File acme_utilities.hh</span></a></p></li>
+<li><p><a class="reference internal" href="file_include_acme_vector_point.hh.html#file-include-acme-vector-point-hh"><span class="std std-ref">File acme_vector_point.hh</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="namespaces">
@@ -118,26 +119,90 @@
 <h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a>
 </h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="typedef_a00107_1a0d5cadd5f2ec3eef34fd7eef05db9357.html#exhale-typedef-a00107-1a0d5cadd5f2ec3eef34fd7eef05db9357"><span class="std std-ref">Typedef acme::int_type</span></a></p></li>
-<li><p><a class="reference internal" href="typedef_a00107_1a3153cb637a32de1a6a395802a8c39b1d.html#exhale-typedef-a00107-1a3153cb637a32de1a6a395802a8c39b1d"><span class="std std-ref">Typedef acme::ostream_type</span></a></p></li>
-<li><p><a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#exhale-typedef-a00107-1a272dfe5817fa47009716a1fc85ab2629"><span class="std std-ref">Typedef acme::real_type</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#exhale-typedef-a00107-1a6b659ea9a43cbc19b6dd7ef2aae482dc"><span class="std std-ref">Typedef acme::affine</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a85e64489b44a0b6c25bae15453a4855d.html#exhale-typedef-a00107-1a85e64489b44a0b6c25bae15453a4855d"><span class="std std-ref">Typedef acme::angleaxis</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#exhale-typedef-a00107-1a9223400d01496dcba963b2f723c89d4a"><span class="std std-ref">Typedef acme::integer</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a9b319a9b15a9332f4c5c33dbb78c4ef0.html#exhale-typedef-a00107-1a9b319a9b15a9332f4c5c33dbb78c4ef0"><span class="std std-ref">Typedef acme::mat2</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1aece54448763fde47bc3f4c9a27801a1d.html#exhale-typedef-a00107-1aece54448763fde47bc3f4c9a27801a1d"><span class="std std-ref">Typedef acme::mat3</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1ad9ff2d6f2d36e1c405f622c33a7f338a.html#exhale-typedef-a00107-1ad9ff2d6f2d36e1c405f622c33a7f338a"><span class="std std-ref">Typedef acme::mat4</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1ad89e60da77ae4f5356156631042f4847.html#exhale-typedef-a00107-1ad89e60da77ae4f5356156631042f4847"><span class="std std-ref">Typedef acme::mat_mat2</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a2596a0befc36e5eb69a39d01abf4bb48.html#exhale-typedef-a00107-1a2596a0befc36e5eb69a39d01abf4bb48"><span class="std std-ref">Typedef acme::mat_mat3</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a9e9f24b6802125cc1ed4195ebe428f90.html#exhale-typedef-a00107-1a9e9f24b6802125cc1ed4195ebe428f90"><span class="std std-ref">Typedef acme::mat_mat4</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a9da0600c63dec0d0bbd8a3e5b49853a1.html#exhale-typedef-a00107-1a9da0600c63dec0d0bbd8a3e5b49853a1"><span class="std std-ref">Typedef acme::mat_vec2</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a4c5965ab2ba81c3bc9c2cd8eb8b121a8.html#exhale-typedef-a00107-1a4c5965ab2ba81c3bc9c2cd8eb8b121a8"><span class="std std-ref">Typedef acme::mat_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a24d574b8999985eb995e1fed4e3f3a57.html#exhale-typedef-a00107-1a24d574b8999985eb995e1fed4e3f3a57"><span class="std std-ref">Typedef acme::mat_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a8538c2f55cf0fac7621096a26147b1b7.html#exhale-typedef-a00107-1a8538c2f55cf0fac7621096a26147b1b7"><span class="std std-ref">Typedef acme::matN</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1ad5eedfe3a832e21ca67cbce7d047f46b.html#exhale-typedef-a00107-1ad5eedfe3a832e21ca67cbce7d047f46b"><span class="std std-ref">Typedef acme::out_stream</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#exhale-typedef-a00107-1a91745012989657825bc70313039f90a0"><span class="std std-ref">Typedef acme::real</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a4a747032a241699bb06b16d610c5b451.html#exhale-typedef-a00107-1a4a747032a241699bb06b16d610c5b451"><span class="std std-ref">Typedef acme::scale</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a0a8e3a569595ceedd47ac3a904cf9422.html#exhale-typedef-a00107-1a0a8e3a569595ceedd47ac3a904cf9422"><span class="std std-ref">Typedef acme::translate</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a23aa8cc4079ea5b126bc685da8e5f806.html#exhale-typedef-a00107-1a23aa8cc4079ea5b126bc685da8e5f806"><span class="std std-ref">Typedef acme::vec2</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a57043673330479bace38d40b1d93edb0.html#exhale-typedef-a00107-1a57043673330479bace38d40b1d93edb0"><span class="std std-ref">Typedef acme::vec3</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a0a794f6473f4df06b89b677c0d07cbf8.html#exhale-typedef-a00107-1a0a794f6473f4df06b89b677c0d07cbf8"><span class="std std-ref">Typedef acme::vec4</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1aac97f7e9dfd52002e3e16d4ae2a47a6b.html#exhale-typedef-a00107-1aac97f7e9dfd52002e3e16d4ae2a47a6b"><span class="std std-ref">Typedef acme::vec_affine</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1add3b9d0be7b1bd6624c31ea6d962e153.html#exhale-typedef-a00107-1add3b9d0be7b1bd6624c31ea6d962e153"><span class="std std-ref">Typedef acme::vec_angleaxis</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a12f221691540bdab6c23579a47fad09a.html#exhale-typedef-a00107-1a12f221691540bdab6c23579a47fad09a"><span class="std std-ref">Typedef acme::vec_mat2</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a88e00cb8d02907336a5f5fb1d33e94da.html#exhale-typedef-a00107-1a88e00cb8d02907336a5f5fb1d33e94da"><span class="std std-ref">Typedef acme::vec_mat3</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a238c95cf765ddb69a2e5df6eaa06dc0b.html#exhale-typedef-a00107-1a238c95cf765ddb69a2e5df6eaa06dc0b"><span class="std std-ref">Typedef acme::vec_mat4</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1ae034da011c845175d353e87c73b13376.html#exhale-typedef-a00107-1ae034da011c845175d353e87c73b13376"><span class="std std-ref">Typedef acme::vec_scale</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a479c97437f3749cd8483fc82704df16f.html#exhale-typedef-a00107-1a479c97437f3749cd8483fc82704df16f"><span class="std std-ref">Typedef acme::vec_translate</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a4160f0187a62afbe7cd93ef21aaf0e8e.html#exhale-typedef-a00107-1a4160f0187a62afbe7cd93ef21aaf0e8e"><span class="std std-ref">Typedef acme::vec_vec2</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a283244c3317dcf8252c02c0461b61f9c.html#exhale-typedef-a00107-1a283244c3317dcf8252c02c0461b61f9c"><span class="std std-ref">Typedef acme::vec_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a513aea3cd519502bef521bfdc47970bb.html#exhale-typedef-a00107-1a513aea3cd519502bef521bfdc47970bb"><span class="std std-ref">Typedef acme::vec_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_a00107_1a2e0ee896dd97d3dc46cbdee829fecd77.html#exhale-typedef-a00107-1a2e0ee896dd97d3dc46cbdee829fecd77"><span class="std std-ref">Typedef acme::vecN</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a>
 </h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="variable_a00107_1a7043c6330a9f4e5c5920aefe9915ffed.html#exhale-variable-a00107-1a7043c6330a9f4e5c5920aefe9915ffed"><span class="std std-ref">Variable acme::_180divPI</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1a4ec562c6f09349241870dd75f53a1e6a.html#exhale-variable-a00107-1a4ec562c6f09349241870dd75f53a1e6a"><span class="std std-ref">Variable acme::Epsilon</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1ab5293dcc92d316372eb3ee3905d783ea.html#exhale-variable-a00107-1ab5293dcc92d316372eb3ee3905d783ea"><span class="std std-ref">Variable acme::Epsilon_High</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1ac92cd08c00d12a06497f6a5f7dd97d0b.html#exhale-variable-a00107-1ac92cd08c00d12a06497f6a5f7dd97d0b"><span class="std std-ref">Variable acme::Epsilon_Low</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1a5e5e6715a148d176a13258a12f4f340a.html#exhale-variable-a00107-1a5e5e6715a148d176a13258a12f4f340a"><span class="std std-ref">Variable acme::Epsilon_Machine</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1abd21d3dd1e4563b896a76bd0d41069dd.html#exhale-variable-a00107-1abd21d3dd1e4563b896a76bd0d41069dd"><span class="std std-ref">Variable acme::Epsilon_Medium</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1a9514e91ab1f7ad85837b59fa0b65f65b.html#exhale-variable-a00107-1a9514e91ab1f7ad85837b59fa0b65f65b"><span class="std std-ref">Variable acme::Infinity</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1a0f46bbb84eac68eb5af1d96037a84be6.html#exhale-variable-a00107-1a0f46bbb84eac68eb5af1d96037a84be6"><span class="std std-ref">Variable acme::NaN</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1a146b674154b43cd53d6cfb354dd7d971.html#exhale-variable-a00107-1a146b674154b43cd53d6cfb354dd7d971"><span class="std std-ref">Variable acme::PI</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1ae2a2e812c541cdc0632ca7b1dd629473.html#exhale-variable-a00107-1ae2a2e812c541cdc0632ca7b1dd629473"><span class="std std-ref">Variable acme::PI2</span></a></p></li>
-<li><p><a class="reference internal" href="variable_a00107_1a5ccdd222c4a2b62055c1fa621cd0f89d.html#exhale-variable-a00107-1a5ccdd222c4a2b62055c1fa621cd0f89d"><span class="std std-ref">Variable acme::PIdiv180</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1afbdbc7d598f7a2f3be8484f2f04c3249.html#exhale-variable-a00107-1afbdbc7d598f7a2f3be8484f2f04c3249"><span class="std std-ref">Variable acme::_180divPI</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ad002cc2b1bfa1b88f32ae67e09808a74.html#exhale-variable-a00107-1ad002cc2b1bfa1b88f32ae67e09808a74"><span class="std std-ref">Variable acme::Epsilon</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a6beaa171d1db4ae9d8c12c8a043c6ef8.html#exhale-variable-a00107-1a6beaa171d1db4ae9d8c12c8a043c6ef8"><span class="std std-ref">Variable acme::Epsilon_High</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a92358e765a9a9d3f32e84664c60580ac.html#exhale-variable-a00107-1a92358e765a9a9d3f32e84664c60580ac"><span class="std std-ref">Variable acme::Epsilon_Low</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1af90145cd122fed380c3488b39cfb6abe.html#exhale-variable-a00107-1af90145cd122fed380c3488b39cfb6abe"><span class="std std-ref">Variable acme::Epsilon_Machine</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ab3f99bdd7bb1a353b62360b0e6690904.html#exhale-variable-a00107-1ab3f99bdd7bb1a353b62360b0e6690904"><span class="std std-ref">Variable acme::Epsilon_Medium</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ae3991ec659b823b79688877cc574322b.html#exhale-variable-a00107-1ae3991ec659b823b79688877cc574322b"><span class="std std-ref">Variable acme::Identity_mat2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ae2189541f554ec426f498b44a685a1e8.html#exhale-variable-a00107-1ae2189541f554ec426f498b44a685a1e8"><span class="std std-ref">Variable acme::Identity_mat3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a460bea736db71a145a24754aece8a91e.html#exhale-variable-a00107-1a460bea736db71a145a24754aece8a91e"><span class="std std-ref">Variable acme::Identity_mat4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a742f0322a5a02ab0dd5ba014e06057de.html#exhale-variable-a00107-1a742f0322a5a02ab0dd5ba014e06057de"><span class="std std-ref">Variable acme::Infinity</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a2994acfafb5c7ed96fe80f81aa26d9f8.html#exhale-variable-a00107-1a2994acfafb5c7ed96fe80f81aa26d9f8"><span class="std std-ref">Variable acme::mat2_goat</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1aac522f979cc72ad4f31aebffafdbebd4.html#exhale-variable-a00107-1aac522f979cc72ad4f31aebffafdbebd4"><span class="std std-ref">Variable acme::mat3_goat</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a1362d3ccd0de3030dd4c9438176525e5.html#exhale-variable-a00107-1a1362d3ccd0de3030dd4c9438176525e5"><span class="std std-ref">Variable acme::mat4_goat</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a9eab1c03202dff86e6dae799f52ac752.html#exhale-variable-a00107-1a9eab1c03202dff86e6dae799f52ac752"><span class="std std-ref">Variable acme::NaN</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1acd9ef2123355e92dd38e9fe933fadc15.html#exhale-variable-a00107-1acd9ef2123355e92dd38e9fe933fadc15"><span class="std std-ref">Variable acme::NaN_mat2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a6dd79044b3e66763b11e093aec5028aa.html#exhale-variable-a00107-1a6dd79044b3e66763b11e093aec5028aa"><span class="std std-ref">Variable acme::NaN_mat3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1af28e3d368f4864a94a22bd32db490bc6.html#exhale-variable-a00107-1af28e3d368f4864a94a22bd32db490bc6"><span class="std std-ref">Variable acme::NaN_mat4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a68b88d1725ad6dfe45e7bcdf7c5cdc8f.html#exhale-variable-a00107-1a68b88d1725ad6dfe45e7bcdf7c5cdc8f"><span class="std std-ref">Variable acme::NaN_vec2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a48af70e1b1d7d2658d2f9a880d16a790.html#exhale-variable-a00107-1a48af70e1b1d7d2658d2f9a880d16a790"><span class="std std-ref">Variable acme::NaN_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a11a51da7d89878182ae33943131f6f41.html#exhale-variable-a00107-1a11a51da7d89878182ae33943131f6f41"><span class="std std-ref">Variable acme::NaN_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a73b2b4f4382c277fc6e9f472daa61fd3.html#exhale-variable-a00107-1a73b2b4f4382c277fc6e9f472daa61fd3"><span class="std std-ref">Variable acme::Ones_mat2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1abb76aa9f84a6b429f7562ba0dd80a518.html#exhale-variable-a00107-1abb76aa9f84a6b429f7562ba0dd80a518"><span class="std std-ref">Variable acme::Ones_mat3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a6b226c019a6dbaa7ffd415146c9bcba1.html#exhale-variable-a00107-1a6b226c019a6dbaa7ffd415146c9bcba1"><span class="std std-ref">Variable acme::Ones_mat4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a594338a748225d483407e0f329d6a891.html#exhale-variable-a00107-1a594338a748225d483407e0f329d6a891"><span class="std std-ref">Variable acme::Ones_vec2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a575eba24006fa4231b24aad065b2c335.html#exhale-variable-a00107-1a575eba24006fa4231b24aad065b2c335"><span class="std std-ref">Variable acme::Ones_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a83081e6352114a2e3c483e89143b4fef.html#exhale-variable-a00107-1a83081e6352114a2e3c483e89143b4fef"><span class="std std-ref">Variable acme::Ones_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a217fe29f07d54a52e1fdbaf85ae10c86.html#exhale-variable-a00107-1a217fe29f07d54a52e1fdbaf85ae10c86"><span class="std std-ref">Variable acme::PI</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a56a230f856f1bb27799259d8b5246303.html#exhale-variable-a00107-1a56a230f856f1bb27799259d8b5246303"><span class="std std-ref">Variable acme::PI2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ab88d18e75bade37b1160093a729ac706.html#exhale-variable-a00107-1ab88d18e75bade37b1160093a729ac706"><span class="std std-ref">Variable acme::PIdiv180</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1aa09382cbc9c56aaf720c5512f7226743.html#exhale-variable-a00107-1aa09382cbc9c56aaf720c5512f7226743"><span class="std std-ref">Variable acme::UnitW_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a7743349536cec30b22b8faf66693213b.html#exhale-variable-a00107-1a7743349536cec30b22b8faf66693213b"><span class="std std-ref">Variable acme::UnitX_vec2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a90a4bf0553197d537c779aadfd9e5cf8.html#exhale-variable-a00107-1a90a4bf0553197d537c779aadfd9e5cf8"><span class="std std-ref">Variable acme::UnitX_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a39f569c1755c0684adee0ffb4fb43453.html#exhale-variable-a00107-1a39f569c1755c0684adee0ffb4fb43453"><span class="std std-ref">Variable acme::UnitX_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1aeecaee2137005170b7aa219cf3ef75c2.html#exhale-variable-a00107-1aeecaee2137005170b7aa219cf3ef75c2"><span class="std std-ref">Variable acme::UnitY_vec2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1abef7dd9dda0c19848fd751e564a78fcd.html#exhale-variable-a00107-1abef7dd9dda0c19848fd751e564a78fcd"><span class="std std-ref">Variable acme::UnitY_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a17d594e286b2e03a8852b70ebb8fb766.html#exhale-variable-a00107-1a17d594e286b2e03a8852b70ebb8fb766"><span class="std std-ref">Variable acme::UnitY_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a2900d194a4226176b555c67903112eed.html#exhale-variable-a00107-1a2900d194a4226176b555c67903112eed"><span class="std std-ref">Variable acme::UnitZ_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ac985edfe332ed25e5b2693d4cdffa582.html#exhale-variable-a00107-1ac985edfe332ed25e5b2693d4cdffa582"><span class="std std-ref">Variable acme::UnitZ_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1aa9b05eff7d75f0226ddae11b0178deec.html#exhale-variable-a00107-1aa9b05eff7d75f0226ddae11b0178deec"><span class="std std-ref">Variable acme::vec2_goat</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1af5f5cdc8be5a88db1b121e3357f5b464.html#exhale-variable-a00107-1af5f5cdc8be5a88db1b121e3357f5b464"><span class="std std-ref">Variable acme::vec3_goat</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a71b5055c3be7b085fdf74925b859d6fc.html#exhale-variable-a00107-1a71b5055c3be7b085fdf74925b859d6fc"><span class="std std-ref">Variable acme::vec4_goat</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a9604c56fa7f9d3ad586fb294fd63abd7.html#exhale-variable-a00107-1a9604c56fa7f9d3ad586fb294fd63abd7"><span class="std std-ref">Variable acme::Zeros_mat2</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1ac6fa24cece5e86cae5bfc46a53d036f4.html#exhale-variable-a00107-1ac6fa24cece5e86cae5bfc46a53d036f4"><span class="std std-ref">Variable acme::Zeros_mat3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1aeb8a5eed22705ed3b097cdea905e5969.html#exhale-variable-a00107-1aeb8a5eed22705ed3b097cdea905e5969"><span class="std std-ref">Variable acme::Zeros_mat4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a2fabe18284e2ec08886e18635c911a41.html#exhale-variable-a00107-1a2fabe18284e2ec08886e18635c911a41"><span class="std std-ref">Variable acme::Zeros_vec3</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a276c3881502dbdceb34c1229808d4792.html#exhale-variable-a00107-1a276c3881502dbdceb34c1229808d4792"><span class="std std-ref">Variable acme::Zeros_vec4</span></a></p></li>
+<li><p><a class="reference internal" href="variable_a00107_1a342ce9c544cf01fede10b132df048eb6.html#exhale-variable-a00107-1a342ce9c544cf01fede10b132df048eb6"><span class="std std-ref">Variable acme::Zeros_vect2</span></a></p></li>
 </ul>
 </div>
 </div>
@@ -166,6 +231,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 

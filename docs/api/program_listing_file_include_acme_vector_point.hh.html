@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File acme_vector_point.hh &#8212; ACME v</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-acme-vector-point-hh">
+<span id="program-listing-file-include-acme-vector-point-hh"></span><h1>Program Listing for File acme_vector_point.hh<a class="headerlink" href="#program-listing-for-file-acme-vector-point-hh" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_include_acme_vector_point.hh.html#file-include-acme-vector-point-hh"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/acme_vector_point.hh</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ACME project                                                    *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
+<span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
+<span class="cm">(* project and its components may not be copied or disclosed except in *)</span>
+<span class="cm">(* accordance with the terms of the BSD 2-Clause License.              *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Davide Stocco                                                    *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#ifndef INCLUDE_ACME_VECTOR_POINT</span>
+<span class="cp">#define INCLUDE_ACME_VECTOR_POINT</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;Eigen/Core&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;Eigen/Geometry&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_entity.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_math.hh"</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">acme</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |  __     __        _</span>
+<span class="cm">   |  \ \   / /__  ___| |_ ___  _ __</span>
+<span class="cm">   |   \ \ / / _ \/ __| __/ _ \| '__|</span>
+<span class="cm">   |    \ V /  __/ (__| || (_) | |</span>
+<span class="cm">   |     \_/ \___|\___|\__\___/|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rows</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">Vector</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">public</span> <span class="n">entity</span>
+  <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">using</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;::</span><span class="n">Matrix</span><span class="p">;</span>
+
+    <span class="c1">// This constructor allows you to construct matrix from Eigen expressions</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">derived</span><span class="o">&gt;</span>
+    <span class="n">Vector</span><span class="p">(</span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixBase</span><span class="o">&lt;</span><span class="n">derived</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="c1">// This method allows you to assign Eigen expressions to matrix</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">derived</span><span class="o">&gt;</span>
+    <span class="n">Vector</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
+        <span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixBase</span><span class="o">&lt;</span><span class="n">derived</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">other</span>
+    <span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+      <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">integer</span> <span class="n">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"vector"</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+
+  <span class="p">};</span> <span class="c1">// class Vector</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |                   _</span>
+<span class="cm">   |   __   _____  ___| |_ ___  _ __</span>
+<span class="cm">   |   \ \ / / _ \/ __| __/ _ \| '__|</span>
+<span class="cm">   |    \ V /  __/ (__| || (_) | |</span>
+<span class="cm">   |     \_/ \___|\___|\__\___/|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="k">typedef</span> <span class="n">acme</span><span class="o">::</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">real</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">vector</span><span class="p">;</span>
+  <span class="k">typedef</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">vector</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">vec_vector</span><span class="p">;</span>
+  <span class="k">typedef</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">vector</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">vec_vector</span><span class="p">;</span>
+
+  <span class="k">static</span> <span class="n">vector</span> <span class="k">const</span> <span class="n">NaN_vector</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">NaN_vec3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">vector</span> <span class="n">vector_goat</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">NaN_vec3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">vector</span> <span class="k">const</span> <span class="n">Zeros_vector</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">Zeros_vec3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">vector</span> <span class="k">const</span> <span class="n">Ones_vector</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">Ones_vec3</span><span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |               _       _</span>
+<span class="cm">   |   _ __   ___ (_)_ __ | |_</span>
+<span class="cm">   |  | '_ \ / _ \| | '_ \| __|</span>
+<span class="cm">   |  | |_) | (_) | | | | | |_</span>
+<span class="cm">   |  | .__/ \___/|_|_| |_|\__|</span>
+<span class="cm">   |  |_|</span>
+<span class="cm">  \*/</span>
+
+  <span class="k">typedef</span> <span class="n">acme</span><span class="o">::</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">real</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">point</span><span class="p">;</span>
+  <span class="k">typedef</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">point</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">vec_point</span><span class="p">;</span>
+  <span class="k">typedef</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">point</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">vec_point</span><span class="p">;</span>
+
+  <span class="k">static</span> <span class="n">point</span> <span class="k">const</span> <span class="n">NaN_point</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">NaN_vec3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">point</span> <span class="n">point_goat</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">NaN_vec3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">point</span> <span class="k">const</span> <span class="n">Zeros_point</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">Zeros_vec3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">point</span> <span class="k">const</span> <span class="n">Ones_point</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">Ones_vec3</span><span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   _____                     __</span>
+<span class="cm">   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___</span>
+<span class="cm">   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \</span>
+<span class="cm">   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |</span>
+<span class="cm">   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">void</span>
+  <span class="nf">transformVector</span><span class="p">(</span>
+      <span class="n">vector</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
+  <span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">transformPoint</span><span class="p">(</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">,</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
+  <span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace acme</span>
+
+<span class="cp">#endif</span>
+
+<span class="c1">///</span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

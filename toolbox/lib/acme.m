@@ -24,6 +24,10 @@ classdef acme < handle
     % --------------------------------------------------------------------
     %>
     function P = isVector( self )
+      P = ACMEmexWrapper( 'isNone', self.objectHandle );
+    % --------------------------------------------------------------------
+    %>
+    function P = isVector( self )
       P = ACMEmexWrapper( 'isVector', self.objectHandle );
     end
     % --------------------------------------------------------------------
@@ -58,8 +62,13 @@ classdef acme < handle
     end
     % --------------------------------------------------------------------
     %>
+    function P = degree( self )
+      P = ACMEmexWrapper( 'degree', self.objectHandle );
+    end
+    % --------------------------------------------------------------------
+    %>
     function P = whatType( self )
-      P = ACMEmexWrapper( 'whatType', self.objectHandle );
+      P = ACMEmexWrapper( 'whattype', self.objectHandle );
     end
     % --------------------------------------------------------------------
     %>
@@ -83,25 +92,9 @@ classdef acme < handle
     end
     % --------------------------------------------------------------------
     %>
-    function P = intersection( self, other_obj, resulting_obj )
-      P = ACMEmexWrapper( 'intersection', self.objectHandle, resulting_obj );
+    function P = intersection( self, other_obj )
+      P = ACMEmexWrapper( 'intersection', self.objectHandle, other_obj );
     end
-    % --------------------------------------------------------------------
-    %>
-    function P = collision( self, other_obj )
-      P = ACMEmexWrapper( 'collision', self.objectHandle, other_obj );
-    end
-    % --------------------------------------------------------------------
-    %>
-    function translate( self, translation )
-      ACMEmexWrapper( 'collision', self.objectHandle, translation );
-    end
-    % --------------------------------------------------------------------
-    %>
-    function transform( self, affine )
-      ACMEmexWrapper( 'collision', self.objectHandle, affine );
-    end
-    % --------------------------------------------------------------------
     %>
 
   end

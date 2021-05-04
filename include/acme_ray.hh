@@ -33,38 +33,38 @@
 #define INCLUDE_ACME_RAY
 
 #include "acme.hh"
-#include "acme_eigen.hh"
+#include "acme_vector_point.hh"
 
 namespace acme
 {
 
   /*\
-   |                   
-   |   _ __ __ _ _   _ 
+   |
+   |   _ __ __ _ _   _
    |  | '__/ _` | | | |
    |  | | | (_| | |_| |
    |  |_|  \__,_|\__, |
-   |             |___/ 
+   |             |___/
   \*/
 
   //! Ray class container
   /**
-   * Infinite ray in 3D space and defined by any point lying on the line and a direction
-   * vector.
-  */
+   * Infinite ray in 3D space and defined by any point lying on the line and a
+   * direction vector.
+   */
   class ray : public entity
   {
-  public:
+public:
     typedef std::shared_ptr<ray const> ptr;  //!< Pointer to ray object
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
 
-  private:
-    vec3 _origin;    //!< Ray origin point
-    vec3 _direction; //!< Ray direction vector
+private:
+    point _origin;     //!< Ray origin point
+    vector _direction; //!< Ray direction vector
 
-  public:
+public:
     //! Ray class destructor
     ~ray() {}
 
@@ -79,23 +79,25 @@ namespace acme
 
     //! Ray class constructor
     ray(
-        real_type ox, //<! Input x value of ray origin point
-        real_type oy, //<! Input y value of ray origin point
-        real_type oz, //<! Input z value of ray origin point
-        real_type dx, //<! Input x value of ray direction
-        real_type dy, //<! Input y value of ray direction
-        real_type dz  //<! Input z value of ray direction
-        ) : _origin(vec3(ox, oy, oz)),
-            _direction(vec3(dx, dy, dz))
+        real ox, //<! Input x value of ray origin point
+        real oy, //<! Input y value of ray origin point
+        real oz, //<! Input z value of ray origin point
+        real dx, //<! Input x value of ray direction
+        real dy, //<! Input y value of ray direction
+        real dz  //<! Input z value of ray direction
+        )
+        : _origin(point(ox, oy, oz)),
+          _direction(vector(dx, dy, dz))
     {
     }
 
     //! Ray class constructor
     ray(
-        vec3 const &origin,   //!< Input ray origin point
-        vec3 const &direction //!< Input ray direction vector
-        ) : _origin(origin),
-            _direction(direction)
+        vector const &origin,   //!< Input ray origin point
+        vector const &direction //!< Input ray direction vector
+        )
+        : _origin(origin),
+          _direction(direction)
     {
     }
 
@@ -112,23 +114,25 @@ namespace acme
     ) const;
 
     //! Return ray origin point
-    vec3 const &
-    origin() const;
+    point const &
+    origin(void)
+        const;
 
     //! Return ray direction vector
-    vec3 const &
-    direction() const;
+    vector const &
+    direction(void)
+        const;
 
     //! Set ray origin point
     void
     origin(
-        vec3 const &input //!< input ray object
+        point const &input //!< input ray object
     );
 
     //! Set ray direction vector
     void
     direction(
-        vec3 const &input //!< input ray object
+        vector const &input //!< input ray object
     );
 
     //! Normalize ray direction vector
@@ -136,12 +140,14 @@ namespace acme
     normalize(void);
 
     //! Convert ray to vector
-    vec3
-    toVector(void) const;
+    vector
+    toVector(void)
+        const;
 
     //! Convert ray to normalized vector
-    vec3
-    toNormalizedVector(void) const;
+    vector
+    toNormalizedVector(void)
+        const;
 
     //! Reverse ray direction
     void
@@ -150,7 +156,7 @@ namespace acme
     //! Translate ray by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vector const &input //!< Input translation vector
     );
 
     //! Transform ray with affine transformation matrix
@@ -162,27 +168,37 @@ namespace acme
     // Check whether the point is inside the ray
     bool
     isInside(
-        vec3 const &point //!< Query point
+        point const &query_point //!< Query point
     ) const;
 
     //! Check if ray is degenerated (null vector)
     bool
-    isDegenerated(void) const;
+    isDegenerated(void)
+        const;
 
     //! Return object hierarchical degree
-    size_t degree(void) const override { return 4; }
+    integer
+    degree(void)
+        const
+        override
+    {
+      return 4;
+    }
 
     //! Return object type as string
-    std::string whattype(void) const override { return "ray"; }
+    std::string
+    type(void)
+        const
+        override
+    {
+      return "ray";
+    }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a point
-    bool isMatrix(void) const override { return false; }
-
     //! Check whether the object is a vector
-    bool isVector(void) const override { return false; }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
     bool isLine(void) const override { return false; }
@@ -202,13 +218,13 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a box
+    //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
   }; // class ray
 
-  static ray const NaN_ray = ray(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number ray type
-  static ray ray_goat = ray(NaN_ray);                             //!< Scapegoat ray type (throwaway non-const object)
+  static ray const NaN_ray = ray(acme::NaN_vector, acme::NaN_vector); //!< Not-a-Number ray type
+  static ray ray_goat = ray(NaN_ray);                                 //!< Scapegoat ray type (throwaway non-const object)
 
 } // namespace acme
 

@@ -77,44 +77,34 @@
 <span class="p">{</span>
 
   <span class="cm">/*\</span>
-<span class="cm">   |              _   _ _</span>
-<span class="cm">   |    ___ _ __ | |_(_) |_ _   _</span>
-<span class="cm">   |   / _ \ '_ \| __| | __| | | |</span>
-<span class="cm">   |  |  __/ | | | |_| | |_| |_| |</span>
-<span class="cm">   |   \___|_| |_|\__|_|\__|\__, |</span>
-<span class="cm">   |                        |___/</span>
-<span class="cm">  \*/</span>
+<span class="cm"> |              _   _ _</span>
+<span class="cm"> |    ___ _ __ | |_(_) |_ _   _</span>
+<span class="cm"> |   / _ \ '_ \| __| | __| | | |</span>
+<span class="cm"> |  |  __/ | | | |_| | |_| |_| |</span>
+<span class="cm"> |   \___|_| |_|\__|_|\__|\__, |</span>
+<span class="cm"> |                        |___/</span>
+<span class="cm">\*/</span>
 
 
   <span class="k">class</span> <span class="nc">entity</span>
   <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
+<span class="k">public</span><span class="o">:</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">entity</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pairptr</span><span class="o">&gt;</span> <span class="n">vecpairptr</span><span class="p">;</span>
 
-  <span class="k">protected</span><span class="o">:</span>
-    <span class="c1">// The problem that a virtual destructor is designed to avoid is this:</span>
-    <span class="c1">// If you call the non.virtual destructor through a pointer or reference</span>
-    <span class="c1">// to base class, only the base class destructor is called, even if the</span>
-    <span class="c1">// object is of a derived class.</span>
-    <span class="c1">// SOLUTION: virtual destructor must be protected!</span>
-
-  <span class="k">public</span><span class="o">:</span>
-
     <span class="k">virtual</span> <span class="o">~</span><span class="n">entity</span><span class="p">(){};</span>
+
     <span class="n">entity</span><span class="p">(){};</span>
 
-    <span class="k">virtual</span> <span class="kt">size_t</span> <span class="n">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">integer</span> <span class="n">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">whattype</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isMatrix</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -167,6 +157,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 

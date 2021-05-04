@@ -12,7 +12,7 @@ lst_cc = dir('../src/*.cc');
 
 LIB_SRCS = '';
 LIB_OBJS = '';
-MEX_CMD  = 'mex -largeArrayDims -I../src';
+MEX_CMD  = 'mex -largeArrayDims -I../src -I/usr/local/include/eigen3/ ';
 
 CMD = [ MEX_CMD ' -c '];
 if isunix
@@ -56,7 +56,7 @@ for k=1:length(NAMES)
     PATH1 = [MROOT, '/bin/', ARCH];
     PATH2 = [MROOT, '/extern/bin/', ARCH];
     CMD   = [ CMD, ...
-      ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"' ...
+      ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g "' ...
       ' LDFLAGS="\$LDFLAGS -static-libgcc -static-libstdc++"' ...
       ' LINKLIBS="-L' PATH1 ' -L' PATH2 ' -lMatlabDataArray -lmx -lmex -lmat -lm "' ...
     ];

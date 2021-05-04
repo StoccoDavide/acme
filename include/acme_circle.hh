@@ -33,8 +33,8 @@
 #define INCLUDE_ACME_CIRCLE
 
 #include "acme.hh"
-#include "acme_eigen.hh"
 #include "acme_plane.hh"
+#include "acme_vector_point.hh"
 
 namespace acme
 {
@@ -54,17 +54,17 @@ namespace acme
   */
   class circle : public entity
   {
-  public:
+public:
     typedef std::shared_ptr<circle const> ptr; //!< Shared pointer to circle
     typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to circle objects
     typedef std::vector<ptr> vecptr;           //!< Vector of pointers to circle objects
     typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to circle objects
 
-  private:
-    real_type _radius; //!< Circle radius
-    plane _plane;      //!< Circle plane (circle center + normal vector)
+private:
+    real _radius; //!< Circle radius
+    plane _plane; //!< Circle plane (circle center + normal vector)
 
-  public:
+public:
     //! Circle class deconstructor
     ~circle() {}
 
@@ -79,7 +79,7 @@ namespace acme
 
     //! Circle class constructor
     circle(
-        real_type radius,  //!< Input circle radius
+        real radius,       //!< Input circle radius
         plane const &plane //!< Input circle laying plane
         ) : _radius(radius),
             _plane(plane)
@@ -88,9 +88,9 @@ namespace acme
 
     //! Circle class constructor
     circle(
-        real_type radius,   //!< Input circle radius
-        vec3 const &center, //!< Input circle center
-        vec3 const &normal  //!< Input circle normal to the laying plane
+        real radius,         //!< Input circle radius
+        point const &center, //!< Input circle center
+        vector const &normal //!< Input circle normal to the laying plane
         ) : _radius(radius),
             _plane(center, normal)
     {
@@ -109,15 +109,15 @@ namespace acme
     ) const;
 
     //! Get circle radius
-    real_type
+    real
     radius(void) const;
 
     //! Get circle center point
-    vec3 const &
+    point const &
     center(void) const;
 
     //! Get circle laying plane normal vector
-    vec3 const &
+    vector const &
     normal(void) const;
 
     //! Get cicle laying plane
@@ -127,19 +127,19 @@ namespace acme
     //! Set circle radius
     void
     radius(
-        real_type input //!< New circle radius
+        real input //!< New circle radius
     );
 
     //! Set circle center point
     void
     center(
-        vec3 const &input //!< New circle center point
+        point const &input //!< New circle center point
     );
 
     //! Set circle laying plane normal vector
     void
     normal(
-        vec3 const &input //!< New circle laying plane normal vector
+        vector const &input //!< New circle laying plane normal vector
     );
 
     //! Normalize circle normal vector
@@ -159,7 +159,7 @@ namespace acme
     //! Translate by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vector const &input //!< Input translation vector
     );
 
     //! Transform circle with affine transformation matrix
@@ -171,7 +171,7 @@ namespace acme
     // Check whether the point is inside the circle
     bool
     isInside(
-        vec3 const &point //!< Query point
+        point const &query_point //!< Query point
     ) const;
 
     //! Check if circle is degenerated
@@ -179,19 +179,16 @@ namespace acme
     isDegenerated(void) const;
 
     //! Return object hierarchical degree
-    size_t degree(void) const override { return 8; }
+    integer degree(void) const override { return 8; }
 
     //! Return object type as string
-    std::string whattype(void) const override { return "circle"; }
+    std::string type(void) const override { return "circle"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a point
-    bool isMatrix(void) const override { return false; }
-
     //! Check whether the object is a vector
-    bool isVector(void) const override { return false; }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
     bool isLine(void) const override { return false; }
@@ -211,7 +208,7 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return true; }
 
-    //! Check whether the object is a box
+    //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
   }; // class circle

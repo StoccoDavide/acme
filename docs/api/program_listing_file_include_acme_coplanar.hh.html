@@ -72,13 +72,14 @@
 <span class="cp">#define INCLUDE_ACME_COPLANAR</span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_parallel.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_box.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">acme</span>
 <span class="p">{</span>
@@ -96,154 +97,154 @@
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0</span><span class="p">,</span>
       <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0</span><span class="p">,</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">real_type</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>
@@ -279,6 +280,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 

@@ -33,27 +33,27 @@
 #define INCLUDE_ACME_INTERSECTION
 
 #include "acme.hh"
-#include "acme_line.hh"
-#include "acme_ray.hh"
-#include "acme_plane.hh"
-#include "acme_segment.hh"
-#include "acme_triangle.hh"
-#include "acme_box.hh"
+#include "acme_aabb.hh"
 #include "acme_circle.hh"
-#include "acme_none.hh"
 #include "acme_collinear.hh"
 #include "acme_coplanar.hh"
+#include "acme_line.hh"
+#include "acme_none.hh"
+#include "acme_plane.hh"
+#include "acme_ray.hh"
+#include "acme_segment.hh"
+#include "acme_triangle.hh"
 
 namespace acme
 {
 
   /*\
-   |   ___       _                          _   _             
-   |  |_ _|_ __ | |_ ___ _ __ ___  ___  ___| |_(_) ___  _ __  
-   |   | || '_ \| __/ _ \ '__/ __|/ _ \/ __| __| |/ _ \| '_ \ 
+   |   ___       _                          _   _
+   |  |_ _|_ __ | |_ ___ _ __ ___  ___  ___| |_(_) ___  _ __
+   |   | || '_ \| __/ _ \ '__/ __|/ _ \/ __| __| |/ _ \| '_ \
    |   | || | | | ||  __/ |  \__ \  __/ (__| |_| | (_) | | | |
    |  |___|_| |_|\__\___|_|  |___/\___|\___|\__|_|\___/|_| |_|
-   |                                                          
+   |
   \*/
 
   //! Intersection between two geometrical entities
@@ -64,12 +64,12 @@ namespace acme
   );
 
   /*\
-   |    ____      _ _ _                       
-   |   / ___|___ | | (_)_ __   ___  __ _ _ __ 
+   |    ____      _ _ _
+   |   / ___|___ | | (_)_ __   ___  __ _ _ __
    |  | |   / _ \| | | | '_ \ / _ \/ _` | '__|
-   |  | |__| (_) | | | | | | |  __/ (_| | |   
-   |   \____\___/|_|_|_|_| |_|\___|\__,_|_|   
-   |                                          
+   |  | |__| (_) | | | | | | |  __/ (_| | |
+   |   \____\___/|_|_|_|_| |_|\___|\__,_|_|
+   |
   \*/
 
   //! Intersection between two lines \n
@@ -136,75 +136,75 @@ namespace acme
   );
 
   /*\
-   |    ____                      _      
-   |   / ___| ___ _ __   ___ _ __(_) ___ 
+   |    ____                      _
+   |   / ___| ___ _ __   ___ _ __(_) ___
    |  | |  _ / _ \ '_ \ / _ \ '__| |/ __|
-   |  | |_| |  __/ | | |  __/ |  | | (__ 
+   |  | |_| |  __/ | | |  __/ |  | | (__
    |   \____|\___|_| |_|\___|_|  |_|\___|
-   |                                     
+   |
   \*/
 
   //! Intersection between two lines \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      line const &line0,      //!< Input line 0
-      line const &line1,      //!< Input line 1
-      vec3 &point = vec3_goat //!< Output point
+      line const &line0,            //!< Input line 0
+      line const &line1,            //!< Input line 1
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection between two rays \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      ray const &ray0,        //!< Input ray 0
-      ray const &ray1,        //!< Input ray 1
-      vec3 &point = vec3_goat //!< Output point
+      ray const &ray0,              //!< Input ray 0
+      ray const &ray1,              //!< Input ray 1
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection between two segments \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      segment const &segment0, //!< Input segment 0
-      segment const &segment1, //!< Input segment 1
-      vec3 &point = vec3_goat  //!< Output point
+      segment const &segment0,      //!< Input segment 0
+      segment const &segment1,      //!< Input segment 1
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection line with ray \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      line const &line,       //!< Input line
-      ray const &ray,         //!< Input ray
-      vec3 &point = vec3_goat //!< Output point
+      line const &line,             //!< Input line
+      ray const &ray,               //!< Input ray
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection line with segment  \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      line const &line,       //!< Input line
-      segment const &segment, //!< Input segment
-      vec3 &point = vec3_goat //!< Output point
+      line const &line,             //!< Input line
+      segment const &segment,       //!< Input segment
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection ray with segment \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      ray const &ray,         //!< Input ray
-      segment const &segment, //!< Input segment
-      vec3 &point = vec3_goat //!< Output point
+      ray const &ray,               //!< Input ray
+      segment const &segment,       //!< Input segment
+      point &point_out = point_goat //!< Output point
   );
 
   /*\
-   |    ____            _                        
-   |   / ___|___  _ __ | | __ _ _ __   __ _ _ __ 
+   |    ____            _
+   |   / ___|___  _ __ | | __ _ _ __   __ _ _ __
    |  | |   / _ \| '_ \| |/ _` | '_ \ / _` | '__|
-   |  | |__| (_) | |_) | | (_| | | | | (_| | |   
-   |   \____\___/| .__/|_|\__,_|_| |_|\__,_|_|   
-   |             |_|                             
+   |  | |__| (_) | |_) | | (_| | | | | (_| | |
+   |   \____\___/| .__/|_|\__,_|_| |_|\__,_|_|
+   |             |_|
   \*/
 
   //! Intersection between planes \n
@@ -343,12 +343,12 @@ namespace acme
   // );
 
   /*\
-   |   _   _              ____            _                        
-   |  | \ | | ___  _ __  / ___|___  _ __ | | __ _ _ __   __ _ _ __ 
+   |   _   _              ____            _
+   |  | \ | | ___  _ __  / ___|___  _ __ | | __ _ _ __   __ _ _ __
    |  |  \| |/ _ \| '_ \| |   / _ \| '_ \| |/ _` | '_ \ / _` | '__|
-   |  | |\  | (_) | | | | |__| (_) | |_) | | (_| | | | | (_| | |   
-   |  |_| \_|\___/|_| |_|\____\___/| .__/|_|\__,_|_| |_|\__,_|_|   
-   |                               |_|                             
+   |  | |\  | (_) | | | | |__| (_) | |_) | | (_| | | | | (_| | |
+   |  |_| \_|\___/|_| |_|\____\___/| .__/|_|\__,_|_| |_|\__,_|_|
+   |                               |_|
   \*/
 
   //! Intersection between two planes \n
@@ -364,10 +364,10 @@ namespace acme
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane0,    //!< Input plane 0
-      plane const &plane1,    //!< Input plane 1
-      plane const &plane2,    //!< Input plane 1
-      vec3 &point = vec3_goat //!< Output point
+      plane const &plane0,          //!< Input plane 0
+      plane const &plane1,          //!< Input plane 1
+      plane const &plane2,          //!< Input plane 1
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection between triangles \n
@@ -392,63 +392,63 @@ namespace acme
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      line const &line,       //!< Input line
-      plane const &plane,     //!< Input plane
-      vec3 &point = vec3_goat //!< Output point
+      line const &line,             //!< Input line
+      plane const &plane,           //!< Input plane
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection line with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      line const &line,         //!< Input line
-      triangle const &triangle, //!< Input triangle
-      vec3 &point = vec3_goat   //!< Output point
+      line const &line,             //!< Input line
+      triangle const &triangle,     //!< Input triangle
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection line and circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      line const &line,       //!< Input line
-      circle const &circle,   //!< Input circle
-      vec3 &point = vec3_goat //!< Output point
+      line const &line,             //!< Input line
+      circle const &circle,         //!< Input circle
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection ray with plane \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      ray const &ray,         //!< Input ray
-      plane const &plane,     //!< Input plane
-      vec3 &point = vec3_goat //!< Output point
+      ray const &ray,               //!< Input ray
+      plane const &plane,           //!< Input plane
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection ray with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      ray const &ray,           //!< Input ray
-      triangle const &triangle, //!< Input triangle
-      vec3 &point = vec3_goat   //!< Output point
+      ray const &ray,               //!< Input ray
+      triangle const &triangle,     //!< Input triangle
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection ray with circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      ray const &ray,         //!< Input ray
-      circle const &circle,   //!< Input circle
-      vec3 &point = vec3_goat //!< Output point
+      ray const &ray,               //!< Input ray
+      circle const &circle,         //!< Input circle
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection plane with segment \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane,     //!< Input plane
-      segment const &segment, //!< Input segment
-      vec3 &point = vec3_goat //!< Output point
+      plane const &plane,           //!< Input plane
+      segment const &segment,       //!< Input segment
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection plane with triangle \n
@@ -473,18 +473,18 @@ namespace acme
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      segment const &segment,   //!< Input segment
-      triangle const &triangle, //!< Input triangle
-      vec3 &point = vec3_goat   //!< Output point
+      segment const &segment,       //!< Input segment
+      triangle const &triangle,     //!< Input triangle
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection segment with circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      segment const &segment, //!< Input segment
-      circle const &circle,   //!< Input circle
-      vec3 &point = vec3_goat //!< Output point
+      segment const &segment,       //!< Input segment
+      circle const &circle,         //!< Input circle
+      point &point_out = point_goat //!< Output point
   );
 
   //! Intersection triangle with circle \n
@@ -497,20 +497,20 @@ namespace acme
   );
 
   /*\
-   |   __  __ _              _ _                                  
-   |  |  \/  (_)___  ___ ___| | | __ _ _ __   ___  ___  _   _ ___ 
+   |   __  __ _              _ _
+   |  |  \/  (_)___  ___ ___| | | __ _ _ __   ___  ___  _   _ ___
    |  | |\/| | / __|/ __/ _ \ | |/ _` | '_ \ / _ \/ _ \| | | / __|
    |  | |  | | \__ \ (_|  __/ | | (_| | | | |  __/ (_) | |_| \__ \
    |  |_|  |_|_|___/\___\___|_|_|\__,_|_| |_|\___|\___/ \__,_|___/
-   |                                                              
+   |
   \*/
 
   //! Intersection between two axis aligned boxes
   bool
   intersection(
-      box const &box0,    //!< Input box 0
-      box const &box1,    //!< Input box 1
-      box &box = box_goat //!< Output box
+      aabb const &box0,    //!< Input aabb 0
+      aabb const &box1,    //!< Input aabb 1
+      aabb &aabb = box_goat //!< Output aabb
   );
 
 } // namespace acme

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class ray &#8212; ACME v</title>
+    <title>Class triangle &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class segment" href="class_a00151.html" />
-    <link rel="prev" title="Class plane" href="class_a00143.html" />
+    <link rel="next" title="Template Class Vector" href="class_a00151.html" />
+    <link rel="prev" title="Class segment" href="class_a00143.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,11 +37,11 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="class-ray">
-<span id="exhale-class-a00147"></span><h1>Class ray<a class="headerlink" href="#class-ray" title="Permalink to this headline">¶</a>
+  <div class="section" id="class-triangle">
+<span id="exhale-class-a00147"></span><h1>Class triangle<a class="headerlink" href="#class-triangle" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_ray.hh.html#file-include-acme-ray-hh"><span class="std std-ref">File acme_ray.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_include_acme_triangle.hh.html#file-include-acme-triangle-hh"><span class="std std-ref">File acme_triangle.hh</span></a></p></li>
 </ul>
 <div class="section" id="inheritance-relationships">
 <h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
@@ -50,7 +50,7 @@
 <h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
 </h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00131.html#exhale-class-a00131"><span class="std std-ref">Class entity</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00123.html#exhale-class-a00123"><span class="std std-ref">Class entity</span></a>)</p></li>
 </ul>
 </div>
 </div>
@@ -58,47 +58,47 @@
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <dl class="cpp class">
-<dt id="_CPPv4N4acme3rayE">
-<span id="_CPPv3N4acme3rayE"></span><span id="_CPPv2N4acme3rayE"></span><span id="acme::ray"></span><span class="target" id="a00147"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">ray</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">acme</span><span class="pre">::</span><a class="reference internal" href="class_a00131.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><a class="headerlink" href="#_CPPv4N4acme3rayE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangleE">
+<span id="_CPPv3N4acme8triangleE"></span><span id="_CPPv2N4acme8triangleE"></span><span id="acme::triangle"></span><span class="target" id="a00147"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">triangle</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">acme</span><span class="pre">::</span><a class="reference internal" href="class_a00123.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><a class="headerlink" href="#_CPPv4N4acme8triangleE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray class container. </p>
-<p>Infinite ray in 3D space and defined by any point lying on the line and a direction vector. </p>
+<p>Triangle class container. </p>
+<p>Triangle in 3D space. The triangle is defined by three arbitrary points. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
-<dt id="_CPPv4N4acme3ray3ptrE">
-<span id="_CPPv3N4acme3ray3ptrE"></span><span id="_CPPv2N4acme3ray3ptrE"></span><span id="acme::ray::ptr"></span><span class="target" id="a00147_1a81207f772dec99ea53690d3891634af8"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">shared_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="pre">ray</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">ptr</span></code><a class="headerlink" href="#_CPPv4N4acme3ray3ptrE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle3ptrE">
+<span id="_CPPv3N4acme8triangle3ptrE"></span><span id="_CPPv2N4acme8triangle3ptrE"></span><span id="acme::triangle::ptr"></span><span class="target" id="a00147_1a44f3b7ca279a5483ad826181151fc167"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">shared_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="pre">triangle</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">ptr</span></code><a class="headerlink" href="#_CPPv4N4acme8triangle3ptrE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Pointer to ray object. </p>
+<p>Shared pointer to triangle object. </p>
 </dd>
 </dl>
 
 <dl class="cpp type">
-<dt id="_CPPv4N4acme3ray7pairptrE">
-<span id="_CPPv3N4acme3ray7pairptrE"></span><span id="_CPPv2N4acme3ray7pairptrE"></span><span id="acme::ray::pairptr"></span><span class="target" id="a00147_1acbec60f57b0ae400d9253548e3bdb1ce"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">pair</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3ray3ptrE" title="acme::ray::ptr"><span class="pre">ptr</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N4acme3ray3ptrE" title="acme::ray::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">pairptr</span></code><a class="headerlink" href="#_CPPv4N4acme3ray7pairptrE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle7pairptrE">
+<span id="_CPPv3N4acme8triangle7pairptrE"></span><span id="_CPPv2N4acme8triangle7pairptrE"></span><span id="acme::triangle::pairptr"></span><span class="target" id="a00147_1ad4871d3e87182f3fa87181fb9ae57d92"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">pair</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme8triangle3ptrE" title="acme::triangle::ptr"><span class="pre">ptr</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N4acme8triangle3ptrE" title="acme::triangle::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">pairptr</span></code><a class="headerlink" href="#_CPPv4N4acme8triangle7pairptrE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Pair of pointers to ray objects. </p>
+<p>Pair of pointers to triangle objects. </p>
 </dd>
 </dl>
 
 <dl class="cpp type">
-<dt id="_CPPv4N4acme3ray6vecptrE">
-<span id="_CPPv3N4acme3ray6vecptrE"></span><span id="_CPPv2N4acme3ray6vecptrE"></span><span id="acme::ray::vecptr"></span><span class="target" id="a00147_1a9072166c9e653e959ed6734ecf34094c"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3ray3ptrE" title="acme::ray::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecptr</span></code><a class="headerlink" href="#_CPPv4N4acme3ray6vecptrE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle6vecptrE">
+<span id="_CPPv3N4acme8triangle6vecptrE"></span><span id="_CPPv2N4acme8triangle6vecptrE"></span><span id="acme::triangle::vecptr"></span><span class="target" id="a00147_1a1293e3433079608eebacc38f70901bd0"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme8triangle3ptrE" title="acme::triangle::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecptr</span></code><a class="headerlink" href="#_CPPv4N4acme8triangle6vecptrE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Vector of pointers to ray objects. </p>
+<p><a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">Vector</span></a> of pointers to triangle objects. </p>
 </dd>
 </dl>
 
 <dl class="cpp type">
-<dt id="_CPPv4N4acme3ray10vecpairptrE">
-<span id="_CPPv3N4acme3ray10vecpairptrE"></span><span id="_CPPv2N4acme3ray10vecpairptrE"></span><span id="acme::ray::vecpairptr"></span><span class="target" id="a00147_1a137f8ab1aeab3fefc3ccfd1c38945644"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme3ray7pairptrE" title="acme::ray::pairptr"><span class="pre">pairptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecpairptr</span></code><a class="headerlink" href="#_CPPv4N4acme3ray10vecpairptrE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle10vecpairptrE">
+<span id="_CPPv3N4acme8triangle10vecpairptrE"></span><span id="_CPPv2N4acme8triangle10vecpairptrE"></span><span id="acme::triangle::vecpairptr"></span><span class="target" id="a00147_1ab7078e34809021cbcb6654d967ba1190"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme8triangle7pairptrE" title="acme::triangle::pairptr"><span class="pre">pairptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecpairptr</span></code><a class="headerlink" href="#_CPPv4N4acme8triangle10vecpairptrE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Vector of pairs of pointers to ray objects. </p>
+<p><a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">Vector</span></a> of pairs of pointers to triangle objects. </p>
 </dd>
 </dl>
 
@@ -106,62 +106,63 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3rayD0Ev">
-<span id="_CPPv3N4acme3rayD0Ev"></span><span id="_CPPv2N4acme3rayD0Ev"></span><span id="acme::ray::~ray"></span><span class="target" id="a00147_1aabc35263c86842a40c75f737752506a0"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">~ray</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3rayD0Ev" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangleD0Ev">
+<span id="_CPPv3N4acme8triangleD0Ev"></span><span id="_CPPv2N4acme8triangleD0Ev"></span><span id="acme::triangle::~triangle"></span><span class="target" id="a00147_1a0ed70309074cada16c09824ac6ac7643"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">~triangle</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangleD0Ev" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray class destructor. </p>
+<p>Triangle class destructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray3rayEv">
-<span id="_CPPv3N4acme3ray3rayEv"></span><span id="_CPPv2N4acme3ray3rayEv"></span><span id="acme::ray::ray"></span><span class="target" id="a00147_1ab28addfbb35c83e9db7e9476cc2214b1"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">ray</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8triangleERK8triangle">
+<span id="_CPPv3N4acme8triangle8triangleERK8triangle"></span><span id="_CPPv2N4acme8triangle8triangleERK8triangle"></span><span id="acme::triangle::triangle__triangleCR"></span><span class="target" id="a00147_1a75975f5b2071b1101f29a665aa65f681"></span><code class="sig-name descname"><span class="pre">triangle</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangle8triangleERK8triangle" title="acme::triangle::triangle"><span class="pre">triangle</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleERK8triangle" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray class constructor. </p>
+<p>Triangle copy constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray3rayERK3ray">
-<span id="_CPPv3N4acme3ray3rayERK3ray"></span><span id="_CPPv2N4acme3ray3rayERK3ray"></span><span id="acme::ray::ray__rayCR"></span><span class="target" id="a00147_1a07ca798442ced888b65d025a0db50254"></span><code class="sig-name descname"><span class="pre">ray</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3ray3rayERK3ray" title="acme::ray::ray"><span class="pre">ray</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayERK3ray" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8triangleERR8triangle">
+<span id="_CPPv3N4acme8triangle8triangleERR8triangle"></span><span id="_CPPv2N4acme8triangle8triangleERR8triangle"></span><span id="acme::triangle::triangle__triangleRR"></span><span class="target" id="a00147_1a303a7336de01a25ae9f1facf93602bf9"></span><code class="sig-name descname"><span class="pre">triangle</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangle8triangleERR8triangle" title="acme::triangle::triangle"><span class="pre">triangle</span></a><span class="pre">&amp;</span><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleERR8triangle" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray copy constructor. </p>
+<p>Triangle move constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray3rayERR3ray">
-<span id="_CPPv3N4acme3ray3rayERR3ray"></span><span id="_CPPv2N4acme3ray3rayERR3ray"></span><span id="acme::ray::ray__rayRR"></span><span class="target" id="a00147_1a5c6c77f7578828ed294c3898806444e1"></span><code class="sig-name descname"><span class="pre">ray</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3ray3rayERR3ray" title="acme::ray::ray"><span class="pre">ray</span></a><span class="pre">&amp;</span><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayERR3ray" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8triangleEv">
+<span id="_CPPv3N4acme8triangle8triangleEv"></span><span id="_CPPv2N4acme8triangle8triangleEv"></span><span id="acme::triangle::triangle"></span><span class="target" id="a00147_1aa7cd6328f9445db2e7d92f437cfc615c"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">triangle</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray move constructor. </p>
+<p>Triangle class constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray3rayE9real_type9real_type9real_type9real_type9real_type9real_type">
-<span id="_CPPv3N4acme3ray3rayE9real_type9real_type9real_type9real_type9real_type9real_type"></span><span id="_CPPv2N4acme3ray3rayE9real_type9real_type9real_type9real_type9real_type9real_type"></span><span id="acme::ray::ray__real_type.real_type.real_type.real_type.real_type.real_type"></span><span class="target" id="a00147_1a4cca584a390f67b3f952040121f414a6"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">ray</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">ox</span></em>, <a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">oy</span></em>, <a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">oz</span></em>, <a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">dx</span></em>, <a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">dy</span></em>, <a class="reference internal" href="typedef_a00107_1a272dfe5817fa47009716a1fc85ab2629.html#_CPPv4N4acme9real_typeE" title="acme::real_type"><span class="pre">real_type</span></a> <em><span class="pre">dz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayE9real_type9real_type9real_type9real_type9real_type9real_type" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8triangleE4real4real4real4real4real4real4real4real4real">
+<span id="_CPPv3N4acme8triangle8triangleE4real4real4real4real4real4real4real4real4real"></span><span id="_CPPv2N4acme8triangle8triangleE4real4real4real4real4real4real4real4real4real"></span><span id="acme::triangle::triangle__real.real.real.real.real.real.real.real.real"></span><span class="target" id="a00147_1ab481c8a6411ae39c4ce26470bd480812"></span><code class="sig-name descname"><span class="pre">triangle</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">x0</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">y0</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">z0</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">x1</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">y1</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">z1</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">x2</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">y2</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">z2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleE4real4real4real4real4real4real4real4real4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray class constructor. </p>
+<p>Triangle class constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray3rayERK4vec3RK4vec3">
-<span id="_CPPv3N4acme3ray3rayERK4vec3RK4vec3"></span><span id="_CPPv2N4acme3ray3rayERK4vec3RK4vec3"></span><span id="acme::ray::ray__vec3CR.vec3CR"></span><span class="target" id="a00147_1a2540ddd396c263edf4596b4bb6db0b9d"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">ray</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">origin</span></em>, <a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">direction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayERK4vec3RK4vec3" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8triangleERK5pointRK5pointRK5point">
+<span id="_CPPv3N4acme8triangle8triangleERK5pointRK5pointRK5point"></span><span id="_CPPv2N4acme8triangle8triangleERK5pointRK5pointRK5point"></span><span id="acme::triangle::triangle__pointCR.pointCR.pointCR"></span><span class="target" id="a00147_1ab7f2a5644390004553df127437176660"></span><code class="sig-name descname"><span class="pre">triangle</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point0</span></em>, <a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point1</span></em>, <a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleERK5pointRK5pointRK5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Ray class constructor. </p>
+<p>Triangle class constructor. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>origin</strong> – Input ray origin point </p></li>
-<li><p><strong>direction</strong> – Input ray direction vector </p></li>
+<li><p><strong>point0</strong> – Input first triangle vertex point </p></li>
+<li><p><strong>point1</strong> – Input second triangle vertex point </p></li>
+<li><p><strong>point2</strong> – Input third triangle vertex point </p></li>
 </ul>
 </dd>
 </dl>
@@ -169,125 +170,236 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3rayaSERK3ray">
-<span id="_CPPv3N4acme3rayaSERK3ray"></span><span id="_CPPv2N4acme3rayaSERK3ray"></span><span id="acme::ray::assign-operator__rayCR"></span><span class="target" id="a00147_1a854a393aa6748ef3e2adc38fc0bf9b60"></span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="pre">ray</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="pre">ray</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3rayaSERK3ray" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8triangleEAL3E_K5point">
+<span id="_CPPv3N4acme8triangle8triangleEAL3E_K5point"></span><span id="_CPPv2N4acme8triangle8triangleEA3_K5point"></span><span id="acme::triangle::triangle__pointCA"></span><span class="target" id="a00147_1ad5ed84b35882054824e5af07383001b1"></span><code class="sig-name descname"><span class="pre">triangle</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangle8triangleEAL3E_K5point" title="acme::triangle::triangle::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <em><span class="pre">point</span></em><span class="pre">[</span><span class="pre">3</span><span class="pre">]</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleEAL3E_K5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Triangle class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point</strong> – Input triangle verices </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8triangleaSERK8triangle">
+<span id="_CPPv3N4acme8triangleaSERK8triangle"></span><span id="_CPPv2N4acme8triangleaSERK8triangle"></span><span id="acme::triangle::assign-operator__triangleCR"></span><span class="target" id="a00147_1aa5d42bc4ba9184bce3fbe42000d3bb3c"></span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="pre">triangle</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="pre">triangle</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangleaSERK8triangle" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Equality operator. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>input</strong> – Input ray object </p>
+<p><strong>input</strong> – Input triangle object </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8isApproxERK3ray">
-<span id="_CPPv3NK4acme3ray8isApproxERK3ray"></span><span id="_CPPv2NK4acme3ray8isApproxERK3ray"></span><span id="acme::ray::isApprox__rayCRC"></span><span class="target" id="a00147_1af59e63a78e62862cac7d9cc2a680a851"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isApprox</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="pre">ray</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8isApproxERK3ray" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle8isApproxERK8triangle">
+<span id="_CPPv3NK4acme8triangle8isApproxERK8triangle"></span><span id="_CPPv2NK4acme8triangle8isApproxERK8triangle"></span><span id="acme::triangle::isApprox__triangleCRC"></span><span class="target" id="a00147_1ac5c927459098311a2af274c57a2a9d61"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isApprox</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="pre">triangle</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle8isApproxERK8triangle" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check if ray objects are (almost) equal. </p>
+<p>Check if objects are (almost) equal. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>input</strong> – Input ray object </p>
+<p><strong>input</strong> – Input triangle object </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray6originEv">
-<span id="_CPPv3NK4acme3ray6originEv"></span><span id="_CPPv2NK4acme3ray6originEv"></span><span id="acme::ray::originC"></span><span class="target" id="a00147_1af3c781c7f8ed230424dcc61113422418"></span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">origin</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray6originEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle6vertexE7integer">
+<span id="_CPPv3NK4acme8triangle6vertexE7integer"></span><span id="_CPPv2NK4acme8triangle6vertexE7integer"></span><span id="acme::triangle::vertex__integerC"></span><span class="target" id="a00147_1a90c19dafdef519512de0524c34da88c7"></span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">vertex</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <em><span class="pre">i</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle6vertexE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Return ray origin point. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray9directionEv">
-<span id="_CPPv3NK4acme3ray9directionEv"></span><span id="_CPPv2NK4acme3ray9directionEv"></span><span id="acme::ray::directionC"></span><span class="target" id="a00147_1a24302c0caf72eaab1e42010e7385c11d"></span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">direction</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray9directionEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Return ray direction vector. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N4acme3ray6originERK4vec3">
-<span id="_CPPv3N4acme3ray6originERK4vec3"></span><span id="_CPPv2N4acme3ray6originERK4vec3"></span><span id="acme::ray::origin__vec3CR"></span><span class="target" id="a00147_1a151beb98113293d7fb775f322303a329"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">origin</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray6originERK4vec3" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Set ray origin point. </p>
+<p>Get i-th triangle vertex. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>input</strong> – input ray object </p>
+<p><strong>i</strong> – New triangle vertex </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray9directionERK4vec3">
-<span id="_CPPv3N4acme3ray9directionERK4vec3"></span><span id="_CPPv2N4acme3ray9directionERK4vec3"></span><span id="acme::ray::direction__vec3CR"></span><span class="target" id="a00147_1a69320f08dd133b6ad206bafb289ac140"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">direction</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray9directionERK4vec3" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle6vertexE7integer">
+<span id="_CPPv3N4acme8triangle6vertexE7integer"></span><span id="_CPPv2N4acme8triangle6vertexE7integer"></span><span id="acme::triangle::vertex__integer"></span><span class="target" id="a00147_1a5e2a6eb827ce37d697abae0ab9881fbf"></span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">vertex</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <em><span class="pre">i</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle6vertexE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Set ray direction vector. </p>
+<p>Get i-th triangle vertex. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>input</strong> – input ray object </p>
+<p><strong>i</strong> – New triangle vertex </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray9normalizeEv">
-<span id="_CPPv3N4acme3ray9normalizeEv"></span><span id="_CPPv2N4acme3ray9normalizeEv"></span><span id="acme::ray::normalize__void"></span><span class="target" id="a00147_1a4f13778f7d87e0bf5d6dc3679ba032de"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">normalize</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray9normalizeEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8verticesERK5pointRK5pointRK5point">
+<span id="_CPPv3N4acme8triangle8verticesERK5pointRK5pointRK5point"></span><span id="_CPPv2N4acme8triangle8verticesERK5pointRK5pointRK5point"></span><span id="acme::triangle::vertices__pointCR.pointCR.pointCR"></span><span class="target" id="a00147_1a60d61b435acd98d40af5a2ca1cc24ecd"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">vertices</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vertex0</span></em>, <a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vertex1</span></em>, <a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vertex2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8verticesERK5pointRK5pointRK5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Normalize ray direction vector. </p>
+<p>Set triangle vertices. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>vertex0</strong> – Input first triangle vertex </p></li>
+<li><p><strong>vertex1</strong> – Input second triangle vertex </p></li>
+<li><p><strong>vertex2</strong> – Input third triangle vertex </p></li>
+</ul>
+</dd>
+</dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8toVectorEv">
-<span id="_CPPv3NK4acme3ray8toVectorEv"></span><span id="_CPPv2NK4acme3ray8toVectorEv"></span><span id="acme::ray::toVector__voidC"></span><span class="target" id="a00147_1a733bcf0b4e0d637138a9ee65edeaa5c7"></span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <code class="sig-name descname"><span class="pre">toVector</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8toVectorEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle8verticesEAL3E_K5point">
+<span id="_CPPv3N4acme8triangle8verticesEAL3E_K5point"></span><span id="_CPPv2N4acme8triangle8verticesEA3_K5point"></span><span id="acme::triangle::vertices__pointCA"></span><span class="target" id="a00147_1acd801628f1dc764edd769c5d62525652"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">vertices</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <em><span class="pre">vertex</span></em><span class="pre">[</span><span class="pre">3</span><span class="pre">]</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8verticesEAL3E_K5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Convert ray to vector. </p>
+<p>Set triangle vertices vertices. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>vertex</strong> – New triangle vertices </p>
+</dd>
+</dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray18toNormalizedVectorEv">
-<span id="_CPPv3NK4acme3ray18toNormalizedVectorEv"></span><span id="_CPPv2NK4acme3ray18toNormalizedVectorEv"></span><span id="acme::ray::toNormalizedVector__voidC"></span><span class="target" id="a00147_1acdd81e48c2658d52a00f2a1dab221645"></span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <code class="sig-name descname"><span class="pre">toNormalizedVector</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray18toNormalizedVectorEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle8centroidEv">
+<span id="_CPPv3NK4acme8triangle8centroidEv"></span><span id="_CPPv2NK4acme8triangle8centroidEv"></span><span id="acme::triangle::centroid__voidC"></span><span class="target" id="a00147_1af49ed4c9746da7b23b53c47ce304a0aa"></span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <code class="sig-name descname"><span class="pre">centroid</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle8centroidEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Convert ray to normalized vector. </p>
+<p>Get triangle centroid. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray7reverseEv">
-<span id="_CPPv3N4acme3ray7reverseEv"></span><span id="_CPPv2N4acme3ray7reverseEv"></span><span id="acme::ray::reverse__void"></span><span class="target" id="a00147_1a89b1cdc44b984a069c70caf4841ca2a3"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">reverse</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray7reverseEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle4edgeE7integer7integer">
+<span id="_CPPv3NK4acme8triangle4edgeE7integer7integer"></span><span id="_CPPv2NK4acme8triangle4edgeE7integer7integer"></span><span id="acme::triangle::edge__integer.integerC"></span><span class="target" id="a00147_1a6f21e85fdb23204696df80f8a40a89d5"></span><a class="reference internal" href="class_a00143.html#_CPPv4N4acme7segmentE" title="acme::segment"><span class="pre">segment</span></a> <code class="sig-name descname"><span class="pre">edge</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <em><span class="pre">i</span></em>, <a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <em><span class="pre">j</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle4edgeE7integer7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Reverse ray direction. </p>
+<p>Get triangle edge created by i-th and j-th vertex. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>i</strong> – Triangle i-th vertex index </p></li>
+<li><p><strong>j</strong> – Triangle j-th vertex index </p></li>
+</ul>
+</dd>
+</dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray9translateERK4vec3">
-<span id="_CPPv3N4acme3ray9translateERK4vec3"></span><span id="_CPPv2N4acme3ray9translateERK4vec3"></span><span id="acme::ray::translate__vec3CR"></span><span class="target" id="a00147_1aa643338f24d5f1ed7f1d61837bd57b0b"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">translate</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray9translateERK4vec3" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle6normalEv">
+<span id="_CPPv3NK4acme8triangle6normalEv"></span><span id="_CPPv2NK4acme8triangle6normalEv"></span><span id="acme::triangle::normal__voidC"></span><span class="target" id="a00147_1a2578659a68e373c87c30a2bd8686e6fd"></span><a class="reference internal" href="typedef_a00107_1af9dbeedcb7872a1547eb8ef8998f3ac7.html#_CPPv4N4acme6vectorE" title="acme::vector"><span class="pre">vector</span></a> <code class="sig-name descname"><span class="pre">normal</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle6normalEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Translate ray by vector. </p>
+<p>Get triangle face normal (normalized vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8triangle4swapE7integer7integer">
+<span id="_CPPv3N4acme8triangle4swapE7integer7integer"></span><span id="_CPPv2N4acme8triangle4swapE7integer7integer"></span><span id="acme::triangle::swap__integer.integer"></span><span class="target" id="a00147_1ac47f6c937d8b8b8a55d956d40b19958c"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">swap</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <em><span class="pre">i</span></em>, <a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <em><span class="pre">j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle4swapE7integer7integer" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Swap triangle vertices. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>i</strong> – Triangle i-th vertex index </p></li>
+<li><p><strong>j</strong> – Triangle j-th vertex index </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8triangle5clampER4aabb">
+<span id="_CPPv3NK4acme8triangle5clampER4aabb"></span><span id="_CPPv2NK4acme8triangle5clampER4aabb"></span><span id="acme::triangle::clamp__aabbRC"></span><span class="target" id="a00147_1a8ac5365dd76f6d06671b497cdf6507d3"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">clamp</span></code><span class="sig-paren">(</span><a class="reference internal" href="class_a00111.html#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="pre">aabb</span></a> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle5clampER4aabb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minimum aabb containing the current triangle object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input aabb object </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8triangle9perimeterEv">
+<span id="_CPPv3NK4acme8triangle9perimeterEv"></span><span id="_CPPv2NK4acme8triangle9perimeterEv"></span><span id="acme::triangle::perimeter__voidC"></span><span class="target" id="a00147_1a6189701a61e08b3d2d1b8c8ffd6e9bee"></span><a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <code class="sig-name descname"><span class="pre">perimeter</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle9perimeterEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Calculate triangle perimeter length. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8triangle4areaEv">
+<span id="_CPPv3NK4acme8triangle4areaEv"></span><span id="_CPPv2NK4acme8triangle4areaEv"></span><span id="acme::triangle::area__voidC"></span><span class="target" id="a00147_1a6674f8ea4ac34b64307904647b3e69ef"></span><a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <code class="sig-name descname"><span class="pre">area</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle4areaEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Calculate triangle area. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8triangle11barycentricERK5pointR4realR4realR4real">
+<span id="_CPPv3NK4acme8triangle11barycentricERK5pointR4realR4realR4real"></span><span id="_CPPv2NK4acme8triangle11barycentricERK5pointR4realR4realR4real"></span><span id="acme::triangle::barycentric__pointCR.realR.realR.realRC"></span><span class="target" id="a00147_1a42337e66bb1a4edea619033a6ce17c96"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">barycentric</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">query_point</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">u</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">v</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">w</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle11barycentricERK5pointR4realR4realR4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Compute barycentric coordinates (u,v,w) for point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>query_point</strong> – Input point </p></li>
+<li><p><strong>u</strong> – Output barycentric coordinate u </p></li>
+<li><p><strong>v</strong> – Output barycentric coordinate v </p></li>
+<li><p><strong>w</strong> – Output barycentric coordinate w </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme8triangle11layingPlaneEv">
+<span id="_CPPv3NK4acme8triangle11layingPlaneEv"></span><span id="_CPPv2NK4acme8triangle11layingPlaneEv"></span><span id="acme::triangle::layingPlane__voidC"></span><span class="target" id="a00147_1aa5d00b22f53d33cbdd1473305bc81f56"></span><a class="reference internal" href="class_a00135.html#_CPPv4N4acme5planeE" title="acme::plane"><span class="pre">plane</span></a> <code class="sig-name descname"><span class="pre">layingPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle11layingPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get triangle laying plane. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4acme8triangle9translateERK5point">
+<span id="_CPPv3N4acme8triangle9translateERK5point"></span><span id="_CPPv2N4acme8triangle9translateERK5point"></span><span id="acme::triangle::translate__pointCR"></span><span class="target" id="a00147_1a7e0f9f8d325362075cf7c0e3f86589cf"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">translate</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle9translateERK5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Translate triangle by vector. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
@@ -298,11 +410,11 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme3ray9transformERK6affine">
-<span id="_CPPv3N4acme3ray9transformERK6affine"></span><span id="_CPPv2N4acme3ray9transformERK6affine"></span><span id="acme::ray::transform__affineCR"></span><span class="target" id="a00147_1a2d73f229e66a827f452c84334972a73a"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a2896221ec7335d14461e76759dce3c44.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="pre">affine</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray9transformERK6affine" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme8triangle9transformERK6affine">
+<span id="_CPPv3N4acme8triangle9transformERK6affine"></span><span id="_CPPv2N4acme8triangle9transformERK6affine"></span><span id="acme::triangle::transform__affineCR"></span><span class="target" id="a00147_1a53c639fd1a1da34c1f827de87a672d47"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="pre">affine</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle9transformERK6affine" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Transform ray with affine transformation matrix. </p>
+<p>Transform triangle with affine transformation matrix. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
@@ -313,31 +425,32 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8isInsideERK4vec3">
-<span id="_CPPv3NK4acme3ray8isInsideERK4vec3"></span><span id="_CPPv2NK4acme3ray8isInsideERK4vec3"></span><span id="acme::ray::isInside__vec3CRC"></span><span class="target" id="a00147_1a57e69354fcb557c3c4e3ac3971613187"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isInside</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ab1d66179c954c6836e85368b8eb512f7.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8isInsideERK4vec3" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle8isInsideERK5point">
+<span id="_CPPv3NK4acme8triangle8isInsideERK5point"></span><span id="_CPPv2NK4acme8triangle8isInsideERK5point"></span><span id="acme::triangle::isInside__pointCRC"></span><span class="target" id="a00147_1a4b479871c83112be6aae050660c7dcf9"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isInside</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">query_point</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle8isInsideERK5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
+<p>Check if a point lays inside the triangle. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>point</strong> – Query point </p>
+<p><strong>query_point</strong> – Query point </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray13isDegeneratedEv">
-<span id="_CPPv3NK4acme3ray13isDegeneratedEv"></span><span id="_CPPv2NK4acme3ray13isDegeneratedEv"></span><span id="acme::ray::isDegenerated__voidC"></span><span class="target" id="a00147_1a578d053804b4da3d3bbd444941b6d1e0"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDegenerated</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray13isDegeneratedEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle13isDegeneratedEv">
+<span id="_CPPv3NK4acme8triangle13isDegeneratedEv"></span><span id="_CPPv2NK4acme8triangle13isDegeneratedEv"></span><span id="acme::triangle::isDegenerated__voidC"></span><span class="target" id="a00147_1a9b96e6526db06fc1630145124a019e5c"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDegenerated</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle13isDegeneratedEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check if ray is degenerated (null vector) </p>
+<p>Check if triangle is degenerated to point or segment. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray6degreeEv">
-<span id="_CPPv3NK4acme3ray6degreeEv"></span><span id="_CPPv2NK4acme3ray6degreeEv"></span><span id="acme::ray::degree__voidC"></span><span class="target" id="a00147_1a32f5da013012511773ca8fe773c0e6cd"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">degree</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray6degreeEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle6degreeEv">
+<span id="_CPPv3NK4acme8triangle6degreeEv"></span><span id="_CPPv2NK4acme8triangle6degreeEv"></span><span id="acme::triangle::degree__voidC"></span><span class="target" id="a00147_1a536b2a93d6b7c0ea83d108c03d22ba72"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <code class="sig-name descname"><span class="pre">degree</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle6degreeEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Return object hierarchical degree. </p>
@@ -345,8 +458,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8whattypeEv">
-<span id="_CPPv3NK4acme3ray8whattypeEv"></span><span id="_CPPv2NK4acme3ray8whattypeEv"></span><span id="acme::ray::whattype__voidC"></span><span class="target" id="a00147_1a957ebfeed37c6c07d3cef4617a25180d"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">whattype</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8whattypeEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle4typeEv">
+<span id="_CPPv3NK4acme8triangle4typeEv"></span><span id="_CPPv2NK4acme8triangle4typeEv"></span><span id="acme::triangle::type__voidC"></span><span class="target" id="a00147_1a9caa7908cf57e1ed72574e7af012ee3b"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">type</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle4typeEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Return object type as string. </p>
@@ -354,8 +467,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray6isNoneEv">
-<span id="_CPPv3NK4acme3ray6isNoneEv"></span><span id="_CPPv2NK4acme3ray6isNoneEv"></span><span id="acme::ray::isNone__voidC"></span><span class="target" id="a00147_1a9773909aa54466cd40a2f1324ab48365"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isNone</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray6isNoneEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle6isNoneEv">
+<span id="_CPPv3NK4acme8triangle6isNoneEv"></span><span id="_CPPv2NK4acme8triangle6isNoneEv"></span><span id="acme::triangle::isNone__voidC"></span><span class="target" id="a00147_1a4f94f560fcd6af803c1ca93fa0066b46"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isNone</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle6isNoneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is no entity. </p>
@@ -363,17 +476,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8isMatrixEv">
-<span id="_CPPv3NK4acme3ray8isMatrixEv"></span><span id="_CPPv2NK4acme3ray8isMatrixEv"></span><span id="acme::ray::isMatrix__voidC"></span><span class="target" id="a00147_1ae9348e0b03ec546a11134e49f5a2db67"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isMatrix</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8isMatrixEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a point. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8isVectorEv">
-<span id="_CPPv3NK4acme3ray8isVectorEv"></span><span id="_CPPv2NK4acme3ray8isVectorEv"></span><span id="acme::ray::isVector__voidC"></span><span class="target" id="a00147_1a7ee4f229468134d643fab8c8a74f2c5f"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isVector</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8isVectorEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle7isPointEv">
+<span id="_CPPv3NK4acme8triangle7isPointEv"></span><span id="_CPPv2NK4acme8triangle7isPointEv"></span><span id="acme::triangle::isPoint__voidC"></span><span class="target" id="a00147_1a7fa07a4c7e47cb61d5c9da06250e47a5"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPoint</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle7isPointEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a vector. </p>
@@ -381,8 +485,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray6isLineEv">
-<span id="_CPPv3NK4acme3ray6isLineEv"></span><span id="_CPPv2NK4acme3ray6isLineEv"></span><span id="acme::ray::isLine__voidC"></span><span class="target" id="a00147_1abe4ee14712f16d4f843937641c02a389"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isLine</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray6isLineEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle6isLineEv">
+<span id="_CPPv3NK4acme8triangle6isLineEv"></span><span id="_CPPv2NK4acme8triangle6isLineEv"></span><span id="acme::triangle::isLine__voidC"></span><span class="target" id="a00147_1a4499636a3846e588f0812a69514fa80f"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isLine</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle6isLineEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a line. </p>
@@ -390,8 +494,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray5isRayEv">
-<span id="_CPPv3NK4acme3ray5isRayEv"></span><span id="_CPPv2NK4acme3ray5isRayEv"></span><span id="acme::ray::isRay__voidC"></span><span class="target" id="a00147_1a5133ee41264e9dcd39caba6ec2a88412"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isRay</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray5isRayEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle5isRayEv">
+<span id="_CPPv3NK4acme8triangle5isRayEv"></span><span id="_CPPv2NK4acme8triangle5isRayEv"></span><span id="acme::triangle::isRay__voidC"></span><span class="target" id="a00147_1a5d0ce1044912488c55ca98eb4cf43f34"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isRay</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle5isRayEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a ray. </p>
@@ -399,8 +503,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray7isPlaneEv">
-<span id="_CPPv3NK4acme3ray7isPlaneEv"></span><span id="_CPPv2NK4acme3ray7isPlaneEv"></span><span id="acme::ray::isPlane__voidC"></span><span class="target" id="a00147_1af20907970713fe16142fa72da2b47034"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray7isPlaneEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle7isPlaneEv">
+<span id="_CPPv3NK4acme8triangle7isPlaneEv"></span><span id="_CPPv2NK4acme8triangle7isPlaneEv"></span><span id="acme::triangle::isPlane__voidC"></span><span class="target" id="a00147_1a892afe9be05abd7ae45763d5959f51c9"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle7isPlaneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a plane. </p>
@@ -408,8 +512,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray9isSegmentEv">
-<span id="_CPPv3NK4acme3ray9isSegmentEv"></span><span id="_CPPv2NK4acme3ray9isSegmentEv"></span><span id="acme::ray::isSegment__voidC"></span><span class="target" id="a00147_1ada57045083ee0b6d343b01a86e7becbb"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSegment</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray9isSegmentEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle9isSegmentEv">
+<span id="_CPPv3NK4acme8triangle9isSegmentEv"></span><span id="_CPPv2NK4acme8triangle9isSegmentEv"></span><span id="acme::triangle::isSegment__voidC"></span><span class="target" id="a00147_1a297ebaf886d99449dd3779dacf119df2"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSegment</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle9isSegmentEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a segment. </p>
@@ -417,8 +521,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray10isTriangleEv">
-<span id="_CPPv3NK4acme3ray10isTriangleEv"></span><span id="_CPPv2NK4acme3ray10isTriangleEv"></span><span id="acme::ray::isTriangle__voidC"></span><span class="target" id="a00147_1adb9c5dcbd4d11da396bbfebf1a05f76a"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isTriangle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray10isTriangleEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle10isTriangleEv">
+<span id="_CPPv3NK4acme8triangle10isTriangleEv"></span><span id="_CPPv2NK4acme8triangle10isTriangleEv"></span><span id="acme::triangle::isTriangle__voidC"></span><span class="target" id="a00147_1a14c358962dbd123fcdf6c13ca280ddc0"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isTriangle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle10isTriangleEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a triangle. </p>
@@ -426,8 +530,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray8isCircleEv">
-<span id="_CPPv3NK4acme3ray8isCircleEv"></span><span id="_CPPv2NK4acme3ray8isCircleEv"></span><span id="acme::ray::isCircle__voidC"></span><span class="target" id="a00147_1a53c0a28ee4a0f7ae66b55cfd95ed41f8"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isCircle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray8isCircleEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle8isCircleEv">
+<span id="_CPPv3NK4acme8triangle8isCircleEv"></span><span id="_CPPv2NK4acme8triangle8isCircleEv"></span><span id="acme::triangle::isCircle__voidC"></span><span class="target" id="a00147_1ab2f76ea4e0dd2d6b14d276d8108d5fbc"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isCircle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle8isCircleEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a circle. </p>
@@ -435,11 +539,11 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme3ray5isBoxEv">
-<span id="_CPPv3NK4acme3ray5isBoxEv"></span><span id="_CPPv2NK4acme3ray5isBoxEv"></span><span id="acme::ray::isBox__voidC"></span><span class="target" id="a00147_1abf9b186b832ddcfad57b3895c8671d7f"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isBox</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme3ray5isBoxEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme8triangle5isBoxEv">
+<span id="_CPPv3NK4acme8triangle5isBoxEv"></span><span id="_CPPv2NK4acme8triangle5isBoxEv"></span><span id="acme::triangle::isBox__voidC"></span><span class="target" id="a00147_1a097be33de817946f52bcf82f6cb08724"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isBox</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme8triangle5isBoxEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check whether the object is a box. </p>
+<p>Check whether the object is a aabb. </p>
 </dd>
 </dl>
 
@@ -474,6 +578,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 

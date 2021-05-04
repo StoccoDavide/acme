@@ -33,14 +33,14 @@
 #define INCLUDE_ACME_UTILTIES
 
 #include "acme.hh"
-#include "acme_eigen.hh"
-#include "acme_ray.hh"
+#include "acme_aabb.hh"
+#include "acme_circle.hh"
 #include "acme_line.hh"
 #include "acme_plane.hh"
+#include "acme_ray.hh"
 #include "acme_segment.hh"
 #include "acme_triangle.hh"
-#include "acme_box.hh"
-#include "acme_circle.hh"
+#include "acme_vector_point.hh"
 
 namespace acme
 {
@@ -53,66 +53,59 @@ namespace acme
    |                                   
   \*/
 
-  //!
+  //! Stream out operator for vector or point object
+  out_stream &
+  operator<<(
+      out_stream &os,   //!< Output stream
+      vector const &obj //!< Vector or point object
+  );
+
   //! Stream out operator for line object
-  //!
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os, //!< Output stream
-      line const &obj   //!< Line object
+      out_stream &os, //!< Output stream
+      line const &obj //!< Line object
   );
 
-  //!
   //! Stream out operator for ray object
-  //!
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os, //!< Output stream
-      ray const &obj    //!< Ray object
+      out_stream &os, //!< Output stream
+      ray const &obj  //!< Ray object
   );
 
-  //!
   //! Stream out operator for plane object
-  //!
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os, //!< Output stream
-      plane const &obj  //!< Plane object
+      out_stream &os,  //!< Output stream
+      plane const &obj //!< Plane object
   );
 
-  //!
   //! Stream out operator for segment object
-  //!
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,  //!< Output stream
+      out_stream &os,    //!< Output stream
       segment const &obj //!< Segment object
   );
 
-  //!
-  //! Stream out operator for box object
-  //!
-  ostream_type &
+  //! Stream out operator for aabb object
+  out_stream &
   operator<<(
-      ostream_type &os, //!< Output stream
-      box const &obj    //!< Box object
+      out_stream &os, //!< Output stream
+      aabb const &obj  //!< Box object
   );
 
-  //!
   //! Stream out operator for triangle object
-  //!
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,   //!< Output stream
+      out_stream &os,     //!< Output stream
       triangle const &obj //!< Triangle object
   );
 
-  //!
   //! Stream out operator for circle object
-  //!
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os, //!< Output stream
+      out_stream &os,   //!< Output stream
       circle const &obj //!< Circle object
   );
 

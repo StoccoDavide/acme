@@ -33,8 +33,8 @@
 #define INCLUDE_ACME_SEGMENT
 
 #include "acme.hh"
-#include "acme_eigen.hh"
-#include "acme_box.hh"
+#include "acme_aabb.hh"
+#include "acme_vector_point.hh"
 
 namespace acme
 {
@@ -54,16 +54,16 @@ namespace acme
   */
   class segment : public entity
   {
-  public:
+public:
     typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment object
     typedef std::pair<ptr, ptr> pairptr;        //!< Pair of pointers to segment objects
     typedef std::vector<ptr> vecptr;            //!< Vector of pointers to segment objects
     typedef std::vector<pairptr> vecpairptr;    //!< Vector of pairs of pointers to segment objects
 
-  private:
-    vec3 _point[2]; //!< Segment extrema points
+private:
+    point _point[2]; //!< Segment extrema points
 
-  public:
+public:
     //! Segment class destructor
     ~segment() {}
 
@@ -78,23 +78,23 @@ namespace acme
 
     //! Segment class constructor
     segment(
-        real_type x0, //<! Input x value of first segment point
-        real_type y0, //<! Input y value of first segment point
-        real_type z0, //<! Input z value of first segment point
-        real_type x1, //<! Input x value of second segment point
-        real_type y1, //<! Input y value of second segment point
-        real_type z1  //<! Input z value of second segment point
+        real x0, //<! Input x value of first segment point
+        real y0, //<! Input y value of first segment point
+        real z0, //<! Input z value of first segment point
+        real x1, //<! Input x value of second segment point
+        real y1, //<! Input y value of second segment point
+        real z1  //<! Input z value of second segment point
     );
 
     //! Segment class constructor
     segment(
-        vec3 const &point0, //!< Input first segment point
-        vec3 const &point1  //!< Input second segment point
+        point const &point0, //!< Input first segment point
+        point const &point1  //!< Input second segment point
     );
 
     //! Segment class constructor
     segment(
-        vec3 const point[2] //!< Input segment points
+        point const point[2] //!< Input segment points
     );
 
     //! Equality operator
@@ -110,47 +110,47 @@ namespace acme
     ) const;
 
     //! Get segment centroid
-    vec3
+    point
     centroid(void) const;
 
-    //! Get segment i-th point
-    vec3 const &
-    point(
-        size_t i //!< Intput segment i-th point index
+    //! Get segment i-th vertex
+    point const &
+    vertex(
+        integer i //!< Intput segment i-th vertex index
     ) const;
 
-    //! Set segment i-th point
-    vec3 &
-    point(
-        size_t i //!< Intput segment i-th point index
+    //! Set segment i-th vertex
+    point &
+    vertex(
+        integer i //!< Intput segment i-th vertex index
     );
 
     //! Convert segment to vector
-    vec3
+    vector
     toVector(void) const;
 
     //! Convert segment to normalized vector
-    vec3
+    vector
     toNormalizedVector(void) const;
 
     //! Swap segment points
     void
     swap(void);
 
-    //! Get minimum box containing the current segment object
+    //! Get minimum aabb containing the current segment object
     void
     clamp(
-        box &input //!< Input box object
+        aabb &input //!< Input aabb object
     ) const;
 
     //! Calculate segment length
-    real_type
+    real
     length(void) const;
 
     //! Translate segment by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        point const &input //!< Input translation vector
     );
 
     //! Transform segment with affine transformation matrix
@@ -162,27 +162,24 @@ namespace acme
     // Check whether the point is inside the segment
     bool
     isInside(
-        vec3 const &point //!< Query point
+        point const &query_point //!< Query point
     ) const;
 
-    //! Check if segment is degenerated to point
+    //! Check if segment is degenerated to point˚
     bool
     isDegenerated(void) const;
 
     //! Return object hierarchical degree
-    size_t degree(void) const override { return 6; }
+    integer degree(void) const override { return 6; }
 
     //! Return object type as string
-    std::string whattype(void) const override { return "segment"; }
+    std::string type(void) const override { return "segment"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a point
-    bool isMatrix(void) const override { return false; }
-
     //! Check whether the object is a vector
-    bool isVector(void) const override { return false; }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
     bool isLine(void) const override { return false; }
@@ -202,13 +199,13 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a box
+    //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
   }; // class segment
 
-  static segment const NaN_segment = segment(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number segment type
-  static segment segment_goat = segment(NaN_segment);                         //!< Scapegoat segment type (throwaway non-const object)
+  static segment const NaN_segment = segment(acme::NaN_point, acme::NaN_point); //!< Not-a-Number segment type
+  static segment segment_goat = segment(NaN_segment);                           //!< Scapegoat segment type (throwaway non-const object)
 
 } // namespace acme
 

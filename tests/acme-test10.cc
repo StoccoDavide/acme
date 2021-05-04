@@ -1,15 +1,42 @@
-// GEOMETRY TEST 1 - RAY/TRIANGLE INTERSECTION ON TRIANGLE EDGE
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ACME project                                                    *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
+(*                                                                     *)
+(* The ACME project and its components are supplied under the terms of *)
+(* the open source BSD 2-Clause License. The contents of the ACME      *)
+(* project and its components may not be copied or disclosed except in *)
+(* accordance with the terms of the BSD 2-Clause License.              *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(*                                                                     *)
+(*    Davide Stocco                                                    *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
+(*                                                                     *)
+(***********************************************************************)
+*/
+
+// TEST 10 - AABB TREE INTERSECTION
 
 #include <fstream>
 #include <iostream>
 #include <string>
 
 #include "acme.hh"
+#include "acme_aabbTree.hh"
+#include "acme_aabb.hh"
 #include "acme_intersection.hh"
 #include "acme_math.hh"
 #include "acme_triangle.hh"
-#include "acme_box.hh"
-#include "acme_AABBtree.hh"
 #include "acme_utilities.hh"
 
 using namespace acme;
@@ -18,7 +45,7 @@ using namespace acme;
 int main()
 {
   std::cout
-      << " GEOMETRY TEST 10 - AABB TREE TEST" << std::endl;
+      << "TEST 10 - AABB TREE INTERSECTION" << std::endl;
 
   // Initialize vertices
   vec3 V1[3];
@@ -36,35 +63,35 @@ int main()
   triangle Triangle2(V2);
 
   // Initialize boxes
-  box Box1;
-  box Box2;
+  aabb Box1;
+  aabb Box2;
   Box1.clamp(V1);
   Box2.clamp(V2);
 
-  box::vecptr vecBox;
-  vecBox.push_back(box::ptr(new box(Box1)));
-  vecBox.push_back(box::ptr(new box(Box2)));
+  aabb::vecptr vecBox;
+  vecBox.push_back(aabb::ptr(new aabb(Box1)));
+  vecBox.push_back(aabb::ptr(new aabb(Box2)));
 
-  AABBtree::ptr tree(new AABBtree());
+  aabbTree::ptr tree(new aabbTree());
   tree->build(vecBox);
   std::cout
       << "AABB tree 1" << std::endl;
   tree->print(std::cout);
 
   // Initialize a Boxes to check intersection
-  box::vecptr vecBoxInt;
+  aabb::vecptr vecBoxInt;
   vec3 min(0.0, 0.5, 0.5);
   vec3 max(0.0, 0.5, 0.5);
-  vecBoxInt.push_back(box::ptr(new box(min, max, 0, 0)));
+  vecBoxInt.push_back(aabb::ptr(new aabb(min, max, 0, 0)));
 
-  AABBtree::ptr treeInt(new AABBtree());
+  aabbTree::ptr treeInt(new aabbTree());
   treeInt->build(vecBoxInt);
   std::cout
       << "AABB tree 2" << std::endl;
   treeInt->print(std::cout);
 
   // Perform intersection
-  box::vecpairptr intBoxPair;
+  aabb::vecpairptr intBoxPair;
   tree->intersection(*treeInt, intBoxPair);
 
   for (size_t i = 0; i < intBoxPair.size(); ++i)
@@ -82,7 +109,7 @@ int main()
       << "Box 1 = " << Box1 << std::endl
       << "Box 2 = " << Box2 << std::endl
       << std::endl
-      << "GEOMETRY TEST 10: Completed" << std::endl;
+      << "TEST 10: Completed" << std::endl;
 
   // Exit the program
   return 0;

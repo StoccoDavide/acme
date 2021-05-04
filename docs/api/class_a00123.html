@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template Class matrix &#8212; ACME v</title>
+    <title>Class entity &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class none" href="class_a00139.html" />
-    <link rel="prev" title="Class line" href="class_a00135.html" />
+    <link rel="next" title="Class line" href="class_a00127.html" />
+    <link rel="prev" title="Class circle" href="class_a00119.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,21 +37,29 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="template-class-matrix">
-<span id="exhale-class-a00123"></span><h1>Template Class matrix<a class="headerlink" href="#template-class-matrix" title="Permalink to this headline">¶</a>
+  <div class="section" id="class-entity">
+<span id="exhale-class-a00123"></span><h1>Class entity<a class="headerlink" href="#class-entity" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_eigen.hh.html#file-include-acme-eigen-hh"><span class="std std-ref">File acme_eigen.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_include_acme_entity.hh.html#file-include-acme-entity-hh"><span class="std std-ref">File acme_entity.hh</span></a></p></li>
 </ul>
 <div class="section" id="inheritance-relationships">
 <h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
 </h2>
-<div class="section" id="base-types">
-<h3>Base Types<a class="headerlink" href="#base-types" title="Permalink to this headline">¶</a>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a>
 </h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Eigen::Matrix&lt;</span> <span class="pre">T,</span> <span class="pre">rows,</span> <span class="pre">cols</span> <span class="pre">&gt;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00131.html#exhale-class-a00131"><span class="std std-ref">Class entity</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::Vector&lt;</span> <span class="pre">real,</span> <span class="pre">3</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="class_a00151.html#exhale-class-a00151"><span class="std std-ref">Template Class Vector</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::Vector&lt;</span> <span class="pre">T,</span> <span class="pre">rows</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="class_a00151.html#exhale-class-a00151"><span class="std std-ref">Template Class Vector</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::aabb</span></code> (<a class="reference internal" href="class_a00111.html#exhale-class-a00111"><span class="std std-ref">Class aabb</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::circle</span></code> (<a class="reference internal" href="class_a00119.html#exhale-class-a00119"><span class="std std-ref">Class circle</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::line</span></code> (<a class="reference internal" href="class_a00127.html#exhale-class-a00127"><span class="std std-ref">Class line</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::none</span></code> (<a class="reference internal" href="class_a00131.html#exhale-class-a00131"><span class="std std-ref">Class none</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::plane</span></code> (<a class="reference internal" href="class_a00135.html#exhale-class-a00135"><span class="std std-ref">Class plane</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::ray</span></code> (<a class="reference internal" href="class_a00139.html#exhale-class-a00139"><span class="std std-ref">Class ray</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::segment</span></code> (<a class="reference internal" href="class_a00143.html#exhale-class-a00143"><span class="std std-ref">Class segment</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::triangle</span></code> (<a class="reference internal" href="class_a00147.html#exhale-class-a00147"><span class="std std-ref">Class triangle</span></a>)</p></li>
 </ul>
 </div>
 </div>
@@ -59,38 +67,75 @@
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <dl class="cpp class">
-<dt id="_CPPv4I0_i_iEN4acme6matrixE">
-<span id="_CPPv3I0_i_iEN4acme6matrixE"></span><span id="_CPPv2I0_i_iEN4acme6matrixE"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">T</span></code><span class="pre">,</span> <span class="pre">int</span> <code class="sig-name descname"><span class="pre">rows</span></code><span class="pre">,</span> <span class="pre">int</span> <code class="sig-name descname"><span class="pre">cols</span></code><span class="pre">&gt;</span><br><span class="target" id="a00123"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">matrix</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">Eigen</span><span class="pre">::</span><span class="pre">Matrix</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0_i_iEN4acme6matrixE" title="acme::matrix::T"><span class="pre">T</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4I0_i_iEN4acme6matrixE" title="acme::matrix::rows"><span class="pre">rows</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4I0_i_iEN4acme6matrixE" title="acme::matrix::cols"><span class="pre">cols</span></a><span class="pre">&gt;</span><span class="pre">,</span> <em class="property"><span class="pre">public</span></em> <span class="pre">acme</span><span class="pre">::</span><a class="reference internal" href="class_a00131.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><a class="headerlink" href="#_CPPv4I0_i_iEN4acme6matrixE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme6entityE">
+<span id="_CPPv3N4acme6entityE"></span><span id="_CPPv2N4acme6entityE"></span><span id="acme::entity"></span><span class="target" id="a00123"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">entity</span></code><a class="headerlink" href="#_CPPv4N4acme6entityE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Matrix class container. </p>
-<p>Extension of Eigen::Matrix class </p>
+<p>Geometrical entity class container. </p>
+<p>Geometrical entity in 3D space. </p>
+<p>Subclassed by <a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">acme::Vector&lt; real, 3 &gt;</span></a>, <a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">acme::Vector&lt; T, rows &gt;</span></a>, <a class="reference internal" href="class_a00111.html#a00111"><span class="std std-ref">acme::aabb</span></a>, <a class="reference internal" href="class_a00119.html#a00119"><span class="std std-ref">acme::circle</span></a>, <a class="reference internal" href="class_a00127.html#a00127"><span class="std std-ref">acme::line</span></a>, <a class="reference internal" href="class_a00131.html#a00131"><span class="std std-ref">acme::none</span></a>, <a class="reference internal" href="class_a00135.html#a00135"><span class="std std-ref">acme::plane</span></a>, <a class="reference internal" href="class_a00139.html#a00139"><span class="std std-ref">acme::ray</span></a>, <a class="reference internal" href="class_a00143.html#a00143"><span class="std std-ref">acme::segment</span></a>, <a class="reference internal" href="class_a00147.html#a00147"><span class="std std-ref">acme::triangle</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt id="_CPPv4N4acme6entity3ptrE">
+<span id="_CPPv3N4acme6entity3ptrE"></span><span id="_CPPv2N4acme6entity3ptrE"></span><span id="acme::entity::ptr"></span><span class="target" id="a00123_1a30d1035cdd8809cf6cbc40053256b286"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">shared_ptr</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">ptr</span></code><a class="headerlink" href="#_CPPv4N4acme6entity3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shared pointer to geometrical entity. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N4acme6entity7pairptrE">
+<span id="_CPPv3N4acme6entity7pairptrE"></span><span id="_CPPv2N4acme6entity7pairptrE"></span><span id="acme::entity::pairptr"></span><span class="target" id="a00123_1a704732351883bcac1f43378033dc840c"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">pair</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="pre">ptr</span></a><span class="pre">,</span> <a class="reference internal" href="#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">pairptr</span></code><a class="headerlink" href="#_CPPv4N4acme6entity7pairptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Pair of pointers to geometrical entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N4acme6entity6vecptrE">
+<span id="_CPPv3N4acme6entity6vecptrE"></span><span id="_CPPv2N4acme6entity6vecptrE"></span><span id="acme::entity::vecptr"></span><span class="target" id="a00123_1ad609d9c93a22dedc39d0e77ce2e53ff8"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="pre">ptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecptr</span></code><a class="headerlink" href="#_CPPv4N4acme6entity6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p><a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">Vector</span></a> of pointers to geometrical entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N4acme6entity10vecpairptrE">
+<span id="_CPPv3N4acme6entity10vecpairptrE"></span><span id="_CPPv2N4acme6entity10vecpairptrE"></span><span id="acme::entity::vecpairptr"></span><span class="target" id="a00123_1aaf9041f0f61bd690727079b0faffcf28"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">std</span><span class="pre">::</span><span class="pre">vector</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4N4acme6entity7pairptrE" title="acme::entity::pairptr"><span class="pre">pairptr</span></a><span class="pre">&gt;</span> <code class="sig-name descname"><span class="pre">vecpairptr</span></code><a class="headerlink" href="#_CPPv4N4acme6entity10vecpairptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p><a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">Vector</span></a> of pairs of pointers to geometrical entity objects. </p>
+</dd>
+</dl>
+
+</div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4I0EN4acme6matrix6matrixERKN5Eigen10MatrixBaseI7derivedEE">
-<span id="_CPPv3I0EN4acme6matrix6matrixERKN5Eigen10MatrixBaseI7derivedEE"></span><span id="_CPPv2I0EN4acme6matrix6matrixERKN5Eigen10MatrixBaseI7derivedEE"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">derived</span></code><span class="pre">&gt;</span><br><span class="target" id="a00123_1a5b3ebe3b2eecdf42bf31502dff9afa84"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">matrix</span></code><span class="sig-paren">(</span><span class="pre">Eigen</span><span class="pre">::</span><span class="pre">MatrixBase</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN4acme6matrix6matrixERKN5Eigen10MatrixBaseI7derivedEE" title="acme::matrix::matrix::derived"><span class="pre">derived</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4acme6matrix6matrixERKN5Eigen10MatrixBaseI7derivedEE" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4I0EN4acme6matrixaSER6matrixRKN5Eigen10MatrixBaseI7derivedEE">
-<span id="_CPPv3I0EN4acme6matrixaSERKN5Eigen10MatrixBaseI7derivedEE"></span><span id="_CPPv2I0EN4acme6matrixaSERKN5Eigen10MatrixBaseI7derivedEE"></span><span class="pre">template&lt;</span><span class="pre">typename</span> <code class="sig-name descname"><span class="pre">derived</span></code><span class="pre">&gt;</span><br><span class="target" id="a00123_1acc3e268af9879c5ebadb68e7ce955218"></span><em class="property"><span class="pre">inline</span></em> <a class="reference internal" href="#_CPPv4I0_i_iEN4acme6matrixE" title="acme::matrix"><span class="pre">matrix</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><span class="pre">Eigen</span><span class="pre">::</span><span class="pre">MatrixBase</span><span class="pre">&lt;</span><a class="reference internal" href="#_CPPv4I0EN4acme6matrixaSER6matrixRKN5Eigen10MatrixBaseI7derivedEE" title="acme::matrix::operator=::derived"><span class="pre">derived</span></a><span class="pre">&gt;</span> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4acme6matrixaSER6matrixRKN5Eigen10MatrixBaseI7derivedEE" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme6entityD0Ev">
+<span id="_CPPv3N4acme6entityD0Ev"></span><span id="_CPPv2N4acme6entityD0Ev"></span><span id="acme::entity::~entity"></span><span class="target" id="a00123_1a89e8a5f825d508d52f9e4423169f75ee"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">~entity</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme6entityD0Ev" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>other</strong> – Matrix </p>
-</dd>
-</dl>
+<p>Entity class destructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix6degreeEv">
-<span id="_CPPv3NK4acme6matrix6degreeEv"></span><span id="_CPPv2NK4acme6matrix6degreeEv"></span><span id="acme::matrix::degree__voidC"></span><span class="target" id="a00123_1adb90c4e12f4634d3f8ec8fc531dba9d3"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">size_t</span> <code class="sig-name descname"><span class="pre">degree</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix6degreeEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme6entity6entityEv">
+<span id="_CPPv3N4acme6entity6entityEv"></span><span id="_CPPv2N4acme6entity6entityEv"></span><span id="acme::entity::entity"></span><span class="target" id="a00123_1a8e7b0764a8cd9a367fd56231597fe517"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">entity</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme6entity6entityEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Entity class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4acme6entity6degreeEv">
+<span id="_CPPv3NK4acme6entity6degreeEv"></span><span id="_CPPv2NK4acme6entity6degreeEv"></span><span id="acme::entity::degree__voidC"></span><span class="target" id="a00123_1af5dda22aead33ec4ef448c26c940c195"></span><em class="property"><span class="pre">virtual</span></em> <a class="reference internal" href="typedef_a00107_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <code class="sig-name descname"><span class="pre">degree</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity6degreeEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Return object hierarchical degree. </p>
@@ -98,8 +143,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix8whattypeEv">
-<span id="_CPPv3NK4acme6matrix8whattypeEv"></span><span id="_CPPv2NK4acme6matrix8whattypeEv"></span><span id="acme::matrix::whattype__voidC"></span><span class="target" id="a00123_1a855c0aa725189bd40c5776fc30bea567"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">whattype</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix8whattypeEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity4typeEv">
+<span id="_CPPv3NK4acme6entity4typeEv"></span><span id="_CPPv2NK4acme6entity4typeEv"></span><span id="acme::entity::type__voidC"></span><span class="target" id="a00123_1ac2e74fd5ab901b53d8242d3bb70755a4"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">type</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity4typeEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Return object type as string. </p>
@@ -107,8 +152,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix6isNoneEv">
-<span id="_CPPv3NK4acme6matrix6isNoneEv"></span><span id="_CPPv2NK4acme6matrix6isNoneEv"></span><span id="acme::matrix::isNone__voidC"></span><span class="target" id="a00123_1acd0cd58aba204c3c0a2f63e1dbbdf8c4"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isNone</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix6isNoneEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity6isNoneEv">
+<span id="_CPPv3NK4acme6entity6isNoneEv"></span><span id="_CPPv2NK4acme6entity6isNoneEv"></span><span id="acme::entity::isNone__voidC"></span><span class="target" id="a00123_1a6dcf252926f1c1b1aad147d5caa5eed3"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isNone</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity6isNoneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is no entity. </p>
@@ -116,17 +161,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix8isMatrixEv">
-<span id="_CPPv3NK4acme6matrix8isMatrixEv"></span><span id="_CPPv2NK4acme6matrix8isMatrixEv"></span><span id="acme::matrix::isMatrix__voidC"></span><span class="target" id="a00123_1aa62dd72074bb5825eb62d7ffab64cbf7"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isMatrix</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix8isMatrixEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a point. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix8isVectorEv">
-<span id="_CPPv3NK4acme6matrix8isVectorEv"></span><span id="_CPPv2NK4acme6matrix8isVectorEv"></span><span id="acme::matrix::isVector__voidC"></span><span class="target" id="a00123_1a90b645aa7a68d77bd44620b1d91675bc"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isVector</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix8isVectorEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity7isPointEv">
+<span id="_CPPv3NK4acme6entity7isPointEv"></span><span id="_CPPv2NK4acme6entity7isPointEv"></span><span id="acme::entity::isPoint__voidC"></span><span class="target" id="a00123_1a0ca14dc6ba289cadc1207064eae92373"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPoint</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity7isPointEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a vector. </p>
@@ -134,8 +170,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix6isLineEv">
-<span id="_CPPv3NK4acme6matrix6isLineEv"></span><span id="_CPPv2NK4acme6matrix6isLineEv"></span><span id="acme::matrix::isLine__voidC"></span><span class="target" id="a00123_1abfdbff514ffbaefd2f2717dd15b723b5"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isLine</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix6isLineEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity6isLineEv">
+<span id="_CPPv3NK4acme6entity6isLineEv"></span><span id="_CPPv2NK4acme6entity6isLineEv"></span><span id="acme::entity::isLine__voidC"></span><span class="target" id="a00123_1a68bd00af11831aee5fef3531850ff433"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isLine</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity6isLineEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a line. </p>
@@ -143,8 +179,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix5isRayEv">
-<span id="_CPPv3NK4acme6matrix5isRayEv"></span><span id="_CPPv2NK4acme6matrix5isRayEv"></span><span id="acme::matrix::isRay__voidC"></span><span class="target" id="a00123_1a0a70fbfc39825200e2a1ebf6348d5ce9"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isRay</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix5isRayEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity5isRayEv">
+<span id="_CPPv3NK4acme6entity5isRayEv"></span><span id="_CPPv2NK4acme6entity5isRayEv"></span><span id="acme::entity::isRay__voidC"></span><span class="target" id="a00123_1a9ab36cd844cde471a9c3908c1cee09a2"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isRay</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity5isRayEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a ray. </p>
@@ -152,8 +188,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix7isPlaneEv">
-<span id="_CPPv3NK4acme6matrix7isPlaneEv"></span><span id="_CPPv2NK4acme6matrix7isPlaneEv"></span><span id="acme::matrix::isPlane__voidC"></span><span class="target" id="a00123_1a1233cb9deb852ee8a8bb7696848d337e"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix7isPlaneEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity7isPlaneEv">
+<span id="_CPPv3NK4acme6entity7isPlaneEv"></span><span id="_CPPv2NK4acme6entity7isPlaneEv"></span><span id="acme::entity::isPlane__voidC"></span><span class="target" id="a00123_1a9df7782cc14bf5d21cd85e59ef1c1d5c"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity7isPlaneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a plane. </p>
@@ -161,8 +197,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix9isSegmentEv">
-<span id="_CPPv3NK4acme6matrix9isSegmentEv"></span><span id="_CPPv2NK4acme6matrix9isSegmentEv"></span><span id="acme::matrix::isSegment__voidC"></span><span class="target" id="a00123_1a77d7e276e7e06eba5339891aa98a411c"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSegment</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix9isSegmentEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity9isSegmentEv">
+<span id="_CPPv3NK4acme6entity9isSegmentEv"></span><span id="_CPPv2NK4acme6entity9isSegmentEv"></span><span id="acme::entity::isSegment__voidC"></span><span class="target" id="a00123_1ac7d126acf87e2da6a552814be7ebc126"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSegment</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity9isSegmentEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a segment. </p>
@@ -170,8 +206,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix10isTriangleEv">
-<span id="_CPPv3NK4acme6matrix10isTriangleEv"></span><span id="_CPPv2NK4acme6matrix10isTriangleEv"></span><span id="acme::matrix::isTriangle__voidC"></span><span class="target" id="a00123_1af03d053895385e157be6ccd008b78377"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isTriangle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix10isTriangleEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity10isTriangleEv">
+<span id="_CPPv3NK4acme6entity10isTriangleEv"></span><span id="_CPPv2NK4acme6entity10isTriangleEv"></span><span id="acme::entity::isTriangle__voidC"></span><span class="target" id="a00123_1a5d0657b831d799da5f6f2fed1ff12179"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isTriangle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity10isTriangleEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a triangle. </p>
@@ -179,8 +215,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix8isCircleEv">
-<span id="_CPPv3NK4acme6matrix8isCircleEv"></span><span id="_CPPv2NK4acme6matrix8isCircleEv"></span><span id="acme::matrix::isCircle__voidC"></span><span class="target" id="a00123_1a05497799059877f6277b584739a5e76a"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isCircle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix8isCircleEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity8isCircleEv">
+<span id="_CPPv3NK4acme6entity8isCircleEv"></span><span id="_CPPv2NK4acme6entity8isCircleEv"></span><span id="acme::entity::isCircle__voidC"></span><span class="target" id="a00123_1a1808f5c783f0418e532764e5b280d4cd"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isCircle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity8isCircleEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is a circle. </p>
@@ -188,11 +224,11 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme6matrix5isBoxEv">
-<span id="_CPPv3NK4acme6matrix5isBoxEv"></span><span id="_CPPv2NK4acme6matrix5isBoxEv"></span><span id="acme::matrix::isBox__voidC"></span><span class="target" id="a00123_1a51978addb8bc408b903434450913b895"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isBox</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme6matrix5isBoxEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme6entity5isBoxEv">
+<span id="_CPPv3NK4acme6entity5isBoxEv"></span><span id="_CPPv2NK4acme6entity5isBoxEv"></span><span id="acme::entity::isBox__voidC"></span><span class="target" id="a00123_1aebf0503fbbb5bffb0681e37172e61fb0"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isBox</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <span class="pre">=</span> <span class="pre">0</span><a class="headerlink" href="#_CPPv4NK4acme6entity5isBoxEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check whether the object is a box. </p>
+<p>Check whether the object is a aabb. </p>
 </dd>
 </dl>
 
@@ -227,6 +263,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 

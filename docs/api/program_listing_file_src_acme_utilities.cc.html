@@ -83,13 +83,27 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
+       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
+       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"[ "</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" ]'"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
+    <span class="n">vector</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -104,13 +118,13 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
+    <span class="n">vector</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -125,13 +139,13 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="nf">obj_normal</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
+    <span class="n">vector</span> <span class="nf">obj_normal</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -146,34 +160,34 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_point_0</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
-    <span class="n">vec3</span> <span class="nf">obj_point_1</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">point</span> <span class="nf">obj_point_0</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="n">point</span> <span class="nf">obj_point_1</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
-       <span class="o">&lt;&lt;</span> <span class="s">"Point 0 = "</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Vertex 0 = "</span>
        <span class="o">&lt;&lt;</span> <span class="s">"[ "</span> <span class="o">&lt;&lt;</span> <span class="n">obj_point_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">obj_point_0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">obj_point_0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" ]'"</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
-       <span class="o">&lt;&lt;</span> <span class="s">"Point 1 = "</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Vertex 1 = "</span>
        <span class="o">&lt;&lt;</span> <span class="s">"[ "</span> <span class="o">&lt;&lt;</span> <span class="n">obj_point_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">obj_point_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">obj_point_1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" ]'"</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
-      <span class="n">box</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_point_min</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">min</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="nf">obj_point_max</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">max</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">obj_point_min</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">min</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">obj_point_max</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">max</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -188,14 +202,14 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_vertex_0</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
-    <span class="n">vec3</span> <span class="nf">obj_vertex_2</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-    <span class="n">vec3</span> <span class="nf">obj_vertex_1</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+    <span class="n">point</span> <span class="nf">obj_vertex_0</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="n">point</span> <span class="nf">obj_vertex_2</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">point</span> <span class="nf">obj_vertex_1</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -211,12 +225,12 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vec3</span> <span class="nf">obj_center</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">obj_center</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
     <span class="n">vec3</span> <span class="nf">obj_normal</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
@@ -234,9 +248,9 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">ostream_type</span> <span class="o">&amp;</span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-      <span class="n">ostream_type</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
       <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
@@ -284,6 +298,12 @@
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#general-features">General features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#future-developments">Future developments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#online-documentation">Online documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#about-the-authors">About the authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library_root.html">C++ API</a></li>
 </ul>
 
