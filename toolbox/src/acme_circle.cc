@@ -75,7 +75,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
+  real
   circle::radius(void)
       const
   {
@@ -84,7 +84,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
+  point const &
   circle::center(void)
       const
   {
@@ -113,7 +113,7 @@ namespace acme
 
   void
   circle::radius(
-      real_type input)
+      real input)
   {
     this->_radius = input;
   }
@@ -122,7 +122,7 @@ namespace acme
 
   void
   circle::center(
-      vec3 const &input)
+      point const &input)
   {
     this->_plane.origin(input);
   }
@@ -182,11 +182,11 @@ namespace acme
 
   bool
   circle::isInside(
-      vec3 const &point)
+      point const &query_point)
       const
   {
-    return this->_plane.isInside(point) &&
-           (this->_plane.origin() - point).norm() <= this->_radius;
+    return this->_plane.isInside(query_point) &&
+           (this->_plane.origin() - query_point).norm() <= this->_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -195,7 +195,7 @@ namespace acme
   circle::isDegenerated(void)
       const
   {
-    return acme::isApprox(this->_radius, real_type(0.0), acme::Epsilon) &&
+    return acme::isApprox(this->_radius, real(0.0), acme::Epsilon) &&
            this->_plane.isDegenerated();
   }
 

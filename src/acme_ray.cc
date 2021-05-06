@@ -83,7 +83,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector const &
+  vec3 const &
   ray::direction()
       const
   {
@@ -103,7 +103,7 @@ namespace acme
 
   void
   ray::direction(
-      vector const &input)
+      vec3 const &input)
   {
     this->_direction = input;
   }
@@ -118,7 +118,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector
+  vec3
   ray::toVector(void)
       const
   {
@@ -127,7 +127,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector
+  vec3
   ray::toNormalizedVector(void)
       const
   {
@@ -146,7 +146,7 @@ namespace acme
 
   void
   ray::translate(
-      vector const &input)
+      vec3 const &input)
   {
     this->_origin = input + this->_origin;
   }
@@ -157,8 +157,8 @@ namespace acme
   ray::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_origin, matrix);
-    acme::transformVector(this->_direction, matrix);
+    this->_origin.transform(matrix);
+    acme::transform(this->_direction, matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -46,10 +46,10 @@ int main()
   std::cout
       << "TEST 11 - PLANE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl;
 
-  vec3 V1[3];
-  V1[0] = vec3(1.0, 0.0, 0.0);
-  V1[1] = vec3(0.0, 1.0, 0.0);
-  V1[2] = vec3(-1.0, 0.0, 0.0);
+  point V1[3];
+  V1[0] = point(1.0, 0.0, 0.0);
+  V1[1] = point(0.0, 1.0, 0.0);
+  V1[2] = point(-1.0, 0.0, 0.0);
 
   // Initialize triangle
   triangle Triangle1(V1);

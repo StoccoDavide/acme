@@ -93,7 +93,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector const &
+  vec3 const &
   circle::normal(void)
       const
   {
@@ -131,7 +131,7 @@ namespace acme
 
   void
   circle::normal(
-      vector const &input)
+      vec3 const &input)
   {
     this->_plane.normal(input);
   }
@@ -164,7 +164,7 @@ namespace acme
 
   void
   circle::translate(
-      vector const &input)
+      vec3 const &input)
   {
     this->_plane.translate(input);
   }

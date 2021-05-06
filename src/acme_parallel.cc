@@ -58,43 +58,43 @@ namespace acme
       // - - - - - - - - - - - - - - VECTOR - - - - - - - - - - - - - -
 
     case 202:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
-                              *dynamic_cast<vector const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
+                              *dynamic_cast<vec3 const *>(entity1),
                               tolerance);
       break;
 
     case 203:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<line const *>(entity1),
                               tolerance);
       break;
 
     case 204:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<ray const *>(entity1),
                               tolerance);
       break;
 
     case 205:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<plane const *>(entity1),
                               tolerance);
       break;
 
     case 206:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<segment const *>(entity1),
                               tolerance);
       break;
 
     case 207:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<triangle const *>(entity1),
                               tolerance);
       break;
 
     case 208:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<circle const *>(entity1),
                               tolerance);
       break;
@@ -102,7 +102,7 @@ namespace acme
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 302:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
                               *dynamic_cast<line const *>(entity0),
                               tolerance);
       break;
@@ -146,7 +146,7 @@ namespace acme
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 402:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<line const *>(entity1),
                               tolerance);
       break;
@@ -190,7 +190,7 @@ namespace acme
       // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 502:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity0),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity0),
                               *dynamic_cast<line const *>(entity1),
                               tolerance);
       break;
@@ -234,7 +234,7 @@ namespace acme
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 602:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
                               *dynamic_cast<segment const *>(entity0),
                               tolerance);
       break;
@@ -278,7 +278,7 @@ namespace acme
       // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 702:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
                               *dynamic_cast<triangle const *>(entity0),
                               tolerance);
       break;
@@ -321,7 +321,7 @@ namespace acme
       // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 802:
-      return acme::isParallel(*dynamic_cast<vector const *>(entity1),
+      return acme::isParallel(*dynamic_cast<vec3 const *>(entity1),
                               *dynamic_cast<circle const *>(entity0),
                               tolerance);
       break;
@@ -375,8 +375,8 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector0,
-      vector const &vector1,
+      vec3 const &vector0,
+      vec3 const &vector1,
       real tolerance)
   {
     return acme::isApprox((vector0.cross(vector1)).dot(vector0), real(0.0), tolerance);
@@ -386,7 +386,7 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector,
+      vec3 const &vector,
       line const &line,
       real tolerance)
   {
@@ -397,7 +397,7 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector,
+      vec3 const &vector,
       ray const &ray,
       real tolerance)
   {
@@ -408,7 +408,7 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector,
+      vec3 const &vector,
       plane const &plane,
       real tolerance)
   {
@@ -419,7 +419,7 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector,
+      vec3 const &vector,
       segment const &segment,
       real tolerance)
   {
@@ -430,7 +430,7 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector,
+      vec3 const &vector,
       triangle const &triangle,
       real tolerance)
   {
@@ -441,7 +441,7 @@ namespace acme
 
   bool
   isParallel(
-      vector const &vector,
+      vec3 const &vector,
       circle const &circle,
       real tolerance)
   {

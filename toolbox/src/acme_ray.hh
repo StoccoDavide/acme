@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_RAY
 
 #include "acme.hh"
-#include "acme_eigen.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -54,18 +54,17 @@ namespace acme
    */
   class ray : public entity
   {
-  public:
-    typedef std::shared_ptr<ray const> ptr; //!< Pointer to ray object
-    typedef std::pair<ptr, ptr> pairptr;    //!< Pair of pointers to ray objects
-    typedef std::vector<ptr> vecptr;        //!< Vector of pointers to ray objects
-    typedef std::vector<pairptr>
-        vecpairptr; //!< Vector of pairs of pointers to ray objects
+public:
+    typedef std::shared_ptr<ray const> ptr;  //!< Pointer to ray object
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
 
-  private:
-    vec3 _origin;    //!< Ray origin point
+private:
+    point _origin;   //!< Ray origin point
     vec3 _direction; //!< Ray direction vector
 
-  public:
+public:
     //! Ray class destructor
     ~ray() {}
 
@@ -80,21 +79,21 @@ namespace acme
 
     //! Ray class constructor
     ray(
-        real_type ox, //<! Input x value of ray origin point
-        real_type oy, //<! Input y value of ray origin point
-        real_type oz, //<! Input z value of ray origin point
-        real_type dx, //<! Input x value of ray direction
-        real_type dy, //<! Input y value of ray direction
-        real_type dz  //<! Input z value of ray direction
+        real ox, //<! Input x value of ray origin point
+        real oy, //<! Input y value of ray origin point
+        real oz, //<! Input z value of ray origin point
+        real dx, //<! Input x value of ray direction
+        real dy, //<! Input y value of ray direction
+        real dz  //<! Input z value of ray direction
         )
-        : _origin(vec3(ox, oy, oz)),
+        : _origin(point(ox, oy, oz)),
           _direction(vec3(dx, dy, dz))
     {
     }
 
     //! Ray class constructor
     ray(
-        vec3 const &origin,   //!< Input ray origin point
+        point const &origin,  //!< Input ray origin point
         vec3 const &direction //!< Input ray direction vector
         )
         : _origin(origin),
@@ -104,30 +103,36 @@ namespace acme
 
     //! Equality operator
     ray &
-    operator=(ray const &input //!< Input ray object
+    operator=(
+        ray const &input //!< Input ray object
     );
 
     //! Check if ray objects are (almost) equal
     bool
-    isApprox(ray const &input //!< Input ray object
+    isApprox(
+        ray const &input //!< Input ray object
     ) const;
 
     //! Return ray origin point
-    vec3 const &
-    origin() const;
+    point const &
+    origin(void)
+        const;
 
     //! Return ray direction vector
     vec3 const &
-    direction(void) const;
+    direction(void)
+        const;
 
     //! Set ray origin point
     void
-    origin(vec3 const &input //!< input ray object
+    origin(
+        point const &input //!< input ray object
     );
 
     //! Set ray direction vector
     void
-    direction(vec3 const &input //!< input ray object
+    direction(
+        vec3 const &input //!< input ray object
     );
 
     //! Normalize ray direction vector
@@ -136,11 +141,13 @@ namespace acme
 
     //! Convert ray to vector
     vec3
-    toVector(void) const;
+    toVector(void)
+        const;
 
     //! Convert ray to normalized vector
     vec3
-    toNormalizedVector(void) const;
+    toNormalizedVector(void)
+        const;
 
     //! Reverse ray direction
     void
@@ -148,110 +155,58 @@ namespace acme
 
     //! Translate ray by vector
     void
-    translate(vec3 const &input //!< Input translation vector
-    );
+    translate(
+        vec3 const &input //!< Input translation vector
+        ) override;
 
     //! Transform ray with affine transformation matrix
     void
-    transform(affine const &matrix //!< 4x4 affine transformation matrix
-    );
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+        ) override;
 
     // Check whether the point is inside the ray
     bool
-    isInside(vec3 const &point //!< Query point
+    isInside(
+        point const &query_point //!< Query point
     ) const;
 
     //! Check if ray is degenerated (null vector)
     bool
-    isDegenerated(void) const;
+    isDegenerated(void) const override;
 
     //! Return object hierarchical degree
-    size_t
-    degree(void) const override
-    {
-      return 4;
-    }
+    integer degree(void) const override { return 4; }
 
     //! Return object type as string
-    std::string
-    whattype(void)
-        const
-        override
-    {
-      return "ray";
-    }
+    std::string type(void) const override { return "ray"; }
 
     //! Check whether the object is no entity
-    bool
-    isNone(void)
-        const
-        override
-    {
-      return false;
-    }
+    bool isNone(void) const override { return false; }
 
     //! Check whether the object is a point
-    bool
-    isMatrix(void) const override
-    {
-      return false;
-    }
-
-    //! Check whether the object is a vector
-    bool
-    isVector(void) const override
-    {
-      return false;
-    }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
-    bool
-    isLine(void) const override
-    {
-      return false;
-    }
+    bool isLine(void) const override { return false; }
 
     //! Check whether the object is a ray
-    bool
-    isRay(void) const override
-    {
-      return true;
-    }
+    bool isRay(void) const override { return true; }
 
     //! Check whether the object is a plane
-    bool
-    isPlane(void) const override
-    {
-      return false;
-    }
+    bool isPlane(void) const override { return false; }
 
     //! Check whether the object is a segment
-    bool
-    isSegment(void) const override
-    {
-      return false;
-    }
+    bool isSegment(void) const override { return false; }
 
     //! Check whether the object is a triangle
-    bool
-    isTriangle(void) const override
-    {
-      return false;
-    }
+    bool isTriangle(void) const override { return false; }
 
     //! Check whether the object is a circle
-    bool
-    isCircle(void) const override
-    {
-      return false;
-    }
+    bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a box
-    bool
-    isBox(void) const override
-    {
-      return false;
-    }
+    //! Check whether the object is a aabb
+    bool isBox(void) const override { return false; }
 
   }; // class ray
 

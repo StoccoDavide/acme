@@ -82,7 +82,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector const &
+  vec3 const &
   plane::normal() const
   {
     return this->_normal;
@@ -101,7 +101,7 @@ namespace acme
 
   void
   plane::normal(
-      vector const &input)
+      vec3 const &input)
   {
     this->_normal = input;
   }
@@ -165,7 +165,7 @@ namespace acme
 
   void
   plane::translate(
-      vector const &input)
+      vec3 const &input)
   {
     this->_origin = input + this->_origin;
   }
@@ -176,8 +176,8 @@ namespace acme
   plane::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_origin, matrix);
-    acme::transformVector(this->_normal, matrix);
+    this->_origin.transform(matrix);
+    acme::transform(this->_normal, matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

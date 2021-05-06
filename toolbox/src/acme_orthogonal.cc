@@ -49,9 +49,9 @@ namespace acme
   isOrthogonal(
       entity const *entity0,
       entity const *entity1,
-      real_type tolerance)
+      real tolerance)
   {
-    int_type slide = entity0->degree() * 100 + entity1->degree();
+    integer slide = entity0->degree() * 100 + entity1->degree();
     switch (slide)
     {
 
@@ -376,75 +376,75 @@ namespace acme
   isOrthogonal(
       vec3 const &vector0,
       vec3 const &vector1,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector0.isOrthogonal(vector1, tolerance);
+    return acme::isApprox(vector0.dot(vector1), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vec3 const &vector,
+      vec3 const &vec3,
       line const &line,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isOrthogonal(line.direction(), tolerance);
+    return acme::isOrthogonal(vec3, line.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vec3 const &vector,
+      vec3 const &vec3,
       ray const &ray,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isOrthogonal(ray.direction(), tolerance);
+    return acme::isOrthogonal(vec3, ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vec3 const &vector,
+      vec3 const &vec3,
       plane const &plane,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isParallel(plane.normal(), tolerance);
+    return acme::isParallel(vec3, plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vec3 const &vector,
+      vec3 const &vec3,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isOrthogonal(segment.toNormalizedVector(), tolerance);
+    return acme::isOrthogonal(vec3, segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vec3 const &vector,
+      vec3 const &vec3,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isParallel(triangle.normal(), tolerance);
+    return acme::isParallel(vec3, triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vec3 const &vector,
+      vec3 const &vec3,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return vector.isParallel(circle.normal(), tolerance);
+    return acme::isParallel(vec3, circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -453,9 +453,9 @@ namespace acme
   isOrthogonal(
       line const &line0,
       line const &line1,
-      real_type tolerance)
+      real tolerance)
   {
-    return line0.direction().isOrthogonal(line1.direction(), tolerance);
+    return acme::isOrthogonal(line0.direction(), line1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -464,9 +464,9 @@ namespace acme
   isOrthogonal(
       ray const &ray0,
       ray const &ray1,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray0.direction().isOrthogonal(ray1.direction(), tolerance);
+    return acme::isOrthogonal(ray0.direction(), ray1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -475,9 +475,9 @@ namespace acme
   isOrthogonal(
       plane const &plane0,
       plane const &plane1,
-      real_type tolerance)
+      real tolerance)
   {
-    return plane0.normal().isOrthogonal(plane1.normal(), tolerance);
+    return acme::isOrthogonal(plane0.normal(), plane1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -486,9 +486,9 @@ namespace acme
   isOrthogonal(
       segment const &segment0,
       segment const &segment1,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment0.toNormalizedVector().isOrthogonal(segment1.toNormalizedVector(), tolerance);
+    return acme::isOrthogonal(segment0.toNormalizedVector(), segment1.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -497,9 +497,9 @@ namespace acme
   isOrthogonal(
       triangle const &triangle0,
       triangle const &triangle1,
-      real_type tolerance)
+      real tolerance)
   {
-    return triangle0.normal().isOrthogonal(triangle1.normal(), tolerance);
+    return acme::isOrthogonal(triangle0.normal(), triangle1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -508,9 +508,9 @@ namespace acme
   isOrthogonal(
       circle const &circle0,
       circle const &circle1,
-      real_type tolerance)
+      real tolerance)
   {
-    return circle0.normal().isOrthogonal(circle1.normal(), tolerance);
+    return acme::isOrthogonal(circle0.normal(), circle1.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -519,9 +519,9 @@ namespace acme
   isOrthogonal(
       line const &line,
       ray const &ray,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isOrthogonal(ray.direction(), tolerance);
+    return acme::isOrthogonal(line.direction(), ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -530,9 +530,9 @@ namespace acme
   isOrthogonal(
       line const &line,
       plane const &plane,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isOrthogonal(plane.normal(), tolerance);
+    return acme::isOrthogonal(line.direction(), plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -541,9 +541,9 @@ namespace acme
   isOrthogonal(
       line const &line,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isOrthogonal(segment.toNormalizedVector(), tolerance);
+    return acme::isOrthogonal(line.direction(), segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -552,9 +552,9 @@ namespace acme
   isOrthogonal(
       line const &line,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isParallel(triangle.normal(), tolerance);
+    return acme::isParallel(line.direction(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -563,9 +563,9 @@ namespace acme
   isOrthogonal(
       line const &line,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isParallel(circle.normal(), tolerance);
+    return acme::isParallel(line.direction(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -574,9 +574,9 @@ namespace acme
   isOrthogonal(
       ray const &ray,
       plane const &plane,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isParallel(plane.normal(), tolerance);
+    return acme::isParallel(ray.direction(), plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -585,9 +585,9 @@ namespace acme
   isOrthogonal(
       ray const &ray,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isOrthogonal(segment.toNormalizedVector(), tolerance);
+    return acme::isOrthogonal(ray.direction(), segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -596,9 +596,9 @@ namespace acme
   isOrthogonal(
       ray const &ray,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isParallel(triangle.normal(), tolerance);
+    return acme::isParallel(ray.direction(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -607,9 +607,9 @@ namespace acme
   isOrthogonal(
       ray const &ray,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isParallel(circle.normal(), tolerance);
+    return acme::isParallel(ray.direction(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -618,9 +618,9 @@ namespace acme
   isOrthogonal(
       plane const &plane,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment.toNormalizedVector().isParallel(plane.normal(), tolerance);
+    return acme::isParallel(segment.toNormalizedVector(), plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -629,9 +629,9 @@ namespace acme
   isOrthogonal(
       plane const &plane,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return plane.normal().isOrthogonal(triangle.normal(), tolerance);
+    return acme::isOrthogonal(plane.normal(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -640,9 +640,9 @@ namespace acme
   isOrthogonal(
       plane const &plane,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return plane.normal().isOrthogonal(circle.normal(), tolerance);
+    return acme::isOrthogonal(plane.normal(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -651,9 +651,9 @@ namespace acme
   isOrthogonal(
       segment const &segment,
       triangle const &triangle,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment.toNormalizedVector().isParallel(triangle.normal(), tolerance);
+    return acme::isParallel(segment.toNormalizedVector(), triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -662,9 +662,9 @@ namespace acme
   isOrthogonal(
       segment const &segment,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment.toNormalizedVector().isParallel(circle.normal(), tolerance);
+    return acme::isParallel(segment.toNormalizedVector(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -673,9 +673,9 @@ namespace acme
   isOrthogonal(
       triangle const &triangle,
       circle const &circle,
-      real_type tolerance)
+      real tolerance)
   {
-    return triangle.normal().isOrthogonal(circle.normal(), tolerance);
+    return acme::isOrthogonal(triangle.normal(), circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -83,7 +83,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector const &
+  vec3 const &
   line::direction(void)
       const
   {
@@ -103,7 +103,7 @@ namespace acme
 
   void
   line::direction(
-      vector const &input)
+      vec3 const &input)
   {
     this->_direction = input;
   }
@@ -128,7 +128,7 @@ namespace acme
 
   void
   line::translate(
-      vector const &input)
+      vec3 const &input)
   {
     this->_origin = input + this->_origin;
   }
@@ -139,8 +139,8 @@ namespace acme
   line::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_origin, matrix);
-    acme::transformVector(this->_direction, matrix);
+    this->_origin.transform(matrix);
+    acme::transform(this->_direction, matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

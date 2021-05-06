@@ -37,10 +37,10 @@
 #include "acme_circle.hh"
 #include "acme_line.hh"
 #include "acme_plane.hh"
+#include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
 #include "acme_triangle.hh"
-#include "acme_vector_point.hh"
 
 namespace acme
 {
@@ -53,11 +53,11 @@ namespace acme
    |                                   
   \*/
 
-  //! Stream out operator for vector or point object
+  //! Stream out operator for point or point object
   out_stream &
   operator<<(
-      out_stream &os,   //!< Output stream
-      vector const &obj //!< Vector or point object
+      out_stream &os,  //!< Output stream
+      point const &obj //!< Point object
   );
 
   //! Stream out operator for line object
@@ -92,7 +92,7 @@ namespace acme
   out_stream &
   operator<<(
       out_stream &os, //!< Output stream
-      aabb const &obj  //!< Box object
+      aabb const &obj //!< Box object
   );
 
   //! Stream out operator for triangle object

@@ -34,6 +34,7 @@
 #include "acme.hh"
 #include "acme_intersection.hh"
 #include "acme_segment.hh"
+#include "acme_utilities.hh"
 
 using namespace acme;
 
@@ -56,8 +57,8 @@ int main()
   std::cout
       << "TEST 4 - POINT ON SEGMENT" << std::endl
       << std::endl
-      << "Segment Point 0 = " << Segment.point(0) << std::endl
-      << "Segment Point 1 = " << Segment.point(1) << std::endl
+      << "Segment Vertex 0 = " << Segment.vertex(0) << std::endl
+      << "Segment Vertex 1 = " << Segment.vertex(1) << std::endl
       << std::endl;
 
   // Show results

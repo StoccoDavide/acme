@@ -26,11 +26,11 @@
 */
 
 ///
-/// file: acme_vector_point.hh
+/// file: acme_point.hh
 ///
 
-#ifndef INCLUDE_ACME_VECTOR_POINT
-#define INCLUDE_ACME_VECTOR_POINT
+#ifndef INCLUDE_ACME_POINT
+#define INCLUDE_ACME_POINT
 
 #include <Eigen/Core>
 #include <Eigen/Dense>
@@ -44,51 +44,72 @@ namespace acme
 {
 
   /*\
-   |  __     __        _             
-   |  \ \   / /__  ___| |_ ___  _ __ 
-   |   \ \ / / _ \/ __| __/ _ \| '__|
-   |    \ V /  __/ (__| || (_) | |   
-   |     \_/ \___|\___|\__\___/|_|   
-   |                                 
+   |   ____       _       _  __  ___   
+   |  |  _ \ ___ (_)_ __ | |_\ \/ / |_ 
+   |  | |_) / _ \| | '_ \| __|\  /| __|
+   |  |  __/ (_) | | | | | |_ /  \| |_ 
+   |  |_|   \___/|_|_| |_|\__/_/\_\\__|
+   |                                   
   \*/
 
-  //! Vector class container
+  //! PointXt class container
   /**
    * Specialization of Eigen::Matrix class
    */
-  template <typename T, int rows>
-  class Vector : public Eigen::Matrix<T, rows, 1>, public entity
+  template <typename t>
+  class Point3t : public Eigen::Matrix<t, 3, 1>, public entity
   {
 public:
-    using Eigen::Matrix<T, rows, 1>::Matrix;
+    using Eigen::Matrix<t, 3, 1>::Matrix;
 
     // This constructor allows you to construct matrix from Eigen expressions
     template <typename derived>
-    Vector(Eigen::MatrixBase<derived> const &other)
-        : Eigen::Matrix<T, rows, 1>(other)
+    Point3t(Eigen::MatrixBase<derived> const &other)
+        : Eigen::Matrix<t, 3, 1>(other)
     {
     }
 
     // This method allows you to assign Eigen expressions to matrix
     template <typename derived>
-    Vector &operator=(
+    Point3t &operator=(
         Eigen::MatrixBase<derived> const &other //!< Matrix
     )
     {
-      this->Eigen::Matrix<T, rows, 1>::operator=(other);
+      this->Eigen::Matrix<t, 3, 1>::operator=(other);
       return *this;
     }
+
+    //! Translate point by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
+        ) override
+    {
+      *this += input;
+    }
+
+    //! Transform point with affine transformation matrix
+    void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+        ) override
+    {
+      *this = matrix * *this;
+    }
+
+    //! Check if entity is degenerated
+    bool isDegenerated(void) const override { return false; }
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 1; }
 
     //! Return object type as string
-    std::string type(void) const override { return "vector"; }
+    std::string type(void) const override { return "point"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     bool isPoint(void) const override { return true; }
 
     //! Check whether the object is a line
@@ -112,25 +133,7 @@ public:
     //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
-  }; // class Vector
-
-  /*\
-   |                   _             
-   |   __   _____  ___| |_ ___  _ __ 
-   |   \ \ / / _ \/ __| __/ _ \| '__|
-   |    \ V /  __/ (__| || (_) | |   
-   |     \_/ \___|\___|\__\___/|_|   
-   |                                 
-  \*/
-
-  typedef acme::Vector<real, 3> vector;                        //!< Vector type (column vector)
-  typedef Eigen::Matrix<vector, Eigen::Dynamic, 1> vec_vector; //!< Nx1 vector of 3D vector type
-  typedef Eigen::Matrix<vector, Eigen::Dynamic, 1> vec_vector; //!< NxN matrix of 3D vector type
-
-  static vector const NaN_vector = vector(NaN_vec3);     //!< Not-a-Number vector type
-  static vector vector_goat = vector(NaN_vec3);          //!< Scapegoat vector type (throwaway non-const object)
-  static vector const Zeros_vector = vector(Zeros_vec3); //!< Zeros vector type
-  static vector const Ones_vector = vector(Ones_vec3);   //!< Ones vector type
+  }; // class point
 
   /*\
    |               _       _   
@@ -141,42 +144,16 @@ public:
    |  |_|                      
   \*/
 
-  typedef acme::Vector<real, 3> point;                       //!< Point type (column vector)
-  typedef Eigen::Matrix<point, Eigen::Dynamic, 1> vec_point; //!< Nx1 vector of 3D point type
-  typedef Eigen::Matrix<point, Eigen::Dynamic, 1> vec_point; //!< NxN matrix of 3D point type
-
-  static point const NaN_point = point(NaN_vec3);     //!< Not-a-Number point type
-  static point point_goat = point(NaN_vec3);          //!< Scapegoat point type (throwaway non-const object)
-  static point const Zeros_point = point(Zeros_vec3); //!< Zeros point type
-  static point const Ones_point = point(Ones_vec3);   //!< Ones point type
-
-  /*\
-   |   _____                     __                      
-   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
-   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
-   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
-   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
-   |                                                     
-  \*/
-
-  //! Transform VECTOR with affine transformation matrix
-  void
-  transformVector(
-      vector &vector,      //!< Input VECTOR
-      affine const &matrix //!<4x4 transformation matrix
-  );
-
-  //! Transform POINT with affine transformation matrix
-  void
-  transformPoint(
-      point &point,        //!< Input POINT
-      affine const &matrix //!<4x4 transformation matrix
-  );
+  typedef Point3t<real> point;                           //!< Point type
+  static point const NaN_point = point::Constant(NaN);   //!< Not-a-Number point type
+  static point const Zeros_point = point::Constant(0.0); //!< Zeros point type
+  static point const Ones_point = point::Constant(1.0);  //!< Ones point type
+  static point point_goat = point(NaN_point);            //!< Scapegoat point type (throwaway non-const object)
 
 } // namespace acme
 
 #endif
 
 ///
-/// eof: acme_vector_point.hh
+/// eof: acme_point.hh
 ///

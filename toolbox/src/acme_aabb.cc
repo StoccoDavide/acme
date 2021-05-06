@@ -26,28 +26,28 @@
 */
 
 ///
-/// file: acme_box.cc
+/// file: acme_aabb.cc
 ///
 
-#include "acme_box.hh"
+#include "acme_aabb.hh"
 
 namespace acme
 {
 
   /*\
-   |   _               
-   |  | |__   _____  _ 
-   |  | '_ \ / _ \ \/ /
-   |  | |_) | (_) >  < 
-   |  |_.__/ \___/_/\_\
-   |                   
+   |               _     _     
+   |    __ _  __ _| |__ | |_     
+   |   / _` |/ _` | '_ \| '_ \ 
+   |  | (_| | (_| | |_) | |_) |
+   |   \__,_|\__,_|_.__/|_.__/ 
+   |                           
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  box &
-  box::operator=(
-      box const &input)
+  aabb &
+  aabb::operator=(
+      aabb const &input)
   {
     if (this == &input)
     {
@@ -66,18 +66,18 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::clear(
+  aabb::clear(
       void)
   {
-    this->_min = NaN_vec3;
-    this->_max = NaN_vec3;
+    this->_min = NaN_point;
+    this->_max = NaN_point;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::isApprox(
-      box const &input)
+  aabb::isApprox(
+      aabb const &input)
       const
   {
     return this->_min.isApprox(input._min) &&
@@ -87,7 +87,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::checkMaxMin(void)
+  aabb::checkMaxMin(void)
       const
   {
     return this->_max.x() >= this->_min.x() &&
@@ -98,11 +98,11 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::updateMaxMin(void)
+  aabb::updateMaxMin(void)
   {
     bool output = true;
-    real_type point_max_tmp, point_min_tmp;
-    for (size_t i = 0; i < 3; ++i)
+    real point_max_tmp, point_min_tmp;
+    for (integer i = 0; i < 3; ++i)
     {
       point_max_tmp = this->_max[i];
       point_min_tmp = this->_min[i];
@@ -118,8 +118,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
-  box::min(void)
+  point const &
+  aabb::min(void)
       const
   {
     return this->_min;
@@ -127,8 +127,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::minX(void)
+  real
+  aabb::minX(void)
       const
   {
     return this->_min.x();
@@ -136,8 +136,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::minY(void)
+  real
+  aabb::minY(void)
       const
   {
     return this->_min.y();
@@ -145,8 +145,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::minZ(void)
+  real
+  aabb::minZ(void)
       const
   {
     return this->_min.z();
@@ -154,9 +154,9 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::min(
-      size_t i)
+  real
+  aabb::min(
+      integer i)
       const
   {
     return this->_min[i];
@@ -165,8 +165,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::min(
-      vec3 const &input)
+  aabb::min(
+      point const &input)
   {
     this->_min = input;
   }
@@ -174,10 +174,10 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::min(
-      real_type x,
-      real_type y,
-      real_type z)
+  aabb::min(
+      real x,
+      real y,
+      real z)
   {
     this->_min.x() = x;
     this->_min.y() = y;
@@ -187,8 +187,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::minX(
-      real_type input)
+  aabb::minX(
+      real input)
   {
     this->_min.x() = input;
   }
@@ -196,8 +196,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::minY(
-      real_type input)
+  aabb::minY(
+      real input)
   {
     this->_min.y() = input;
   }
@@ -205,8 +205,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::minZ(
-      real_type input)
+  aabb::minZ(
+      real input)
   {
     this->_min.z() = input;
   }
@@ -214,17 +214,17 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::min(
-      size_t i,
-      real_type input)
+  aabb::min(
+      integer i,
+      real input)
   {
     this->_min[i] = input;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
-  box::max(void)
+  point const &
+  aabb::max(void)
       const
   {
     return this->_max;
@@ -232,8 +232,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::maxX(void)
+  real
+  aabb::maxX(void)
       const
   {
     return this->_max.x();
@@ -241,8 +241,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::maxY(void)
+  real
+  aabb::maxY(void)
       const
   {
     return this->_max.y();
@@ -250,8 +250,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::maxZ(void)
+  real
+  aabb::maxZ(void)
       const
   {
     return this->_max.z();
@@ -259,9 +259,9 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::max(
-      size_t i)
+  real
+  aabb::max(
+      integer i)
       const
   {
     return this->_max[i];
@@ -270,8 +270,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::max(
-      vec3 const &input)
+  aabb::max(
+      point const &input)
   {
     this->_max = input;
   }
@@ -279,10 +279,10 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::max(
-      real_type x,
-      real_type y,
-      real_type z)
+  aabb::max(
+      real x,
+      real y,
+      real z)
   {
     this->_max.x() = x;
     this->_max.y() = y;
@@ -292,8 +292,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::maxX(
-      real_type input)
+  aabb::maxX(
+      real input)
   {
     this->_max.x() = input;
   }
@@ -301,8 +301,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::maxY(
-      real_type input)
+  aabb::maxY(
+      real input)
   {
     this->_max.y() = input;
   }
@@ -310,8 +310,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::maxZ(
-      real_type input)
+  aabb::maxZ(
+      real input)
   {
     this->_max.z() = input;
   }
@@ -319,9 +319,9 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::max(
-      size_t i,
-      real_type input)
+  aabb::max(
+      integer i,
+      real input)
   {
     this->_max[i] = input;
   }
@@ -329,8 +329,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::intersects(
-      box const &input)
+  aabb::intersects(
+      aabb const &input)
       const
   {
     return (this->_min.x() <= input._max.x() && this->_max.x() >= input._min.x()) &&
@@ -341,24 +341,24 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::merged(
-      std::vector<box::ptr> const &boxes)
+  aabb::merged(
+      std::vector<aabb::ptr> const &boxes)
   {
     if (boxes.empty())
     {
-      this->_min = Zeros_vec3;
-      this->_max = Zeros_vec3;
+      this->_min = Zeros_point;
+      this->_max = Zeros_point;
     }
     else
     {
-      std::vector<box::ptr>::const_iterator it = boxes.begin();
+      std::vector<aabb::ptr>::const_iterator it = boxes.begin();
 
       this->_min = (*it)->_min;
       this->_max = (*it)->_max;
 
       for (++it; it != boxes.end(); ++it)
       {
-        box const &cur_box = **it;
+        aabb const &cur_box = **it;
         if (cur_box._min.x() < this->_min.x())
           this->_min.x() = cur_box._min.x();
         if (cur_box._min.y() < this->_min.y())
@@ -377,43 +377,43 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::centerDistance(
-      vec3 const &point)
+  real
+  aabb::centerDistance(
+      point const &query_point)
       const
   {
-    vec3 center((this->_max + this->_min) / 2);
-    vec3 point_max_centered(this->_max - center);
-    vec3 point_centered(point - center);
-    real_type x_scale = acme::abs(real_type(1.0) / point_max_centered.x());
-    real_type y_scale = acme::abs(real_type(1.0) / point_max_centered.y());
-    real_type z_scale = acme::abs(real_type(1.0) / point_max_centered.z());
-    real_type dx = acme::max(real_type(0.0), acme::abs(point_centered.x()) * x_scale - real_type(1.0)) / x_scale;
-    real_type dy = acme::max(real_type(0.0), acme::abs(point_centered.y()) * y_scale - real_type(1.0)) / y_scale;
-    real_type dz = acme::max(real_type(0.0), acme::abs(point_centered.z()) * z_scale - real_type(1.0)) / z_scale;
+    point center((this->_max + this->_min) / 2);
+    point point_max_centered(this->_max - center);
+    point point_centered(query_point - center);
+    real x_scale = acme::abs(real(1.0) / point_max_centered.x());
+    real y_scale = acme::abs(real(1.0) / point_max_centered.y());
+    real z_scale = acme::abs(real(1.0) / point_max_centered.z());
+    real dx = acme::max(real(0.0), acme::abs(point_centered.x()) * x_scale - real(1.0)) / x_scale;
+    real dy = acme::max(real(0.0), acme::abs(point_centered.y()) * y_scale - real(1.0)) / y_scale;
+    real dz = acme::max(real(0.0), acme::abs(point_centered.z()) * z_scale - real(1.0)) / z_scale;
     return acme::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
-  box::exteriorDistance(
-      vec3 const &point)
+  real
+  aabb::exteriorDistance(
+      point const &query_point)
       const
   {
-    real_type dx = acme::max(acme::abs(point.x() - this->_min.x()), acme::abs(point.x() - this->_max.x()));
-    real_type dy = acme::max(acme::abs(point.y() - this->_min.y()), acme::abs(point.y() - this->_max.y()));
-    real_type dz = acme::max(acme::abs(point.z() - this->_min.z()), acme::abs(point.z() - this->_max.z()));
+    real dx = acme::max(acme::abs(query_point.x() - this->_min.x()), acme::abs(query_point.x() - this->_max.x()));
+    real dy = acme::max(acme::abs(query_point.y() - this->_min.y()), acme::abs(query_point.y() - this->_max.y()));
+    real dz = acme::max(acme::abs(query_point.z() - this->_min.z()), acme::abs(query_point.z() - this->_max.z()));
     return acme::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::clamp(
-      vec3 const &point_0,
-      vec3 const &point_1,
-      vec3 const &point_2)
+  aabb::clamp(
+      point const &point_0,
+      point const &point_1,
+      point const &point_2)
   {
     this->_min.x() = acme::min(point_0.x(), point_1.x(), point_2.x());
     this->_min.y() = acme::min(point_0.y(), point_1.y(), point_2.y());
@@ -426,8 +426,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::clamp(
-      vec3 const points[3])
+  aabb::clamp(
+      point const points[3])
   {
     this->_min.x() = acme::min(points[0].x(), points[1].x(), points[2].x());
     this->_min.y() = acme::min(points[0].y(), points[1].y(), points[2].y());
@@ -439,8 +439,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  int_type const &
-  box::id(void)
+  integer const &
+  aabb::id(void)
       const
   {
     return this->_id;
@@ -448,8 +448,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  int_type const &
-  box::pos(void)
+  integer const &
+  aabb::pos(void)
       const
   {
     return this->_ipos;
@@ -458,7 +458,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::translate(
+  aabb::translate(
       vec3 const &input)
   {
     this->_min = input + this->_min;
@@ -468,28 +468,32 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  box::transform(
+  aabb::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_min, matrix);
-    acme::transformPoint(this->_max, matrix);
+    this->_min.transform(matrix);
+    this->_max.transform(matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::isInside(
-      vec3 const &point)
+  aabb::isInside(
+      point const &query_point)
       const
   {
-    return this->_min.x() < point.x() && this->_min.y() < point.y() && this->_min.z() < point.z() &&
-           this->_max.x() > point.x() && this->_max.y() > point.y() && this->_max.z() > point.z();
+    return this->_min.x() < query_point.x() &&
+           this->_min.y() < query_point.y() &&
+           this->_min.z() < query_point.z() &&
+           this->_max.x() > query_point.x() &&
+           this->_max.y() > query_point.y() &&
+           this->_max.z() > query_point.z();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  box::isDegenerated(void)
+  aabb::isDegenerated(void)
       const
   {
     return this->_min.isApprox(this->_max) &&
@@ -501,5 +505,5 @@ namespace acme
 } // namespace acme
 
 ///
-/// eof: acme_box.cc
+/// eof: acme_aabb.cc
 ///

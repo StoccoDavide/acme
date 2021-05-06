@@ -185,6 +185,22 @@ namespace acme
   static mat3 mat3_goat = mat3(NaN_mat3); //!< Scapegoat mat3 type (throwaway non-const object)
   static mat4 mat4_goat = mat4(NaN_mat4); //!< Scapegoat mat4 type (throwaway non-const object)
 
+  /*\
+   |   _____                     __                      
+   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
+   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
+   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
+   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
+   |                                                     
+  \*/
+
+  //! Transform ve3 with affine transformation matrix
+  void
+  transform(
+      vec3 &vector,        //!< Input ve3
+      affine const &matrix //!< 4x4 transformation matrix
+  );
+
 } // namespace acme
 
 #endif

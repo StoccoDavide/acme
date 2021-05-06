@@ -44,9 +44,9 @@ namespace acme
   isCollinear(
       entity const *entity0,
       entity const *entity1,
-      real_type tolerance)
+      real tolerance)
   {
-    int_type slide = entity0->degree() * 100 + entity1->degree();
+    integer slide = entity0->degree() * 100 + entity1->degree();
     switch (slide)
     {
 
@@ -125,10 +125,10 @@ namespace acme
   isCollinear(
       line const &line0,
       line const &line1,
-      real_type tolerance)
+      real tolerance)
   {
-    return line0.direction().isParallel(line0.origin() - line1.origin(), tolerance) &&
-           line0.direction().isParallel(line1.direction(), tolerance);
+    return acme::isParallel(line0.direction(), line0.origin() - line1.origin(), tolerance) &&
+           acme::isParallel(line0.direction(), line1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -137,10 +137,10 @@ namespace acme
   isCollinear(
       ray const &ray0,
       ray const &ray1,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray0.direction().isParallel(ray0.origin() - ray1.origin(), tolerance) &&
-           ray1.direction().isParallel(ray1.direction(), tolerance);
+    return acme::isParallel(ray0.direction(), ray0.origin() - ray1.origin(), tolerance) &&
+           acme::isParallel(ray1.direction(), ray1.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -149,10 +149,10 @@ namespace acme
   isCollinear(
       segment const &segment0,
       segment const &segment1,
-      real_type tolerance)
+      real tolerance)
   {
-    return segment0.toNormalizedVector().isParallel(segment0.point(0) - segment1.point(0), tolerance) &&
-           segment0.toNormalizedVector().isParallel(segment1.toNormalizedVector(), tolerance);
+    return acme::isParallel(segment0.toNormalizedVector(), segment0.vertex(0) - segment1.vertex(0), tolerance) &&
+           acme::isParallel(segment0.toNormalizedVector(), segment1.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -161,10 +161,10 @@ namespace acme
   isCollinear(
       line const &line,
       ray const &ray,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isParallel(line.origin() - ray.origin(), tolerance) &&
-           line.direction().isParallel(ray.direction(), tolerance);
+    return acme::isParallel(line.direction(), line.origin() - ray.origin(), tolerance) &&
+           acme::isParallel(line.direction(), ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -173,10 +173,10 @@ namespace acme
   isCollinear(
       line const &line,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return line.direction().isParallel(line.origin() - segment.point(0), tolerance) &&
-           line.direction().isParallel(segment.toNormalizedVector(), tolerance);
+    return acme::isParallel(line.direction(), line.origin() - segment.vertex(0), tolerance) &&
+           acme::isParallel(line.direction(), segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -185,10 +185,10 @@ namespace acme
   isCollinear(
       ray const &ray,
       segment const &segment,
-      real_type tolerance)
+      real tolerance)
   {
-    return ray.direction().isParallel(ray.origin() - segment.point(0), tolerance) &&
-           ray.direction().isParallel(segment.toNormalizedVector(), tolerance);
+    return acme::isParallel(ray.direction(), ray.origin() - segment.vertex(0), tolerance) &&
+           acme::isParallel(ray.direction(), segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

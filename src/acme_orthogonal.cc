@@ -58,43 +58,43 @@ namespace acme
       // - - - - - - - - - - - - - - VECTOR - - - - - - - - - - - - - -
 
     case 202:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
-                                *dynamic_cast<vector const *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
+                                *dynamic_cast<vec3 const *>(entity1),
                                 tolerance);
       break;
 
     case 203:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<line const *>(entity1),
                                 tolerance);
       break;
 
     case 204:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<ray const *>(entity1),
                                 tolerance);
       break;
 
     case 205:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<plane const *>(entity1),
                                 tolerance);
       break;
 
     case 206:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<segment const *>(entity1),
                                 tolerance);
       break;
 
     case 207:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<triangle const *>(entity1),
                                 tolerance);
       break;
 
     case 208:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<circle const *>(entity1),
                                 tolerance);
       break;
@@ -102,7 +102,7 @@ namespace acme
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 302:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
                                 *dynamic_cast<line const *>(entity0),
                                 tolerance);
       break;
@@ -146,7 +146,7 @@ namespace acme
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 402:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<line const *>(entity1),
                                 tolerance);
       break;
@@ -190,7 +190,7 @@ namespace acme
       // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 502:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity0),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
                                 *dynamic_cast<line const *>(entity1),
                                 tolerance);
       break;
@@ -234,7 +234,7 @@ namespace acme
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 602:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
                                 *dynamic_cast<segment const *>(entity0),
                                 tolerance);
       break;
@@ -278,7 +278,7 @@ namespace acme
       // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 702:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
                                 *dynamic_cast<triangle const *>(entity0),
                                 tolerance);
       break;
@@ -320,7 +320,7 @@ namespace acme
 
     // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
     case 802:
-      return acme::isOrthogonal(*dynamic_cast<vector const *>(entity1),
+      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
                                 *dynamic_cast<circle const *>(entity0),
                                 tolerance);
       break;
@@ -374,8 +374,8 @@ namespace acme
 
   bool
   isOrthogonal(
-      vector const &vector0,
-      vector const &vector1,
+      vec3 const &vector0,
+      vec3 const &vector1,
       real tolerance)
   {
     return acme::isApprox(vector0.dot(vector1), real(0.0), tolerance);
@@ -385,66 +385,66 @@ namespace acme
 
   bool
   isOrthogonal(
-      vector const &vector,
+      vec3 const &vec3,
       line const &line,
       real tolerance)
   {
-    return acme::isOrthogonal(vector, line.direction(), tolerance);
+    return acme::isOrthogonal(vec3, line.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vector const &vector,
+      vec3 const &vec3,
       ray const &ray,
       real tolerance)
   {
-    return acme::isOrthogonal(vector, ray.direction(), tolerance);
+    return acme::isOrthogonal(vec3, ray.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vector const &vector,
+      vec3 const &vec3,
       plane const &plane,
       real tolerance)
   {
-    return acme::isParallel(vector, plane.normal(), tolerance);
+    return acme::isParallel(vec3, plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vector const &vector,
+      vec3 const &vec3,
       segment const &segment,
       real tolerance)
   {
-    return acme::isOrthogonal(vector, segment.toNormalizedVector(), tolerance);
+    return acme::isOrthogonal(vec3, segment.toNormalizedVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vector const &vector,
+      vec3 const &vec3,
       triangle const &triangle,
       real tolerance)
   {
-    return acme::isParallel(vector, triangle.normal(), tolerance);
+    return acme::isParallel(vec3, triangle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isOrthogonal(
-      vector const &vector,
+      vec3 const &vec3,
       circle const &circle,
       real tolerance)
   {
-    return acme::isParallel(vector, circle.normal(), tolerance);
+    return acme::isParallel(vec3, circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

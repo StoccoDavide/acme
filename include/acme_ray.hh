@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_RAY
 
 #include "acme.hh"
-#include "acme_vector_point.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -61,8 +61,8 @@ public:
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
 
 private:
-    point _origin;     //!< Ray origin point
-    vector _direction; //!< Ray direction vector
+    point _origin;   //!< Ray origin point
+    vec3 _direction; //!< Ray direction vector
 
 public:
     //! Ray class destructor
@@ -87,14 +87,14 @@ public:
         real dz  //<! Input z value of ray direction
         )
         : _origin(point(ox, oy, oz)),
-          _direction(vector(dx, dy, dz))
+          _direction(vec3(dx, dy, dz))
     {
     }
 
     //! Ray class constructor
     ray(
-        vector const &origin,   //!< Input ray origin point
-        vector const &direction //!< Input ray direction vector
+        point const &origin,  //!< Input ray origin point
+        vec3 const &direction //!< Input ray direction vector
         )
         : _origin(origin),
           _direction(direction)
@@ -119,7 +119,7 @@ public:
         const;
 
     //! Return ray direction vector
-    vector const &
+    vec3 const &
     direction(void)
         const;
 
@@ -132,7 +132,7 @@ public:
     //! Set ray direction vector
     void
     direction(
-        vector const &input //!< input ray object
+        vec3 const &input //!< input ray object
     );
 
     //! Normalize ray direction vector
@@ -140,12 +140,12 @@ public:
     normalize(void);
 
     //! Convert ray to vector
-    vector
+    vec3
     toVector(void)
         const;
 
     //! Convert ray to normalized vector
-    vector
+    vec3
     toNormalizedVector(void)
         const;
 
@@ -156,14 +156,14 @@ public:
     //! Translate ray by vector
     void
     translate(
-        vector const &input //!< Input translation vector
-    );
+        vec3 const &input //!< Input translation vector
+        ) override;
 
     //! Transform ray with affine transformation matrix
     void
     transform(
         affine const &matrix //!< 4x4 affine transformation matrix
-    );
+        ) override;
 
     // Check whether the point is inside the ray
     bool
@@ -173,31 +173,18 @@ public:
 
     //! Check if ray is degenerated (null vector)
     bool
-    isDegenerated(void)
-        const;
+    isDegenerated(void) const override;
 
     //! Return object hierarchical degree
-    integer
-    degree(void)
-        const
-        override
-    {
-      return 4;
-    }
+    integer degree(void) const override { return 4; }
 
     //! Return object type as string
-    std::string
-    type(void)
-        const
-        override
-    {
-      return "ray";
-    }
+    std::string type(void) const override { return "ray"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
@@ -223,8 +210,8 @@ public:
 
   }; // class ray
 
-  static ray const NaN_ray = ray(acme::NaN_vector, acme::NaN_vector); //!< Not-a-Number ray type
-  static ray ray_goat = ray(NaN_ray);                                 //!< Scapegoat ray type (throwaway non-const object)
+  static ray const NaN_ray = ray(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number ray type
+  static ray ray_goat = ray(NaN_ray);                             //!< Scapegoat ray type (throwaway non-const object)
 
 } // namespace acme
 

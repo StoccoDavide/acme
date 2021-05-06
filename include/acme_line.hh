@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_LINE
 
 #include "acme.hh"
-#include "acme_vector_point.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -61,8 +61,8 @@ public:
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to line objects
 
 private:
-    point _origin;     //!< Origin point
-    vector _direction; //!< Direction vector
+    point _origin;   //!< Origin point
+    vec3 _direction; //!< Direction vector
 
 public:
     //! Line class destructor
@@ -86,14 +86,14 @@ public:
         real dy, //<! Input y value of line direction vector
         real dz  //<! Input z value of line direction vector
         ) : _origin(point(ox, oy, oz)),
-            _direction(vector(dx, dy, dz))
+            _direction(vec3(dx, dy, dz))
     {
     }
 
     //! Line class constructor
     line(
-        point const &origin,    //!< Input line origin point
-        vector const &direction //!< Input line direction vector
+        point const &origin,  //!< Input line origin point
+        vec3 const &direction //!< Input line direction vector
         ) : _origin(origin),
             _direction(direction)
     {
@@ -111,16 +111,12 @@ public:
         line const &input //!< Input line object
     ) const;
 
-    //! Check if line is degenerated (direction vector has zero norm)
-    bool
-    isDegenerated(void) const;
-
     //! Return line origin point
     point const &
     origin(void) const;
 
     //! Return line direction vector
-    vector const &
+    vec3 const &
     direction(void) const;
 
     //! Set line origin point
@@ -132,7 +128,7 @@ public:
     //! Set line direction vector
     void
     direction(
-        vector const &input //!< input line direction vector
+        vec3 const &input //!< input line direction vector
     );
 
     //! Normalize line direction vector
@@ -140,11 +136,11 @@ public:
     normalize(void);
 
     //! Convert line to vector
-    vector
+    vec3
     toVector(void) const;
 
     //! Convert line to normalized vector
-    vector
+    vec3
     toNormalizedVector(void) const;
 
     //! Reverse line direction
@@ -154,20 +150,24 @@ public:
     //! Translate line by vector
     void
     translate(
-        vector const &input //!< Input translation vector
-    );
+        vec3 const &input //!< Input translation vector
+        ) override;
 
     //! Transform line with affine transformation matrix
     void
     transform(
         affine const &matrix //!< 4x4 affine transformation matrix
-    );
+        ) override;
 
     // Check whether the point is inside the line
     bool
     isInside(
         point const &query_point //!< Query point
     ) const;
+
+    //! Check if line is degenerated (direction vector has zero norm)
+    bool
+    isDegenerated(void) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 3; }
@@ -178,7 +178,7 @@ public:
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
@@ -204,8 +204,8 @@ public:
 
   }; // class line
 
-  static line const NaN_line = line(acme::NaN_point, acme::NaN_vector); //!< Not-a-Number line type
-  static line line_goat = line(NaN_line);                               //!< Scapegoat line type (throwaway non-const object)
+  static line const NaN_line = line(acme::NaN_point, acme::NaN_vec3); //!< Not-a-Number line type
+  static line line_goat = line(NaN_line);                             //!< Scapegoat line type (throwaway non-const object)
 
 } // namespace acme
 

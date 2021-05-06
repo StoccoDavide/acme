@@ -64,6 +64,71 @@ namespace acme
   );
 
   /*\
+   |   ____                   _               _ 
+   |  |  _ \ _   _ _ __   ___| |_ _   _  __ _| |
+   |  | |_) | | | | '_ \ / __| __| | | |/ _` | |
+   |  |  __/| |_| | | | | (__| |_| |_| | (_| | |
+   |  |_|    \__,_|_| |_|\___|\__|\__,_|\__,_|_| 
+   |                                            
+  \*/
+
+  //! Intersection between two points
+  bool
+  intersection(
+      point const &point0,          //!< Input point 0
+      point const &point1,          //!< Input point 1
+      point &point_out = point_goat //!< Output point
+  );
+
+  //! Intersection between point and line
+  bool
+  intersection(
+      point const &point_in,        //!< Input point
+      line const &line,             //!< Input line
+      point &point_out = point_goat //!< Output point
+  );
+
+  //! Intersection between point and ray
+  bool
+  intersection(
+      point const &point_in,        //!< Input point
+      ray const &ray,               //!< Input ray
+      point &point_out = point_goat //!< Output point
+  );
+
+  //! Intersection between point and plane
+  bool
+  intersection(
+      point const &point_in,        //!< Input point
+      plane const &plane,           //!< Input plane
+      point &point_out = point_goat //!< Output point
+  );
+
+  //! Intersection between point and segment
+  bool
+  intersection(
+      point const &point_in,        //!< Input point
+      segment const &segment,       //!< Input segment
+      point &point_out = point_goat //!< Output point
+  );
+
+  //! Intersection between point and triangle
+  bool
+  intersection(
+      point const &point_in,        //!< Input point
+      triangle const &triangle,     //!< Input triangle
+      point &point_out = point_goat //!< Output point
+  );
+
+  //! Intersection between point and circle
+  bool
+  intersection(
+      point const &point_in,        //!< Input point
+      circle const &circle,         //!< Input circle
+      point &point_out = point_goat //!< Output point
+  );
+
+  /*\
    |    ____      _ _ _
    |   / ___|___ | | (_)_ __   ___  __ _ _ __
    |  | |   / _ \| | | | '_ \ / _ \/ _` | '__|
@@ -508,8 +573,8 @@ namespace acme
   //! Intersection between two axis aligned boxes
   bool
   intersection(
-      aabb const &box0,    //!< Input aabb 0
-      aabb const &box1,    //!< Input aabb 1
+      aabb const &box0,     //!< Input aabb 0
+      aabb const &box1,     //!< Input aabb 1
       aabb &aabb = box_goat //!< Output aabb
   );
 

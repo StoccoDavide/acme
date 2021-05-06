@@ -29,7 +29,9 @@
 
 #include <iostream>
 
+#include "acme.hh"
 #include "acme_math.hh"
+#include "acme_utilities.hh"
 
 int main(void)
 {
@@ -39,15 +41,15 @@ int main(void)
             << std::endl;
 
   // EPSILON TEST
-  acme::real_type Epsilon_machine = acme::Epsilon_Machine;
-  acme::real_type Epsilon_acme = acme::epsilon();
+  acme::real Epsilon_machine = acme::Epsilon_Machine;
+  acme::real Epsilon_acme = acme::epsilon();
   std::cout << "Epsilon TEST" << std::endl
             << "Epsilon (machine) = " << Epsilon_machine << std::endl
             << "Epsilon (acme)    = " << Epsilon_acme << std::endl
             << std::endl;
 
   // INFINITY TEST
-  acme::real_type Infinity_acme = acme::infinity();
+  acme::real Infinity_acme = acme::infinity();
   std::cout << "INFINITY TEST" << std::endl
             << "Infinity (acme)   = " << Infinity_acme << std::endl
             << std::endl;

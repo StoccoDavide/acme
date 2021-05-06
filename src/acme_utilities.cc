@@ -47,7 +47,7 @@ namespace acme
   std::ostream &
   operator<<(
       std::ostream &os,
-      vector const &obj)
+      point const &obj)
   {
     os << std::scientific
        << std::showpoint
@@ -64,7 +64,7 @@ namespace acme
       line const &obj)
   {
     point obj_origin(obj.origin());
-    vector obj_direction(obj.direction());
+    vec3 obj_direction(obj.direction());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -85,7 +85,7 @@ namespace acme
       ray const &obj)
   {
     point obj_origin(obj.origin());
-    vector obj_direction(obj.direction());
+    vec3 obj_direction(obj.direction());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -106,7 +106,7 @@ namespace acme
       plane const &obj)
   {
     point obj_origin(obj.origin());
-    vector obj_normal(obj.normal());
+    vec3 obj_normal(obj.normal());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)

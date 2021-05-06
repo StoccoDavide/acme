@@ -131,7 +131,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector
+  vec3
   segment::toVector(void) const
   {
     return point(this->_point[1] - this->_point[0]);
@@ -139,7 +139,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector
+  vec3
   segment::toNormalizedVector(void) const
   {
     return (this->_point[1] - this->_point[0]).normalized();
@@ -182,7 +182,7 @@ namespace acme
 
   void
   segment::translate(
-      point const &input)
+      vec3 const &input)
   {
     this->_point[0] = input + this->_point[0];
     this->_point[1] = input + this->_point[1];
@@ -194,8 +194,8 @@ namespace acme
   segment::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_point[0], matrix);
-    acme::transformPoint(this->_point[1], matrix);
+    this->_point[0].transform(matrix);
+    this->_point[1].transform(matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

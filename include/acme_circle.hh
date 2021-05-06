@@ -34,7 +34,7 @@
 
 #include "acme.hh"
 #include "acme_plane.hh"
-#include "acme_vector_point.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -90,7 +90,7 @@ public:
     circle(
         real radius,         //!< Input circle radius
         point const &center, //!< Input circle center
-        vector const &normal //!< Input circle normal to the laying plane
+        vec3 const &normal   //!< Input circle normal to the laying plane
         ) : _radius(radius),
             _plane(center, normal)
     {
@@ -117,7 +117,7 @@ public:
     center(void) const;
 
     //! Get circle laying plane normal vector
-    vector const &
+    vec3 const &
     normal(void) const;
 
     //! Get cicle laying plane
@@ -139,7 +139,7 @@ public:
     //! Set circle laying plane normal vector
     void
     normal(
-        vector const &input //!< New circle laying plane normal vector
+        vec3 const &input //!< New circle laying plane normal vector
     );
 
     //! Normalize circle normal vector
@@ -159,14 +159,14 @@ public:
     //! Translate by vector
     void
     translate(
-        vector const &input //!< Input translation vector
-    );
+        vec3 const &input //!< Input translation vector
+        ) override;
 
     //! Transform circle with affine transformation matrix
     void
     transform(
         affine const &matrix //!< 4x4 affine transformation matrix
-    );
+        ) override;
 
     // Check whether the point is inside the circle
     bool
@@ -176,7 +176,7 @@ public:
 
     //! Check if circle is degenerated
     bool
-    isDegenerated(void) const;
+    isDegenerated(void) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 8; }
@@ -187,7 +187,7 @@ public:
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line

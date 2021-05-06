@@ -173,7 +173,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vector
+  vec3
   triangle::normal(void)
       const
   {
@@ -265,7 +265,7 @@ namespace acme
 
   void
   triangle::translate(
-      vector const &input)
+      vec3 const &input)
   {
     this->_vertex[0] = input + this->_vertex[0];
     this->_vertex[1] = input + this->_vertex[1];
@@ -278,9 +278,9 @@ namespace acme
   triangle::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_vertex[0], matrix);
-    acme::transformPoint(this->_vertex[1], matrix);
-    acme::transformPoint(this->_vertex[2], matrix);
+    this->_vertex[0].transform(matrix);
+    this->_vertex[1].transform(matrix);
+    this->_vertex[2].transform(matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

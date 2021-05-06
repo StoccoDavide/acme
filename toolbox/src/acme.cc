@@ -25,56 +25,38 @@
 (***********************************************************************)
 */
 
-// TEST 12 - ENTITIES INTERSECTION
-
-#include <fstream>
-#include <iostream>
-#include <string>
+///
+/// file: acme.cc
+///
 
 #include "acme.hh"
-#include "acme_intersection.hh"
-#include "acme_line.hh"
-#include "acme_orthogonal.hh"
-#include "acme_parallel.hh"
-#include "acme_utilities.hh"
-#include "acme_point.hh"
 
-using namespace acme;
-
-// Main function
-int main()
+namespace acme
 {
-  std::cout
-      << "TEST 12 - ENTITIES INTERSECTION" << std::endl;
 
-  vec3 a(1.0, 1.0, 1.0);
-  acme::point p(1.0, 1.0, 1.0);
-  point b(a+p);
-  vec3 v(a+p);
-  std::cout << "point = " << b << "\n";
-  std::cout << "vector = " << v << "\n";
+  /*\
+   |   _____                     __                      
+   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___  
+   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \ 
+   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |
+   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|
+   |                                                     
+  \*/
 
-  entity *line0 = new ray(point(0.0, 0.0, 0.0), vec3(0.0, -1.0, 0.0));
-  entity *line1 = new ray(point(0.0, -1.0, 0.0), vec3(0.0, 1.0, 0.0));
-  entity *entity_out = acme::intersection(line0, line1);
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  if (dynamic_cast<segment *>(entity_out)) // IF!!!!!
+  void
+  transform(
+      vec3 &vector,
+      affine const &matrix)
   {
-    segment *segment_ptr = dynamic_cast<segment *>(entity_out);
-    std::cout << "Lines intersection point 0 = " << segment_ptr->vertex(0) << "\n";
-    std::cout << "Lines intersection point 1 = " << segment_ptr->vertex(1) << "\n";
-    entity * ptr = reinterpret_cast<entity *>(entity_out);
-    std::cout << "Lines intersection point 1 = " << ptr->isNone() << "\n";
+    vector = matrix.linear() * vector;
   }
 
-  delete entity_out;
-  //delete segment_ptr;
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  std::cout
-      << std::endl
-      << std::endl
-      << "TEST 12: Completed" << std::endl;
+} // namespace acme
 
-  // Exit the program
-  return 0;
-}
+///
+/// file: acme.cc
+///

@@ -48,15 +48,15 @@ int main()
       << "TEST 10 - AABB TREE INTERSECTION" << std::endl;
 
   // Initialize vertices
-  vec3 V1[3];
-  V1[0] = vec3(1.0, 0.0, 0.0);
-  V1[1] = vec3(0.0, 1.0, 1.0);
-  V1[2] = vec3(-1.0, 0.0, 0.0);
+  point V1[3];
+  V1[0] = point(1.0, 0.0, 0.0);
+  V1[1] = point(0.0, 1.0, 1.0);
+  V1[2] = point(-1.0, 0.0, 0.0);
 
-  vec3 V2[3];
-  V2[0] = vec3(-1.0, 0.0, 0.0);
-  V2[1] = vec3(0.0, -1.0, -1.0);
-  V2[2] = vec3(1.0, 0.0, 0.0);
+  point V2[3];
+  V2[0] = point(-1.0, 0.0, 0.0);
+  V2[1] = point(0.0, -1.0, -1.0);
+  V2[2] = point(1.0, 0.0, 0.0);
 
   // Initialize triangle
   triangle Triangle1(V1);

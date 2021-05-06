@@ -74,7 +74,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
+  point const &
   plane::origin() const
   {
     return this->_origin;
@@ -92,7 +92,7 @@ namespace acme
 
   void
   plane::origin(
-      vec3 const &input)
+      point const &input)
   {
     this->_origin = input;
   }
@@ -124,7 +124,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
+  real
   plane::d(void)
       const
   {
@@ -133,32 +133,32 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
+  real
   plane::distance(
-      vec3 const &input)
+      point const &query_point)
       const
   {
-    return acme::abs(this->signedDistance(input));
+    return acme::abs(this->signedDistance(query_point));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
+  real
   plane::squaredDistance(
-      vec3 const &input)
+      point const &query_point)
       const
   {
-    return acme::sqr(this->signedDistance(input));
+    return acme::sqr(this->signedDistance(query_point));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
+  real
   plane::signedDistance(
-      vec3 const &input)
+      point const &query_point)
       const
   {
-    return (input - this->_origin).dot(this->_normal);
+    return (query_point - this->_origin).dot(this->_normal);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -176,18 +176,18 @@ namespace acme
   plane::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_origin, matrix);
-    acme::transformVector(this->_normal, matrix);
+    this->_origin.transform(matrix);
+    acme::transform(this->_normal, matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   plane::isInside(
-      vec3 const &point)
+      point const &query_point)
       const
   {
-    return this->signedDistance(point) < acme::Epsilon;
+    return this->signedDistance(query_point) < acme::Epsilon;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -196,7 +196,7 @@ namespace acme
   plane::isDegenerated(void)
       const
   {
-    return acme::isApprox(this->_normal.norm(), real_type(0.0), acme::Epsilon);
+    return acme::isApprox(this->_normal.norm(), real(0.0), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

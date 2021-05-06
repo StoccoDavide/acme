@@ -38,13 +38,13 @@ namespace acme
 {
 
   /*\
- |              _   _ _
- |    ___ _ __ | |_(_) |_ _   _
- |   / _ \ '_ \| __| | __| | | |
- |  |  __/ | | | |_| | |_| |_| |
- |   \___|_| |_|\__|_|\__|\__, |
- |                        |___/
-\*/
+   |              _   _ _
+   |    ___ _ __ | |_(_) |_ _   _
+   |   / _ \ '_ \| __| | __| | | |
+   |  |  __/ | | | |_| | |_| |_| |
+   |   \___|_| |_|\__|_|\__|\__, |
+   |                        |___/
+  \*/
 
   //! Geometrical entity class container
   /**
@@ -64,6 +64,21 @@ public:
     //! Entity class destructor
     entity(){};
 
+    //! Translate entity by vector
+    virtual void
+    translate(
+        vec3 const &input //!< Input translation vector
+        ) = 0;
+
+    //! Transform entity with affine transformation matrix
+    virtual void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+        ) = 0;
+
+    //! Check if entity is degenerated
+    virtual bool isDegenerated(void) const = 0;
+
     //! Return object hierarchical degree
     virtual integer degree(void) const = 0;
 
@@ -73,7 +88,7 @@ public:
     //! Check whether the object is no entity
     virtual bool isNone(void) const = 0;
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     virtual bool isPoint(void) const = 0;
 
     //! Check whether the object is a line
@@ -99,7 +114,7 @@ public:
 
   }; // class entity
 
-  static entity::ptr entity_goat = std::shared_ptr<entity>(); //!< Scapegoat entity type (throwaway non-const object)
+  static entity::ptr entity_goat = std::shared_ptr<entity>(); //!< Scapegoat entity shared pointer type (throwaway non-const object)
 
 } // namespace acme
 

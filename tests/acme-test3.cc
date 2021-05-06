@@ -35,6 +35,7 @@
 #include "acme_aabb.hh"
 #include "acme_intersection.hh"
 #include "acme_triangle.hh"
+#include "acme_utilities.hh"
 
 using namespace acme;
 
@@ -42,7 +43,7 @@ using namespace acme;
 int main()
 {
   // Initialize disk
-  circle Circle(1.0, point(0.0, 0.0, 0.5), vector(0.0, 0.0, 1.0));
+  circle Circle(1.0, point(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
 
   // Query points and intersection bools
   point PointIn(0.0, 0.0, 0.5);

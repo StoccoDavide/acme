@@ -46,18 +46,18 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      real_type x0, real_type y0, real_type z0,
-      real_type x1, real_type y1, real_type z1)
+      real x0, real y0, real z0,
+      real x1, real y1, real z1)
   {
-    this->_point[0] = vec3(x0, y0, z0);
-    this->_point[1] = vec3(x1, y1, z1);
+    this->_point[0] = point(x0, y0, z0);
+    this->_point[1] = point(x1, y1, z1);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      vec3 const &point0,
-      vec3 const &point1)
+      point const &point0,
+      point const &point1)
   {
     this->_point[0] = point0;
     this->_point[1] = point1;
@@ -66,7 +66,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      vec3 const point[2])
+      point const point[2])
   {
     this->_point[0] = point[0];
     this->_point[1] = point[1];
@@ -103,7 +103,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3
+  point
   segment::centroid(void)
       const
   {
@@ -112,9 +112,9 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
-  segment::point(
-      size_t i)
+  point const &
+  segment::vertex(
+      integer i)
       const
   {
     return this->_point[i];
@@ -122,9 +122,9 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 &
-  segment::point(
-      size_t i)
+  point &
+  segment::vertex(
+      integer i)
   {
     return this->_point[i];
   }
@@ -134,7 +134,7 @@ namespace acme
   vec3
   segment::toVector(void) const
   {
-    return vec3(this->_point[1] - this->_point[0]);
+    return point(this->_point[1] - this->_point[0]);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -150,7 +150,7 @@ namespace acme
   void
   segment::swap(void)
   {
-    vec3 tmp_point(this->_point[0]);
+    point tmp_point(this->_point[0]);
     this->_point[0] = this->_point[1];
     this->_point[1] = tmp_point;
   }
@@ -159,7 +159,7 @@ namespace acme
 
   void
   segment::clamp(
-      box &input)
+      aabb &input)
       const
   {
     input.minX(acme::min(this->_point[0].x(), this->_point[1].x()));
@@ -172,7 +172,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real_type
+  real
   segment::length(void) const
   {
     return (this->_point[0] - this->_point[1]).norm();
@@ -194,20 +194,20 @@ namespace acme
   segment::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_point[0], matrix);
-    acme::transformPoint(this->_point[1], matrix);
+    this->_point[0].transform(matrix);
+    this->_point[1].transform(matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   segment::isInside(
-      vec3 const &point)
+      point const &query_point)
       const
   {
-    real_type d0 = this->length();
-    real_type d1 = (point - this->_point[0]).norm();
-    real_type d2 = (point - this->_point[1]).norm();
+    real d0 = this->length();
+    real d1 = (query_point - this->_point[0]).norm();
+    real d2 = (query_point - this->_point[1]).norm();
     return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
   }
 
@@ -217,7 +217,7 @@ namespace acme
   segment::isDegenerated(void)
       const
   {
-    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real_type(0.0), acme::Epsilon);
+    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real(0.0), acme::Epsilon);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

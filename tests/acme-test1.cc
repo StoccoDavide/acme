@@ -32,11 +32,12 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_point_vector.hh"
+#include "acme_point.hh"
 #include "acme_intersection.hh"
 #include "acme_math.hh"
 #include "acme_triangle.hh"
 #include "acme_aabb.hh"
+#include "acme_utilities.hh"
 
 using namespace acme;
 
@@ -73,12 +74,12 @@ int main()
 
   // Initialize Ray
   point RayOrigin = point(0.0, 0.0, 1.0);
-  vector RayDirection = vector(0.0, 0.0, -1.0);
+  vec3 RayDirection = vec3(0.0, 0.0, -1.0);
   ray Ray(RayOrigin, RayDirection);
 
-  real_type step = PI / 360.0;
+  real step = PI / 360.0;
   // Perform intersection at 0.5° step
-  for (real_type angle = 0;
+  for (real angle = 0;
        angle < PI;
        angle += step)
   {

@@ -34,7 +34,7 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_vector_point.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -126,11 +126,11 @@ public:
     );
 
     //! Convert segment to vector
-    vector
+    vec3
     toVector(void) const;
 
     //! Convert segment to normalized vector
-    vector
+    vec3
     toNormalizedVector(void) const;
 
     //! Swap segment points
@@ -150,14 +150,14 @@ public:
     //! Translate segment by vector
     void
     translate(
-        point const &input //!< Input translation vector
-    );
+        vec3 const &input //!< Input translation vector
+        ) override;
 
     //! Transform segment with affine transformation matrix
     void
     transform(
         affine const &matrix //!< 4x4 affine transformation matrix
-    );
+        ) override;
 
     // Check whether the point is inside the segment
     bool
@@ -167,7 +167,7 @@ public:
 
     //! Check if segment is degenerated to point˚
     bool
-    isDegenerated(void) const;
+    isDegenerated(void) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 6; }
@@ -178,7 +178,7 @@ public:
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line

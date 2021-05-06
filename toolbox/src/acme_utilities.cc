@@ -44,12 +44,26 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  std::ostream &
   operator<<(
-      ostream_type &os,
+      std::ostream &os,
+      point const &obj)
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "[ " << obj[0] << ", " << obj[1] << ", " << obj[2] << " ]'";
+    return os;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  out_stream &
+  operator<<(
+      out_stream &os,
       line const &obj)
   {
-    vec3 obj_origin(obj.origin());
+    point obj_origin(obj.origin());
     vec3 obj_direction(obj.direction());
     os << std::scientific
        << std::showpoint
@@ -65,12 +79,12 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
+      out_stream &os,
       ray const &obj)
   {
-    vec3 obj_origin(obj.origin());
+    point obj_origin(obj.origin());
     vec3 obj_direction(obj.direction());
     os << std::scientific
        << std::showpoint
@@ -86,12 +100,12 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
+      out_stream &os,
       plane const &obj)
   {
-    vec3 obj_origin(obj.origin());
+    point obj_origin(obj.origin());
     vec3 obj_normal(obj.normal());
     os << std::scientific
        << std::showpoint
@@ -107,34 +121,34 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
+      out_stream &os,
       segment const &obj)
   {
-    vec3 obj_point_0(obj.point(0));
-    vec3 obj_point_1(obj.point(1));
+    point obj_point_0(obj.vertex(0));
+    point obj_point_1(obj.vertex(1));
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
        << std::endl
-       << "Point 0 = "
+       << "Vertex 0 = "
        << "[ " << obj_point_0[0] << ", " << obj_point_0[1] << ", " << obj_point_0[2] << " ]'"
        << std::endl
-       << "Point 1 = "
+       << "Vertex 1 = "
        << "[ " << obj_point_1[0] << ", " << obj_point_1[1] << ", " << obj_point_1[2] << " ]'";
     return os;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
-      box const &obj)
+      out_stream &os,
+      aabb const &obj)
   {
-    vec3 obj_point_min(obj.min());
-    vec3 obj_point_max(obj.max());
+    point obj_point_min(obj.min());
+    point obj_point_max(obj.max());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -149,14 +163,14 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
+      out_stream &os,
       triangle const &obj)
   {
-    vec3 obj_vertex_0(obj.vertex(0));
-    vec3 obj_vertex_2(obj.vertex(1));
-    vec3 obj_vertex_1(obj.vertex(2));
+    point obj_vertex_0(obj.vertex(0));
+    point obj_vertex_2(obj.vertex(1));
+    point obj_vertex_1(obj.vertex(2));
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -172,12 +186,12 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
+      out_stream &os,
       circle const &obj)
   {
-    vec3 obj_center(obj.center());
+    point obj_center(obj.center());
     vec3 obj_normal(obj.normal());
     os << std::scientific
        << std::showpoint
@@ -195,9 +209,9 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ostream_type &
+  out_stream &
   operator<<(
-      ostream_type &os,
+      out_stream &os,
       affine const &obj)
   {
     os << std::scientific

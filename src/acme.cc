@@ -26,10 +26,10 @@
 */
 
 ///
-/// file: acme_vector_point.cc
+/// file: acme.cc
 ///
 
-#include "acme_vector_point.hh"
+#include "acme.hh"
 
 namespace acme
 {
@@ -46,8 +46,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  transformVector(
-      vector &vector,
+  transform(
+      vec3 &vector,
       affine const &matrix)
   {
     vector = matrix.linear() * vector;
@@ -55,18 +55,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  transformPoint(
-      point &point,
-      affine const &matrix)
-  {
-    point = matrix * point;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 } // namespace acme
 
 ///
-/// eof: acme_vector_point.cc
+/// file: acme.cc
 ///

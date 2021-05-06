@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_PLANE
 
 #include "acme.hh"
-#include "acme_vector_point.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -60,8 +60,8 @@ public:
     typedef std::vector<pairptr> vecpairptr;  //!< Vector of pairs of pointers to plane objects
 
 private:
-    point _origin;  //!< Plane origin point
-    vector _normal; //!< Plane normal vector
+    point _origin; //!< Plane origin point
+    vec3 _normal;  //!< Plane normal vector
 
 public:
     //! Plane class destructor
@@ -85,14 +85,14 @@ public:
         real dy, //<! Input y value of plane normal vector
         real dz  //<! Input z value of plane normal vector
         ) : _origin(point(ox, oy, oz)),
-            _normal(vector(dx, dy, dz))
+            _normal(vec3(dx, dy, dz))
     {
     }
 
     //! Plane class constructor
     plane(
         point const &origin, //!< Input plane origin point
-        vector const &normal //!< Input plane normal vector
+        vec3 const &normal   //!< Input plane normal vector
         ) : _origin(origin),
             _normal(normal)
     {
@@ -115,7 +115,7 @@ public:
     origin(void) const;
 
     //! Return plane normal vector
-    vector const &
+    vec3 const &
     normal(void) const;
 
     //! Normalize plane normal vector
@@ -131,7 +131,7 @@ public:
     //! Set plane normal
     void
     normal(
-        vector const &input //!< input plane origin vector
+        vec3 const &input //!< input plane origin vector
     );
 
     //! Return plane equation d value (ax + by + cz + d = 0)
@@ -163,14 +163,14 @@ public:
     //! Translate plane by vector
     void
     translate(
-        vector const &input //!< Input translation vector
-    );
+        vec3 const &input //!< Input translation vector
+        ) override;
 
     //! Transform plane from with affine transformation matrix
     void
     transform(
         affine const &matrix //!< 4x4 affine transformation matrix
-    );
+        ) override;
 
     // Check whether a point lays on the plane
     bool
@@ -180,7 +180,7 @@ public:
 
     //! Check if plane is degenerated (normal has zero norm)
     bool
-    isDegenerated(void) const;
+    isDegenerated(void) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 5; }
@@ -191,7 +191,7 @@ public:
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
-    //! Check whether the object is a vector
+    //! Check whether the object is a point
     bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
@@ -217,8 +217,8 @@ public:
 
   }; // class plane
 
-  static plane const NaN_plane = plane(acme::NaN_point, acme::NaN_vector); //!< Not-a-Number plane type
-  static plane plane_goat = plane(NaN_plane);                              //!< Scapegoat plane type (throwaway non-const object)
+  static plane const NaN_plane = plane(acme::NaN_point, acme::NaN_vec3); //!< Not-a-Number plane type
+  static plane plane_goat = plane(NaN_plane);                            //!< Scapegoat plane type (throwaway non-const object)
 
 } // namespace acme
 

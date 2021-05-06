@@ -459,7 +459,7 @@ namespace acme
 
   void
   aabb::translate(
-      point const &input)
+      vec3 const &input)
   {
     this->_min = input + this->_min;
     this->_max = input + this->_max;
@@ -471,8 +471,8 @@ namespace acme
   aabb::transform(
       affine const &matrix)
   {
-    acme::transformPoint(this->_min, matrix);
-    acme::transformPoint(this->_max, matrix);
+    this->_min.transform(matrix);
+    this->_max.transform(matrix);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

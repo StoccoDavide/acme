@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_NONE
 
 #include "acme.hh"
-#include "acme_eigen.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -53,7 +53,7 @@ namespace acme
   */
   class none : public entity
   {
-  public:
+public:
     typedef std::shared_ptr<none const> ptr; //!< Shared pointer to none
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to circle objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to circle objects
@@ -65,20 +65,32 @@ namespace acme
     //! None class constructor
     none() {}
 
+    //! Translate entity by vector
+    void
+    translate(
+        vec3 const &input //!< Input translation vector
+        ) override{};
+
+    //! Transform entity with affine transformation matrix
+    void
+    transform(
+        affine const &matrix //!< 4x4 affine transformation matrix
+        ) override{};
+
+    //! Check if entity is degenerated
+    bool isDegenerated(void) const override { return true; };
+
     //! Return object hierarchical degree
-    size_t degree(void) const override { return 0; }
+    integer degree(void) const override { return 1; }
 
     //! Return object type as string
-    std::string whattype(void) const override { return "none"; }
+    std::string type(void) const override { return "none"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return true; }
 
     //! Check whether the object is a point
-    bool isMatrix(void) const override { return false; }
-
-    //! Check whether the object is a vector
-    bool isVector(void) const override { return false; }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
     bool isLine(void) const override { return false; }
@@ -98,10 +110,10 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a box
+    //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
-}; // class none
+  }; // class none
 
   static none none_goat = none(); //!< Scapegoat one type (throwaway non-const object)
 

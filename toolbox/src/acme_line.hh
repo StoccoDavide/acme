@@ -33,7 +33,7 @@
 #define INCLUDE_ACME_LINE
 
 #include "acme.hh"
-#include "acme_eigen.hh"
+#include "acme_point.hh"
 
 namespace acme
 {
@@ -54,17 +54,17 @@ namespace acme
    */
   class line : public entity
   {
-  public:
+public:
     typedef std::shared_ptr<line const> ptr; //!< Shared pointer to line
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to line objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to line objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to line objects
 
-  private:
-    vec3 _origin;    //!< Origin (point)
-    vec3 _direction; //!< Direction (vector)
+private:
+    point _origin;   //!< Origin point
+    vec3 _direction; //!< Direction vector
 
-  public:
+public:
     //! Line class destructor
     ~line() {}
 
@@ -79,20 +79,20 @@ namespace acme
 
     //! Line class constructor for line
     line(
-        real_type ox, //<! Input x value of line origin point
-        real_type oy, //<! Input y value of line origin point
-        real_type oz, //<! Input z value of line origin point
-        real_type dx, //<! Input x value of line direction vector
-        real_type dy, //<! Input y value of line direction vector
-        real_type dz  //<! Input z value of line direction vector
-        ) : _origin(vec3(ox, oy, oz)),
+        real ox, //<! Input x value of line origin point
+        real oy, //<! Input y value of line origin point
+        real oz, //<! Input z value of line origin point
+        real dx, //<! Input x value of line direction vector
+        real dy, //<! Input y value of line direction vector
+        real dz  //<! Input z value of line direction vector
+        ) : _origin(point(ox, oy, oz)),
             _direction(vec3(dx, dy, dz))
     {
     }
 
     //! Line class constructor
     line(
-        vec3 const &origin,   //!< Input line origin point
+        point const &origin,  //!< Input line origin point
         vec3 const &direction //!< Input line direction vector
         ) : _origin(origin),
             _direction(direction)
@@ -111,12 +111,8 @@ namespace acme
         line const &input //!< Input line object
     ) const;
 
-    //! Check if line is degenerated (direction vector has zero norm)
-    bool
-    isDegenerated(void) const;
-
     //! Return line origin point
-    vec3 const &
+    point const &
     origin(void) const;
 
     //! Return line direction vector
@@ -126,7 +122,7 @@ namespace acme
     //! Set line origin point
     void
     origin(
-        vec3 const &input //!< input line origin point
+        point const &input //!< input line origin point
     );
 
     //! Set line direction vector
@@ -155,34 +151,35 @@ namespace acme
     void
     translate(
         vec3 const &input //!< Input translation vector
-    );
+        ) override;
 
     //! Transform line with affine transformation matrix
     void
     transform(
         affine const &matrix //!< 4x4 affine transformation matrix
-    );
+        ) override;
 
     // Check whether the point is inside the line
     bool
     isInside(
-        vec3 const &point //!< Query point
+        point const &query_point //!< Query point
     ) const;
 
+    //! Check if line is degenerated (direction vector has zero norm)
+    bool
+    isDegenerated(void) const override;
+
     //! Return object hierarchical degree
-    size_t degree(void) const override { return 3; }
+    integer degree(void) const override { return 3; }
 
     //! Return object type as string
-    std::string whattype(void) const override { return "line"; }
+    std::string type(void) const override { return "line"; }
 
     //! Check whether the object is no entity
     bool isNone(void) const override { return false; }
 
     //! Check whether the object is a point
-    bool isMatrix(void) const override { return false; }
-
-    //! Check whether the object is a vector
-    bool isVector(void) const override { return false; }
+    bool isPoint(void) const override { return false; }
 
     //! Check whether the object is a line
     bool isLine(void) const override { return true; }
@@ -202,13 +199,13 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a box
+    //! Check whether the object is a aabb
     bool isBox(void) const override { return false; }
 
   }; // class line
 
-  static line const NaN_line = line(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number line type
-  static line line_goat = line(NaN_line);                            //!< Scapegoat line type (throwaway non-const object)
+  static line const NaN_line = line(acme::NaN_point, acme::NaN_vec3); //!< Not-a-Number line type
+  static line line_goat = line(NaN_line);                             //!< Scapegoat line type (throwaway non-const object)
 
 } // namespace acme
 
