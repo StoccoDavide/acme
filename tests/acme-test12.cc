@@ -54,8 +54,8 @@ int main()
   std::cout << "point = " << b << "\n";
   std::cout << "vector = " << v << "\n";
 
-  entity *line0 = new ray(point(0.0, 0.0, 0.0), vec3(0.0, -1.0, 0.0));
-  entity *line1 = new ray(point(0.0, -1.0, 0.0), vec3(0.0, 1.0, 0.0));
+  ray *line0 = new ray(point(0.0, 0.0, 0.0), vec3(0.0, -1.0, 0.0));
+  ray *line1 = new ray(point(0.0, -1.0, 0.0), vec3(0.0, 1.0, 0.0));
   entity *entity_out = acme::intersection(line0, line1);
 
   if (dynamic_cast<segment *>(entity_out)) // IF!!!!!

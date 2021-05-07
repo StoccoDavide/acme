@@ -38,38 +38,37 @@
 #include "acme_plane.hh"
 #include "acme_point.hh"
 #include "acme_ray.hh"
-#include "acme_segment.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
-#define ASSERT(COND, MSG)                  \
-  if (!(COND))                             \
-  {                                        \
-    std::ostringstream ost;                \
-    ost << "mex_segment: " << MSG << '\n'; \
-    mexErrMsgTxt(ost.str().c_str());       \
+#define ASSERT(COND, MSG)                   \
+  if (!(COND))                              \
+  {                                         \
+    std::ostringstream ost;                 \
+    ost << "mex_triangle: " << MSG << '\n'; \
+    mexErrMsgTxt(ost.str().c_str());        \
   }
 
-#define MEX_ERROR_MESSAGE                                                      \
-  "%======================================================================%\n" \
-  "% mex_segment: Mex wrapper for ACME segment object.                    %\n" \
-  "%                                                                      %\n" \
-  "% CONSTRUCTOR:                                                         %\n" \
-  "%   obj = mex_segment( 'new' );                                        %\n" \
-  "%   obj = mex_segment( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );            %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n" \
-  "%                                                                      %\n" \
-  "%    Davide Stocco                                                     %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    davide.stocco@unitn.it                                            %\n" \
-  "%                                                                      %\n" \
-  "%    Enrico Bertolazzi                                                 %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    enrico.bertolazzi@unitn.it                                        %\n" \
-  "%                                                                      %\n" \
+#define MEX_ERROR_MESSAGE                                                        \
+  "%======================================================================%\n"   \
+  "% mex_triangle: Mex wrapper for ACME triangle object.                    %\n" \
+  "%                                                                      %\n"   \
+  "% CONSTRUCTOR:                                                         %\n"   \
+  "%   obj = mex_triangle( 'new' );                                        %\n"  \
+  "%   obj = mex_triangle( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );            %\n"  \
+  "%                                                                      %\n"   \
+  "%======================================================================%\n"   \
+  "%                                                                      %\n"   \
+  "%    Davide Stocco                                                     %\n"   \
+  "%    Department of Industrial Engineering                              %\n"   \
+  "%    University of Trento                                              %\n"   \
+  "%    davide.stocco@unitn.it                                            %\n"   \
+  "%                                                                      %\n"   \
+  "%    Enrico Bertolazzi                                                 %\n"   \
+  "%    Department of Industrial Engineering                              %\n"   \
+  "%    University of Trento                                              %\n"   \
+  "%    enrico.bertolazzi@unitn.it                                        %\n"   \
+  "%                                                                      %\n"   \
   "%======================================================================%\n"
 
 using namespace std;
@@ -79,23 +78,23 @@ typedef double real_type;
 static void
 DATA_NEW(
     mxArray *&mx_id,
-    acme::segment *ptr)
+    acme::triangle *ptr)
 {
-  mx_id = convertPtr2Mat<acme::segment>(ptr);
+  mx_id = convertPtr2Mat<acme::triangle>(ptr);
 }
 
-static inline acme::segment *
+static inline acme::triangle *
 DATA_GET(
     mxArray const *&mx_id)
 {
-  return convertMat2Ptr<acme::segment>(mx_id);
+  return convertMat2Ptr<acme::triangle>(mx_id);
 }
 
 static void
 DATA_DELETE(
     mxArray const *&mx_id)
 {
-  destroyObject<acme::segment>(mx_id);
+  destroyObject<acme::triangle>(mx_id);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -105,8 +104,8 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 3, CMD "expected 1 or 3 inputs, nrhs = " << nrhs << '\n');
+#define CMD "mex_triangle( 'new', [, args] ): "
+  MEX_ASSERT(nrhs == 1 || nrhs == 4, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   MEX_ASSERT(
@@ -120,7 +119,10 @@ do_new(int nlhs, mxArray *plhs[],
   real_type x2 = acme::NaN;
   real_type y2 = acme::NaN;
   real_type z2 = acme::NaN;
-  if (nrhs == 3)
+  real_type x3 = acme::NaN;
+  real_type y3 = acme::NaN;
+  real_type z3 = acme::NaN;
+  if (nrhs == 4)
   {
     real_type const *matrix1_ptr;
     mwSize rows1, cols1;
@@ -130,15 +132,22 @@ do_new(int nlhs, mxArray *plhs[],
     mwSize rows2, cols2;
     matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
     MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
+    real_type const *matrix3_ptr;
+    mwSize rows3, cols3;
+    matrix3_ptr = getMatrixPointer(arg_in_3, rows3, cols3, CMD "Error in third input matrix");
+    MEX_ASSERT(rows3 == 3 || cols3 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows3 << ", cols = " << cols3 << '\n');
     x1 = matrix1_ptr[0];
     y1 = matrix1_ptr[1];
     z1 = matrix1_ptr[2];
     x2 = matrix2_ptr[0];
     y2 = matrix2_ptr[1];
     z2 = matrix2_ptr[2];
+    x3 = matrix3_ptr[0];
+    y3 = matrix3_ptr[1];
+    z3 = matrix3_ptr[2];
   }
 
-  acme::segment *ptr = new acme::segment(x1, y1, z1, x2, y2, z2);
+  acme::triangle *ptr = new acme::triangle(x1, y1, z1, x2, y2, z2, x3, y3, z3);
   DATA_NEW(arg_out_0, ptr);
 #undef CMD
 }
@@ -150,7 +159,7 @@ do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'delete', OBJ ): "
+#define CMD "mex_triangle( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -165,11 +174,11 @@ do_getVertex1(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'getVertex1', OBJ ): "
+#define CMD "mex_triangle( 'getVertex1', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *out = new acme::point(self->vertex(0));
   arg_out_0 = convertPtr2Mat<acme::point>(out);
 #undef CMD
@@ -182,12 +191,29 @@ do_getVertex2(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'getVertex2', OBJ ): "
+#define CMD "mex_triangle( 'getVertex2', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *out = new acme::point(self->vertex(1));
+  arg_out_0 = convertPtr2Mat<acme::point>(out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_getVertex3(int nlhs, mxArray *plhs[],
+              int nrhs, mxArray const *prhs[])
+{
+
+#define CMD "mex_triangle( 'getVertex3', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::triangle *self = DATA_GET(arg_in_1);
+  acme::point *out = new acme::point(self->vertex(2));
   arg_out_0 = convertPtr2Mat<acme::point>(out);
 #undef CMD
 }
@@ -199,11 +225,11 @@ do_setVertex1(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'setVertex1', OBJ, OTHER_OBJ ): "
+#define CMD "mex_triangle( 'setVertex1', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *obj = convertMat2Ptr<acme::point>(arg_in_2);
   self->vertex(0) = *obj;
 #undef CMD
@@ -216,13 +242,30 @@ do_setVertex2(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'setVertex2', OBJ, OTHER_OBJ ): "
+#define CMD "mex_triangle( 'setVertex2', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *obj = convertMat2Ptr<acme::point>(arg_in_2);
   self->vertex(1) = *obj;
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_setVertex3(int nlhs, mxArray *plhs[],
+              int nrhs, mxArray const *prhs[])
+{
+
+#define CMD "mex_triangle( 'setVertex3', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::triangle *self = DATA_GET(arg_in_1);
+  acme::point *obj = convertMat2Ptr<acme::point>(arg_in_2);
+  self->vertex(2) = *obj;
 #undef CMD
 }
 
@@ -232,11 +275,11 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'translate', OBJ, [X, Y, Z] ): "
+#define CMD "mex_triangle( 'translate', OBJ, [X, Y, Z] ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
@@ -255,14 +298,15 @@ do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 
-#define CMD "mex_segment( 'copy', OBJ, OTHER_OBJ ): "
+#define CMD "mex_triangle( 'copy', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
-  acme::segment *other = DATA_GET(arg_in_2);
+  acme::triangle *self = DATA_GET(arg_in_1);
+  acme::triangle *other = DATA_GET(arg_in_2);
   self->vertex(0) = other->vertex(0);
   self->vertex(1) = other->vertex(1);
+  self->vertex(2) = other->vertex(2);
 #undef CMD
 }
 
@@ -272,11 +316,11 @@ static void
 do_transform(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'transform', OBJ, MATRIX ): "
+#define CMD "mex_triangle( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
@@ -287,7 +331,7 @@ do_transform(int nlhs, mxArray *plhs[],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::segment *out = new acme::segment((*self));
+  acme::triangle *out = new acme::triangle((*self));
   out->transform(matrix);
   DATA_NEW(arg_out_0, out);
 #undef CMD
@@ -299,11 +343,11 @@ static void
 do_isInside(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isInside', OBJ, OTHER_OBJ ): "
+#define CMD "mex_triangle( 'isInside', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
   setScalarBool(arg_out_0, self->isInside(*other));
 #undef CMD
@@ -315,11 +359,11 @@ static void
 do_isDegenerated(int nlhs, mxArray *plhs[],
                  int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isDegenerated', OBJ ): "
+#define CMD "mex_triangle( 'isDegenerated', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   setScalarBool(arg_out_0, self->isDegenerated());
 #undef CMD
 }
@@ -330,12 +374,12 @@ static void
 do_isApprox(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isApprox', OBJ, OTHER_OBJ ): "
+#define CMD "mex_triangle( 'isApprox', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
-  acme::segment *other = DATA_GET(arg_in_2);
+  acme::triangle *self = DATA_GET(arg_in_1);
+  acme::triangle *other = DATA_GET(arg_in_2);
   setScalarBool(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
@@ -346,11 +390,11 @@ static void
 do_centroid(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'centroid', OBJ ): "
+#define CMD "mex_triangle( 'centroid', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *out = new acme::point(self->centroid());
   arg_out_0 = convertPtr2Mat<acme::point>(out);
 #undef CMD
@@ -359,36 +403,52 @@ do_centroid(int nlhs, mxArray *plhs[],
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_toVector(int nlhs, mxArray *plhs[],
-            int nrhs, mxArray const *prhs[])
+do_normal(int nlhs, mxArray *plhs[],
+          int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'toVector', OBJ ): "
+#define CMD "mex_triangle( 'normal', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   real_type *output = createMatrixValue(arg_out_0, 3, 1);
-  output[0] = self->toVector().x();
-  output[1] = self->toVector().y();
-  output[2] = self->toVector().z();
+  output[0] = self->normal().x();
+  output[1] = self->normal().y();
+  output[2] = self->normal().z();
 #undef CMD
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_toNormalizedVector(int nlhs, mxArray *plhs[],
-                      int nrhs, mxArray const *prhs[])
+do_layingPlane(int nlhs, mxArray *plhs[],
+               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'toNormalizedVector', OBJ ): "
+#define CMD "mex_triangle( 'layingPlane', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
-  output[0] = self->toNormalizedVector().x();
-  output[1] = self->toNormalizedVector().y();
-  output[2] = self->toNormalizedVector().z();
+  acme::triangle *self = DATA_GET(arg_in_1);
+  acme::plane *out = new acme::plane(self->layingPlane());
+  arg_out_0 = convertPtr2Mat<acme::plane>(out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_edge(int nlhs, mxArray *plhs[],
+        int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_triangle( 'edge', OBJ, INT, INT ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::triangle *self = DATA_GET(arg_in_1);
+  int i = getInt(arg_in_2, CMD "Error in first input integer");
+  int j = getInt(arg_in_3, CMD "Error in second input integer");
+  acme::segment *out = new acme::segment(self->edge(i, j));
+  arg_out_0 = convertPtr2Mat<acme::segment>(out);
 #undef CMD
 }
 
@@ -398,12 +458,14 @@ static void
 do_swap(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'swap', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+#define CMD "mex_triangle( 'swap', OBJ, INT, INT ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
-  self->swap();
+  acme::triangle *self = DATA_GET(arg_in_1);
+  int i = getInt(arg_in_2, CMD "Error in first input integer");
+  int j = getInt(arg_in_3, CMD "Error in second input integer");
+  self->swap(i, j);
 #undef CMD
 }
 
@@ -413,11 +475,11 @@ static void
 do_clamp(int nlhs, mxArray *plhs[],
          int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'clamp', OBJ ): "
+#define CMD "mex_triangle( 'clamp', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   acme::aabb *out = new acme::aabb();
   self->clamp(*out);
   arg_out_0 = convertPtr2Mat<acme::aabb>(out);
@@ -427,15 +489,47 @@ do_clamp(int nlhs, mxArray *plhs[],
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_length(int nlhs, mxArray *plhs[],
+do_perimeter(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'length', OBJ ): "
+#define CMD "mex_triangle( 'perimeter', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->length());
+  acme::triangle *self = DATA_GET(arg_in_1);
+  setScalarValue(arg_out_0, self->perimeter());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_area(int nlhs, mxArray *plhs[],
+          int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_triangle( 'area', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::triangle *self = DATA_GET(arg_in_1);
+  setScalarValue(arg_out_0, self->area());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_barycentric(int nlhs, mxArray *plhs[],
+          int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_triangle( 'barycentric', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::triangle *self = DATA_GET(arg_in_1);
+  acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
+  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  self->barycentric(*other, output[0], output[1], output[2]);
 #undef CMD
 }
 
@@ -445,11 +539,11 @@ static void
 do_isParallel(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isParallel', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isParallel', OBJ, OTHER_OBJ, TYPE ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
   acme::entity *other = nullptr;
 
@@ -463,8 +557,8 @@ do_isParallel(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
     other = convertMat2Ptr<acme::plane>(arg_in_2);
-  else if (type == "segment")
-    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
@@ -480,11 +574,11 @@ static void
 do_isOrthogonal(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isOrthogonal', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isOrthogonal', OBJ, OTHER_OBJ, TYPE ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
   acme::entity *other = nullptr;
 
@@ -498,8 +592,8 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
     other = convertMat2Ptr<acme::plane>(arg_in_2);
-  else if (type == "segment")
-    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
@@ -515,11 +609,11 @@ static void
 do_isCollinear(int nlhs, mxArray *plhs[],
                int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isCollinear', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isCollinear', OBJ, OTHER_OBJ, TYPE ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
 
   acme::entity *other = nullptr;
@@ -534,8 +628,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
     other = convertMat2Ptr<acme::plane>(arg_in_2);
-  else if (type == "segment")
-    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
@@ -551,11 +645,11 @@ static void
 do_isCoplanar(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isCoplanar', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isCoplanar', OBJ, OTHER_OBJ, TYPE ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
 
   acme::entity *other = nullptr;
@@ -570,8 +664,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
     other = convertMat2Ptr<acme::plane>(arg_in_2);
-  else if (type == "segment")
-    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
@@ -587,11 +681,11 @@ static void
 do_intersection(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'intersection', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'intersection', OBJ, OTHER_OBJ, TYPE ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
 
-  acme::segment *self = DATA_GET(arg_in_1);
+  acme::triangle *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
 
   acme::entity *other = nullptr;
@@ -606,8 +700,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
     other = convertMat2Ptr<acme::plane>(arg_in_2);
-  else if (type == "segment")
-    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
@@ -625,8 +719,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     arg_out_0 = convertPtr2Mat<acme::ray>(dynamic_cast<acme::ray *>(out));
   else if (out_type == "plane")
     arg_out_0 = convertPtr2Mat<acme::plane>(dynamic_cast<acme::plane *>(out));
-  else if (out_type == "segment")
-    arg_out_0 = convertPtr2Mat<acme::segment>(dynamic_cast<acme::segment *>(out));
+  else if (out_type == "triangle")
+    arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "triangle")
     arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "circle")
@@ -646,26 +740,30 @@ static map<string, DO_CMD> cmd_to_fun = {
     {"delete", do_delete},
     {"getVertex1", do_getVertex1},
     {"getVertex2", do_getVertex2},
+    {"getVertex3", do_getVertex3},
     {"setVertex1", do_setVertex1},
     {"setVertex2", do_setVertex2},
+    {"setVertex3", do_setVertex3},
     {"copy", do_copy},
     {"translate", do_translate},
     {"transform", do_transform},
-    {"isDegenerated", do_isDegenerated},
     {"isInside", do_isInside},
+    {"isDegenerated", do_isDegenerated},
     {"isApprox", do_isApprox},
     {"centroid", do_centroid},
-    {"toVector", do_toVector},
-    {"toNormalizedVector", do_toNormalizedVector},
+    {"normal", do_normal},
+    {"layingPlane", do_layingPlane},
+    {"edge", do_edge},
     {"swap", do_swap},
     {"clamp", do_clamp},
-    {"length", do_length},
+    {"perimeter", do_perimeter},
+    {"area", do_area},
+    {"barycentric", do_barycentric},
     {"isParallel", do_isParallel},
     {"isOrthogonal", do_isOrthogonal},
     {"isCollinear", do_isCollinear},
     {"isCoplanar", do_isCoplanar},
-    {"intersection", do_intersection}
-};
+    {"intersection", do_intersection}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -689,10 +787,10 @@ mexFunction(int nlhs, mxArray *plhs[],
   }
   catch (exception const &e)
   {
-    mexErrMsgTxt((string("mex_segment Error: ") + e.what()).c_str());
+    mexErrMsgTxt((string("mex_triangle Error: ") + e.what()).c_str());
   }
   catch (...)
   {
-    mexErrMsgTxt("mex_segment failed\n");
+    mexErrMsgTxt("mex_triangle failed\n");
   }
 }

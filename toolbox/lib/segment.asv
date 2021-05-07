@@ -82,9 +82,9 @@ classdef segment < entity
     function copy( self, other_obj )
       % Copy segment object from another segment
       if (other_obj.type() == "segment")
-        mex_segment( 'copy', self.objectHandle, other_obj.objectHandle );
+        mex_point( 'copy', self.objectHandle, other_obj.objectHandle );
       else
-        error('mex_segment::copy(): other_obj must be an ACME segment object type.');
+        error('mex_segment::copy(): other_obj must be an ACME se object type.');
       end
     end
     %

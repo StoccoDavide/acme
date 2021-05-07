@@ -62,14 +62,6 @@ namespace acme
       real tolerance = Epsilon //!< Tolerance
   );
 
-  //! Check if vectors are parallel
-  bool
-  isParallel(
-      vec3 const &vector0,     //!< Input vector 0
-      vec3 const &vector1,     //!< Input vector 1
-      real tolerance = Epsilon //!< Tolerance
-  );
-
   //! Check if lines are parallel
   bool
   isParallel(
@@ -115,54 +107,6 @@ namespace acme
   isParallel(
       circle const &circle0,   //!< Input circle 0
       circle const &circle1,   //!< Input circle 1
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and line are parallel
-  bool
-  isParallel(
-      vec3 const &vector,      //!< Input ray
-      line const &line,        //!< Input vector
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and ray are parallel
-  bool
-  isParallel(
-      vec3 const &vector,      //!< Input vector
-      ray const &ray,          //!< Input ray
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and plane are parallel
-  bool
-  isParallel(
-      vec3 const &vector,      //!< Input vector
-      plane const &plane,      //!< Input plane
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and segment are parallel
-  bool
-  isParallel(
-      vec3 const &vector,      //!< Input vector
-      segment const &segment,  //!< Input segment
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and triangle are parallel
-  bool
-  isParallel(
-      vec3 const &vector,       //!< Input vector
-      triangle const &triangle, //!< Input triangle
-      real tolerance = Epsilon  //!< Tolerance
-  );
-
-  //! Check if vector and circle are parallel
-  bool
-  isParallel(
-      vec3 const &vector,      //!< Input vector
-      circle const &circle,    //!< Input circle
       real tolerance = Epsilon //!< Tolerance
   );
 

@@ -118,54 +118,6 @@ namespace acme
       real tolerance = Epsilon //!< Tolerance
   );
 
-  //! Check if vector and line are orthogonal
-  bool
-  isOrthogonal(
-      vec3 const &vector,      //!< Input ray
-      line const &line,        //!< Input vector
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and ray are orthogonal
-  bool
-  isOrthogonal(
-      vec3 const &vector,      //!< Input vector
-      ray const &ray,          //!< Input ray
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and plane are orthogonal
-  bool
-  isOrthogonal(
-      vec3 const &vector,      //!< Input vector
-      plane const &plane,      //!< Input plane
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and segment are orthogonal
-  bool
-  isOrthogonal(
-      vec3 const &vector,      //!< Input vector
-      segment const &segment,  //!< Input segment
-      real tolerance = Epsilon //!< Tolerance
-  );
-
-  //! Check if vector and triangle are orthogonal
-  bool
-  isOrthogonal(
-      vec3 const &vector,       //!< Input vector
-      triangle const &triangle, //!< Input triangle
-      real tolerance = Epsilon  //!< Tolerance
-  );
-
-  //! Check if vector and circle are orthogonal
-  bool
-  isOrthogonal(
-      vec3 const &vector,      //!< Input vector
-      circle const &circle,    //!< Input circle
-      real tolerance = Epsilon //!< Tolerance
-  );
-
   //! Check if line and ray are orthogonal
   bool
   isOrthogonal(

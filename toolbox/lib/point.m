@@ -1,8 +1,28 @@
-%>
-%> Class storing and managin geometrical entities
-%>
-%>
-%>
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%                                                                     %
+% The ACME project                                                    %
+%                                                                     %
+% Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       %
+%                                                                     %
+% The ACME project and its components are supplied under the terms of %
+% the open source BSD 2-Clause License. The contents of the ACME      %
+% project and its components may not be copied or disclosed except in %
+% accordance with the terms of the BSD 2-Clause License.              %
+%                                                                     %
+% URL: https://opensource.org/licenses/BSD-2-Clause                   %
+%                                                                     %
+%    Davide Stocco                                                    %
+%    Department of Industrial Engineering                             %
+%    University of Trento                                             %
+%    e-mail: davide.stocco@unitn.it                                   %
+%                                                                     %
+%    Enrico Bertolazzi                                                %
+%    Department of Industrial Engineering                             %
+%    University of Trento                                             %
+%    e-mail: enrico.bertolazzi@unitn.it                               %
+%                                                                     %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
 classdef point < entity
   
   %properties (SetAccess = protected, Hidden = true)
@@ -62,7 +82,12 @@ classdef point < entity
     % --------------------------------------------------------------------
     %>
     function copy( self, other_obj )
-     mex_point( 'copy', self.objectHandle, other_obj.objectHandle );
+      % Copy segment object from another segment
+      if (other_obj.type() == "point")
+        mex_point( 'copy', self.objectHandle, other_obj.objectHandle );
+      else
+        error('mex_point::copy(): other_obj must be an ACME point object type.');
+      end
     end
     % --------------------------------------------------------------------
     %>
@@ -71,27 +96,24 @@ classdef point < entity
     end
     % --------------------------------------------------------------------
     %>
-    function out_obj = transform( self, varargin )
-      out_obj = point();
-      out_obj.objectHandle = mex_point( 'transform', self.objectHandle, varargin{:} );
+    function P = transform( self, varargin )
+      P = point();
+      P.objectHandle = mex_point( 'transform', self.objectHandle, varargin{:} );
     end
     % --------------------------------------------------------------------
     %>
     function disp( self )
-      disp(self.get());
+      disp( self.get() );
     end
     % --------------------------------------------------------------------
     %>
-    function plot( self, figure_name )
+    function plot( self, figure_name, color )
       figure_name;
       hold on;
-      scatter3(self.get(), 'filled');
+      scatter3(self.get(), color, 'filled');
       hold off;
     end
     % --------------------------------------------------------------------
-    % OVERRIDE
-    % --------------------------------------------------------------------
-    %>
     function P = type( self )
       P = 'point';
     end
