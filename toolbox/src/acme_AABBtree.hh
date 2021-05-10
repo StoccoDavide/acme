@@ -47,35 +47,35 @@ namespace acme
 {
 
   /*\
-   |               _     _   _____              
-   |    __ _  __ _| |__ | |_|_   _| __ ___  ___ 
-   |   / _` |/ _` | '_ \| '_ \| || '__/ _ \/ _ \
-   |  | (_| | (_| | |_) | |_) | || | |  __/  __/
-   |   \__,_|\__,_|_.__/|_.__/|_||_|  \___|\___|
-   |                                            
+   |      _        _    ____  ____  _                 
+   |     / \      / \  | __ )| __ )| |_ _ __ ___  ___ 
+   |    / _ \    / _ \ |  _ \|  _ \| __| '__/ _ \/ _ \
+   |   / ___ \  / ___ \| |_) | |_) | |_| | |  __/  __/
+   |  /_/   \_\/_/   \_\____/|____/ \__|_|  \___|\___|
+   |                                                  
   \*/
 
   //! Axis-aligned bouding tree class container
   /**
    * Axis-aligned bouding aabb tree.
   */
-  class aabbTree
+  class AABBtree
   {
 public:
-    typedef std::shared_ptr<aabbTree> ptr; //!< Shared pointer to AABB tree object
+    typedef std::shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
 
 private:
     aabb::ptr _ptrbox; //!< Pointer to AABB tree aabb
-    std::vector<aabbTree::ptr> _children;
+    std::vector<AABBtree::ptr> _children;
 
-    aabbTree(aabbTree const &tree);
+    AABBtree(AABBtree const &tree);
 
 public:
     //! AABB tree class destructor
-    ~aabbTree();
+    ~AABBtree();
 
     //! AABB tree class constructor
-    aabbTree();
+    AABBtree();
 
     //! Clear AABB tree data
     void
@@ -102,7 +102,7 @@ public:
     template <typename collision>
     bool
     collision(
-        aabbTree const &tree,  //!< AABB tree used to check collision
+        AABBtree const &tree,  //!< AABB tree used to check collision
         collision function,    //!< Function to check if the contents of two aabb collide
         bool swap_tree = false //!< If true exchange the tree in computation
     ) const
@@ -124,7 +124,7 @@ public:
           return function(this->_ptrbox, tree._ptrbox);
       case 1: // first is a tree, second is a leaf
       {
-        typename std::vector<aabbTree::ptr>::const_iterator it;
+        typename std::vector<AABBtree::ptr>::const_iterator it;
         for (it = this->_children.begin(); it != this->_children.end(); ++it)
           if (tree.collision(**it, function, !swap_tree))
             return true;
@@ -132,7 +132,7 @@ public:
       break;
       case 2: // first leaf, second is a tree
       {
-        typename std::vector<aabbTree::ptr>::const_iterator it;
+        typename std::vector<AABBtree::ptr>::const_iterator it;
         for (it = tree._children.begin();
              it != tree._children.end(); ++it)
           if (this->collision(**it, function, swap_tree))
@@ -141,8 +141,8 @@ public:
       break;
       case 3: // first is a tree, second is a tree
       {
-        typename std::vector<aabbTree::ptr>::const_iterator it1;
-        typename std::vector<aabbTree::ptr>::const_iterator it2;
+        typename std::vector<AABBtree::ptr>::const_iterator it1;
+        typename std::vector<AABBtree::ptr>::const_iterator it2;
         for (it1 = this->_children.begin(); it1 != this->_children.end(); ++it1)
           for (it2 = tree._children.begin();
                it2 != tree._children.end(); ++it2)
@@ -157,7 +157,7 @@ public:
     //! Compute all the intersection of AABB trees
     void
     intersection(
-        aabbTree const &tree,               //!< AABB tree used to check collision
+        AABBtree const &tree,               //!< AABB tree used to check collision
         aabb::vecpairptr &intersectionList, //!< List of pair aabb that overlaps
         bool swap_tree = false              //!< If true exchange the tree in computation
     ) const;
@@ -173,7 +173,7 @@ private:
     static real
     minimumExteriorDistance(
         point const &query_point, //!< Input point
-        aabbTree const &tree,     //!< Input tree
+        AABBtree const &tree,     //!< Input tree
         real distance             //!< Output distance
     );
 
@@ -182,11 +182,11 @@ private:
     selectLessThanDistance(
         point const &query_point,   //!< Input point
         real distance,              //!< Input distance
-        aabbTree const &tree,       //!< Input tree
+        AABBtree const &tree,       //!< Input tree
         aabb::vecptr &candidateList //!< Output candidate list
     );
 
-  }; // class aabbTree
+  }; // class AABBtree
 
 } // namespace acme
 

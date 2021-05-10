@@ -23,193 +23,202 @@
 %                                                                     %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-classdef segment < entity
+classdef acme_plane < acme_entity
   %
-  % Class container for ACME segment object
+  % Class container for ACME plane object
   %
   methods
-    function self = segment( varargin )
-      % Create a new C++ pointer to segment object instance
-      self.objectHandle = mex_segment( 'new', varargin{:} );
+    function self = acme_plane( varargin )
+      % Create a new C++ pointer to plane object instance
+      self.objectHandle = mex_plane( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function delete( self )
-      % Create C++ pointer to segment object instance
-      mex_segment( 'delete', self.objectHandle );
+      % Delete C++ pointer to plane object instance
+      mex_plane( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = type( self )
       % Get object type as string
-      P = 'segment';
+      P = 'plane';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getVertex1( self )
-      % Get segment vertex 1 as ACME point object
-      P = point();
-      P.objectHandle = mex_segment( 'getVertex1', self.objectHandle );
+    function P = getOrigin( self )
+      % Get plane origin as ACME point object
+      P = acme_point();
+      P.objectHandle = mex_plane( 'getOrigin', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getVertex2( self )
-      % Get segment vertex 2 as ACME point object
-      P = point();
-      P.objectHandle = mex_segment( 'getVertex2', self.objectHandle );
+    function P = getNormal( self )
+      % Get plane normal
+      P = mex_plane( 'getNormal', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function setVertex1( self, other_obj )
-      % Set segment vertex 1 with an ACME point object
-      mex_segment( 'setVertex1', self.objectHandle, other_obj.objectHandle );
+    function setOrigin( self, other_obj )
+      % Set plane origin with an ACME point object
+      mex_plane( 'setOrigin', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function setVertex2( self, other_obj )
-      % Set segment vertex 2 with an ACME point object
-      mex_segment( 'setVertex2', self.objectHandle, other_obj.objectHandle );
+    function setNormal( self, other_obj )
+      % Set plane normal
+      mex_plane( 'setNormal', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function copy( self, other_obj )
-      % Copy segment object from another segment
-      if (other_obj.type() == "segment")
-        mex_segment( 'copy', self.objectHandle, other_obj.objectHandle );
+      % Copy plane object from another plane
+      if (other_obj.type() == "plane")
+        mex_plane( 'copy', self.objectHandle, other_obj.objectHandle );
       else
-        error('mex_segment::copy(): other_obj must be an ACME segment object type.');
+        error('mex_plane::copy(): other_obj must be an ACME plane object type.');
       end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function translate( self, other_obj )
-     % Translate segment by vector
-      mex_segment( 'translate', self.objectHandle, other_obj.objectHandle );
+     % Translate plane by vector
+      mex_plane( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = transform( self, varargin )
-      % Transform segment by 4x4 affine transformation matrix
-      P = segment();
-      P.objectHandle = mex_segment( 'transform', self.objectHandle, varargin{:} );
+      % Transform plane by 4x4 affine transformation matrix
+      P = plane();
+      P.objectHandle = mex_plane( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = isInside( self, other_obj )
-      % Check if ACME point is inside the segment 
+      % Check if ACME point is inside the plane 
       if (other_obj.type() == "point")
-        P = mex_segment( 'isInside', self.objectHandle, other_obj.objectHandle );
+        P = mex_plane( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
-         error('mex_segment::isInside(): other_obj must be an ACME point object type.');
+         error('mex_plane::isInside(): other_obj must be an ACME point object type.');
       end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = isDegenerated( self )
-      % Check if segment is degenerated
-      P = mex_segment( 'isDegenerated', self.objectHandle );
+      % Check if plane is degenerated
+      P = mex_plane( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = isApprox( self, other_obj )
-      % Check if segments are approximatively equal
-      if (other_obj.type() == "segment") 
-        P = mex_segment( 'isApprox', self.objectHandle, other_obj.objectHandle );
+      % Check if planes are approximatively equal
+      if (other_obj.type() == "plane") 
+        P = mex_plane( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
-         error('mex_segment::isApprox(): other_obj must be an ACME segment object type.');
+         error('mex_plane::isApprox(): other_obj must be an ACME plane object type.');
       end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = centroid( self )
-      % Get segment centroid as ACME point objecty instance
-      P = point();
-      P.objectHandle = mex_segment( 'centroid', self.objectHandle, other_obj.objectHandle );
+    function normalize( self )
+      % 
+      mex_plane( 'normalize', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toVector( self )
-       % Transform segment to vector
-      P = mex_segment( 'toVector', self.objectHandle );
+    function P = distance( self, other_obj )
+      % Distance between an ACME point and plane
+      if (other_obj.type() == "point") 
+        P = mex_plane( 'distance', self.objectHandle, other_obj.objectHandle );
+      else
+         error('mex_plane::distance(): other_obj must be an ACME point object type.');
+      end
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = squaredDistance( self, other_obj )
+      % Squared distance between an ACME point and plane
+      if (other_obj.type() == "point") 
+        P = mex_plane( 'squaredDistance', self.objectHandle, other_obj.objectHandle );
+      else
+         error('mex_plane::squaredDistance(): other_obj must be an ACME point object type.');
+      end
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = signedDistance( self, other_obj )
+      % Signed distance between an ACME point and plane
+      if (other_obj.type() == "point") 
+        P = mex_plane( 'signedDistance', self.objectHandle, other_obj.objectHandle );
+      else
+         error('mex_plane::signedDistance(): other_obj must be an ACME point object type.');
+      end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = toNormalizedVector( self )
-      % Transform segment to normalized vector
-      P = mex_segment( 'toNormalizedVector', self.objectHandle );
+      % Transform plane to normalized vector
+      P = mex_plane( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function swap( self )
-      % Swap segment vertices
-      mex_segment( 'swap', self.objectHandle );
-    end
-    %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    function P = clamp( self )
-      % Get segment minimum bounding box as ACME aabb object instance
-      P = aabb();
-      P.objectHandle = mex_segment( 'clamp', self.objectHandle );
-    end
-    %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    function P = length( self )
-      % Get segment length
-      P = mex_segment( 'length', self.objectHandle );
+    function reverse( self )
+      % Swap plane vertices
+      mex_plane( 'reverse', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = isParallel( self, other_obj )
-      % Check if segment is parallel to an ACME object
-      P = mex_segment( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      % Check if plane is parallel to an ACME object
+      P = mex_plane( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = isOrthogonal( self, other_obj )
-      % Check if segment is orthogonal to an ACME object
-      P = mex_segment( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      % Check if plane is orthogonal to an ACME object
+      P = mex_plane( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCollinear( self, other_obj )
-      % Check if segment is collinear to an ACME object
-      P = mex_segment( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    function P = isColplanear( self, other_obj )
+      % Check if plane is colplanear to an ACME object
+      P = mex_plane( 'isColplanear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = isCoplanar( self, other_obj )
-      % Check if segment is coplanar to an ACME object 
-      P = mex_segment( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      % Check if plane is coplanar to an ACME object 
+      P = mex_plane( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = intersection( self, other_obj )
-      % Intersect segment with an ACME object
-      [Handle, type] = mex_segment( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( type, '()') );
+      % Intersect plane with an ACME object
+      [Handle, type] = mex_plane( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      P = eval( strcat( 'acme_', type, '()' ) );
       P.objectHandle = Handle;
     end
     %
@@ -217,23 +226,16 @@ classdef segment < entity
     %
     function disp( self )
       % Display object data
-      disp( [self.getVertex1().get(), self.getVertex2().get()] );
+      disp( [self.getOrigin().get(), self.getNormal()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function plot( self, figure_name, color )
-      % Plot segment object
+      % Plot plane object
       figure_name;
       hold on;
-      Vertex1 = self.getVertex1().get();
-      Vertex2 = self.getVertex2().get();
-      scatter3(Vertex1(1), Vertex1(2), Vertex1(3), color, 'filled');
-      scatter3(Vertex2(1), Vertex2(2), Vertex2(3), color, 'filled');
-      X = [Vertex1(1), Vertex2(1)];
-      Y = [Vertex1(2), Vertex2(2)];
-      Z = [Vertex1(3), Vertex2(3)];
-      plot3(X, Y, Z,'-', 'Color', color)
+      
       hold off;
     end
   end

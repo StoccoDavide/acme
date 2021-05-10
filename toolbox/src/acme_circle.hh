@@ -35,6 +35,7 @@
 #include "acme.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
+#include "acme_aabb.hh"
 
 namespace acme
 {
@@ -155,6 +156,21 @@ public:
     //! Reverse direction
     void
     reverse(void);
+
+    //! Get minumum cubic aabb containing the current circle object
+    void
+    clamp(
+        aabb &input //!< Input aabb object
+    ) const;
+
+    //! Calculate circle circumference length
+    real
+    perimeter(void)
+        const;
+
+    //! Calculate circle area
+    real
+    area(void) const;
 
     //! Translate by vector
     void

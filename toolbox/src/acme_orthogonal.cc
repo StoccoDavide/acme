@@ -55,57 +55,7 @@ namespace acme
     switch (slide)
     {
 
-      // - - - - - - - - - - - - - - VECTOR - - - - - - - - - - - - - -
-
-    case 202:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<vec3 const *>(entity1),
-                                tolerance);
-      break;
-
-    case 203:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<line const *>(entity1),
-                                tolerance);
-      break;
-
-    case 204:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<ray const *>(entity1),
-                                tolerance);
-      break;
-
-    case 205:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<plane const *>(entity1),
-                                tolerance);
-      break;
-
-    case 206:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<segment const *>(entity1),
-                                tolerance);
-      break;
-
-    case 207:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<triangle const *>(entity1),
-                                tolerance);
-      break;
-
-    case 208:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<circle const *>(entity1),
-                                tolerance);
-      break;
-
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
-
-    case 302:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
-                                *dynamic_cast<line const *>(entity0),
-                                tolerance);
-      break;
 
     case 303:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity0),
@@ -145,12 +95,6 @@ namespace acme
 
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
-    case 402:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<line const *>(entity1),
-                                tolerance);
-      break;
-
     case 403:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
                                 *dynamic_cast<ray const *>(entity0),
@@ -188,12 +132,6 @@ namespace acme
       break;
 
       // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
-
-    case 502:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity0),
-                                *dynamic_cast<line const *>(entity1),
-                                tolerance);
-      break;
 
     case 503:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
@@ -233,12 +171,6 @@ namespace acme
 
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
-    case 602:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
-                                *dynamic_cast<segment const *>(entity0),
-                                tolerance);
-      break;
-
     case 603:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
                                 *dynamic_cast<segment const *>(entity0),
@@ -277,12 +209,6 @@ namespace acme
 
       // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
-    case 702:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
-                                *dynamic_cast<triangle const *>(entity0),
-                                tolerance);
-      break;
-
     case 703:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
                                 *dynamic_cast<triangle const *>(entity0),
@@ -318,12 +244,7 @@ namespace acme
                                 tolerance);
       break;
 
-    // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
-    case 802:
-      return acme::isOrthogonal(*dynamic_cast<vec3 const *>(entity1),
-                                *dynamic_cast<circle const *>(entity0),
-                                tolerance);
-      break;
+      // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 803:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),

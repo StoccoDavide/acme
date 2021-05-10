@@ -23,36 +23,43 @@
 %                                                                     %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-classdef none < entity
-
+classdef acme_none < acme_entity
+  %
+  % Class container for ACME none object
+  %
   methods
-    function self = none( self )
-    % 
+    function self = acme_none( self )
+      % Create C++ pointer to none object instance
       self.objectHandle = mex_none( 'new' );
     end
-    % --------------------------------------------------------------------
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function delete( self )
-      % Destroy the C++ class instance
+      % Delete C++ pointer to none object instance
       mex_none( 'delete', self.objectHandle );
     end
-    % --------------------------------------------------------------------
-    %>
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function disp( self )
+      % Get object type as string
       disp('none');
     end
-    % --------------------------------------------------------------------
-    %>
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function plot( self, figure_name )
+      % Plot none object
       figure_name;
       hold on;
       hold off;
     end
-    % --------------------------------------------------------------------
-    % OVERRIDE
-    %--------------------------------------------------------------------
-    %>
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function P = type( self )
+      % Get object type as string
       P = 'none';
     end
   end
