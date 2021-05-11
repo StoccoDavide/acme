@@ -119,9 +119,46 @@ classdef acme_point < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = transform( self, varargin )
-      % Transform triangle by 4x4 affine transformation matrix
+      % Transform point by 4x4 affine transformation matrix
       P = point();
       P.objectHandle = mex_point( 'transform', self.objectHandle, varargin{:} );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = isParallel( self, other_obj )
+      % Check if point is parallel to an ACME object
+      P = mex_point( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = isOrthogonal( self, other_obj )
+      % Check if point is orthogonal to an ACME object
+      P = mex_point( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = isCollinear( self, other_obj )
+      % Check if point is collinear to an ACME object
+      P = mex_point( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = isCoplanar( self, other_obj )
+      % Check if point is coplanar to an ACME object 
+      P = mex_point( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function P = intersection( self, other_obj )
+      % Intersect point with an ACME object
+      [Handle, type] = mex_point( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      P = eval( strcat( 'acme_', type, '()' ) );
+      P.objectHandle = Handle;
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

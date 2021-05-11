@@ -235,7 +235,18 @@ classdef acme_plane < acme_entity
       % Plot plane object
       figure_name;
       hold on;
-      
+      origin = self.getOrigin().get();
+      normal = self.getNormal();
+      % Find two orthonormal vectors orthogonal to plane normal
+      w = null(normal');
+      limit = 4;
+      [P,Q] = meshgrid(-limit:2*limit:limit);
+      X = origin(1) + w(1,1)*P + w(1,2)*Q;
+      Y = origin(2) + w(2,1)*P + w(2,2)*Q;
+      Z = origin(3) + w(3,1)*P + w(3,2)*Q;
+      s = surf( X, Y, Z, 'FaceAlpha', 0.5);
+      s.FaceColor = color;
+      s.EdgeColor = 'none';
       hold off;
     end
   end

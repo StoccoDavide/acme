@@ -1,28 +1,33 @@
-clc
-clear all
-close all
+clc;
+clear all;
+close all;
 
-% Create points
+% Create planes
 
-p1 = acme_point([0 0 0]')
-p2 = acme_point([3 0 0]')
-p3 = acme_point([0 3 0]')
-
-p4 = acme_point([1 1  1]')
-p5 = acme_point([1 1.2 -1]')
-
-% Create triangle and segment
-
-s1 = acme_segment(p4.get(), p5.get())
-t1 = acme_triangle(p1.get(), p2.get(), p3.get())
+p1 = acme_plane([1.2 1 0]', 1/sqrt(1)*[0 0 1]');
+p2 = acme_plane([1.2 2 0]', 1/sqrt(3)*[1 1 1]');
+p3 = acme_plane([1.2 3 0]', 1/sqrt(3)*[-1 1 1]');
 
 % Intersect segments
 
-p6 = t1.intersection(s1)
+out1 = p1.intersection(p2);
+out1.type();
+out2 = p1.intersection(p3);
+out2.type();
+out3 = out1.intersection(out2);
+out3.type();
 
 % Plot output
 
 out = figure;
-s1.plot(out, 'red')
-t1.plot(out, 'blue')
-p6.plot(out, 'green')
+axis('equal');
+xlabel('x');
+ylabel('y');
+zlabel('z');
+grid on;
+p1.plot(out, 'red')
+p2.plot(out, 'blue')
+p3.plot(out, 'green')
+out1.plot(out, 'yellow')
+out2.plot(out, 'magenta')
+out3.plot(out, 'cyan')

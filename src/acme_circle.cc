@@ -163,6 +163,39 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
+  circle::clamp(
+      aabb &input)
+      const
+  {
+    input.minX(-this->_radius);
+    input.minY(-this->_radius);
+    input.minZ(-this->_radius);
+    input.maxX(this->_radius);
+    input.maxY(this->_radius);
+    input.maxZ(this->_radius);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real
+  circle::perimeter(void)
+      const
+  {
+    return acme::PI * this->_radius * this->_radius;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real
+  circle::area(void)
+      const
+  {
+    return 2 * acme::PI * this->_radius;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
   circle::translate(
       vec3 const &input)
   {

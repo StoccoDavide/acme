@@ -1833,20 +1833,24 @@ namespace acme
       plane const &plane1,
       line &line)
   {
-    vec3 normal0 = plane0.normal();
-    vec3 normal1 = plane1.normal();
+    vec3 normal0(plane0.normal().normalized());
+    vec3 normal1(plane1.normal().normalized());
+    real d0 = -plane0.d();
+    real d1 = -plane1.d();
 
-    vec3 line_d = normal0.cross(normal1);
-    real det = line_d.norm() * line_d.norm();
-    if (acme::isApprox(det, real(0.0), acme::Epsilon))
+    vec3 direction = normal0.cross(normal1);
+    real dot = normal0.dot(normal1);
+    if (acme::isApprox(acme::sqr(direction.norm()), real(0.0), acme::Epsilon))
     {
       return false;
     }
     else
     {
-      line.origin((line_d.cross(normal1) * plane0.d()) +
-                  (normal0.cross(line_d) * plane1.d()) / det);
-      line.direction(line_d);
+      real invDet = 1.0 / (1.0 - dot * dot);
+      real c0 = (d0 - dot * d1) * invDet;
+      real c1 = (d1 - dot * d0) * invDet;
+      line.origin(c0 * normal0 + c1 * normal1);
+      line.direction(direction);
       return true;
     }
   }

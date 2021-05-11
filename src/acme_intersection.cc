@@ -172,7 +172,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (punctual).")
         entity_out = new none();
         return entity_out;
         break;
@@ -223,6 +223,7 @@ namespace acme
         collide_ray = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                          *dynamic_cast<ray const *>(entity1),
                                          *dynamic_cast<ray *>(entity_out_ray));
+
         collide_seg = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                          *dynamic_cast<ray const *>(entity1),
                                          *dynamic_cast<segment *>(entity_out_seg));
@@ -283,7 +284,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (colliear).")
         entity_out = new none();
         return entity_out;
         break;
@@ -595,7 +596,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (coplanar).")
         entity_out = new none();
         return entity_out;
         break;
@@ -910,7 +911,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled.")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (general).")
         entity_out = new none();
         return entity_out;
         break;
@@ -1832,20 +1833,24 @@ namespace acme
       plane const &plane1,
       line &line)
   {
-    vec3 normal0 = plane0.normal();
-    vec3 normal1 = plane1.normal();
+    vec3 normal0(plane0.normal().normalized());
+    vec3 normal1(plane1.normal().normalized());
+    real d0 = -plane0.d();
+    real d1 = -plane1.d();
 
-    vec3 line_d = normal0.cross(normal1);
-    real det = line_d.norm() * line_d.norm();
-    if (acme::isApprox(det, real(0.0), acme::Epsilon))
+    vec3 direction = normal0.cross(normal1);
+    real dot = normal0.dot(normal1);
+    if (acme::isApprox(acme::sqr(direction.norm()), real(0.0), acme::Epsilon))
     {
       return false;
     }
     else
     {
-      line.origin((line_d.cross(normal1) * plane0.d()) +
-                  (normal0.cross(line_d) * plane1.d()) / det);
-      line.direction(line_d);
+      real invDet = 1.0 / (1.0 - dot * dot);
+      real c0 = (d0 - dot * d1) * invDet;
+      real c1 = (d1 - dot * d0) * invDet;
+      line.origin(c0 * normal0 + c1 * normal1);
+      line.direction(direction);
       return true;
     }
   }
@@ -1889,10 +1894,10 @@ namespace acme
     line tmp_line;
     if (acme::intersection(triangle0.layingPlane(), triangle1.layingPlane(), tmp_line))
     {
-      segment tmp_segment0, tmp_segment1, tmp_segment_out0, tmp_segment_out1;
-      acme::intersection(tmp_line, tmp_segment0, tmp_segment_out0);
-      acme::intersection(tmp_line, tmp_segment1, tmp_segment_out1);
-      return acme::intersection(tmp_segment_out0, tmp_segment_out1, segment_out);
+      segment tmp_segment0, tmp_segment1;
+      acme::intersection(tmp_line, triangle0, tmp_segment0);
+      acme::intersection(tmp_line, triangle1, tmp_segment1);
+      return acme::intersection(tmp_segment0, tmp_segment1, segment_out);
     }
     else
     {
@@ -1910,10 +1915,10 @@ namespace acme
     line tmp_line;
     if (acme::intersection(circle0.layingPlane(), circle1.layingPlane(), tmp_line))
     {
-      segment tmp_segment0, tmp_segment1, tmp_segment_out0, tmp_segment_out1;
-      acme::intersection(tmp_line, tmp_segment0, tmp_segment_out0);
-      acme::intersection(tmp_line, tmp_segment1, tmp_segment_out1);
-      return acme::intersection(tmp_segment_out0, tmp_segment_out1, segment_out);
+      segment tmp_segment0, tmp_segment1;
+      acme::intersection(tmp_line, circle0, tmp_segment0);
+      acme::intersection(tmp_line, circle1, tmp_segment1);
+      return acme::intersection(tmp_segment0, tmp_segment1, segment_out);
     }
     else
     {
@@ -2149,7 +2154,7 @@ namespace acme
       point &point_out)
   {
     if (acme::intersection(line(segment.vertex(0), segment.toNormalizedVector()),
-                           triangle.layingPlane(),
+                           triangle,
                            point_out))
       return segment.isInside(point_out);
     else
@@ -2164,7 +2169,7 @@ namespace acme
       point &point_out)
   {
     if (acme::intersection(line(segment.vertex(0), segment.toNormalizedVector()),
-                           circle.layingPlane(),
+                           circle,
                            point_out))
       return segment.isInside(point_out);
     else

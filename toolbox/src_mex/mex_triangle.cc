@@ -33,11 +33,13 @@
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"
+#include "acme_none.hh"
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
 #include "acme_ray.hh"
+#include "acme_segment.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -49,27 +51,62 @@
     mexErrMsgTxt(ost.str().c_str());        \
   }
 
-#define MEX_ERROR_MESSAGE                                                        \
-  "%======================================================================%\n"   \
-  "% mex_triangle: Mex wrapper for ACME triangle object.                    %\n" \
-  "%                                                                      %\n"   \
-  "% CONSTRUCTOR:                                                         %\n"   \
-  "%   obj = mex_triangle( 'new' );                                        %\n"  \
-  "%   obj = mex_triangle( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );            %\n"  \
-  "%                                                                      %\n"   \
-  "%======================================================================%\n"   \
-  "%                                                                      %\n"   \
-  "%    Davide Stocco                                                     %\n"   \
-  "%    Department of Industrial Engineering                              %\n"   \
-  "%    University of Trento                                              %\n"   \
-  "%    davide.stocco@unitn.it                                            %\n"   \
-  "%                                                                      %\n"   \
-  "%    Enrico Bertolazzi                                                 %\n"   \
-  "%    Department of Industrial Engineering                              %\n"   \
-  "%    University of Trento                                              %\n"   \
-  "%    enrico.bertolazzi@unitn.it                                        %\n"   \
-  "%                                                                      %\n"   \
-  "%======================================================================%\n"
+#define MEX_ERROR_MESSAGE                                                     \
+  "%=====================================================================%\n" \
+  "% mex_triangle: Mex wrapper for ACME triangle object.                 %\n" \
+  "%                                                                     %\n" \
+  "% CONSTRUCTORS:                                                       %\n" \
+  "%   OUT = mex_triangle( 'new' );                                      %\n" \
+  "%   OUT = mex_triangle( 'new',                                        %\n" \
+  "%                      [X; Y; Z], : Triangle point 1                  %\n" \
+  "%                      [X; Y; Z], : Triangle point 2                  %\n" \
+  "%                      [X; Y; Z]  : Triangle point 3                  %\n" \
+  "%                    );                                               %\n" \
+  "%                                                                     %\n" \
+  "% DESTRUCTOR:                                                         %\n" \
+  "%   mex_triangle( 'delete', OBJ );                                    %\n" \
+  "%                                                                     %\n" \
+  "% USAGE:                                                              %\n" \
+  "%   OUT = mex_triangle( 'getVertex1', OBJ );                          %\n" \
+  "%   OUT = mex_triangle( 'getVertex2', OBJ );                          %\n" \
+  "%   OUT = mex_triangle( 'getVertex3', OBJ );                          %\n" \
+  "%         mex_triangle( 'setVertex1', OBJ, OTHER_OBJ );               %\n" \
+  "%         mex_triangle( 'setVertex2', OBJ, OTHER_OBJ );               %\n" \
+  "%         mex_triangle( 'setVertex3', OBJ, OTHER_OBJ );               %\n" \
+  "%   OUT = mex_triangle( 'translate', OBJ, [X; Y; Z] );                %\n" \
+  "%   OUT = mex_triangle( 'transform', OBJ, MATRIX );                   %\n" \
+  "%         mex_triangle( 'copy', OBJ, OTHER_OBJ );                     %\n" \
+  "%   OUT = mex_triangle( 'isInside', OBJ, OTHER_OBJ );                 %\n" \
+  "%   OUT = mex_triangle( 'isDegenerated', OBJ );                       %\n" \
+  "%   OUT = mex_triangle( 'isApprox', OBJ, OTHER_OBJ );                 %\n" \
+  "%   OUT = mex_triangle( 'centroid', OBJ );                            %\n" \
+  "%   OUT = mex_triangle( 'normal', OBJ );                              %\n" \
+  "%   OUT = mex_triangle( 'layingPlane', OBJ );                         %\n" \
+  "%   OUT = mex_triangle( 'edge', OBJ, I, J );                          %\n" \
+  "%         mex_triangle( 'swap', OBJ, I, J );                          %\n" \
+  "%   OUT = mex_triangle( 'clamp', OBJ );                               %\n" \
+  "%   OUT = mex_triangle( 'perimeter', OBJ );                           %\n" \
+  "%   OUT = mex_triangle( 'area', OBJ );                                %\n" \
+  "%   OUT = mex_triangle( 'barycentric', OBJ, OTHER_OBJ );              %\n" \
+  "%   OUT = mex_triangle( 'isParallel', OBJ, OTHER_OBJ );               %\n" \
+  "%   OUT = mex_triangle( 'isOrthogonal', OBJ, OTHER_OBJ );             %\n" \
+  "%   OUT = mex_triangle( 'isCollinear', OBJ, OTHER_OBJ );              %\n" \
+  "%   OUT = mex_triangle( 'isCoplanar', OBJ, OTHER_OBJ );               %\n" \
+  "%   OUT = mex_triangle( 'intersection', OBJ, OTHER_OBJ, TYPE );       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n" \
+  "%                                                                     %\n" \
+  "%    Davide Stocco                                                    %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    davide.stocco@unitn.it                                           %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n"
 
 using namespace std;
 
@@ -122,7 +159,7 @@ do_new(int nlhs, mxArray *plhs[],
   real_type x3 = acme::NaN;
   real_type y3 = acme::NaN;
   real_type z3 = acme::NaN;
-  
+
   if (nrhs == 4)
   {
     real_type const *matrix1_ptr;
@@ -276,7 +313,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'translate', OBJ, [X, Y, Z] ): "
+#define CMD "mex_triangle( 'translate', OBJ, [X; Y; Z] ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -490,7 +527,7 @@ do_clamp(int nlhs, mxArray *plhs[],
 
 static void
 do_perimeter(int nlhs, mxArray *plhs[],
-          int nrhs, mxArray const *prhs[])
+             int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_triangle( 'perimeter', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
@@ -505,7 +542,7 @@ do_perimeter(int nlhs, mxArray *plhs[],
 
 static void
 do_area(int nlhs, mxArray *plhs[],
-          int nrhs, mxArray const *prhs[])
+        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_triangle( 'area', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
@@ -520,7 +557,7 @@ do_area(int nlhs, mxArray *plhs[],
 
 static void
 do_barycentric(int nlhs, mxArray *plhs[],
-          int nrhs, mxArray const *prhs[])
+               int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_triangle( 'barycentric', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
@@ -539,7 +576,7 @@ static void
 do_isParallel(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'isParallel', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isParallel', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -574,7 +611,7 @@ static void
 do_isOrthogonal(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'isOrthogonal', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isOrthogonal', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -609,7 +646,7 @@ static void
 do_isCollinear(int nlhs, mxArray *plhs[],
                int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'isCollinear', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isCollinear', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -645,7 +682,7 @@ static void
 do_isCoplanar(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'isCoplanar', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_triangle( 'isCoplanar', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -771,7 +808,7 @@ extern "C" void
 mexFunction(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-  // the first argument must be a string
+  // First argument must be a string
   if (nrhs == 0)
   {
     mexErrMsgTxt(MEX_ERROR_MESSAGE);

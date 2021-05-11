@@ -145,7 +145,6 @@ classdef acme_circle < acme_entity
       mex_circle( 'normalize', self.objectHandle );
     end
     %
-    %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function P = layingPlane( self )
@@ -266,7 +265,7 @@ classdef acme_circle < acme_entity
       patch( center(1)+newPnts(1,:)', ...
              center(2)+newPnts(2,:)', ...
              center(3)+newPnts(3,:)', ...
-             color)
+             color, 'FaceAlpha', 0.5)
       hold off;
     end
     %

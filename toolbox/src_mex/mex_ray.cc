@@ -33,11 +33,13 @@
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"
+#include "acme_none.hh"
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
 #include "acme_ray.hh"
+#include "acme_segment.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -49,27 +51,53 @@
     mexErrMsgTxt(ost.str().c_str());   \
   }
 
-#define MEX_ERROR_MESSAGE                                                      \
-  "%======================================================================%\n" \
-  "% mex_ray: Mex wrapper for ACME triangle object.                       %\n" \
-  "%                                                                      %\n" \
-  "% CONSTRUCTOR:                                                         %\n" \
-  "%   obj = mex_ray( 'new' );                                            %\n" \
-  "%   obj = mex_ray( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );                %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n" \
-  "%                                                                      %\n" \
-  "%    Davide Stocco                                                     %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    davide.stocco@unitn.it                                            %\n" \
-  "%                                                                      %\n" \
-  "%    Enrico Bertolazzi                                                 %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    enrico.bertolazzi@unitn.it                                        %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n"
+#define MEX_ERROR_MESSAGE                                                     \
+  "%=====================================================================%\n" \
+  "% mex_ray: Mex wrapper for ACME ray object.                           %\n" \
+  "%                                                                     %\n" \
+  "% CONSTRUCTORS:                                                       %\n" \
+  "%   obj = mex_ray( 'new' );                                           %\n" \
+  "%   obj = mex_line( 'new',                                            %\n" \
+  "%                   [X; Y; Z], : Ray origin                           %\n" \
+  "%                   [X; Y; Z]  : Ray direction                        %\n" \
+  "%                 );                                                  %\n" \
+  "%                                                                     %\n" \
+  "% DESTRUCTOR:                                                         %\n" \
+  "%   mex_ray( 'delete', OBJ );                                         %\n" \
+  "%                                                                     %\n" \
+  "% USAGE:                                                              %\n" \
+  "%   OUT = mex_ray( 'getOrigin', OBJ );                                %\n" \
+  "%   OUT = mex_ray( 'getDirection', OBJ );                             %\n" \
+  "%         mex_ray( 'setOrigin', OBJ, OTHER_OBJ );                     %\n" \
+  "%         mex_ray( 'setDirection', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_ray( 'translate', OBJ, [X; Y; Z] );                     %\n" \
+  "%   OUT = mex_ray( 'transform', OBJ, MATRIX );                        %\n" \
+  "%         mex_ray( 'copy', OBJ, OTHER_OBJ );                          %\n" \
+  "%   OUT = mex_ray( 'isInside', OBJ, OTHER_OBJ );                      %\n" \
+  "%   OUT = mex_ray( 'isDegenerated', OBJ );                            %\n" \
+  "%         mex_ray( 'normalize', OBJ );                                %\n" \
+  "%   OUT = mex_ray( 'toVector', OBJ );                                 %\n" \
+  "%   OUT = mex_ray( 'toNormalizedVector', OBJ );                       %\n" \
+  "%         mex_ray( 'reverse', OBJ );                                  %\n" \
+  "%   OUT = mex_ray( 'isParallel', OBJ, OTHER_OBJ );                    %\n" \
+  "%   OUT = mex_ray( 'isOrthogonal', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_ray( 'isCollinear', OBJ, OTHER_OBJ );                   %\n" \
+  "%   OUT = mex_ray( 'isCoplanar', OBJ, OTHER_OBJ );                    %\n" \
+  "%   OUT = mex_ray( 'intersection', OBJ, OTHER_OBJ, TYPE );            %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n" \
+  "%                                                                     %\n" \
+  "%    Davide Stocco                                                    %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    davide.stocco@unitn.it                                           %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n"
 
 using namespace std;
 
@@ -240,7 +268,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_ray( 'translate', OBJ, [X, Y, Z] ): "
+#define CMD "mex_ray( 'translate', OBJ, [X; Y; Z] ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -648,7 +676,7 @@ extern "C" void
 mexFunction(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-  // the first argument must be a string
+  // First argument must be a string
   if (nrhs == 0)
   {
     mexErrMsgTxt(MEX_ERROR_MESSAGE);

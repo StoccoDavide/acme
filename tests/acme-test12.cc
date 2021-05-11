@@ -36,8 +36,8 @@
 #include "acme_line.hh"
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
-#include "acme_utilities.hh"
 #include "acme_point.hh"
+#include "acme_utilities.hh"
 
 using namespace acme;
 
@@ -49,8 +49,8 @@ int main()
 
   vec3 a(1.0, 1.0, 1.0);
   acme::point p(1.0, 1.0, 1.0);
-  point b(a+p);
-  vec3 v(a+p);
+  point b(a + p);
+  vec3 v(a + p);
   std::cout << "point = " << b << "\n";
   std::cout << "vector = " << v << "\n";
 
@@ -63,7 +63,19 @@ int main()
     segment *segment_ptr = dynamic_cast<segment *>(entity_out);
     std::cout << "Lines intersection point 0 = " << segment_ptr->vertex(0) << "\n";
     std::cout << "Lines intersection point 1 = " << segment_ptr->vertex(1) << "\n";
-    entity * ptr = reinterpret_cast<entity *>(entity_out);
+    entity *ptr = reinterpret_cast<entity *>(entity_out);
+    std::cout << "Lines intersection point 1 = " << ptr->isNone() << "\n";
+  }
+
+  circle *circle0 = new circle(2.0, point(0.0, 0.0, 0.0), vec3(0.0,  1.0, 0.0));
+  circle *circle1 = new circle(2.0, point(0.0, 0.0, 0.1), vec3(1.0, -1.0, 0.0));
+  entity *entity_out1 = acme::intersection(circle0, circle1);
+  if (dynamic_cast<segment *>(entity_out1)) // IF!!!!!
+  {
+    segment *segment_ptr1 = dynamic_cast<segment *>(entity_out1);
+    std::cout << "Lines intersection point 0 = " << segment_ptr1->vertex(0) << "\n";
+    std::cout << "Lines intersection point 1 = " << segment_ptr1->vertex(1) << "\n";
+    entity *ptr = reinterpret_cast<entity *>(entity_out1);
     std::cout << "Lines intersection point 1 = " << ptr->isNone() << "\n";
   }
 

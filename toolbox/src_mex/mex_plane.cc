@@ -33,43 +33,72 @@
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"
+#include "acme_none.hh"
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
 #include "acme_ray.hh"
+#include "acme_segment.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
-#define ASSERT(COND, MSG)              \
-  if (!(COND))                         \
-  {                                    \
-    std::ostringstream ost;            \
+#define ASSERT(COND, MSG)                \
+  if (!(COND))                           \
+  {                                      \
+    std::ostringstream ost;              \
     ost << "mex_plane: " << MSG << '\n'; \
-    mexErrMsgTxt(ost.str().c_str());   \
+    mexErrMsgTxt(ost.str().c_str());     \
   }
 
-#define MEX_ERROR_MESSAGE                                                      \
-  "%======================================================================%\n" \
-  "% mex_plane: Mex wrapper for ACME triangle object.                       %\n" \
-  "%                                                                      %\n" \
-  "% CONSTRUCTOR:                                                         %\n" \
-  "%   obj = mex_plane( 'new' );                                            %\n" \
-  "%   obj = mex_plane( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );                %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n" \
-  "%                                                                      %\n" \
-  "%    Davide Stocco                                                     %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    davide.stocco@unitn.it                                            %\n" \
-  "%                                                                      %\n" \
-  "%    Enrico Bertolazzi                                                 %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    enrico.bertolazzi@unitn.it                                        %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n"
+#define MEX_ERROR_MESSAGE                                                     \
+  "%=====================================================================%\n" \
+  "% mex_plane: Mex wrapper for ACME plane object.                       %\n" \
+  "%                                                                     %\n" \
+  "% CONSTRUCTORS:                                                       %\n" \
+  "%   obj = mex_plane( 'new' );                                         %\n" \
+  "%   obj = mex_plane( 'new',                                           %\n" \
+  "%                    [X; Y; Z], : Plane origin                        %\n" \
+  "%                    [X; Y; Z]  : Plane normal                        %\n" \
+  "%                  );                                                 %\n" \
+  "%                                                                     %\n" \
+  "% DESTRUCTOR:                                                         %\n" \
+  "%   mex_plane( 'delete', OBJ );                                       %\n" \
+  "%                                                                     %\n" \
+  "% USAGE:                                                              %\n" \
+  "%   OUT = mex_plane( 'getOrigin', OBJ );                              %\n" \
+  "%   OUT = mex_plane( 'getNormal', OBJ );                              %\n" \
+  "%         mex_plane( 'setOrigin', OBJ, OTHER_OBJ );                   %\n" \
+  "%         mex_plane( 'setNormal', OBJ, OTHER_OBJ );                   %\n" \
+  "%   OUT = mex_plane( 'translate', OBJ, [X; Y; Z] );                   %\n" \
+  "%   OUT = mex_plane( 'transform', OBJ, MATRIX );                      %\n" \
+  "%         mex_plane( 'copy', OBJ, OTHER_OBJ );                        %\n" \
+  "%   OUT = mex_plane( 'isInside', OBJ, OTHER_OBJ );                    %\n" \
+  "%   OUT = mex_plane( 'isDegenerated', OBJ );                          %\n" \
+  "%         mex_plane( 'normalize', OBJ );                              %\n" \
+  "%   OUT = mex_plane( 'distance', OBJ );                               %\n" \
+  "%   OUT = mex_plane( 'squaredDistance', OBJ );                        %\n" \
+  "%   OUT = mex_plane( 'signedDistance', OBJ );                         %\n" \
+  "%         mex_plane( 'reverse', OBJ );                                %\n" \
+  "%   OUT = mex_plane( 'isParallel', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_plane( 'isOrthogonal', OBJ, OTHER_OBJ );                %\n" \
+  "%   OUT = mex_plane( 'isCollinear', OBJ, OTHER_OBJ );                 %\n" \
+  "%   OUT = mex_plane( 'isCoplanar', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_plane( 'intersection', OBJ, OTHER_OBJ, TYPE );          %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n" \
+  "%                                                                     %\n" \
+  "%    Davide Stocco                                                    %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    davide.stocco@unitn.it                                           %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n"
 
 using namespace std;
 
@@ -178,7 +207,7 @@ do_getOrigin(int nlhs, mxArray *plhs[],
 
 static void
 do_getNormal(int nlhs, mxArray *plhs[],
-                int nrhs, mxArray const *prhs[])
+             int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_plane( 'getNormal', OBJ ): "
@@ -215,7 +244,7 @@ do_setOrigin(int nlhs, mxArray *plhs[],
 
 static void
 do_setNormal(int nlhs, mxArray *plhs[],
-                int nrhs, mxArray const *prhs[])
+             int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_plane( 'setNormal', OBJ, OTHER_OBJ ): "
@@ -240,7 +269,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_plane( 'translate', OBJ, [X, Y, Z] ): "
+#define CMD "mex_plane( 'translate', OBJ, [X; Y; Z] ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -347,7 +376,6 @@ do_isApprox(int nlhs, mxArray *plhs[],
 #undef CMD
 }
 
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
@@ -368,7 +396,7 @@ do_normalize(int nlhs, mxArray *plhs[],
 
 static void
 do_distance(int nlhs, mxArray *plhs[],
-             int nrhs, mxArray const *prhs[])
+            int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_plane( 'distance', OBJ ): "
@@ -385,7 +413,7 @@ do_distance(int nlhs, mxArray *plhs[],
 
 static void
 do_squaredDistance(int nlhs, mxArray *plhs[],
-                      int nrhs, mxArray const *prhs[])
+                   int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'squaredDistance', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
@@ -401,7 +429,7 @@ do_squaredDistance(int nlhs, mxArray *plhs[],
 
 static void
 do_signedDistance(int nlhs, mxArray *plhs[],
-            int nrhs, mxArray const *prhs[])
+                  int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'signedDistance', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
@@ -661,7 +689,7 @@ extern "C" void
 mexFunction(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-  // the first argument must be a string
+  // First argument must be a string
   if (nrhs == 0)
   {
     mexErrMsgTxt(MEX_ERROR_MESSAGE);

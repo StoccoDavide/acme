@@ -33,6 +33,7 @@
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"
+#include "acme_none.hh"
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
 #include "acme_plane.hh"
@@ -50,27 +51,55 @@
     mexErrMsgTxt(ost.str().c_str());       \
   }
 
-#define MEX_ERROR_MESSAGE                                                      \
-  "%======================================================================%\n" \
-  "% mex_segment: Mex wrapper for ACME segment object.                    %\n" \
-  "%                                                                      %\n" \
-  "% CONSTRUCTOR:                                                         %\n" \
-  "%   obj = mex_segment( 'new' );                                        %\n" \
-  "%   obj = mex_segment( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );            %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n" \
-  "%                                                                      %\n" \
-  "%    Davide Stocco                                                     %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    davide.stocco@unitn.it                                            %\n" \
-  "%                                                                      %\n" \
-  "%    Enrico Bertolazzi                                                 %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    enrico.bertolazzi@unitn.it                                        %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n"
+#define MEX_ERROR_MESSAGE                                                     \
+  "%=====================================================================%\n" \
+  "% mex_segment: Mex wrapper for ACME segment object.                   %\n" \
+  "%                                                                     %\n" \
+  "% CONSTRUCTORS:                                                       %\n" \
+  "%   obj = mex_segment( 'new' );                                       %\n" \
+  "%   obj = mex_segment( 'new',                                         %\n" \
+  "%                      [X; Y; Z], : Segment point 1                   %\n" \
+  "%                      [X; Y; Z]  : Segment point 2                   %\n" \
+  "%                    );                                               %\n" \
+  "%                                                                     %\n" \
+  "% DESTRUCTOR:                                                         %\n" \
+  "%   mex_segment( 'delete', OBJ );                                     %\n" \
+  "%                                                                     %\n" \
+  "% USAGE:                                                              %\n" \
+  "%   OUT = mex_segment( 'getVertex1', OBJ );                           %\n" \
+  "%   OUT = mex_segment( 'getVertex2', OBJ );                           %\n" \
+  "%         mex_segment( 'setVertex1', OBJ, OTHER_OBJ );                %\n" \
+  "%         mex_segment( 'setVertex2', OBJ, OTHER_OBJ );                %\n" \
+  "%   OUT = mex_segment( 'translate', OBJ, [X; Y; Z] );                 %\n" \
+  "%   OUT = mex_segment( 'transform', OBJ, MATRIX );                    %\n" \
+  "%         mex_segment( 'copy', OBJ, OTHER_OBJ );                      %\n" \
+  "%   OUT = mex_segment( 'isInside', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_segment( 'isDegenerated', OBJ );                        %\n" \
+  "%   OUT = mex_segment( 'isApprox', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_segment( 'toVector', OBJ );                             %\n" \
+  "%   OUT = mex_segment( 'toNormalizedVector', OBJ );                   %\n" \
+  "%         mex_segment( 'swap', OBJ, INT, INT );                       %\n" \
+  "%   OUT = mex_segment( 'clamp', OBJ );                                %\n" \
+  "%   OUT = mex_segment( 'length', OBJ );                               %\n" \
+  "%   OUT = mex_segment( 'isParallel', OBJ, OTHER_OBJ );                %\n" \
+  "%   OUT = mex_segment( 'isOrthogonal', OBJ, OTHER_OBJ );              %\n" \
+  "%   OUT = mex_segment( 'isCollinear', OBJ, OTHER_OBJ );               %\n" \
+  "%   OUT = mex_segment( 'isCoplanar', OBJ, OTHER_OBJ );                %\n" \
+  "%   OUT = mex_segment( 'intersection', OBJ, OTHER_OBJ, TYPE );        %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n" \
+  "%                                                                     %\n" \
+  "%    Davide Stocco                                                    %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    davide.stocco@unitn.it                                           %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n"
 
 using namespace std;
 
@@ -232,7 +261,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'translate', OBJ, [X, Y, Z] ): "
+#define CMD "mex_segment( 'translate', OBJ, [X; Y; Z] ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -261,8 +290,7 @@ do_copy(int nlhs, mxArray *plhs[],
 
   acme::segment *self = DATA_GET(arg_in_1);
   acme::segment *other = DATA_GET(arg_in_2);
-  self->vertex(0) = other->vertex(0);
-  self->vertex(1) = other->vertex(1);
+  *self = *other;
 #undef CMD
 }
 
@@ -368,9 +396,10 @@ do_toVector(int nlhs, mxArray *plhs[],
 
   acme::segment *self = DATA_GET(arg_in_1);
   real_type *output = createMatrixValue(arg_out_0, 3, 1);
-  output[0] = self->toVector().x();
-  output[1] = self->toVector().y();
-  output[2] = self->toVector().z();
+  acme::vec3 outvec(self->toVector());
+  output[0] = outvec.x();
+  output[1] = outvec.y();
+  output[2] = outvec.z();
 #undef CMD
 }
 
@@ -386,9 +415,10 @@ do_toNormalizedVector(int nlhs, mxArray *plhs[],
 
   acme::segment *self = DATA_GET(arg_in_1);
   real_type *output = createMatrixValue(arg_out_0, 3, 1);
-  output[0] = self->toNormalizedVector().x();
-  output[1] = self->toNormalizedVector().y();
-  output[2] = self->toNormalizedVector().z();
+  acme::vec3 outvec(self->toNormalizedVector());
+  output[0] = outvec.x();
+  output[1] = outvec.y();
+  output[2] = outvec.z();
 #undef CMD
 }
 
@@ -648,9 +678,9 @@ static map<string, DO_CMD> cmd_to_fun = {
     {"getVertex2", do_getVertex2},
     {"setVertex1", do_setVertex1},
     {"setVertex2", do_setVertex2},
-    {"copy", do_copy},
     {"translate", do_translate},
     {"transform", do_transform},
+    {"copy", do_copy},
     {"isDegenerated", do_isDegenerated},
     {"isInside", do_isInside},
     {"isApprox", do_isApprox},
@@ -664,8 +694,7 @@ static map<string, DO_CMD> cmd_to_fun = {
     {"isOrthogonal", do_isOrthogonal},
     {"isCollinear", do_isCollinear},
     {"isCoplanar", do_isCoplanar},
-    {"intersection", do_intersection}
-};
+    {"intersection", do_intersection}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -673,7 +702,7 @@ extern "C" void
 mexFunction(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-  // the first argument must be a string
+  // First argument must be a string
   if (nrhs == 0)
   {
     mexErrMsgTxt(MEX_ERROR_MESSAGE);

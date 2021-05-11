@@ -296,6 +296,81 @@ namespace acme
 
   bool
   isParallel(
+      vec3 const &vector0,
+      vec3 const &vector1,
+      real tolerance)
+  {
+    return acme::isApprox(vector0.cross(vector1).norm(), real(0.0), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isParallel(
+      vec3 const &vector,
+      line const &line,
+      real tolerance)
+  {
+    return acme::isParallel(vector, line.direction(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isParallel(
+      vec3 const &vector,
+      ray const &ray,
+      real tolerance)
+  {
+    return acme::isParallel(vector, ray.direction(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isParallel(
+      vec3 const &vector,
+      plane const &plane,
+      real tolerance)
+  {
+    return acme::isOrthogonal(vector, plane.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isParallel(
+      vec3 const &vector,
+      segment const &segment,
+      real tolerance)
+  {
+    return acme::isParallel(vector, segment.toNormalizedVector(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isParallel(
+      vec3 const &vector,
+      triangle const &triangle,
+      real tolerance)
+  {
+    return acme::isOrthogonal(vector, triangle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isParallel(
+      vec3 const &vector,
+      circle const &circle,
+      real tolerance)
+  {
+    return acme::isOrthogonal(vector, circle.normal(), tolerance);
+  }
+
+  bool
+  isParallel(
       line const &line0,
       line const &line1,
       real tolerance)

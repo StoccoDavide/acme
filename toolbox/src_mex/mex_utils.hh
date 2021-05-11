@@ -1,41 +1,44 @@
-/****************************************************************************\
-Copyright (c) 2015, Enrico Bertolazzi
-All rights reserved.
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ACME project                                                    *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
+(*                                                                     *)
+(* The ACME project and its components are supplied under the terms of *)
+(* the open source BSD 2-Clause License. The contents of the ACME      *)
+(* project and its components may not be copied or disclosed except in *)
+(* accordance with the terms of the BSD 2-Clause License.              *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(*                                                                     *)
+(*    Davide Stocco                                                    *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
+(*                                                                     *)
+(***********************************************************************)
+(*                                                                     *)
+(*  Source:                                                            *)
+(*  URL: https://github.com/ebertolazzi/Clothoids                      *)
+(*                                                                     *)
+(***********************************************************************)
+*/
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of the FreeBSD Project.
-\****************************************************************************/
-
-#ifndef MEX_UTILS_HH
-#define MEX_UTILS_HH
+#ifndef MEX_UTILS
+#define MEX_UTILS
 
 #include "mex.h"
-#include <map>
 #include <cmath>
-#include <string>
-#include <sstream>
 #include <iostream>
+#include <map>
+#include <sstream>
+#include <string>
 
 #define arg_in_0 prhs[0]
 #define arg_in_1 prhs[1]
@@ -80,6 +83,8 @@ isScalar(mxArray const *arg, char const msg[])
   return dims[0] == 1 && dims[1] == 1;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline double
 getScalarValue(mxArray const *arg, char const msg[])
 {
@@ -92,12 +97,16 @@ getScalarValue(mxArray const *arg, char const msg[])
   return mxGetScalar(arg);
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline bool
 getBool(mxArray const *arg, char const msg[])
 {
   MEX_ASSERT(mxIsLogicalScalar(arg), msg);
   return mxIsLogicalScalarTrue(arg);
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline int64_t
 getInt(mxArray const *arg, char const msg[])
@@ -162,6 +171,8 @@ getInt(mxArray const *arg, char const msg[])
   return res;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline double const *
 getVectorPointer(mxArray const *arg, mwSize &sz, char const msg[])
 {
@@ -174,6 +185,8 @@ getVectorPointer(mxArray const *arg, mwSize &sz, char const msg[])
   sz = dims[0] * dims[1];
   return mxGetPr(arg);
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline double const *
 getMatrixPointer(mxArray const *arg, mwSize &nr, mwSize &nc, char const msg[])
@@ -195,6 +208,8 @@ setScalarValue(mxArray *&arg, double value)
   *mxGetPr(arg) = value;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline void
 setScalarInt(mxArray *&arg, int32_t value)
 {
@@ -202,11 +217,15 @@ setScalarInt(mxArray *&arg, int32_t value)
   *static_cast<int32_t *>(mxGetData(arg)) = value;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline void
 setScalarBool(mxArray *&arg, bool value)
 {
   arg = mxCreateLogicalScalar(value);
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline int32_t *
 createMatrixInt32(mxArray *&arg, mwSize nrow, mwSize ncol)
@@ -215,6 +234,8 @@ createMatrixInt32(mxArray *&arg, mwSize nrow, mwSize ncol)
   return static_cast<int32_t *>(mxGetData(arg));
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline int64_t *
 createMatrixInt64(mxArray *&arg, mwSize nrow, mwSize ncol)
 {
@@ -222,12 +243,16 @@ createMatrixInt64(mxArray *&arg, mwSize nrow, mwSize ncol)
   return static_cast<int64_t *>(mxGetData(arg));
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 static inline double *
 createMatrixValue(mxArray *&arg, mwSize nrow, mwSize ncol)
 {
   arg = mxCreateNumericMatrix(nrow, ncol, mxDOUBLE_CLASS, mxREAL);
   return mxGetPr(arg);
 }
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline double *
 createArray(mxArray *&arg, mwSize ndim, mwSize const *dims)
@@ -238,17 +263,15 @@ createArray(mxArray *&arg, mwSize ndim, mwSize const *dims)
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/*
-  Class Handle by Oliver Woodford
-  https://it.mathworks.com/matlabcentral/fileexchange/38964-example-matlab-class-wrapper-for-a-c++-class
-*/
+// Class Handle by Oliver Woodford
+// https://it.mathworks.com/matlabcentral/fileexchange/38964-example-matlab-class-wrapper-for-a-c++-class
 
-#ifndef __MEX_CLASS_HANDLE_HH__
-#define __MEX_CLASS_HANDLE_HH__
+#ifndef MEX_CLASS_HANDLE
+#define MEX_CLASS_HANDLE
 #include "mex.h"
+#include <cstring>
 #include <stdint.h>
 #include <string>
-#include <cstring>
 #include <typeinfo>
 
 #define CLASS_HANDLE_SIGNATURE 0xFF00F0A5
@@ -260,7 +283,7 @@ class class_handle
   base *ptr_m;
   std::string name_m;
 
-public:
+  public:
   class_handle(base *ptr)
       : ptr_m(ptr), name_m(typeid(base).name())
   {
@@ -321,6 +344,6 @@ destroyObject(const mxArray *in)
   mexUnlock();
 }
 
-#endif // __CLASS_HANDLE_HPP__
+#endif
 
 #endif

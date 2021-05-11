@@ -2,9 +2,9 @@ clc
 clear all
 close all
 
-% Create line
+% Create plane
 
-l1 = acme_ray([0 0 0]', [0 1 0]')
+p1 = acme_plane([0 0 0.2]', [1 1 0]')
 
 % Intersect segments
 
@@ -12,5 +12,5 @@ l1 = acme_ray([0 0 0]', [0 1 0]')
 % Plot output
 
 out = figure;
-l1.plot(out, 'red')
+p1.plot(out, 'green', 0.5, 10)
 

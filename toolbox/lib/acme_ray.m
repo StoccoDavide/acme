@@ -198,7 +198,7 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function plot( self, figure_name, color )
+    function plot( self, figure_name, color, limit )
       % Plot ray object
       figure_name;
       hold on;
@@ -207,7 +207,7 @@ classdef acme_ray < acme_entity
       xt = @(t) origin(1) + t*direction(1);
       yt = @(t) origin(2) + t*direction(2);
       zt = @(t) origin(3) + t*direction(3);
-      fplot3(xt,yt,zt, [0 ~], color)
+      fplot3(xt,yt,zt, [0 limit], color)
       hold off;
     end
     %

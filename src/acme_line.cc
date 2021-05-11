@@ -118,6 +118,24 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  vec3
+  line::toVector(void)
+      const
+  {
+    return this->_direction;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  vec3
+  line::toNormalizedVector(void)
+      const
+  {
+    return this->_direction.normalized();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   line::reverse(void)
   {

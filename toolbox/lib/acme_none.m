@@ -49,7 +49,7 @@ classdef acme_none < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function plot( self, figure_name )
+    function plot( self, figure_name, color )
       % Plot none object
       figure_name;
       hold on;

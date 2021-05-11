@@ -322,7 +322,7 @@ namespace acme
       real tolerance)
   {
     return acme::isParallel(plane0.normal(), plane1.normal(), tolerance) &&
-           plane1.normal().isOrthogonal(plane0.origin() - plane1.origin(), tolerance);
+           acme::isApprox(plane0.signedDistance(plane1.origin()), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -357,8 +357,6 @@ namespace acme
       circle const &circle1,
       real tolerance)
   {
-    plane plane0(circle0.layingPlane());
-    plane plane1(circle1.layingPlane());
     return acme::isCoplanar(circle0.layingPlane(),
                             circle1.layingPlane(),
                             tolerance);

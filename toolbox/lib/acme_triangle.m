@@ -264,13 +264,10 @@ classdef acme_triangle < acme_entity
       Vertex1 = self.getVertex1().get();
       Vertex2 = self.getVertex2().get();
       Vertex3 = self.getVertex3().get();
-      % scatter3(Vertex1(1), Vertex1(2), Vertex1(3), color, 'filled');
-      % scatter3(Vertex2(1), Vertex2(2), Vertex2(3), color, 'filled');
-      % scatter3(Vertex3(1), Vertex3(2), Vertex3(3), color, 'filled');
       X = [Vertex1(1), Vertex2(1), Vertex3(1)];
       Y = [Vertex1(2), Vertex2(2), Vertex3(2)];
       Z = [Vertex1(3), Vertex2(3), Vertex3(3)];
-      patch(X, Y, Z, color)
+      patch(X, Y, Z, color, 'FaceAlpha', 0.5)
       hold off;
     end
     %

@@ -55,7 +55,7 @@ namespace acme
     switch (slide)
     {
 
-    // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 303:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity0),
@@ -93,7 +93,7 @@ namespace acme
                                 tolerance);
       break;
 
-    // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 403:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
@@ -131,7 +131,7 @@ namespace acme
                                 tolerance);
       break;
 
-    // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 503:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
@@ -169,7 +169,7 @@ namespace acme
                                 tolerance);
       break;
 
-    // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 603:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
@@ -207,7 +207,7 @@ namespace acme
                                 tolerance);
       break;
 
-    // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 703:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
@@ -244,7 +244,7 @@ namespace acme
                                 tolerance);
       break;
 
-    // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 803:
       return acme::isOrthogonal(*dynamic_cast<line const *>(entity1),
@@ -289,6 +289,83 @@ namespace acme
       return false;
       break;
     }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vector0,
+      vec3 const &vector1,
+      real tolerance)
+  {
+    return acme::isApprox(vector0.dot(vector1), real(0.0), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vec3,
+      line const &line,
+      real tolerance)
+  {
+    return acme::isOrthogonal(vec3, line.direction(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vec3,
+      ray const &ray,
+      real tolerance)
+  {
+    return acme::isOrthogonal(vec3, ray.direction(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vec3,
+      plane const &plane,
+      real tolerance)
+  {
+    return acme::isParallel(vec3, plane.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vec3,
+      segment const &segment,
+      real tolerance)
+  {
+    return acme::isOrthogonal(vec3, segment.toNormalizedVector(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vec3,
+      triangle const &triangle,
+      real tolerance)
+  {
+    return acme::isParallel(vec3, triangle.normal(), tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  isOrthogonal(
+      vec3 const &vec3,
+      circle const &circle,
+      real tolerance)
+  {
+    return acme::isParallel(vec3, circle.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

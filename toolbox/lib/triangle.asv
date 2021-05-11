@@ -100,7 +100,6 @@ classdef triangle < entity
      P.objectHandle = mex_triangle( 'translate', self.objectHandle );
     end
     %
-    %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function translate( self, other_obj )

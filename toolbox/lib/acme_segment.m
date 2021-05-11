@@ -165,7 +165,7 @@ classdef acme_segment < acme_entity
     %
     function P = clamp( self )
       % Get segment minimum bounding box as ACME aabb object instance
-      P = aabb();
+      P = acme_aabb();
       P.objectHandle = mex_segment( 'clamp', self.objectHandle );
     end
     %

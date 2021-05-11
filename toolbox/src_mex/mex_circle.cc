@@ -33,11 +33,13 @@
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"
+#include "acme_none.hh"
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
 #include "acme_ray.hh"
+#include "acme_segment.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -49,27 +51,58 @@
     mexErrMsgTxt(ost.str().c_str());      \
   }
 
-#define MEX_ERROR_MESSAGE                                                      \
-  "%======================================================================%\n" \
-  "% mex_circle: Mex wrapper for ACME triangle object.                    %\n" \
-  "%                                                                      %\n" \
-  "% CONSTRUCTOR:                                                         %\n" \
-  "%   obj = mex_circle( 'new' );                                        %\n"  \
-  "%   obj = mex_circle( 'new', [X1, Y1, Z1], [X2, Y2, Z2] );            %\n"  \
-  "%                                                                      %\n" \
-  "%======================================================================%\n" \
-  "%                                                                      %\n" \
-  "%    Davide Stocco                                                     %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    davide.stocco@unitn.it                                            %\n" \
-  "%                                                                      %\n" \
-  "%    Enrico Bertolazzi                                                 %\n" \
-  "%    Department of Industrial Engineering                              %\n" \
-  "%    University of Trento                                              %\n" \
-  "%    enrico.bertolazzi@unitn.it                                        %\n" \
-  "%                                                                      %\n" \
-  "%======================================================================%\n"
+#define MEX_ERROR_MESSAGE                                                     \
+  "%=====================================================================%\n" \
+  "% mex_circle: Mex wrapper for ACME circle object.                     %\n" \
+  "%                                                                     %\n" \
+  "% CONSTRUCTORS:                                                       %\n" \
+  "%   obj = mex_circle( 'new' );                                        %\n" \
+  "%   obj = mex_circle( 'new',                                          %\n" \
+  "%                     RADIUS,    : Circle radius                      %\n" \
+  "%                     [X; Y; Z], : Circle center                      %\n" \
+  "%                     [X; Y; Z]  : Circle face normal                 %\n" \
+  "%                   );                                                %\n" \
+  "%                                                                     %\n" \
+  "% DESTRUCTOR:                                                         %\n" \
+  "%   mex_circle( 'delete', OBJ );                                      %\n" \
+  "%                                                                     %\n" \
+  "% USAGE:                                                              %\n" \
+  "%   OUT = mex_circle( 'getRadius', OBJ );                             %\n" \
+  "%   OUT = mex_circle( 'getCenter', OBJ );                             %\n" \
+  "%   OUT = mex_circle( 'getNormal', OBJ );                             %\n" \
+  "%         mex_circle( 'setRadius', OBJ, OTHER_OBJ );                  %\n" \
+  "%         mex_circle( 'setCenter', OBJ, OTHER_OBJ );                  %\n" \
+  "%         mex_circle( 'setNormal', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_circle( 'translate', OBJ, [X; Y; Z] );                  %\n" \
+  "%   OUT = mex_circle( 'transform', OBJ, MATRIX );                     %\n" \
+  "%         mex_circle( 'copy', OBJ, OTHER_OBJ );                       %\n" \
+  "%   OUT = mex_circle( 'isInside', OBJ, OTHER_OBJ );                   %\n" \
+  "%   OUT = mex_circle( 'isDegenerated', OBJ );                         %\n" \
+  "%         mex_circle( 'normalize', OBJ );                             %\n" \
+  "%   OUT = mex_circle( 'layingPlane', OBJ );                           %\n" \
+  "%         mex_circle( 'reverse', OBJ );                               %\n" \
+  "%   OUT = mex_circle( 'clamp', OBJ );                                 %\n" \
+  "%   OUT = mex_circle( 'perimeter', OBJ );                             %\n" \
+  "%   OUT = mex_circle( 'area', OBJ );                                  %\n" \
+  "%   OUT = mex_circle( 'isParallel', OBJ, OTHER_OBJ );                 %\n" \
+  "%   OUT = mex_circle( 'isOrthogonal', OBJ, OTHER_OBJ );               %\n" \
+  "%   OUT = mex_circle( 'isCollinear', OBJ, OTHER_OBJ );                %\n" \
+  "%   OUT = mex_circle( 'isCoplanar', OBJ, OTHER_OBJ );                 %\n" \
+  "%   OUT = mex_circle( 'intersection', OBJ, OTHER_OBJ, TYPE );         %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n" \
+  "%                                                                     %\n" \
+  "%    Davide Stocco                                                    %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    davide.stocco@unitn.it                                           %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n"
 
 using namespace std;
 
@@ -205,9 +238,10 @@ do_getNormal(int nlhs, mxArray *plhs[],
 
   acme::circle *self = DATA_GET(arg_in_1);
   real_type *output = createMatrixValue(arg_out_0, 3, 1);
-  output[0] = self->normal().x();
-  output[1] = self->normal().y();
-  output[2] = self->normal().z();
+  acme::vec3 outvec(self->normal());
+  output[0] = outvec.x();
+  output[1] = outvec.y();
+  output[2] = outvec.z();
 #undef CMD
 }
 
@@ -273,7 +307,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_circle( 'translate', OBJ, [X, Y, Z] ): "
+#define CMD "mex_circle( 'translate', OBJ, [X; Y; Z] ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -711,7 +745,7 @@ extern "C" void
 mexFunction(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
-  // the first argument must be a string
+  // First argument must be a string
   if (nrhs == 0)
   {
     mexErrMsgTxt(MEX_ERROR_MESSAGE);
