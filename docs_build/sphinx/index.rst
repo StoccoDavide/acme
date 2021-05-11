@@ -18,7 +18,7 @@ by Davide Stocco
 .. toctree::
    :maxdepth: 2
 
-   readme.rst
+   readme.rst   
    api/library_root.rst
 
 License
