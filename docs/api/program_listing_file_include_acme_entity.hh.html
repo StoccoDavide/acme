@@ -77,13 +77,13 @@
 <span class="p">{</span>
 
   <span class="cm">/*\</span>
-<span class="cm"> |              _   _ _</span>
-<span class="cm"> |    ___ _ __ | |_(_) |_ _   _</span>
-<span class="cm"> |   / _ \ '_ \| __| | __| | | |</span>
-<span class="cm"> |  |  __/ | | | |_| | |_| |_| |</span>
-<span class="cm"> |   \___|_| |_|\__|_|\__|\__, |</span>
-<span class="cm"> |                        |___/</span>
-<span class="cm">\*/</span>
+<span class="cm">   |              _   _ _</span>
+<span class="cm">   |    ___ _ __ | |_(_) |_ _   _</span>
+<span class="cm">   |   / _ \ '_ \| __| | __| | | |</span>
+<span class="cm">   |  |  __/ | | | |_| | |_| |_| |</span>
+<span class="cm">   |   \___|_| |_|\__|_|\__|\__, |</span>
+<span class="cm">   |                        |___/</span>
+<span class="cm">  \*/</span>
 
 
   <span class="k">class</span> <span class="nc">entity</span>
@@ -97,6 +97,18 @@
     <span class="k">virtual</span> <span class="o">~</span><span class="n">entity</span><span class="p">(){};</span>
 
     <span class="n">entity</span><span class="p">(){};</span>
+
+    <span class="k">virtual</span> <span class="kt">void</span>
+    <span class="n">translate</span><span class="p">(</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">void</span>
+    <span class="n">transform</span><span class="p">(</span>
+        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">virtual</span> <span class="n">integer</span> <span class="n">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 

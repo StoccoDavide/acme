@@ -49,7 +49,7 @@
       <li>Namespace <a href="namespace_acme.html#namespace-acme">acme</a><ul>
 <li>Class <a href="class_a00111.html#exhale-class-a00111">aabb</a>
 </li>
-<li>Class <a href="class_a00115.html#exhale-class-a00115">aabbTree</a>
+<li>Class <a href="class_a00115.html#exhale-class-a00115">AABBtree</a>
 </li>
 <li>Class <a href="class_a00119.html#exhale-class-a00119">circle</a>
 </li>
@@ -61,13 +61,13 @@
 </li>
 <li>Class <a href="class_a00135.html#exhale-class-a00135">plane</a>
 </li>
-<li>Class <a href="class_a00139.html#exhale-class-a00139">ray</a>
+<li>Template Class <a href="class_a00139.html#exhale-class-a00139">Point3t</a>
 </li>
-<li>Class <a href="class_a00143.html#exhale-class-a00143">segment</a>
+<li>Class <a href="class_a00143.html#exhale-class-a00143">ray</a>
 </li>
-<li>Class <a href="class_a00147.html#exhale-class-a00147">triangle</a>
+<li>Class <a href="class_a00147.html#exhale-class-a00147">segment</a>
 </li>
-<li class="lastChild">Template Class <a href="class_a00151.html#exhale-class-a00151">Vector</a>
+<li class="lastChild">Class <a href="class_a00151.html#exhale-class-a00151">triangle</a>
 </li>
 </ul>
 </li>
@@ -88,7 +88,7 @@
 </li>
 <li>File <a href="file_include_acme_aabb.hh.html#file-include-acme-aabb.hh">acme_aabb.hh</a>
 </li>
-<li>File <a href="file_include_acme_aabbTree.hh.html#file-include-acme-aabbTree.hh">acme_aabbTree.hh</a>
+<li>File <a href="file_include_acme_AABBtree.hh.html#file-include-acme-AABBtree.hh">acme_AABBtree.hh</a>
 </li>
 <li>File <a href="file_include_acme_circle.hh.html#file-include-acme-circle.hh">acme_circle.hh</a>
 </li>
@@ -112,22 +112,24 @@
 </li>
 <li>File <a href="file_include_acme_plane.hh.html#file-include-acme-plane.hh">acme_plane.hh</a>
 </li>
+<li>File <a href="file_include_acme_point.hh.html#file-include-acme-point.hh">acme_point.hh</a>
+</li>
 <li>File <a href="file_include_acme_ray.hh.html#file-include-acme-ray.hh">acme_ray.hh</a>
 </li>
 <li>File <a href="file_include_acme_segment.hh.html#file-include-acme-segment.hh">acme_segment.hh</a>
 </li>
 <li>File <a href="file_include_acme_triangle.hh.html#file-include-acme-triangle.hh">acme_triangle.hh</a>
 </li>
-<li>File <a href="file_include_acme_utilities.hh.html#file-include-acme-utilities.hh">acme_utilities.hh</a>
-</li>
-<li class="lastChild">File <a href="file_include_acme_vector_point.hh.html#file-include-acme-vector-point.hh">acme_vector_point.hh</a>
+<li class="lastChild">File <a href="file_include_acme_utilities.hh.html#file-include-acme-utilities.hh">acme_utilities.hh</a>
 </li>
 </ul>
 </li>
 <li class="lastChild">Directory <a href="dir_src.html#dir-src">src</a><ul>
+<li>File <a href="file_src_acme.cc.html#file-src-acme.cc">acme.cc</a>
+</li>
 <li>File <a href="file_src_acme_aabb.cc.html#file-src-acme-aabb.cc">acme_aabb.cc</a>
 </li>
-<li>File <a href="file_src_acme_aabbTree.cc.html#file-src-acme-aabbTree.cc">acme_aabbTree.cc</a>
+<li>File <a href="file_src_acme_AABBtree.cc.html#file-src-acme-AABBtree.cc">acme_AABBtree.cc</a>
 </li>
 <li>File <a href="file_src_acme_circle.cc.html#file-src-acme-circle.cc">acme_circle.cc</a>
 </li>
@@ -153,9 +155,7 @@
 </li>
 <li>File <a href="file_src_acme_triangle.cc.html#file-src-acme-triangle.cc">acme_triangle.cc</a>
 </li>
-<li>File <a href="file_src_acme_utilities.cc.html#file-src-acme-utilities.cc">acme_utilities.cc</a>
-</li>
-<li class="lastChild">File <a href="file_src_acme_vector_point.cc.html#file-src-acme-vector-point.cc">acme_vector_point.cc</a>
+<li class="lastChild">File <a href="file_src_acme_utilities.cc.html#file-src-acme-utilities.cc">acme_utilities.cc</a>
 </li>
 </ul>
 </li>
@@ -210,7 +210,7 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="class_a00115.html">Class aabbTree</a><ul>
+<a class="reference internal" href="class_a00115.html">Class AABBtree</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="class_a00115.html#class-documentation">Class Documentation</a></li>
 </ul>
 </li>
@@ -289,10 +289,10 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="class_a00139.html">Class ray</a><ul>
+<a class="reference internal" href="class_a00139.html">Template Class Point3t</a><ul>
 <li class="toctree-l2">
 <a class="reference internal" href="class_a00139.html#inheritance-relationships">Inheritance Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="class_a00139.html#base-type">Base Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class_a00139.html#base-types">Base Types</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="class_a00139.html#class-documentation">Class Documentation</a></li>
@@ -303,7 +303,7 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="class_a00143.html">Class segment</a><ul>
+<a class="reference internal" href="class_a00143.html">Class ray</a><ul>
 <li class="toctree-l2">
 <a class="reference internal" href="class_a00143.html#inheritance-relationships">Inheritance Relationships</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="class_a00143.html#base-type">Base Type</a></li>
@@ -317,7 +317,7 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="class_a00147.html">Class triangle</a><ul>
+<a class="reference internal" href="class_a00147.html">Class segment</a><ul>
 <li class="toctree-l2">
 <a class="reference internal" href="class_a00147.html#inheritance-relationships">Inheritance Relationships</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="class_a00147.html#base-type">Base Type</a></li>
@@ -331,10 +331,10 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="class_a00151.html">Template Class Vector</a><ul>
+<a class="reference internal" href="class_a00151.html">Class triangle</a><ul>
 <li class="toctree-l2">
 <a class="reference internal" href="class_a00151.html#inheritance-relationships">Inheritance Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="class_a00151.html#base-types">Base Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class_a00151.html#base-type">Base Type</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="class_a00151.html#class-documentation">Class Documentation</a></li>
@@ -522,6 +522,69 @@
 <li class="toctree-l1">
 <a class="reference internal" href="function_a00107_1a5a710baf3a0b6ac7269bbcd0cbe5d914.html">Function acme::intersection(ray const&amp;, segment const&amp;, segment&amp;)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="function_a00107_1a5a710baf3a0b6ac7269bbcd0cbe5d914.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1a7070d42169dd05422252a8d65f048e41.html">Function acme::intersection(point const&amp;, point const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a7070d42169dd05422252a8d65f048e41.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1a3841f5b51e596d344a06e340b715366c.html">Function acme::intersection(point const&amp;, line const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a3841f5b51e596d344a06e340b715366c.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1a9dc87608db1aea24ccf98e2a3860de94.html">Function acme::intersection(point const&amp;, ray const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a9dc87608db1aea24ccf98e2a3860de94.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1ad354938ad248460ad9f4f9f4f9fc2780.html">Function acme::intersection(point const&amp;, plane const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ad354938ad248460ad9f4f9f4f9fc2780.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1ac3e6474784fee87adaabb4b50ec96010.html">Function acme::intersection(point const&amp;, segment const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ac3e6474784fee87adaabb4b50ec96010.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1a955a76a01a1b3ade247cf4a8c0b79837.html">Function acme::intersection(point const&amp;, triangle const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a955a76a01a1b3ade247cf4a8c0b79837.html#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="function_a00107_1a3f280bd1a63b4637f4deb29fa4428195.html">Function acme::intersection(point const&amp;, circle const&amp;, point&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a3f280bd1a63b4637f4deb29fa4428195.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1123,8 +1186,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1aa562e93c1ec176e3568b5d4ce4f51a70.html">Function acme::isOrthogonal(vector const&amp;, vector const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1aa562e93c1ec176e3568b5d4ce4f51a70.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a5f5eeaaf93227ac2f943799b385c712a.html">Function acme::isOrthogonal(vec3 const&amp;, vec3 const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a5f5eeaaf93227ac2f943799b385c712a.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1132,8 +1195,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1affdd7c76c9d8bab43db05930065b530c.html">Function acme::isOrthogonal(vector const&amp;, line const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1affdd7c76c9d8bab43db05930065b530c.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a2de599eab4361af11d356279257fd543.html">Function acme::isOrthogonal(vec3 const&amp;, line const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a2de599eab4361af11d356279257fd543.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1141,8 +1204,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a7d621a96ac5af7ee64f71a1ab95f113b.html">Function acme::isOrthogonal(vector const&amp;, ray const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a7d621a96ac5af7ee64f71a1ab95f113b.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a31113bcb332e7e96ee5bcfd37e77e151.html">Function acme::isOrthogonal(vec3 const&amp;, ray const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a31113bcb332e7e96ee5bcfd37e77e151.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1150,8 +1213,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1ab690d1e8633b2edbbf1d8f325d5d49ef.html">Function acme::isOrthogonal(vector const&amp;, plane const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ab690d1e8633b2edbbf1d8f325d5d49ef.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a8469f483d91f3a6d48e94bb5844af1f8.html">Function acme::isOrthogonal(vec3 const&amp;, plane const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a8469f483d91f3a6d48e94bb5844af1f8.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1159,8 +1222,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a4c0f16ea5a7f355caf213f0d01f8a863.html">Function acme::isOrthogonal(vector const&amp;, segment const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a4c0f16ea5a7f355caf213f0d01f8a863.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a81af977ac1358eb6abe2e8abc0c2ead1.html">Function acme::isOrthogonal(vec3 const&amp;, segment const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a81af977ac1358eb6abe2e8abc0c2ead1.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1168,8 +1231,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a25dde27df710d94fab35192ea59027a8.html">Function acme::isOrthogonal(vector const&amp;, triangle const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a25dde27df710d94fab35192ea59027a8.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1ac3fb72a02bf18c9bd6cd21e37fa13547.html">Function acme::isOrthogonal(vec3 const&amp;, triangle const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ac3fb72a02bf18c9bd6cd21e37fa13547.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1177,8 +1240,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1aab64ae0078ac08ee7c0856d91fadd742.html">Function acme::isOrthogonal(vector const&amp;, circle const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1aab64ae0078ac08ee7c0856d91fadd742.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a741eb3ec869fc5de446c97ff59ec57ae.html">Function acme::isOrthogonal(vec3 const&amp;, circle const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a741eb3ec869fc5de446c97ff59ec57ae.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1384,8 +1447,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1ac8b4f30350607126ba60978b86cfccb9.html">Function acme::isParallel(vector const&amp;, vector const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ac8b4f30350607126ba60978b86cfccb9.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a888d9cd507f9d7c5d5b9f8d6b11c704f.html">Function acme::isParallel(vec3 const&amp;, vec3 const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a888d9cd507f9d7c5d5b9f8d6b11c704f.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1393,8 +1456,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a9959a365f4d436b1aa3cb820d3e1da47.html">Function acme::isParallel(vector const&amp;, line const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a9959a365f4d436b1aa3cb820d3e1da47.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a1f761ec94d5256db5e4cee02a117c340.html">Function acme::isParallel(vec3 const&amp;, line const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a1f761ec94d5256db5e4cee02a117c340.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1402,8 +1465,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a31034ff116b798a91f9cc7058dc63042.html">Function acme::isParallel(vector const&amp;, ray const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a31034ff116b798a91f9cc7058dc63042.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1ae0bac0bdaa3bf02817c2c3aaa3e36fdd.html">Function acme::isParallel(vec3 const&amp;, ray const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ae0bac0bdaa3bf02817c2c3aaa3e36fdd.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1411,8 +1474,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1ad2d9c561ee15eb3d9c41943c7f9b4d1b.html">Function acme::isParallel(vector const&amp;, plane const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ad2d9c561ee15eb3d9c41943c7f9b4d1b.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1adadc76d7f22952325943d09eb778ff91.html">Function acme::isParallel(vec3 const&amp;, plane const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1adadc76d7f22952325943d09eb778ff91.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1420,8 +1483,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a31b717e27551d0c117f5dbc2be81b4df.html">Function acme::isParallel(vector const&amp;, segment const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a31b717e27551d0c117f5dbc2be81b4df.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1ad32ece323091d94e10b372a0bc94fcd3.html">Function acme::isParallel(vec3 const&amp;, segment const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ad32ece323091d94e10b372a0bc94fcd3.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1429,8 +1492,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1ad288d55fa2426875253bcc852d6eedb6.html">Function acme::isParallel(vector const&amp;, triangle const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1ad288d55fa2426875253bcc852d6eedb6.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1abcdd5faf55e3100063f5f209915e07a7.html">Function acme::isParallel(vec3 const&amp;, triangle const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1abcdd5faf55e3100063f5f209915e07a7.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1438,8 +1501,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a9d143cadb4a5a84f4f63423107e19f13.html">Function acme::isParallel(vector const&amp;, circle const&amp;, real)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a9d143cadb4a5a84f4f63423107e19f13.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1a8750c79f47219b6eddaac3c96342db77.html">Function acme::isParallel(vec3 const&amp;, circle const&amp;, real)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a8750c79f47219b6eddaac3c96342db77.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1672,8 +1735,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a755123ecbafcb3eb19849ce60ca66988.html">Function acme::operator&lt;&lt;(std::ostream&amp;, vector const&amp;)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a755123ecbafcb3eb19849ce60ca66988.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1aa7dc0f2269c828aefed58394694c9b5d.html">Function acme::operator&lt;&lt;(std::ostream&amp;, point const&amp;)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1aa7dc0f2269c828aefed58394694c9b5d.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -1816,17 +1879,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a10dba3a30e1632842f8ed9b5412632ff.html">Function acme::transformPoint</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a10dba3a30e1632842f8ed9b5412632ff.html#function-documentation">Function Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
-<a class="reference internal" href="function_a00107_1a50db87149adaa6396a2c65f8c3d16fa8.html">Function acme::transformVector</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function_a00107_1a50db87149adaa6396a2c65f8c3d16fa8.html#function-documentation">Function Documentation</a></li>
+<a class="reference internal" href="function_a00107_1aea8300be04384eb5dd02734f300c4584.html">Function acme::transform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function_a00107_1aea8300be04384eb5dd02734f300c4584.html#function-documentation">Function Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -2126,15 +2180,6 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="variable_a00107_1a8c88a5c949b1d41fd596f098254ba2a1.html">Variable acme::NaN_vector</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a8c88a5c949b1d41fd596f098254ba2a1.html#variable-documentation">Variable Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
 <a class="reference internal" href="variable_a00107_1a4a828202806d23d6edcaeef42ed68a82.html">Variable acme::none_goat</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a4a828202806d23d6edcaeef42ed68a82.html#variable-documentation">Variable Documentation</a></li>
 </ul>
@@ -2200,15 +2245,6 @@
 <li class="toctree-l1">
 <a class="reference internal" href="variable_a00107_1a83081e6352114a2e3c483e89143b4fef.html">Variable acme::Ones_vec4</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a83081e6352114a2e3c483e89143b4fef.html#variable-documentation">Variable Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
-<a class="reference internal" href="variable_a00107_1a204c05ce5f19a74b31cedaa409ef27c2.html">Variable acme::Ones_vector</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a204c05ce5f19a74b31cedaa409ef27c2.html#variable-documentation">Variable Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -2396,15 +2432,6 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="variable_a00107_1ab0cad739fd5d0e52ad6da33dec44a217.html">Variable acme::vector_goat</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="variable_a00107_1ab0cad739fd5d0e52ad6da33dec44a217.html#variable-documentation">Variable Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
 <a class="reference internal" href="variable_a00107_1a9604c56fa7f9d3ad586fb294fd63abd7.html">Variable acme::Zeros_mat2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a9604c56fa7f9d3ad586fb294fd63abd7.html#variable-documentation">Variable Documentation</a></li>
 </ul>
@@ -2461,15 +2488,6 @@
 <li class="toctree-l1">
 <a class="reference internal" href="variable_a00107_1a342ce9c544cf01fede10b132df048eb6.html">Variable acme::Zeros_vect2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a342ce9c544cf01fede10b132df048eb6.html#variable-documentation">Variable Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
-<a class="reference internal" href="variable_a00107_1a23c23996eb4366a08100aba61fb5dcd9.html">Variable acme::Zeros_vector</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="variable_a00107_1a23c23996eb4366a08100aba61fb5dcd9.html#variable-documentation">Variable Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -2629,8 +2647,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html">Typedef acme::point</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#typedef-documentation">Typedef Documentation</a></li>
+<a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html">Typedef acme::point</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#typedef-documentation">Typedef Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -2737,15 +2755,6 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="typedef_a00107_1a5ed62ee36c08022b3a0d6b63e12a2784.html">Typedef acme::vec_point</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1a5ed62ee36c08022b3a0d6b63e12a2784.html#typedef-documentation">Typedef Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
 <a class="reference internal" href="typedef_a00107_1ae034da011c845175d353e87c73b13376.html">Typedef acme::vec_scale</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1ae034da011c845175d353e87c73b13376.html#typedef-documentation">Typedef Documentation</a></li>
 </ul>
@@ -2791,26 +2800,8 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="typedef_a00107_1a22bd15e9826d5602c23093a2f44c90f4.html">Typedef acme::vec_vector</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1a22bd15e9826d5602c23093a2f44c90f4.html#typedef-documentation">Typedef Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
 <a class="reference internal" href="typedef_a00107_1a2e0ee896dd97d3dc46cbdee829fecd77.html">Typedef acme::vecN</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1a2e0ee896dd97d3dc46cbdee829fecd77.html#typedef-documentation">Typedef Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1">
-<a class="reference internal" href="typedef_a00107_1af9dbeedcb7872a1547eb8ef8998f3ac7.html">Typedef acme::vector</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="typedef_a00107_1af9dbeedcb7872a1547eb8ef8998f3ac7.html#typedef-documentation">Typedef Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -2860,16 +2851,16 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#classes-and-structs">Classes and Structs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="class_a00111.html">Class aabb</a></li>
-<li class="toctree-l4"><a class="reference internal" href="class_a00115.html">Class aabbTree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_a00115.html">Class AABBtree</a></li>
 <li class="toctree-l4"><a class="reference internal" href="class_a00119.html">Class circle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="class_a00123.html">Class entity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="class_a00127.html">Class line</a></li>
 <li class="toctree-l4"><a class="reference internal" href="class_a00131.html">Class none</a></li>
 <li class="toctree-l4"><a class="reference internal" href="class_a00135.html">Class plane</a></li>
-<li class="toctree-l4"><a class="reference internal" href="class_a00139.html">Class ray</a></li>
-<li class="toctree-l4"><a class="reference internal" href="class_a00143.html">Class segment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="class_a00147.html">Class triangle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="class_a00151.html">Template Class Vector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_a00139.html">Template Class Point3t</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_a00143.html">Class ray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_a00147.html">Class segment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_a00151.html">Class triangle</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
@@ -2893,6 +2884,13 @@
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1aca8348e37ac297fed6e39a2164d8f498.html">Function acme::intersection(line const&amp;, ray const&amp;, ray&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1af250594c6e489bb7d9d433856ebcfeae.html">Function acme::intersection(line const&amp;, segment const&amp;, segment&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a5a710baf3a0b6ac7269bbcd0cbe5d914.html">Function acme::intersection(ray const&amp;, segment const&amp;, segment&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a7070d42169dd05422252a8d65f048e41.html">Function acme::intersection(point const&amp;, point const&amp;, point&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a3841f5b51e596d344a06e340b715366c.html">Function acme::intersection(point const&amp;, line const&amp;, point&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a9dc87608db1aea24ccf98e2a3860de94.html">Function acme::intersection(point const&amp;, ray const&amp;, point&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ad354938ad248460ad9f4f9f4f9fc2780.html">Function acme::intersection(point const&amp;, plane const&amp;, point&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ac3e6474784fee87adaabb4b50ec96010.html">Function acme::intersection(point const&amp;, segment const&amp;, point&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a955a76a01a1b3ade247cf4a8c0b79837.html">Function acme::intersection(point const&amp;, triangle const&amp;, point&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a3f280bd1a63b4637f4deb29fa4428195.html">Function acme::intersection(point const&amp;, circle const&amp;, point&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1adaf014dfa736c1e95f16ce3153074427.html">Function acme::intersection(line const&amp;, line const&amp;, point&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1ab5681d4903854177145417e14f251475.html">Function acme::intersection(ray const&amp;, ray const&amp;, point&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1aa08b7dea617c82ab5a010503bf407d75.html">Function acme::intersection(segment const&amp;, segment const&amp;, point&amp;)</a></li>
@@ -2959,13 +2957,13 @@
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a84d897724fa489d0057fc627f5c3b914.html">Function acme::isCoplanar(segment const&amp;, circle const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a93ef2bfcb12f1e037e3f8456329a84a7.html">Function acme::isCoplanar(triangle const&amp;, circle const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1afefb6073fd95f1653046108312326b06.html">Function acme::isOrthogonal(entity const *, entity const *, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1aa562e93c1ec176e3568b5d4ce4f51a70.html">Function acme::isOrthogonal(vector const&amp;, vector const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1affdd7c76c9d8bab43db05930065b530c.html">Function acme::isOrthogonal(vector const&amp;, line const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a7d621a96ac5af7ee64f71a1ab95f113b.html">Function acme::isOrthogonal(vector const&amp;, ray const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ab690d1e8633b2edbbf1d8f325d5d49ef.html">Function acme::isOrthogonal(vector const&amp;, plane const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a4c0f16ea5a7f355caf213f0d01f8a863.html">Function acme::isOrthogonal(vector const&amp;, segment const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a25dde27df710d94fab35192ea59027a8.html">Function acme::isOrthogonal(vector const&amp;, triangle const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1aab64ae0078ac08ee7c0856d91fadd742.html">Function acme::isOrthogonal(vector const&amp;, circle const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a5f5eeaaf93227ac2f943799b385c712a.html">Function acme::isOrthogonal(vec3 const&amp;, vec3 const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a2de599eab4361af11d356279257fd543.html">Function acme::isOrthogonal(vec3 const&amp;, line const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a31113bcb332e7e96ee5bcfd37e77e151.html">Function acme::isOrthogonal(vec3 const&amp;, ray const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a8469f483d91f3a6d48e94bb5844af1f8.html">Function acme::isOrthogonal(vec3 const&amp;, plane const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a81af977ac1358eb6abe2e8abc0c2ead1.html">Function acme::isOrthogonal(vec3 const&amp;, segment const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ac3fb72a02bf18c9bd6cd21e37fa13547.html">Function acme::isOrthogonal(vec3 const&amp;, triangle const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a741eb3ec869fc5de446c97ff59ec57ae.html">Function acme::isOrthogonal(vec3 const&amp;, circle const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a94a556d22d4373f4eb3b89f346ce56ae.html">Function acme::isOrthogonal(line const&amp;, line const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a57b03f28aa27aad18f6ec7061b157cb9.html">Function acme::isOrthogonal(ray const&amp;, ray const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a16e165de9e2d62c00c454fd38b385c83.html">Function acme::isOrthogonal(plane const&amp;, plane const&amp;, real)</a></li>
@@ -2988,13 +2986,13 @@
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a9c97de268c26c2e3765655ba10f70d08.html">Function acme::isOrthogonal(segment const&amp;, circle const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a387518d4ea80fb446ac4655b388103e1.html">Function acme::isOrthogonal(triangle const&amp;, circle const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a40c79d16b2b7a1dd6d89d8b224570314.html">Function acme::isParallel(entity const *, entity const *, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ac8b4f30350607126ba60978b86cfccb9.html">Function acme::isParallel(vector const&amp;, vector const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a9959a365f4d436b1aa3cb820d3e1da47.html">Function acme::isParallel(vector const&amp;, line const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a31034ff116b798a91f9cc7058dc63042.html">Function acme::isParallel(vector const&amp;, ray const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ad2d9c561ee15eb3d9c41943c7f9b4d1b.html">Function acme::isParallel(vector const&amp;, plane const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a31b717e27551d0c117f5dbc2be81b4df.html">Function acme::isParallel(vector const&amp;, segment const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ad288d55fa2426875253bcc852d6eedb6.html">Function acme::isParallel(vector const&amp;, triangle const&amp;, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a9d143cadb4a5a84f4f63423107e19f13.html">Function acme::isParallel(vector const&amp;, circle const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a888d9cd507f9d7c5d5b9f8d6b11c704f.html">Function acme::isParallel(vec3 const&amp;, vec3 const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a1f761ec94d5256db5e4cee02a117c340.html">Function acme::isParallel(vec3 const&amp;, line const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ae0bac0bdaa3bf02817c2c3aaa3e36fdd.html">Function acme::isParallel(vec3 const&amp;, ray const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1adadc76d7f22952325943d09eb778ff91.html">Function acme::isParallel(vec3 const&amp;, plane const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1ad32ece323091d94e10b372a0bc94fcd3.html">Function acme::isParallel(vec3 const&amp;, segment const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1abcdd5faf55e3100063f5f209915e07a7.html">Function acme::isParallel(vec3 const&amp;, triangle const&amp;, real)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a8750c79f47219b6eddaac3c96342db77.html">Function acme::isParallel(vec3 const&amp;, circle const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a8a5a8a86fdb866bd31267c7efeaa6a04.html">Function acme::isParallel(line const&amp;, line const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a22ccab4a66419f00fabcecec6176df7c.html">Function acme::isParallel(ray const&amp;, ray const&amp;, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1af63e3260fcdbbe71a9e2539a83210536.html">Function acme::isParallel(plane const&amp;, plane const&amp;, real)</a></li>
@@ -3020,7 +3018,7 @@
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a491e4e2f10b6c9db115fe110f39bec68.html">Function acme::max(real, real, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1ab6096d217b40ec455a5fe298212a076a.html">Function acme::min(real, real)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a343dfba84bd9c68a472c878fe944b8c9.html">Function acme::min(real, real, real)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a755123ecbafcb3eb19849ce60ca66988.html">Function acme::operator&lt;&lt;(std::ostream&amp;, vector const&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1aa7dc0f2269c828aefed58394694c9b5d.html">Function acme::operator&lt;&lt;(std::ostream&amp;, point const&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a8f4701cf63ed68392bc345f3ddbf28b1.html">Function acme::operator&lt;&lt;(out_stream&amp;, line const&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1a4043f7e1352280ab317bf7e7eff2dd3a.html">Function acme::operator&lt;&lt;(out_stream&amp;, ray const&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1aeacddd72abab123794a178855d10fa17.html">Function acme::operator&lt;&lt;(out_stream&amp;, plane const&amp;)</a></li>
@@ -3036,8 +3034,7 @@
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1ac2b76605fa728b6e2cc71162860d852d.html">Function acme::sqr</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1ad13c3286bd1639e36cb0996cb7a92ece.html">Function acme::sqrt</a></li>
 <li class="toctree-l4"><a class="reference internal" href="function_a00107_1ab6e7a2828972aed950ba1f28726d98ed.html">Function acme::tan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a10dba3a30e1632842f8ed9b5412632ff.html">Function acme::transformPoint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="function_a00107_1a50db87149adaa6396a2c65f8c3d16fa8.html">Function acme::transformVector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_a00107_1aea8300be04384eb5dd02734f300c4584.html">Function acme::transform</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a><ul>
@@ -3073,7 +3070,6 @@
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a68b88d1725ad6dfe45e7bcdf7c5cdc8f.html">Variable acme::NaN_vec2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a48af70e1b1d7d2658d2f9a880d16a790.html">Variable acme::NaN_vec3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a11a51da7d89878182ae33943131f6f41.html">Variable acme::NaN_vec4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a8c88a5c949b1d41fd596f098254ba2a1.html">Variable acme::NaN_vector</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a4a828202806d23d6edcaeef42ed68a82.html">Variable acme::none_goat</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a73b2b4f4382c277fc6e9f472daa61fd3.html">Variable acme::Ones_mat2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1abb76aa9f84a6b429f7562ba0dd80a518.html">Variable acme::Ones_mat3</a></li>
@@ -3082,7 +3078,6 @@
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a594338a748225d483407e0f329d6a891.html">Variable acme::Ones_vec2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a575eba24006fa4231b24aad065b2c335.html">Variable acme::Ones_vec3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a83081e6352114a2e3c483e89143b4fef.html">Variable acme::Ones_vec4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a204c05ce5f19a74b31cedaa409ef27c2.html">Variable acme::Ones_vector</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a217fe29f07d54a52e1fdbaf85ae10c86.html">Variable acme::PI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a56a230f856f1bb27799259d8b5246303.html">Variable acme::PI2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1ab88d18e75bade37b1160093a729ac706.html">Variable acme::PIdiv180</a></li>
@@ -3103,7 +3098,6 @@
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1aa9b05eff7d75f0226ddae11b0178deec.html">Variable acme::vec2_goat</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1af5f5cdc8be5a88db1b121e3357f5b464.html">Variable acme::vec3_goat</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a71b5055c3be7b085fdf74925b859d6fc.html">Variable acme::vec4_goat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variable_a00107_1ab0cad739fd5d0e52ad6da33dec44a217.html">Variable acme::vector_goat</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a9604c56fa7f9d3ad586fb294fd63abd7.html">Variable acme::Zeros_mat2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1ac6fa24cece5e86cae5bfc46a53d036f4.html">Variable acme::Zeros_mat3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1aeb8a5eed22705ed3b097cdea905e5969.html">Variable acme::Zeros_mat4</a></li>
@@ -3111,7 +3105,6 @@
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a2fabe18284e2ec08886e18635c911a41.html">Variable acme::Zeros_vec3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a276c3881502dbdceb34c1229808d4792.html">Variable acme::Zeros_vec4</a></li>
 <li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a342ce9c544cf01fede10b132df048eb6.html">Variable acme::Zeros_vect2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="variable_a00107_1a23c23996eb4366a08100aba61fb5dcd9.html">Variable acme::Zeros_vector</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#defines">Defines</a><ul>
@@ -3134,7 +3127,7 @@
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a24d574b8999985eb995e1fed4e3f3a57.html">Typedef acme::mat_vec4</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a8538c2f55cf0fac7621096a26147b1b7.html">Typedef acme::matN</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1ad5eedfe3a832e21ca67cbce7d047f46b.html">Typedef acme::out_stream</a></li>
-<li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html">Typedef acme::point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html">Typedef acme::point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html">Typedef acme::real</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a4a747032a241699bb06b16d610c5b451.html">Typedef acme::scale</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a0a8e3a569595ceedd47ac3a904cf9422.html">Typedef acme::translate</a></li>
@@ -3146,15 +3139,12 @@
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a12f221691540bdab6c23579a47fad09a.html">Typedef acme::vec_mat2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a88e00cb8d02907336a5f5fb1d33e94da.html">Typedef acme::vec_mat3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a238c95cf765ddb69a2e5df6eaa06dc0b.html">Typedef acme::vec_mat4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a5ed62ee36c08022b3a0d6b63e12a2784.html">Typedef acme::vec_point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1ae034da011c845175d353e87c73b13376.html">Typedef acme::vec_scale</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a479c97437f3749cd8483fc82704df16f.html">Typedef acme::vec_translate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a4160f0187a62afbe7cd93ef21aaf0e8e.html">Typedef acme::vec_vec2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a283244c3317dcf8252c02c0461b61f9c.html">Typedef acme::vec_vec3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a513aea3cd519502bef521bfdc47970bb.html">Typedef acme::vec_vec4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a22bd15e9826d5602c23093a2f44c90f4.html">Typedef acme::vec_vector</a></li>
 <li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1a2e0ee896dd97d3dc46cbdee829fecd77.html">Typedef acme::vecN</a></li>
-<li class="toctree-l4"><a class="reference internal" href="typedef_a00107_1af9dbeedcb7872a1547eb8ef8998f3ac7.html">Typedef acme::vector</a></li>
 </ul>
 </li>
 </ul>

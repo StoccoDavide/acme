@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Function acme::transformVector &#8212; ACME v</title>
+    <title>Function acme::intersection(point const&amp;, line const&amp;, point&amp;) &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Variable acme::_180divPI" href="variable_a00107_1afbdbc7d598f7a2f3be8484f2f04c3249.html" />
-    <link rel="prev" title="Function acme::transformPoint" href="function_a00107_1a10dba3a30e1632842f8ed9b5412632ff.html" />
+    <link rel="next" title="Function acme::intersection(point const&amp;, ray const&amp;, point&amp;)" href="function_a00107_1a9dc87608db1aea24ccf98e2a3860de94.html" />
+    <link rel="prev" title="Function acme::intersection(point const&amp;, point const&amp;, point&amp;)" href="function_a00107_1a7070d42169dd05422252a8d65f048e41.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,27 +37,28 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="function-acme-transformvector">
-<span id="exhale-function-a00107-1a50db87149adaa6396a2c65f8c3d16fa8"></span><h1>Function acme::transformVector<a class="headerlink" href="#function-acme-transformvector" title="Permalink to this headline">¶</a>
+  <div class="section" id="function-acme-intersection-point-const-line-const-point">
+<span id="exhale-function-a00107-1a3841f5b51e596d344a06e340b715366c"></span><h1>Function acme::intersection(point const&amp;, line const&amp;, point&amp;)<a class="headerlink" href="#function-acme-intersection-point-const-line-const-point" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_src_acme_vector_point.cc.html#file-src-acme-vector-point-cc"><span class="std std-ref">File acme_vector_point.cc</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_intersection.cc.html#file-src-acme-intersection-cc"><span class="std std-ref">File acme_intersection.cc</span></a></p></li>
 </ul>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <dl class="cpp function">
-<dt id="_CPPv4N4acme15transformVectorER6vectorRK6affine">
-<span id="_CPPv3N4acme15transformVectorER6vectorRK6affine"></span><span id="_CPPv2N4acme15transformVectorER6vectorRK6affine"></span><span id="acme::transformVector__vectorR.affineCR"></span><span class="target" id="a00107_1a50db87149adaa6396a2c65f8c3d16fa8"></span><span class="pre">void</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">transformVector</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme15transformVectorER6vectorRK6affine" title="acme::transformVector::vector"><span class="pre">vector</span></a> <span class="pre">&amp;</span><em><span class="pre">vector</span></em>, <a class="reference internal" href="typedef_a00107_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="pre">affine</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme15transformVectorER6vectorRK6affine" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme12intersectionERK5pointRK4lineR5point">
+<span id="_CPPv3N4acme12intersectionERK5pointRK4lineR5point"></span><span id="_CPPv2N4acme12intersectionERK5pointRK4lineR5point"></span><span id="acme::intersection__pointCR.lineCR.pointR"></span><span class="target" id="a00107_1a3841f5b51e596d344a06e340b715366c"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point_in</span></em>, <a class="reference internal" href="#_CPPv4N4acme12intersectionERK5pointRK4lineR5point" title="acme::intersection::line"><span class="pre">line</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">line</span></em>, <a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <span class="pre">&amp;</span><em><span class="pre">point_out</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1aab36e5238c6f3c5f646af89044e99606.html#_CPPv4N4acme10point_goatE" title="acme::point_goat"><span class="pre">point_goat</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme12intersectionERK5pointRK4lineR5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Transform VECTOR with affine transformation matrix. </p>
+<p>Intersection between point and line. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>vector</strong> – Input VECTOR </p></li>
-<li><p><strong>matrix</strong> – 4x4 transformation matrix </p></li>
+<li><p><strong>point_in</strong> – Input point </p></li>
+<li><p><strong>line</strong> – Input line </p></li>
+<li><p><strong>point_out</strong> – Output point </p></li>
 </ul>
 </dd>
 </dl>

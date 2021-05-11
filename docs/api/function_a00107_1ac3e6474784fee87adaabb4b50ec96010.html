@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typedef acme::vec_point &#8212; ACME v</title>
+    <title>Function acme::intersection(point const&amp;, segment const&amp;, point&amp;) &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Typedef acme::vec_scale" href="typedef_a00107_1ae034da011c845175d353e87c73b13376.html" />
-    <link rel="prev" title="Typedef acme::vec_mat4" href="typedef_a00107_1a238c95cf765ddb69a2e5df6eaa06dc0b.html" />
+    <link rel="next" title="Function acme::intersection(point const&amp;, triangle const&amp;, point&amp;)" href="function_a00107_1a955a76a01a1b3ade247cf4a8c0b79837.html" />
+    <link rel="prev" title="Function acme::intersection(point const&amp;, plane const&amp;, point&amp;)" href="function_a00107_1ad354938ad248460ad9f4f9f4f9fc2780.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,22 +37,31 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="typedef-acme-vec-point">
-<span id="exhale-typedef-a00107-1a5ed62ee36c08022b3a0d6b63e12a2784"></span><h1>Typedef acme::vec_point<a class="headerlink" href="#typedef-acme-vec-point" title="Permalink to this headline">¶</a>
+  <div class="section" id="function-acme-intersection-point-const-segment-const-point">
+<span id="exhale-function-a00107-1ac3e6474784fee87adaabb4b50ec96010"></span><h1>Function acme::intersection(point const&amp;, segment const&amp;, point&amp;)<a class="headerlink" href="#function-acme-intersection-point-const-segment-const-point" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_vector_point.hh.html#file-include-acme-vector-point-hh"><span class="std std-ref">File acme_vector_point.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_intersection.cc.html#file-src-acme-intersection-cc"><span class="std std-ref">File acme_intersection.cc</span></a></p></li>
 </ul>
-<div class="section" id="typedef-documentation">
-<h2>Typedef Documentation<a class="headerlink" href="#typedef-documentation" title="Permalink to this headline">¶</a>
+<div class="section" id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a>
 </h2>
-<dl class="cpp type">
-<dt id="_CPPv4N4acme9vec_pointE">
-<span id="_CPPv3N4acme9vec_pointE"></span><span id="_CPPv2N4acme9vec_pointE"></span><span id="acme::vec_point"></span><span class="target" id="a00107_1a5ed62ee36c08022b3a0d6b63e12a2784"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">Eigen</span><span class="pre">::</span><span class="pre">Matrix</span><span class="pre">&lt;</span><a class="reference internal" href="typedef_a00107_1aca4b0b13607de9e719e0211231b7409e.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a><span class="pre">,</span> <span class="pre">Eigen</span><span class="pre">::</span><span class="pre">Dynamic</span><span class="pre">,</span> <span class="pre">1</span><span class="pre">&gt;</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">vec_point</span></code><a class="headerlink" href="#_CPPv4N4acme9vec_pointE" title="Permalink to this definition">¶</a><br>
+<dl class="cpp function">
+<dt id="_CPPv4N4acme12intersectionERK5pointRK7segmentR5point">
+<span id="_CPPv3N4acme12intersectionERK5pointRK7segmentR5point"></span><span id="_CPPv2N4acme12intersectionERK5pointRK7segmentR5point"></span><span id="acme::intersection__pointCR.segmentCR.pointR"></span><span class="target" id="a00107_1ac3e6474784fee87adaabb4b50ec96010"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point_in</span></em>, <a class="reference internal" href="#_CPPv4N4acme12intersectionERK5pointRK7segmentR5point" title="acme::intersection::segment"><span class="pre">segment</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">segment</span></em>, <a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <span class="pre">&amp;</span><em><span class="pre">point_out</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1aab36e5238c6f3c5f646af89044e99606.html#_CPPv4N4acme10point_goatE" title="acme::point_goat"><span class="pre">point_goat</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme12intersectionERK5pointRK7segmentR5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Nx1 vector of 3D point type. </p>
-<p>NxN matrix of 3D point type. </p>
+<p>Intersection between point and segment. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point_in</strong> – Input point </p></li>
+<li><p><strong>segment</strong> – Input segment </p></li>
+<li><p><strong>point_out</strong> – Output point </p></li>
+</ul>
+</dd>
+</dl>
 </dd>
 </dl>
 

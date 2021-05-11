@@ -223,6 +223,21 @@
   <span class="k">static</span> <span class="n">mat3</span> <span class="n">mat3_goat</span> <span class="o">=</span> <span class="n">mat3</span><span class="p">(</span><span class="n">NaN_mat3</span><span class="p">);</span>
   <span class="k">static</span> <span class="n">mat4</span> <span class="n">mat4_goat</span> <span class="o">=</span> <span class="n">mat4</span><span class="p">(</span><span class="n">NaN_mat4</span><span class="p">);</span>
 
+  <span class="cm">/*\</span>
+<span class="cm">   |   _____                     __</span>
+<span class="cm">   |  |_   _| __ __ _ _ __  ___ / _| ___  _ __ _ __ ___</span>
+<span class="cm">   |    | || '__/ _` | '_ \/ __| |_ / _ \| '__| '_ ` _ \</span>
+<span class="cm">   |    | || | | (_| | | | \__ \  _| (_) | |  | | | | | |</span>
+<span class="cm">   |    |_||_|  \__,_|_| |_|___/_|  \___/|_|  |_| |_| |_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">void</span>
+  <span class="nf">transform</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
+  <span class="p">);</span>
+
 <span class="p">}</span> <span class="c1">// namespace acme</span>
 
 <span class="cp">#endif</span>

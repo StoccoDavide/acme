@@ -86,7 +86,7 @@
   <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span>
   <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
       <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
@@ -103,7 +103,7 @@
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">point</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -124,7 +124,7 @@
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">point</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">obj_direction</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -145,7 +145,7 @@
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">point</span> <span class="nf">obj_origin</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="nf">obj_normal</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">obj_normal</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">scientific</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">showpoint</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>

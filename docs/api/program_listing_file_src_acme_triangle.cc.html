@@ -212,7 +212,7 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">vector</span>
+  <span class="n">vec3</span>
   <span class="n">triangle</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -304,7 +304,7 @@
 
   <span class="kt">void</span>
   <span class="n">triangle</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
@@ -317,9 +317,9 @@
   <span class="n">triangle</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span>
       <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">acme</span><span class="o">::</span><span class="n">transformPoint</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">matrix</span><span class="p">);</span>
-    <span class="n">acme</span><span class="o">::</span><span class="n">transformPoint</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">matrix</span><span class="p">);</span>
-    <span class="n">acme</span><span class="o">::</span><span class="n">transformPoint</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">matrix</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_vertex</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

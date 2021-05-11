@@ -132,7 +132,7 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span>
   <span class="n">circle</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -170,7 +170,7 @@
 
   <span class="kt">void</span>
   <span class="n">circle</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
   <span class="p">}</span>
@@ -202,8 +202,41 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
+  <span class="n">circle</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
+      <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">minX</span><span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">);</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">minY</span><span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">);</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">minZ</span><span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">);</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">maxX</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">);</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">maxY</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">);</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">maxZ</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">circle</span><span class="o">::</span><span class="n">perimeter</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">PI</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">circle</span><span class="o">::</span><span class="n">area</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">acme</span><span class="o">::</span><span class="n">PI</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_radius</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
   <span class="n">circle</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">_plane</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
   <span class="p">}</span>

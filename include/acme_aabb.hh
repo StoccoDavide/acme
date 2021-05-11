@@ -102,42 +102,27 @@ public:
       this->updateMaxMin();
     }
 
-    //!
     //! Box class constructor
-    //!
-    //! \param min  Input aabb minimum point
-    //! \param max  Input aabb maximum point
-    //! \param id   Input aabb id value
-    //! \param ipos Input aabb rank value
-    //!
-    //!
     aabb(
-        point const &min,
-        point const &max,
-        integer id,
-        integer ipos)
-        : _min(min),
-          _max(max),
-          _id(id),
-          _ipos(ipos)
+        point const &min, //!< Input aabb minimum point
+        point const &max, //!< Input aabb maximum point
+        integer id,       //!< Input aabb id value
+        integer ipos      //!< Input aabb rank value
+        ) : _min(min),
+            _max(max),
+            _id(id),
+            _ipos(ipos)
     {
       this->updateMaxMin();
     }
 
-    //!
     //! Box class constructor
-    //!
-    //! \param boxes Input reference to vector of boxes
-    //! \param id    Input aabb id value
-    //! \param ipos  Input aabb rank value
-    //!
-    //!
     aabb(
-        std::vector<aabb::ptr> const &boxes,
-        integer id,
-        integer ipos)
-        : _id(id),
-          _ipos(ipos)
+        std::vector<aabb::ptr> const &boxes, //!< Input reference to vector of boxes
+        integer id,                          //!< Input aabb id value
+        integer ipos                         //!< Input aabb rank value
+        ) : _id(id),
+            _ipos(ipos)
     {
       this->merged(boxes);
       this->updateMaxMin();

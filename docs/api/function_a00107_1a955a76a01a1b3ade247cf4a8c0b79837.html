@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>File acme_vector_point.cc &#8212; ACME v</title>
+    <title>Function acme::intersection(point const&amp;, triangle const&amp;, point&amp;) &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,6 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function acme::intersection(point const&amp;, circle const&amp;, point&amp;)" href="function_a00107_1a3f280bd1a63b4637f4deb29fa4428195.html" />
+    <link rel="prev" title="Function acme::intersection(point const&amp;, segment const&amp;, point&amp;)" href="function_a00107_1ac3e6474784fee87adaabb4b50ec96010.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,49 +37,34 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="file-acme-vector-point-cc">
-<span id="file-src-acme-vector-point-cc"></span><h1>File acme_vector_point.cc<a class="headerlink" href="#file-acme-vector-point-cc" title="Permalink to this headline">¶</a>
+  <div class="section" id="function-acme-intersection-point-const-triangle-const-point">
+<span id="exhale-function-a00107-1a955a76a01a1b3ade247cf4a8c0b79837"></span><h1>Function acme::intersection(point const&amp;, triangle const&amp;, point&amp;)<a class="headerlink" href="#function-acme-intersection-point-const-triangle-const-point" title="Permalink to this headline">¶</a>
 </h1>
-<p>↰ <a class="reference internal" href="dir_src.html#dir-src"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">src</span></code>)</p>
-<div class="contents local topic" id="contents">
-<p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#definition-src-acme-vector-point-cc" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">src/acme_vector_point.cc</span></code>)</a></p></li>
-<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
-<li><p><a class="reference internal" href="#namespaces" id="id3">Namespaces</a></p></li>
-<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_intersection.cc.html#file-src-acme-intersection-cc"><span class="std std-ref">File acme_intersection.cc</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="definition-src-acme-vector-point-cc">
-<h2>Definition (<code class="docutils literal notranslate"><span class="pre">src/acme_vector_point.cc</span></code>)<a class="headerlink" href="#definition-src-acme-vector-point-cc" title="Permalink to this headline">¶</a>
+<div class="section" id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a>
 </h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="program_listing_file_src_acme_vector_point.cc.html">Program Listing for File acme_vector_point.cc</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="includes">
-<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a>
-</h2>
+<dl class="cpp function">
+<dt id="_CPPv4N4acme12intersectionERK5pointRK8triangleR5point">
+<span id="_CPPv3N4acme12intersectionERK5pointRK8triangleR5point"></span><span id="_CPPv2N4acme12intersectionERK5pointRK8triangleR5point"></span><span id="acme::intersection__pointCR.triangleCR.pointR"></span><span class="target" id="a00107_1a955a76a01a1b3ade247cf4a8c0b79837"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point_in</span></em>, <a class="reference internal" href="#_CPPv4N4acme12intersectionERK5pointRK8triangleR5point" title="acme::intersection::triangle"><span class="pre">triangle</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">triangle</span></em>, <a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <span class="pre">&amp;</span><em><span class="pre">point_out</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1aab36e5238c6f3c5f646af89044e99606.html#_CPPv4N4acme10point_goatE" title="acme::point_goat"><span class="pre">point_goat</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme12intersectionERK5pointRK8triangleR5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Intersection between point and triangle. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">acme_vector_point.hh</span></code> (<a class="reference internal" href="file_include_acme_vector_point.hh.html#file-include-acme-vector-point-hh"><span class="std std-ref">File acme_vector_point.hh</span></a>)</p></li>
+<li><p><strong>point_in</strong> – Input point </p></li>
+<li><p><strong>triangle</strong> – Input triangle </p></li>
+<li><p><strong>point_out</strong> – Output point </p></li>
 </ul>
-</div>
-<div class="section" id="namespaces">
-<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a>
-</h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="namespace_acme.html#namespace-acme"><span class="std std-ref">Namespace acme</span></a></p></li>
-</ul>
-</div>
-<div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a>
-</h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="function_a00107_1a10dba3a30e1632842f8ed9b5412632ff.html#exhale-function-a00107-1a10dba3a30e1632842f8ed9b5412632ff"><span class="std std-ref">Function acme::transformPoint</span></a></p></li>
-<li><p><a class="reference internal" href="function_a00107_1a50db87149adaa6396a2c65f8c3d16fa8.html#exhale-function-a00107-1a50db87149adaa6396a2c65f8c3d16fa8"><span class="std std-ref">Function acme::transformVector</span></a></p></li>
-</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
 </div>
 </div>
 

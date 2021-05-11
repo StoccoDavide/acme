@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Function acme::isOrthogonal(vector const&amp;, plane const&amp;, real) &#8212; ACME v</title>
+    <title>Function acme::isParallel(vec3 const&amp;, vec3 const&amp;, real) &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Function acme::isOrthogonal(vector const&amp;, segment const&amp;, real)" href="function_a00107_1a4c0f16ea5a7f355caf213f0d01f8a863.html" />
-    <link rel="prev" title="Function acme::isOrthogonal(vector const&amp;, ray const&amp;, real)" href="function_a00107_1a7d621a96ac5af7ee64f71a1ab95f113b.html" />
+    <link rel="next" title="Function acme::isParallel(vec3 const&amp;, line const&amp;, real)" href="function_a00107_1a1f761ec94d5256db5e4cee02a117c340.html" />
+    <link rel="prev" title="Function acme::isParallel(entity const *, entity const *, real)" href="function_a00107_1a40c79d16b2b7a1dd6d89d8b224570314.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,27 +37,27 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="function-acme-isorthogonal-vector-const-plane-const-real">
-<span id="exhale-function-a00107-1ab690d1e8633b2edbbf1d8f325d5d49ef"></span><h1>Function acme::isOrthogonal(vector const&amp;, plane const&amp;, real)<a class="headerlink" href="#function-acme-isorthogonal-vector-const-plane-const-real" title="Permalink to this headline">¶</a>
+  <div class="section" id="function-acme-isparallel-vec3-const-vec3-const-real">
+<span id="exhale-function-a00107-1a888d9cd507f9d7c5d5b9f8d6b11c704f"></span><h1>Function acme::isParallel(vec3 const&amp;, vec3 const&amp;, real)<a class="headerlink" href="#function-acme-isparallel-vec3-const-vec3-const-real" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_src_acme_orthogonal.cc.html#file-src-acme-orthogonal-cc"><span class="std std-ref">File acme_orthogonal.cc</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_parallel.cc.html#file-src-acme-parallel-cc"><span class="std std-ref">File acme_parallel.cc</span></a></p></li>
 </ul>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <dl class="cpp function">
-<dt id="_CPPv4N4acme12isOrthogonalERK6vectorRK5plane4real">
-<span id="_CPPv3N4acme12isOrthogonalERK6vectorRK5plane4real"></span><span id="_CPPv2N4acme12isOrthogonalERK6vectorRK5plane4real"></span><span id="acme::isOrthogonal__vectorCR.planeCR.real"></span><span class="target" id="a00107_1ab690d1e8633b2edbbf1d8f325d5d49ef"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">isOrthogonal</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme12isOrthogonalERK6vectorRK5plane4real" title="acme::isOrthogonal::vector"><span class="pre">vector</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vector</span></em>, <a class="reference internal" href="#_CPPv4N4acme12isOrthogonalERK6vectorRK5plane4real" title="acme::isOrthogonal::plane"><span class="pre">plane</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">plane</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1ad002cc2b1bfa1b88f32ae67e09808a74.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme12isOrthogonalERK6vectorRK5plane4real" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4N4acme10isParallelERK4vec3RK4vec34real">
+<span id="_CPPv3N4acme10isParallelERK4vec3RK4vec34real"></span><span id="_CPPv2N4acme10isParallelERK4vec3RK4vec34real"></span><span id="acme::isParallel__vec3CR.vec3CR.real"></span><span class="target" id="a00107_1a888d9cd507f9d7c5d5b9f8d6b11c704f"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">isParallel</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vector0</span></em>, <a class="reference internal" href="typedef_a00107_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vector1</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1ad002cc2b1bfa1b88f32ae67e09808a74.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10isParallelERK4vec3RK4vec34real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check if vector and plane are orthogonal. </p>
+<p>Check if vectors are parallel. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>vector</strong> – Input vector </p></li>
-<li><p><strong>plane</strong> – Input plane </p></li>
+<li><p><strong>vector0</strong> – Input vector 0 </p></li>
+<li><p><strong>vector1</strong> – Input vector 1 </p></li>
 <li><p><strong>tolerance</strong> – Tolerance </p></li>
 </ul>
 </dd>

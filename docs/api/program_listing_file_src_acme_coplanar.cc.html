@@ -361,7 +361,7 @@
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane1</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">plane1</span><span class="p">.</span><span class="n">origin</span><span class="p">()),</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -396,8 +396,6 @@
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">plane</span> <span class="n">plane0</span><span class="p">(</span><span class="n">circle0</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">());</span>
-    <span class="n">plane</span> <span class="n">plane1</span><span class="p">(</span><span class="n">circle1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">());</span>
     <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">circle0</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
                             <span class="n">circle1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
                             <span class="n">tolerance</span><span class="p">);</span>

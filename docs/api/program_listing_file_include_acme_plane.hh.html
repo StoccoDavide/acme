@@ -72,7 +72,7 @@
 <span class="cp">#define INCLUDE_ACME_PLANE</span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_vector_point.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_point.hh"</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">acme</span>
 <span class="p">{</span>
@@ -97,7 +97,7 @@
 
 <span class="k">private</span><span class="o">:</span>
     <span class="n">point</span> <span class="n">_origin</span><span class="p">;</span>
-    <span class="n">vector</span> <span class="n">_normal</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">_normal</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">plane</span><span class="p">()</span> <span class="p">{}</span>
@@ -116,13 +116,13 @@
         <span class="n">real</span> <span class="n">dy</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of plane normal vector</span>
         <span class="n">real</span> <span class="n">dz</span>  <span class="c1">//&lt;! Input z value of plane normal vector</span>
         <span class="p">)</span> <span class="o">:</span> <span class="n">_origin</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">ox</span><span class="p">,</span> <span class="n">oy</span><span class="p">,</span> <span class="n">oz</span><span class="p">)),</span>
-            <span class="n">_normal</span><span class="p">(</span><span class="n">vector</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">))</span>
+            <span class="n">_normal</span><span class="p">(</span><span class="n">vec3</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">))</span>
     <span class="p">{</span>
     <span class="p">}</span>
 
     <span class="n">plane</span><span class="p">(</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
-        <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">normal</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">normal</span>
         <span class="p">)</span> <span class="o">:</span> <span class="n">_origin</span><span class="p">(</span><span class="n">origin</span><span class="p">),</span>
             <span class="n">_normal</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
     <span class="p">{</span>
@@ -141,7 +141,7 @@
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -154,7 +154,7 @@
 
     <span class="kt">void</span>
     <span class="nf">normal</span><span class="p">(</span>
-        <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
     <span class="p">);</span>
 
     <span class="n">real</span>
@@ -180,13 +180,13 @@
 
     <span class="kt">void</span>
     <span class="nf">translate</span><span class="p">(</span>
-        <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-    <span class="p">);</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
         <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
-    <span class="p">);</span>
+        <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="c1">// Check whether a point lays on the plane</span>
     <span class="kt">bool</span>
@@ -195,7 +195,7 @@
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
-    <span class="nf">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="nf">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="n">integer</span> <span class="nf">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">5</span><span class="p">;</span> <span class="p">}</span>
 
@@ -221,7 +221,7 @@
 
   <span class="p">};</span> <span class="c1">// class plane</span>
 
-  <span class="k">static</span> <span class="n">plane</span> <span class="k">const</span> <span class="n">NaN_plane</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">NaN_vector</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">plane</span> <span class="k">const</span> <span class="n">NaN_plane</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">NaN_vec3</span><span class="p">);</span>
   <span class="k">static</span> <span class="n">plane</span> <span class="n">plane_goat</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">NaN_plane</span><span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>

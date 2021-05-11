@@ -110,7 +110,7 @@
 
 using namespace std;
 
-typedef double real_type;
+typedef double real;
 
 static void
 DATA_NEW(
@@ -150,33 +150,33 @@ do_new(int nlhs, mxArray *plhs[],
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
   string tname = mxArrayToString(arg_in_0);
 
-  real_type x1 = acme::NaN;
-  real_type y1 = acme::NaN;
-  real_type z1 = acme::NaN;
-  real_type x2 = acme::NaN;
-  real_type y2 = acme::NaN;
-  real_type z2 = acme::NaN;
-  real_type x3 = acme::NaN;
-  real_type y3 = acme::NaN;
-  real_type z3 = acme::NaN;
+  real x1 = acme::NaN;
+  real y1 = acme::NaN;
+  real z1 = acme::NaN;
+  real x2 = acme::NaN;
+  real y2 = acme::NaN;
+  real z2 = acme::NaN;
+  real x3 = acme::NaN;
+  real y3 = acme::NaN;
+  real z3 = acme::NaN;
 
   if (nrhs == 4)
   {
-    real_type const *matrix1_ptr;
+    real const *matrix1_ptr;
     mwSize rows1, cols1;
     matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
     x1 = matrix1_ptr[0];
     y1 = matrix1_ptr[1];
     z1 = matrix1_ptr[2];
-    real_type const *matrix2_ptr;
+    real const *matrix2_ptr;
     mwSize rows2, cols2;
     matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
     MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
     x2 = matrix2_ptr[0];
     y2 = matrix2_ptr[1];
     z2 = matrix2_ptr[2];
-    real_type const *matrix3_ptr;
+    real const *matrix3_ptr;
     mwSize rows3, cols3;
     matrix3_ptr = getMatrixPointer(arg_in_3, rows3, cols3, CMD "Error in third input matrix");
     MEX_ASSERT(rows3 == 3 || cols3 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows3 << ", cols = " << cols3 << '\n');
@@ -318,13 +318,13 @@ do_translate(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
+  real x = matrix_ptr[0];
+  real y = matrix_ptr[1];
+  real z = matrix_ptr[2];
   self->translate(acme::vec3(x, y, z));
 #undef CMD
 }
@@ -357,7 +357,7 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
@@ -447,7 +447,7 @@ do_normal(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real *output = createMatrixValue(arg_out_0, 3, 1);
   acme::vec3 outvec(self->normal());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -477,7 +477,7 @@ static void
 do_edge(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'edge', OBJ, INT, INT ): "
+#define CMD "mex_triangle( 'edge', OBJ, I, J ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -495,7 +495,7 @@ static void
 do_swap(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'swap', OBJ, INT, INT ): "
+#define CMD "mex_triangle( 'swap', OBJ, I, J ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -565,7 +565,7 @@ do_barycentric(int nlhs, mxArray *plhs[],
 
   acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real *output = createMatrixValue(arg_out_0, 3, 1);
   self->barycentric(*other, output[0], output[1], output[2]);
 #undef CMD
 }

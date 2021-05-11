@@ -102,8 +102,50 @@
 
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector0</span><span class="p">,</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector1</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector0</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector1</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isOrthogonal</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isOrthogonal</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isOrthogonal</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isOrthogonal</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isOrthogonal</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">isOrthogonal</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 
@@ -146,48 +188,6 @@
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">vector</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
   <span class="p">);</span>
 

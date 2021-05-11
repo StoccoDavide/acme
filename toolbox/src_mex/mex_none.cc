@@ -84,7 +84,7 @@
 
 using namespace std;
 
-typedef double real_type;
+typedef double real;
 
 static void
 DATA_NEW(
@@ -150,7 +150,7 @@ static void
 do_isParallel(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_none( 'isParallel', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_none( 'isParallel', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -185,7 +185,7 @@ static void
 do_isOrthogonal(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_none( 'isOrthogonal', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_none( 'isOrthogonal', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -220,7 +220,7 @@ static void
 do_isCollinear(int nlhs, mxArray *plhs[],
                int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_none( 'isCollinear', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_none( 'isCollinear', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -256,7 +256,7 @@ static void
 do_isCoplanar(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_none( 'isCoplanar', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_none( 'isCoplanar', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 

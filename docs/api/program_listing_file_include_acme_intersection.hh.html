@@ -102,6 +102,64 @@
   <span class="p">);</span>
 
   <span class="cm">/*\</span>
+<span class="cm">   |   ____                   _               _</span>
+<span class="cm">   |  |  _ \ _   _ _ __   ___| |_ _   _  __ _| |</span>
+<span class="cm">   |  | |_) | | | | '_ \ / __| __| | | |/ _` | |</span>
+<span class="cm">   |  |  __/| |_| | | | | (__| |_| |_| | (_| | |</span>
+<span class="cm">   |  |_|    \__,_|_| |_|\___|\__|\__,_|\__,_|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
 <span class="cm">   |    ____      _ _ _</span>
 <span class="cm">   |   / ___|___ | | (_)_ __   ___  __ _ _ __</span>
 <span class="cm">   |  | |   / _ \| | | | '_ \ / _ \/ _` | '__|</span>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Variable acme::NaN_vector &#8212; ACME v</title>
+    <title>Function acme::intersection(point const&amp;, ray const&amp;, point&amp;) &#8212; ACME v</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Variable acme::none_goat" href="variable_a00107_1a4a828202806d23d6edcaeef42ed68a82.html" />
-    <link rel="prev" title="Variable acme::NaN_vec4" href="variable_a00107_1a11a51da7d89878182ae33943131f6f41.html" />
+    <link rel="next" title="Function acme::intersection(point const&amp;, plane const&amp;, point&amp;)" href="function_a00107_1ad354938ad248460ad9f4f9f4f9fc2780.html" />
+    <link rel="prev" title="Function acme::intersection(point const&amp;, line const&amp;, point&amp;)" href="function_a00107_1a3841f5b51e596d344a06e340b715366c.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -37,21 +37,31 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="variable-acme-nan-vector">
-<span id="exhale-variable-a00107-1a8c88a5c949b1d41fd596f098254ba2a1"></span><h1>Variable acme::NaN_vector<a class="headerlink" href="#variable-acme-nan-vector" title="Permalink to this headline">¶</a>
+  <div class="section" id="function-acme-intersection-point-const-ray-const-point">
+<span id="exhale-function-a00107-1a9dc87608db1aea24ccf98e2a3860de94"></span><h1>Function acme::intersection(point const&amp;, ray const&amp;, point&amp;)<a class="headerlink" href="#function-acme-intersection-point-const-ray-const-point" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_vector_point.hh.html#file-include-acme-vector-point-hh"><span class="std std-ref">File acme_vector_point.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_intersection.cc.html#file-src-acme-intersection-cc"><span class="std std-ref">File acme_intersection.cc</span></a></p></li>
 </ul>
-<div class="section" id="variable-documentation">
-<h2>Variable Documentation<a class="headerlink" href="#variable-documentation" title="Permalink to this headline">¶</a>
+<div class="section" id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a>
 </h2>
-<dl class="cpp var">
-<dt id="_CPPv4N4acme10NaN_vectorE">
-<span id="_CPPv3N4acme10NaN_vectorE"></span><span id="_CPPv2N4acme10NaN_vectorE"></span><span id="acme::NaN_vector__vectorC"></span><span class="target" id="a00107_1a8c88a5c949b1d41fd596f098254ba2a1"></span><em class="property"><span class="pre">static</span></em> <a class="reference internal" href="typedef_a00107_1af9dbeedcb7872a1547eb8ef8998f3ac7.html#_CPPv4N4acme6vectorE" title="acme::vector"><span class="pre">vector</span></a> <em class="property"><span class="pre">const</span></em> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">NaN_vector</span></code> <span class="pre">=</span> <a class="reference internal" href="typedef_a00107_1af9dbeedcb7872a1547eb8ef8998f3ac7.html#_CPPv4N4acme6vectorE" title="acme::vector"><span class="pre">vector</span></a><span class="pre">(</span><a class="reference internal" href="variable_a00107_1a48af70e1b1d7d2658d2f9a880d16a790.html#_CPPv4N4acme8NaN_vec3E" title="acme::NaN_vec3"><span class="pre">NaN_vec3</span></a><span class="pre">)</span><a class="headerlink" href="#_CPPv4N4acme10NaN_vectorE" title="Permalink to this definition">¶</a><br>
+<dl class="cpp function">
+<dt id="_CPPv4N4acme12intersectionERK5pointRK3rayR5point">
+<span id="_CPPv3N4acme12intersectionERK5pointRK3rayR5point"></span><span id="_CPPv2N4acme12intersectionERK5pointRK3rayR5point"></span><span id="acme::intersection__pointCR.rayCR.pointR"></span><span class="target" id="a00107_1a9dc87608db1aea24ccf98e2a3860de94"></span><span class="pre">bool</span> <code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">intersection</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point_in</span></em>, <a class="reference internal" href="#_CPPv4N4acme12intersectionERK5pointRK3rayR5point" title="acme::intersection::ray"><span class="pre">ray</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">ray</span></em>, <a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <span class="pre">&amp;</span><em><span class="pre">point_out</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1aab36e5238c6f3c5f646af89044e99606.html#_CPPv4N4acme10point_goatE" title="acme::point_goat"><span class="pre">point_goat</span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme12intersectionERK5pointRK3rayR5point" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Not-a-Number vector type. </p>
+<p>Intersection between point and ray. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point_in</strong> – Input point </p></li>
+<li><p><strong>ray</strong> – Input ray </p></li>
+<li><p><strong>point_out</strong> – Output point </p></li>
+</ul>
+</dd>
+</dl>
 </dd>
 </dl>
 

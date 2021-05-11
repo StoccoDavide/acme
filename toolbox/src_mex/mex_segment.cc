@@ -78,7 +78,7 @@
   "%   OUT = mex_segment( 'isApprox', OBJ, OTHER_OBJ );                  %\n" \
   "%   OUT = mex_segment( 'toVector', OBJ );                             %\n" \
   "%   OUT = mex_segment( 'toNormalizedVector', OBJ );                   %\n" \
-  "%         mex_segment( 'swap', OBJ, INT, INT );                       %\n" \
+  "%         mex_segment( 'swap', OBJ, I, J );                           %\n" \
   "%   OUT = mex_segment( 'clamp', OBJ );                                %\n" \
   "%   OUT = mex_segment( 'length', OBJ );                               %\n" \
   "%   OUT = mex_segment( 'isParallel', OBJ, OTHER_OBJ );                %\n" \
@@ -103,7 +103,7 @@
 
 using namespace std;
 
-typedef double real_type;
+typedef double real;
 
 static void
 DATA_NEW(
@@ -143,19 +143,19 @@ do_new(int nlhs, mxArray *plhs[],
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
   string tname = mxArrayToString(arg_in_0);
 
-  real_type x1 = acme::NaN;
-  real_type y1 = acme::NaN;
-  real_type z1 = acme::NaN;
-  real_type x2 = acme::NaN;
-  real_type y2 = acme::NaN;
-  real_type z2 = acme::NaN;
+  real x1 = acme::NaN;
+  real y1 = acme::NaN;
+  real z1 = acme::NaN;
+  real x2 = acme::NaN;
+  real y2 = acme::NaN;
+  real z2 = acme::NaN;
   if (nrhs == 3)
   {
-    real_type const *matrix1_ptr;
+    real const *matrix1_ptr;
     mwSize rows1, cols1;
     matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
-    real_type const *matrix2_ptr;
+    real const *matrix2_ptr;
     mwSize rows2, cols2;
     matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
     MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
@@ -266,13 +266,13 @@ do_translate(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::segment *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
+  real x = matrix_ptr[0];
+  real y = matrix_ptr[1];
+  real z = matrix_ptr[2];
   self->translate(acme::vec3(x, y, z));
 #undef CMD
 }
@@ -305,7 +305,7 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::segment *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
@@ -395,7 +395,7 @@ do_toVector(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::segment *self = DATA_GET(arg_in_1);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real *output = createMatrixValue(arg_out_0, 3, 1);
   acme::vec3 outvec(self->toVector());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -414,7 +414,7 @@ do_toNormalizedVector(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::segment *self = DATA_GET(arg_in_1);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real *output = createMatrixValue(arg_out_0, 3, 1);
   acme::vec3 outvec(self->toNormalizedVector());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -475,7 +475,7 @@ static void
 do_isParallel(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isParallel', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_segment( 'isParallel', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -510,7 +510,7 @@ static void
 do_isOrthogonal(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isOrthogonal', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_segment( 'isOrthogonal', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -545,7 +545,7 @@ static void
 do_isCollinear(int nlhs, mxArray *plhs[],
                int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isCollinear', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_segment( 'isCollinear', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -581,7 +581,7 @@ static void
 do_isCoplanar(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'isCoplanar', OBJ, OTHER_OBJ, TYPE ): "
+#define CMD "mex_segment( 'isCoplanar', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 

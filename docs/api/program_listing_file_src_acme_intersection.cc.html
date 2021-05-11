@@ -97,7 +97,127 @@
     <span class="kt">bool</span> <span class="n">collide_seg</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
     <span class="n">entity</span> <span class="o">*</span><span class="n">entity_out_ray</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ray</span><span class="p">();</span>
     <span class="n">entity</span> <span class="o">*</span><span class="n">entity_out_seg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">isCollinear</span><span class="p">(</span><span class="n">entity0</span><span class="p">,</span> <span class="n">entity1</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">entity0</span><span class="o">-&gt;</span><span class="n">isPoint</span><span class="p">()</span> <span class="o">||</span> <span class="n">entity1</span><span class="o">-&gt;</span><span class="n">isPoint</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="k">switch</span> <span class="p">(</span><span class="n">slide</span><span class="p">)</span>
+      <span class="p">{</span>
+
+        <span class="c1">// - - - - - - - - - - - - - - POINT - - - - - - - - - - - - - -</span>
+
+      <span class="k">case</span> <span class="mi">202</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">203</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">204</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">205</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">206</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">207</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">208</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">302</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">402</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">502</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">602</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">702</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="mi">802</span><span class="o">:</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span><span class="p">();</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
+                                     <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">point</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">));</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">default</span><span class="o">:</span>
+        <span class="k">delete</span> <span class="n">entity_out_ray</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="n">entity_out_seg</span><span class="p">;</span>
+        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled (punctual)."</span><span class="p">)</span>
+        <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">entity_out</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">isCollinear</span><span class="p">(</span><span class="n">entity0</span><span class="p">,</span> <span class="n">entity1</span><span class="p">))</span>
     <span class="p">{</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">slide</span><span class="p">)</span>
       <span class="p">{</span>
@@ -142,6 +262,7 @@
         <span class="n">collide_ray</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
                                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
                                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out_ray</span><span class="p">));</span>
+
         <span class="n">collide_seg</span> <span class="o">=</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
                                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
                                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out_seg</span><span class="p">));</span>
@@ -202,7 +323,7 @@
       <span class="k">default</span><span class="o">:</span>
         <span class="k">delete</span> <span class="n">entity_out_ray</span><span class="p">;</span>
         <span class="k">delete</span> <span class="n">entity_out_seg</span><span class="p">;</span>
-        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled."</span><span class="p">)</span>
+        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled (colliear)."</span><span class="p">)</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="k">return</span> <span class="n">entity_out</span><span class="p">;</span>
         <span class="k">break</span><span class="p">;</span>
@@ -514,7 +635,7 @@
       <span class="k">default</span><span class="o">:</span>
         <span class="k">delete</span> <span class="n">entity_out_ray</span><span class="p">;</span>
         <span class="k">delete</span> <span class="n">entity_out_seg</span><span class="p">;</span>
-        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled."</span><span class="p">)</span>
+        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled (coplanar)."</span><span class="p">)</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="k">return</span> <span class="n">entity_out</span><span class="p">;</span>
         <span class="k">break</span><span class="p">;</span>
@@ -829,7 +950,7 @@
       <span class="k">default</span><span class="o">:</span>
         <span class="k">delete</span> <span class="n">entity_out_ray</span><span class="p">;</span>
         <span class="k">delete</span> <span class="n">entity_out_seg</span><span class="p">;</span>
-        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled."</span><span class="p">)</span>
+        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(entity, entity): exception not handled (general)."</span><span class="p">)</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="k">return</span> <span class="n">entity_out</span><span class="p">;</span>
         <span class="k">break</span><span class="p">;</span>
@@ -1155,6 +1276,148 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="cm">/*\</span>
+<span class="cm">   |   ____                   _               _</span>
+<span class="cm">   |  |  _ \ _   _ _ __   ___| |_ _   _  __ _| |</span>
+<span class="cm">   |  | |_) | | | | '_ \ / __| __| | | |/ _` | |</span>
+<span class="cm">   |  |  __/| |_| | | | | (__| |_| |_| | (_| | |</span>
+<span class="cm">   |  |_|    \__,_|_| |_|\___|\__|\__,_|\__,_|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">point0</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">point1</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point0</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_in</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point_in</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_in</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point_in</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">plane</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_in</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point_in</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_in</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point_in</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_in</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point_in</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">circle</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_in</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="n">point_in</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="cm">/*\</span>
 <span class="cm">   |    ____                      _</span>
 <span class="cm">   |   / ___| ___ _ __   ___ _ __(_) ___</span>
 <span class="cm">   |  | |  _ / _ \ '_ \ / _ \ '__| |/ __|</span>
@@ -1175,15 +1438,15 @@
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">acme</span><span class="o">::</span><span class="n">isCollinear</span><span class="p">(</span><span class="n">line0</span><span class="p">,</span> <span class="n">line1</span><span class="p">))</span>
     <span class="p">{</span>
       <span class="n">point</span> <span class="n">p</span><span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-      <span class="n">vector</span> <span class="n">v</span><span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+      <span class="n">vec3</span> <span class="n">v</span><span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
       <span class="n">point</span> <span class="n">q</span><span class="p">(</span><span class="n">line1</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-      <span class="n">vector</span> <span class="n">u</span><span class="p">(</span><span class="n">line1</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+      <span class="n">vec3</span> <span class="n">u</span><span class="p">(</span><span class="n">line1</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
       <span class="c1">// find a = v x u</span>
-      <span class="n">vector</span> <span class="n">a</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">u</span><span class="p">));</span>
+      <span class="n">vec3</span> <span class="n">a</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">u</span><span class="p">));</span>
       <span class="c1">// find dot product = (v x u).(v x u)</span>
       <span class="n">real</span> <span class="n">dot</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
       <span class="c1">// find b = (Q1-P1) x u</span>
-      <span class="n">vector</span> <span class="n">b</span><span class="p">((</span><span class="n">q</span> <span class="o">-</span> <span class="n">p</span><span class="p">).</span><span class="n">cross</span><span class="p">(</span><span class="n">u</span><span class="p">));</span>
+      <span class="n">vec3</span> <span class="n">b</span><span class="p">((</span><span class="n">q</span> <span class="o">-</span> <span class="n">p</span><span class="p">).</span><span class="n">cross</span><span class="p">(</span><span class="n">u</span><span class="p">));</span>
       <span class="c1">// find t = (b.a)/(a.a) = ((Q1-P1) x u).(v x u) / (v x u).(v x u)</span>
       <span class="n">real</span> <span class="n">t</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">dot</span><span class="p">;</span>
       <span class="c1">// find intersection point</span>
@@ -1417,8 +1680,8 @@
     <span class="n">real</span> <span class="n">circle_radius</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
     <span class="n">point</span> <span class="n">circle_center</span><span class="p">(</span><span class="n">circle</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
     <span class="n">point</span> <span class="n">line_origin</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="n">line_direction</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="n">diff</span><span class="p">(</span><span class="n">line_origin</span> <span class="o">-</span> <span class="n">circle_center</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">line_direction</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">line_origin</span> <span class="o">-</span> <span class="n">circle_center</span><span class="p">);</span>
 
     <span class="n">real</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">line_direction</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">line_direction</span><span class="p">);</span>
     <span class="n">real</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">line_direction</span><span class="p">);</span>
@@ -1609,20 +1872,24 @@
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
       <span class="n">line</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vector</span> <span class="n">normal0</span> <span class="o">=</span> <span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">();</span>
-    <span class="n">vector</span> <span class="n">normal1</span> <span class="o">=</span> <span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">();</span>
+    <span class="n">vec3</span> <span class="n">normal0</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="n">normal1</span><span class="p">(</span><span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">real</span> <span class="n">d0</span> <span class="o">=</span> <span class="o">-</span><span class="n">plane0</span><span class="p">.</span><span class="n">d</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">d1</span> <span class="o">=</span> <span class="o">-</span><span class="n">plane1</span><span class="p">.</span><span class="n">d</span><span class="p">();</span>
 
-    <span class="n">vector</span> <span class="n">line_d</span> <span class="o">=</span> <span class="n">normal0</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">normal1</span><span class="p">);</span>
-    <span class="n">real</span> <span class="n">det</span> <span class="o">=</span> <span class="n">line_d</span><span class="p">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">*</span> <span class="n">line_d</span><span class="p">.</span><span class="n">norm</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">))</span>
+    <span class="n">vec3</span> <span class="n">direction</span> <span class="o">=</span> <span class="n">normal0</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">normal1</span><span class="p">);</span>
+    <span class="n">real</span> <span class="n">dot</span> <span class="o">=</span> <span class="n">normal0</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">normal1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">sqr</span><span class="p">(</span><span class="n">direction</span><span class="p">.</span><span class="n">norm</span><span class="p">()),</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">))</span>
     <span class="p">{</span>
       <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
-      <span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">((</span><span class="n">line_d</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">normal1</span><span class="p">)</span> <span class="o">*</span> <span class="n">plane0</span><span class="p">.</span><span class="n">d</span><span class="p">())</span> <span class="o">+</span>
-                  <span class="p">(</span><span class="n">normal0</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">line_d</span><span class="p">)</span> <span class="o">*</span> <span class="n">plane1</span><span class="p">.</span><span class="n">d</span><span class="p">())</span> <span class="o">/</span> <span class="n">det</span><span class="p">);</span>
-      <span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(</span><span class="n">line_d</span><span class="p">);</span>
+      <span class="n">real</span> <span class="n">invDet</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">dot</span> <span class="o">*</span> <span class="n">dot</span><span class="p">);</span>
+      <span class="n">real</span> <span class="n">c0</span> <span class="o">=</span> <span class="p">(</span><span class="n">d0</span> <span class="o">-</span> <span class="n">dot</span> <span class="o">*</span> <span class="n">d1</span><span class="p">)</span> <span class="o">*</span> <span class="n">invDet</span><span class="p">;</span>
+      <span class="n">real</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="n">d1</span> <span class="o">-</span> <span class="n">dot</span> <span class="o">*</span> <span class="n">d0</span><span class="p">)</span> <span class="o">*</span> <span class="n">invDet</span><span class="p">;</span>
+      <span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">(</span><span class="n">c0</span> <span class="o">*</span> <span class="n">normal0</span> <span class="o">+</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">normal1</span><span class="p">);</span>
+      <span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">(</span><span class="n">direction</span><span class="p">);</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -1635,9 +1902,9 @@
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane2</span><span class="p">,</span>
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">vector</span> <span class="k">const</span> <span class="n">normal0</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="k">const</span> <span class="n">normal1</span><span class="p">(</span><span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="k">const</span> <span class="n">normal2</span><span class="p">(</span><span class="n">plane2</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="n">normal0</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="n">normal1</span><span class="p">(</span><span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="n">normal2</span><span class="p">(</span><span class="n">plane2</span><span class="p">.</span><span class="n">normal</span><span class="p">());</span>
 
     <span class="n">mat3</span> <span class="n">Mat</span><span class="p">;</span>
     <span class="n">Mat</span> <span class="o">&lt;&lt;</span> <span class="n">normal0</span><span class="p">,</span> <span class="n">normal1</span><span class="p">,</span> <span class="n">normal2</span><span class="p">;</span>
@@ -1666,10 +1933,10 @@
     <span class="n">line</span> <span class="n">tmp_line</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">triangle0</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span> <span class="n">triangle1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span> <span class="n">tmp_line</span><span class="p">))</span>
     <span class="p">{</span>
-      <span class="n">segment</span> <span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">,</span> <span class="n">tmp_segment_out0</span><span class="p">,</span> <span class="n">tmp_segment_out1</span><span class="p">;</span>
-      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment_out0</span><span class="p">);</span>
-      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">,</span> <span class="n">tmp_segment_out1</span><span class="p">);</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_segment_out0</span><span class="p">,</span> <span class="n">tmp_segment_out1</span><span class="p">,</span> <span class="n">segment_out</span><span class="p">);</span>
+      <span class="n">segment</span> <span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">;</span>
+      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">triangle0</span><span class="p">,</span> <span class="n">tmp_segment0</span><span class="p">);</span>
+      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">triangle1</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">,</span> <span class="n">segment_out</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
@@ -1687,10 +1954,10 @@
     <span class="n">line</span> <span class="n">tmp_line</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">circle0</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span> <span class="n">circle1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span> <span class="n">tmp_line</span><span class="p">))</span>
     <span class="p">{</span>
-      <span class="n">segment</span> <span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">,</span> <span class="n">tmp_segment_out0</span><span class="p">,</span> <span class="n">tmp_segment_out1</span><span class="p">;</span>
-      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment_out0</span><span class="p">);</span>
-      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">,</span> <span class="n">tmp_segment_out1</span><span class="p">);</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_segment_out0</span><span class="p">,</span> <span class="n">tmp_segment_out1</span><span class="p">,</span> <span class="n">segment_out</span><span class="p">);</span>
+      <span class="n">segment</span> <span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">;</span>
+      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">circle0</span><span class="p">,</span> <span class="n">tmp_segment0</span><span class="p">);</span>
+      <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_line</span><span class="p">,</span> <span class="n">circle1</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">tmp_segment0</span><span class="p">,</span> <span class="n">tmp_segment1</span><span class="p">,</span> <span class="n">segment_out</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
@@ -1728,13 +1995,13 @@
     <span class="n">point</span> <span class="n">vertex0</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
     <span class="n">point</span> <span class="n">vertex1</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="n">point</span> <span class="n">vertex2</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">vector</span> <span class="n">edge1</span> <span class="o">=</span> <span class="n">vertex1</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">;</span>
-    <span class="n">vector</span> <span class="n">edge2</span> <span class="o">=</span> <span class="n">vertex2</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">edge1</span> <span class="o">=</span> <span class="n">vertex1</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">edge2</span> <span class="o">=</span> <span class="n">vertex2</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">;</span>
 
     <span class="n">point</span> <span class="n">origin</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">();</span>
-    <span class="n">vector</span> <span class="n">direction</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">();</span>
+    <span class="n">vec3</span> <span class="n">direction</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">();</span>
 
-    <span class="n">vector</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="p">;</span>
     <span class="n">real</span> <span class="n">a</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
     <span class="n">h</span> <span class="o">=</span> <span class="n">direction</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">edge2</span><span class="p">);</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">edge1</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
@@ -1811,13 +2078,13 @@
     <span class="n">point</span> <span class="n">vertex0</span><span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
     <span class="n">point</span> <span class="n">vertex1</span><span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
     <span class="n">point</span> <span class="n">vertex2</span><span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-    <span class="n">vector</span> <span class="n">edge1</span><span class="p">(</span><span class="n">vertex1</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">);</span>
-    <span class="n">vector</span> <span class="n">edge2</span><span class="p">(</span><span class="n">vertex2</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">edge1</span><span class="p">(</span><span class="n">vertex1</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">edge2</span><span class="p">(</span><span class="n">vertex2</span> <span class="o">-</span> <span class="n">vertex0</span><span class="p">);</span>
 
     <span class="n">point</span> <span class="n">origin</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
-    <span class="n">vector</span> <span class="n">direction</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="n">direction</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">());</span>
 
-    <span class="n">vector</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">q</span><span class="p">;</span>
     <span class="n">real</span> <span class="n">a</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span>
     <span class="n">h</span> <span class="o">=</span> <span class="n">direction</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">edge2</span><span class="p">);</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">edge1</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
@@ -1926,7 +2193,7 @@
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">line</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">()),</span>
-                           <span class="n">triangle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                           <span class="n">triangle</span><span class="p">,</span>
                            <span class="n">point_out</span><span class="p">))</span>
       <span class="k">return</span> <span class="n">segment</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_out</span><span class="p">);</span>
     <span class="k">else</span>
@@ -1941,7 +2208,7 @@
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">line</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">()),</span>
-                           <span class="n">circle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                           <span class="n">circle</span><span class="p">,</span>
                            <span class="n">point_out</span><span class="p">))</span>
       <span class="k">return</span> <span class="n">segment</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="n">point_out</span><span class="p">);</span>
     <span class="k">else</span>

@@ -136,7 +136,7 @@ The implemented methods are:
 - `isInside`: check whether the point is inside the ray;
 
 Class `plane`
-------------
+-------------
 
 The `plane` class publicly inherit from `entity` and it represents a generic
 plane the 3D space.It is built out of two members:
