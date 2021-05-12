@@ -54,17 +54,17 @@ namespace acme
    */
   class line : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<line const> ptr; //!< Shared pointer to line
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to line objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to line objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to line objects
 
-private:
+  private:
     point _origin;   //!< Origin point
     vec3 _direction; //!< Direction vector
 
-public:
+  public:
     //! Line class destructor
     ~line() {}
 
@@ -108,7 +108,8 @@ public:
     //! Check if objects are (almost) equal
     bool
     isApprox(
-        line const &input //!< Input line object
+        line const &input,       //!< Input line object
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Return line origin point
@@ -162,12 +163,15 @@ public:
     // Check whether the point is inside the line
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if line is degenerated (direction vector has zero norm)
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 3; }

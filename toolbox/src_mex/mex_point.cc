@@ -58,7 +58,7 @@
   "% CONSTRUCTORS                                                        %\n" \
   "%   obj = mex_point( 'new' );                                         %\n" \
   "%   obj = mex_point( 'new',                                           %\n" \
-  "%                    X, Y, Z : Point data                             %\n" \ 
+  "%                    X, Y, Z : Point data                             %\n" \
   "%                    );                                               %\n" \
   "%   obj = mex_point( 'new',                                           %\n" \
   "%                    [X; Y; Z] : Point data                           %\n" \
@@ -101,7 +101,7 @@
 
 using namespace std;
 
-typedef double real;
+typedef double real_type;
 
 static void
 DATA_NEW(
@@ -141,12 +141,12 @@ do_new(int nlhs, mxArray *plhs[],
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
   string tname = mxArrayToString(arg_in_0);
 
-  real x = acme::NaN;
-  real y = acme::NaN;
-  real z = acme::NaN;
+  real_type x = acme::NaN;
+  real_type y = acme::NaN;
+  real_type z = acme::NaN;
   if (nrhs == 2)
   {
-    real const *matrix_ptr;
+    real_type const *matrix_ptr;
     mwSize rows, cols;
     matrix_ptr = getMatrixPointer(arg_in_1, rows, cols, CMD "Error in input matrix");
     MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
@@ -240,7 +240,7 @@ do_get(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
-  real *output = createMatrixValue(arg_out_0, 3, 1);
+  real_type *output = createMatrixValue(arg_out_0, 3, 1);
   output[0] = self->x();
   output[1] = self->y();
   output[2] = self->z();
@@ -259,7 +259,7 @@ do_setX(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
-  real value = getScalarValue(arg_in_2, CMD "Error in reading x value");
+  real_type value = getScalarValue(arg_in_2, CMD "Error in reading x value");
   self->x() = value;
 #undef CMD
 }
@@ -276,7 +276,7 @@ do_setY(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
-  real value = getScalarValue(arg_in_2, CMD "Error in reading y value");
+  real_type value = getScalarValue(arg_in_2, CMD "Error in reading y value");
   self->y() = value;
 #undef CMD
 }
@@ -293,7 +293,7 @@ do_setZ(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_0);
-  real value = getScalarValue(arg_in_1, CMD "Error in reading z value");
+  real_type value = getScalarValue(arg_in_1, CMD "Error in reading z value");
   self->z() = value;
 #undef CMD
 }
@@ -310,12 +310,12 @@ do_set(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
-  real x = acme::NaN;
-  real y = acme::NaN;
-  real z = acme::NaN;
+  real_type x = acme::NaN;
+  real_type y = acme::NaN;
+  real_type z = acme::NaN;
   if (nrhs == 3)
   {
-    real const *matrix_ptr;
+    real_type const *matrix_ptr;
     mwSize rows, cols;
     matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading input matrix");
     MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
@@ -363,13 +363,13 @@ do_translate(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
-  real const *matrix_ptr;
+  real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real x = matrix_ptr[0];
-  real y = matrix_ptr[1];
-  real z = matrix_ptr[2];
+  real_type x = matrix_ptr[0];
+  real_type y = matrix_ptr[1];
+  real_type z = matrix_ptr[2];
   self->translate(acme::vec3(x, y, z));
 #undef CMD
 }
@@ -386,7 +386,7 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
-  real const *matrix_ptr;
+  real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;

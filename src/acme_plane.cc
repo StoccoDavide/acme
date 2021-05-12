@@ -65,11 +65,12 @@ namespace acme
 
   bool
   plane::isApprox(
-      plane const &input)
+      plane const &input,
+      real tolerance)
       const
   {
-    return this->_origin.isApprox(input._origin, acme::Epsilon) &&
-           this->_normal.isApprox(input._normal, acme::Epsilon);
+    return this->_origin.isApprox(input._origin, tolerance) &&
+           this->_normal.isApprox(input._normal, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -184,19 +185,21 @@ namespace acme
 
   bool
   plane::isInside(
-      point const &query_point)
+      point const &query_point,
+      real tolerance)
       const
   {
-    return this->signedDistance(query_point) < acme::Epsilon;
+    return this->signedDistance(query_point) < tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  plane::isDegenerated(void)
+  plane::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox(this->_normal.norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox(this->_normal.norm(), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -84,7 +84,7 @@
 
 using namespace std;
 
-typedef double real;
+typedef double real_type;
 
 static void
 DATA_NEW(

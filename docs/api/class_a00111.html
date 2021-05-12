@@ -214,15 +214,18 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4aabb8isApproxERK4aabb">
-<span id="_CPPv3NK4acme4aabb8isApproxERK4aabb"></span><span id="_CPPv2NK4acme4aabb8isApproxERK4aabb"></span><span id="acme::aabb::isApprox__aabbCRC"></span><span class="target" id="a00111_1afa6dd379bde62e50e243d697e4ff8db4"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isApprox</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="pre">aabb</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4aabb8isApproxERK4aabb" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme4aabb8isApproxERK4aabb4real">
+<span id="_CPPv3NK4acme4aabb8isApproxERK4aabb4real"></span><span id="_CPPv2NK4acme4aabb8isApproxERK4aabb4real"></span><span id="acme::aabb::isApprox__aabbCR.realC"></span><span class="target" id="a00111_1a36a18ddda1d903eb8da9922e1a5bdebc"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isApprox</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="pre">aabb</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">input</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1ad002cc2b1bfa1b88f32ae67e09808a74.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4aabb8isApproxERK4aabb4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check if aabb objects are (almost) equal. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>input</strong> – Input </p>
+<ul class="simple">
+<li><p><strong>input</strong> – Input </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
 </dd>
 </dl>
 </dd>
@@ -684,25 +687,34 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4aabb8isInsideERK5point">
-<span id="_CPPv3NK4acme4aabb8isInsideERK5point"></span><span id="_CPPv2NK4acme4aabb8isInsideERK5point"></span><span id="acme::aabb::isInside__pointCRC"></span><span class="target" id="a00111_1aeeed683410ec4103b60116cc07d97756"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isInside</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">query_point</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4aabb8isInsideERK5point" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme4aabb8isInsideERK5point4real">
+<span id="_CPPv3NK4acme4aabb8isInsideERK5point4real"></span><span id="_CPPv2NK4acme4aabb8isInsideERK5point4real"></span><span id="acme::aabb::isInside__pointCR.realC"></span><span class="target" id="a00111_1a3fd7994ae9a297036de22218ff53c734"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isInside</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1ac060cb6b65f984ab79cfaed3f8c494f4.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">query_point</span></em>, <a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1ad002cc2b1bfa1b88f32ae67e09808a74.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4aabb8isInsideERK5point4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>query_point</strong> – Query point </p>
+<ul class="simple">
+<li><p><strong>query_point</strong> – Query point </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4aabb13isDegeneratedEv">
-<span id="_CPPv3NK4acme4aabb13isDegeneratedEv"></span><span id="_CPPv2NK4acme4aabb13isDegeneratedEv"></span><span id="acme::aabb::isDegenerated__voidC"></span><span class="target" id="a00111_1aebdf6d2927bac9c71b471706cb131ca8"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDegenerated</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4aabb13isDegeneratedEv" title="Permalink to this definition">¶</a><br>
+<dt id="_CPPv4NK4acme4aabb13isDegeneratedE4real">
+<span id="_CPPv3NK4acme4aabb13isDegeneratedE4real"></span><span id="_CPPv2NK4acme4aabb13isDegeneratedE4real"></span><span id="acme::aabb::isDegenerated__realC"></span><span class="target" id="a00111_1a99563e6e95274833f6559d90006f751e"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDegenerated</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00107_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00107_1ad002cc2b1bfa1b88f32ae67e09808a74.html#_CPPv4N4acme7EpsilonE" title="acme::Epsilon"><span class="pre">Epsilon</span></a><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4aabb13isDegeneratedE4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check if aabb is degenerated. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
 </dd>
 </dl>
 

@@ -65,11 +65,12 @@ namespace acme
 
   bool
   ray::isApprox(
-      ray const &input)
+      ray const &input,
+      real tolerance)
       const
   {
-    return this->_origin.isApprox(input._origin, acme::Epsilon) &&
-           this->_direction.isApprox(input._direction, acme::Epsilon);
+    return this->_origin.isApprox(input._origin, tolerance) &&
+           this->_direction.isApprox(input._direction, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -165,21 +166,23 @@ namespace acme
 
   bool
   ray::isInside(
-      point const &query_point)
+      point const &query_point,
+      real tolerance)
       const
   {
     return acme::isApprox((query_point - this->_origin).normalized().cross(this->_direction).norm(),
                           real(0.0),
-                          acme::Epsilon);
+                          tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  ray::isDegenerated(void)
+  ray::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox(this->_direction.norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox(this->_direction.norm(), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

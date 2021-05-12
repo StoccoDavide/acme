@@ -59,7 +59,7 @@ namespace acme
   template <typename t>
   class Point3t : public Eigen::Matrix<t, 3, 1>, public entity
   {
-public:
+  public:
     using Eigen::Matrix<t, 3, 1>::Matrix;
 
     // This constructor allows you to construct matrix from Eigen expressions
@@ -98,7 +98,13 @@ public:
     }
 
     //! Check if entity is degenerated
-    bool isDegenerated(void) const override { return false; }
+    bool isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    )
+        const override
+    {
+      return false;
+    }
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 1; }
@@ -144,7 +150,11 @@ public:
    |  |_|                      
   \*/
 
-  typedef Point3t<real> point;                           //!< Point type
+  typedef Point3t<real> point; //!< Point type
+
+  typedef Eigen::Matrix<point, Eigen::Dynamic, 1> vec_point;              //!< Nx1 vector of point type
+  typedef Eigen::Matrix<point, Eigen::Dynamic, Eigen::Dynamic> mat_point; //!< NxN matrix of point type
+
   static point const NaN_point = point::Constant(NaN);   //!< Not-a-Number point type
   static point const Zeros_point = point::Constant(0.0); //!< Zeros point type
   static point const Ones_point = point::Constant(1.0);  //!< Ones point type

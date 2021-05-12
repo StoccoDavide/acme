@@ -67,7 +67,7 @@ int main()
     std::cout << "Lines intersection point 1 = " << ptr->isNone() << "\n";
   }
 
-  circle *circle0 = new circle(2.0, point(0.0, 0.0, 0.0), vec3(0.0,  1.0, 0.0));
+  circle *circle0 = new circle(2.0, point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
   circle *circle1 = new circle(2.0, point(0.0, 0.0, 0.1), vec3(1.0, -1.0, 0.0));
   entity *entity_out1 = acme::intersection(circle0, circle1);
   if (dynamic_cast<segment *>(entity_out1)) // IF!!!!!

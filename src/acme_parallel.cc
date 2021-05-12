@@ -55,7 +55,7 @@ namespace acme
     switch (slide)
     {
 
-    // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 303:
       return acme::isParallel(*dynamic_cast<line const *>(entity0),
@@ -93,7 +93,7 @@ namespace acme
                               tolerance);
       break;
 
-    // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 403:
       return acme::isParallel(*dynamic_cast<line const *>(entity1),
@@ -131,7 +131,7 @@ namespace acme
                               tolerance);
       break;
 
-    // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 503:
       return acme::isParallel(*dynamic_cast<line const *>(entity1),
@@ -169,8 +169,7 @@ namespace acme
                               tolerance);
       break;
 
-    // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
-
+      // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 603:
       return acme::isParallel(*dynamic_cast<line const *>(entity1),
@@ -208,7 +207,7 @@ namespace acme
                               tolerance);
       break;
 
-    // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 703:
       return acme::isParallel(*dynamic_cast<line const *>(entity1),
@@ -245,7 +244,7 @@ namespace acme
                               tolerance);
       break;
 
-    // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 803:
       return acme::isParallel(*dynamic_cast<line const *>(entity1),

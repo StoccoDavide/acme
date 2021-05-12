@@ -52,7 +52,7 @@ namespace acme
  */
   class entity
   {
-public:
+  public:
     typedef std::shared_ptr<entity const> ptr; //!< Shared pointer to geometrical entity
     typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to geometrical entity objects
     typedef std::vector<ptr> vecptr;           //!< Vector of pointers to geometrical entity objects
@@ -77,7 +77,9 @@ public:
         ) = 0;
 
     //! Check if entity is degenerated
-    virtual bool isDegenerated(void) const = 0;
+    virtual bool isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const = 0;
 
     //! Return object hierarchical degree
     virtual integer degree(void) const = 0;

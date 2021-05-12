@@ -56,16 +56,16 @@ namespace acme
    */
   class triangle : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<triangle const> ptr; //!< Shared pointer to triangle object
     typedef std::pair<ptr, ptr> pairptr;         //!< Pair of pointers to triangle objects
     typedef std::vector<ptr> vecptr;             //!< Vector of pointers to triangle objects
     typedef std::vector<pairptr> vecpairptr;     //!< Vector of pairs of pointers to triangle objects
 
-private:
+  private:
     point _vertex[3]; //!< Triangle vertices
 
-public:
+  public:
     //! Triangle class destructor
     ~triangle() {}
 
@@ -112,7 +112,8 @@ public:
     //! Check if objects are (almost) equal
     bool
     isApprox(
-        triangle const &input //!< Input triangle object
+        triangle const &input,   //!< Input triangle object
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Get i-th triangle vertex
@@ -206,12 +207,15 @@ public:
     //! Check if a point lays inside the triangle
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if triangle is degenerated to point or segment
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 7; }

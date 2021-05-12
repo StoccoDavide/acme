@@ -89,7 +89,7 @@
 
   <span class="k">class</span> <span class="nc">none</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
   <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+  <span class="k">public</span><span class="o">:</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">none</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
@@ -109,7 +109,12 @@
         <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
         <span class="p">)</span> <span class="k">override</span><span class="p">{};</span>
 
-    <span class="kt">bool</span> <span class="nf">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">};</span>
+    <span class="kt">bool</span> <span class="nf">isDegenerated</span><span class="p">(</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">};</span>
 
     <span class="n">integer</span> <span class="nf">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
 

@@ -61,16 +61,16 @@ namespace acme
   */
   class AABBtree
   {
-public:
+  public:
     typedef std::shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
 
-private:
+  private:
     aabb::ptr _ptrbox; //!< Pointer to AABB tree aabb
     std::vector<AABBtree::ptr> _children;
 
     AABBtree(AABBtree const &tree);
 
-public:
+  public:
     //! AABB tree class destructor
     ~AABBtree();
 
@@ -162,7 +162,7 @@ public:
         bool swap_tree = false              //!< If true exchange the tree in computation
     ) const;
 
-private:
+  private:
     //! Find the candidate at minimum distance from point
     void selectMinimumDistance(
         point const &query_point,   //!< Input point

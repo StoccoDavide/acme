@@ -100,12 +100,13 @@ namespace acme
 
   bool
   triangle::isApprox(
-      triangle const &input)
+      triangle const &input,
+      real tolerance)
       const
   {
-    return this->_vertex[0].isApprox(input._vertex[0], acme::Epsilon) &&
-           this->_vertex[1].isApprox(input._vertex[1], acme::Epsilon) &&
-           this->_vertex[2].isApprox(input._vertex[2], acme::Epsilon);
+    return this->_vertex[0].isApprox(input._vertex[0], tolerance) &&
+           this->_vertex[1].isApprox(input._vertex[1], tolerance) &&
+           this->_vertex[2].isApprox(input._vertex[2], tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -287,7 +288,8 @@ namespace acme
 
   bool
   triangle::isInside(
-      point const &query_point)
+      point const &query_point,
+      real tolerance)
       const
   {
     real u, v, w;
@@ -303,12 +305,13 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  triangle::isDegenerated(void)
+  triangle::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real(0.0), acme::Epsilon) ||
-           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real(0.0), acme::Epsilon) ||
-           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real(0.0), tolerance) ||
+           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real(0.0), tolerance) ||
+           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

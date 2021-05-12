@@ -104,11 +104,12 @@
 
   <span class="kt">bool</span>
   <span class="n">line</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_origin</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_origin</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">_direction</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_direction</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_origin</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_origin</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="k">this</span><span class="o">-&gt;</span><span class="n">_direction</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_direction</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -204,21 +205,23 @@
 
   <span class="kt">bool</span>
   <span class="n">line</span><span class="o">::</span><span class="n">isInside</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">)</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(((</span><span class="n">query_point</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_origin</span><span class="p">).</span><span class="n">normalized</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_direction</span><span class="p">)).</span><span class="n">norm</span><span class="p">(),</span>
                           <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
-                          <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">);</span>
+                          <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="n">line</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">line</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_direction</span><span class="p">.</span><span class="n">norm</span><span class="p">(),</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">acme</span><span class="o">::</span><span class="n">Epsilon</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_direction</span><span class="p">.</span><span class="n">norm</span><span class="p">(),</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

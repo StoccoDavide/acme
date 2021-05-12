@@ -65,12 +65,13 @@ namespace acme
 
   bool
   circle::isApprox(
-      circle const &input)
+      circle const &input,
+      real tolerance)
       const
   {
-    return acme::isApprox(this->_radius, input._radius, acme::Epsilon) &&
-           this->_plane.origin().isApprox(input._plane.origin(), acme::Epsilon) &&
-           this->_plane.normal().isApprox(input._plane.normal(), acme::Epsilon);
+    return acme::isApprox(this->_radius, input._radius, tolerance) &&
+           this->_plane.origin().isApprox(input._plane.origin(), tolerance) &&
+           this->_plane.normal().isApprox(input._plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -215,21 +216,23 @@ namespace acme
 
   bool
   circle::isInside(
-      point const &query_point)
+      point const &query_point,
+      real tolerance)
       const
   {
-    return this->_plane.isInside(query_point) &&
+    return this->_plane.isInside(query_point, tolerance) &&
            (this->_plane.origin() - query_point).norm() <= this->_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  circle::isDegenerated(void)
+  circle::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox(this->_radius, real(0.0), acme::Epsilon) &&
-           this->_plane.isDegenerated();
+    return acme::isApprox(this->_radius, real(0.0), tolerance) &&
+           this->_plane.isDegenerated(tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -˚

@@ -53,17 +53,17 @@ namespace acme
    */
   class plane : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<plane const> ptr; //!< Shared pointer to plane object
     typedef std::pair<ptr, ptr> pairptr;      //!< Pair of pointers to plane objects
     typedef std::vector<ptr> vecptr;          //!< Vector of pointers to plane objects
     typedef std::vector<pairptr> vecpairptr;  //!< Vector of pairs of pointers to plane objects
 
-private:
+  private:
     point _origin; //!< Plane origin point
     vec3 _normal;  //!< Plane normal vector
 
-public:
+  public:
     //! Plane class destructor
     ~plane() {}
 
@@ -107,7 +107,8 @@ public:
     //! Check if objects are (almost) equal
     bool
     isApprox(
-        plane const &input //!< Input plane object
+        plane const &input,      //!< Input plane object
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Return plane origin point
@@ -175,12 +176,15 @@ public:
     // Check whether a point lays on the plane
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if plane is degenerated (normal has zero norm)
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 5; }

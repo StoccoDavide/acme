@@ -76,7 +76,7 @@ About the authors
 References
 ----------
 
-1 *D. Stocco*,
-  **Real-Time Computation of Tire/Road Contact using Tailored Algorithms**,
-  2020, Master Thesis (*in Italian*),
-  `PDF <https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf>`__.
+1.  *D. Stocco*,
+    **Real-Time Computation of Tire/Road Contact using Tailored Algorithms**,
+    2020, Master Thesis (*in Italian*),
+    `PDF <https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf>`__.

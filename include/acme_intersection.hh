@@ -59,8 +59,9 @@ namespace acme
   //! Intersection between two geometrical entities
   entity *
   intersection(
-      entity const *entity0, //!< Input entity 0
-      entity const *entity1  //!< Input entity 1
+      entity const *entity0,   //!< Input entity 0
+      entity const *entity1,   //!< Input entity 1
+      real tolerance = Epsilon //!< Tolerance
   );
 
   /*\
@@ -75,57 +76,64 @@ namespace acme
   //! Intersection between two points
   bool
   intersection(
-      point const &point0,          //!< Input point 0
-      point const &point1,          //!< Input point 1
-      point &point_out = point_goat //!< Output point
+      point const &point0,           //!< Input point 0
+      point const &point1,           //!< Input point 1
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between point and line
   bool
   intersection(
-      point const &point_in,        //!< Input point
-      line const &line,             //!< Input line
-      point &point_out = point_goat //!< Output point
+      point const &point_in,         //!< Input point
+      line const &line,              //!< Input line
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between point and ray
   bool
   intersection(
-      point const &point_in,        //!< Input point
-      ray const &ray,               //!< Input ray
-      point &point_out = point_goat //!< Output point
+      point const &point_in,         //!< Input point
+      ray const &ray,                //!< Input ray
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between point and plane
   bool
   intersection(
-      point const &point_in,        //!< Input point
-      plane const &plane,           //!< Input plane
-      point &point_out = point_goat //!< Output point
+      point const &point_in,         //!< Input point
+      plane const &plane,            //!< Input plane
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between point and segment
   bool
   intersection(
-      point const &point_in,        //!< Input point
-      segment const &segment,       //!< Input segment
-      point &point_out = point_goat //!< Output point
+      point const &point_in,         //!< Input point
+      segment const &segment,        //!< Input segment
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between point and triangle
   bool
   intersection(
-      point const &point_in,        //!< Input point
-      triangle const &triangle,     //!< Input triangle
-      point &point_out = point_goat //!< Output point
+      point const &point_in,         //!< Input point
+      triangle const &triangle,      //!< Input triangle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between point and circle
   bool
   intersection(
-      point const &point_in,        //!< Input point
-      circle const &circle,         //!< Input circle
-      point &point_out = point_goat //!< Output point
+      point const &point_in,         //!< Input point
+      circle const &circle,          //!< Input circle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   /*\
@@ -141,63 +149,70 @@ namespace acme
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      line const &line0,         //!< Input line 0
-      line const &line1,         //!< Input line 1
-      line &line_out = line_goat //!< Output line
+      line const &line0,          //!< Input line 0
+      line const &line1,          //!< Input line 1
+      line &line_out = line_goat, //!< Output line
+      real tolerance = Epsilon    //!< Tolerance
   );
 
   //! Intersection between two rays \n
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      ray const &ray0,        //!< Input ray 0
-      ray const &ray1,        //!< Input ray 1
-      ray &ray_out = ray_goat //!< Output ray
+      ray const &ray0,         //!< Input ray 0
+      ray const &ray1,         //!< Input ray 1
+      ray &ray_out = ray_goat, //!< Output ray
+      real tolerance = Epsilon //!< Tolerance
   );
 
   //! Intersection between two opposite rays \n
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      ray const &ray0,                    //!< Input ray 0
-      ray const &ray1,                    //!< Input ray 1
-      segment &segment_out = segment_goat //!< Output segment
+      ray const &ray0,                     //!< Input ray 0
+      ray const &ray1,                     //!< Input ray 1
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   //! Intersection between two segments \n
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      segment const &segment0,            //!< Input segment 0
-      segment const &segment1,            //!< Input segment 1
-      segment &segment_out = segment_goat //!< Output segment
+      segment const &segment0,             //!< Input segment 0
+      segment const &segment1,             //!< Input segment 1
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   //! Intersection between line and ray \n
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      line const &line,       //!< Input line
-      ray const &ray_in,      //!< Input ray
-      ray &ray_out = ray_goat //!< Output ray
+      line const &line,        //!< Input line
+      ray const &ray_in,       //!< Input ray
+      ray &ray_out = ray_goat, //!< Output ray
+      real tolerance = Epsilon //!< Tolerance
   );
 
   //! Intersection between line and segment \n
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      line const &line,                   //!< Input line
-      segment const &segment_in,          //!< Input segment
-      segment &segment_out = segment_goat //!< Output segment
+      line const &line,                    //!< Input line
+      segment const &segment_in,           //!< Input segment
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   //! Intersection between ray and segment \n
   //! WARNING: This function only support collinear objects!
   bool
   intersection(
-      ray const &ray,                     //!< Input ray
-      segment const &segment_in,          //!< Input segment
-      segment &segment_out = segment_goat //!< Output segment
+      ray const &ray,                      //!< Input ray
+      segment const &segment_in,           //!< Input segment
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   /*\
@@ -213,54 +228,60 @@ namespace acme
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      line const &line0,            //!< Input line 0
-      line const &line1,            //!< Input line 1
-      point &point_out = point_goat //!< Output point
+      line const &line0,             //!< Input line 0
+      line const &line1,             //!< Input line 1
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between two rays \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      ray const &ray0,              //!< Input ray 0
-      ray const &ray1,              //!< Input ray 1
-      point &point_out = point_goat //!< Output point
+      ray const &ray0,               //!< Input ray 0
+      ray const &ray1,               //!< Input ray 1
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between two segments \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      segment const &segment0,      //!< Input segment 0
-      segment const &segment1,      //!< Input segment 1
-      point &point_out = point_goat //!< Output point
+      segment const &segment0,       //!< Input segment 0
+      segment const &segment1,       //!< Input segment 1
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection line with ray \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      line const &line,             //!< Input line
-      ray const &ray,               //!< Input ray
-      point &point_out = point_goat //!< Output point
+      line const &line,              //!< Input line
+      ray const &ray,                //!< Input ray
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection line with segment  \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      line const &line,             //!< Input line
-      segment const &segment,       //!< Input segment
-      point &point_out = point_goat //!< Output point
+      line const &line,              //!< Input line
+      segment const &segment,        //!< Input segment
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection ray with segment \n
   //! WARNING: This function does not support collinear objects!
   bool
   intersection(
-      ray const &ray,               //!< Input ray
-      segment const &segment,       //!< Input segment
-      point &point_out = point_goat //!< Output point
+      ray const &ray,                //!< Input ray
+      segment const &segment,        //!< Input segment
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   /*\
@@ -276,9 +297,10 @@ namespace acme
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      plane const &plane0,          //!< Input plane 0
-      plane const &plane1,          //!< Input plane 1
-      plane &plane_out = plane_goat //!< Output plane
+      plane const &plane0,           //!< Input plane 0
+      plane const &plane1,           //!< Input plane 1
+      plane &plane_out = plane_goat, //!< Output plane
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   // //! Intersection triangle with circle \n
@@ -303,99 +325,110 @@ namespace acme
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      line const &line_in,       //!< Input line
-      plane const &plane,        //!< Input plane
-      line &line_out = line_goat //!< Output line
+      line const &line_in,        //!< Input line
+      plane const &plane,         //!< Input plane
+      line &line_out = line_goat, //!< Output line
+      real tolerance = Epsilon    //!< Tolerance
   );
 
   //! Intersection line with triangle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      line const &line,               //!< Input line
-      triangle const &triangle,       //!< Input triangle
-      segment &segment = segment_goat //!< Output segment
+      line const &line,                //!< Input line
+      triangle const &triangle,        //!< Input triangle
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection line with circle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      line const &line,               //!< Input line
-      circle const &circle,           //!< Input circle
-      segment &segment = segment_goat //!< Output segment
+      line const &line,                //!< Input line
+      circle const &circle,            //!< Input circle
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection ray with plane \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      ray const &ray_in,      //!< Input ray
-      plane const &plane,     //!< Input plane
-      ray &ray_out = ray_goat //!< Output ray
+      ray const &ray_in,       //!< Input ray
+      plane const &plane,      //!< Input plane
+      ray &ray_out = ray_goat, //!< Output ray
+      real tolerance = Epsilon //!< Tolerance
   );
 
   //! Intersection ray with triangle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      ray const &ray,                 //!< Input ray
-      triangle const &triangle,       //!< Input triangle
-      segment &segment = segment_goat //!< Output segment
+      ray const &ray,                  //!< Input ray
+      triangle const &triangle,        //!< Input triangle
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection ray with circle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      ray const &ray,                 //!< Input ray
-      circle const &circle,           //!< Input circle
-      segment &segment = segment_goat //!< Output segment
+      ray const &ray,                  //!< Input ray
+      circle const &circle,            //!< Input circle
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection ray with plane \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      plane const &plane,                 //!< Input plane
-      segment const &segment_in,          //!< Input segment
-      segment &segment_out = segment_goat //!< Output segment
+      plane const &plane,                  //!< Input plane
+      segment const &segment_in,           //!< Input segment
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   //! Intersection plane with triangle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      plane const &plane,                    //!< Input plane
-      triangle const &triangle_in,           //!< Input triangle
-      triangle &triangle_out = triangle_goat //!< Output triangle
+      plane const &plane,                     //!< Input plane
+      triangle const &triangle_in,            //!< Input triangle
+      triangle &triangle_out = triangle_goat, //!< Output triangle
+      real tolerance = Epsilon                //!< Tolerance
   );
 
   //! Intersection plane with circle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      plane const &plane,              //!< Input plane
-      circle const &circle_in,         //!< Input circle
-      circle &circle_out = circle_goat //!< Output circle
+      plane const &plane,               //!< Input plane
+      circle const &circle_in,          //!< Input circle
+      circle &circle_out = circle_goat, //!< Output circle
+      real tolerance = Epsilon          //!< Tolerance
   );
 
   //! Intersection segment with triangle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      segment const &segment_in,          //!< Input segment
-      triangle const &triangle,           //!< Input triangle
-      segment &segment_out = segment_goat //!< Output segment
+      segment const &segment_in,           //!< Input segment
+      triangle const &triangle,            //!< Input triangle
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   //! Intersection segment with circle \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      segment const &segment_in,          //!< Input segment
-      circle const &circle_in,            //!< Input circle
-      segment &segment_out = segment_goat //!< Output segment
+      segment const &segment_in,           //!< Input segment
+      circle const &circle_in,             //!< Input circle
+      segment &segment_out = segment_goat, //!< Output segment
+      real tolerance = Epsilon             //!< Tolerance
   );
 
   // //! Intersection triangle with circle \n
@@ -420,145 +453,161 @@ namespace acme
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane0,   //!< Input plane 0
-      plane const &plane1,   //!< Input plane 1
-      line &line = line_goat //!< Output line
+      plane const &plane0,     //!< Input plane 0
+      plane const &plane1,     //!< Input plane 1
+      line &line = line_goat,  //!< Output line
+      real tolerance = Epsilon //!< Tolerance
   );
 
   //! Intersection between three planes \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane0,          //!< Input plane 0
-      plane const &plane1,          //!< Input plane 1
-      plane const &plane2,          //!< Input plane 1
-      point &point_out = point_goat //!< Output point
+      plane const &plane0,           //!< Input plane 0
+      plane const &plane1,           //!< Input plane 1
+      plane const &plane2,           //!< Input plane 1
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection between triangles \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      triangle const &triangle0,      //!< Input triangle 0
-      triangle const &triangle1,      //!< Input triangle 1
-      segment &segment = segment_goat //!< Output segment
+      triangle const &triangle0,       //!< Input triangle 0
+      triangle const &triangle1,       //!< Input triangle 1
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection between circles \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      circle const &circle0,          //!< Input circle 0
-      circle const &circle1,          //!< Input circle 1
-      segment &segment = segment_goat //!< Output segment
+      circle const &circle0,           //!< Input circle 0
+      circle const &circle1,           //!< Input circle 1
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection line with plane \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      line const &line,             //!< Input line
-      plane const &plane,           //!< Input plane
-      point &point_out = point_goat //!< Output point
+      line const &line,              //!< Input line
+      plane const &plane,            //!< Input plane
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection line with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      line const &line,             //!< Input line
-      triangle const &triangle,     //!< Input triangle
-      point &point_out = point_goat //!< Output point
+      line const &line,              //!< Input line
+      triangle const &triangle,      //!< Input triangle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection line and circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      line const &line,             //!< Input line
-      circle const &circle,         //!< Input circle
-      point &point_out = point_goat //!< Output point
+      line const &line,              //!< Input line
+      circle const &circle,          //!< Input circle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection ray with plane \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      ray const &ray,               //!< Input ray
-      plane const &plane,           //!< Input plane
-      point &point_out = point_goat //!< Output point
+      ray const &ray,                //!< Input ray
+      plane const &plane,            //!< Input plane
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection ray with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      ray const &ray,               //!< Input ray
-      triangle const &triangle,     //!< Input triangle
-      point &point_out = point_goat //!< Output point
+      ray const &ray,                //!< Input ray
+      triangle const &triangle,      //!< Input triangle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection ray with circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      ray const &ray,               //!< Input ray
-      circle const &circle,         //!< Input circle
-      point &point_out = point_goat //!< Output point
+      ray const &ray,                //!< Input ray
+      circle const &circle,          //!< Input circle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection plane with segment \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane,           //!< Input plane
-      segment const &segment,       //!< Input segment
-      point &point_out = point_goat //!< Output point
+      plane const &plane,            //!< Input plane
+      segment const &segment,        //!< Input segment
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection plane with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane,             //!< Input plane
-      triangle const &triangle,       //!< Input triangle
-      segment &segment = segment_goat //!< Output segment
+      plane const &plane,              //!< Input plane
+      triangle const &triangle,        //!< Input triangle
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection plane with circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane,             //!< Input plane
-      circle const &circle,           //!< Input circle
-      segment &segment = segment_goat //!< Output segment
+      plane const &plane,              //!< Input plane
+      circle const &circle,            //!< Input circle
+      segment &segment = segment_goat, //!< Output segment
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   //! Intersection ray with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      segment const &segment,       //!< Input segment
-      triangle const &triangle,     //!< Input triangle
-      point &point_out = point_goat //!< Output point
+      segment const &segment,        //!< Input segment
+      triangle const &triangle,      //!< Input triangle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection segment with circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      segment const &segment,       //!< Input segment
-      circle const &circle,         //!< Input circle
-      point &point_out = point_goat //!< Output point
+      segment const &segment,        //!< Input segment
+      circle const &circle,          //!< Input circle
+      point &point_out = point_goat, //!< Output point
+      real tolerance = Epsilon       //!< Tolerance
   );
 
   //! Intersection triangle with circle \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      triangle const &triangle,       //!< Input triangle
-      circle const &circle,           //!< Input circle
-      segment &segment = segment_goat //!< Output plane
+      triangle const &triangle,        //!< Input triangle
+      circle const &circle,            //!< Input circle
+      segment &segment = segment_goat, //!< Output plane
+      real tolerance = Epsilon         //!< Tolerance
   );
 
   /*\
@@ -573,9 +622,10 @@ namespace acme
   //! Intersection between two axis aligned boxes
   bool
   intersection(
-      aabb const &box0,     //!< Input aabb 0
-      aabb const &box1,     //!< Input aabb 1
-      aabb &aabb = box_goat //!< Output aabb
+      aabb const &box0,        //!< Input aabb 0
+      aabb const &box1,        //!< Input aabb 1
+      aabb &aabb = aabb_goat,  //!< Output aabb
+      real tolerance = Epsilon //!< Tolerance
   );
 
 } // namespace acme

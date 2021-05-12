@@ -48,7 +48,8 @@ namespace acme
   entity *
   intersection(
       entity const *entity0,
-      entity const *entity1)
+      entity const *entity1,
+      real tolerance)
   {
     integer slide = entity0->degree() * 100 + entity1->degree();
     bool check = false;
@@ -69,7 +70,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<point const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -77,7 +79,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<line const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -85,7 +88,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<ray const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -93,7 +97,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -101,7 +106,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -109,7 +115,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -117,7 +124,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -125,7 +133,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity1),
                                      *dynamic_cast<line const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -133,7 +142,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity1),
                                      *dynamic_cast<ray const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -141,7 +151,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity1),
                                      *dynamic_cast<plane const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -149,7 +160,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -157,7 +169,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -165,7 +178,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<point const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -189,7 +203,8 @@ namespace acme
         entity_out = new line();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<line const *>(entity1),
-                                     *dynamic_cast<line *>(entity_out));
+                                     *dynamic_cast<line *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -197,7 +212,8 @@ namespace acme
         entity_out = new ray();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<ray const *>(entity1),
-                                     *dynamic_cast<ray *>(entity_out));
+                                     *dynamic_cast<ray *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -205,7 +221,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -215,7 +232,8 @@ namespace acme
         entity_out = new ray();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<ray const *>(entity0),
-                                     *dynamic_cast<ray *>(entity_out));
+                                     *dynamic_cast<ray *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -249,7 +267,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -259,7 +278,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -267,7 +287,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -275,7 +296,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -301,7 +323,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<line const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -309,7 +332,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<ray const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -317,7 +341,8 @@ namespace acme
         entity_out = new line();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<line *>(entity_out));
+                                     *dynamic_cast<line *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -325,7 +350,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -333,7 +359,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -341,7 +368,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -351,7 +379,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<ray const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -359,7 +388,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<ray const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -367,7 +397,8 @@ namespace acme
         entity_out = new ray();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<ray *>(entity_out));
+                                     *dynamic_cast<ray *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -375,7 +406,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -383,7 +415,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -391,7 +424,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -401,7 +435,8 @@ namespace acme
         entity_out = new line();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<plane const *>(entity0),
-                                     *dynamic_cast<line *>(entity_out));
+                                     *dynamic_cast<line *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -409,7 +444,8 @@ namespace acme
         entity_out = new ray();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<plane const *>(entity0),
-                                     *dynamic_cast<ray *>(entity_out));
+                                     *dynamic_cast<ray *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -417,7 +453,8 @@ namespace acme
         entity_out = new plane();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<plane *>(entity_out));
+                                     *dynamic_cast<plane *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -425,7 +462,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -433,7 +471,8 @@ namespace acme
         entity_out = new triangle();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<triangle *>(entity_out));
+                                     *dynamic_cast<triangle *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -441,7 +480,8 @@ namespace acme
         entity_out = new circle();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<circle *>(entity_out));
+                                     *dynamic_cast<circle *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -451,7 +491,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -459,7 +500,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -467,7 +509,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -475,7 +518,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -483,7 +527,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -491,7 +536,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -501,7 +547,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -509,7 +556,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -517,7 +565,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -525,21 +574,24 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
         // case 707:
         //   collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
         //                             *dynamic_cast<triangle const *>(entity1),
-        //                             *dynamic_cast<???????? *>(entity_out));
+        //                             *dynamic_cast<???????? *>(entity_out),
+        //                             tolerance);
         //   check = true;
         //   break;
 
         // case 708:
         //   collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
         //                             *dynamic_cast<circle const *>(entity1),
-        //                             *dynamic_cast<???????? *>(entity_out));
+        //                             *dynamic_cast<???????? *>(entity_out),
+        //                             tolerance);
         //   check = true;
         //   break;
 
@@ -549,7 +601,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -557,7 +610,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -565,7 +619,8 @@ namespace acme
         entity_out = new circle();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<circle *>(entity_out));
+                                     *dynamic_cast<circle *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -573,21 +628,22 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
         // case 807:
         //   collide = acme::intersection(*dynamic_cast<triangle const *>(entity1),
         //                             *dynamic_cast<circle const *>(entity0),
-        //                             *dynamic_cast<???????? *>(entity_out));
+        //                             *dynamic_cast<???????? *>(entity_out),
         //   check = true;
         //   break;
 
         // case 808:
         //   collide = acme::intersection(*dynamic_cast<circle const *>(entity0),
         //                             *dynamic_cast<circle const *>(entity1),
-        //                             *dynamic_cast<<???????? *>(entity_out));
+        //                             *dynamic_cast<<???????? *>(entity_out),
         //   check = true;
         //   break;
 
@@ -613,7 +669,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<line const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -621,7 +678,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<ray const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -629,7 +687,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -637,7 +696,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -645,7 +705,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -653,7 +714,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -663,7 +725,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<ray const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -671,7 +734,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<ray const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -679,7 +743,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -687,7 +752,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -695,7 +761,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -703,7 +770,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -713,7 +781,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<plane const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -721,7 +790,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<plane const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -729,7 +799,8 @@ namespace acme
         entity_out = new line();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<plane const *>(entity1),
-                                     *dynamic_cast<line *>(entity_out));
+                                     *dynamic_cast<line *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -737,7 +808,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -745,14 +817,16 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
       case 508:
         collide = acme::intersection(*dynamic_cast<plane const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -762,7 +836,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -770,7 +845,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -778,7 +854,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
                                      *dynamic_cast<segment const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -786,7 +863,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<segment const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -794,7 +872,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -802,7 +881,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -812,7 +892,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -820,7 +901,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -828,7 +910,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -836,7 +919,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
                                      *dynamic_cast<triangle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -844,7 +928,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
                                      *dynamic_cast<triangle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -852,7 +937,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<triangle const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -862,7 +948,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<line const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -870,7 +957,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<ray const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -878,7 +966,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<plane const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -886,7 +975,8 @@ namespace acme
         entity_out = new point();
         collide = acme::intersection(*dynamic_cast<segment const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<point *>(entity_out));
+                                     *dynamic_cast<point *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -894,7 +984,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<triangle const *>(entity1),
                                      *dynamic_cast<circle const *>(entity0),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -902,7 +993,8 @@ namespace acme
         entity_out = new segment();
         collide = acme::intersection(*dynamic_cast<circle const *>(entity0),
                                      *dynamic_cast<circle const *>(entity1),
-                                     *dynamic_cast<segment *>(entity_out));
+                                     *dynamic_cast<segment *>(entity_out),
+                                     tolerance);
         check = true;
         break;
 
@@ -956,9 +1048,10 @@ namespace acme
   bool intersection(
       line const &line0,
       line const &line1,
-      line &line_out)
+      line &line_out,
+      real tolerance)
   {
-    if (acme::isCollinear(line0, line1))
+    if (acme::isCollinear(line0, line1, tolerance))
     {
       line_out = line0;
       return true;
@@ -974,17 +1067,18 @@ namespace acme
   bool intersection(
       ray const &ray0,
       ray const &ray1,
-      ray &ray_out)
+      ray &ray_out,
+      real tolerance)
   {
-    if (acme::isCollinear(ray0, ray1) &&
+    if (acme::isCollinear(ray0, ray1, tolerance) &&
         ray0.direction().dot(ray1.direction()) > 0)
     {
-      if (ray0.isInside(ray1.origin()))
+      if (ray0.isInside(ray1.origin(), tolerance))
       {
         ray_out = ray1;
         return true;
       }
-      else if (ray1.isInside(ray0.origin()))
+      else if (ray1.isInside(ray0.origin(), tolerance))
       {
         ray_out = ray0;
         return true;
@@ -1005,12 +1099,14 @@ namespace acme
   bool intersection(
       ray const &ray0,
       ray const &ray1,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
-    if (acme::isCollinear(ray0, ray1) &&
+    if (acme::isCollinear(ray0, ray1, tolerance) &&
         ray0.direction().dot(ray1.direction()) < 0)
     {
-      if (ray0.isInside(ray1.origin()) && ray1.isInside(ray0.origin()))
+      if (ray0.isInside(ray1.origin(), tolerance) &&
+          ray1.isInside(ray0.origin(), tolerance))
       {
         segment_out.vertex(0) = ray0.origin();
         segment_out.vertex(1) = ray1.origin();
@@ -1032,9 +1128,10 @@ namespace acme
   bool intersection(
       segment const &segment0,
       segment const &segment1,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
-    if (acme::isCollinear(segment0, segment1))
+    if (acme::isCollinear(segment0, segment1, tolerance))
     {
       //
       //   p0       p1   p0       p1
@@ -1044,10 +1141,10 @@ namespace acme
       point s0_p1(segment0.vertex(1));
       point s1_p0(segment1.vertex(0));
       point s1_p1(segment1.vertex(1));
-      bool s1_p0_in_s0 = segment0.isInside(s1_p0);
-      bool s1_p1_in_s0 = segment0.isInside(s1_p1);
-      bool s0_p0_in_s1 = segment1.isInside(s0_p0);
-      bool s0_p1_in_s1 = segment1.isInside(s0_p1);
+      bool s1_p0_in_s0 = segment0.isInside(s1_p0, tolerance);
+      bool s1_p1_in_s0 = segment0.isInside(s1_p1, tolerance);
+      bool s0_p0_in_s1 = segment1.isInside(s0_p0, tolerance);
+      bool s0_p1_in_s1 = segment1.isInside(s0_p1, tolerance);
       //
       //                    Segments coincides
       // | s0_p0_in_s1 | s0_p1_in_s1 | s1_p0_in_s0 | s1_p1_in_s0 |
@@ -1164,9 +1261,10 @@ namespace acme
   bool intersection(
       line const &line,
       ray const &ray_in,
-      ray &ray_out)
+      ray &ray_out,
+      real tolerance)
   {
-    if (acme::isCollinear(line, ray_in))
+    if (acme::isCollinear(line, ray_in, tolerance))
     {
       ray_out = ray_in;
       return true;
@@ -1182,9 +1280,10 @@ namespace acme
   bool intersection(
       line const &line,
       segment const &segment_in,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
-    if (acme::isCollinear(line, segment_in))
+    if (acme::isCollinear(line, segment_in, tolerance))
     {
       segment_out = segment_in;
       return true;
@@ -1200,24 +1299,28 @@ namespace acme
   bool intersection(
       ray const &ray,
       segment const &segment_in,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     point point_0(segment_in.vertex(0));
     point point_1(segment_in.vertex(1));
-    if (acme::isCollinear(ray, segment_in))
+    if (acme::isCollinear(ray, segment_in, tolerance))
     {
-      if (ray.isInside(point_0) && ray.isInside(point_1))
+      if (ray.isInside(point_0, tolerance) &&
+          ray.isInside(point_1, tolerance))
       {
         segment_out = segment_in;
         return true;
       }
-      else if (ray.isInside(point_0) && !ray.isInside(point_1))
+      else if (ray.isInside(point_0, tolerance) &&
+               !ray.isInside(point_1, tolerance))
       {
         segment_out.vertex(0) = ray.origin();
         segment_out.vertex(1) = point_0;
         return true;
       }
-      else if (!ray.isInside(point_0) && ray.isInside(point_1))
+      else if (!ray.isInside(point_0, tolerance) &&
+               ray.isInside(point_1, tolerance))
       {
         segment_out.vertex(0) = ray.origin();
         segment_out.vertex(1) = point_1;
@@ -1251,9 +1354,10 @@ namespace acme
   intersection(
       point const &point0,
       point const &point1,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (point0.isApprox(point1))
+    if (point0.isApprox(point1, tolerance))
     {
       point_out = point0;
       return true;
@@ -1270,9 +1374,10 @@ namespace acme
   intersection(
       point const &point_in,
       line const &line,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (line.isInside(point_in))
+    if (line.isInside(point_in, tolerance))
     {
       point_out = point_in;
       return true;
@@ -1289,9 +1394,10 @@ namespace acme
   intersection(
       point const &point_in,
       ray const &ray,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (ray.isInside(point_in))
+    if (ray.isInside(point_in, tolerance))
     {
       point_out = point_in;
       return true;
@@ -1308,9 +1414,10 @@ namespace acme
   intersection(
       point const &point_in,
       plane const &plane,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (plane.isInside(point_in))
+    if (plane.isInside(point_in, tolerance))
     {
       point_out = point_in;
       return true;
@@ -1327,9 +1434,10 @@ namespace acme
   intersection(
       point const &point_in,
       segment const &segment,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (segment.isInside(point_in))
+    if (segment.isInside(point_in, tolerance))
     {
       point_out = point_in;
       return true;
@@ -1346,9 +1454,10 @@ namespace acme
   intersection(
       point const &point_in,
       triangle const &triangle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (triangle.isInside(point_in))
+    if (triangle.isInside(point_in, tolerance))
     {
       point_out = point_in;
       return true;
@@ -1365,9 +1474,10 @@ namespace acme
   intersection(
       point const &point_in,
       circle const &circle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (circle.isInside(point_in))
+    if (circle.isInside(point_in, tolerance))
     {
       point_out = point_in;
       return true;
@@ -1392,11 +1502,12 @@ namespace acme
   bool intersection(
       line const &line0,
       line const &line1,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     // if v and u are parallel (v x u = 0), then no intersection
     // collinearity imply parallelism!
-    if (!acme::isCollinear(line0, line1))
+    if (!acme::isCollinear(line0, line1, tolerance))
     {
       point p(line0.origin());
       vec3 v(line0.direction());
@@ -1425,12 +1536,15 @@ namespace acme
   bool intersection(
       ray const &ray0,
       ray const &ray1,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     if (acme::intersection(line(ray0.origin(), ray0.direction()),
                            line(ray1.origin(), ray1.direction()),
-                           point_out))
-      return ray0.isInside(point_out) && ray1.isInside(point_out);
+                           point_out,
+                           tolerance))
+      return ray0.isInside(point_out, tolerance) &&
+             ray1.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -1440,12 +1554,15 @@ namespace acme
   bool intersection(
       segment const &segment0,
       segment const &segment1,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     if (acme::intersection(line(segment0.vertex(0), segment0.toNormalizedVector()),
                            line(segment1.vertex(0), segment1.toNormalizedVector()),
-                           point_out))
-      return segment0.isInside(point_out) && segment1.isInside(point_out);
+                           point_out,
+                           tolerance))
+      return segment0.isInside(point_out, tolerance) &&
+             segment1.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -1455,12 +1572,14 @@ namespace acme
   bool intersection(
       line const &line_in,
       ray const &ray,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     if (acme::intersection(line_in,
                            line(ray.origin(), ray.direction()),
-                           point_out))
-      return ray.isInside(point_out);
+                           point_out,
+                           tolerance))
+      return ray.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -1470,12 +1589,14 @@ namespace acme
   bool intersection(
       line const &line_in,
       segment const &segment,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     if (acme::intersection(line_in,
                            line(segment.vertex(0), segment.toNormalizedVector()),
-                           point_out))
-      return segment.isInside(point_out);
+                           point_out,
+                           tolerance))
+      return segment.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -1485,12 +1606,15 @@ namespace acme
   bool intersection(
       ray const &ray,
       segment const &segment,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     if (acme::intersection(line(ray.origin(), ray.direction()),
                            line(segment.vertex(0), segment.toNormalizedVector()),
-                           point_out))
-      return segment.isInside(point_out) && ray.isInside(point_out);
+                           point_out,
+                           tolerance))
+      return segment.isInside(point_out, tolerance) &&
+             ray.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -1511,9 +1635,10 @@ namespace acme
   bool intersection(
       plane const &plane0,
       plane const &plane1,
-      plane &plane_out)
+      plane &plane_out,
+      real tolerance)
   {
-    if (acme::isCoplanar(plane0, plane1))
+    if (acme::isCoplanar(plane0, plane1, tolerance))
     {
       plane_out = plane0;
       return true;
@@ -1547,9 +1672,10 @@ namespace acme
   bool intersection(
       line const &line_in,
       plane const &plane,
-      line &line_out)
+      line &line_out,
+      real tolerance)
   {
-    if (acme::isCoplanar(line_in, plane))
+    if (acme::isCoplanar(line_in, plane, tolerance))
     {
       line_out = line_in;
       return true;
@@ -1565,13 +1691,14 @@ namespace acme
   bool intersection(
       line const &line,
       triangle const &triangle,
-      segment &segment)
+      segment &segment,
+      real tolerance)
   {
     point point0, point1, point2;
     bool bool0, bool1, bool2;
-    bool0 = intersection(line, triangle.edge(0, 1), point0);
-    bool1 = intersection(line, triangle.edge(1, 2), point1);
-    bool2 = intersection(line, triangle.edge(2, 0), point2);
+    bool0 = intersection(line, triangle.edge(0, 1), point0, tolerance);
+    bool1 = intersection(line, triangle.edge(1, 2), point1, tolerance);
+    bool2 = intersection(line, triangle.edge(2, 0), point2, tolerance);
 
     if (bool0 && bool1 && !bool2)
     {
@@ -1593,19 +1720,19 @@ namespace acme
     }
     else if (bool0 && bool1 && bool2)
     {
-      if (point0.isApprox(point1, acme::Epsilon))
+      if (point0.isApprox(point1, tolerance))
       {
         segment.vertex(0) = point1;
         segment.vertex(1) = point2;
         return true;
       }
-      else if (point1.isApprox(point2, acme::Epsilon))
+      else if (point1.isApprox(point2, tolerance))
       {
         segment.vertex(0) = point0;
         segment.vertex(1) = point1;
         return true;
       }
-      else if (point0.isApprox(point2, acme::Epsilon))
+      else if (point0.isApprox(point2, tolerance))
       {
         segment.vertex(0) = point0;
         segment.vertex(1) = point1;
@@ -1616,7 +1743,7 @@ namespace acme
         std::cout << "point0 = " << point0 << std::endl;
         std::cout << "point1 = " << point1 << std::endl;
         std::cout << "point2 = " << point2 << std::endl;
-        ACME_ERROR("acme::intersection(plane, triangle, segment): exception not handled.")
+        ACME_ERROR("acme::intersection(line, triangle, segment): exception not handled.")
         return false;
       }
     }
@@ -1631,7 +1758,8 @@ namespace acme
   bool intersection(
       line const &line,
       circle const &circle,
-      segment &segment)
+      segment &segment,
+      real tolerance)
   {
     // Locate one or two points that are on the circle and line.
     // If the line is t&D+P, the circle center is C, and the circle radius is r, then
@@ -1650,12 +1778,12 @@ namespace acme
 
     real discriminant = a1 * a1 - a0 * a2;
     // No real roots, the circle does not intersection the plane
-    if (discriminant <= -acme::Epsilon)
+    if (discriminant <= -tolerance)
       return false;
 
     real inv = 1 / a2;
     // One repeated root, the circle just touches the plane
-    if (acme::abs(discriminant) < acme::Epsilon)
+    if (acme::abs(discriminant) < tolerance)
     {
       point int_point(line_origin - (a1 * inv) * line_direction);
       segment.vertex(0) = int_point;
@@ -1675,9 +1803,10 @@ namespace acme
   bool intersection(
       ray const &ray_in,
       plane const &plane,
-      ray &ray_out)
+      ray &ray_out,
+      real tolerance)
   {
-    if (acme::isCoplanar(ray_in, plane))
+    if (acme::isCoplanar(ray_in, plane, tolerance))
     {
       ray_out = ray_in;
       return true;
@@ -1693,14 +1822,15 @@ namespace acme
   bool intersection(
       ray const &ray,
       triangle const &triangle,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     // Transform ray to line
     line tmp_line(ray.origin(), ray.direction());
     // Compute the intersection of resulting line with the circle
     segment tmp_segment;
-    if (acme::intersection(tmp_line, triangle, tmp_segment))
-      return acme::intersection(ray, tmp_segment, segment_out);
+    if (acme::intersection(tmp_line, triangle, tmp_segment, tolerance))
+      return acme::intersection(ray, tmp_segment, segment_out, tolerance);
     else
       return false;
   }
@@ -1710,14 +1840,15 @@ namespace acme
   bool intersection(
       ray const &ray,
       circle const &circle,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     // Transform ray to line
     line tmp_line(ray.origin(), ray.direction());
     // Compute the intersection of resulting line with the circle
     segment tmp_segment;
-    if (acme::intersection(tmp_line, circle, tmp_segment))
-      return acme::intersection(ray, tmp_segment, segment_out);
+    if (acme::intersection(tmp_line, circle, tmp_segment, tolerance))
+      return acme::intersection(ray, tmp_segment, segment_out, tolerance);
     else
       return false;
   }
@@ -1727,9 +1858,10 @@ namespace acme
   bool intersection(
       plane const &plane,
       segment const &segment_in,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
-    if (acme::isCoplanar(plane, segment_in))
+    if (acme::isCoplanar(plane, segment_in, tolerance))
     {
       segment_out = segment_in;
       return true;
@@ -1745,9 +1877,10 @@ namespace acme
   bool intersection(
       plane const &plane,
       triangle const &triangle_in,
-      triangle &triangle_out)
+      triangle &triangle_out,
+      real tolerance)
   {
-    if (acme::isCoplanar(plane, triangle_in))
+    if (acme::isCoplanar(plane, triangle_in, tolerance))
     {
       triangle_out = triangle_in;
       return true;
@@ -1763,9 +1896,10 @@ namespace acme
   bool intersection(
       plane const &plane,
       circle const &circle_in,
-      circle &circle_out)
+      circle &circle_out,
+      real tolerance)
   {
-    if (acme::isCoplanar(plane, circle_in))
+    if (acme::isCoplanar(plane, circle_in, tolerance))
     {
       circle_out = circle_in;
       return true;
@@ -1781,12 +1915,13 @@ namespace acme
   bool intersection(
       segment const &segment_in,
       triangle const &triangle,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     line tmp_line(segment_in.vertex(0), segment_in.toNormalizedVector());
     segment tmp_segment;
-    if (acme::intersection(tmp_line, triangle, tmp_segment))
-      return acme::intersection(segment_in, tmp_segment, segment_out);
+    if (acme::intersection(tmp_line, triangle, tmp_segment, tolerance))
+      return acme::intersection(segment_in, tmp_segment, segment_out, tolerance);
     else
       return false;
   }
@@ -1796,12 +1931,13 @@ namespace acme
   bool intersection(
       segment const &segment_in,
       circle const &circle,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     line tmp_line(segment_in.vertex(0), segment_in.toNormalizedVector());
     segment tmp_segment;
-    if (acme::intersection(tmp_line, circle, tmp_segment))
-      return acme::intersection(segment_in, tmp_segment, segment_out);
+    if (acme::intersection(tmp_line, circle, tmp_segment, tolerance))
+      return acme::intersection(segment_in, tmp_segment, segment_out, tolerance);
     else
       return false;
   }
@@ -1831,7 +1967,8 @@ namespace acme
   bool intersection(
       plane const &plane0,
       plane const &plane1,
-      line &line)
+      line &line,
+      real tolerance)
   {
     vec3 normal0(plane0.normal().normalized());
     vec3 normal1(plane1.normal().normalized());
@@ -1840,7 +1977,7 @@ namespace acme
 
     vec3 direction = normal0.cross(normal1);
     real dot = normal0.dot(normal1);
-    if (acme::isApprox(acme::sqr(direction.norm()), real(0.0), acme::Epsilon))
+    if (acme::isApprox(acme::sqr(direction.norm()), real(0.0), tolerance))
     {
       return false;
     }
@@ -1861,7 +1998,8 @@ namespace acme
       plane const &plane0,
       plane const &plane1,
       plane const &plane2,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     vec3 const normal0(plane0.normal());
     vec3 const normal1(plane1.normal());
@@ -1870,7 +2008,7 @@ namespace acme
     mat3 Mat;
     Mat << normal0, normal1, normal2;
     real det = Mat.determinant();
-    if (acme::isApprox(det, real(0.0), acme::Epsilon))
+    if (acme::isApprox(det, real(0.0), tolerance))
     {
       return false;
     }
@@ -1889,15 +2027,16 @@ namespace acme
   bool intersection(
       triangle const &triangle0,
       triangle const &triangle1,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     line tmp_line;
-    if (acme::intersection(triangle0.layingPlane(), triangle1.layingPlane(), tmp_line))
+    if (acme::intersection(triangle0.layingPlane(), triangle1.layingPlane(), tmp_line, tolerance))
     {
       segment tmp_segment0, tmp_segment1;
-      acme::intersection(tmp_line, triangle0, tmp_segment0);
-      acme::intersection(tmp_line, triangle1, tmp_segment1);
-      return acme::intersection(tmp_segment0, tmp_segment1, segment_out);
+      acme::intersection(tmp_line, triangle0, tmp_segment0, tolerance);
+      acme::intersection(tmp_line, triangle1, tmp_segment1, tolerance);
+      return acme::intersection(tmp_segment0, tmp_segment1, segment_out, tolerance);
     }
     else
     {
@@ -1910,15 +2049,16 @@ namespace acme
   bool intersection(
       circle const &circle0,
       circle const &circle1,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     line tmp_line;
-    if (acme::intersection(circle0.layingPlane(), circle1.layingPlane(), tmp_line))
+    if (acme::intersection(circle0.layingPlane(), circle1.layingPlane(), tmp_line, tolerance))
     {
       segment tmp_segment0, tmp_segment1;
-      acme::intersection(tmp_line, circle0, tmp_segment0);
-      acme::intersection(tmp_line, circle1, tmp_segment1);
-      return acme::intersection(tmp_segment0, tmp_segment1, segment_out);
+      acme::intersection(tmp_line, circle0, tmp_segment0, tolerance);
+      acme::intersection(tmp_line, circle1, tmp_segment1, tolerance);
+      return acme::intersection(tmp_segment0, tmp_segment1, segment_out, tolerance);
     }
     else
     {
@@ -1931,10 +2071,11 @@ namespace acme
   bool intersection(
       line const &line,
       plane const &plane,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     real det = line.direction().dot(plane.normal());
-    if (det > acme::Epsilon)
+    if (det > tolerance)
     {
       real t = -(line.origin() - plane.origin()).dot(plane.normal()) / det;
       point_out = line.origin() + line.direction() * t;
@@ -1951,7 +2092,8 @@ namespace acme
   bool intersection(
       line const &line,
       triangle const &triangle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     point vertex0 = triangle.vertex(0);
     point vertex1 = triangle.vertex(1);
@@ -1966,7 +2108,7 @@ namespace acme
     real a, f, u, v;
     h = direction.cross(edge2);
     a = edge1.dot(h);
-    if (a > -acme::Epsilon && a < acme::Epsilon)
+    if (a > -tolerance && a < tolerance)
       return false;
     f = 1.0 / a;
     s = origin - vertex0;
@@ -1987,9 +2129,10 @@ namespace acme
   bool intersection(
       line const &line,
       circle const &circle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (acme::intersection(line, circle.layingPlane(), point_out))
+    if (acme::intersection(line, circle.layingPlane(), point_out, tolerance))
     {
       if ((circle.center() - point_out).norm() <= circle.radius())
         return true;
@@ -2007,13 +2150,14 @@ namespace acme
   bool intersection(
       ray const &ray,
       plane const &plane,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     real det = ray.direction().dot(plane.normal());
-    if (det > acme::Epsilon)
+    if (det > tolerance)
     {
       real t = -(ray.origin() - plane.origin()).dot(plane.normal()) / det;
-      if (t > acme::Epsilon)
+      if (t > tolerance)
       {
         point_out = ray.origin() + ray.direction() * t;
         return true;
@@ -2034,7 +2178,8 @@ namespace acme
   bool intersection(
       ray const &ray,
       triangle const &triangle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     point vertex0(triangle.vertex(0));
     point vertex1(triangle.vertex(1));
@@ -2049,7 +2194,7 @@ namespace acme
     real a, f, u, v;
     h = direction.cross(edge2);
     a = edge1.dot(h);
-    if (a > -acme::Epsilon && a < acme::Epsilon)
+    if (a > -tolerance && a < tolerance)
       return false;
     f = 1.0 / a;
     s = origin - vertex0;
@@ -2075,10 +2220,11 @@ namespace acme
   bool intersection(
       ray const &ray,
       circle const &circle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (acme::intersection(line(ray.origin(), ray.direction()), circle.layingPlane(), point_out))
-      return ray.isInside(point_out);
+    if (acme::intersection(line(ray.origin(), ray.direction()), circle.layingPlane(), point_out, tolerance))
+      return ray.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -2088,16 +2234,17 @@ namespace acme
   bool intersection(
       plane const &plane,
       segment const &segment,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
     real d0 = plane.signedDistance(segment.vertex(0));
     real d1 = plane.signedDistance(segment.vertex(1));
-    if (acme::isApprox(d0, real(0.0), acme::Epsilon))
+    if (acme::isApprox(d0, real(0.0), tolerance))
     {
       point_out = segment.vertex(0);
       return true;
     }
-    else if (acme::isApprox(d1, real(0.0), acme::Epsilon))
+    else if (acme::isApprox(d1, real(0.0), tolerance))
     {
       point_out = segment.vertex(1);
       return true;
@@ -2119,13 +2266,12 @@ namespace acme
   bool intersection(
       plane const &plane,
       triangle const &triangle,
-      segment &segment)
+      segment &segment,
+      real tolerance)
   {
     line tmp_line;
-    if (acme::intersection(plane,
-                           triangle.layingPlane(),
-                           tmp_line))
-      return acme::intersection(tmp_line, triangle, segment);
+    if (acme::intersection(plane, triangle.layingPlane(), tmp_line, tolerance))
+      return acme::intersection(tmp_line, triangle, segment, tolerance);
     else
       return false;
   }
@@ -2135,13 +2281,12 @@ namespace acme
   bool intersection(
       plane const &plane,
       circle const &circle,
-      segment &segment)
+      segment &segment,
+      real tolerance)
   {
     line tmp_line;
-    if (acme::intersection(plane,
-                           circle.layingPlane(),
-                           tmp_line))
-      return acme::intersection(tmp_line, circle, segment);
+    if (acme::intersection(plane, circle.layingPlane(), tmp_line, tolerance))
+      return acme::intersection(tmp_line, circle, segment, tolerance);
     else
       return false;
   }
@@ -2151,12 +2296,11 @@ namespace acme
   bool intersection(
       segment const &segment,
       triangle const &triangle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (acme::intersection(line(segment.vertex(0), segment.toNormalizedVector()),
-                           triangle,
-                           point_out))
-      return segment.isInside(point_out);
+    if (acme::intersection(line(segment.vertex(0), segment.toNormalizedVector()), triangle, point_out, tolerance))
+      return segment.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -2166,12 +2310,11 @@ namespace acme
   bool intersection(
       segment const &segment,
       circle const &circle,
-      point &point_out)
+      point &point_out,
+      real tolerance)
   {
-    if (acme::intersection(line(segment.vertex(0), segment.toNormalizedVector()),
-                           circle,
-                           point_out))
-      return segment.isInside(point_out);
+    if (acme::intersection(line(segment.vertex(0), segment.toNormalizedVector()), circle, point_out, tolerance))
+      return segment.isInside(point_out, tolerance);
     else
       return false;
   }
@@ -2181,11 +2324,12 @@ namespace acme
   bool intersection(
       triangle const &triangle,
       circle const &circle,
-      segment &segment_out)
+      segment &segment_out,
+      real tolerance)
   {
     segment tmp_segment;
-    if (acme::intersection(circle.layingPlane(), triangle, tmp_segment))
-      return acme::intersection(tmp_segment, circle, segment_out);
+    if (acme::intersection(circle.layingPlane(), triangle, tmp_segment, tolerance))
+      return acme::intersection(tmp_segment, circle, segment_out, tolerance);
     else
       return false;
   }
@@ -2206,7 +2350,8 @@ namespace acme
   bool intersection(
       aabb const &box0,
       aabb const &box1,
-      aabb &aabb)
+      aabb &aabb,
+      real tolerance)
   {
     if (!(box0.intersects(box1)))
       return false;

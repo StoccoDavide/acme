@@ -32,8 +32,8 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_math.hh"
 #include "acme_intersection.hh"
+#include "acme_math.hh"
 #include "acme_triangle.hh"
 #include "acme_utilities.hh"
 

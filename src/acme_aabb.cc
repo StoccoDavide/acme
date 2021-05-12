@@ -77,11 +77,12 @@ namespace acme
 
   bool
   aabb::isApprox(
-      aabb const &input)
+      aabb const &input,
+      real tolerance)
       const
   {
-    return this->_min.isApprox(input._min) &&
-           this->_max.isApprox(input._max);
+    return this->_min.isApprox(input._min, tolerance) &&
+           this->_max.isApprox(input._max, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -479,24 +480,26 @@ namespace acme
 
   bool
   aabb::isInside(
-      point const &query_point)
+      point const &query_point,
+      real tolerance)
       const
   {
-    return this->_min.x() < query_point.x() &&
-           this->_min.y() < query_point.y() &&
-           this->_min.z() < query_point.z() &&
-           this->_max.x() > query_point.x() &&
-           this->_max.y() > query_point.y() &&
-           this->_max.z() > query_point.z();
+    return this->_min.x() <= query_point.x() &&
+           this->_min.y() <= query_point.y() &&
+           this->_min.z() <= query_point.z() &&
+           this->_max.x() >= query_point.x() &&
+           this->_max.y() >= query_point.y() &&
+           this->_max.z() >= query_point.z();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  aabb::isDegenerated(void)
+  aabb::isDegenerated(
+      real tolerance)
       const
   {
-    return this->_min.isApprox(this->_max) &&
+    return this->_min.isApprox(this->_max, tolerance) &&
            this->checkMaxMin();
   }
 

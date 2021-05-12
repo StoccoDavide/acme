@@ -46,10 +46,10 @@ int main()
   circle Circle(1.0, point(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
 
   // Initialize segments
-  line In1(point(0.0, 0.0, 0.5),  vec3(1.0, 0.0, 0.0));
+  line In1(point(0.0, 0.0, 0.5), vec3(1.0, 0.0, 0.0));
   line In2(point(-2.0, 0.0, 0.5), vec3(1.0, 0.0, 0.0));
-  line Out(point(1.0, 2.0, 0.5),  vec3(1.0, 0.0, 0.0));
-  line Tan(point(1.0, 1.0, 0.5),  vec3(1.0, 0.0, 0.0));
+  line Out(point(1.0, 2.0, 0.5), vec3(1.0, 0.0, 0.0));
+  line Tan(point(1.0, 1.0, 0.5), vec3(1.0, 0.0, 0.0));
 
   // Initialize intersection segments and output bools
   segment IntIn1, IntIn2, IntOut, IntTan;

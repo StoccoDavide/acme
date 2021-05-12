@@ -6,13 +6,13 @@
 ACME
 ****
 
-=========================================
+-----------------------------------------
 A small 3D computational geometry library
-=========================================
+-----------------------------------------
 
-by Davide Stocco
+`Github <https://github.com/StoccoDavide/acme>`__
 
-`Github repository <https://github.com/StoccoDavide/acme>`
+by Davide Stocco and Enrico Bertolazzi
 
 
 .. toctree::

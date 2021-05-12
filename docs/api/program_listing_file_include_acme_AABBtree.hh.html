@@ -97,16 +97,16 @@
 
   <span class="k">class</span> <span class="nc">AABBtree</span>
   <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+  <span class="k">public</span><span class="o">:</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
 
-<span class="k">private</span><span class="o">:</span>
+  <span class="k">private</span><span class="o">:</span>
     <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span> <span class="n">_ptrbox</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">_children</span><span class="p">;</span>
 
     <span class="n">AABBtree</span><span class="p">(</span><span class="n">AABBtree</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">tree</span><span class="p">);</span>
 
-<span class="k">public</span><span class="o">:</span>
+  <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">AABBtree</span><span class="p">();</span>
 
     <span class="n">AABBtree</span><span class="p">();</span>
@@ -190,7 +190,7 @@
         <span class="kt">bool</span> <span class="n">swap_tree</span> <span class="o">=</span> <span class="nb">false</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-<span class="k">private</span><span class="o">:</span>
+  <span class="k">private</span><span class="o">:</span>
     <span class="kt">void</span> <span class="n">selectMinimumDistance</span><span class="p">(</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
         <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">candidateList</span>

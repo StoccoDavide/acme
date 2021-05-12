@@ -575,7 +575,7 @@ namespace acme
   intersection(
       aabb const &box0,     //!< Input aabb 0
       aabb const &box1,     //!< Input aabb 1
-      aabb &aabb = box_goat //!< Output aabb
+      aabb &aabb = aabb_goat //!< Output aabb
   );
 
 } // namespace acme

@@ -32,8 +32,8 @@
 #include <string>
 
 #include "acme.hh"
-#include "acme_aabbTree.hh"
 #include "acme_aabb.hh"
+#include "acme_AABBtree.hh"
 #include "acme_intersection.hh"
 #include "acme_math.hh"
 #include "acme_triangle.hh"
@@ -72,7 +72,7 @@ int main()
   vecBox.push_back(aabb::ptr(new aabb(Box1)));
   vecBox.push_back(aabb::ptr(new aabb(Box2)));
 
-  aabbTree::ptr tree(new aabbTree());
+  AABBtree::ptr tree(new AABBtree());
   tree->build(vecBox);
   std::cout
       << "AABB tree 1" << std::endl;
@@ -84,7 +84,7 @@ int main()
   vec3 max(0.0, 0.5, 0.5);
   vecBoxInt.push_back(aabb::ptr(new aabb(min, max, 0, 0)));
 
-  aabbTree::ptr treeInt(new aabbTree());
+  AABBtree::ptr treeInt(new AABBtree());
   treeInt->build(vecBoxInt);
   std::cout
       << "AABB tree 2" << std::endl;

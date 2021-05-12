@@ -54,17 +54,17 @@ namespace acme
    */
   class ray : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<ray const> ptr;  //!< Pointer to ray object
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
 
-private:
+  private:
     point _origin;   //!< Ray origin point
     vec3 _direction; //!< Ray direction vector
 
-public:
+  public:
     //! Ray class destructor
     ~ray() {}
 
@@ -110,7 +110,8 @@ public:
     //! Check if ray objects are (almost) equal
     bool
     isApprox(
-        ray const &input //!< Input ray object
+        ray const &input,        //!< Input ray object
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Return ray origin point
@@ -168,12 +169,15 @@ public:
     // Check whether the point is inside the ray
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if ray is degenerated (null vector)
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 4; }

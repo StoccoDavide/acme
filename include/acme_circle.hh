@@ -33,9 +33,9 @@
 #define INCLUDE_ACME_CIRCLE
 
 #include "acme.hh"
+#include "acme_aabb.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
-#include "acme_aabb.hh"
 
 namespace acme
 {
@@ -55,17 +55,17 @@ namespace acme
   */
   class circle : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<circle const> ptr; //!< Shared pointer to circle
     typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to circle objects
     typedef std::vector<ptr> vecptr;           //!< Vector of pointers to circle objects
     typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to circle objects
 
-private:
+  private:
     real _radius; //!< Circle radius
     plane _plane; //!< Circle plane (circle center + normal vector)
 
-public:
+  public:
     //! Circle class deconstructor
     ~circle() {}
 
@@ -106,7 +106,8 @@ public:
     //! Check if circles are (almost) equal
     bool
     isApprox(
-        circle const &input //!< Input circle object
+        circle const &input,     //!< Input circle object
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Get circle radius
@@ -187,12 +188,15 @@ public:
     // Check whether the point is inside the circle
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if circle is degenerated
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 8; }

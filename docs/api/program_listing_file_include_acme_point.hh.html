@@ -95,7 +95,7 @@
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">t</span><span class="o">&gt;</span>
   <span class="k">class</span> <span class="nc">Point3t</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">public</span> <span class="n">entity</span>
   <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+  <span class="k">public</span><span class="o">:</span>
     <span class="k">using</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;::</span><span class="n">Matrix</span><span class="p">;</span>
 
     <span class="c1">// This constructor allows you to construct matrix from Eigen expressions</span>
@@ -131,7 +131,13 @@
       <span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">matrix</span> <span class="o">*</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kt">bool</span> <span class="n">isDegenerated</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">isDegenerated</span><span class="p">(</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+    <span class="p">)</span>
+        <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="n">integer</span> <span class="n">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
 
@@ -167,6 +173,10 @@
 <span class="cm">  \*/</span>
 
   <span class="k">typedef</span> <span class="n">Point3t</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="n">point</span><span class="p">;</span>
+
+  <span class="k">typedef</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">point</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">vec_point</span><span class="p">;</span>
+  <span class="k">typedef</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="n">point</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">mat_point</span><span class="p">;</span>
+
   <span class="k">static</span> <span class="n">point</span> <span class="k">const</span> <span class="n">NaN_point</span> <span class="o">=</span> <span class="n">point</span><span class="o">::</span><span class="n">Constant</span><span class="p">(</span><span class="n">NaN</span><span class="p">);</span>
   <span class="k">static</span> <span class="n">point</span> <span class="k">const</span> <span class="n">Zeros_point</span> <span class="o">=</span> <span class="n">point</span><span class="o">::</span><span class="n">Constant</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
   <span class="k">static</span> <span class="n">point</span> <span class="k">const</span> <span class="n">Ones_point</span> <span class="o">=</span> <span class="n">point</span><span class="o">::</span><span class="n">Constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>

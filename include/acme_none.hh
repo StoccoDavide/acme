@@ -53,7 +53,7 @@ namespace acme
   */
   class none : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<none const> ptr; //!< Shared pointer to none
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to circle objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to circle objects
@@ -78,7 +78,12 @@ public:
         ) override{};
 
     //! Check if entity is degenerated
-    bool isDegenerated(void) const override { return true; };
+    bool isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override
+    {
+      return true;
+    };
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 1; }

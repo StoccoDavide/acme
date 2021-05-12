@@ -53,19 +53,19 @@ namespace acme
   */
   class aabb : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<aabb const> ptr; //!< Shared pointer to aabb object
     typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to aabb objects
     typedef std::vector<ptr> vecptr;         //!< Vector of pointers to aabb objects
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to aabb objects
 
-private:
+  private:
     point _min;    //!< Box maximum point
     point _max;    //!< Box minimum point
     integer _id;   //!< Box id (may be used in external algorithms)
     integer _ipos; //!< Box rank (may be used in external algorithms)
 
-public:
+  public:
     //! Box class destructor
     ~aabb() {}
 
@@ -140,7 +140,8 @@ public:
     //! Check if aabb objects are (almost) equal
     bool
     isApprox(
-        aabb const &input //!< Input
+        aabb const &input,       //!< Input
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Check aabb max and min points
@@ -334,12 +335,15 @@ public:
     // Check whether the point is inside the aabb
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if aabb is degenerated
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 9; }
@@ -376,8 +380,8 @@ public:
 
   }; //class aabb
 
-  static aabb const NaN_box = aabb(acme::NaN_point, acme::NaN_point, 0, 0); //!< Not-a-Number aabb type
-  static aabb box_goat = aabb(NaN_box);                                     //!< Scapegoat aabb type (throwaway non-const object)
+  static aabb const NaN_aabb = aabb(acme::NaN_point, acme::NaN_point, 0, 0); //!< Not-a-Number aabb type
+  static aabb aabb_goat = aabb(NaN_aabb);                                    //!< Scapegoat aabb type (throwaway non-const object)
 
 } // namespace acme
 

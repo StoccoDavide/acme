@@ -54,16 +54,16 @@ namespace acme
   */
   class segment : public entity
   {
-public:
+  public:
     typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment object
     typedef std::pair<ptr, ptr> pairptr;        //!< Pair of pointers to segment objects
     typedef std::vector<ptr> vecptr;            //!< Vector of pointers to segment objects
     typedef std::vector<pairptr> vecpairptr;    //!< Vector of pairs of pointers to segment objects
 
-private:
+  private:
     point _point[2]; //!< Segment extrema points
 
-public:
+  public:
     //! Segment class destructor
     ~segment() {}
 
@@ -106,7 +106,8 @@ public:
     //! Check if segments are (almost) equal
     bool
     isApprox(
-        segment const &input //!< Input object
+        segment const &input,    //!< Input object
+        real tolerance = Epsilon //!< Tolerance
     ) const;
 
     //! Get segment centroid
@@ -162,12 +163,15 @@ public:
     // Check whether the point is inside the segment
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &query_point, //!< Query point
+        real tolerance = Epsilon  //!< Tolerance
     ) const;
 
     //! Check if segment is degenerated to point
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = Epsilon //!< Tolerance
+    ) const override;
 
     //! Return object hierarchical degree
     integer degree(void) const override { return 6; }

@@ -391,8 +391,8 @@ public:
 
   }; //class aabb
 
-  static aabb const NaN_box = aabb(acme::NaN_point, acme::NaN_point, 0, 0); //!< Not-a-Number aabb type
-  static aabb box_goat = aabb(NaN_box);                                     //!< Scapegoat aabb type (throwaway non-const object)
+  static aabb const NaN_aabb = aabb(acme::NaN_point, acme::NaN_point, 0, 0); //!< Not-a-Number aabb type
+  static aabb aabb_goat = aabb(NaN_aabb);                                     //!< Scapegoat aabb type (throwaway non-const object)
 
 } // namespace acme
 

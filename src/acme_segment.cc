@@ -94,11 +94,12 @@ namespace acme
 
   bool
   segment::isApprox(
-      segment const &input)
+      segment const &input,
+      real tolerance)
       const
   {
-    return this->_point[0].isApprox(input._point[0], acme::Epsilon) &&
-           this->_point[1].isApprox(input._point[1], acme::Epsilon);
+    return this->_point[0].isApprox(input._point[0], tolerance) &&
+           this->_point[1].isApprox(input._point[1], tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -202,22 +203,24 @@ namespace acme
 
   bool
   segment::isInside(
-      point const &query_point)
+      point const &query_point,
+      real tolerance)
       const
   {
     real d0 = this->length();
     real d1 = (query_point - this->_point[0]).norm();
     real d2 = (query_point - this->_point[1]).norm();
-    return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
+    return acme::abs(d0 - d1 - d2) <= tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  segment::isDegenerated(void)
+  segment::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real(0.0), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
