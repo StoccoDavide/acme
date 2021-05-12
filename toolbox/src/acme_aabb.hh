@@ -387,7 +387,7 @@ public:
     bool isCircle(void) const override { return false; }
 
     //! Check whether the object is a aabb
-    bool isBox(void) const override { return true; }
+    bool isAabb(void) const override { return true; }
 
   }; //class aabb
 

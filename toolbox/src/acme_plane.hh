@@ -213,7 +213,7 @@ public:
     bool isCircle(void) const override { return false; }
 
     //! Check whether the object is a aabb
-    bool isBox(void) const override { return false; }
+    bool isAabb(void) const override { return false; }
 
   }; // class plane
 

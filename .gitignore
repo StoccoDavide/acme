@@ -41,10 +41,10 @@
 build/*
 bin/*
 lib/*
+
+# Project
 docs_build/sphinx/_build
 docs_build/sphinx/api
 docs_build/xml
-
-
 docs_build/xml-cpp
 license.txt

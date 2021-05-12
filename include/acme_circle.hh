@@ -153,7 +153,7 @@ public:
         plane const &input //!< Input plane object
     );
 
-    //! Reverse direction
+    //! Reverse circle normal vector
     void
     reverse(void);
 

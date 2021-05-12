@@ -110,7 +110,7 @@ public:
     virtual bool isCircle(void) const = 0;
 
     //! Check whether the object is a aabb
-    virtual bool isBox(void) const = 0;
+    virtual bool isAabb(void) const = 0;
 
   }; // class entity
 

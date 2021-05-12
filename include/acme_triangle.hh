@@ -145,7 +145,7 @@ public:
     point
     centroid(void) const;
 
-    //! Get triangle edge created by i-th and j-th vertex
+    //! Get triangle edge created by i-th and j-th vertices
     segment
     edge(
         integer i, //!< Triangle i-th vertex index

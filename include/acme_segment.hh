@@ -165,7 +165,7 @@ public:
         point const &query_point //!< Query point
     ) const;
 
-    //! Check if segment is degenerated to point˚
+    //! Check if segment is degenerated to point
     bool
     isDegenerated(void) const override;
 

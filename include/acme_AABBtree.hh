@@ -55,9 +55,9 @@ namespace acme
    |                                                  
   \*/
 
-  //! Axis-aligned bouding tree class container
+  //! Axis-aligned bouding box tree class container
   /**
-   * Axis-aligned bouding aabb tree.
+   * Axis-aligned bouding box aabb tree.
   */
   class AABBtree
   {
@@ -91,7 +91,7 @@ public:
         std::vector<aabb::ptr> const &boxes //!< List of boxes
     );
 
-    //! Print AABB tree content
+    //! Print AABB tree data
     void
     print(
         out_stream &stream, //!< Output stream
@@ -154,7 +154,7 @@ public:
       return false;
     }
 
-    //! Compute all the intersection of AABB trees
+    //! Compute all the intersection candidates of AABB trees
     void
     intersection(
         AABBtree const &tree,               //!< AABB tree used to check collision
@@ -162,13 +162,13 @@ public:
         bool swap_tree = false              //!< If true exchange the tree in computation
     ) const;
 
+private:
     //! Find the candidate at minimum distance from point
     void selectMinimumDistance(
         point const &query_point,   //!< Input point
         aabb::vecptr &candidateList //!< Output candidate list
     ) const;
 
-private:
     //! Compute the minimum of the maximum distance between a point
     static real
     minimumExteriorDistance(
