@@ -97,10 +97,9 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform segment by 4x4 affine transformation matrix
-      P = segment();
-      P.objectHandle = mex_segment( 'transform', self.objectHandle, varargin{:} );
+      mex_segment( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

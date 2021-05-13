@@ -114,7 +114,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_none( 'new' ): "
   MEX_ASSERT(nrhs == 1, CMD "expected 1 input, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -135,7 +134,6 @@ static void
 do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_none( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');

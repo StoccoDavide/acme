@@ -89,10 +89,9 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform ray by 4x4 affine transformation matrix
-      P = ray();
-      P.objectHandle = mex_ray( 'transform', self.objectHandle, varargin{:} );
+      mex_ray( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

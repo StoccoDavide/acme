@@ -70,8 +70,8 @@
   "%   OUT = mex_ray( 'getDirection', OBJ );                             %\n" \
   "%         mex_ray( 'setOrigin', OBJ, OTHER_OBJ );                     %\n" \
   "%         mex_ray( 'setDirection', OBJ, OTHER_OBJ );                  %\n" \
-  "%   OUT = mex_ray( 'translate', OBJ, [X; Y; Z] );                     %\n" \
-  "%   OUT = mex_ray( 'transform', OBJ, MATRIX );                        %\n" \
+  "%         mex_ray( 'translate', OBJ, VECTOR );                        %\n" \
+  "%         mex_ray( 'transform', OBJ, MATRIX );                        %\n" \
   "%         mex_ray( 'copy', OBJ, OTHER_OBJ );                          %\n" \
   "%   OUT = mex_ray( 'isInside', OBJ, OTHER_OBJ );                      %\n" \
   "%   OUT = mex_ray( 'isDegenerated', OBJ );                            %\n" \
@@ -131,7 +131,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'new', [, args] ): "
   MEX_ASSERT(nrhs == 1 || nrhs == 3, CMD "expected 1 or 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -139,7 +138,6 @@ do_new(int nlhs, mxArray *plhs[],
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
-  string tname = mxArrayToString(arg_in_0);
 
   real_type x1 = acme::NaN;
   real_type y1 = acme::NaN;
@@ -176,7 +174,6 @@ static void
 do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -191,7 +188,6 @@ static void
 do_getOrigin(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'getOrigin', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -208,7 +204,6 @@ static void
 do_getDirection(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'getDirection', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -228,7 +223,6 @@ static void
 do_setOrigin(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'setOrigin', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -245,7 +239,6 @@ static void
 do_setDirection(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'setDirection', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -292,22 +285,19 @@ do_transform(int nlhs, mxArray *plhs[],
 {
 #define CMD "mex_ray( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::ray *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::ray *out = new acme::ray((*self));
-  out->transform(matrix);
-  DATA_NEW(arg_out_0, out);
+  self->transform(matrix);
 #undef CMD
 }
 
@@ -317,7 +307,6 @@ static void
 do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'copy', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -435,7 +424,6 @@ static void
 do_reverse(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_ray( 'reverse', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');

@@ -96,10 +96,9 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform plane by 4x4 affine transformation matrix
-      P = plane();
-      P.objectHandle = mex_plane( 'transform', self.objectHandle, varargin{:} );
+      mex_plane( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

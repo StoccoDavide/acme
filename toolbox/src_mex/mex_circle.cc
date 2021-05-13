@@ -73,8 +73,8 @@
   "%         mex_circle( 'setRadius', OBJ, OTHER_OBJ );                  %\n" \
   "%         mex_circle( 'setCenter', OBJ, OTHER_OBJ );                  %\n" \
   "%         mex_circle( 'setNormal', OBJ, OTHER_OBJ );                  %\n" \
-  "%   OUT = mex_circle( 'translate', OBJ, [X; Y; Z] );                  %\n" \
-  "%   OUT = mex_circle( 'transform', OBJ, MATRIX );                     %\n" \
+  "%         mex_circle( 'translate', OBJ, VECTOR );                     %\n" \
+  "%         mex_circle( 'transform', OBJ, MATRIX );                     %\n" \
   "%         mex_circle( 'copy', OBJ, OTHER_OBJ );                       %\n" \
   "%   OUT = mex_circle( 'isInside', OBJ, OTHER_OBJ );                   %\n" \
   "%   OUT = mex_circle( 'isDegenerated', OBJ );                         %\n" \
@@ -136,7 +136,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'new', [, args] ): "
   MEX_ASSERT(nrhs == 1 || nrhs == 4, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -144,7 +143,6 @@ do_new(int nlhs, mxArray *plhs[],
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
-  string tname = mxArrayToString(arg_in_0);
 
   real_type r = acme::NaN;
   real_type x1 = acme::NaN;
@@ -183,7 +181,6 @@ static void
 do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -198,7 +195,6 @@ static void
 do_getRadius(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'getRadius', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -214,7 +210,6 @@ static void
 do_getCenter(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'getCenter', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -231,7 +226,6 @@ static void
 do_getNormal(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'getNormal', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -251,7 +245,6 @@ static void
 do_setRadius(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'setRadius', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -267,7 +260,6 @@ static void
 do_setCenter(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'setCenter', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -307,7 +299,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_circle( 'translate', OBJ, [X; Y; Z] ): "
+#define CMD "mex_circle( 'translate', OBJ, VECTOR ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -331,22 +323,19 @@ do_transform(int nlhs, mxArray *plhs[],
 {
 #define CMD "mex_circle( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::circle *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::circle *out = new acme::circle((*self));
-  out->transform(matrix);
-  DATA_NEW(arg_out_0, out);
+  self->transform(matrix);
 #undef CMD
 }
 
@@ -356,7 +345,6 @@ static void
 do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'copy', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -420,7 +408,6 @@ static void
 do_normalize(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'normalize', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -436,7 +423,6 @@ static void
 do_layingPlane(int nlhs, mxArray *plhs[],
                int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'layingPlane', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -453,7 +439,6 @@ static void
 do_reverse(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_circle( 'reverse', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');

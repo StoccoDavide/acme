@@ -105,10 +105,9 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform triangle by 4x4 affine transformation matrix
-      P = acme_triangle();
-      P.objectHandle = mex_triangle( 'transform', self.objectHandle, varargin{:} );
+      mex_triangle( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

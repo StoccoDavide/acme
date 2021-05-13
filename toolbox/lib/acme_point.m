@@ -118,10 +118,9 @@ classdef acme_point < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform point by 4x4 affine transformation matrix
-      P = point();
-      P.objectHandle = mex_point( 'transform', self.objectHandle, varargin{:} );
+      mex_point( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

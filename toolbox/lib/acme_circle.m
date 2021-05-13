@@ -103,10 +103,9 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform circle by 4x4 affine transformation matrix
-      P = acme_circle();
-      P.objectHandle = mex_circle( 'transform', self.objectHandle, varargin{:} );
+      mex_circle( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

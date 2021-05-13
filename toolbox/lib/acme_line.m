@@ -96,10 +96,9 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function transform( self, varargin )
       % Transform line by 4x4 affine transformation matrix
-      P = line();
-      P.objectHandle = mex_line( 'transform', self.objectHandle, varargin{:} );
+      mex_line( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

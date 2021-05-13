@@ -70,8 +70,8 @@
   "%   OUT = mex_segment( 'getVertex2', OBJ );                           %\n" \
   "%         mex_segment( 'setVertex1', OBJ, OTHER_OBJ );                %\n" \
   "%         mex_segment( 'setVertex2', OBJ, OTHER_OBJ );                %\n" \
-  "%   OUT = mex_segment( 'translate', OBJ, [X; Y; Z] );                 %\n" \
-  "%   OUT = mex_segment( 'transform', OBJ, MATRIX );                    %\n" \
+  "%         mex_segment( 'translate', OBJ, VECTOR );                    %\n" \
+  "%         mex_segment( 'transform', OBJ, MATRIX );                    %\n" \
   "%         mex_segment( 'copy', OBJ, OTHER_OBJ );                      %\n" \
   "%   OUT = mex_segment( 'isInside', OBJ, OTHER_OBJ );                  %\n" \
   "%   OUT = mex_segment( 'isDegenerated', OBJ );                        %\n" \
@@ -133,7 +133,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_segment( 'new', [, args] ): "
   MEX_ASSERT(nrhs == 1 || nrhs == 3, CMD "expected 1 or 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -178,7 +177,6 @@ static void
 do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_segment( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -193,7 +191,6 @@ static void
 do_getVertex1(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_segment( 'getVertex1', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -210,7 +207,6 @@ static void
 do_getVertex2(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_segment( 'getVertex2', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -227,7 +223,6 @@ static void
 do_setVertex1(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_segment( 'setVertex1', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -244,7 +239,6 @@ static void
 do_setVertex2(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_segment( 'setVertex2', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -261,7 +255,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_segment( 'translate', OBJ, [X; Y; Z] ): "
+#define CMD "mex_segment( 'translate', OBJ, VECTOR ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -302,22 +296,19 @@ do_transform(int nlhs, mxArray *plhs[],
 {
 #define CMD "mex_segment( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::segment *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::segment *out = new acme::segment((*self));
-  out->transform(matrix);
-  DATA_NEW(arg_out_0, out);
+  self->transform(matrix);
 #undef CMD
 }
 

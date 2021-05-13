@@ -76,8 +76,8 @@
   "%         mex_point( 'setY', OBJ, OTHER_OBJ );                        %\n" \
   "%         mex_point( 'setZ', OBJ, OTHER_OBJ );                        %\n" \
   "%         mex_point( 'set', OBJ, OTHER_OBJ );                         %\n" \
-  "%   OUT = mex_point( 'translate', OBJ, [X; Y; Z] );                   %\n" \
-  "%   OUT = mex_point( 'transform', OBJ, MATRIX );                      %\n" \
+  "%         mex_point( 'translate', OBJ, VECTOR );                      %\n" \
+  "%         mex_point( 'transform', OBJ, MATRIX );                      %\n" \
   "%         mex_point( 'copy', OBJ, OTHER_OBJ );                        %\n" \
   "%   OUT = mex_point( 'isParallel', OBJ, OTHER_OBJ );                  %\n" \
   "%   OUT = mex_point( 'isOrthogonal', OBJ, OTHER_OBJ );                %\n" \
@@ -131,7 +131,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'new', [, args] ): "
   MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 4, CMD "expected 1, 2 or 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -186,7 +185,6 @@ static void
 do_getX(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'getX', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -202,7 +200,6 @@ static void
 do_getY(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'getY', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -218,7 +215,6 @@ static void
 do_getZ(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'getZ', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -234,7 +230,6 @@ static void
 do_get(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'get', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -253,7 +248,6 @@ static void
 do_setX(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'setX', OBJ, VALUE ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -270,7 +264,6 @@ static void
 do_setY(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'setX', OBJ, VALUE ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -287,7 +280,6 @@ static void
 do_setZ(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'setZ', OBJ, VALUE ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -304,7 +296,6 @@ static void
 do_set(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'set', OBJ, args ): "
   MEX_ASSERT(nrhs == 3 || nrhs == 5, CMD "expected 3 or 5 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -341,7 +332,6 @@ static void
 do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'copy', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -358,7 +348,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_point( 'translate', OBJ, [X; Y; Z] ): "
+#define CMD "mex_point( 'translate', OBJ, VECTOR ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -380,25 +370,21 @@ static void
 do_transform(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_point( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::point *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::point *out = new acme::point((*self));
-  out->transform(matrix);
-  DATA_NEW(arg_out_0, out);
+  self->transform(matrix);
 #undef CMD
 }
 

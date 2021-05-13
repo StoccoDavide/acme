@@ -82,8 +82,8 @@
   "%         mex_aabb( 'setMaxX', OBJ );                                 %\n" \
   "%         mex_aabb( 'setMaxY', OBJ );                                 %\n" \
   "%         mex_aabb( 'setMaxZ', OBJ );                                 %\n" \
-  "%   OUT = mex_aabb( 'translate', OBJ, [X; Y; Z] );                    %\n" \
-  "%   OUT = mex_aabb( 'transform', OBJ, MATRIX );                       %\n" \
+  "%         mex_aabb( 'translate', OBJ, VECTOR );                       %\n" \
+  "%         mex_aabb( 'transform', OBJ, MATRIX );                       %\n" \
   "%         mex_aabb( 'copy', OBJ, OTHER_OBJ );                         %\n" \
   "%   OUT = mex_aabb( 'isInside', OBJ, OTHER_OBJ );                     %\n" \
   "%   OUT = mex_aabb( 'isDegenerated', OBJ );                           %\n" \
@@ -138,7 +138,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'new', [, args] ): "
   MEX_ASSERT(nrhs == 1 || nrhs == 3, CMD "expected 1 or 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -146,7 +145,6 @@ do_new(int nlhs, mxArray *plhs[],
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
-  string tname = mxArrayToString(arg_in_0);
 
   real_type x1 = acme::NaN;
   real_type y1 = acme::NaN;
@@ -183,7 +181,6 @@ static void
 do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -198,7 +195,6 @@ static void
 do_getMin(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMin', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -215,7 +211,6 @@ static void
 do_getMinX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMinX', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -231,7 +226,6 @@ static void
 do_getMinY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMinY', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -247,7 +241,6 @@ static void
 do_getMinZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMinZ', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -263,7 +256,6 @@ static void
 do_getMax(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMax', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -280,7 +272,6 @@ static void
 do_getMaxX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMaxX', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -296,7 +287,6 @@ static void
 do_getMaxY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMaxY', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -312,7 +302,6 @@ static void
 do_getMaxZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'getMaxZ', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -328,7 +317,6 @@ static void
 do_setMin(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMin', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -346,7 +334,6 @@ static void
 do_setMinX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMinX', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -364,7 +351,6 @@ static void
 do_setMinY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMinY', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -382,7 +368,6 @@ static void
 do_setMinZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMinZ', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -400,7 +385,6 @@ static void
 do_setMax(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMax', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -418,7 +402,6 @@ static void
 do_setMaxX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMaxX', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -436,7 +419,6 @@ static void
 do_setMaxY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMaxY', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -454,7 +436,6 @@ static void
 do_setMaxZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_aabb( 'setMaxZ', OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -472,7 +453,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_aabb( 'translate', OBJ, [X; Y; Z] ): "
+#define CMD "mex_aabb( 'translate', OBJ, VECTOR ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -496,23 +477,20 @@ do_transform(int nlhs, mxArray *plhs[],
 {
 #define CMD "mex_aabb( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::aabb *out = new acme::aabb(*self);
-  out->transform(matrix);
+  self->transform(matrix);
   self->updateMaxMin();
-  DATA_NEW(arg_out_0, out);
 #undef CMD
 }
 

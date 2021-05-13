@@ -73,8 +73,8 @@
   "%         mex_triangle( 'setVertex1', OBJ, OTHER_OBJ );               %\n" \
   "%         mex_triangle( 'setVertex2', OBJ, OTHER_OBJ );               %\n" \
   "%         mex_triangle( 'setVertex3', OBJ, OTHER_OBJ );               %\n" \
-  "%   OUT = mex_triangle( 'translate', OBJ, [X; Y; Z] );                %\n" \
-  "%   OUT = mex_triangle( 'transform', OBJ, MATRIX );                   %\n" \
+  "%         mex_triangle( 'translate', OBJ, VECTOR );                   %\n" \
+  "%         mex_triangle( 'transform', OBJ, MATRIX );                   %\n" \
   "%         mex_triangle( 'copy', OBJ, OTHER_OBJ );                     %\n" \
   "%   OUT = mex_triangle( 'isInside', OBJ, OTHER_OBJ );                 %\n" \
   "%   OUT = mex_triangle( 'isDegenerated', OBJ );                       %\n" \
@@ -140,7 +140,6 @@ static void
 do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'new', [, args] ): "
   MEX_ASSERT(nrhs == 1 || nrhs == 4, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -148,7 +147,6 @@ do_new(int nlhs, mxArray *plhs[],
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
-  string tname = mxArrayToString(arg_in_0);
 
   real_type x1 = acme::NaN;
   real_type y1 = acme::NaN;
@@ -196,7 +194,6 @@ static void
 do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'delete', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -211,7 +208,6 @@ static void
 do_getVertex1(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'getVertex1', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -228,7 +224,6 @@ static void
 do_getVertex2(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'getVertex2', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -245,7 +240,6 @@ static void
 do_getVertex3(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'getVertex3', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
@@ -262,7 +256,6 @@ static void
 do_setVertex1(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'setVertex1', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -279,7 +272,6 @@ static void
 do_setVertex2(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'setVertex2', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -296,7 +288,6 @@ static void
 do_setVertex3(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
-
 #define CMD "mex_triangle( 'setVertex3', OBJ, OTHER_OBJ ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
@@ -313,7 +304,7 @@ static void
 do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'translate', OBJ, [X; Y; Z] ): "
+#define CMD "mex_triangle( 'translate', OBJ, VECTOR ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
@@ -354,22 +345,19 @@ do_transform(int nlhs, mxArray *plhs[],
 {
 #define CMD "mex_triangle( 'transform', OBJ, MATRIX ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  acme::triangle *out = new acme::triangle((*self));
-  out->transform(matrix);
-  DATA_NEW(arg_out_0, out);
+  self->transform(matrix);
 #undef CMD
 }
 
