@@ -145,6 +145,23 @@ do_delete(int nlhs, mxArray *plhs[],
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
+do_copy(int nlhs, mxArray *plhs[],
+        int nrhs, mxArray const *prhs[])
+{
+
+#define CMD "mex_none( 'copy', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::none *self = DATA_GET(arg_in_1);
+  acme::none *other = DATA_GET(arg_in_2);
+  *self = *other;
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
 do_isParallel(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
@@ -347,6 +364,7 @@ typedef void (*DO_CMD)(int nlhs, mxArray *plhs[],
 static map<string, DO_CMD> cmd_to_fun = {
     {"new", do_new},
     {"delete", do_delete},
+    {"copy", do_copy},
     {"isParallel", do_isParallel},
     {"isOrthogonal", do_isOrthogonal},
     {"isCollinear", do_isCollinear},

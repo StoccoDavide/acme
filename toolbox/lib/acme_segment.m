@@ -42,25 +42,25 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'segment';
+      out = 'segment';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getVertex1( self )
+    function out = getVertex1( self )
       % Get segment vertex 1 as ACME point object
-      P = acme_point();
-      P.objectHandle = mex_segment( 'getVertex1', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_segment( 'getVertex1', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getVertex2( self )
+    function out = getVertex2( self )
       % Get segment vertex 2 as ACME point object
-      P = acme_point();
-      P.objectHandle = mex_segment( 'getVertex2', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_segment( 'getVertex2', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -90,6 +90,13 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy segment object from another segment handle
+      mex_segment( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
      % Translate segment by vector
       mex_segment( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -104,10 +111,10 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isInside( self, other_obj )
+    function out = isInside( self, other_obj )
       % Check if ACME point is inside the segment 
       if (other_obj.type() == "point")
-        P = mex_segment( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_segment( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_segment::isInside(): other_obj must be an ACME point object type.');
       end
@@ -115,17 +122,17 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isDegenerated( self )
+    function out = isDegenerated( self )
       % Check if segment is degenerated
-      P = mex_segment( 'isDegenerated', self.objectHandle );
+      out = mex_segment( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isApprox( self, other_obj )
+    function out = isApprox( self, other_obj )
       % Check if segments are approximatively equal
       if (other_obj.type() == "segment") 
-        P = mex_segment( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_segment( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_segment::isApprox(): other_obj must be an ACME segment object type.');
       end
@@ -133,24 +140,24 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = centroid( self )
+    function out = centroid( self )
       % Get segment centroid as ACME point objecty instance
-      P = point();
-      P.objectHandle = mex_segment( 'centroid', self.objectHandle, other_obj.objectHandle );
+      out = point();
+      out.copyByHandle( mex_segment( 'centroid', self.objectHandle, other_obj.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toVector( self )
+    function out = toVector( self )
        % Transform segment to vector
-      P = mex_segment( 'toVector', self.objectHandle );
+      out = mex_segment( 'toVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toNormalizedVector( self )
+    function out = toNormalizedVector( self )
       % Transform segment to normalized vector
-      P = mex_segment( 'toNormalizedVector', self.objectHandle );
+      out = mex_segment( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -162,54 +169,54 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = clamp( self )
+    function out = clamp( self )
       % Get segment minimum bounding box as ACME aabb object instance
-      P = acme_aabb();
-      P.objectHandle = mex_segment( 'clamp', self.objectHandle );
+      out = acme_aabb();
+      out.copyByHandle( mex_segment( 'clamp', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = length( self )
+    function out = length( self )
       % Get segment length
-      P = mex_segment( 'length', self.objectHandle );
+      out = mex_segment( 'length', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isParallel( self, other_obj )
+    function out = isParallel( self, other_obj )
       % Check if segment is parallel to an ACME object
-      P = mex_segment( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_segment( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isOrthogonal( self, other_obj )
+    function out = isOrthogonal( self, other_obj )
       % Check if segment is orthogonal to an ACME object
-      P = mex_segment( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_segment( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCollinear( self, other_obj )
+    function out = isCollinear( self, other_obj )
       % Check if segment is collinear to an ACME object
-      P = mex_segment( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_segment( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCoplanar( self, other_obj )
+    function out = isCoplanar( self, other_obj )
       % Check if segment is coplanar to an ACME object 
-      P = mex_segment( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_segment( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       % Intersect segment with an ACME object
-      [Handle, type] = mex_segment( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( 'acme_', type, '()' ) );
-      P.objectHandle = Handle;
+      [handle, type] = mex_segment( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = eval( strcat( 'acme_', type, '()' ) );
+      out.copyByHandle( handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

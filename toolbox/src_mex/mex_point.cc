@@ -137,12 +137,14 @@ do_new(int nlhs, mxArray *plhs[],
 
   MEX_ASSERT(
       mxIsChar(arg_in_0),
-      CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
-  string tname = mxArrayToString(arg_in_0);
+      CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_1) << "''\n");
 
   real_type x = acme::NaN;
   real_type y = acme::NaN;
   real_type z = acme::NaN;
+
+  acme::point *self = nullptr;
+
   if (nrhs == 2)
   {
     real_type const *matrix_ptr;
@@ -160,8 +162,8 @@ do_new(int nlhs, mxArray *plhs[],
     z = getScalarValue(arg_in_3, CMD "Error in reading z value");
   }
 
-  acme::point *ptr = new acme::point(x, y, z);
-  DATA_NEW(arg_out_0, ptr);
+  self = new acme::point(x, y, z);
+  DATA_NEW(arg_out_0, self);
 #undef CMD
 }
 
@@ -382,9 +384,9 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
-      matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
+      matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[11],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  self->transform(matrix);
+  self->transform(matrix.matrix().transpose());
 #undef CMD
 }
 

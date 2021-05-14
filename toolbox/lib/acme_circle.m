@@ -42,24 +42,24 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getRadius( self )
+    function out = getRadius( self )
       % Get circle radius
-      P = mex_circle( 'getRadius', self.objectHandle );
+      out = mex_circle( 'getRadius', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getCenter( self )
+    function out = getCenter( self )
       % Get circle center as ACME point object
-      P = acme_point();
-      P.objectHandle = mex_circle( 'getCenter', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_circle( 'getCenter', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getNormal( self )
+    function out = getNormal( self )
       % Get circle normal
-      P = mex_circle( 'getNormal', self.objectHandle );
+      out = mex_circle( 'getNormal', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -96,6 +96,13 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy circle object from another circle handle
+      mex_circle( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
      % Translate circle by vector
       mex_circle( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -110,10 +117,10 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isInside( self, other_obj )
+    function out = isInside( self, other_obj )
       % Check if ACME point is inside the circle 
       if (other_obj.type() == "point")
-        P = mex_circle( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_circle( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_circle::isInside(): other_obj must be an ACME point object type.');
       end
@@ -121,17 +128,17 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isDegenerated( self )
+    function out = isDegenerated( self )
       % Check if circle is degenerated
-      P = mex_circle( 'isDegenerated', self.objectHandle );
+      out = mex_circle( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isApprox( self, other_obj )
+    function out = isApprox( self, other_obj )
       % Check if circles are approximatively equal
       if (other_obj.type() == "circle") 
-        P = mex_circle( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_circle( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_circle::isApprox(): other_obj must be an ACME circle object type.');
       end
@@ -146,10 +153,10 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = layingPlane( self )
+    function out = layingPlane( self )
      % Get circle laying plane
-     P = acme_plane();
-     P.objectHandle = mex_circle( 'layingPlane', self.objectHandle );
+     out = acme_plane();
+     out.copyByHandle( mex_circle( 'layingPlane', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -161,61 +168,61 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = clamp( self )
+    function out = clamp( self )
       % Get circle minimum bounding box as ACME aabb object instance
-      P = acme_aabb();
-      P.objectHandle = mex_circle( 'clamp', self.objectHandle );
+      out = acme_aabb();
+      out.copyByHandle( mex_circle( 'clamp', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = perimeter( self )
+    function out = perimeter( self )
       % Get circle perimeter
-      P = mex_circle( 'perimeter', self.objectHandle );
+      out = mex_circle( 'perimeter', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = area( self )
+    function out = area( self )
       % Get circle perimeter
-      P = mex_circle( 'area', self.objectHandle );
+      out = mex_circle( 'area', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isParallel( self, other_obj )
+    function out = isParallel( self, other_obj )
       % Check if circle is parallel to an ACME object
-      P = mex_circle( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_circle( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isOrthogonal( self, other_obj )
+    function out = isOrthogonal( self, other_obj )
       % Check if circle is orthogonal to an ACME object
-      P = mex_circle( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_circle( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCollinear( self, other_obj )
+    function out = isCollinear( self, other_obj )
       % Check if circle is collinear to an ACME object
-      P = mex_circle( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_circle( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCoplanar( self, other_obj )
+    function out = isCoplanar( self, other_obj )
       % Check if circle is coplanar to an ACME object 
-      P = mex_circle( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_circle( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       % Intersect circle with an ACME object
-      [Handle, type] = mex_circle( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( 'acme_', type, '()') );
-      P.objectHandle = Handle;
+      [handle, type] = mex_circle( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = eval( strcat( 'acme_', type, '()') );
+      outcopyByHandle( handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -270,9 +277,9 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'circle';
+      out = 'circle';
     end
   end
 end

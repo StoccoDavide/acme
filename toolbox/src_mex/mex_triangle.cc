@@ -355,9 +355,9 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   matrix.matrix() << matrix_ptr[0], matrix_ptr[1], matrix_ptr[2], matrix_ptr[3],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
-      matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
+      matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[11],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  self->transform(matrix);
+  self->transform(matrix.matrix().transpose());
 #undef CMD
 }
 

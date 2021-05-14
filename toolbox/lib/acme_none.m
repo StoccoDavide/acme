@@ -42,6 +42,24 @@ classdef acme_none < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copy( self, other_obj )
+      % Copy none object from another none
+      if (other_obj.type() == "none")
+        mex_none( 'copy', self.objectHandle, other_obj.objectHandle );
+      else
+        error('mex_none::copy(): other_obj must be an ACME none object type.');
+      end
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function copyByHandle( self, handle )
+      % Copy none object from another none handle
+      mex_none( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function disp( self )
       % Get object type as string
       disp('none');
@@ -58,9 +76,9 @@ classdef acme_none < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'none';
+      out = 'none';
     end
   end
 end

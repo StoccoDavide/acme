@@ -42,24 +42,24 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'plane';
+      out = 'plane';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getOrigin( self )
+    function out = getOrigin( self )
       % Get plane origin as ACME point object
-      P = acme_point();
-      P.objectHandle = mex_plane( 'getOrigin', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_plane( 'getOrigin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getNormal( self )
+    function out = getNormal( self )
       % Get plane normal
-      P = mex_plane( 'getNormal', self.objectHandle );
+      out = mex_plane( 'getNormal', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -89,6 +89,13 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy plane object from another plane handle
+      mex_plane( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
      % Translate plane by vector
       mex_plane( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -103,10 +110,10 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isInside( self, other_obj )
+    function out = isInside( self, other_obj )
       % Check if ACME point is inside the plane 
       if (other_obj.type() == "point")
-        P = mex_plane( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_plane( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_plane::isInside(): other_obj must be an ACME point object type.');
       end
@@ -114,17 +121,17 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isDegenerated( self )
+    function out = isDegenerated( self )
       % Check if plane is degenerated
-      P = mex_plane( 'isDegenerated', self.objectHandle );
+      out = mex_plane( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isApprox( self, other_obj )
+    function out = isApprox( self, other_obj )
       % Check if planes are approximatively equal
       if (other_obj.type() == "plane") 
-        P = mex_plane( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_plane( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_plane::isApprox(): other_obj must be an ACME plane object type.');
       end
@@ -139,10 +146,10 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = distance( self, other_obj )
+    function out = distance( self, other_obj )
       % Distance between an ACME point and plane
       if (other_obj.type() == "point") 
-        P = mex_plane( 'distance', self.objectHandle, other_obj.objectHandle );
+        out = mex_plane( 'distance', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_plane::distance(): other_obj must be an ACME point object type.');
       end
@@ -150,10 +157,10 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = squaredDistance( self, other_obj )
+    function out = squaredDistance( self, other_obj )
       % Squared distance between an ACME point and plane
       if (other_obj.type() == "point") 
-        P = mex_plane( 'squaredDistance', self.objectHandle, other_obj.objectHandle );
+        out = mex_plane( 'squaredDistance', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_plane::squaredDistance(): other_obj must be an ACME point object type.');
       end
@@ -161,10 +168,10 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = signedDistance( self, other_obj )
+    function out = signedDistance( self, other_obj )
       % Signed distance between an ACME point and plane
       if (other_obj.type() == "point") 
-        P = mex_plane( 'signedDistance', self.objectHandle, other_obj.objectHandle );
+        out = mex_plane( 'signedDistance', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_plane::signedDistance(): other_obj must be an ACME point object type.');
       end
@@ -172,9 +179,9 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toNormalizedVector( self )
+    function out = toNormalizedVector( self )
       % Transform plane to normalized vector
-      P = mex_plane( 'toNormalizedVector', self.objectHandle );
+      out = mex_plane( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -186,39 +193,39 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isParallel( self, other_obj )
+    function out = isParallel( self, other_obj )
       % Check if plane is parallel to an ACME object
-      P = mex_plane( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_plane( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isOrthogonal( self, other_obj )
+    function out = isOrthogonal( self, other_obj )
       % Check if plane is orthogonal to an ACME object
-      P = mex_plane( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_plane( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isColplanear( self, other_obj )
+    function out = isColplanear( self, other_obj )
       % Check if plane is colplanear to an ACME object
-      P = mex_plane( 'isColplanear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_plane( 'isColplanear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCoplanar( self, other_obj )
+    function out = isCoplanar( self, other_obj )
       % Check if plane is coplanar to an ACME object 
-      P = mex_plane( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_plane( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       % Intersect plane with an ACME object
-      [Handle, type] = mex_plane( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( 'acme_', type, '()' ) );
-      P.objectHandle = Handle;
+      [handle, type] = mex_plane( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = eval( strcat( 'acme_', type, '()' ) );
+      out.copyByHandle( handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

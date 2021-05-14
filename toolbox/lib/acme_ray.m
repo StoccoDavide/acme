@@ -42,17 +42,17 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getOrigin( self )
+    function out = getOrigin( self )
       % Get ray origin as ACME point object
-      P = acme_point();
-      P.objectHandle = mex_ray( 'getOrigin', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_ray( 'getOrigin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getDirection( self )
+    function out = getDirection( self )
       % Get ray direction
-      P = mex_ray( 'getDirection', self.objectHandle );
+      out = mex_ray( 'getDirection', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -82,6 +82,13 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy ray object from another ray handle
+      mex_ray( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
      % Translate ray by vector
       mex_ray( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -96,10 +103,10 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isInside( self, other_obj )
+    function out = isInside( self, other_obj )
       % Check if ACME point is inside the ray 
       if (other_obj.type() == "point")
-        P = mex_ray( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_ray( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_ray::isInside(): other_obj must be an ACME point object type.');
       end
@@ -107,17 +114,17 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isDegenerated( self )
+    function out = isDegenerated( self )
       % Check if ray is degenerated
-      P = mex_ray( 'isDegenerated', self.objectHandle );
+      out = mex_ray( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isApprox( self, other_obj )
+    function out = isApprox( self, other_obj )
       % Check if rays are approximatively equal
       if (other_obj.type() == "ray") 
-        P = mex_ray( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_ray( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_ray::isApprox(): other_obj must be an ACME ray object type.');
       end
@@ -132,16 +139,16 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toVector( self )
+    function out = toVector( self )
        % Transform ray to vector
-      P = mex_ray( 'toVector', self.objectHandle );
+      out = mex_ray( 'toVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toNormalizedVector( self )
+    function out = toNormalizedVector( self )
       % Transform ray to normalized vector
-      P = mex_ray( 'toNormalizedVector', self.objectHandle );
+      out = mex_ray( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -153,39 +160,39 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isParallel( self, other_obj )
+    function out = isParallel( self, other_obj )
       % Check if ray is parallel to an ACME object
-      P = mex_ray( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_ray( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isOrthogonal( self, other_obj )
+    function out = isOrthogonal( self, other_obj )
       % Check if ray is orthogonal to an ACME object
-      P = mex_ray( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_ray( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCollinear( self, other_obj )
+    function out = isCollinear( self, other_obj )
       % Check if ray is collinear to an ACME object
-      P = mex_ray( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_ray( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCoplanar( self, other_obj )
+    function out = isCoplanar( self, other_obj )
       % Check if ray is coplanar to an ACME object 
-      P = mex_ray( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_ray( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       % Intersect ray with an ACME object
-      [Handle, type] = mex_ray( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( 'acme_', type, '()' ) );
-      P.objectHandle = Handle;
+      [handle, type] = mex_ray( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = eval( strcat( 'acme_', type, '()' ) );
+      out.objectHandle = handle;
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -212,9 +219,9 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'ray';
+      out = 'ray';
     end
   end
 end

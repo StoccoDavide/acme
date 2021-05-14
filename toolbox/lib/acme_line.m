@@ -42,24 +42,24 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'line';
+      out = 'line';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getOrigin( self )
+    function out = getOrigin( self )
       % Get line origin as ACME point object
-      P = acme_point();
-      P.objectHandle = mex_line( 'getOrigin', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_line( 'getOrigin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getDirection( self )
+    function out = getDirection( self )
       % Get line direction
-      P = mex_line( 'getDirection', self.objectHandle );
+      out = mex_line( 'getDirection', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -89,6 +89,13 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy line object from another line handle
+      mex_line( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
      % Translate line by vector
       mex_line( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -103,10 +110,10 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isInside( self, other_obj )
+    function out = isInside( self, other_obj )
       % Check if ACME point is inside the line 
       if (other_obj.type() == "point")
-        P = mex_line( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_line( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_line::isInside(): other_obj must be an ACME point object type.');
       end
@@ -114,17 +121,17 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isDegenerated( self )
+    function out = isDegenerated( self )
       % Check if line is degenerated
-      P = mex_line( 'isDegenerated', self.objectHandle );
+      out = mex_line( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isApprox( self, other_obj )
+    function out = isApprox( self, other_obj )
       % Check if lines are approximatively equal
       if (other_obj.type() == "line") 
-        P = mex_line( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_line( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_line::isApprox(): other_obj must be an ACME line object type.');
       end
@@ -139,16 +146,16 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toVector( self )
+    function out = toVector( self )
        % Transform line to vector
-      P = mex_line( 'toVector', self.objectHandle );
+      out = mex_line( 'toVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = toNormalizedVector( self )
+    function out = toNormalizedVector( self )
       % Transform line to normalized vector
-      P = mex_line( 'toNormalizedVector', self.objectHandle );
+      out = mex_line( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -160,39 +167,39 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isParallel( self, other_obj )
+    function out = isParallel( self, other_obj )
       % Check if line is parallel to an ACME object
-      P = mex_line( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_line( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isOrthogonal( self, other_obj )
+    function out = isOrthogonal( self, other_obj )
       % Check if line is orthogonal to an ACME object
-      P = mex_line( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_line( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCollinear( self, other_obj )
+    function out = isCollinear( self, other_obj )
       % Check if line is collinear to an ACME object
-      P = mex_line( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_line( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCoplanar( self, other_obj )
+    function out = isCoplanar( self, other_obj )
       % Check if line is coplanar to an ACME object 
-      P = mex_line( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_line( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       % Intersect line with an ACME object
-      [Handle, type] = mex_line( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( 'acme_', type, '()' ) );
-      P.objectHandle = Handle;
+      [handle, type] = mex_line( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = eval( strcat( 'acme_', type, '()' ) );
+      out.copyByHandle( handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

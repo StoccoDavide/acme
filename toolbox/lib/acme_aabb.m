@@ -42,67 +42,71 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMin( self )
+    function out = getMin( self )
       % Get minimum aabb as ACME point
-      P = acme_point();
-      P.objectHandle = mex_aabb( 'getMin', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_aabb( 'getMin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMinX( self )
+    function out = getMinX( self )
       % Get aabb minimum point X value
-      P = mex_aabb( 'getMinX', self.objectHandle );
+      out = mex_aabb( 'getMinX', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMinY( self )
+    function out = getMinY( self )
       % Get aabb minimum point X value
-      P = mex_aabb( 'getMinY', self.objectHandle );
+      out = mex_aabb( 'getMinY', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMinZ( self )
+    function out = getMinZ( self )
       % Get aabb minimum point Z value
-      P = mex_aabb( 'getMinZ', self.objectHandle );
+      out = mex_aabb( 'getMinZ', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMax( self )
+    function out = getMax( self )
       % Get maximum aabb as ACME point
-      P = acme_point();
-      P.objectHandle = mex_aabb( 'getMax', self.objectHandle );
+      out = acme_point();
+      out.copyByHandle( mex_aabb( 'getMax', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMaxX( self )
+    function out = getMaxX( self )
       % Get aabb maximum point X value
-      P = mex_aabb( 'getMaxX', self.objectHandle );
+      out = mex_aabb( 'getMaxX', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMaxY( self )
+    function out = getMaxY( self )
       % Get aabb maximum point X value
-      P = mex_aabb( 'getMaxY', self.objectHandle );
+      out = mex_aabb( 'getMaxY', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getMaxZ( self )
+    function out = getMaxZ( self )
       % Get aabb maximum point Z value
-      P = mex_aabb( 'getMaxZ', self.objectHandle );
+      out = mex_aabb( 'getMaxZ', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = setMin( self, other_obj )
+    function out = setMin( self, other_obj )
       % Set minimum aabb as ACME point
-      mex_aabb( 'setMin', self.objectHandle, other_obj.objectHandle );
+      if (other_obj.type() == "point")
+        mex_aabb( 'setMin', self.objectHandle, other_obj.objectHandle );
+      else
+        error('mex_aabb::setMin(): other_obj must be an ACME point object type.');
+      end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -128,10 +132,13 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = setMax( self, other_obj )
+    function setMax( self, other_obj )
       % Set maximum aabb as ACME point
-      P = acme_point();
-      P.objectHandle = mex_aabb( 'setMax', self.objectHandle, other_obj.objectHandle );
+      if (other_obj.type() == "point")
+        mex_aabb( 'setMax', self.objectHandle, other_obj.objectHandle );
+      else
+        error('mex_aabb::setMax(): other_obj must be an ACME point object type.');
+      end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -168,6 +175,13 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy aabb object from another aabb handle
+      mex_aabb( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
      % Translate aabb by vector
       mex_aabb( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -175,18 +189,18 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = transform( self, varargin )
+    function out = transform( self, varargin )
       % Transform aabb by 4x4 affine transformation matrix
-      P = acme_aabb();
-      P.objectHandle = mex_aabb( 'transform', self.objectHandle, varargin{:} );
+      out = acme_aabb();
+      out.copyByHandle( mex_aabb( 'transform', self.objectHandle, varargin{:} ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isInside( self, other_obj )
+    function out = isInside( self, other_obj )
       % Check if ACME point is inside the aabb 
       if (other_obj.type() == "point")
-        P = mex_aabb( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_aabb( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_aabb::isInside(): other_obj must be an ACME point object type.');
       end
@@ -194,17 +208,17 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isDegenerated( self )
+    function out = isDegenerated( self )
       % Check if aabb is degenerated
-      P = mex_aabb( 'isDegenerated', self.objectHandle );
+      out = mex_aabb( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isApprox( self, other_obj )
+    function out = isApprox( self, other_obj )
       % Check if aabbs are approximatively equal
       if (other_obj.type() == "aabb") 
-        P = mex_aabb( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_aabb( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
          error('mex_aabb::isApprox(): other_obj must be an ACME aabb object type.');
       end
@@ -212,23 +226,23 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = id( self )
+    function out = id( self )
       % Return aabb id
-      P = mex_aabb( 'id', self.objectHandle );
+      out = mex_aabb( 'id', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = pos( self )
+    function out = pos( self )
      % Return aabb position
-     P = mex_aabb( 'pos', self.objectHandle );
+     out = mex_aabb( 'pos', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       if (other_obj.type() == "aabb") 
-        P = mex_aabb( 'intersection', self.objectHandle, other_obj.objectHandle );
+        out = mex_aabb( 'intersection', self.objectHandle, other_obj.objectHandle );
       else
         error('mex_aabb::intersection(): other_obj must be an ACME aabb object type.');
       end
@@ -236,9 +250,9 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersects( self, other_obj )
+    function out = intersects( self, other_obj )
       if (other_obj.type() == "aabb") 
-        P = mex_aabb( 'intersects', self.objectHandle, other_obj.objectHandle );
+        out = mex_aabb( 'intersects', self.objectHandle, other_obj.objectHandle );
       else
         error('mex_aabb::intersects(): other_obj must be an ACME aabb object type.');
       end
@@ -337,9 +351,9 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'aabb';
+      out = 'aabb';
     end
   end
 end

@@ -26,7 +26,7 @@
 classdef acme_point < acme_entity
   
   %properties (SetAccess = protected, Hidden = true)
-  %  objectHandle; % Handle to the underlying C++ class instance
+  %  objectHandle; % handle to the underlying C++ class instance
   %end
 
   methods
@@ -44,30 +44,30 @@ classdef acme_point < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getX( self )
+    function out = getX( self )
       % Get point X axis component
-      P = mex_point( 'getX', self.objectHandle );
+      out = mex_point( 'getX', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getY( self )
+    function out = getY( self )
       % Get point Y axis component
-      P = mex_point( 'getY', self.objectHandle );
+      out = mex_point( 'getY', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = getZ( self )
+    function out = getZ( self )
       % Get point Z axis component
-      P = mex_point( 'getZ', self.objectHandle );
+      out = mex_point( 'getZ', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = get( self )
+    function out = get( self )
       % Get point axes components
-      P = mex_point( 'get', self.objectHandle );
+      out = mex_point( 'get', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -111,6 +111,13 @@ classdef acme_point < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    function copyByHandle( self, handle )
+      % Copy point object from another point handle
+      mex_point( 'copy', self.objectHandle, handle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     function translate( self, other_obj )
       % Translate point by vector
       mex_point( 'translate', self.objectHandle, other_obj.objectHandle );
@@ -125,39 +132,39 @@ classdef acme_point < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isParallel( self, other_obj )
+    function out = isParallel( self, other_obj )
       % Check if point is parallel to an ACME object
-      P = mex_point( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_point( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isOrthogonal( self, other_obj )
+    function out = isOrthogonal( self, other_obj )
       % Check if point is orthogonal to an ACME object
-      P = mex_point( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_point( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCollinear( self, other_obj )
+    function out = isCollinear( self, other_obj )
       % Check if point is collinear to an ACME object
-      P = mex_point( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_point( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = isCoplanar( self, other_obj )
+    function out = isCoplanar( self, other_obj )
       % Check if point is coplanar to an ACME object 
-      P = mex_point( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = mex_point( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = intersection( self, other_obj )
+    function out = intersection( self, other_obj )
       % Intersect point with an ACME object
-      [Handle, type] = mex_point( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
-      P = eval( strcat( 'acme_', type, '()' ) );
-      P.objectHandle = Handle;
+      [handle, type] = mex_point( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+      out = eval( strcat( 'acme_', type, '()' ) );
+      out.copyByHandle( handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -179,9 +186,9 @@ classdef acme_point < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function P = type( self )
+    function out = type( self )
       % Get object type as string
-      P = 'point';
+      out = 'point';
     end
   end
 end

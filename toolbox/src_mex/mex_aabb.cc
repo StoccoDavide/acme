@@ -489,7 +489,7 @@ do_transform(int nlhs, mxArray *plhs[],
       matrix_ptr[4], matrix_ptr[5], matrix_ptr[6], matrix_ptr[7],
       matrix_ptr[8], matrix_ptr[9], matrix_ptr[10], matrix_ptr[1],
       matrix_ptr[12], matrix_ptr[13], matrix_ptr[14], matrix_ptr[15];
-  self->transform(matrix);
+  self->transform(matrix.matrix().transpose());
   self->updateMaxMin();
 #undef CMD
 }

@@ -28,7 +28,7 @@ classdef acme_entity < handle
   % Class container for ACME entity object
   %
   properties (SetAccess = protected, Hidden = true)
-    objectHandle; % Handle to the underlying C++ class instance
+    objectHandle; % handle to the underlying C++ class instance
   end
   %
   % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
