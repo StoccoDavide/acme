@@ -110,9 +110,9 @@ classdef acme_circle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function transform( self, varargin )
+    function transform( self, affine )
       % Transform circle by 4x4 affine transformation matrix
-      mex_circle( 'transform', self.objectHandle, varargin{:} );
+      mex_circle( 'transform', self.objectHandle, affine );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -229,7 +229,7 @@ classdef acme_circle < acme_entity
     %
     function disp( self )
       % Display object data
-      disp( [ self.getCenter().get(),  self.getNormal()] ); %[self.getRadius() 0 0]',
+      disp( [ [self.getRadius(), NaN, NaN]', self.getCenter().get(),  self.getNormal()] ); %[self.getRadius() 0 0]',
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -23,7 +23,7 @@
 (*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
-*/
+*/˚
 
 ///
 /// file: acme_coplanar.cc
@@ -285,7 +285,7 @@ namespace acme
       // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
     default:
-      //ACME_ERROR("acme::isCoplanar(entity, entity): exception not handled.")
+      //ACME_ERROR("acme::isCoplanar(entity, entity): exception not handled.\n")
       return false;
       break;
     }

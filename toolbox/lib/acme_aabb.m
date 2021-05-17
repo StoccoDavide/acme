@@ -100,7 +100,7 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = setMin( self, other_obj )
+    function setMin( self, other_obj )
       % Set minimum aabb as ACME point
       if (other_obj.type() == "point")
         mex_aabb( 'setMin', self.objectHandle, other_obj.objectHandle );
@@ -189,10 +189,9 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = transform( self, varargin )
+    function transform( self, affine )
       % Transform aabb by 4x4 affine transformation matrix
-      out = acme_aabb();
-      out.copyByHandle( mex_aabb( 'transform', self.objectHandle, varargin{:} ) );
+      mex_aabb( 'transform', self.objectHandle, affine );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

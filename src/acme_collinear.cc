@@ -113,7 +113,7 @@ namespace acme
       // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
     default:
-      //ACME_ERROR("acme::isCollinear(entity, entity): exception not handled.")
+      //ACME_ERROR("acme::isCollinear(entity, entity): exception not handled.\n")
       return false;
       break;
     }

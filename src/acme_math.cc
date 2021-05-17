@@ -252,7 +252,7 @@ namespace acme
     else if (axis == "Z")
       return Eigen::AngleAxis<real>(angle, UnitZ_vec3);
     else
-      ACME_ERROR("acme::rotate(): invalid axis string.")
+      ACME_ERROR("acme::rotate(): invalid axis string.\n")
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

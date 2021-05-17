@@ -186,7 +186,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled (punctual).")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (punctual).\n")
         entity_out = new none();
         return entity_out;
         break;
@@ -306,7 +306,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled (colliear).")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (colliear).\n")
         entity_out = new none();
         return entity_out;
         break;
@@ -652,7 +652,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled (coplanar).")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (coplanar).\n")
         entity_out = new none();
         return entity_out;
         break;
@@ -1003,7 +1003,7 @@ namespace acme
       default:
         delete entity_out_ray;
         delete entity_out_seg;
-        ACME_ERROR("acme::intersection(entity, entity): exception not handled (general).")
+        ACME_ERROR("acme::intersection(entity, entity): exception not handled (general).\n")
         entity_out = new none();
         return entity_out;
         break;
@@ -1024,7 +1024,7 @@ namespace acme
     }
     else
     {
-      ACME_ERROR("acme::intersection(entity, entity): return exception not handled.")
+      ACME_ERROR("acme::intersection(entity, entity): return exception not handled.\n")
       delete entity_out_ray;
       delete entity_out_seg;
       entity_out = new none();
@@ -1246,7 +1246,7 @@ namespace acme
       // |      1      |      0      |      0      |      0      |
       else
       {
-        ACME_ERROR("acme::intersection(segment, segment, segment): exception not handled.")
+        ACME_ERROR("acme::intersection(segment, segment, segment): exception not handled.\n")
         return false;
       }
     }
@@ -1743,7 +1743,7 @@ namespace acme
         std::cout << "point0 = " << point0 << std::endl;
         std::cout << "point1 = " << point1 << std::endl;
         std::cout << "point2 = " << point2 << std::endl;
-        ACME_ERROR("acme::intersection(line, triangle, segment): exception not handled.")
+        ACME_ERROR("acme::intersection(line, triangle, segment): exception not handled.\n")
         return false;
       }
     }
