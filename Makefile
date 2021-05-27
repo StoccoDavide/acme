@@ -156,6 +156,8 @@ tests: $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test12.cc -o bin/acme-test12 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test13.cc -o bin/acme-test13 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test14.cc -o bin/acme-test14 $(LIBS)
 
 tests_run:
 	./bin/acme-test0
@@ -171,6 +173,8 @@ tests_run:
 	./bin/acme-test10
 	./bin/acme-test11
 	./bin/acme-test12
+	./bin/acme-test13
+	./bin/acme-test14
 
 #
 # That's All Folks!

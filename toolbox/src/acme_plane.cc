@@ -47,16 +47,16 @@ namespace acme
 
   plane &
   plane::operator=(
-      plane const &input)
+      plane const &plane_in)
   {
-    if (this == &input)
+    if (this == &plane_in)
     {
       return *this;
     }
     else
     {
-      this->_origin = input._origin;
-      this->_normal = input._normal;
+      this->m_origin = plane_in.m_origin;
+      this->m_normal = plane_in.m_normal;
       return *this;
     }
   }
@@ -65,45 +65,44 @@ namespace acme
 
   bool
   plane::isApprox(
-      plane const &input)
+      plane const &plane_in,
+      real tolerance)
       const
   {
-    return this->_origin.isApprox(input._origin, acme::Epsilon) &&
-           this->_normal.isApprox(input._normal, acme::Epsilon);
+    return this->m_origin.isApprox(plane_in.m_origin, tolerance) &&
+           this->m_normal.isApprox(plane_in.m_normal, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   point const &
-  plane::origin() const
+  plane::origin(void) const
   {
-    return this->_origin;
+    return this->m_origin;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point &
+  plane::origin(void)
+  {
+    return this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  plane::normal() const
+  plane::normal(void) const
   {
-    return this->_normal;
+    return this->m_normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  plane::origin(
-      point const &input)
+  vec3 &
+  plane::normal(void)
   {
-    this->_origin = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  plane::normal(
-      vec3 const &input)
-  {
-    this->_normal = input;
+    return this->m_normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -111,7 +110,7 @@ namespace acme
   void
   plane::normalize(void)
   {
-    this->_normal.normalize();
+    this->m_normal.normalize();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -119,7 +118,7 @@ namespace acme
   void
   plane::reverse(void)
   {
-    this->_normal = -this->_normal;
+    this->m_normal = -this->m_normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -128,75 +127,78 @@ namespace acme
   plane::d(void)
       const
   {
-    return -this->_origin.dot(this->_normal);
+    return -this->m_origin.dot(this->m_normal);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real
   plane::distance(
-      point const &query_point)
+      point const &point_in)
       const
   {
-    return acme::abs(this->signedDistance(query_point));
+    return std::abs(this->signedDistance(point_in));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real
   plane::squaredDistance(
-      point const &query_point)
+      point const &point_in)
       const
   {
-    return acme::sqr(this->signedDistance(query_point));
+    real distance = this->signedDistance(point_in);
+    return distance * distance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real
   plane::signedDistance(
-      point const &query_point)
+      point const &point_in)
       const
   {
-    return (query_point - this->_origin).dot(this->_normal);
+    return (point_in - this->m_origin).dot(this->m_normal);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   plane::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_origin = input + this->_origin;
+    this->m_origin = vector_in + this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   plane::transform(
-      affine const &matrix)
+      affine const &affine_in)
   {
-    this->_origin.transform(matrix);
-    acme::transform(this->_normal, matrix);
+    this->m_origin.transform(affine_in);
+    acme::transform(this->m_normal, affine_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   plane::isInside(
-      point const &query_point)
+      point const &point_in,
+      real tolerance)
       const
   {
-    return this->signedDistance(query_point) < acme::Epsilon;
+    return this->signedDistance(point_in) < tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  plane::isDegenerated(void)
+  plane::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox(this->_normal.norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox(this->m_normal.norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

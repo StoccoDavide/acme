@@ -86,245 +86,246 @@
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0</span><span class="p">,</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1</span><span class="p">,</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0_in</span><span class="p">,</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">integer</span> <span class="n">slide</span> <span class="o">=</span> <span class="n">entity0</span><span class="o">-&gt;</span><span class="n">degree</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">entity1</span><span class="o">-&gt;</span><span class="n">degree</span><span class="p">();</span>
+    <span class="n">integer</span> <span class="n">slide</span> <span class="o">=</span> <span class="n">entity0_in</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">entity1_in</span><span class="o">-&gt;</span><span class="n">level</span><span class="p">();</span>
     <span class="k">switch</span> <span class="p">(</span><span class="n">slide</span><span class="p">)</span>
     <span class="p">{</span>
 
       <span class="c1">// - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">303</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">304</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">305</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">306</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">307</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">308</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
       <span class="c1">// - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">403</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">404</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">405</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">406</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">407</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">408</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
       <span class="c1">// - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">503</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">504</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">505</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">506</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">507</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">508</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
       <span class="c1">// - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">603</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">604</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">605</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">606</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">607</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">608</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
       <span class="c1">// - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">703</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">704</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">705</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span> <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">706</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">707</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">708</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
       <span class="c1">// - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">803</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">804</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">805</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">806</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">807</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">808</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0</span><span class="p">),</span>
-                              <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1</span><span class="p">),</span>
-                              <span class="n">tolerance</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                        <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                        <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
       <span class="c1">// - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -</span>
 
     <span class="k">default</span><span class="o">:</span>
-      <span class="c1">//ACME_ERROR("acme::isCoplanar(entity, entity): exception not handled.\n")</span>
+      <span class="c1">// ACME_ERROR("acme::isCoplanar(entity, entity): exception not handled.\n")</span>
       <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
@@ -334,257 +335,257 @@
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">line1</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">line1</span><span class="p">.</span><span class="n">direction</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line0_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">line1_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line0_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">line1_in</span><span class="p">.</span><span class="n">direction</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">ray0</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">ray1</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray0</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">ray1</span><span class="p">.</span><span class="n">direction</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ray0_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">ray1_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray0_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">ray1_in</span><span class="p">.</span><span class="n">direction</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isParallel</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">plane1</span><span class="p">.</span><span class="n">origin</span><span class="p">()),</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">plane0_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">plane1_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">isApprox</span><span class="p">(</span><span class="n">plane0_in</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">plane1_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">segment0</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">segment1</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment0</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">segment1</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">segment0_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">segment1_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment0_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">segment1_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">triangle0</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">triangle1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">triangle0_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">triangle1_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">circle0</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">circle1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">circle0_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">circle1_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">ray</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">ray_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">segment</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">line</span><span class="p">,</span>
-                            <span class="n">triangle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">line_in</span><span class="p">,</span>
+                      <span class="n">triangle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">line</span><span class="p">,</span>
-                            <span class="n">circle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">line_in</span><span class="p">,</span>
+                      <span class="n">circle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">segment</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()</span> <span class="o">-</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">()),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span>
-                            <span class="n">triangle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">ray_in</span><span class="p">,</span>
+                      <span class="n">triangle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span>
-                            <span class="n">circle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">ray_in</span><span class="p">,</span>
+                      <span class="n">circle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">segment</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">plane</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">plane</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">().</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">origin</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span>
-                            <span class="n">triangle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">plane_in</span><span class="p">,</span>
+                      <span class="n">triangle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span>
-                            <span class="n">circle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">plane_in</span><span class="p">,</span>
+                      <span class="n">circle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">segment</span><span class="p">,</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">triangle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">segment_in</span><span class="p">,</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">circle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">segment</span><span class="p">,</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">circle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">segment_in</span><span class="p">,</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="nf">isCoplanar</span><span class="p">(</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isCoplanar</span><span class="p">(</span><span class="n">triangle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">circle</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
-                            <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isCoplanar</span><span class="p">(</span><span class="n">triangle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">circle_in</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">(),</span>
+                      <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

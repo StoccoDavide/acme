@@ -54,17 +54,11 @@ namespace acme
    */
   class line : public entity
   {
-public:
-    typedef std::shared_ptr<line const> ptr; //!< Shared pointer to line
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to line objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to line objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to line objects
+  private:
+    point m_origin;   //!< Origin point
+    vec3 m_direction; //!< Direction vector
 
-private:
-    point _origin;   //!< Origin point
-    vec3 _direction; //!< Direction vector
-
-public:
+  public:
     //! Line class destructor
     ~line() {}
 
@@ -85,8 +79,9 @@ public:
         real dx, //<! Input x value of line direction vector
         real dy, //<! Input y value of line direction vector
         real dz  //<! Input z value of line direction vector
-        ) : _origin(point(ox, oy, oz)),
-            _direction(vec3(dx, dy, dz))
+        )
+        : m_origin(ox, oy, oz),
+          m_direction(dx, dy, dz)
     {
     }
 
@@ -94,42 +89,40 @@ public:
     line(
         point const &origin,  //!< Input line origin point
         vec3 const &direction //!< Input line direction vector
-        ) : _origin(origin),
-            _direction(direction)
+        )
+        : m_origin(origin),
+          m_direction(direction)
     {
     }
 
     //! Equality operator
     line &
     operator=(
-        line const &input //!< Input line object
+        line const &line_in //!< Input line object
     );
 
     //! Check if objects are (almost) equal
     bool
     isApprox(
-        line const &input //!< Input line object
+        line const &line_in,     //!< Input line object
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
-    //! Return line origin point
+    //! Return line origin point const reference
     point const &
     origin(void) const;
 
-    //! Return line direction vector
+    //! Return line origin point reference
+    point &
+    origin(void);
+
+    //! Return line direction vector const reference
     vec3 const &
     direction(void) const;
 
-    //! Set line origin point
-    void
-    origin(
-        point const &input //!< input line origin point
-    );
-
-    //! Set line direction vector
-    void
-    direction(
-        vec3 const &input //!< input line direction vector
-    );
+    //! Return line direction vector reference
+    vec3 &
+    direction(void);
 
     //! Normalize line direction vector
     void
@@ -141,7 +134,7 @@ public:
 
     //! Convert line to normalized vector
     vec3
-    toNormalizedVector(void) const;
+    toUnitVector(void) const;
 
     //! Reverse line direction
     void
@@ -150,27 +143,30 @@ public:
     //! Translate line by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector_in //!< Input translation vector
         ) override;
 
     //! Transform line with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override;
 
     // Check whether the point is inside the line
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if line is degenerated (direction vector has zero norm)
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = EPSILON //!< Tolerance
+    ) const override;
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 3; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 3; }
 
     //! Return object type as string
     std::string type(void) const override { return "line"; }
@@ -199,13 +195,13 @@ public:
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a aabb
-    bool isAabb(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class line
 
-  static line const NaN_line = line(acme::NaN_point, acme::NaN_vec3); //!< Not-a-Number line type
-  static line line_goat = line(NaN_line);                             //!< Scapegoat line type (throwaway non-const object)
+  static line const NAN_LINE = line(NAN_POINT, NAN_VEC3); //!< Not-a-Number static const line object
+  static line THROWAWAY_LINE = line(NAN_LINE);            //!< Throwaway static non-const line object
 
 } // namespace acme
 

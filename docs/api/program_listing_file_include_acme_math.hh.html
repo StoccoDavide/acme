@@ -87,139 +87,23 @@
 <span class="cm">   |</span>
 <span class="cm">  \*/</span>
 
-  <span class="n">real</span>
-  <span class="nf">infinity</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">epsilon</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">sqr</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">cub</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">sqrt</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">pow</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">base</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">exponent</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">abs</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">max</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">min</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">max</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input2</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">min</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input2</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">sin</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">cos</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">tan</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">asin</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">acos</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">atan</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">atan2</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span>
-  <span class="p">);</span>
-
-  <span class="n">real</span>
-  <span class="nf">clamp</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">low</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">high</span>
-  <span class="p">);</span>
-
   <span class="kt">bool</span>
   <span class="nf">isApprox</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">value0_in</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">value1_in</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
-  <span class="n">angleaxis</span>
-  <span class="nf">rotate</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span>
-  <span class="p">);</span>
-
-  <span class="n">angleaxis</span>
-  <span class="nf">rotate</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span>
+  <span class="kt">void</span>
+  <span class="nf">transform</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
   <span class="p">);</span>
 
   <span class="n">real</span>
   <span class="nf">angle</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input0</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input1</span>
-  <span class="p">);</span>
-
-  <span class="kt">void</span>
-  <span class="nf">eulerAngles</span><span class="p">(</span>
-      <span class="n">mat3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">rotation</span><span class="p">,</span>
-      <span class="n">integer</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">integer</span> <span class="n">j</span><span class="p">,</span>
-      <span class="n">integer</span> <span class="n">k</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">angles</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="n">vector0_in</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="n">vector1_in</span>
   <span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>

@@ -47,18 +47,18 @@ namespace acme
 
   aabb &
   aabb::operator=(
-      aabb const &input)
+      aabb const &aabb_in)
   {
-    if (this == &input)
+    if (this == &aabb_in)
     {
       return *this;
     }
     else
     {
-      this->_min = input._min;
-      this->_max = input._max;
-      this->_id = input._id;
-      this->_ipos = input._ipos;
+      this->m_min = aabb_in.m_min;
+      this->m_max = aabb_in.m_max;
+      this->m_id = aabb_in.m_id;
+      this->m_pos = aabb_in.m_pos;
       return *this;
     }
   }
@@ -69,19 +69,20 @@ namespace acme
   aabb::clear(
       void)
   {
-    this->_min = NaN_point;
-    this->_max = NaN_point;
+    this->m_min = NAN_POINT;
+    this->m_max = NAN_POINT;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   aabb::isApprox(
-      aabb const &input)
+      aabb const &aabb_in,
+      real tolerance)
       const
   {
-    return this->_min.isApprox(input._min) &&
-           this->_max.isApprox(input._max);
+    return this->m_min.isApprox(aabb_in.m_min, tolerance) &&
+           this->m_max.isApprox(aabb_in.m_max, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -90,9 +91,9 @@ namespace acme
   aabb::checkMaxMin(void)
       const
   {
-    return this->_max.x() >= this->_min.x() &&
-           this->_max.y() >= this->_min.y() &&
-           this->_max.z() >= this->_min.z();
+    return this->m_max.x() >= this->m_min.x() &&
+           this->m_max.y() >= this->m_min.y() &&
+           this->m_max.z() >= this->m_min.z();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -102,14 +103,14 @@ namespace acme
   {
     bool output = true;
     real point_max_tmp, point_min_tmp;
-    for (integer i = 0; i < 3; ++i)
+    for (size_t i = 0; i < 3; ++i)
     {
-      point_max_tmp = this->_max[i];
-      point_min_tmp = this->_min[i];
+      point_max_tmp = this->m_max[i];
+      point_min_tmp = this->m_min[i];
       if (point_max_tmp < point_min_tmp)
       {
-        this->_max[i] = point_min_tmp;
-        this->_min[i] = point_max_tmp;
+        this->m_max[i] = point_min_tmp;
+        this->m_min[i] = point_max_tmp;
         output = false;
       }
     }
@@ -122,53 +123,34 @@ namespace acme
   aabb::min(void)
       const
   {
-    return this->_min;
+    return this->m_min;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real
-  aabb::minX(void)
-      const
+  point &
+  aabb::min(void)
   {
-    return this->_min.x();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real
-  aabb::minY(void)
-      const
-  {
-    return this->_min.y();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real
-  aabb::minZ(void)
-      const
-  {
-    return this->_min.z();
+    return this->m_min;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real
   aabb::min(
-      integer i)
+      size_t i)
       const
   {
-    return this->_min[i];
+    return this->m_min[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
+  real &
   aabb::min(
-      point const &input)
+      size_t i)
   {
-    this->_min = input;
+    return this->m_min[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -179,46 +161,9 @@ namespace acme
       real y,
       real z)
   {
-    this->_min.x() = x;
-    this->_min.y() = y;
-    this->_min.z() = z;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::minX(
-      real input)
-  {
-    this->_min.x() = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::minY(
-      real input)
-  {
-    this->_min.y() = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::minZ(
-      real input)
-  {
-    this->_min.z() = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::min(
-      integer i,
-      real input)
-  {
-    this->_min[i] = input;
+    this->m_min.x() = x;
+    this->m_min.y() = y;
+    this->m_min.z() = z;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -227,53 +172,34 @@ namespace acme
   aabb::max(void)
       const
   {
-    return this->_max;
+    return this->m_max;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real
-  aabb::maxX(void)
-      const
+  point &
+  aabb::max(void)
   {
-    return this->_max.x();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real
-  aabb::maxY(void)
-      const
-  {
-    return this->_max.y();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real
-  aabb::maxZ(void)
-      const
-  {
-    return this->_max.z();
+    return this->m_max;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real
   aabb::max(
-      integer i)
+      size_t i)
       const
   {
-    return this->_max[i];
+    return this->m_max[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
+  real &
   aabb::max(
-      point const &input)
+      size_t i)
   {
-    this->_max = input;
+    return this->m_max[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -284,58 +210,21 @@ namespace acme
       real y,
       real z)
   {
-    this->_max.x() = x;
-    this->_max.y() = y;
-    this->_max.z() = z;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::maxX(
-      real input)
-  {
-    this->_max.x() = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::maxY(
-      real input)
-  {
-    this->_max.y() = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::maxZ(
-      real input)
-  {
-    this->_max.z() = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::max(
-      integer i,
-      real input)
-  {
-    this->_max[i] = input;
+    this->m_max.x() = x;
+    this->m_max.y() = y;
+    this->m_max.z() = z;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   aabb::intersects(
-      aabb const &input)
+      aabb const &aabb_in)
       const
   {
-    return (this->_min.x() <= input._max.x() && this->_max.x() >= input._min.x()) &&
-           (this->_min.y() <= input._max.y() && this->_max.y() >= input._min.y()) &&
-           (this->_min.z() <= input._max.z() && this->_max.z() >= input._min.z());
+    return this->m_min.x() <= aabb_in.m_max.x() && this->m_max.x() >= aabb_in.m_min.x() &&
+           this->m_min.y() <= aabb_in.m_max.y() && this->m_max.y() >= aabb_in.m_min.y() &&
+           this->m_min.z() <= aabb_in.m_max.z() && this->m_max.z() >= aabb_in.m_min.z();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -346,31 +235,31 @@ namespace acme
   {
     if (boxes.empty())
     {
-      this->_min = Zeros_point;
-      this->_max = Zeros_point;
+      this->m_min = point::Constant(0.0);
+      this->m_max = point::Constant(0.0);
     }
     else
     {
       std::vector<aabb::ptr>::const_iterator it = boxes.begin();
 
-      this->_min = (*it)->_min;
-      this->_max = (*it)->_max;
+      this->m_min = (*it)->m_min;
+      this->m_max = (*it)->m_max;
 
       for (++it; it != boxes.end(); ++it)
       {
         aabb const &cur_box = **it;
-        if (cur_box._min.x() < this->_min.x())
-          this->_min.x() = cur_box._min.x();
-        if (cur_box._min.y() < this->_min.y())
-          this->_min.y() = cur_box._min.y();
-        if (cur_box._min.z() < this->_min.z())
-          this->_min.z() = cur_box._min.z();
-        if (cur_box._max.x() > this->_max.x())
-          this->_max.x() = cur_box._max.x();
-        if (cur_box._max.y() > this->_max.y())
-          this->_max.y() = cur_box._max.y();
-        if (cur_box._max.z() > this->_max.z())
-          this->_max.z() = cur_box._max.z();
+        if (cur_box.m_min.x() < this->m_min.x())
+          this->m_min.x() = cur_box.m_min.x();
+        if (cur_box.m_min.y() < this->m_min.y())
+          this->m_min.y() = cur_box.m_min.y();
+        if (cur_box.m_min.z() < this->m_min.z())
+          this->m_min.z() = cur_box.m_min.z();
+        if (cur_box.m_max.x() > this->m_max.x())
+          this->m_max.x() = cur_box.m_max.x();
+        if (cur_box.m_max.y() > this->m_max.y())
+          this->m_max.y() = cur_box.m_max.y();
+        if (cur_box.m_max.z() > this->m_max.z())
+          this->m_max.z() = cur_box.m_max.z();
       }
     }
   }
@@ -379,62 +268,62 @@ namespace acme
 
   real
   aabb::centerDistance(
-      point const &query_point)
+      point const &point_in)
       const
   {
-    point center((this->_max + this->_min) / 2);
-    point point_max_centered(this->_max - center);
-    point point_centered(query_point - center);
-    real x_scale = acme::abs(real(1.0) / point_max_centered.x());
-    real y_scale = acme::abs(real(1.0) / point_max_centered.y());
-    real z_scale = acme::abs(real(1.0) / point_max_centered.z());
-    real dx = acme::max(real(0.0), acme::abs(point_centered.x()) * x_scale - real(1.0)) / x_scale;
-    real dy = acme::max(real(0.0), acme::abs(point_centered.y()) * y_scale - real(1.0)) / y_scale;
-    real dz = acme::max(real(0.0), acme::abs(point_centered.z()) * z_scale - real(1.0)) / z_scale;
-    return acme::sqrt(dx * dx + dy * dy + dz * dz);
+    point center((this->m_max + this->m_min) / 2);
+    point point_max_centered(this->m_max - center);
+    point point_centered(point_in - center);
+    real x_scale = std::abs(1.0 / point_max_centered.x());
+    real y_scale = std::abs(1.0 / point_max_centered.y());
+    real z_scale = std::abs(1.0 / point_max_centered.z());
+    real dx = std::max(0.0, std::abs(point_centered.x()) * x_scale - 1.0) / x_scale;
+    real dy = std::max(0.0, std::abs(point_centered.y()) * y_scale - 1.0) / y_scale;
+    real dz = std::max(0.0, std::abs(point_centered.z()) * z_scale - 1.0) / z_scale;
+    return std::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   real
   aabb::exteriorDistance(
-      point const &query_point)
+      point const &point_in)
       const
   {
-    real dx = acme::max(acme::abs(query_point.x() - this->_min.x()), acme::abs(query_point.x() - this->_max.x()));
-    real dy = acme::max(acme::abs(query_point.y() - this->_min.y()), acme::abs(query_point.y() - this->_max.y()));
-    real dz = acme::max(acme::abs(query_point.z() - this->_min.z()), acme::abs(query_point.z() - this->_max.z()));
-    return acme::sqrt(dx * dx + dy * dy + dz * dz);
+    real dx = std::max(std::abs(point_in.x() - this->m_min.x()), std::abs(point_in.x() - this->m_max.x()));
+    real dy = std::max(std::abs(point_in.y() - this->m_min.y()), std::abs(point_in.y() - this->m_max.y()));
+    real dz = std::max(std::abs(point_in.z() - this->m_min.z()), std::abs(point_in.z() - this->m_max.z()));
+    return std::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   aabb::clamp(
-      point const &point_0,
-      point const &point_1,
-      point const &point_2)
+      point const &point0_in,
+      point const &point1_in,
+      point const &point2_in)
   {
-    this->_min.x() = acme::min(point_0.x(), point_1.x(), point_2.x());
-    this->_min.y() = acme::min(point_0.y(), point_1.y(), point_2.y());
-    this->_min.z() = acme::min(point_0.z(), point_1.z(), point_2.z());
-    this->_max.x() = acme::max(point_0.x(), point_1.x(), point_2.x());
-    this->_max.y() = acme::max(point_0.y(), point_1.y(), point_2.y());
-    this->_max.z() = acme::max(point_0.z(), point_1.z(), point_2.z());
+    this->m_min.x() = std::min(point0_in.x(), std::min(point1_in.x(), point2_in.x()));
+    this->m_min.y() = std::min(point0_in.y(), std::min(point1_in.y(), point2_in.y()));
+    this->m_min.z() = std::min(point0_in.z(), std::min(point1_in.z(), point2_in.z()));
+    this->m_max.x() = std::max(point0_in.x(), std::max(point1_in.x(), point2_in.x()));
+    this->m_max.y() = std::max(point0_in.y(), std::max(point1_in.y(), point2_in.y()));
+    this->m_max.z() = std::max(point0_in.z(), std::max(point1_in.z(), point2_in.z()));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   aabb::clamp(
-      point const points[3])
+      point const point_in[3])
   {
-    this->_min.x() = acme::min(points[0].x(), points[1].x(), points[2].x());
-    this->_min.y() = acme::min(points[0].y(), points[1].y(), points[2].y());
-    this->_min.z() = acme::min(points[0].z(), points[1].z(), points[2].z());
-    this->_max.x() = acme::max(points[0].x(), points[1].x(), points[2].x());
-    this->_max.y() = acme::max(points[0].y(), points[1].y(), points[2].y());
-    this->_max.z() = acme::max(points[0].z(), points[1].z(), points[2].z());
+    this->m_min.x() = std::min(point_in[0].x(), std::min(point_in[1].x(), point_in[2].x()));
+    this->m_min.y() = std::min(point_in[0].y(), std::min(point_in[1].y(), point_in[2].y()));
+    this->m_min.z() = std::min(point_in[0].z(), std::min(point_in[1].z(), point_in[2].z()));
+    this->m_max.x() = std::max(point_in[0].x(), std::max(point_in[1].x(), point_in[2].x()));
+    this->m_max.y() = std::max(point_in[0].y(), std::max(point_in[1].y(), point_in[2].y()));
+    this->m_max.z() = std::max(point_in[0].z(), std::max(point_in[1].z(), point_in[2].z()));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -443,7 +332,7 @@ namespace acme
   aabb::id(void)
       const
   {
-    return this->_id;
+    return this->m_id;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -452,51 +341,43 @@ namespace acme
   aabb::pos(void)
       const
   {
-    return this->_ipos;
+    return this->m_pos;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   aabb::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_min = input + this->_min;
-    this->_max = input + this->_max;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  aabb::transform(
-      affine const &matrix)
-  {
-    this->_min.transform(matrix);
-    this->_max.transform(matrix);
+    this->m_min = vector_in + this->m_min;
+    this->m_max = vector_in + this->m_max;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   aabb::isInside(
-      point const &query_point)
+      point const &point_in,
+      real tolerance)
       const
   {
-    return this->_min.x() < query_point.x() &&
-           this->_min.y() < query_point.y() &&
-           this->_min.z() < query_point.z() &&
-           this->_max.x() > query_point.x() &&
-           this->_max.y() > query_point.y() &&
-           this->_max.z() > query_point.z();
+    return this->m_min.x() <= point_in.x() &&
+           this->m_min.y() <= point_in.y() &&
+           this->m_min.z() <= point_in.z() &&
+           this->m_max.x() >= point_in.x() &&
+           this->m_max.y() >= point_in.y() &&
+           this->m_max.z() >= point_in.z();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  aabb::isDegenerated(void)
+  aabb::isDegenerated(
+      real tolerance)
       const
   {
-    return this->_min.isApprox(this->_max) &&
+    return this->m_min.isApprox(this->m_max, tolerance) &&
            this->checkMaxMin();
   }
 

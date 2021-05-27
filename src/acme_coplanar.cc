@@ -23,7 +23,7 @@
 (*    e-mail: enrico.bertolazzi@unitn.it                               *)
 (*                                                                     *)
 (***********************************************************************)
-*/˚
+*/
 
 ///
 /// file: acme_coplanar.cc
@@ -47,245 +47,246 @@ namespace acme
 
   bool
   isCoplanar(
-      entity const *entity0,
-      entity const *entity1,
+      entity const *entity0_in,
+      entity const *entity1_in,
       real tolerance)
   {
-    integer slide = entity0->degree() * 100 + entity1->degree();
+    integer slide = entity0_in->level() * 100 + entity1_in->level();
     switch (slide)
     {
 
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 303:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<line const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity0_in),
+                        *dynamic_cast<line const *>(entity1_in),
+                        tolerance);
       break;
 
     case 304:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<ray const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity0_in),
+                        *dynamic_cast<ray const *>(entity1_in),
+                        tolerance);
       break;
 
     case 305:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<plane const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity0_in),
+                        *dynamic_cast<plane const *>(entity1_in),
+                        tolerance);
       break;
 
     case 306:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<segment const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity0_in),
+                        *dynamic_cast<segment const *>(entity1_in),
+                        tolerance);
       break;
 
     case 307:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<triangle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity0_in),
+                        *dynamic_cast<triangle const *>(entity1_in),
+                        tolerance);
       break;
 
     case 308:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity0_in),
+                        *dynamic_cast<circle const *>(entity1_in),
+                        tolerance);
       break;
 
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 403:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity1),
-                              *dynamic_cast<ray const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity1_in),
+                        *dynamic_cast<ray const *>(entity0_in),
+                        tolerance);
       break;
 
     case 404:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity0),
-                              *dynamic_cast<ray const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity0_in),
+                        *dynamic_cast<ray const *>(entity1_in),
+                        tolerance);
       break;
 
     case 405:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity0),
-                              *dynamic_cast<plane const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity0_in),
+                        *dynamic_cast<plane const *>(entity1_in),
+                        tolerance);
       break;
 
     case 406:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity0),
-                              *dynamic_cast<segment const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity0_in),
+                        *dynamic_cast<segment const *>(entity1_in),
+                        tolerance);
       break;
 
     case 407:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity0),
-                              *dynamic_cast<triangle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity0_in),
+                        *dynamic_cast<triangle const *>(entity1_in),
+                        tolerance);
       break;
 
     case 408:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity0_in),
+                        *dynamic_cast<circle const *>(entity1_in),
+                        tolerance);
       break;
 
       // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 503:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity1),
-                              *dynamic_cast<plane const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity1_in),
+                        *dynamic_cast<plane const *>(entity0_in),
+                        tolerance);
       break;
 
     case 504:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity1),
-                              *dynamic_cast<plane const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity1_in),
+                        *dynamic_cast<plane const *>(entity0_in),
+                        tolerance);
       break;
 
     case 505:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity0),
-                              *dynamic_cast<plane const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity0_in),
+                        *dynamic_cast<plane const *>(entity1_in),
+                        tolerance);
       break;
 
     case 506:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity0),
-                              *dynamic_cast<segment const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity0_in),
+                        *dynamic_cast<segment const *>(entity1_in),
+                        tolerance);
       break;
 
     case 507:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity0),
-                              *dynamic_cast<triangle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity0_in),
+                        *dynamic_cast<triangle const *>(entity1_in),
+                        tolerance);
       break;
 
     case 508:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity0_in),
+                        *dynamic_cast<circle const *>(entity1_in),
+                        tolerance);
       break;
 
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 603:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity1),
-                              *dynamic_cast<segment const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity1_in),
+                        *dynamic_cast<segment const *>(entity0_in),
+                        tolerance);
       break;
 
     case 604:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity1),
-                              *dynamic_cast<segment const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity1_in),
+                        *dynamic_cast<segment const *>(entity0_in),
+                        tolerance);
       break;
 
     case 605:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity1),
-                              *dynamic_cast<segment const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity1_in),
+                        *dynamic_cast<segment const *>(entity0_in),
+                        tolerance);
       break;
 
     case 606:
-      return acme::isCoplanar(*dynamic_cast<segment const *>(entity0),
-                              *dynamic_cast<segment const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<segment const *>(entity0_in),
+                        *dynamic_cast<segment const *>(entity1_in),
+                        tolerance);
       break;
 
     case 607:
-      return acme::isCoplanar(*dynamic_cast<segment const *>(entity0),
-                              *dynamic_cast<triangle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<segment const *>(entity0_in),
+                        *dynamic_cast<triangle const *>(entity1_in),
+                        tolerance);
       break;
 
     case 608:
-      return acme::isCoplanar(*dynamic_cast<segment const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<segment const *>(entity0_in),
+                        *dynamic_cast<circle const *>(entity1_in),
+                        tolerance);
       break;
 
       // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 703:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity1),
-                              *dynamic_cast<triangle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity1_in),
+                        *dynamic_cast<triangle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 704:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity1),
-                              *dynamic_cast<triangle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity1_in),
+                        *dynamic_cast<triangle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 705:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity1),
-                              *dynamic_cast<triangle const *>(entity0), tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity1_in),
+                        *dynamic_cast<triangle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 706:
-      return acme::isCoplanar(*dynamic_cast<segment const *>(entity1),
-                              *dynamic_cast<triangle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<segment const *>(entity1_in),
+                        *dynamic_cast<triangle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 707:
-      return acme::isCoplanar(*dynamic_cast<triangle const *>(entity0),
-                              *dynamic_cast<triangle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<triangle const *>(entity0_in),
+                        *dynamic_cast<triangle const *>(entity1_in),
+                        tolerance);
       break;
 
     case 708:
-      return acme::isCoplanar(*dynamic_cast<triangle const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<triangle const *>(entity0_in),
+                        *dynamic_cast<circle const *>(entity1_in),
+                        tolerance);
       break;
 
       // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 803:
-      return acme::isCoplanar(*dynamic_cast<line const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<line const *>(entity1_in),
+                        *dynamic_cast<circle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 804:
-      return acme::isCoplanar(*dynamic_cast<ray const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<ray const *>(entity1_in),
+                        *dynamic_cast<circle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 805:
-      return acme::isCoplanar(*dynamic_cast<plane const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<plane const *>(entity1_in),
+                        *dynamic_cast<circle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 806:
-      return acme::isCoplanar(*dynamic_cast<segment const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<segment const *>(entity1_in),
+                        *dynamic_cast<circle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 807:
-      return acme::isCoplanar(*dynamic_cast<triangle const *>(entity1),
-                              *dynamic_cast<circle const *>(entity0),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<triangle const *>(entity1_in),
+                        *dynamic_cast<circle const *>(entity0_in),
+                        tolerance);
       break;
 
     case 808:
-      return acme::isCoplanar(*dynamic_cast<circle const *>(entity0),
-                              *dynamic_cast<circle const *>(entity1),
-                              tolerance);
+      return isCoplanar(*dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<circle const *>(entity1_in),
+                        tolerance);
       break;
 
       // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
     default:
-      //ACME_ERROR("acme::isCoplanar(entity, entity): exception not handled.\n")
+      // ACME_ERROR("acme::isCoplanar(entity, entity): exception not handled.\n")
       return false;
       break;
     }
@@ -295,257 +296,257 @@ namespace acme
 
   bool
   isCoplanar(
-      line const &line0,
-      line const &line1,
+      line const &line0_in,
+      line const &line1_in,
       real tolerance)
   {
-    return (line0.origin() - line1.origin()).isOrthogonal(line0.direction().cross(line1.direction()), tolerance);
+    return (line0_in.origin() - line1_in.origin()).isOrthogonal(line0_in.direction().cross(line1_in.direction()), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      ray const &ray0,
-      ray const &ray1,
+      ray const &ray0_in,
+      ray const &ray1_in,
       real tolerance)
   {
-    return (ray0.origin() - ray1.origin()).isOrthogonal(ray0.direction().cross(ray1.direction()), tolerance);
+    return (ray0_in.origin() - ray1_in.origin()).isOrthogonal(ray0_in.direction().cross(ray1_in.direction()), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      plane const &plane0,
-      plane const &plane1,
+      plane const &plane0_in,
+      plane const &plane1_in,
       real tolerance)
   {
-    return acme::isParallel(plane0.normal(), plane1.normal(), tolerance) &&
-           acme::isApprox(plane0.signedDistance(plane1.origin()), real(0.0), tolerance);
+    return isParallel(plane0_in.normal(), plane1_in.normal(), tolerance) &&
+           isApprox(plane0_in.signedDistance(plane1_in.origin()), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      segment const &segment0,
-      segment const &segment1,
+      segment const &segment0_in,
+      segment const &segment1_in,
       real tolerance)
   {
-    return (segment0.vertex(0) - segment1.vertex(0)).isOrthogonal(segment0.toNormalizedVector().cross(segment1.toNormalizedVector()), tolerance);
+    return (segment0_in.vertex(0) - segment1_in.vertex(0)).isOrthogonal(segment0_in.toUnitVector().cross(segment1_in.toUnitVector()), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      triangle const &triangle0,
-      triangle const &triangle1,
+      triangle const &triangle0_in,
+      triangle const &triangle1_in,
       real tolerance)
   {
-    return acme::isCoplanar(triangle0.layingPlane(),
-                            triangle1.layingPlane(),
-                            tolerance);
+    return isCoplanar(triangle0_in.layingPlane(),
+                      triangle1_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      circle const &circle0,
-      circle const &circle1,
+      circle const &circle0_in,
+      circle const &circle1_in,
       real tolerance)
   {
-    return acme::isCoplanar(circle0.layingPlane(),
-                            circle1.layingPlane(),
-                            tolerance);
+    return isCoplanar(circle0_in.layingPlane(),
+                      circle1_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      line const &line,
-      ray const &ray,
+      line const &line_in,
+      ray const &ray_in,
       real tolerance)
   {
-    return (line.origin() - ray.origin()).isOrthogonal(line.direction().cross(ray.direction()), tolerance);
+    return (line_in.origin() - ray_in.origin()).isOrthogonal(line_in.direction().cross(ray_in.direction()), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      line const &line,
-      plane const &plane,
+      line const &line_in,
+      plane const &plane_in,
       real tolerance)
   {
-    return line.direction().isOrthogonal(plane.normal(), tolerance) &&
-           plane.normal().isOrthogonal(line.origin() - plane.origin(), tolerance);
+    return line_in.direction().isOrthogonal(plane_in.normal(), tolerance) &&
+           plane_in.normal().isOrthogonal(line_in.origin() - plane_in.origin(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      line const &line,
-      segment const &segment,
+      line const &line_in,
+      segment const &segment_in,
       real tolerance)
   {
-    return (line.origin() - segment.vertex(0)).isOrthogonal(line.direction().cross(segment.toNormalizedVector()), tolerance);
+    return (line_in.origin() - segment_in.vertex(0)).isOrthogonal(line_in.direction().cross(segment_in.toUnitVector()), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      line const &line,
-      triangle const &triangle,
+      line const &line_in,
+      triangle const &triangle_in,
       real tolerance)
   {
-    return acme::isCoplanar(line,
-                            triangle.layingPlane(),
-                            tolerance);
+    return isCoplanar(line_in,
+                      triangle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      line const &line,
-      circle const &circle,
+      line const &line_in,
+      circle const &circle_in,
       real tolerance)
   {
-    return acme::isCoplanar(line,
-                            circle.layingPlane(),
-                            tolerance);
+    return isCoplanar(line_in,
+                      circle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      ray const &ray,
-      plane const &plane,
+      ray const &ray_in,
+      plane const &plane_in,
       real tolerance)
   {
-    return ray.direction().isOrthogonal(plane.normal(), tolerance) &&
-           plane.normal().isOrthogonal(ray.origin() - plane.origin(), tolerance);
+    return ray_in.direction().isOrthogonal(plane_in.normal(), tolerance) &&
+           plane_in.normal().isOrthogonal(ray_in.origin() - plane_in.origin(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      ray const &ray,
-      segment const &segment,
+      ray const &ray_in,
+      segment const &segment_in,
       real tolerance)
   {
-    return (ray.origin() - segment.vertex(0)).isOrthogonal(ray.direction().cross(segment.toNormalizedVector()), tolerance);
+    return (ray_in.origin() - segment_in.vertex(0)).isOrthogonal(ray_in.direction().cross(segment_in.toUnitVector()), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      ray const &ray,
-      triangle const &triangle,
+      ray const &ray_in,
+      triangle const &triangle_in,
       real tolerance)
   {
-    return acme::isCoplanar(ray,
-                            triangle.layingPlane(),
-                            tolerance);
+    return isCoplanar(ray_in,
+                      triangle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      ray const &ray,
-      circle const &circle,
+      ray const &ray_in,
+      circle const &circle_in,
       real tolerance)
   {
-    return acme::isCoplanar(ray,
-                            circle.layingPlane(),
-                            tolerance);
+    return isCoplanar(ray_in,
+                      circle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      plane const &plane,
-      segment const &segment,
+      plane const &plane_in,
+      segment const &segment_in,
       real tolerance)
   {
-    return segment.toNormalizedVector().isOrthogonal(plane.normal(), tolerance) &&
-           plane.normal().isOrthogonal(segment.vertex(0) - plane.origin(), tolerance);
+    return segment_in.toUnitVector().isOrthogonal(plane_in.normal(), tolerance) &&
+           plane_in.normal().isOrthogonal(segment_in.vertex(0) - plane_in.origin(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      plane const &plane,
-      triangle const &triangle,
+      plane const &plane_in,
+      triangle const &triangle_in,
       real tolerance)
   {
-    return acme::isCoplanar(plane,
-                            triangle.layingPlane(),
-                            tolerance);
+    return isCoplanar(plane_in,
+                      triangle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      plane const &plane,
-      circle const &circle,
+      plane const &plane_in,
+      circle const &circle_in,
       real tolerance)
   {
-    return acme::isCoplanar(plane,
-                            circle.layingPlane(),
-                            tolerance);
+    return isCoplanar(plane_in,
+                      circle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      segment const &segment,
-      triangle const &triangle,
+      segment const &segment_in,
+      triangle const &triangle_in,
       real tolerance)
   {
-    return acme::isCoplanar(triangle.layingPlane(),
-                            segment,
-                            tolerance);
+    return isCoplanar(triangle_in.layingPlane(),
+                      segment_in,
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      segment const &segment,
-      circle const &circle,
+      segment const &segment_in,
+      circle const &circle_in,
       real tolerance)
   {
-    return acme::isCoplanar(circle.layingPlane(),
-                            segment,
-                            tolerance);
+    return isCoplanar(circle_in.layingPlane(),
+                      segment_in,
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCoplanar(
-      triangle const &triangle,
-      circle const &circle,
+      triangle const &triangle_in,
+      circle const &circle_in,
       real tolerance)
   {
-    return acme::isCoplanar(triangle.layingPlane(),
-                            circle.layingPlane(),
-                            tolerance);
+    return isCoplanar(triangle_in.layingPlane(),
+                      circle_in.layingPlane(),
+                      tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -85,46 +85,50 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">segment</span><span class="o">::</span><span class="n">segment</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">x0</span><span class="p">,</span> <span class="n">real</span> <span class="n">y0</span><span class="p">,</span> <span class="n">real</span> <span class="n">z0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">x1</span><span class="p">,</span> <span class="n">real</span> <span class="n">y1</span><span class="p">,</span> <span class="n">real</span> <span class="n">z1</span><span class="p">)</span>
+      <span class="n">real</span> <span class="n">vertex0_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex0_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex0_z</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex1_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex1_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex1_z</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">);</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">vertex0_x</span><span class="p">,</span> <span class="n">vertex0_y</span><span class="p">,</span> <span class="n">vertex0_z</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">vertex1_x</span><span class="p">,</span> <span class="n">vertex1_y</span><span class="p">,</span> <span class="n">vertex1_z</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">segment</span><span class="o">::</span><span class="n">segment</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">)</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vertex0</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vertex1</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">point0</span><span class="p">;</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">point1</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vertex0</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vertex1</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">segment</span><span class="o">::</span><span class="n">segment</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="n">point</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
   <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">segment</span> <span class="o">&amp;</span>
   <span class="n">segment</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">)</span>
     <span class="p">{</span>
       <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
       <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -133,12 +137,12 @@
 
   <span class="kt">bool</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">isApprox</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">isApprox</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">isApprox</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -147,26 +151,45 @@
   <span class="n">segment</span><span class="o">::</span><span class="n">centroid</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span>
-      <span class="n">integer</span> <span class="n">i</span><span class="p">)</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">point</span> <span class="o">&amp;</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span>
-      <span class="n">integer</span> <span class="n">i</span><span class="p">)</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">segment</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+      <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span> <span class="o">&amp;</span>
+  <span class="n">segment</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -174,15 +197,15 @@
   <span class="n">vec3</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">toVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="nf">point</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="nf">point</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">vec3</span>
-  <span class="n">segment</span><span class="o">::</span><span class="n">toNormalizedVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span>
+  <span class="n">segment</span><span class="o">::</span><span class="n">toUnitVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="n">normalized</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="n">normalized</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -190,24 +213,24 @@
   <span class="kt">void</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">point</span> <span class="nf">tmp_point</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_point</span><span class="p">;</span>
+    <span class="n">point</span> <span class="nf">tmp_point</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_point</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
-      <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">aabb_in</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="n">input</span><span class="p">.</span><span class="n">minX</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">()));</span>
-    <span class="n">input</span><span class="p">.</span><span class="n">minY</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">y</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span><span class="p">()));</span>
-    <span class="n">input</span><span class="p">.</span><span class="n">minZ</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">z</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">z</span><span class="p">()));</span>
-    <span class="n">input</span><span class="p">.</span><span class="n">maxX</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">()));</span>
-    <span class="n">input</span><span class="p">.</span><span class="n">maxY</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">y</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span><span class="p">()));</span>
-    <span class="n">input</span><span class="p">.</span><span class="n">maxZ</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">z</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">z</span><span class="p">()));</span>
+    <span class="n">aabb_in</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">());</span>
+    <span class="n">aabb_in</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">y</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span><span class="p">());</span>
+    <span class="n">aabb_in</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">z</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">z</span><span class="p">());</span>
+    <span class="n">aabb_in</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">x</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">x</span><span class="p">());</span>
+    <span class="n">aabb_in</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">y</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">y</span><span class="p">());</span>
+    <span class="n">aabb_in</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">z</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">z</span><span class="p">());</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -215,41 +238,41 @@
   <span class="n">real</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">length</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">vector_in</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vector_in</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span>
-      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span><span class="p">)</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="n">segment</span><span class="o">::</span><span class="n">isInside</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">real</span> <span class="n">d0</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">();</span>
-    <span class="n">real</span> <span class="n">d1</span> <span class="o">=</span> <span class="p">(</span><span class="n">query_point</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
-    <span class="n">real</span> <span class="n">d2</span> <span class="o">=</span> <span class="p">(</span><span class="n">query_point</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">d0</span> <span class="o">-</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">d2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tolerance</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">d1</span> <span class="o">=</span> <span class="p">(</span><span class="n">query</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">d2</span> <span class="o">=</span> <span class="p">(</span><span class="n">query</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">d0</span> <span class="o">-</span> <span class="n">d1</span> <span class="o">-</span> <span class="n">d2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tolerance</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -259,7 +282,7 @@
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">norm</span><span class="p">(),</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">norm</span><span class="p">(),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

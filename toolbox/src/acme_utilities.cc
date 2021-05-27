@@ -31,6 +31,8 @@
 
 #include "acme_utilities.hh"
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 namespace acme
 {
   /*\
@@ -47,12 +49,26 @@ namespace acme
   std::ostream &
   operator<<(
       std::ostream &os,
+      vec3 const &obj)
+  {
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(6)
+       << "[ " << obj[0] << ", " << obj[1] << ", " << obj[2] << " ]'" << std::endl;
+    return os;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  std::ostream &
+  operator<<(
+      std::ostream &os,
       point const &obj)
   {
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "[ " << obj[0] << ", " << obj[1] << ", " << obj[2] << " ]'";
+       << "[ " << obj[0] << ", " << obj[1] << ", " << obj[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -70,10 +86,9 @@ namespace acme
        << std::setprecision(6)
        << std::endl
        << "Origin = "
-       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'"
-       << std::endl
+       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'" << std::endl
        << "Direction = "
-       << "[ " << obj_direction[0] << ", " << obj_direction[2] << ", " << obj_direction[2] << " ]'";
+       << "[ " << obj_direction[0] << ", " << obj_direction[2] << ", " << obj_direction[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -91,10 +106,9 @@ namespace acme
        << std::setprecision(6)
        << std::endl
        << "Origin = "
-       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'"
-       << std::endl
+       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'" << std::endl
        << "Direction = "
-       << "[ " << obj_direction[0] << ", " << obj_direction[2] << ", " << obj_direction[2] << " ]'";
+       << "[ " << obj_direction[0] << ", " << obj_direction[2] << ", " << obj_direction[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -112,10 +126,9 @@ namespace acme
        << std::setprecision(6)
        << std::endl
        << "Origin = "
-       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'"
-       << std::endl
+       << "[ " << obj_origin[0] << ", " << obj_origin[1] << ", " << obj_origin[2] << " ]'" << std::endl
        << "Normal = "
-       << "[ " << obj_normal[0] << ", " << obj_normal[1] << ", " << obj_normal[2] << " ]'";
+       << "[ " << obj_normal[0] << ", " << obj_normal[1] << ", " << obj_normal[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -133,10 +146,9 @@ namespace acme
        << std::setprecision(6)
        << std::endl
        << "Vertex 0 = "
-       << "[ " << obj_point_0[0] << ", " << obj_point_0[1] << ", " << obj_point_0[2] << " ]'"
-       << std::endl
+       << "[ " << obj_point_0[0] << ", " << obj_point_0[1] << ", " << obj_point_0[2] << " ]'" << std::endl
        << "Vertex 1 = "
-       << "[ " << obj_point_1[0] << ", " << obj_point_1[1] << ", " << obj_point_1[2] << " ]'";
+       << "[ " << obj_point_1[0] << ", " << obj_point_1[1] << ", " << obj_point_1[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -153,11 +165,10 @@ namespace acme
        << std::showpoint
        << std::setprecision(6)
        << std::endl
-       << "Point min = "
-       << "[ " << obj_point_min[0] << ", " << obj_point_min[1] << ", " << obj_point_min[2] << " ]'"
-       << std::endl
-       << "Point max = "
-       << "[ " << obj_point_max[0] << ", " << obj_point_max[1] << ", " << obj_point_max[2] << " ]'";
+       << "Min = "
+       << "[ " << obj_point_min[0] << ", " << obj_point_min[1] << ", " << obj_point_min[2] << " ]'" << std::endl
+       << "Max = "
+       << "[ " << obj_point_max[0] << ", " << obj_point_max[1] << ", " << obj_point_max[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -180,7 +191,7 @@ namespace acme
        << "Vertex 1 = "
        << "[ " << obj_vertex_1[0] << ", " << obj_vertex_1[1] << ", " << obj_vertex_1[2] << " ]'" << std::endl
        << "Vertex 2 = "
-       << "[ " << obj_vertex_2[0] << ", " << obj_vertex_2[1] << ", " << obj_vertex_2[2] << " ]'";
+       << "[ " << obj_vertex_2[0] << ", " << obj_vertex_2[1] << ", " << obj_vertex_2[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -197,13 +208,32 @@ namespace acme
        << std::showpoint
        << std::setprecision(10)
        << std::endl
+       << "Radius = "
+       << obj.radius() << std::endl
        << "Center = "
-       << "[ " << obj_center[0] << ", " << obj_center[1] << ", " << obj_center[2] << " ]'"
-       << std::endl
+       << "[ " << obj_center[0] << ", " << obj_center[1] << ", " << obj_center[2] << " ]'" << std::endl
        << "Normal = "
-       << "[ " << obj_normal[0] << ", " << obj_normal[1] << ", " << obj_normal[2] << " ]'"
+       << "[ " << obj_normal[0] << ", " << obj_normal[1] << ", " << obj_normal[2] << " ]'" << std::endl;
+    return os;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  out_stream &
+  operator<<(
+      out_stream &os,
+      sphere const &obj)
+  {
+    real obj_radius(obj.radius());
+    point obj_center(obj.center());
+    os << std::scientific
+       << std::showpoint
+       << std::setprecision(10)
        << std::endl
-       << "Radius = " << obj.radius();
+       << "Radius = "
+       << obj_radius << std::endl
+       << "Center = "
+       << "[ " << obj_center[0] << ", " << obj_center[1] << ", " << obj_center[2] << " ]'" << std::endl;
     return os;
   }
 
@@ -218,17 +248,19 @@ namespace acme
        << std::showpoint
        << std::setprecision(10)
        << std::endl
-       << "Affine = "
-       << "[ " << obj(0, 0) << ", " << obj(0, 1) << ", " << obj(0, 2) << ", " << obj(0, 3) << " ]"
-       << "[ " << obj(1, 0) << ", " << obj(1, 1) << ", " << obj(1, 2) << ", " << obj(1, 3) << " ]"
-       << "[ " << obj(2, 0) << ", " << obj(2, 1) << ", " << obj(2, 2) << ", " << obj(2, 3) << " ]"
-       << "[ " << obj(3, 0) << ", " << obj(3, 1) << ", " << obj(3, 2) << ", " << obj(3, 3) << " ]";
+       << "Affine = [ " << obj(0, 0) << ", " << obj(0, 1) << ", " << obj(0, 2) << ", " << obj(0, 3) << " ]" << std::endl
+       << "         [ " << obj(1, 0) << ", " << obj(1, 1) << ", " << obj(1, 2) << ", " << obj(1, 3) << " ]" << std::endl
+       << "         [ " << obj(2, 0) << ", " << obj(2, 1) << ", " << obj(2, 2) << ", " << obj(2, 3) << " ]" << std::endl
+       << "         [ " << obj(3, 0) << ", " << obj(3, 1) << ", " << obj(3, 2) << ", " << obj(3, 3) << " ]" << std::endl
+       << std::endl;
     return os;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: acme_utilities.cc

@@ -55,18 +55,22 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  AABBtree::AABBtree()
+  AABBtree::~AABBtree()
   {
-    this->_ptrbox.reset();
-    this->_children.clear();
+    if (this->m_ptrbox != nullptr)
+    {
+      delete this->m_ptrbox;
+      this->m_ptrbox = nullptr;
+    }
+    this->m_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  AABBtree::~AABBtree()
+  AABBtree::AABBtree()
+      : m_ptrbox(nullptr)
   {
-    this->_ptrbox.reset();
-    this->_children.clear();
+    this->m_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -74,24 +78,27 @@ namespace acme
   void
   AABBtree::clear()
   {
-    this->_ptrbox.reset();
-    this->_children.clear();
+    if (this->m_ptrbox != nullptr)
+    {
+      delete this->m_ptrbox;
+      this->m_ptrbox = nullptr;
+    }
+    this->m_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  AABBtree::isEmpty()
-      const
+  AABBtree::isEmpty() const
   {
-    return this->_children.empty() && !this->_ptrbox;
+    return this->m_children.empty() && this->m_ptrbox == nullptr;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   AABBtree::build(
-      std::vector<aabb::ptr> const &boxes)
+      aabb::vecptr const &boxes)
   {
     clear();
 
@@ -102,29 +109,34 @@ namespace acme
 
     if (size == 1)
     {
-      this->_ptrbox = boxes.front();
+      this->m_ptrbox = boxes.front();
       return;
     }
 
-    this->_ptrbox = std::make_shared<aabb>(boxes, 0, 0);
+    if (this->m_ptrbox != nullptr)
+    {
+      delete this->m_ptrbox;
+      this->m_ptrbox = nullptr;
+    }
+    this->m_ptrbox = new aabb(boxes, 0, 0);
 
-    real xmin = this->_ptrbox->minX();
-    real ymin = this->_ptrbox->minY();
-    real zmin = this->_ptrbox->minZ();
-    real xmax = this->_ptrbox->maxX();
-    real ymax = this->_ptrbox->maxY();
-    real zmax = this->_ptrbox->maxZ();
+    real xmin = this->m_ptrbox->min(0);
+    real ymin = this->m_ptrbox->min(1);
+    real zmin = this->m_ptrbox->min(2);
+    real xmax = this->m_ptrbox->max(0);
+    real ymax = this->m_ptrbox->max(1);
+    real zmax = this->m_ptrbox->max(2);
 
-    std::vector<aabb::ptr> pos_boxes;
-    std::vector<aabb::ptr> neg_boxes;
+    aabb::vecptr pos_boxes;
+    aabb::vecptr neg_boxes;
 
     if ((xmax - xmin) > (ymax - ymin) && (xmax - xmin) > (zmax - zmin))
     {
       real cut_pos = (xmax + xmin) / 2;
-      std::vector<aabb::ptr>::const_iterator it;
+      aabb::vecptr::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
-        real xmid = ((*it)->minX() + (*it)->maxX()) / 2;
+        real xmid = ((*it)->min(0) + (*it)->max(0)) / 2;
         if (xmid > cut_pos)
           pos_boxes.push_back(*it);
         else
@@ -134,10 +146,10 @@ namespace acme
     else if ((ymax - ymin) > (xmax - xmin) && (ymax - ymin) > (zmax - zmin))
     {
       real cut_pos = (ymax + ymin) / 2;
-      std::vector<aabb::ptr>::const_iterator it;
+      aabb::vecptr::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
-        real ymid = ((*it)->minY() + (*it)->maxY()) / 2;
+        real ymid = ((*it)->min(1) + (*it)->max(1)) / 2;
         if (ymid > cut_pos)
           pos_boxes.push_back(*it);
         else
@@ -147,10 +159,10 @@ namespace acme
     else
     {
       real cut_pos = (zmax + zmin) / 2;
-      std::vector<aabb::ptr>::const_iterator it;
+      aabb::vecptr::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
-        real zmid = ((*it)->minZ() + (*it)->maxZ()) / 2;
+        real zmid = ((*it)->min(1) + (*it)->max(1)) / 2;
         if (zmid > cut_pos)
           pos_boxes.push_back(*it);
         else
@@ -160,29 +172,29 @@ namespace acme
 
     if (neg_boxes.empty())
     {
-      std::vector<aabb::ptr>::iterator mid_idx;
+      aabb::vecptr::iterator mid_idx;
       mid_idx = pos_boxes.begin() + pos_boxes.size() / 2;
       neg_boxes.insert(neg_boxes.end(), mid_idx, pos_boxes.end());
       pos_boxes.erase(mid_idx, pos_boxes.end());
     }
     else if (pos_boxes.empty())
     {
-      std::vector<aabb::ptr>::iterator mid_idx;
+      aabb::vecptr::iterator mid_idx;
       mid_idx = neg_boxes.begin() + neg_boxes.size() / 2;
       pos_boxes.insert(pos_boxes.end(), mid_idx, neg_boxes.end());
       neg_boxes.erase(mid_idx, neg_boxes.end());
     }
 
-    AABBtree::ptr neg = std::make_shared<AABBtree>();
-    AABBtree::ptr pos = std::make_shared<AABBtree>();
+    AABBtree::ptr neg = new AABBtree();
+    AABBtree::ptr pos = new AABBtree();
 
     neg->build(neg_boxes);
     if (!neg->isEmpty())
-      this->_children.push_back(neg);
+      this->m_children.push_back(neg);
 
     pos->build(pos_boxes);
     if (!pos->isEmpty())
-      this->_children.push_back(pos);
+      this->m_children.push_back(pos);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -203,11 +215,11 @@ namespace acme
          << std::showpoint
          << std::setprecision(10)
          << "Box =" << std::endl
-         << "Minimum = [ " << this->_ptrbox->minX() << ", " << this->_ptrbox->minY() << ", " << this->_ptrbox->minZ() << " ]'" << std::endl
-         << "Maximum = [ " << this->_ptrbox->maxX() << ", " << this->_ptrbox->maxY() << ", " << this->_ptrbox->maxZ() << " ]'" << std::endl
+         << "Minimum = [ " << this->m_ptrbox->min(0) << ", " << this->m_ptrbox->min(1) << ", " << this->m_ptrbox->min(2) << " ]'" << std::endl
+         << "Maximum = [ " << this->m_ptrbox->max(0) << ", " << this->m_ptrbox->max(1) << ", " << this->m_ptrbox->max(2) << " ]'" << std::endl
          << std::endl;
-      std::vector<AABBtree::ptr>::const_iterator it;
-      for (it = this->_children.begin(); it != this->_children.end(); ++it)
+      AABBtree::vecptr::const_iterator it;
+      for (it = this->m_children.begin(); it != this->m_children.end(); ++it)
         (*it)->print(os, level + 1);
     }
   }
@@ -222,38 +234,38 @@ namespace acme
       const
   {
     // Check aabb with
-    if (!tree._ptrbox->intersects(*this->_ptrbox))
+    if (!tree.m_ptrbox->intersects(*this->m_ptrbox))
       return;
-    integer icase = (this->_children.empty() ? 0 : 1) +
-                    (tree._children.empty() ? 0 : 2);
+    integer icase = (this->m_children.empty() ? 0 : 1) +
+                    (tree.m_children.empty() ? 0 : 2);
     switch (icase)
     {
     case 0: // Both are leafs
       if (swap_tree)
-        intersection_list.push_back(aabb::pairptr(tree._ptrbox, this->_ptrbox));
+        intersection_list.push_back(aabb::pairptr(tree.m_ptrbox, this->m_ptrbox));
       else
-        intersection_list.push_back(aabb::pairptr(this->_ptrbox, tree._ptrbox));
+        intersection_list.push_back(aabb::pairptr(this->m_ptrbox, tree.m_ptrbox));
       break;
     case 1: // First is a tree, second is a leaf
     {
-      std::vector<AABBtree::ptr>::const_iterator it;
-      for (it = this->_children.begin(); it != this->_children.end(); ++it)
+      AABBtree::vecptr::const_iterator it;
+      for (it = this->m_children.begin(); it != this->m_children.end(); ++it)
         tree.intersection(**it, intersection_list, !swap_tree);
     }
     break;
     case 2: // First leaf, second is a tree
     {
-      std::vector<AABBtree::ptr>::const_iterator it;
-      for (it = tree._children.begin(); it != tree._children.end(); ++it)
+      AABBtree::vecptr::const_iterator it;
+      for (it = tree.m_children.begin(); it != tree.m_children.end(); ++it)
         this->intersection(**it, intersection_list, swap_tree);
     }
     break;
     case 3: // First is a tree, second is a tree
     {
-      std::vector<AABBtree::ptr>::const_iterator c1;
-      std::vector<AABBtree::ptr>::const_iterator c2;
-      for (c1 = this->_children.begin(); c1 != this->_children.end(); ++c1)
-        for (c2 = tree._children.begin(); c2 != tree._children.end(); ++c2)
+      AABBtree::vecptr::const_iterator c1;
+      AABBtree::vecptr::const_iterator c2;
+      for (c1 = this->m_children.begin(); c1 != this->m_children.end(); ++c1)
+        for (c2 = tree.m_children.begin(); c2 != tree.m_children.end(); ++c2)
           (*c1)->intersection(**c2, intersection_list, swap_tree);
     }
     break;
@@ -264,23 +276,23 @@ namespace acme
 
   real
   AABBtree::minimumExteriorDistance(
-      point const &query_point,
+      point const &query,
       AABBtree const &tree,
       real distance)
   {
-    std::vector<AABBtree::ptr> const &tree_children = tree._children;
+    AABBtree::vecptr const &tree_children = tree.m_children;
     if (tree_children.empty())
     {
-      real dst = tree._ptrbox->exteriorDistance(query_point);
-      return acme::min(dst, distance);
+      real dst = tree.m_ptrbox->exteriorDistance(query);
+      return std::min(dst, distance);
     }
-    real dmin = tree._ptrbox->centerDistance(query_point);
+    real dmin = tree.m_ptrbox->centerDistance(query);
     if (dmin > distance)
       return distance;
     // check aabb with
-    std::vector<AABBtree::ptr>::const_iterator it;
+    AABBtree::vecptr::const_iterator it;
     for (it = tree_children.begin(); it != tree_children.end(); ++it)
-      distance = minimumExteriorDistance(query_point, **it, distance);
+      distance = minimumExteriorDistance(query, **it, distance);
     return distance;
   }
 
@@ -288,25 +300,25 @@ namespace acme
 
   void
   AABBtree::selectLessThanDistance(
-      point const &query_point,
+      point const &query,
       real distance,
       AABBtree const &tree,
       aabb::vecptr &candidate_list)
   {
-    std::vector<AABBtree::ptr> const &tree_children = tree._children;
-    real dst = tree._ptrbox->centerDistance(query_point);
+    AABBtree::vecptr const &tree_children = tree.m_children;
+    real dst = tree.m_ptrbox->centerDistance(query);
     if (dst <= distance)
     {
       if (tree_children.empty())
       {
-        candidate_list.push_back(tree._ptrbox);
+        candidate_list.push_back(tree.m_ptrbox);
       }
       else
       {
-        // check aabb with
-        std::vector<AABBtree::ptr>::const_iterator it;
+        // Check aabb with
+        AABBtree::vecptr::const_iterator it;
         for (it = tree_children.begin(); it != tree_children.end(); ++it)
-          selectLessThanDistance(query_point, distance, **it, candidate_list);
+          selectLessThanDistance(query, distance, **it, candidate_list);
       }
     }
   }
@@ -315,12 +327,12 @@ namespace acme
 
   void
   AABBtree::selectMinimumDistance(
-      point const &query_point,
+      point const &query,
       aabb::vecptr &candidate_list)
       const
   {
-    real distance = this->minimumExteriorDistance(query_point, *this, acme::infinity());
-    this->selectLessThanDistance(query_point, distance, *this, candidate_list);
+    real distance = this->minimumExteriorDistance(query, *this, INFTY);
+    this->selectLessThanDistance(query, distance, *this, candidate_list);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

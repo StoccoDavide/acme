@@ -47,16 +47,16 @@ namespace acme
 
   circle &
   circle::operator=(
-      circle const &input)
+      circle const &circle_in)
   {
-    if (this == &input)
+    if (this == &circle_in)
     {
       return *this;
     }
     else
     {
-      this->_radius = input._radius;
-      this->_plane = input._plane;
+      this->m_radius = circle_in.m_radius;
+      this->m_plane = circle_in.m_plane;
       return *this;
     }
   }
@@ -65,22 +65,30 @@ namespace acme
 
   bool
   circle::isApprox(
-      circle const &input,
+      circle const &circle_in,
       real tolerance)
       const
   {
-    return acme::isApprox(this->_radius, input._radius, tolerance) &&
-           this->_plane.origin().isApprox(input._plane.origin(), tolerance) &&
-           this->_plane.normal().isApprox(input._plane.normal(), tolerance);
+    return acme::isApprox(this->m_radius, circle_in.m_radius, tolerance) &&
+           this->m_plane.origin().isApprox(circle_in.m_plane.origin(), tolerance) &&
+           this->m_plane.normal().isApprox(circle_in.m_plane.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real
+  real const &
   circle::radius(void)
       const
   {
-    return this->_radius;
+    return this->m_radius;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real &
+  circle::radius(void)
+  {
+    return this->m_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -89,7 +97,15 @@ namespace acme
   circle::center(void)
       const
   {
-    return this->_plane.origin();
+    return this->m_plane.origin();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point &
+  circle::center(void)
+  {
+    return this->m_plane.origin();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -98,43 +114,32 @@ namespace acme
   circle::normal(void)
       const
   {
-    return this->_plane.normal();
+    return this->m_plane.normal();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane const &
+  vec3 &
+  circle::normal(void)
+  {
+    return this->m_plane.normal();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  acme::plane const &
   circle::layingPlane(void)
       const
   {
-    return this->_plane;
+    return this->m_plane;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  circle::radius(
-      real input)
+  acme::plane &
+  circle::layingPlane(void)
   {
-    this->_radius = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  circle::center(
-      point const &input)
-  {
-    this->_plane.origin(input);
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  circle::normal(
-      vec3 const &input)
-  {
-    this->_plane.normal(input);
+    return this->m_plane;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -142,15 +147,7 @@ namespace acme
   void
   circle::normalize(void)
   {
-    this->_plane.normalize();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  void
-  circle::layingPlane(
-      plane const &input)
-  {
-    this->_plane = input;
+    this->m_plane.normalize();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -158,22 +155,23 @@ namespace acme
   void
   circle::reverse(void)
   {
-    this->_plane.reverse();
+    this->m_plane.reverse();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   circle::clamp(
-      aabb &input)
+      aabb &aabb_in)
       const
   {
-    input.minX(-this->_radius);
-    input.minY(-this->_radius);
-    input.minZ(-this->_radius);
-    input.maxX(this->_radius);
-    input.maxY(this->_radius);
-    input.maxZ(this->_radius);
+    aabb_in.min(0) = -this->m_radius;
+    aabb_in.min(1) = -this->m_radius;
+    aabb_in.min(2) = -this->m_radius;
+    aabb_in.max(0) = this->m_radius;
+    aabb_in.max(1) = this->m_radius;
+    aabb_in.max(2) = this->m_radius;
+    aabb_in.translate(this->m_plane.origin());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -182,7 +180,7 @@ namespace acme
   circle::perimeter(void)
       const
   {
-    return acme::PI * this->_radius * this->_radius;
+    return PI * this->m_radius * this->m_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -191,37 +189,37 @@ namespace acme
   circle::area(void)
       const
   {
-    return 2 * acme::PI * this->_radius;
+    return 2 * PI * this->m_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   circle::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_plane.translate(input);
+    this->m_plane.translate(vector_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   circle::transform(
-      affine const &matrix)
+      affine const &affine_in)
   {
-    this->_plane.transform(matrix);
+    this->m_plane.transform(affine_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   circle::isInside(
-      point const &query_point,
+      point const &point_in,
       real tolerance)
       const
   {
-    return this->_plane.isInside(query_point, tolerance) &&
-           (this->_plane.origin() - query_point).norm() <= this->_radius;
+    return this->m_plane.isInside(point_in, tolerance) &&
+           (this->m_plane.origin() - point_in).norm() <= this->m_radius;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -231,8 +229,8 @@ namespace acme
       real tolerance)
       const
   {
-    return acme::isApprox(this->_radius, real(0.0), tolerance) &&
-           this->_plane.isDegenerated(tolerance);
+    return acme::isApprox(this->m_radius, 0.0, tolerance) ||
+           this->m_plane.isDegenerated(tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -˚

@@ -84,7 +84,7 @@ int main()
        angle += step)
   {
 
-    tmp_affine = rotate(angle, "X");
+    tmp_affine = angleaxis(angle, UNITX_VEC3);
     angle += step;
 
     // Initialize vertices
@@ -99,7 +99,7 @@ int main()
     IntersectionBoolTri2 = intersection(Ray, tmp_Triangle2, IntersectionPointTri2);
 
     std::cout
-        << angle * _180divPI << "°\t"
+        << angle / PIDIV180 << "°\t"
         << "T1 -> " << IntersectionBoolTri1 << ","
         << "T2 -> " << IntersectionBoolTri2 << std::endl;
 
@@ -117,7 +117,6 @@ int main()
       << std::endl
       << "Triangle 1 face normal = " << N1 << std::endl
       << "Triangle 2 face normal = " << N2 << std::endl
-      << "Pow = " << acme::pow(2.0, 2.0) << std::endl
       << std::endl
       << std::endl
       << "TEST 1: Completed" << std::endl;

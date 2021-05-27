@@ -89,15 +89,9 @@
 
   <span class="k">class</span> <span class="nc">plane</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
   <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pairptr</span><span class="o">&gt;</span> <span class="n">vecpairptr</span><span class="p">;</span>
-
   <span class="k">private</span><span class="o">:</span>
-    <span class="n">point</span> <span class="n">_origin</span><span class="p">;</span>
-    <span class="n">vec3</span> <span class="n">_normal</span><span class="p">;</span>
+    <span class="n">point</span> <span class="n">m_origin</span><span class="p">;</span>
+    <span class="n">vec3</span> <span class="n">m_normal</span><span class="p">;</span>
 
   <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">plane</span><span class="p">()</span> <span class="p">{}</span>
@@ -109,71 +103,69 @@
     <span class="n">plane</span><span class="p">(</span><span class="n">plane</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
     <span class="n">plane</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">ox</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of plane origin point</span>
-        <span class="n">real</span> <span class="n">oy</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of plane origin point</span>
-        <span class="n">real</span> <span class="n">oz</span><span class="p">,</span> <span class="c1">//&lt;! Input z value of plane origin point</span>
-        <span class="n">real</span> <span class="n">dx</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of plane normal vector</span>
-        <span class="n">real</span> <span class="n">dy</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of plane normal vector</span>
-        <span class="n">real</span> <span class="n">dz</span>  <span class="c1">//&lt;! Input z value of plane normal vector</span>
-        <span class="p">)</span> <span class="o">:</span> <span class="n">_origin</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">ox</span><span class="p">,</span> <span class="n">oy</span><span class="p">,</span> <span class="n">oz</span><span class="p">)),</span>
-            <span class="n">_normal</span><span class="p">(</span><span class="n">vec3</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">))</span>
+        <span class="n">real</span> <span class="n">origin_x</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of plane origin point</span>
+        <span class="n">real</span> <span class="n">origin_y</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of plane origin point</span>
+        <span class="n">real</span> <span class="n">origin_z</span><span class="p">,</span> <span class="c1">//&lt;! Input z value of plane origin point</span>
+        <span class="n">real</span> <span class="n">normal_x</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of plane normal vector</span>
+        <span class="n">real</span> <span class="n">normal_y</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of plane normal vector</span>
+        <span class="n">real</span> <span class="n">normal_z</span>  <span class="c1">//&lt;! Input z value of plane normal vector</span>
+        <span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_origin</span><span class="p">(</span><span class="n">origin_x</span><span class="p">,</span> <span class="n">origin_y</span><span class="p">,</span> <span class="n">origin_z</span><span class="p">),</span>
+          <span class="n">m_normal</span><span class="p">(</span><span class="n">normal_x</span><span class="p">,</span> <span class="n">normal_y</span><span class="p">,</span> <span class="n">normal_z</span><span class="p">)</span>
     <span class="p">{</span>
     <span class="p">}</span>
 
     <span class="n">plane</span><span class="p">(</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
         <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">normal</span>
-        <span class="p">)</span> <span class="o">:</span> <span class="n">_origin</span><span class="p">(</span><span class="n">origin</span><span class="p">),</span>
-            <span class="n">_normal</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_origin</span><span class="p">(</span><span class="n">origin</span><span class="p">),</span>
+          <span class="n">m_normal</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
     <span class="p">{</span>
     <span class="p">}</span>
 
     <span class="n">plane</span> <span class="o">&amp;</span>
     <span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-        <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span>
     <span class="p">);</span>
 
     <span class="kt">bool</span>
     <span class="nf">isApprox</span><span class="p">(</span>
-        <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="nf">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
     <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="n">vec3</span> <span class="o">&amp;</span>
+    <span class="nf">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
     <span class="kt">void</span>
     <span class="nf">normalize</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">origin</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">normal</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-    <span class="p">);</span>
 
     <span class="n">real</span>
     <span class="nf">d</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span>
     <span class="nf">distance</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span>
     <span class="nf">squaredDistance</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span>
     <span class="nf">signedDistance</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -181,27 +173,27 @@
 
     <span class="kt">void</span>
     <span class="nf">translate</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span>
         <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
-        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
+        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
         <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="c1">// Check whether a point lays on the plane</span>
     <span class="kt">bool</span>
     <span class="nf">isInside</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
     <span class="nf">isDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
 
-    <span class="n">integer</span> <span class="nf">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">5</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">integer</span> <span class="nf">level</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">5</span><span class="p">;</span> <span class="p">}</span>
 
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"plane"</span><span class="p">;</span> <span class="p">}</span>
 
@@ -221,12 +213,12 @@
 
     <span class="kt">bool</span> <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span> <span class="n">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">isSphere</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
   <span class="p">};</span> <span class="c1">// class plane</span>
 
-  <span class="k">static</span> <span class="n">plane</span> <span class="k">const</span> <span class="n">NaN_plane</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">NaN_vec3</span><span class="p">);</span>
-  <span class="k">static</span> <span class="n">plane</span> <span class="n">plane_goat</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">NaN_plane</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">plane</span> <span class="k">const</span> <span class="n">NAN_PLANE</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_VEC3</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">plane</span> <span class="n">plane_goat</span> <span class="o">=</span> <span class="n">plane</span><span class="p">(</span><span class="n">NAN_PLANE</span><span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>
 

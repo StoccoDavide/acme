@@ -189,13 +189,6 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function transform( self, affine )
-      % Transform aabb by 4x4 affine transformation matrix
-      mex_aabb( 'transform', self.objectHandle, affine );
-    end
-    %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
     function out = isInside( self, other_obj )
       % Check if ACME point is inside the aabb 
       if (other_obj.type() == "point")

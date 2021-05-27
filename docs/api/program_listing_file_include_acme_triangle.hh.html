@@ -92,14 +92,8 @@
 
   <span class="k">class</span> <span class="nc">triangle</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
   <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pairptr</span><span class="o">&gt;</span> <span class="n">vecpairptr</span><span class="p">;</span>
-
   <span class="k">private</span><span class="o">:</span>
-    <span class="n">point</span> <span class="n">_vertex</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="n">point</span> <span class="n">m_vertex</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 
   <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">triangle</span><span class="p">()</span> <span class="p">{}</span>
@@ -111,58 +105,56 @@
     <span class="n">triangle</span><span class="p">()</span> <span class="p">{}</span>
 
     <span class="n">triangle</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">x0</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of first triangle vertex</span>
-        <span class="n">real</span> <span class="n">y0</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of first triangle vertex</span>
-        <span class="n">real</span> <span class="n">z0</span><span class="p">,</span> <span class="c1">//&lt;! Input z value of first triangle vertex</span>
-        <span class="n">real</span> <span class="n">x1</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of second triangle vertex</span>
-        <span class="n">real</span> <span class="n">y1</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of second triangle vertex</span>
-        <span class="n">real</span> <span class="n">z1</span><span class="p">,</span> <span class="c1">//&lt;! Input z value of second triangle vertex</span>
-        <span class="n">real</span> <span class="n">x2</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of third triangle vertex</span>
-        <span class="n">real</span> <span class="n">y2</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of third triangle vertex</span>
-        <span class="n">real</span> <span class="n">z2</span>  <span class="c1">//&lt;! Input z value of third triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex0_x</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of first triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex0_y</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of first triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex0_z</span><span class="p">,</span> <span class="c1">//&lt;! Input z value of first triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex1_x</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of second triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex1_y</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of second triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex1_z</span><span class="p">,</span> <span class="c1">//&lt;! Input z value of second triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex2_x</span><span class="p">,</span> <span class="c1">//&lt;! Input x value of third triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex2_y</span><span class="p">,</span> <span class="c1">//&lt;! Input y value of third triangle vertex</span>
+        <span class="n">real</span> <span class="n">vertex2_z</span>  <span class="c1">//&lt;! Input z value of third triangle vertex</span>
     <span class="p">);</span>
 
     <span class="n">triangle</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">,</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point2</span>
-    <span class="p">);</span>
-
-    <span class="n">triangle</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="n">point</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-    <span class="p">);</span>
-
-    <span class="n">triangle</span> <span class="o">&amp;</span>
-    <span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-        <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">isApprox</span><span class="p">(</span>
-        <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
-    <span class="n">vertex</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">point</span> <span class="o">&amp;</span>
-    <span class="nf">vertex</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">vertices</span><span class="p">(</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vertex0</span><span class="p">,</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vertex1</span><span class="p">,</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vertex2</span>
     <span class="p">);</span>
 
-    <span class="kt">void</span>
-    <span class="nf">vertices</span><span class="p">(</span>
+    <span class="n">triangle</span><span class="p">(</span>
         <span class="n">point</span> <span class="k">const</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="p">);</span>
+
+    <span class="n">triangle</span> <span class="o">&amp;</span>
+    <span class="k">operator</span><span class="o">=</span><span class="p">(</span>
+        <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span>
+    <span class="p">);</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isApprox</span><span class="p">(</span>
+        <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">vertex</span><span class="p">(</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="nf">vertex</span><span class="p">(</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">);</span>
+
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="k">operator</span><span class="p">[](</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="k">operator</span><span class="p">[](</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">);</span>
 
     <span class="n">point</span>
@@ -170,8 +162,7 @@
 
     <span class="n">segment</span>
     <span class="nf">edge</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">j</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">vec3</span>
@@ -179,13 +170,13 @@
 
     <span class="kt">void</span>
     <span class="nf">swap</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">j</span>
+        <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+        <span class="kt">size_t</span> <span class="n">j</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
     <span class="nf">clamp</span><span class="p">(</span>
-        <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">aabb_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span>
@@ -197,7 +188,7 @@
 
     <span class="kt">void</span>
     <span class="nf">barycentric</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
         <span class="n">real</span> <span class="o">&amp;</span><span class="n">u</span><span class="p">,</span>
         <span class="n">real</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">,</span>
         <span class="n">real</span> <span class="o">&amp;</span><span class="n">w</span>
@@ -208,26 +199,26 @@
 
     <span class="kt">void</span>
     <span class="nf">translate</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span>
         <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
-        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
+        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
         <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
 
     <span class="kt">bool</span>
     <span class="nf">isInside</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
     <span class="nf">isDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
 
-    <span class="n">integer</span> <span class="nf">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">7</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">integer</span> <span class="nf">level</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">7</span><span class="p">;</span> <span class="p">}</span>
 
     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"triangle"</span><span class="p">;</span> <span class="p">}</span>
 
@@ -247,12 +238,12 @@
 
     <span class="kt">bool</span> <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
-    <span class="kt">bool</span> <span class="n">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">isSphere</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
 
   <span class="p">};</span> <span class="c1">// class triangle</span>
 
-  <span class="k">static</span> <span class="n">triangle</span> <span class="k">const</span> <span class="n">NaN_triangle</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="n">NaN_point</span><span class="p">);</span>
-  <span class="k">static</span> <span class="n">triangle</span> <span class="n">triangle_goat</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">(</span><span class="n">NaN_triangle</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">triangle</span> <span class="k">const</span> <span class="n">NAN_TRIANGLE</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_POINT</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">triangle</span> <span class="n">THROWAWAY_TRIANGLE</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">(</span><span class="n">NAN_TRIANGLE</span><span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>
 

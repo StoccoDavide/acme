@@ -40,6 +40,7 @@
 #include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
+#include "acme_sphere.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -58,9 +59,20 @@
   "% CONSTRUCTORS:                                                       %\n" \
   "%   OUT = mex_triangle( 'new' );                                      %\n" \
   "%   OUT = mex_triangle( 'new',                                        %\n" \
-  "%                       [X; Y; Z], : Triangle point 1                 %\n" \
-  "%                       [X; Y; Z], : Triangle point 2                 %\n" \
-  "%                       [X; Y; Z]  : Triangle point 3                 %\n" \
+  "%                       [X; Y; Z], : Triangle vertex 1                %\n" \
+  "%                       [X; Y; Z], : Triangle vertex 2                %\n" \
+  "%                       [X; Y; Z]  : Triangle vertex 3                %\n" \
+  "%                     );                                              %\n" \
+  "%   obj = mex_triangle( 'new',                                        %\n" \
+  "%                        V1X, : Triangle vertex 1 x value             %\n" \
+  "%                        V1Y, : Triangle vertex 1 y value             %\n" \
+  "%                        V1Z, : Triangle vertex 1 z value             %\n" \
+  "%                        V2X, : Triangle vertex 2 x value             %\n" \
+  "%                        V2Y, : Triangle vertex 2 y value             %\n" \
+  "%                        V2Z  : Triangle vertex 2 z value             %\n" \
+  "%                        V3X, : Triangle vertex 3 x value             %\n" \
+  "%                        V3Y, : Triangle vertex 3 y value             %\n" \
+  "%                        V3Z  : Triangle vertex 3 z value             %\n" \
   "%                     );                                              %\n" \
   "%                                                                     %\n" \
   "% DESTRUCTOR:                                                         %\n" \
@@ -82,7 +94,7 @@
   "%   OUT = mex_triangle( 'centroid', OBJ );                            %\n" \
   "%   OUT = mex_triangle( 'normal', OBJ );                              %\n" \
   "%   OUT = mex_triangle( 'layingPlane', OBJ );                         %\n" \
-  "%   OUT = mex_triangle( 'edge', OBJ, I, J );                          %\n" \
+  "%   OUT = mex_triangle( 'edge', OBJ, I );                             %\n" \
   "%         mex_triangle( 'swap', OBJ, I, J );                          %\n" \
   "%   OUT = mex_triangle( 'clamp', OBJ );                               %\n" \
   "%   OUT = mex_triangle( 'perimeter', OBJ );                           %\n" \
@@ -141,22 +153,22 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_triangle( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 4, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 10, CMD "expected 1, 4 or 10 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
-  real_type x1 = acme::NaN;
-  real_type y1 = acme::NaN;
-  real_type z1 = acme::NaN;
-  real_type x2 = acme::NaN;
-  real_type y2 = acme::NaN;
-  real_type z2 = acme::NaN;
-  real_type x3 = acme::NaN;
-  real_type y3 = acme::NaN;
-  real_type z3 = acme::NaN;
+  real_type x1 = acme::QUIET_NAN;
+  real_type y1 = acme::QUIET_NAN;
+  real_type z1 = acme::QUIET_NAN;
+  real_type x2 = acme::QUIET_NAN;
+  real_type y2 = acme::QUIET_NAN;
+  real_type z2 = acme::QUIET_NAN;
+  real_type x3 = acme::QUIET_NAN;
+  real_type y3 = acme::QUIET_NAN;
+  real_type z3 = acme::QUIET_NAN;
 
   if (nrhs == 4)
   {
@@ -181,6 +193,18 @@ do_new(int nlhs, mxArray *plhs[],
     x3 = matrix3_ptr[0];
     y3 = matrix3_ptr[1];
     z3 = matrix3_ptr[2];
+  }
+  else if (nrhs == 10)
+  {
+    x1 = getScalarValue(arg_in_1, CMD "Error in reading vertex 1 x value");
+    y1 = getScalarValue(arg_in_2, CMD "Error in reading vertex 1 y value");
+    z1 = getScalarValue(arg_in_3, CMD "Error in reading vertex 1 z value");
+    x2 = getScalarValue(arg_in_4, CMD "Error in reading vertex 2 x value");
+    y2 = getScalarValue(arg_in_5, CMD "Error in reading vertex 2 y value");
+    z2 = getScalarValue(arg_in_6, CMD "Error in reading vertex 2 z value");
+    x3 = getScalarValue(arg_in_7, CMD "Error in reading vertex 3 x value");
+    y3 = getScalarValue(arg_in_8, CMD "Error in reading vertex 3 y value");
+    z3 = getScalarValue(arg_in_9, CMD "Error in reading vertex 3 z value");
   }
 
   acme::triangle *ptr = new acme::triangle(x1, y1, z1, x2, y2, z2, x3, y3, z3);
@@ -465,14 +489,13 @@ static void
 do_edge(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_triangle( 'edge', OBJ, I, J ): "
-  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+#define CMD "mex_triangle( 'edge', OBJ, I ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
   int i = getInt(arg_in_2, CMD "Error in first input integer");
-  int j = getInt(arg_in_3, CMD "Error in second input integer");
-  acme::segment *out = new acme::segment(self->edge(i, j));
+  acme::segment *out = new acme::segment(self->edge(i));
   arg_out_0 = convertPtr2Mat<acme::segment>(out);
 #undef CMD
 }
@@ -588,6 +611,8 @@ do_isParallel(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isParallel(self, other));
 #undef CMD
@@ -623,6 +648,8 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
@@ -659,6 +686,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
@@ -695,6 +724,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
@@ -731,6 +762,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   acme::entity *out = acme::intersection(self, other);
   string out_type = out->type();
@@ -750,6 +783,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "circle")
     arg_out_0 = convertPtr2Mat<acme::circle>(dynamic_cast<acme::circle *>(out));
+  else if (out_type == "sphere")
+    arg_out_0 = convertPtr2Mat<acme::sphere>(dynamic_cast<acme::sphere *>(out));
 
   arg_out_1 = mxCreateString(out_type.c_str());
 #undef CMD

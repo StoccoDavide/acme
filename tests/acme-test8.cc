@@ -49,7 +49,7 @@ int main()
   vec3 vector_tmp(0.0, 0.0, 1.0);
 
   // Initialize rotation matrix
-  affine transformation = translate(0.0, 0.0, -1.0) * rotate(PI / 2, "X");
+  affine transformation = translate(0.0, 0.0, -1.0) * angleaxis(PI / 2, UNITX_VEC3);
 
   // Transform objects
   point mov_point(point_tmp);

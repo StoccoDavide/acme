@@ -45,7 +45,7 @@
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project                                                    *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)</span>
+<span class="cm">(* Copyright (c) 2020-2021_in, Davide Stocco and Enrico Bertolazzi.       *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* The ACME project and its components are supplied under the terms of *)</span>
 <span class="cm">(* the open source BSD 2-Clause License. The contents of the ACME      *)</span>
@@ -81,6 +81,7 @@
 <span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_sphere.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">acme</span>
@@ -97,9 +98,9 @@
 
   <span class="n">entity</span> <span class="o">*</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0</span><span class="p">,</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0_in</span><span class="p">,</span>
+      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1_in</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="cm">/*\</span>
@@ -113,58 +114,58 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="cm">/*\</span>
@@ -178,58 +179,58 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1</span><span class="p">,</span>
-      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line_out</span> <span class="o">=</span> <span class="n">line_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line_out</span> <span class="o">=</span> <span class="n">THROWAWAY_LINE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">ray_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">THROWAWAY_RAY</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">ray_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">THROWAWAY_RAY</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="cm">/*\</span>
@@ -243,50 +244,50 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="cm">/*\</span>
@@ -300,125 +301,128 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span>
       <span class="n">plane</span> <span class="o">&amp;</span><span class="n">plane_out</span> <span class="o">=</span> <span class="n">plane_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="c1">// //! Intersection triangle with circle \n</span>
   <span class="c1">// //! WARNING: This function does only support coplanar objects!</span>
   <span class="c1">// bool</span>
   <span class="c1">// intersection(</span>
-  <span class="c1">//     triangle const &amp;triangle, //!&lt; Input triangle</span>
-  <span class="c1">//     triangle const &amp;triangle, //!&lt; Input triangle</span>
-  <span class="c1">//     ?????????</span>
+  <span class="c1">//     triangle const &amp;triangle_in, //!&lt; Input triangle</span>
+  <span class="c1">//     triangle const &amp;triangle_in, //!&lt; Input triangle</span>
+  <span class="c1">//     ??????</span>
+  <span class="c1">//     real tolerance = EPSILON     //!&lt; Tolerance</span>
   <span class="c1">// );</span>
 
   <span class="c1">// //! Intersection triangle with circle \n</span>
   <span class="c1">// //! WARNING: This function does only support coplanar objects!</span>
   <span class="c1">// bool</span>
   <span class="c1">// intersection(</span>
-  <span class="c1">//     circle const &amp;circle, //!&lt; Input circle</span>
-  <span class="c1">//     circle const &amp;circle, //!&lt; Input circle</span>
-  <span class="c1">//     ?????????</span>
+  <span class="c1">//     circle const &amp;circle_in, //!&lt; Input circle</span>
+  <span class="c1">//     circle const &amp;circle_in, //!&lt; Input circle</span>
+  <span class="c1">//     ??????</span>
+  <span class="c1">//     real tolerance = EPSILON     //!&lt; Tolerance</span>
   <span class="c1">// );</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line_out</span> <span class="o">=</span> <span class="n">line_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line_out</span> <span class="o">=</span> <span class="n">THROWAWAY_LINE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">ray_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="o">&amp;</span><span class="n">ray_out</span> <span class="o">=</span> <span class="n">THROWAWAY_RAY</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-  <span class="p">);</span>
-
-  <span class="kt">bool</span>
-  <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="o">&amp;</span><span class="n">triangle_out</span> <span class="o">=</span> <span class="n">triangle_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="o">&amp;</span><span class="n">circle_out</span> <span class="o">=</span> <span class="n">circle_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="o">&amp;</span><span class="n">triangle_out</span> <span class="o">=</span> <span class="n">THROWAWAY_TRIANGLE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="o">&amp;</span><span class="n">circle_out</span> <span class="o">=</span> <span class="n">THROWAWAY_CIRCLE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="c1">// //! Intersection triangle with circle \n</span>
   <span class="c1">// //! WARNING: This function does only support coplanar objects!</span>
   <span class="c1">// bool</span>
   <span class="c1">// intersection(</span>
-  <span class="c1">//     triangle const &amp;triangle, //!&lt; Input triangle</span>
-  <span class="c1">//     circle const &amp;circle,     //!&lt; Input circle</span>
-  <span class="c1">//     ?????????</span>
+  <span class="c1">//     triangle const &amp;triangle_in, //!&lt; Input triangle</span>
+  <span class="c1">//     circle const &amp;circle_in,     //!&lt; Input circle</span>
+  <span class="c1">//     ??????</span>
+  <span class="c1">//     real tolerance = EPSILON     //!&lt; Tolerance</span>
   <span class="c1">// );</span>
 
   <span class="cm">/*\</span>
@@ -432,132 +436,194 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
-      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line</span> <span class="o">=</span> <span class="n">line_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span>
+      <span class="n">line</span> <span class="o">&amp;</span><span class="n">line_out</span> <span class="o">=</span> <span class="n">THROWAWAY_LINE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane2</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane2_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="c1">// //! Intersection between spheres \n</span>
+  <span class="c1">// //! WARNING: This function does not support coplanarity!</span>
+  <span class="c1">// bool</span>
+  <span class="c1">// intersection(</span>
+  <span class="c1">//     sphere const &amp;sphere0_in,                //!&lt; Input sphere 0</span>
+  <span class="c1">//     sphere const &amp;sphere1_in,                //!&lt; Input sphere 1</span>
+  <span class="c1">//     ??????</span>
+  <span class="c1">//     real tolerance = EPSILON              //!&lt; Tolerance</span>
+  <span class="c1">// );</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
+      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="o">&amp;</span><span class="n">circle_out</span> <span class="o">=</span> <span class="n">THROWAWAY_CIRCLE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">point_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="c1">// //! Intersection triangle and sphere \n</span>
+  <span class="c1">// //! WARNING: This function does not support coplanarity!</span>
+  <span class="c1">// bool</span>
+  <span class="c1">// intersection(</span>
+  <span class="c1">//     triangle const &amp;triangle_in,           //!&lt; Input triangle</span>
+  <span class="c1">//     sphere const &amp;sphere_in,               //!&lt; Input sphere</span>
+  <span class="c1">//     ??????</span>
+  <span class="c1">//     real tolerance = EPSILON            //!&lt; Tolerance</span>
+  <span class="c1">// );</span>
+
+  <span class="c1">// //! Intersection circle and sphere \n</span>
+  <span class="c1">// //! WARNING: This function does not support coplanarity!</span>
+  <span class="c1">// bool</span>
+  <span class="c1">// intersection(</span>
+  <span class="c1">//     circle const &amp;circle_in,           //!&lt; Input circle</span>
+  <span class="c1">//     sphere const &amp;sphere_in,               //!&lt; Input sphere</span>
+  <span class="c1">//     ??????</span>
+  <span class="c1">//     real tolerance = EPSILON            //!&lt; Tolerance</span>
+  <span class="c1">// );</span>
 
   <span class="cm">/*\</span>
 <span class="cm">   |   __  __ _              _ _</span>
@@ -570,10 +636,10 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">box0</span><span class="p">,</span>
-      <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">box1</span><span class="p">,</span>
-      <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">aabb</span> <span class="o">=</span> <span class="n">aabb_goat</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+      <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">aabb0_in</span><span class="p">,</span>
+      <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">aabb1_in</span><span class="p">,</span>
+      <span class="n">aabb</span> <span class="o">&amp;</span><span class="n">aabb_out</span> <span class="o">=</span> <span class="n">THROWAWAY_AABB</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>

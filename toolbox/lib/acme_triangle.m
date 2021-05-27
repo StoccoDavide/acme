@@ -171,10 +171,10 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = edge( self, i, j )
-      % Get triangle edge between i-th and j-th vertex
+    function out = edge( self, i )
+      % Get triangle i-th edge
       out = acme_segment();
-      out.copyByHandle( mex_triangle( 'edge', self.objectHandle, i, j ) );
+      out.copyByHandle( mex_triangle( 'edge', self.objectHandle, i ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -54,15 +54,9 @@ namespace acme
    */
   class ray : public entity
   {
-  public:
-    typedef std::shared_ptr<ray const> ptr;  //!< Pointer to ray object
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to ray objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to ray objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to ray objects
-
   private:
-    point _origin;   //!< Ray origin point
-    vec3 _direction; //!< Ray direction vector
+    point m_origin;   //!< Ray origin point
+    vec3 m_direction; //!< Ray direction vector
 
   public:
     //! Ray class destructor
@@ -79,15 +73,15 @@ namespace acme
 
     //! Ray class constructor
     ray(
-        real ox, //<! Input x value of ray origin point
-        real oy, //<! Input y value of ray origin point
-        real oz, //<! Input z value of ray origin point
-        real dx, //<! Input x value of ray direction
-        real dy, //<! Input y value of ray direction
-        real dz  //<! Input z value of ray direction
+        real origin_x,    //<! Input x value of ray origin point
+        real origin_y,    //<! Input y value of ray origin point
+        real origin_z,    //<! Input z value of ray origin point
+        real direction_x, //<! Input x value of ray direction
+        real direction_y, //<! Input y value of ray direction
+        real direction_z  //<! Input z value of ray direction
         )
-        : _origin(point(ox, oy, oz)),
-          _direction(vec3(dx, dy, dz))
+        : m_origin(origin_x, origin_y, origin_z),
+          m_direction(direction_x, direction_y, direction_z)
     {
     }
 
@@ -96,45 +90,41 @@ namespace acme
         point const &origin,  //!< Input ray origin point
         vec3 const &direction //!< Input ray direction vector
         )
-        : _origin(origin),
-          _direction(direction)
+        : m_origin(origin),
+          m_direction(direction)
     {
     }
 
     //! Equality operator
     ray &
     operator=(
-        ray const &input //!< Input ray object
+        ray const &ray_in //!< Input ray object
     );
 
     //! Check if ray objects are (almost) equal
     bool
     isApprox(
-        ray const &input,        //!< Input ray object
-        real tolerance = Epsilon //!< Tolerance
+        ray const &ray_in,       //!< Input ray object
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
-    //! Return ray origin point
+    //! Return ray origin point const reference
     point const &
     origin(void)
         const;
 
-    //! Return ray direction vector
+    //! Return ray direction vector const reference
     vec3 const &
     direction(void)
         const;
 
-    //! Set ray origin point
-    void
-    origin(
-        point const &input //!< input ray object
-    );
+    //! Return ray origin point reference
+    point &
+    origin(void);
 
-    //! Set ray direction vector
-    void
-    direction(
-        vec3 const &input //!< input ray object
-    );
+    //! Return ray direction vector reference
+    vec3 &
+    direction(void);
 
     //! Normalize ray direction vector
     void
@@ -147,7 +137,7 @@ namespace acme
 
     //! Convert ray to normalized vector
     vec3
-    toNormalizedVector(void)
+    toUnitVector(void)
         const;
 
     //! Reverse ray direction
@@ -157,30 +147,30 @@ namespace acme
     //! Translate ray by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector //!< Input translation vector
         ) override;
 
     //! Transform ray with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override;
 
     // Check whether the point is inside the ray
     bool
     isInside(
-        point const &query_point, //!< Query point
-        real tolerance = Epsilon  //!< Tolerance
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if ray is degenerated (null vector)
     bool
     isDegenerated(
-        real tolerance = Epsilon //!< Tolerance
+        real tolerance = EPSILON //!< Tolerance
     ) const override;
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 4; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 4; }
 
     //! Return object type as string
     std::string type(void) const override { return "ray"; }
@@ -209,13 +199,13 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a aabb
-    bool isBox(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class ray
 
-  static ray const NaN_ray = ray(acme::NaN_vec3, acme::NaN_vec3); //!< Not-a-Number ray type
-  static ray ray_goat = ray(NaN_ray);                             //!< Scapegoat ray type (throwaway non-const object)
+  static ray const NAN_RAY = ray(NAN_POINT, NAN_VEC3); //!< Not-a-Number static const ray object
+  static ray THROWAWAY_RAY = ray(NAN_RAY);             //!< Throwaway static non-const ray object
 
 } // namespace acme
 

@@ -40,6 +40,7 @@
 #include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
+#include "acme_sphere.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -189,6 +190,8 @@ do_isParallel(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isParallel(self, other));
 #undef CMD
@@ -224,6 +227,8 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
@@ -260,6 +265,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
@@ -296,6 +303,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
@@ -332,6 +341,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   acme::entity *out = acme::intersection(self, other);
   string out_type = out->type();
@@ -351,6 +362,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "circle")
     arg_out_0 = convertPtr2Mat<acme::circle>(dynamic_cast<acme::circle *>(out));
+  else if (out_type == "sphere")
+    arg_out_0 = convertPtr2Mat<acme::sphere>(dynamic_cast<acme::sphere *>(out));
 
   arg_out_1 = mxCreateString(out_type.c_str());
 #undef CMD

@@ -46,52 +46,58 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   triangle::triangle(
-      real x0, real y0, real z0,
-      real x1, real y1, real z1,
-      real x2, real y2, real z2)
+      real vertex0_x,
+      real vertex0_y,
+      real vertex0_z,
+      real vertex1_x,
+      real vertex1_y,
+      real vertex1_z,
+      real vertex2_x,
+      real vertex2_y,
+      real vertex2_z)
   {
-    this->_vertex[0] = point(x0, y0, z0);
-    this->_vertex[1] = point(x1, y1, z1);
-    this->_vertex[2] = point(x2, y2, z2);
+    this->m_vertex[0] = point(vertex0_x, vertex0_y, vertex0_z);
+    this->m_vertex[1] = point(vertex1_x, vertex1_y, vertex1_z);
+    this->m_vertex[2] = point(vertex2_x, vertex2_y, vertex2_z);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   triangle::triangle(
-      point const &point0,
-      point const &point1,
-      point const &point2)
+      point const &vertex0,
+      point const &vertex1,
+      point const &vertex2)
   {
-    this->_vertex[0] = point0;
-    this->_vertex[1] = point1;
-    this->_vertex[2] = point2;
+    this->m_vertex[0] = vertex0;
+    this->m_vertex[1] = vertex1;
+    this->m_vertex[2] = vertex2;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   triangle::triangle(
-      point const point[3])
+      point const vertex[3])
   {
-    this->_vertex[0] = point[0];
-    this->_vertex[1] = point[1];
-    this->_vertex[2] = point[2];
+    this->m_vertex[0] = vertex[0];
+    this->m_vertex[1] = vertex[1];
+    this->m_vertex[2] = vertex[2];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   triangle &
   triangle::operator=(
-      triangle const &input)
+      triangle const &triangle_in)
   {
-    if (this == &input)
+    if (this == &triangle_in)
     {
       return *this;
     }
     else
     {
-      this->_vertex[0] = input._vertex[0];
-      this->_vertex[1] = input._vertex[1];
-      this->_vertex[2] = input._vertex[2];
+      this->m_vertex[0] = triangle_in.m_vertex[0];
+      this->m_vertex[1] = triangle_in.m_vertex[1];
+      this->m_vertex[2] = triangle_in.m_vertex[2];
       return *this;
     }
   }
@@ -100,55 +106,55 @@ namespace acme
 
   bool
   triangle::isApprox(
-      triangle const &input)
+      triangle const &triangle_in,
+      real tolerance)
       const
   {
-    return this->_vertex[0].isApprox(input._vertex[0], acme::Epsilon) &&
-           this->_vertex[1].isApprox(input._vertex[1], acme::Epsilon) &&
-           this->_vertex[2].isApprox(input._vertex[2], acme::Epsilon);
+    return this->m_vertex[0].isApprox(triangle_in.m_vertex[0], tolerance) &&
+           this->m_vertex[1].isApprox(triangle_in.m_vertex[1], tolerance) &&
+           this->m_vertex[2].isApprox(triangle_in.m_vertex[2], tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   point const &
   triangle::vertex(
-      integer i)
+      size_t i)
       const
   {
-    return this->_vertex[i];
+    ACME_ASSERT(i < 3, "acme::triangle::vertex(): index out of bounds [0,2]");
+    return this->m_vertex[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   point &
   triangle::vertex(
-      integer i)
+      size_t i)
   {
-    return this->_vertex[i];
+    ACME_ASSERT(i < 3, "acme::triangle::vertex(): index out of bounds [0,2]");
+    return this->m_vertex[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  triangle::vertices(
-      point const &vertex0,
-      point const &vertex1,
-      point const &vertex2)
+  point const &
+  triangle::operator[](
+      size_t i)
+      const
   {
-    this->_vertex[0] = vertex0;
-    this->_vertex[1] = vertex1;
-    this->_vertex[2] = vertex2;
+    ACME_ASSERT(i < 3, "acme::triangle::operator[]: index out of bounds [0,2]");
+    return this->m_vertex[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  triangle::vertices(
-      point const vertex[3])
+  point &
+  triangle::operator[](
+      size_t i)
   {
-    this->_vertex[0] = vertex[0];
-    this->_vertex[1] = vertex[1];
-    this->_vertex[2] = vertex[2];
+    ACME_ASSERT(i < 3, "acme::triangle::operator[]: index out of bounds [0,2]");
+    return this->m_vertex[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -157,18 +163,23 @@ namespace acme
   triangle::centroid(void)
       const
   {
-    return (this->_vertex[0] + this->_vertex[1] + this->_vertex[2]) / 3.0;
+    return (this->m_vertex[0] + this->m_vertex[1] + this->m_vertex[2]) / 3.0;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment
   triangle::edge(
-      integer i,
-      integer j)
+      size_t i)
       const
   {
-    return segment(this->_vertex[i], this->_vertex[j]);
+    ACME_ASSERT(i < 3, "acme::triangle::edge(): index out of bounds [0,2]");
+    if (i == 0)
+      return segment(this->m_vertex[0], this->m_vertex[1]);
+    else if (i == 1)
+      return segment(this->m_vertex[1], this->m_vertex[2]);
+    else // (i == 2)
+      return segment(this->m_vertex[2], this->m_vertex[0]);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -177,35 +188,35 @@ namespace acme
   triangle::normal(void)
       const
   {
-    return (this->_vertex[1] - this->_vertex[0]).cross(this->_vertex[2] - this->_vertex[0]).normalized();
+    return (this->m_vertex[1] - this->m_vertex[0]).cross(this->m_vertex[2] - this->m_vertex[0]).normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   triangle::swap(
-      integer i,
-      integer j)
+      size_t i,
+      size_t j)
   {
-    point tmp_vertex_i(this->_vertex[i]);
-    point tmp_vertex_j(this->_vertex[j]);
-    this->_vertex[i] = tmp_vertex_j;
-    this->_vertex[j] = tmp_vertex_i;
+    point tmp_vertex_i(this->m_vertex[i]);
+    point tmp_vertex_j(this->m_vertex[j]);
+    this->m_vertex[i] = tmp_vertex_j;
+    this->m_vertex[j] = tmp_vertex_i;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   triangle::clamp(
-      aabb &input)
+      aabb &aabb_in)
       const
   {
-    input.minX(acme::min(this->_vertex[0].x(), this->_vertex[1].x(), this->_vertex[2].x()));
-    input.minY(acme::min(this->_vertex[0].y(), this->_vertex[1].y(), this->_vertex[2].y()));
-    input.minZ(acme::min(this->_vertex[0].z(), this->_vertex[1].z(), this->_vertex[2].z()));
-    input.maxX(acme::max(this->_vertex[0].x(), this->_vertex[1].x(), this->_vertex[2].x()));
-    input.maxY(acme::max(this->_vertex[0].y(), this->_vertex[1].y(), this->_vertex[2].y()));
-    input.maxZ(acme::max(this->_vertex[0].z(), this->_vertex[1].z(), this->_vertex[2].z()));
+    aabb_in.min(0) = std::min(this->m_vertex[0].x(), std::min(this->m_vertex[1].x(), this->m_vertex[2].x()));
+    aabb_in.min(1) = std::min(this->m_vertex[0].y(), std::min(this->m_vertex[1].y(), this->m_vertex[2].y()));
+    aabb_in.min(2) = std::min(this->m_vertex[0].z(), std::min(this->m_vertex[1].z(), this->m_vertex[2].z()));
+    aabb_in.max(0) = std::max(this->m_vertex[0].x(), std::max(this->m_vertex[1].x(), this->m_vertex[2].x()));
+    aabb_in.max(1) = std::max(this->m_vertex[0].y(), std::max(this->m_vertex[1].y(), this->m_vertex[2].y()));
+    aabb_in.max(2) = std::max(this->m_vertex[0].z(), std::max(this->m_vertex[1].z(), this->m_vertex[2].z()));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -214,9 +225,9 @@ namespace acme
   triangle::perimeter(void)
       const
   {
-    return (this->_vertex[0] - this->_vertex[1]).norm() +
-           (this->_vertex[1] - this->_vertex[2]).norm() +
-           (this->_vertex[2] - this->_vertex[0]).norm();
+    return (this->m_vertex[0] - this->m_vertex[1]).norm() +
+           (this->m_vertex[1] - this->m_vertex[2]).norm() +
+           (this->m_vertex[2] - this->m_vertex[0]).norm();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -225,22 +236,22 @@ namespace acme
   triangle::area(void)
       const
   {
-    return 0.5 * ((this->_vertex[1] - this->_vertex[0]).cross(this->_vertex[2] - this->_vertex[0])).norm();
+    return 0.5 * ((this->m_vertex[1] - this->m_vertex[0]).cross(this->m_vertex[2] - this->m_vertex[0])).norm();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   triangle::barycentric(
-      point const &query_point,
+      point const &point_in,
       real &u,
       real &v,
       real &w)
       const
   {
-    point v0(this->_vertex[1] - this->_vertex[0]);
-    point v1(this->_vertex[2] - this->_vertex[0]);
-    point v2(query_point - this->_vertex[0]);
+    point v0(this->m_vertex[1] - this->m_vertex[0]);
+    point v1(this->m_vertex[2] - this->m_vertex[0]);
+    point v2(point_in - this->m_vertex[0]);
     real d00 = v0.dot(v0);
     real d01 = v0.dot(v1);
     real d11 = v1.dot(v1);
@@ -265,36 +276,37 @@ namespace acme
 
   void
   triangle::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_vertex[0] = input + this->_vertex[0];
-    this->_vertex[1] = input + this->_vertex[1];
-    this->_vertex[2] = input + this->_vertex[2];
+    this->m_vertex[0] = vector_in + this->m_vertex[0];
+    this->m_vertex[1] = vector_in + this->m_vertex[1];
+    this->m_vertex[2] = vector_in + this->m_vertex[2];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   triangle::transform(
-      affine const &matrix)
+      affine const &affine_in)
   {
-    this->_vertex[0].transform(matrix);
-    this->_vertex[1].transform(matrix);
-    this->_vertex[2].transform(matrix);
+    this->m_vertex[0].transform(affine_in);
+    this->m_vertex[1].transform(affine_in);
+    this->m_vertex[2].transform(affine_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   triangle::isInside(
-      point const &query_point)
+      point const &point_in,
+      real tolerance)
       const
   {
     real u, v, w;
-    this->barycentric(query_point, u, v, w);
-    if ((u >= real(0.0) && u <= real(1.0)) &&
-        (v >= real(0.0) && v <= real(1.0)) &&
-        (w >= real(0.0) && w <= real(1.0)))
+    this->barycentric(point_in, u, v, w);
+    if (u >= 0.0 && u <= 1.0 &&
+        v >= 0.0 && v <= 1.0 &&
+        w >= 0.0 && w <= 1.0)
       return true;
     else
       return false;
@@ -303,12 +315,13 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  triangle::isDegenerated(void)
+  triangle::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox((this->_vertex[0] - this->_vertex[1]).norm(), real(0.0), acme::Epsilon) ||
-           acme::isApprox((this->_vertex[1] - this->_vertex[2]).norm(), real(0.0), acme::Epsilon) ||
-           acme::isApprox((this->_vertex[2] - this->_vertex[0]).norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox((this->m_vertex[0] - this->m_vertex[1]).norm(), 0.0, tolerance) ||
+           acme::isApprox((this->m_vertex[1] - this->m_vertex[2]).norm(), 0.0, tolerance) ||
+           acme::isApprox((this->m_vertex[2] - this->m_vertex[0]).norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

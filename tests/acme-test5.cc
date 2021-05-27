@@ -82,7 +82,7 @@ int main()
        angle += step)
   {
 
-    tmp_affine = rotate(angle, "X");
+    tmp_affine = angleaxis(angle, UNITX_VEC3);
     angle += step;
 
     tmp_Triangle1 = Triangle1;
@@ -94,7 +94,7 @@ int main()
     IntersectionBoolTri2 = intersection(Line, tmp_Triangle2, IntersectionPointTri2);
 
     std::cout
-        << angle * _180divPI << "°\t"
+        << angle / PIDIV180 << "°\t"
         << "T1 -> " << IntersectionBoolTri1 << ", T2 -> " << IntersectionBoolTri2 << std::endl;
 
     // ERROR if no one of the two triangles is hit

@@ -84,240 +84,33 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">real</span>
-  <span class="nf">infinity</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">infinity</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">epsilon</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">Epsilon</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">sqr</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">input</span> <span class="o">*</span> <span class="n">input</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">cub</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">input</span> <span class="o">*</span> <span class="n">input</span> <span class="o">*</span> <span class="n">input</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">sqrt</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">pow</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">base</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">exponent</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">abs</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">max</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">input0</span><span class="p">,</span> <span class="n">input1</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">min</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">input0</span><span class="p">,</span> <span class="n">input1</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">max</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input2</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">input0</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">));</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">min</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input2</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">input0</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">));</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">sin</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">cos</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">tan</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">tan</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">asin</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">asin</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">acos</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">acos</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">atan</span><span class="p">(</span><span class="n">real</span> <span class="n">input</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">atan</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">atan2</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">atan2</span><span class="p">(</span><span class="n">input0</span><span class="p">,</span> <span class="n">input1</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="nf">clamp</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">low</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">high</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">&lt;</span> <span class="n">low</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">low</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">high</span><span class="p">;</span>
-    <span class="k">else</span>
-      <span class="k">return</span> <span class="n">input</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
   <span class="kt">bool</span>
   <span class="nf">isApprox</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">input0</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">input1</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">value0_in</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">value1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">input0</span> <span class="o">-</span> <span class="n">input1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">value0_in</span> <span class="o">-</span> <span class="n">value1_in</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">angleaxis</span>
-  <span class="nf">rotate</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span><span class="p">)</span>
+  <span class="kt">void</span>
+  <span class="nf">transform</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">,</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxis</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">axis</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">angleaxis</span>
-  <span class="nf">rotate</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">axis</span> <span class="o">==</span> <span class="s">"X"</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxis</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">UnitX_vec3</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">axis</span> <span class="o">==</span> <span class="s">"Y"</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxis</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">UnitY_vec3</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">axis</span> <span class="o">==</span> <span class="s">"Z"</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxis</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">UnitZ_vec3</span><span class="p">);</span>
-    <span class="k">else</span>
-      <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::rotate(): invalid axis string.</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">vector</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">.</span><span class="n">linear</span><span class="p">()</span> <span class="o">*</span> <span class="n">vector</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">real</span>
   <span class="nf">angle</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input0</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input1</span><span class="p">)</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector0_in</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector1_in</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">acos</span><span class="p">(</span><span class="n">input0</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">input1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">input0</span><span class="p">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">*</span> <span class="n">input1</span><span class="p">.</span><span class="n">norm</span><span class="p">()));</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="kt">void</span>
-  <span class="nf">eulerAngles</span><span class="p">(</span>
-      <span class="n">mat3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">rotation</span><span class="p">,</span>
-      <span class="n">integer</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">integer</span> <span class="n">j</span><span class="p">,</span>
-      <span class="n">integer</span> <span class="n">k</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">angles</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">vec3</span> <span class="n">angles_tmp</span><span class="p">(</span><span class="n">rotation</span><span class="p">.</span><span class="n">eulerAngles</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">));</span>
-    <span class="n">angles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">angles_tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="n">angles</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">angles_tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-    <span class="n">angles</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">angles_tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">acos</span><span class="p">(</span><span class="n">vector0_in</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vector1_in</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">vector0_in</span><span class="p">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">*</span> <span class="n">vector1_in</span><span class="p">.</span><span class="n">norm</span><span class="p">()));</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

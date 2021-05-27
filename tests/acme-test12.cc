@@ -25,7 +25,7 @@
 (***********************************************************************)
 */
 
-// TEST 12 - ENTITIES INTERSECTION
+// TEST 12 - RAY/RAY INTERSECTION
 
 #include <fstream>
 #include <iostream>
@@ -33,10 +33,7 @@
 
 #include "acme.hh"
 #include "acme_intersection.hh"
-#include "acme_line.hh"
-#include "acme_orthogonal.hh"
-#include "acme_parallel.hh"
-#include "acme_point.hh"
+#include "acme_ray.hh"
 #include "acme_utilities.hh"
 
 using namespace acme;
@@ -45,42 +42,26 @@ using namespace acme;
 int main()
 {
   std::cout
-      << "TEST 12 - ENTITIES INTERSECTION" << std::endl;
+      << "TEST 12 - RAY/RAY INTERSECTION" << std::endl;
 
-  vec3 a(1.0, 1.0, 1.0);
-  acme::point p(1.0, 1.0, 1.0);
-  point b(a + p);
-  vec3 v(a + p);
-  std::cout << "point = " << b << "\n";
-  std::cout << "vector = " << v << "\n";
+  ray ray0(point(0.0, 0.0, 0.0), vec3(0.0, -1.0, 0.0));
+  ray ray1(point(0.0, -1.0, 0.0), vec3(0.0, 1.0, 0.0));
 
-  ray *line0 = new ray(point(0.0, 0.0, 0.0), vec3(0.0, -1.0, 0.0));
-  ray *line1 = new ray(point(0.0, -1.0, 0.0), vec3(0.0, 1.0, 0.0));
-  entity *entity_out = acme::intersection(line0, line1);
+  segment segment_out;
+  ray ray_out;
+  bool bool_segment = acme::intersection(ray0, ray1, segment_out, EPSILON);
+  bool bool_ray = acme::intersection(ray0, ray1, ray_out, EPSILON);
 
-  if (dynamic_cast<segment *>(entity_out)) // IF!!!!!
+  if (bool_segment)
   {
-    segment *segment_ptr = dynamic_cast<segment *>(entity_out);
-    std::cout << "Lines intersection point 0 = " << segment_ptr->vertex(0) << "\n";
-    std::cout << "Lines intersection point 1 = " << segment_ptr->vertex(1) << "\n";
-    entity *ptr = reinterpret_cast<entity *>(entity_out);
-    std::cout << "Lines intersection point 1 = " << ptr->isNone() << "\n";
+    std::cout << "Segment:\n"
+              << segment_out;
   }
-
-  circle *circle0 = new circle(2.0, point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-  circle *circle1 = new circle(2.0, point(0.0, 0.0, 0.1), vec3(1.0, -1.0, 0.0));
-  entity *entity_out1 = acme::intersection(circle0, circle1);
-  if (dynamic_cast<segment *>(entity_out1)) // IF!!!!!
+  else if (bool_ray)
   {
-    segment *segment_ptr1 = dynamic_cast<segment *>(entity_out1);
-    std::cout << "Lines intersection point 0 = " << segment_ptr1->vertex(0) << "\n";
-    std::cout << "Lines intersection point 1 = " << segment_ptr1->vertex(1) << "\n";
-    entity *ptr = reinterpret_cast<entity *>(entity_out1);
-    std::cout << "Lines intersection point 1 = " << ptr->isNone() << "\n";
+    std::cout << "Ray:\n"
+              << ray_out;
   }
-
-  delete entity_out;
-  //delete segment_ptr;
 
   std::cout
       << std::endl

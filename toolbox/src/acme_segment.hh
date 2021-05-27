@@ -54,16 +54,10 @@ namespace acme
   */
   class segment : public entity
   {
-public:
-    typedef std::shared_ptr<segment const> ptr; //!< Shared pointer to segment object
-    typedef std::pair<ptr, ptr> pairptr;        //!< Pair of pointers to segment objects
-    typedef std::vector<ptr> vecptr;            //!< Vector of pointers to segment objects
-    typedef std::vector<pairptr> vecpairptr;    //!< Vector of pairs of pointers to segment objects
+  private:
+    point m_vertex[2]; //!< Segment extrema points
 
-private:
-    point _point[2]; //!< Segment extrema points
-
-public:
+  public:
     //! Segment class destructor
     ~segment() {}
 
@@ -78,51 +72,64 @@ public:
 
     //! Segment class constructor
     segment(
-        real x0, //<! Input x value of first segment point
-        real y0, //<! Input y value of first segment point
-        real z0, //<! Input z value of first segment point
-        real x1, //<! Input x value of second segment point
-        real y1, //<! Input y value of second segment point
-        real z1  //<! Input z value of second segment point
+        real vertex0_x, //<! Input x value of first segment vertex
+        real vertex0_y, //<! Input y value of first segment vertex
+        real vertex0_z, //<! Input z value of first segment vertex
+        real vertex1_x, //<! Input x value of second segment vertex
+        real vertex1_y, //<! Input y value of second segment vertex
+        real vertex1_z  //<! Input z value of second segment vertex
     );
 
     //! Segment class constructor
     segment(
-        point const &point0, //!< Input first segment point
-        point const &point1  //!< Input second segment point
+        point const &vertex0, //!< Input first segment vertex
+        point const &vertex1  //!< Input second segment vertex
     );
 
     //! Segment class constructor
     segment(
-        point const point[2] //!< Input segment points
+        point const vertex[2] //!< Input segment vertices
     );
 
     //! Equality operator
     segment &
     operator=(
-        segment const &input //!< Input segment object
+        segment const &segment_in //!< Input segment object
     );
 
     //! Check if segments are (almost) equal
     bool
     isApprox(
-        segment const &input //!< Input object
+        segment const &segment_in, //!< Input segment object
+        real tolerance = EPSILON   //!< Tolerance
     ) const;
 
     //! Get segment centroid
     point
     centroid(void) const;
 
-    //! Get segment i-th vertex
+    //! Get segment i-th vertex const reference
     point const &
     vertex(
-        integer i //!< Intput segment i-th vertex index
+        size_t i //!< Intput segment i-th vertex index
     ) const;
 
-    //! Set segment i-th vertex
+    //! Get segment i-th vertex reference
     point &
     vertex(
-        integer i //!< Intput segment i-th vertex index
+        size_t i //!< Intput segment i-th vertex index
+    );
+
+    //! Get segment i-th vertex const reference
+    point const &
+    operator[](
+        size_t i //!< Intput segment i-th vertex index
+    ) const;
+
+    //! Get segment i-th vertex reference
+    point &
+    operator[](
+        size_t i //!< Intput segment i-th vertex index
     );
 
     //! Convert segment to vector
@@ -131,7 +138,7 @@ public:
 
     //! Convert segment to normalized vector
     vec3
-    toNormalizedVector(void) const;
+    toUnitVector(void) const;
 
     //! Swap segment points
     void
@@ -140,7 +147,7 @@ public:
     //! Get minimum aabb containing the current segment object
     void
     clamp(
-        aabb &input //!< Input aabb object
+        aabb &aabb_in //!< Input aabb object
     ) const;
 
     //! Calculate segment length
@@ -150,27 +157,30 @@ public:
     //! Translate segment by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector_in //!< Input translation vector
         ) override;
 
     //! Transform segment with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override;
 
     // Check whether the point is inside the segment
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
-    //! Check if segment is degenerated to point˚
+    //! Check if segment is degenerated to point
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = EPSILON //!< Tolerance
+    ) const override;
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 6; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 6; }
 
     //! Return object type as string
     std::string type(void) const override { return "segment"; }
@@ -199,13 +209,13 @@ public:
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a aabb
-    bool isAabb(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class segment
 
-  static segment const NaN_segment = segment(acme::NaN_point, acme::NaN_point); //!< Not-a-Number segment type
-  static segment segment_goat = segment(NaN_segment);                           //!< Scapegoat segment type (throwaway non-const object)
+  static segment const NAN_SEGMENT = segment(NAN_POINT, NAN_POINT); //!< Not-a-Number static const segment object
+  static segment THROWAWAY_SEGMENT = segment(NAN_SEGMENT);          //!< Throwaway static non-const segment object
 
 } // namespace acme
 

@@ -56,16 +56,10 @@ namespace acme
    */
   class triangle : public entity
   {
-public:
-    typedef std::shared_ptr<triangle const> ptr; //!< Shared pointer to triangle object
-    typedef std::pair<ptr, ptr> pairptr;         //!< Pair of pointers to triangle objects
-    typedef std::vector<ptr> vecptr;             //!< Vector of pointers to triangle objects
-    typedef std::vector<pairptr> vecpairptr;     //!< Vector of pairs of pointers to triangle objects
+  private:
+    point m_vertex[3]; //!< Triangle vertices
 
-private:
-    point _vertex[3]; //!< Triangle vertices
-
-public:
+  public:
     //! Triangle class destructor
     ~triangle() {}
 
@@ -80,76 +74,74 @@ public:
 
     //! Triangle class constructor
     triangle(
-        real x0, //<! Input x value of first triangle vertex
-        real y0, //<! Input y value of first triangle vertex
-        real z0, //<! Input z value of first triangle vertex
-        real x1, //<! Input x value of second triangle vertex
-        real y1, //<! Input y value of second triangle vertex
-        real z1, //<! Input z value of second triangle vertex
-        real x2, //<! Input x value of third triangle vertex
-        real y2, //<! Input y value of third triangle vertex
-        real z2  //<! Input z value of third triangle vertex
+        real vertex0_x, //<! Input x value of first triangle vertex
+        real vertex0_y, //<! Input y value of first triangle vertex
+        real vertex0_z, //<! Input z value of first triangle vertex
+        real vertex1_x, //<! Input x value of second triangle vertex
+        real vertex1_y, //<! Input y value of second triangle vertex
+        real vertex1_z, //<! Input z value of second triangle vertex
+        real vertex2_x, //<! Input x value of third triangle vertex
+        real vertex2_y, //<! Input y value of third triangle vertex
+        real vertex2_z  //<! Input z value of third triangle vertex
     );
 
     //! Triangle class constructor
     triangle(
-        point const &point0, //!< Input first triangle vertex point
-        point const &point1, //!< Input second triangle vertex point
-        point const &point2  //!< Input third triangle vertex point
+        point const &vertex0, //!< Input first triangle vertex point
+        point const &vertex1, //!< Input second triangle vertex point
+        point const &vertex2  //!< Input third triangle vertex point
     );
 
     //! Triangle class constructor
     triangle(
-        point const point[3] //!< Input triangle verices
+        point const vertex[3] //!< Input triangle verices
     );
 
     //! Equality operator
     triangle &
     operator=(
-        triangle const &input //!< Input triangle object
+        triangle const &triangle_in //!< Input triangle object
     );
 
     //! Check if objects are (almost) equal
     bool
     isApprox(
-        triangle const &input //!< Input triangle object
+        triangle const &triangle_in, //!< Input triangle object
+        real tolerance = EPSILON     //!< Tolerance
     ) const;
 
-    //! Get i-th triangle vertex
+    //! Get i-th triangle vertex const reference
     point const &
     vertex(
-        integer i //!< New triangle vertex
+        size_t i //!< New triangle vertex
     ) const;
 
-    //! Get i-th triangle vertex
+    //! Get i-th triangle vertex reference
     point &
     vertex(
-        integer i //!< New triangle vertex
+        size_t i //!< New triangle vertex
     );
 
-    //! Set triangle vertices
-    void
-    vertices(
-        point const &vertex0, //!< Input first triangle vertex
-        point const &vertex1, //!< Input second triangle vertex
-        point const &vertex2  //!< Input third triangle vertex
-    );
+    //! Get i-th triangle vertex const reference
+    point const &
+    operator[](
+        size_t i //!< New triangle vertex
+    ) const;
 
-    //! Set triangle vertices vertices
-    void
-    vertices(
-        point const vertex[3] //!< New triangle vertices
+    //! Get i-th triangle vertex reference
+    point &
+    operator[](
+        size_t i //!< New triangle vertex
     );
 
     //! Get triangle centroid
     point
     centroid(void) const;
 
-    //! Get triangle edge created by i-th and j-th vertex
+    //! Get triangle edge created by i-th and j-th vertices
     segment
     edge(
-        integer i, //!< Triangle i-th vertex index
-        integer j  //!< Triangle j-th vertex index
+        size_t i //!< Triangle i-th vertex index
     ) const;
 
     //! Get triangle face normal (normalized vector)
@@ -159,14 +151,14 @@ public:
     //! Swap triangle vertices
     void
     swap(
-        integer i, //!< Triangle i-th vertex index
-        integer j  //!< Triangle j-th vertex index
+        size_t i, //!< Triangle i-th vertex index
+        size_t j  //!< Triangle j-th vertex index
     );
 
     //! Get minimum aabb containing the current triangle object
     void
     clamp(
-        aabb &input //!< Input aabb object
+        aabb &aabb_in //!< Input aabb object
     ) const;
 
     //! Calculate triangle perimeter length
@@ -181,10 +173,10 @@ public:
     //! Compute barycentric coordinates (u,v,w) for point
     void
     barycentric(
-        point const &query_point, //!< Input point
-        real &u,                  //!< Output barycentric coordinate u
-        real &v,                  //!< Output barycentric coordinate v
-        real &w                   //!< Output barycentric coordinate w
+        point const &point_in, //!< Input point
+        real &u,               //!< Output barycentric coordinate u
+        real &v,               //!< Output barycentric coordinate v
+        real &w                //!< Output barycentric coordinate w
     ) const;
 
     //! Get triangle laying plane
@@ -194,27 +186,30 @@ public:
     //! Translate triangle by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector_in //!< Input translation vector
         ) override;
 
     //! Transform triangle with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override;
 
     //! Check if a point lays inside the triangle
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if triangle is degenerated to point or segment
     bool
-    isDegenerated(void) const override;
+    isDegenerated(
+        real tolerance = EPSILON //!< Tolerance
+    ) const override;
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 7; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 7; }
 
     //! Return object type as string
     std::string type(void) const override { return "triangle"; }
@@ -243,13 +238,13 @@ public:
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a aabb
-    bool isAabb(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class triangle
 
-  static triangle const NaN_triangle = triangle(acme::NaN_point, acme::NaN_point, NaN_point); //!< Not-a-Number triangle type
-  static triangle triangle_goat = triangle(NaN_triangle);                                     //!< Scapegoat triangle type (throwaway non-const object)
+  static triangle const NAN_TRIANGLE = triangle(NAN_POINT, NAN_POINT, NAN_POINT); //!< Not-a-Number static const triangle object
+  static triangle THROWAWAY_TRIANGLE = triangle(NAN_TRIANGLE);                    //!< Throwaway static non-const triangle object
 
 } // namespace acme
 

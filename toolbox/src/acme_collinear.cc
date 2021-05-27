@@ -42,78 +42,78 @@ namespace acme
 
   bool
   isCollinear(
-      entity const *entity0,
-      entity const *entity1,
+      entity const *entity0_in,
+      entity const *entity1_in,
       real tolerance)
   {
-    integer slide = entity0->degree() * 100 + entity1->degree();
+    integer slide = entity0_in->level() * 100 + entity1_in->level();
     switch (slide)
     {
 
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 303:
-      return acme::isCollinear(*dynamic_cast<line const *>(entity0),
-                               *dynamic_cast<line const *>(entity1),
-                               tolerance);
+      return isCollinear(*dynamic_cast<line const *>(entity0_in),
+                         *dynamic_cast<line const *>(entity1_in),
+                         tolerance);
       break;
 
     case 304:
-      return acme::isCollinear(*dynamic_cast<line const *>(entity0),
-                               *dynamic_cast<ray const *>(entity1),
-                               tolerance);
+      return isCollinear(*dynamic_cast<line const *>(entity0_in),
+                         *dynamic_cast<ray const *>(entity1_in),
+                         tolerance);
       break;
 
     case 306:
-      return acme::isCollinear(*dynamic_cast<line const *>(entity0),
-                               *dynamic_cast<segment const *>(entity1),
-                               tolerance);
+      return isCollinear(*dynamic_cast<line const *>(entity0_in),
+                         *dynamic_cast<segment const *>(entity1_in),
+                         tolerance);
       break;
 
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 403:
-      return acme::isCollinear(*dynamic_cast<line const *>(entity1),
-                               *dynamic_cast<ray const *>(entity0),
-                               tolerance);
+      return isCollinear(*dynamic_cast<line const *>(entity1_in),
+                         *dynamic_cast<ray const *>(entity0_in),
+                         tolerance);
       break;
 
     case 404:
-      return acme::isCollinear(*dynamic_cast<ray const *>(entity0),
-                               *dynamic_cast<ray const *>(entity1),
-                               tolerance);
+      return isCollinear(*dynamic_cast<ray const *>(entity0_in),
+                         *dynamic_cast<ray const *>(entity1_in),
+                         tolerance);
       break;
 
     case 406:
-      return acme::isCollinear(*dynamic_cast<ray const *>(entity0),
-                               *dynamic_cast<segment const *>(entity1),
-                               tolerance);
+      return isCollinear(*dynamic_cast<ray const *>(entity0_in),
+                         *dynamic_cast<segment const *>(entity1_in),
+                         tolerance);
       break;
 
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 603:
-      return acme::isCollinear(*dynamic_cast<line const *>(entity1),
-                               *dynamic_cast<segment const *>(entity0),
-                               tolerance);
+      return isCollinear(*dynamic_cast<line const *>(entity1_in),
+                         *dynamic_cast<segment const *>(entity0_in),
+                         tolerance);
       break;
 
     case 604:
-      return acme::isCollinear(*dynamic_cast<ray const *>(entity1),
-                               *dynamic_cast<segment const *>(entity0),
-                               tolerance);
+      return isCollinear(*dynamic_cast<ray const *>(entity1_in),
+                         *dynamic_cast<segment const *>(entity0_in),
+                         tolerance);
       break;
 
     case 606:
-      return acme::isCollinear(*dynamic_cast<segment const *>(entity0),
-                               *dynamic_cast<segment const *>(entity1),
-                               tolerance);
+      return isCollinear(*dynamic_cast<segment const *>(entity0_in),
+                         *dynamic_cast<segment const *>(entity1_in),
+                         tolerance);
       break;
 
       // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
     default:
-      //ACME_ERROR("acme::isCollinear(entity, entity): exception not handled.")
+      // ACME_ERROR("acme::isCollinear(entity, entity): exception not handled.\n")
       return false;
       break;
     }
@@ -123,72 +123,72 @@ namespace acme
 
   bool
   isCollinear(
-      line const &line0,
-      line const &line1,
+      line const &line0_in,
+      line const &line1_in,
       real tolerance)
   {
-    return acme::isParallel(line0.direction(), line0.origin() - line1.origin(), tolerance) &&
-           acme::isParallel(line0.direction(), line1.direction(), tolerance);
+    return isParallel(line0_in.direction(), line0_in.origin() - line1_in.origin(), tolerance) &&
+           isParallel(line0_in.direction(), line1_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCollinear(
-      ray const &ray0,
-      ray const &ray1,
+      ray const &ray0_in,
+      ray const &ray1_in,
       real tolerance)
   {
-    return acme::isParallel(ray0.direction(), ray0.origin() - ray1.origin(), tolerance) &&
-           acme::isParallel(ray1.direction(), ray1.direction(), tolerance);
+    return isParallel(ray0_in.direction(), ray0_in.origin() - ray1_in.origin(), tolerance) &&
+           isParallel(ray1_in.direction(), ray1_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCollinear(
-      segment const &segment0,
-      segment const &segment1,
+      segment const &segment0_in,
+      segment const &segment1_in,
       real tolerance)
   {
-    return acme::isParallel(segment0.toNormalizedVector(), segment0.vertex(0) - segment1.vertex(0), tolerance) &&
-           acme::isParallel(segment0.toNormalizedVector(), segment1.toNormalizedVector(), tolerance);
+    return isParallel(segment0_in.toUnitVector(), segment0_in.vertex(0) - segment1_in.vertex(0), tolerance) &&
+           isParallel(segment0_in.toUnitVector(), segment1_in.toUnitVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCollinear(
-      line const &line,
-      ray const &ray,
+      line const &line_in,
+      ray const &ray_in,
       real tolerance)
   {
-    return acme::isParallel(line.direction(), line.origin() - ray.origin(), tolerance) &&
-           acme::isParallel(line.direction(), ray.direction(), tolerance);
+    return isParallel(line_in.direction(), line_in.origin() - ray_in.origin(), tolerance) &&
+           isParallel(line_in.direction(), ray_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCollinear(
-      line const &line,
-      segment const &segment,
+      line const &line_in,
+      segment const &segment_in,
       real tolerance)
   {
-    return acme::isParallel(line.direction(), line.origin() - segment.vertex(0), tolerance) &&
-           acme::isParallel(line.direction(), segment.toNormalizedVector(), tolerance);
+    return isParallel(line_in.direction(), line_in.origin() - segment_in.vertex(0), tolerance) &&
+           isParallel(line_in.direction(), segment_in.toUnitVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isCollinear(
-      ray const &ray,
-      segment const &segment,
+      ray const &ray_in,
+      segment const &segment_in,
       real tolerance)
   {
-    return acme::isParallel(ray.direction(), ray.origin() - segment.vertex(0), tolerance) &&
-           acme::isParallel(ray.direction(), segment.toNormalizedVector(), tolerance);
+    return isParallel(ray_in.direction(), ray_in.origin() - segment_in.vertex(0), tolerance) &&
+           isParallel(ray_in.direction(), segment_in.toUnitVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

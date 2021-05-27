@@ -87,19 +87,19 @@
 <span class="cm">  \*/</span>
 
 
-  <span class="k">class</span> <span class="nc">aabb</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
+  <span class="k">class</span> <span class="nc">aabb</span>
   <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
-    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">aabb</span> <span class="k">const</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ptr</span><span class="o">&gt;</span> <span class="n">pairptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pairptr</span><span class="o">&gt;</span> <span class="n">vecpairptr</span><span class="p">;</span>
 
   <span class="k">private</span><span class="o">:</span>
-    <span class="n">point</span> <span class="n">_min</span><span class="p">;</span>
-    <span class="n">point</span> <span class="n">_max</span><span class="p">;</span>
-    <span class="n">integer</span> <span class="n">_id</span><span class="p">;</span>
-    <span class="n">integer</span> <span class="n">_ipos</span><span class="p">;</span>
+    <span class="n">point</span> <span class="n">m_min</span><span class="p">;</span>
+    <span class="n">point</span> <span class="n">m_max</span><span class="p">;</span>
+    <span class="n">integer</span> <span class="n">m_id</span><span class="p">;</span>
+    <span class="n">integer</span> <span class="n">m_pos</span><span class="p">;</span>
 
   <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">aabb</span><span class="p">()</span> <span class="p">{}</span>
@@ -109,26 +109,27 @@
     <span class="n">aabb</span><span class="p">(</span><span class="n">aabb</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
     <span class="n">aabb</span><span class="p">()</span>
-        <span class="o">:</span> <span class="n">_min</span><span class="p">(</span><span class="n">NaN_point</span><span class="p">),</span>
-          <span class="n">_max</span><span class="p">(</span><span class="n">NaN_point</span><span class="p">),</span>
-          <span class="n">_id</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-          <span class="n">_ipos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_min</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">),</span>
+          <span class="n">m_max</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">),</span>
+          <span class="n">m_id</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+          <span class="n">m_pos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="p">{</span>
     <span class="p">}</span>
 
     <span class="n">aabb</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">minX</span><span class="p">,</span>   <span class="c1">//&lt;! Input x value of aabb minimum point</span>
-        <span class="n">real</span> <span class="n">minY</span><span class="p">,</span>   <span class="c1">//&lt;! Input y value of aabb minimum point</span>
-        <span class="n">real</span> <span class="n">minZ</span><span class="p">,</span>   <span class="c1">//&lt;! Input z value of aabb minimum point</span>
-        <span class="n">real</span> <span class="n">maxX</span><span class="p">,</span>   <span class="c1">//&lt;! Input x value of aabb maximum point</span>
-        <span class="n">real</span> <span class="n">maxY</span><span class="p">,</span>   <span class="c1">//&lt;! Input y value of aabb maximum point</span>
-        <span class="n">real</span> <span class="n">maxZ</span><span class="p">,</span>   <span class="c1">//&lt;! Input z value of aabb maximum point</span>
+        <span class="n">real</span> <span class="n">min_x</span><span class="p">,</span>  <span class="c1">//&lt;! Input x value of aabb minimum point</span>
+        <span class="n">real</span> <span class="n">min_y</span><span class="p">,</span>  <span class="c1">//&lt;! Input y value of aabb minimum point</span>
+        <span class="n">real</span> <span class="n">min_z</span><span class="p">,</span>  <span class="c1">//&lt;! Input z value of aabb minimum point</span>
+        <span class="n">real</span> <span class="n">max_x</span><span class="p">,</span>  <span class="c1">//&lt;! Input x value of aabb maximum point</span>
+        <span class="n">real</span> <span class="n">max_y</span><span class="p">,</span>  <span class="c1">//&lt;! Input y value of aabb maximum point</span>
+        <span class="n">real</span> <span class="n">max_z</span><span class="p">,</span>  <span class="c1">//&lt;! Input z value of aabb maximum point</span>
         <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>  <span class="c1">//&lt;! Input id value</span>
         <span class="n">integer</span> <span class="n">ipos</span> <span class="c1">//&lt;! Input rank value</span>
-        <span class="p">)</span> <span class="o">:</span> <span class="n">_min</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">minZ</span><span class="p">)),</span>
-            <span class="n">_max</span><span class="p">(</span><span class="n">point</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span> <span class="n">maxY</span><span class="p">,</span> <span class="n">maxZ</span><span class="p">)),</span>
-            <span class="n">_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
-            <span class="n">_ipos</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_min</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_z</span><span class="p">),</span>
+          <span class="n">m_max</span><span class="p">(</span><span class="n">max_x</span><span class="p">,</span> <span class="n">max_y</span><span class="p">,</span> <span class="n">max_z</span><span class="p">),</span>
+          <span class="n">m_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+          <span class="n">m_pos</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
     <span class="p">{</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateMaxMin</span><span class="p">();</span>
     <span class="p">}</span>
@@ -138,10 +139,11 @@
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">max</span><span class="p">,</span>
         <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>
         <span class="n">integer</span> <span class="n">ipos</span>
-        <span class="p">)</span> <span class="o">:</span> <span class="n">_min</span><span class="p">(</span><span class="n">min</span><span class="p">),</span>
-            <span class="n">_max</span><span class="p">(</span><span class="n">max</span><span class="p">),</span>
-            <span class="n">_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
-            <span class="n">_ipos</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_min</span><span class="p">(</span><span class="n">min</span><span class="p">),</span>
+          <span class="n">m_max</span><span class="p">(</span><span class="n">max</span><span class="p">),</span>
+          <span class="n">m_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+          <span class="n">m_pos</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
     <span class="p">{</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateMaxMin</span><span class="p">();</span>
     <span class="p">}</span>
@@ -150,15 +152,16 @@
         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">boxes</span><span class="p">,</span>
         <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>
         <span class="n">integer</span> <span class="n">ipos</span>
-        <span class="p">)</span> <span class="o">:</span> <span class="n">_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
-            <span class="n">_ipos</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+          <span class="n">m_pos</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
     <span class="p">{</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">merged</span><span class="p">(</span><span class="n">boxes</span><span class="p">);</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateMaxMin</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="n">aabb</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-        <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">aabb_in</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
@@ -166,8 +169,8 @@
 
     <span class="kt">bool</span>
     <span class="nf">isApprox</span><span class="p">(</span>
-        <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">aabb_in</span><span class="p">,</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
@@ -179,23 +182,17 @@
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">min</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="n">real</span>
-    <span class="nf">minX</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span>
-    <span class="nf">minY</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span>
-    <span class="nf">minZ</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="nf">min</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
     <span class="n">real</span>
     <span class="nf">min</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="kt">void</span>
+    <span class="n">real</span> <span class="o">&amp;</span>
     <span class="nf">min</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
@@ -203,49 +200,22 @@
         <span class="n">real</span> <span class="n">x</span><span class="p">,</span>
         <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
         <span class="n">real</span> <span class="n">z</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">minX</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">minY</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">minZ</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">min</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">input</span>
     <span class="p">);</span>
 
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">max</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="n">real</span>
-    <span class="nf">maxX</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span>
-    <span class="nf">maxY</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span>
-    <span class="nf">maxZ</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="nf">max</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
     <span class="n">real</span>
     <span class="nf">max</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="kt">void</span>
+    <span class="n">real</span> <span class="o">&amp;</span>
     <span class="nf">max</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
@@ -255,30 +225,9 @@
         <span class="n">real</span> <span class="n">z</span>
     <span class="p">);</span>
 
-    <span class="kt">void</span>
-    <span class="nf">maxX</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">maxY</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">maxZ</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
-    <span class="kt">void</span>
-    <span class="nf">max</span><span class="p">(</span>
-        <span class="n">integer</span> <span class="n">i</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">input</span>
-    <span class="p">);</span>
-
     <span class="kt">bool</span>
     <span class="nf">intersects</span><span class="p">(</span>
-        <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
+        <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">aabb_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -288,24 +237,24 @@
 
     <span class="n">real</span>
     <span class="nf">centerDistance</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span>
     <span class="nf">exteriorDistance</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
     <span class="nf">clamp</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">,</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point2</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0_in</span><span class="p">,</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1_in</span><span class="p">,</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point2_in</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
     <span class="nf">clamp</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="n">point_in</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     <span class="p">);</span>
 
     <span class="n">integer</span> <span class="k">const</span> <span class="o">&amp;</span>
@@ -316,52 +265,25 @@
 
     <span class="kt">void</span>
     <span class="nf">translate</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-        <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">transform</span><span class="p">(</span>
-        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
-        <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span>
+    <span class="p">);</span>
 
     <span class="c1">// Check whether the point is inside the aabb</span>
     <span class="kt">bool</span>
     <span class="nf">isInside</span><span class="p">(</span>
-        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">query_point</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
     <span class="nf">isDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">Epsilon</span>
-    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
-
-    <span class="n">integer</span> <span class="nf">degree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">9</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="s">"aabb"</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="kt">bool</span> <span class="n">isBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
+        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
   <span class="p">};</span> <span class="c1">//class aabb</span>
 
-  <span class="k">static</span> <span class="n">aabb</span> <span class="k">const</span> <span class="n">NaN_aabb</span> <span class="o">=</span> <span class="n">aabb</span><span class="p">(</span><span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="n">acme</span><span class="o">::</span><span class="n">NaN_point</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="k">static</span> <span class="n">aabb</span> <span class="n">aabb_goat</span> <span class="o">=</span> <span class="n">aabb</span><span class="p">(</span><span class="n">NaN_aabb</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">aabb</span> <span class="k">const</span> <span class="n">NAN_AABB</span> <span class="o">=</span> <span class="n">aabb</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_POINT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">aabb</span> <span class="n">THROWAWAY_AABB</span> <span class="o">=</span> <span class="n">aabb</span><span class="p">(</span><span class="n">NAN_AABB</span><span class="p">);</span>
 
 <span class="p">}</span> <span class="c1">// namespace acme</span>
 

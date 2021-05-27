@@ -47,16 +47,16 @@ namespace acme
 
   line &
   line::operator=(
-      line const &input)
+      line const &line_in)
   {
-    if (this == &input)
+    if (this == &line_in)
     {
       return *this;
     }
     else
     {
-      this->_origin = input._origin;
-      this->_direction = input._direction;
+      this->m_origin = line_in.m_origin;
+      this->m_direction = line_in.m_direction;
       return *this;
     }
   }
@@ -65,12 +65,12 @@ namespace acme
 
   bool
   line::isApprox(
-      line const &input,
+      line const &line_in,
       real tolerance)
       const
   {
-    return this->_origin.isApprox(input._origin, tolerance) &&
-           this->_direction.isApprox(input._direction, tolerance);
+    return this->m_origin.isApprox(line_in.m_origin, tolerance) &&
+           this->m_direction.isApprox(line_in.m_direction, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -79,7 +79,15 @@ namespace acme
   line::origin(void)
       const
   {
-    return this->_origin;
+    return this->m_origin;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point &
+  line::origin(void)
+  {
+    return this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -88,25 +96,15 @@ namespace acme
   line::direction(void)
       const
   {
-    return this->_direction;
+    return this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  line::origin(
-      point const &input)
+  vec3 &
+  line::direction(void)
   {
-    this->_origin = input;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  void
-  line::direction(
-      vec3 const &input)
-  {
-    this->_direction = input;
+    return this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -114,7 +112,7 @@ namespace acme
   void
   line::normalize(void)
   {
-    this->_direction.normalize();
+    this->m_direction.normalize();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -123,16 +121,16 @@ namespace acme
   line::toVector(void)
       const
   {
-    return this->_direction;
+    return this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  line::toNormalizedVector(void)
+  line::toUnitVector(void)
       const
   {
-    return this->_direction.normalized();
+    return this->m_direction.normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -140,38 +138,38 @@ namespace acme
   void
   line::reverse(void)
   {
-    this->_direction = -this->_direction;
+    this->m_direction = -this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   line::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_origin = input + this->_origin;
+    this->m_origin = vector_in + this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   line::transform(
-      affine const &matrix)
+      affine const &affine_in)
   {
-    this->_origin.transform(matrix);
-    acme::transform(this->_direction, matrix);
+    this->m_origin.transform(affine_in);
+    acme::transform(this->m_direction, affine_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   line::isInside(
-      point const &query_point,
+      point const &point_in,
       real tolerance)
       const
   {
-    return acme::isApprox(((query_point - this->_origin).normalized().cross(this->_direction)).norm(),
-                          real(0.0),
+    return acme::isApprox(((point_in - this->m_origin).normalized().cross(this->m_direction)).norm(),
+                          0.0,
                           tolerance);
   }
 
@@ -182,7 +180,7 @@ namespace acme
       real tolerance)
       const
   {
-    return acme::isApprox(this->_direction.norm(), real(0.0), tolerance);
+    return acme::isApprox(this->m_direction.norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

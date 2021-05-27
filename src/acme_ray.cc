@@ -47,16 +47,16 @@ namespace acme
 
   ray &
   ray::operator=(
-      ray const &input)
+      ray const &ray_in)
   {
-    if (this == &input)
+    if (this == &ray_in)
     {
       return *this;
     }
     else
     {
-      this->_origin = input._origin;
-      this->_direction = input._direction;
+      this->m_origin = ray_in.m_origin;
+      this->m_direction = ray_in.m_direction;
       return *this;
     }
   }
@@ -65,48 +65,46 @@ namespace acme
 
   bool
   ray::isApprox(
-      ray const &input,
+      ray const &ray_in,
       real tolerance)
       const
   {
-    return this->_origin.isApprox(input._origin, tolerance) &&
-           this->_direction.isApprox(input._direction, tolerance);
+    return this->m_origin.isApprox(ray_in.m_origin, tolerance) &&
+           this->m_direction.isApprox(ray_in.m_direction, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   point const &
-  ray::origin()
+  ray::origin(void)
       const
   {
-    return this->_origin;
+    return this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3 const &
-  ray::direction()
+  ray::direction(void)
       const
   {
-    return this->_direction;
+    return this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  ray::origin(
-      point const &input)
+  point &
+  ray::origin(void)
   {
-    this->_origin = input;
+    return this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  ray::direction(
-      vec3 const &input)
+  vec3 &
+  ray::direction(void)
   {
-    this->_direction = input;
+    return this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -114,7 +112,7 @@ namespace acme
   void
   ray::normalize(void)
   {
-    this->_direction.normalize();
+    this->m_direction.normalize();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -123,16 +121,16 @@ namespace acme
   ray::toVector(void)
       const
   {
-    return this->_direction;
+    return this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  ray::toNormalizedVector(void)
+  ray::toUnitVector(void)
       const
   {
-    return this->_direction.normalized();
+    return this->m_direction.normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -140,38 +138,38 @@ namespace acme
   void
   ray::reverse(void)
   {
-    this->_direction = -this->_direction;
+    this->m_direction = -this->m_direction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   ray::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_origin = input + this->_origin;
+    this->m_origin = vector_in + this->m_origin;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   ray::transform(
-      affine const &matrix)
+      affine const &affine_in)
   {
-    this->_origin.transform(matrix);
-    acme::transform(this->_direction, matrix);
+    this->m_origin.transform(affine_in);
+    acme::transform(this->m_direction, affine_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   ray::isInside(
-      point const &query_point,
+      point const &point_in,
       real tolerance)
       const
   {
-    return acme::isApprox((query_point - this->_origin).normalized().cross(this->_direction).norm(),
-                          real(0.0),
+    return acme::isApprox((point_in - this->m_origin).normalized().cross(this->m_direction).norm(),
+                          0.0,
                           tolerance);
   }
 
@@ -182,7 +180,7 @@ namespace acme
       real tolerance)
       const
   {
-    return acme::isApprox(this->_direction.norm(), real(0.0), tolerance);
+    return acme::isApprox(this->m_direction.norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

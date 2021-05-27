@@ -222,7 +222,7 @@ classdef acme_circle < acme_entity
       % Intersect circle with an ACME object
       [handle, type] = mex_circle( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()') );
-      outcopyByHandle( handle );
+      out.copyByHandle( handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

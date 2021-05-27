@@ -40,6 +40,7 @@
 #include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
+#include "acme_sphere.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -61,6 +62,14 @@
   "%                     RADIUS,    : Circle radius                      %\n" \
   "%                     [X; Y; Z], : Circle center                      %\n" \
   "%                     [X; Y; Z]  : Circle face normal                 %\n" \
+  "%   obj = mex_circle( 'new',                                          %\n" \
+  "%                     RADIUS, : Circle radius                         %\n" \
+  "%                     CX,     : Circle center x value                 %\n" \
+  "%                     CY,     : Circle center y value                 %\n" \
+  "%                     CZ,     : Circle center z value                 %\n" \
+  "%                     NX,     : Circle face normal x value            %\n" \
+  "%                     NY,     : Circle face normal y value            %\n" \
+  "%                     NZ      : Circle face normal z value            %\n" \
   "%                   );                                                %\n" \
   "%                                                                     %\n" \
   "% DESTRUCTOR:                                                         %\n" \
@@ -138,20 +147,21 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_circle( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 4, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 8, CMD "expected 1, 4 or 8 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
-  real_type r = acme::NaN;
-  real_type x1 = acme::NaN;
-  real_type y1 = acme::NaN;
-  real_type z1 = acme::NaN;
-  real_type x2 = acme::NaN;
-  real_type y2 = acme::NaN;
-  real_type z2 = acme::NaN;
+  real_type r = acme::QUIET_NAN;
+  real_type cx = acme::QUIET_NAN;
+  real_type cy = acme::QUIET_NAN;
+  real_type cz = acme::QUIET_NAN;
+  real_type nx = acme::QUIET_NAN;
+  real_type ny = acme::QUIET_NAN;
+  real_type nz = acme::QUIET_NAN;
+
   if (nrhs == 4)
   {
     r = getScalarValue(arg_in_1, CMD "Error in reading radius value");
@@ -160,18 +170,28 @@ do_new(int nlhs, mxArray *plhs[],
     matrix1_ptr = getMatrixPointer(arg_in_2, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
     real_type const *matrix2_ptr;
-    x1 = matrix1_ptr[0];
-    y1 = matrix1_ptr[1];
-    z1 = matrix1_ptr[2];
+    cx = matrix1_ptr[0];
+    cy = matrix1_ptr[1];
+    cz = matrix1_ptr[2];
     mwSize rows2, cols2;
     matrix2_ptr = getMatrixPointer(arg_in_3, rows2, cols2, CMD "Error in second input matrix");
     MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
-    x2 = matrix2_ptr[0];
-    y2 = matrix2_ptr[1];
-    z2 = matrix2_ptr[2];
+    nx = matrix2_ptr[0];
+    ny = matrix2_ptr[1];
+    nz = matrix2_ptr[2];
+  }
+  else if (nrhs == 8)
+  {
+    r = getScalarValue(arg_in_1, CMD "Error in reading radius value");
+    cx = getScalarValue(arg_in_2, CMD "Error in reading center x value");
+    cy = getScalarValue(arg_in_3, CMD "Error in reading center y value");
+    cz = getScalarValue(arg_in_4, CMD "Error in reading center z value");
+    nx = getScalarValue(arg_in_5, CMD "Error in reading normal x value");
+    ny = getScalarValue(arg_in_6, CMD "Error in reading normal y value");
+    nz = getScalarValue(arg_in_7, CMD "Error in reading normal z value");
   }
 
-  acme::circle *ptr = new acme::circle(r, acme::point(x1, y1, z1), acme::vec3(x2, y2, z2));
+  acme::circle *ptr = new acme::circle(r, cx, cy, cz, nx, ny, nz);
   DATA_NEW(arg_out_0, ptr);
 #undef CMD
 }
@@ -267,7 +287,7 @@ do_setCenter(int nlhs, mxArray *plhs[],
 
   acme::circle *self = DATA_GET(arg_in_1);
   acme::point *obj = convertMat2Ptr<acme::point>(arg_in_2);
-  self->center(*obj);
+  self->center() = *obj;
 #undef CMD
 }
 
@@ -290,7 +310,7 @@ do_setNormal(int nlhs, mxArray *plhs[],
   real_type x = matrix_ptr[0];
   real_type y = matrix_ptr[1];
   real_type z = matrix_ptr[2];
-  self->normal(acme::vec3(x, y, z));
+  self->normal() = acme::vec3(x, y, z);
 #undef CMD
 }
 
@@ -526,6 +546,8 @@ do_isParallel(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isParallel(self, other));
 #undef CMD
@@ -561,6 +583,8 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
@@ -597,6 +621,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
@@ -633,6 +659,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
@@ -669,6 +697,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   acme::entity *out = acme::intersection(self, other);
   string out_type = out->type();
@@ -688,6 +718,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "circle")
     arg_out_0 = convertPtr2Mat<acme::circle>(dynamic_cast<acme::circle *>(out));
+  else if (out_type == "sphere")
+    arg_out_0 = convertPtr2Mat<acme::sphere>(dynamic_cast<acme::sphere *>(out));
 
   arg_out_1 = mxCreateString(out_type.c_str());
 #undef CMD

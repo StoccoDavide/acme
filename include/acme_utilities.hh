@@ -40,6 +40,7 @@
 #include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
+#include "acme_sphere.hh"
 #include "acme_triangle.hh"
 
 namespace acme
@@ -53,7 +54,14 @@ namespace acme
    |                                   
   \*/
 
-  //! Stream out operator for point or point object
+  //! Stream out operator for vec3 object
+  out_stream &
+  operator<<(
+      out_stream &os, //!< Output stream
+      vec3 const &obj //!< Point vec3
+  );
+
+  //! Stream out operator for point object
   out_stream &
   operator<<(
       out_stream &os,  //!< Output stream
@@ -107,6 +115,20 @@ namespace acme
   operator<<(
       out_stream &os,   //!< Output stream
       circle const &obj //!< Circle object
+  );
+
+  //! Stream out operator for sphere object
+  out_stream &
+  operator<<(
+      out_stream &os,   //!< Output stream
+      sphere const &obj //!< Sphere object
+  );
+
+  //! Stream out operator for affine object
+  out_stream &
+  operator<<(
+      out_stream &os,   //!< Output stream
+      affine const &obj //!< Affine object
   );
 
 } // namespace acme

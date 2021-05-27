@@ -55,15 +55,9 @@ namespace acme
   */
   class circle : public entity
   {
-  public:
-    typedef std::shared_ptr<circle const> ptr; //!< Shared pointer to circle
-    typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to circle objects
-    typedef std::vector<ptr> vecptr;           //!< Vector of pointers to circle objects
-    typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to circle objects
-
   private:
-    real _radius; //!< Circle radius
-    plane _plane; //!< Circle plane (circle center + normal vector)
+    real m_radius; //!< Circle radius
+    plane m_plane; //!< Circle plane (circle center + normal vector)
 
   public:
     //! Circle class deconstructor
@@ -82,8 +76,9 @@ namespace acme
     circle(
         real radius,       //!< Input circle radius
         plane const &plane //!< Input circle laying plane
-        ) : _radius(radius),
-            _plane(plane)
+        )
+        : m_radius(radius),
+          m_plane(plane)
     {
     }
 
@@ -92,67 +87,76 @@ namespace acme
         real radius,         //!< Input circle radius
         point const &center, //!< Input circle center
         vec3 const &normal   //!< Input circle normal to the laying plane
-        ) : _radius(radius),
-            _plane(center, normal)
+        )
+        : m_radius(radius),
+          m_plane(center, normal)
+    {
+    }
+
+    //! Circle class constructor
+    circle(
+        real radius,   //!< Input circle radius
+        real center_x, //!< Input circle center x value
+        real center_y, //!< Input circle center y value
+        real center_z, //!< Input circle center z value
+        real normal_x, //!< Input circle normal x value to the laying plane
+        real normal_y, //!< Input circle normal y value to the laying plane
+        real normal_z  //!< Input circle normal z value to the laying plane
+        )
+        : m_radius(radius),
+          m_plane(center_x, center_y, center_z,
+                  normal_x, normal_y, normal_z)
     {
     }
 
     //! Equality operator
     circle &
     operator=(
-        circle const &input //!< Input circle object
+        circle const &circle_in //!< Input circle object
     );
 
     //! Check if circles are (almost) equal
     bool
     isApprox(
-        circle const &input,     //!< Input circle object
-        real tolerance = Epsilon //!< Tolerance
+        circle const &circle_in, //!< Input circle object
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
-    //! Get circle radius
-    real
+    //! Get circle radius const reference
+    real const &
     radius(void) const;
 
-    //! Get circle center point
+    //! Get circle radius reference
+    real &
+    radius(void);
+
+    //! Get circle center point const reference
     point const &
     center(void) const;
 
-    //! Get circle laying plane normal vector
+    //! Get circle center point reference
+    point &
+    center(void);
+
+    //! Get circle laying plane normal vector const reference
     vec3 const &
     normal(void) const;
 
-    //! Get cicle laying plane
+    //! Get circle laying plane normal vector reference
+    vec3 &
+    normal(void);
+
+    //! Get cicle laying plane const reference
     plane const &
     layingPlane(void) const;
 
-    //! Set circle radius
-    void
-    radius(
-        real input //!< New circle radius
-    );
-
-    //! Set circle center point
-    void
-    center(
-        point const &input //!< New circle center point
-    );
-
-    //! Set circle laying plane normal vector
-    void
-    normal(
-        vec3 const &input //!< New circle laying plane normal vector
-    );
+    //! Get cicle laying plane reference
+    plane &
+    layingPlane(void);
 
     //! Normalize circle normal vector
     void
     normalize(void);
-
-    //! Set circle laying plane
-    void
-    layingPlane(
-        plane const &input //!< Input plane object
-    );
 
     //! Reverse circle normal vector
     void
@@ -161,7 +165,7 @@ namespace acme
     //! Get minumum cubic aabb containing the current circle object
     void
     clamp(
-        aabb &input //!< Input aabb object
+        aabb &aabb_in //!< Input aabb object
     ) const;
 
     //! Calculate circle circumference length
@@ -176,30 +180,30 @@ namespace acme
     //! Translate by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector_in //!< Input translation vector
         ) override;
 
     //! Transform circle with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override;
 
     // Check whether the point is inside the circle
     bool
     isInside(
-        point const &query_point, //!< Query point
-        real tolerance = Epsilon  //!< Tolerance
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if circle is degenerated
     bool
     isDegenerated(
-        real tolerance = Epsilon //!< Tolerance
+        real tolerance = EPSILON //!< Tolerance
     ) const override;
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 8; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 8; }
 
     //! Return object type as string
     std::string type(void) const override { return "circle"; }
@@ -228,13 +232,13 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return true; }
 
-    //! Check whether the object is a aabb
-    bool isBox(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class circle
 
-  static circle const NaN_circle = circle(acme::NaN, acme::NaN_plane); //!< Not-a-Number circle type
-  static circle circle_goat = circle(NaN_circle);                      //!< Scapegoat circle type (throwaway non-const object)
+  static circle const NAN_CIRCLE = circle(QUIET_NAN, NAN_PLANE); //!< Not-a-Number static const circle object
+  static circle THROWAWAY_CIRCLE = circle(NAN_CIRCLE);           //!< Throwaway static non-const circle object
 
 } // namespace acme
 

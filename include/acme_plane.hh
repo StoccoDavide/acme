@@ -53,15 +53,9 @@ namespace acme
    */
   class plane : public entity
   {
-  public:
-    typedef std::shared_ptr<plane const> ptr; //!< Shared pointer to plane object
-    typedef std::pair<ptr, ptr> pairptr;      //!< Pair of pointers to plane objects
-    typedef std::vector<ptr> vecptr;          //!< Vector of pointers to plane objects
-    typedef std::vector<pairptr> vecpairptr;  //!< Vector of pairs of pointers to plane objects
-
   private:
-    point _origin; //!< Plane origin point
-    vec3 _normal;  //!< Plane normal vector
+    point m_origin; //!< Plane origin point
+    vec3 m_normal;  //!< Plane normal vector
 
   public:
     //! Plane class destructor
@@ -78,14 +72,15 @@ namespace acme
 
     //! Plane class constructor for plane
     plane(
-        real ox, //<! Input x value of plane origin point
-        real oy, //<! Input y value of plane origin point
-        real oz, //<! Input z value of plane origin point
-        real dx, //<! Input x value of plane normal vector
-        real dy, //<! Input y value of plane normal vector
-        real dz  //<! Input z value of plane normal vector
-        ) : _origin(point(ox, oy, oz)),
-            _normal(vec3(dx, dy, dz))
+        real origin_x, //<! Input x value of plane origin point
+        real origin_y, //<! Input y value of plane origin point
+        real origin_z, //<! Input z value of plane origin point
+        real normal_x, //<! Input x value of plane normal vector
+        real normal_y, //<! Input y value of plane normal vector
+        real normal_z  //<! Input z value of plane normal vector
+        )
+        : m_origin(origin_x, origin_y, origin_z),
+          m_normal(normal_x, normal_y, normal_z)
     {
     }
 
@@ -93,47 +88,44 @@ namespace acme
     plane(
         point const &origin, //!< Input plane origin point
         vec3 const &normal   //!< Input plane normal vector
-        ) : _origin(origin),
-            _normal(normal)
+        )
+        : m_origin(origin),
+          m_normal(normal)
     {
     }
 
     //! Equality operator
     plane &
     operator=(
-        plane const &input //!< Input plane object
+        plane const &plane_in //!< Input plane object
     );
 
     //! Check if objects are (almost) equal
     bool
     isApprox(
-        plane const &input,      //!< Input plane object
-        real tolerance = Epsilon //!< Tolerance
+        plane const &plane_in,   //!< Input plane object
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
-    //! Return plane origin point
+    //! Return plane origin point const reference
     point const &
     origin(void) const;
 
-    //! Return plane normal vector
+    //! Return plane origin point reference
+    point &
+    origin(void);
+
+    //! Return plane normal vector const reference
     vec3 const &
     normal(void) const;
+
+    //! Return plane normal vector reference
+    vec3 &
+    normal(void);
 
     //! Normalize plane normal vector
     void
     normalize(void);
-
-    //! Set plane origin point
-    void
-    origin(
-        point const &input //!< input plane origin point
-    );
-
-    //! Set plane normal
-    void
-    normal(
-        vec3 const &input //!< input plane origin vector
-    );
 
     //! Return plane equation d value (ax + by + cz + d = 0)
     real
@@ -142,19 +134,19 @@ namespace acme
     //! Distance between point and plane
     real
     distance(
-        point const &input //!< Input
+        point const &point_in //!< Input
     ) const;
 
     //! Squared distance between point and plane
     real
     squaredDistance(
-        point const &input //!< Input
+        point const &point_in //!< Input
     ) const;
 
     //! Signed distance between point and plane
     real
     signedDistance(
-        point const &input //!< Input
+        point const &point_in //!< Input
     ) const;
 
     //! Reverse plane normal vector
@@ -164,30 +156,30 @@ namespace acme
     //! Translate plane by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector_in //!< Input translation vector
         ) override;
 
     //! Transform plane from with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override;
 
     // Check whether a point lays on the plane
     bool
     isInside(
-        point const &query_point, //!< Query point
-        real tolerance = Epsilon  //!< Tolerance
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if plane is degenerated (normal has zero norm)
     bool
     isDegenerated(
-        real tolerance = Epsilon //!< Tolerance
+        real tolerance = EPSILON //!< Tolerance
     ) const override;
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 5; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 5; }
 
     //! Return object type as string
     std::string type(void) const override { return "plane"; }
@@ -216,13 +208,13 @@ namespace acme
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a aabb
-    bool isBox(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class plane
 
-  static plane const NaN_plane = plane(acme::NaN_point, acme::NaN_vec3); //!< Not-a-Number plane type
-  static plane plane_goat = plane(NaN_plane);                            //!< Scapegoat plane type (throwaway non-const object)
+  static plane const NAN_PLANE = plane(NAN_POINT, NAN_VEC3); //!< Not-a-Number static const plane object
+  static plane plane_goat = plane(NAN_PLANE);                //!< Throwaway static non-const plane object
 
 } // namespace acme
 

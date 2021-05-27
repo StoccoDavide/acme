@@ -53,12 +53,7 @@ namespace acme
   */
   class none : public entity
   {
-public:
-    typedef std::shared_ptr<none const> ptr; //!< Shared pointer to none
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to circle objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to circle objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to circle objects
-
+  public:
     //! None class deconstructor
     ~none() {}
 
@@ -68,20 +63,25 @@ public:
     //! Translate entity by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+        vec3 const &vector_in //!< Input translation vector
         ) override{};
 
     //! Transform entity with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+        affine const &affine_in //!< 4x4 affine transformation matrix
         ) override{};
 
     //! Check if entity is degenerated
-    bool isDegenerated(void) const override { return true; };
+    bool isDegenerated(
+        real tolerance = EPSILON //!< Tolerance
+    ) const override
+    {
+      return true;
+    };
 
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 1; }
+    //! Return object hierarchical level
+    integer level(void) const override { return 1; }
 
     //! Return object type as string
     std::string type(void) const override { return "none"; }
@@ -110,12 +110,12 @@ public:
     //! Check whether the object is a circle
     bool isCircle(void) const override { return false; }
 
-    //! Check whether the object is a aabb
-    bool isAabb(void) const override { return false; }
+    //! Check whether the object is a sphere
+    bool isSphere(void) const override { return false; }
 
   }; // class none
 
-  static none none_goat = none(); //!< Scapegoat one type (throwaway non-const object)
+  static none THROWAWAY_NONE = none(); //!< Throwaway static non-const none object
 
 } // namespace acme
 

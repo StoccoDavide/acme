@@ -51,21 +51,21 @@ namespace acme
   /**
    * Axis-aligebd bounding box in 3D space and defined by a "maximum" and a "minimum" point.
   */
-  class aabb : public entity
+  class aabb
   {
-public:
-    typedef std::shared_ptr<aabb const> ptr; //!< Shared pointer to aabb object
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to aabb objects
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to aabb objects
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to aabb objects
+  public:
+    typedef aabb const *ptr;                 //!< Shared pointer to aabb object used in AABBtree routines
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to aabb objects used in AABBtree routines
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to aabb objects used in AABBtree routines
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to aabb objects used in AABBtree routines
 
-private:
-    point _min;    //!< Box maximum point
-    point _max;    //!< Box minimum point
-    integer _id;   //!< Box id (may be used in external algorithms)
-    integer _ipos; //!< Box rank (may be used in external algorithms)
+  private:
+    point m_min;   //!< Box maximum point
+    point m_max;   //!< Box minimum point
+    integer m_id;  //!< Box id (may be used in external algorithms)
+    integer m_pos; //!< Box rank (may be used in external algorithms)
 
-public:
+  public:
     //! Box class destructor
     ~aabb() {}
 
@@ -77,67 +77,55 @@ public:
 
     //! Box class constructor
     aabb()
-        : _min(NaN_point),
-          _max(NaN_point),
-          _id(0),
-          _ipos(0)
+        : m_min(NAN_POINT),
+          m_max(NAN_POINT),
+          m_id(0),
+          m_pos(0)
     {
     }
 
     //! Box class constructor
     aabb(
-        real minX,   //<! Input x value of aabb minimum point
-        real minY,   //<! Input y value of aabb minimum point
-        real minZ,   //<! Input z value of aabb minimum point
-        real maxX,   //<! Input x value of aabb maximum point
-        real maxY,   //<! Input y value of aabb maximum point
-        real maxZ,   //<! Input z value of aabb maximum point
+        real min_x,  //<! Input x value of aabb minimum point
+        real min_y,  //<! Input y value of aabb minimum point
+        real min_z,  //<! Input z value of aabb minimum point
+        real max_x,  //<! Input x value of aabb maximum point
+        real max_y,  //<! Input y value of aabb maximum point
+        real max_z,  //<! Input z value of aabb maximum point
         integer id,  //<! Input id value
         integer ipos //<! Input rank value
-        ) : _min(point(minX, minY, minZ)),
-            _max(point(maxX, maxY, maxZ)),
-            _id(id),
-            _ipos(ipos)
+        )
+        : m_min(min_x, min_y, min_z),
+          m_max(max_x, max_y, max_z),
+          m_id(id),
+          m_pos(ipos)
     {
       this->updateMaxMin();
     }
 
-    //!
     //! Box class constructor
-    //!
-    //! \param min  Input aabb minimum point
-    //! \param max  Input aabb maximum point
-    //! \param id   Input aabb id value
-    //! \param ipos Input aabb rank value
-    //!
-    //!
     aabb(
-        point const &min,
-        point const &max,
-        integer id,
-        integer ipos)
-        : _min(min),
-          _max(max),
-          _id(id),
-          _ipos(ipos)
+        point const &min, //!< Input aabb minimum point
+        point const &max, //!< Input aabb maximum point
+        integer id,       //!< Input aabb id value
+        integer ipos      //!< Input aabb rank value
+        )
+        : m_min(min),
+          m_max(max),
+          m_id(id),
+          m_pos(ipos)
     {
       this->updateMaxMin();
     }
 
-    //!
     //! Box class constructor
-    //!
-    //! \param boxes Input reference to vector of boxes
-    //! \param id    Input aabb id value
-    //! \param ipos  Input aabb rank value
-    //!
-    //!
     aabb(
-        std::vector<aabb::ptr> const &boxes,
-        integer id,
-        integer ipos)
-        : _id(id),
-          _ipos(ipos)
+        std::vector<aabb::ptr> const &boxes, //!< Input reference to vector of boxes
+        integer id,                          //!< Input aabb id value
+        integer ipos                         //!< Input aabb rank value
+        )
+        : m_id(id),
+          m_pos(ipos)
     {
       this->merged(boxes);
       this->updateMaxMin();
@@ -145,7 +133,7 @@ public:
 
     //! Equality operator
     aabb &operator=(
-        aabb const &input //!< Input
+        aabb const &aabb_in //!< Input
     );
 
     //! Clear the aabb domain (set to Not-a-Number)
@@ -155,7 +143,8 @@ public:
     //! Check if aabb objects are (almost) equal
     bool
     isApprox(
-        aabb const &input //!< Input
+        aabb const &aabb_in,     //!< Input
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check aabb max and min points
@@ -166,32 +155,24 @@ public:
     bool
     updateMaxMin(void);
 
-    //! Get min point
+    //! Get minimum point const reference
     point const &
     min(void) const;
 
-    //! Get aabb minimum point x value
-    real
-    minX(void) const;
+    //! Get minimum point reference
+    point &
+    min(void);
 
-    //! Get aabb minimum point y value
-    real
-    minY(void) const;
-
-    //! Get aabb minimum point z value
-    real
-    minZ(void) const;
-
-    //! Get aabb minimum i-th point axis value
+    //! Get aabb minimum i-th axis value
     real
     min(
-        integer i //!< Input i-th value
+        size_t i //!< Input i-th value
     ) const;
 
-    //! Set aabb minimum point
-    void
+    //! Get aabb minimum i-th axis value reference
+    real &
     min(
-        point const &input //!< New aabb minimum point
+        size_t i //!< Input i-th value
     );
 
     //! Set aabb minimum point
@@ -202,57 +183,24 @@ public:
         real z  //!< Input z value of aabb minimum point
     );
 
-    //! Set aabb minimum point x value
-    void
-    minX(
-        real input //!< Input x value of aabb minimum point
-    );
-
-    //! Set aabb minimum point y value
-    void
-    minY(
-        real input //!< Input y value of aabb minimum point
-    );
-
-    //! Set aabb minimum point z value
-    void
-    minZ(
-        real input //!< Input z value of aabb minimum point
-    );
-
-    //! Set aabb minimum i-th point axis value
-    void
-    min(
-        integer i, //!< Input i-th value
-        real input //!< Input value of aabb minimum point
-    );
-
-    //! Get aabb maximum point
+    //! Get aabb maximum point const reference
     point const &
     max(void) const;
 
-    //! Get aabb maximum point x value
-    real
-    maxX(void) const;
-
-    //! Get aabb maximum point y value
-    real
-    maxY(void) const;
-
-    //! Get aabb maximum point z value
-    real
-    maxZ(void) const;
+    //! Get aabb maximum point reference
+    point &
+    max(void);
 
     //! Get aabb maximum i-th point axis value
     real
     max(
-        integer i //!< Input i-th value
+        size_t i //!< Input i-th value
     ) const;
 
-    //! Set aabb maximum point
-    void
+    //! Get aabb maximum i-th point axis value
+    real &
     max(
-        point const &input //!< Input aabb maximum point
+        size_t i //!< Input i-th value
     );
 
     //! Set aabb maximum point
@@ -263,35 +211,10 @@ public:
         real z  //!< Input z value of aabb maximum point
     );
 
-    //! Set aabb maximum point x value
-    void
-    maxX(
-        real input //!<Input x value of aabb maximum point
-    );
-
-    //! Set aabb maximum point y value
-    void
-    maxY(
-        real input //!<Input y value of aabb maximum point
-    );
-
-    //! Set aabb maximum point z value
-    void
-    maxZ(
-        real input //!<Input z value of aabb maximum point
-    );
-
-    //! Set aabb maximum i-th point axis value
-    void
-    max(
-        integer i, //!< Input i-th value
-        real input //!< Input value of aabb maximum point
-    );
-
     //! Detect if boxes collide
     bool
     intersects(
-        aabb const &input //!< Input
+        aabb const &aabb_in //!< Input
     ) const;
 
     //! Build aabb with a vector of pointers to boxes
@@ -303,27 +226,27 @@ public:
     //! Distance of a point to the aabb
     real
     centerDistance(
-        point const &query_point //!< Query point
+        point const &point_in //!< Query point
     ) const;
 
     //! Maximum distance of a point to the aabb
     real
     exteriorDistance(
-        point const &query_point //!< Query point
+        point const &point_in //!< Query point
     ) const;
 
     //! Resize the aabb as the minimum bounding aabb containing three input points
     void
     clamp(
-        point const &point0, //!< Input point 0
-        point const &point1, //!< Input point 1
-        point const &point2  //!< Input point 2
+        point const &point0_in, //!< Input point 0
+        point const &point1_in, //!< Input point 1
+        point const &point2_in  //!< Input point 2
     );
 
     //! Resize the aabb as the minimum bounding aabb containing three input points
     void
     clamp(
-        point const points[3] //!< Input points
+        point const point_in[3] //!< Input points
     );
 
     //!< Return aabb id
@@ -337,62 +260,26 @@ public:
     //! Translate aabb by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
-        ) override;
-
-    //! Transform aabb with affine transformation matrix
-    void
-    transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
-        ) override;
+        vec3 const &vector_in //!< Input translation vector
+    );
 
     // Check whether the point is inside the aabb
     bool
     isInside(
-        point const &query_point //!< Query point
+        point const &point_in,   //!< Query point
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if aabb is degenerated
     bool
-    isDegenerated(void) const override;
-
-    //! Return object hierarchical degree
-    integer degree(void) const override { return 9; }
-
-    //! Return object type as string
-    std::string type(void) const override { return "aabb"; }
-
-    //! Check whether the object is no entity
-    bool isNone(void) const override { return false; }
-
-    //! Check whether the object is a point
-    bool isPoint(void) const override { return false; }
-
-    //! Check whether the object is a line
-    bool isLine(void) const override { return false; }
-
-    //! Check whether the object is a ray
-    bool isRay(void) const override { return false; }
-
-    //! Check whether the object is a plane
-    bool isPlane(void) const override { return false; }
-
-    //! Check whether the object is a segment
-    bool isSegment(void) const override { return false; }
-
-    //! Check whether the object is a triangle
-    bool isTriangle(void) const override { return false; }
-
-    //! Check whether the object is a circle
-    bool isCircle(void) const override { return false; }
-
-    //! Check whether the object is a aabb
-    bool isAabb(void) const override { return true; }
+    isDegenerated(
+        real tolerance = EPSILON //!< Tolerance
+    ) const;
 
   }; //class aabb
 
-  static aabb const NaN_aabb = aabb(acme::NaN_point, acme::NaN_point, 0, 0); //!< Not-a-Number aabb type
-  static aabb aabb_goat = aabb(NaN_aabb);                                     //!< Scapegoat aabb type (throwaway non-const object)
+  static aabb const NAN_AABB = aabb(NAN_POINT, NAN_POINT, 0, 0); //!< Not-a-Number static const aabb object
+  static aabb THROWAWAY_AABB = aabb(NAN_AABB);                   //!< Throwaway static non-const aabb object
 
 } // namespace acme
 

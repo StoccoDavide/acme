@@ -40,6 +40,7 @@
 #include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
+#include "acme_sphere.hh"
 #include "acme_triangle.hh"
 #include "mex_utils.hh"
 
@@ -57,9 +58,17 @@
   "%                                                                     %\n" \
   "% CONSTRUCTORS:                                                       %\n" \
   "%   obj = mex_ray( 'new' );                                           %\n" \
-  "%   obj = mex_line( 'new',                                            %\n" \
+  "%   obj = mex_ray( 'new',                                             %\n" \
   "%                   [X; Y; Z], : Ray origin                           %\n" \
   "%                   [X; Y; Z]  : Ray direction                        %\n" \
+  "%                 );                                                  %\n" \
+  "%   obj = mex_ray( 'new',                                             %\n" \
+  "%                   OX,   : Ray origin x value                        %\n" \
+  "%                   OY,   : Ray origin y value                        %\n" \
+  "%                   OZ,   : Ray origin z value                        %\n" \
+  "%                   DX,   : Ray directon x value                      %\n" \
+  "%                   DY,   : Ray directon y value                      %\n" \
+  "%                   DZ    : Ray directon z value                      %\n" \
   "%                 );                                                  %\n" \
   "%                                                                     %\n" \
   "% DESTRUCTOR:                                                         %\n" \
@@ -78,7 +87,7 @@
   "%   OUT = mex_ray( 'isApprox', OBJ, OTHER_OBJ );                      %\n" \
   "%         mex_ray( 'normalize', OBJ );                                %\n" \
   "%   OUT = mex_ray( 'toVector', OBJ );                                 %\n" \
-  "%   OUT = mex_ray( 'toNormalizedVector', OBJ );                       %\n" \
+  "%   OUT = mex_ray( 'toUnitVector', OBJ );                             %\n" \
   "%         mex_ray( 'reverse', OBJ );                                  %\n" \
   "%   OUT = mex_ray( 'isParallel', OBJ, OTHER_OBJ );                    %\n" \
   "%   OUT = mex_ray( 'isOrthogonal', OBJ, OTHER_OBJ );                  %\n" \
@@ -133,38 +142,48 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_ray( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 3, CMD "expected 1 or 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nrhs == 1 || nrhs == 3 || nrhs == 7, CMD "expected 1, 3 or 7 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   MEX_ASSERT(
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
-  real_type x1 = acme::NaN;
-  real_type y1 = acme::NaN;
-  real_type z1 = acme::NaN;
-  real_type x2 = acme::NaN;
-  real_type y2 = acme::NaN;
-  real_type z2 = acme::NaN;
+  real_type ox = acme::QUIET_NAN;
+  real_type oy = acme::QUIET_NAN;
+  real_type oz = acme::QUIET_NAN;
+  real_type dx = acme::QUIET_NAN;
+  real_type dy = acme::QUIET_NAN;
+  real_type dz = acme::QUIET_NAN;
+
   if (nrhs == 3)
   {
     real_type const *matrix1_ptr;
     mwSize rows1, cols1;
     matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
-    x1 = matrix1_ptr[0];
-    y1 = matrix1_ptr[1];
-    z1 = matrix1_ptr[2];
+    ox = matrix1_ptr[0];
+    oy = matrix1_ptr[1];
+    oz = matrix1_ptr[2];
     real_type const *matrix2_ptr;
     mwSize rows2, cols2;
     matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
     MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
-    x2 = matrix2_ptr[0];
-    y2 = matrix2_ptr[1];
-    z2 = matrix2_ptr[2];
+    dx = matrix2_ptr[0];
+    dy = matrix2_ptr[1];
+    dz = matrix2_ptr[2];
+  }
+  else if (nrhs == 7)
+  {
+    ox = getScalarValue(arg_in_1, CMD "Error in reading origin x value");
+    oy = getScalarValue(arg_in_2, CMD "Error in reading origin y value");
+    oz = getScalarValue(arg_in_3, CMD "Error in reading origin z value");
+    dx = getScalarValue(arg_in_4, CMD "Error in reading direction x value");
+    dy = getScalarValue(arg_in_5, CMD "Error in reading direction y value");
+    dz = getScalarValue(arg_in_6, CMD "Error in reading direction z value");
   }
 
-  acme::ray *ptr = new acme::ray(x1, y1, z1, x2, y2, z2);
+  acme::ray *ptr = new acme::ray(ox, oy, oz, dx, dy, dz);
   DATA_NEW(arg_out_0, ptr);
 #undef CMD
 }
@@ -230,7 +249,7 @@ do_setOrigin(int nlhs, mxArray *plhs[],
 
   acme::ray *self = DATA_GET(arg_in_1);
   acme::point *obj = convertMat2Ptr<acme::point>(arg_in_2);
-  self->origin(*obj);
+  self->origin() = *obj;
 #undef CMD
 }
 
@@ -252,7 +271,7 @@ do_setDirection(int nlhs, mxArray *plhs[],
   real_type x = matrix_ptr[0];
   real_type y = matrix_ptr[1];
   real_type z = matrix_ptr[2];
-  self->direction(acme::vec3(x, y, z));
+  self->direction() = acme::vec3(x, y, z);
 #undef CMD
 }
 
@@ -403,16 +422,16 @@ do_toVector(int nlhs, mxArray *plhs[],
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_toNormalizedVector(int nlhs, mxArray *plhs[],
-                      int nrhs, mxArray const *prhs[])
+do_toUnitVector(int nlhs, mxArray *plhs[],
+                int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_ray( 'toNormalizedVector', OBJ ): "
+#define CMD "mex_ray( 'toUnitVector', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::ray *self = DATA_GET(arg_in_1);
   real_type *output = createMatrixValue(arg_out_0, 3, 1);
-  acme::vec3 outvec(self->toNormalizedVector());
+  acme::vec3 outvec(self->toUnitVector());
   output[0] = outvec.x();
   output[1] = outvec.y();
   output[2] = outvec.z();
@@ -464,6 +483,8 @@ do_isParallel(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isParallel(self, other));
 #undef CMD
@@ -499,6 +520,8 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
@@ -535,6 +558,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
@@ -571,6 +596,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   setScalarBool(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
@@ -607,6 +634,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
   else if (type == "circle")
     other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
   acme::entity *out = acme::intersection(self, other);
   string out_type = out->type();
@@ -626,6 +655,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "circle")
     arg_out_0 = convertPtr2Mat<acme::circle>(dynamic_cast<acme::circle *>(out));
+  else if (out_type == "sphere")
+    arg_out_0 = convertPtr2Mat<acme::sphere>(dynamic_cast<acme::sphere *>(out));
 
   arg_out_1 = mxCreateString(out_type.c_str());
 #undef CMD
@@ -651,7 +682,7 @@ static map<string, DO_CMD> cmd_to_fun = {
     {"isApprox", do_isApprox},
     {"normalize", do_normalize},
     {"toVector", do_toVector},
-    {"toNormalizedVector", do_toNormalizedVector},
+    {"toUnitVector", do_toUnitVector},
     {"reverse", do_reverse},
     {"isParallel", do_isParallel},
     {"isOrthogonal", do_isOrthogonal},

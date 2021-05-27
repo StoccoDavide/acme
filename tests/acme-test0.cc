@@ -41,29 +41,19 @@ int main(void)
             << std::endl;
 
   // EPSILON TEST
-  acme::real Epsilon_machine = acme::Epsilon_Machine;
-  acme::real Epsilon_acme = acme::epsilon();
   std::cout << "Epsilon TEST" << std::endl
-            << "Epsilon (machine) = " << Epsilon_machine << std::endl
-            << "Epsilon (acme)    = " << Epsilon_acme << std::endl
+            << "Epsilon (machine) = " << acme::EPSILON_MACHINE << std::endl
+            << "Epsilon (acme)    = " << acme::EPSILON << std::endl
             << std::endl;
 
   // INFINITY TEST
-  acme::real Infinity_acme = acme::infinity();
   std::cout << "INFINITY TEST" << std::endl
-            << "Infinity (acme)   = " << Infinity_acme << std::endl
+            << "Infinity (acme)   = " << acme::INFTY << std::endl
             << std::endl;
 
-  // SINE TEST
-  double value = acme::PI;
-  std::cout << "SINE TEST" << std::endl
-            << "Sin(PI) = " << acme::sin(value) << std::endl
-            << "Cos(PI) = " << acme::cos(value) << std::endl
-            << "Tan(PI) = " << acme::tan(value) << std::endl;
-
-  // POW TEST
-  std::cout << "POW TEST" << std::endl
-            << "Pow(2.0, 2.0) = " << acme::pow(2.0, 2.0) << std::endl
+  // NOT-A-NUMBER TEST
+  std::cout << "QUIET NOT-A-NUMBER TEST" << std::endl
+            << "Quiet NaN (acme)   = " << acme::QUIET_NAN << std::endl
             << std::endl;
 
   return 0;

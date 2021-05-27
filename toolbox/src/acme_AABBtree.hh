@@ -55,22 +55,23 @@ namespace acme
    |                                                  
   \*/
 
-  //! Axis-aligned bouding tree class container
+  //! Axis-aligned bouding box tree class container
   /**
-   * Axis-aligned bouding aabb tree.
+   * Axis-aligned bouding box AABB tree.
   */
   class AABBtree
   {
-public:
-    typedef std::shared_ptr<AABBtree> ptr; //!< Shared pointer to AABB tree object
+  public:
+    typedef AABBtree *ptr;           //!< Pointer to AABB tree object
+    typedef std::vector<ptr> vecptr; //!< Vector of pointers to AABB tree objects
 
-private:
-    aabb::ptr _ptrbox; //!< Pointer to AABB tree aabb
-    std::vector<AABBtree::ptr> _children;
+  private:
+    aabb::ptr m_ptrbox; //!< Pointer to AABB tree
+    AABBtree::vecptr m_children;
 
     AABBtree(AABBtree const &tree);
 
-public:
+  public:
     //! AABB tree class destructor
     ~AABBtree();
 
@@ -88,10 +89,10 @@ public:
     //! Build AABB tree given a list of boxes
     void
     build(
-        std::vector<aabb::ptr> const &boxes //!< List of boxes
+        aabb::vecptr const &boxes //!< List of boxes
     );
 
-    //! Print AABB tree content
+    //! Print AABB tree data
     void
     print(
         out_stream &stream, //!< Output stream
@@ -109,43 +110,43 @@ public:
     {
 
       // check aabb with
-      if (!tree._ptrbox->intersects(*this->_ptrbox))
+      if (!tree.m_ptrbox->intersects(*this->m_ptrbox))
         return false;
 
-      int icase = (this->_children.empty() ? 0 : 1) +
-                  (tree._children.empty() ? 0 : 2);
+      int icase = (this->m_children.empty() ? 0 : 1) +
+                  (tree.m_children.empty() ? 0 : 2);
 
       switch (icase)
       {
       case 0: // both leaf, use aabb intersection algorithm
         if (swap_tree)
-          return function(tree._ptrbox, this->_ptrbox);
+          return function(tree.m_ptrbox, this->m_ptrbox);
         else
-          return function(this->_ptrbox, tree._ptrbox);
+          return function(this->m_ptrbox, tree.m_ptrbox);
       case 1: // first is a tree, second is a leaf
       {
-        typename std::vector<AABBtree::ptr>::const_iterator it;
-        for (it = this->_children.begin(); it != this->_children.end(); ++it)
+        typename AABBtree::vecptr::const_iterator it;
+        for (it = this->m_children.begin(); it != this->m_children.end(); ++it)
           if (tree.collision(**it, function, !swap_tree))
             return true;
       }
       break;
       case 2: // first leaf, second is a tree
       {
-        typename std::vector<AABBtree::ptr>::const_iterator it;
-        for (it = tree._children.begin();
-             it != tree._children.end(); ++it)
+        typename AABBtree::vecptr::const_iterator it;
+        for (it = tree.m_children.begin();
+             it != tree.m_children.end(); ++it)
           if (this->collision(**it, function, swap_tree))
             return true;
       }
       break;
       case 3: // first is a tree, second is a tree
       {
-        typename std::vector<AABBtree::ptr>::const_iterator it1;
-        typename std::vector<AABBtree::ptr>::const_iterator it2;
-        for (it1 = this->_children.begin(); it1 != this->_children.end(); ++it1)
-          for (it2 = tree._children.begin();
-               it2 != tree._children.end(); ++it2)
+        typename AABBtree::vecptr::const_iterator it1;
+        typename AABBtree::vecptr::const_iterator it2;
+        for (it1 = this->m_children.begin(); it1 != this->m_children.end(); ++it1)
+          for (it2 = tree.m_children.begin();
+               it2 != tree.m_children.end(); ++it2)
             if ((*it1)->collision(**it2, function, swap_tree))
               return true;
       }
@@ -154,7 +155,7 @@ public:
       return false;
     }
 
-    //! Compute all the intersection of AABB trees
+    //! Compute all the intersection candidates of AABB trees
     void
     intersection(
         AABBtree const &tree,               //!< AABB tree used to check collision
@@ -162,25 +163,25 @@ public:
         bool swap_tree = false              //!< If true exchange the tree in computation
     ) const;
 
+  private:
     //! Find the candidate at minimum distance from point
     void selectMinimumDistance(
-        point const &query_point,   //!< Input point
+        point const &query,         //!< Input point
         aabb::vecptr &candidateList //!< Output candidate list
     ) const;
 
-private:
     //! Compute the minimum of the maximum distance between a point
     static real
     minimumExteriorDistance(
-        point const &query_point, //!< Input point
-        AABBtree const &tree,     //!< Input tree
-        real distance             //!< Output distance
+        point const &query,   //!< Input point
+        AABBtree const &tree, //!< Input tree
+        real distance         //!< Output distance
     );
 
     //! Select the candidate which aabb have distance less than distance
     static void
     selectLessThanDistance(
-        point const &query_point,   //!< Input point
+        point const &query,         //!< Input point
         real distance,              //!< Input distance
         AABBtree const &tree,       //!< Input tree
         aabb::vecptr &candidateList //!< Output candidate list

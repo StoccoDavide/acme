@@ -52,12 +52,7 @@ namespace acme
  */
   class entity
   {
-public:
-    typedef std::shared_ptr<entity const> ptr; //!< Shared pointer to geometrical entity
-    typedef std::pair<ptr, ptr> pairptr;       //!< Pair of pointers to geometrical entity objects
-    typedef std::vector<ptr> vecptr;           //!< Vector of pointers to geometrical entity objects
-    typedef std::vector<pairptr> vecpairptr;   //!< Vector of pairs of pointers to geometrical entity objects
-
+  public:
     //! Entity class destructor
     virtual ~entity(){};
 
@@ -77,10 +72,12 @@ public:
         ) = 0;
 
     //! Check if entity is degenerated
-    virtual bool isDegenerated(void) const = 0;
+    virtual bool isDegenerated(
+        real tolerance = EPSILON //!< Tolerance
+    ) const = 0;
 
-    //! Return object hierarchical degree
-    virtual integer degree(void) const = 0;
+    //! Return object hierarchical level
+    virtual integer level(void) const = 0;
 
     //! Return object type as string
     virtual std::string type(void) const = 0;
@@ -109,12 +106,10 @@ public:
     //! Check whether the object is a circle
     virtual bool isCircle(void) const = 0;
 
-    //! Check whether the object is a aabb
-    virtual bool isAabb(void) const = 0;
+    //! Check whether the object is a sphere
+    virtual bool isSphere(void) const = 0;
 
   }; // class entity
-
-  static entity::ptr entity_goat = std::shared_ptr<entity>(); //!< Scapegoat entity shared pointer type (throwaway non-const object)
 
 } // namespace acme
 

@@ -1,6 +1,6 @@
-clc
-clear all
-close all
+clc;
+clear all;
+close all;
 
 % Create points
 
@@ -8,7 +8,7 @@ p1 = acme_point([0 0 3]')
 p2 = acme_point([3 0 0]')
 p3 = acme_point([0 3 0]')
 
-p4 = acme_point([1 2  1]')
+p4 = acme_point([0 1  1]')
 p5 = acme_point([1 2 -1]')
 
 % Create triangle and segment

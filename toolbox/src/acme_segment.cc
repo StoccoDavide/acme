@@ -46,46 +46,50 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      real x0, real y0, real z0,
-      real x1, real y1, real z1)
+      real vertex0_x,
+      real vertex0_y,
+      real vertex0_z,
+      real vertex1_x,
+      real vertex1_y,
+      real vertex1_z)
   {
-    this->_point[0] = point(x0, y0, z0);
-    this->_point[1] = point(x1, y1, z1);
+    this->m_vertex[0] = point(vertex0_x, vertex0_y, vertex0_z);
+    this->m_vertex[1] = point(vertex1_x, vertex1_y, vertex1_z);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      point const &point0,
-      point const &point1)
+      point const &vertex0,
+      point const &vertex1)
   {
-    this->_point[0] = point0;
-    this->_point[1] = point1;
+    this->m_vertex[0] = vertex0;
+    this->m_vertex[1] = vertex1;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      point const point[2])
+      point const vertex[2])
   {
-    this->_point[0] = point[0];
-    this->_point[1] = point[1];
+    this->m_vertex[0] = vertex[0];
+    this->m_vertex[1] = vertex[1];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment &
   segment::operator=(
-      segment const &input)
+      segment const &segment_in)
   {
-    if (this == &input)
+    if (this == &segment_in)
     {
       return *this;
     }
     else
     {
-      this->_point[0] = input._point[0];
-      this->_point[1] = input._point[1];
+      this->m_vertex[0] = segment_in.m_vertex[0];
+      this->m_vertex[1] = segment_in.m_vertex[1];
       return *this;
     }
   }
@@ -94,11 +98,12 @@ namespace acme
 
   bool
   segment::isApprox(
-      segment const &input)
+      segment const &segment_in,
+      real tolerance)
       const
   {
-    return this->_point[0].isApprox(input._point[0], acme::Epsilon) &&
-           this->_point[1].isApprox(input._point[1], acme::Epsilon);
+    return this->m_vertex[0].isApprox(segment_in.m_vertex[0], tolerance) &&
+           this->m_vertex[1].isApprox(segment_in.m_vertex[1], tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -107,26 +112,45 @@ namespace acme
   segment::centroid(void)
       const
   {
-    return (this->_point[0] + this->_point[1]) / 2.0;
+    return (this->m_vertex[0] + this->m_vertex[1]) / 2.0;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   point const &
   segment::vertex(
-      integer i)
+      size_t i)
       const
   {
-    return this->_point[i];
+    return this->m_vertex[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   point &
   segment::vertex(
-      integer i)
+      size_t i)
   {
-    return this->_point[i];
+    return this->m_vertex[i];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point const &
+  segment::operator[](
+      size_t i)
+      const
+  {
+    return this->m_vertex[i];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point &
+  segment::operator[](
+      size_t i)
+  {
+    return this->m_vertex[i];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -134,15 +158,15 @@ namespace acme
   vec3
   segment::toVector(void) const
   {
-    return point(this->_point[1] - this->_point[0]);
+    return point(this->m_vertex[1] - this->m_vertex[0]);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   vec3
-  segment::toNormalizedVector(void) const
+  segment::toUnitVector(void) const
   {
-    return (this->_point[1] - this->_point[0]).normalized();
+    return (this->m_vertex[1] - this->m_vertex[0]).normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -150,24 +174,24 @@ namespace acme
   void
   segment::swap(void)
   {
-    point tmp_point(this->_point[0]);
-    this->_point[0] = this->_point[1];
-    this->_point[1] = tmp_point;
+    point tmp_point(this->m_vertex[0]);
+    this->m_vertex[0] = this->m_vertex[1];
+    this->m_vertex[1] = tmp_point;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   segment::clamp(
-      aabb &input)
+      aabb &aabb_in)
       const
   {
-    input.minX(acme::min(this->_point[0].x(), this->_point[1].x()));
-    input.minY(acme::min(this->_point[0].y(), this->_point[1].y()));
-    input.minZ(acme::min(this->_point[0].z(), this->_point[1].z()));
-    input.maxX(acme::max(this->_point[0].x(), this->_point[1].x()));
-    input.maxY(acme::max(this->_point[0].y(), this->_point[1].y()));
-    input.maxZ(acme::max(this->_point[0].z(), this->_point[1].z()));
+    aabb_in.min(0) = std::min(this->m_vertex[0].x(), this->m_vertex[1].x());
+    aabb_in.min(1) = std::min(this->m_vertex[0].y(), this->m_vertex[1].y());
+    aabb_in.min(2) = std::min(this->m_vertex[0].z(), this->m_vertex[1].z());
+    aabb_in.max(0) = std::max(this->m_vertex[0].x(), this->m_vertex[1].x());
+    aabb_in.max(1) = std::max(this->m_vertex[0].y(), this->m_vertex[1].y());
+    aabb_in.max(2) = std::max(this->m_vertex[0].z(), this->m_vertex[1].z());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -175,49 +199,51 @@ namespace acme
   real
   segment::length(void) const
   {
-    return (this->_point[0] - this->_point[1]).norm();
+    return (this->m_vertex[0] - this->m_vertex[1]).norm();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   segment::translate(
-      vec3 const &input)
+      vec3 const &vector_in)
   {
-    this->_point[0] = input + this->_point[0];
-    this->_point[1] = input + this->_point[1];
+    this->m_vertex[0] = vector_in + this->m_vertex[0];
+    this->m_vertex[1] = vector_in + this->m_vertex[1];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
   segment::transform(
-      affine const &matrix)
+      affine const &affine_in)
   {
-    this->_point[0].transform(matrix);
-    this->_point[1].transform(matrix);
+    this->m_vertex[0].transform(affine_in);
+    this->m_vertex[1].transform(affine_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   segment::isInside(
-      point const &query_point)
+      point const &query,
+      real tolerance)
       const
   {
     real d0 = this->length();
-    real d1 = (query_point - this->_point[0]).norm();
-    real d2 = (query_point - this->_point[1]).norm();
-    return acme::abs(d0 - d1 - d2) <= acme::Epsilon;
+    real d1 = (query - this->m_vertex[0]).norm();
+    real d2 = (query - this->m_vertex[1]).norm();
+    return std::abs(d0 - d1 - d2) <= tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  segment::isDegenerated(void)
+  segment::isDegenerated(
+      real tolerance)
       const
   {
-    return acme::isApprox((this->_point[0] - this->_point[1]).norm(), real(0.0), acme::Epsilon);
+    return acme::isApprox((this->m_vertex[0] - this->m_vertex[1]).norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
