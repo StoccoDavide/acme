@@ -57,19 +57,15 @@ namespace acme
 
   AABBtree::~AABBtree()
   {
-    if (this->m_ptrbox != nullptr)
-    {
-      delete this->m_ptrbox;
-      this->m_ptrbox = nullptr;
-    }
+    this->m_ptrbox.reset();
     this->m_children.clear();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   AABBtree::AABBtree()
-      : m_ptrbox(nullptr)
   {
+    this->m_ptrbox.reset();
     this->m_children.clear();
   }
 
@@ -78,11 +74,7 @@ namespace acme
   void
   AABBtree::clear()
   {
-    if (this->m_ptrbox != nullptr)
-    {
-      delete this->m_ptrbox;
-      this->m_ptrbox = nullptr;
-    }
+    this->m_ptrbox.reset();
     this->m_children.clear();
   }
 
@@ -91,7 +83,7 @@ namespace acme
   bool
   AABBtree::isEmpty() const
   {
-    return this->m_children.empty() && this->m_ptrbox == nullptr;
+    return this->m_children.empty() && !this->m_ptrbox;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -113,12 +105,7 @@ namespace acme
       return;
     }
 
-    if (this->m_ptrbox != nullptr)
-    {
-      delete this->m_ptrbox;
-      this->m_ptrbox = nullptr;
-    }
-    this->m_ptrbox = new aabb(boxes, 0, 0);
+    this->m_ptrbox = std::make_shared<aabb const>(boxes, 0, 0);
 
     real xmin = this->m_ptrbox->min(0);
     real ymin = this->m_ptrbox->min(1);
@@ -185,8 +172,8 @@ namespace acme
       neg_boxes.erase(mid_idx, neg_boxes.end());
     }
 
-    AABBtree::ptr neg = new AABBtree();
-    AABBtree::ptr pos = new AABBtree();
+    AABBtree::ptr neg = std::make_shared<AABBtree>();
+    AABBtree::ptr pos = std::make_shared<AABBtree>();
 
     neg->build(neg_boxes);
     if (!neg->isEmpty())

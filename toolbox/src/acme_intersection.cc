@@ -233,7 +233,7 @@ namespace acme
           delete entity_out;
         else
           break;
-          
+
         ACME_ERROR("acme::intersection(ray, ray): Exception not handled");
         break;
 
@@ -1042,7 +1042,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line0_in,
       line const &line1_in,
       line &line_out,
@@ -1061,7 +1062,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray0_in,
       ray const &ray1_in,
       ray &ray_out,
@@ -1093,7 +1095,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray0_in,
       ray const &ray1_in,
       segment &segment_out,
@@ -1122,7 +1125,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment0_in,
       segment const &segment1_in,
       segment &segment_out,
@@ -1139,10 +1143,10 @@ namespace acme
       point s1_p0(segment1_in.vertex(0));
       point s1_p1(segment1_in.vertex(1));
       int sx_px_in_sx =
-          int(segment0_in.isInside(s1_p0, tolerance)) +
-          int(segment0_in.isInside(s1_p1, tolerance)) * 10 +
-          int(segment1_in.isInside(s0_p0, tolerance)) * 100 +
-          int(segment1_in.isInside(s0_p1, tolerance)) * 1000;
+          int(segment0_in.isInside(s1_p1, tolerance)) +
+          int(segment0_in.isInside(s1_p0, tolerance)) * 10 +
+          int(segment1_in.isInside(s0_p1, tolerance)) * 100 +
+          int(segment1_in.isInside(s0_p0, tolerance)) * 1000;
 
       switch (sx_px_in_sx)
       {
@@ -1246,7 +1250,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       ray const &ray_in,
       ray &ray_out,
@@ -1265,7 +1270,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       segment const &segment_in,
       segment &segment_out,
@@ -1284,7 +1290,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       segment const &segment_in,
       segment &segment_out,
@@ -1338,7 +1345,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point0_in,
       point const &point1_in,
       point &point_out,
@@ -1357,7 +1365,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point_in,
       line const &line_in,
       point &point_out,
@@ -1376,7 +1385,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point_in,
       ray const &ray_in,
       point &point_out,
@@ -1395,7 +1405,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point_in,
       plane const &plane_in,
       point &point_out,
@@ -1414,7 +1425,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point_in,
       segment const &segment_in,
       point &point_out,
@@ -1433,7 +1445,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point_in,
       triangle const &triangle_in,
       point &point_out,
@@ -1452,7 +1465,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       point const &point_in,
       circle const &circle_in,
       point &point_out,
@@ -1480,7 +1494,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line0_in,
       line const &line1_in,
       point &point_out,
@@ -1514,7 +1529,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray0_in,
       ray const &ray1_in,
       point &point_out,
@@ -1532,7 +1548,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment0_in,
       segment const &segment1_in,
       point &point_out,
@@ -1550,7 +1567,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       ray const &ray_in,
       point &point_out,
@@ -1567,7 +1585,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       segment const &segment_in,
       point &point_out,
@@ -1584,7 +1603,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       segment const &segment_in,
       point &point_out,
@@ -1613,7 +1633,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane0_in,
       plane const &plane1_in,
       plane &plane_out,
@@ -1652,7 +1673,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       plane const &plane_in,
       line &line_out,
@@ -1671,7 +1693,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       triangle const &triangle_in,
       segment &segment_out,
@@ -1735,7 +1758,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       circle const &circle_in,
       segment &segment_out,
@@ -1780,7 +1804,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       sphere const &sphere_in,
       segment &segment_out,
@@ -1813,7 +1838,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       plane const &plane_in,
       ray &ray_out,
@@ -1832,7 +1858,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       triangle const &triangle_in,
       segment &segment_out,
@@ -1851,7 +1878,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       circle const &circle_in,
       segment &segment_out,
@@ -1870,7 +1898,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       sphere const &sphere_in,
       segment &segment_out,
@@ -1888,7 +1917,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       segment const &segment_in,
       segment &segment_out,
@@ -1907,7 +1937,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       triangle const &triangle_in,
       triangle &triangle_out,
@@ -1926,7 +1957,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       circle const &circle_in,
       circle &circle_out,
@@ -1945,7 +1977,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       sphere const &sphere_in,
       circle &circle_out,
@@ -1968,7 +2001,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment_in,
       triangle const &triangle_in,
       segment &segment_out,
@@ -1984,7 +2018,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment_in,
       circle const &circle_in,
       segment &segment_out,
@@ -2002,7 +2037,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment_in,
       sphere const &sphere_in,
       segment &segment_out,
@@ -2041,7 +2077,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane0_in,
       plane const &plane1_in,
       line &line,
@@ -2072,7 +2109,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane0_in,
       plane const &plane1_in,
       plane const &plane2_in,
@@ -2102,7 +2140,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       triangle const &triangle0_in,
       triangle const &triangle1_in,
       segment &segment_out,
@@ -2127,7 +2166,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       circle const &circle0_in,
       circle const &circle1_in,
       segment &segment_out,
@@ -2152,7 +2192,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       plane const &plane_in,
       point &point_out,
@@ -2173,7 +2214,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       triangle const &triangle_in,
       point &point_out,
@@ -2210,7 +2252,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       line const &line_in,
       circle const &circle_in,
       point &point_out,
@@ -2234,7 +2277,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       plane const &plane_in,
       point &point_out,
@@ -2262,7 +2306,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       triangle const &triangle_in,
       point &point_out,
@@ -2304,7 +2349,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       ray const &ray_in,
       circle const &circle_in,
       point &point_out,
@@ -2321,7 +2367,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       segment const &segment_in,
       point &point_out,
@@ -2353,7 +2400,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       triangle const &triangle_in,
       segment &segment_out,
@@ -2371,7 +2419,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       plane const &plane_in,
       circle const &circle_in,
       segment &segment_out,
@@ -2389,7 +2438,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment_in,
       triangle const &triangle_in,
       point &point_out,
@@ -2406,7 +2456,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       segment const &segment_in,
       circle const &circle_in,
       point &point_out,
@@ -2423,7 +2474,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       triangle const &triangle_in,
       circle const &circle_in,
       segment &segment_out,
@@ -2452,7 +2504,8 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  bool intersection(
+  bool
+  intersection(
       aabb const &aabb0_in,
       aabb const &aabb1_in,
       aabb &aabb_out,

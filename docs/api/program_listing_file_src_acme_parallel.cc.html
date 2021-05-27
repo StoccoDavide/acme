@@ -382,7 +382,7 @@
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">vector_in</span><span class="p">,</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">vector_in</span><span class="p">,</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -413,7 +413,7 @@
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">line0</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">line1</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">line0_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">line1_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -424,7 +424,7 @@
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">ray0</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">ray1</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">ray0_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">ray1_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -435,7 +435,7 @@
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">plane0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">plane1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">plane0_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">plane1_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -446,7 +446,7 @@
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">segment0</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">segment1</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">segment0_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">segment1_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
@@ -456,7 +456,7 @@
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">triangle0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">triangle1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">triangle0_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">triangle1_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -467,7 +467,7 @@
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">circle0</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">circle1</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">circle0_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">circle1_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -500,7 +500,7 @@
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -544,7 +544,7 @@
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -577,7 +577,7 @@
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -610,7 +610,7 @@
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">triangle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">triangle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -621,7 +621,7 @@
       <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitvector_in</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

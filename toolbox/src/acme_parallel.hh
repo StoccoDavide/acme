@@ -274,7 +274,7 @@ namespace acme
   bool
   isParallel(
       segment const &segment_in, //!< Input segment
-      circle const &triangle_in, //!< Input circle
+      circle const &circle_in,   //!< Input circle
       real tolerance = EPSILON   //!< Tolerance
   );
 

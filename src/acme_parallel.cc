@@ -343,7 +343,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isParallel(vector_in, segment_in.toUnitvector_in(), tolerance);
+    return isParallel(vector_in, segment_in.toUnitVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -374,7 +374,7 @@ namespace acme
       line const &line1_in,
       real tolerance)
   {
-    return isParallel(line0.direction(), line1.direction(), tolerance);
+    return isParallel(line0_in.direction(), line1_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -385,7 +385,7 @@ namespace acme
       ray const &ray1_in,
       real tolerance)
   {
-    return isParallel(ray0.direction(), ray1.direction(), tolerance);
+    return isParallel(ray0_in.direction(), ray1_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -396,7 +396,7 @@ namespace acme
       plane const &plane1_in,
       real tolerance)
   {
-    return isParallel(plane0.normal(), plane1.normal(), tolerance);
+    return isParallel(plane0_in.normal(), plane1_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -407,7 +407,7 @@ namespace acme
       segment const &segment1_in,
       real tolerance)
   {
-    return isParallel(segment0.toUnitvector_in(), segment1.toUnitvector_in(), tolerance);
+    return isParallel(segment0_in.toUnitVector(), segment1_in.toUnitVector(), tolerance);
   }
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -417,7 +417,7 @@ namespace acme
       triangle const &triangle1_in,
       real tolerance)
   {
-    return isParallel(triangle0.normal(), triangle1.normal(), tolerance);
+    return isParallel(triangle0_in.normal(), triangle1_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -428,7 +428,7 @@ namespace acme
       circle const &circle1_in,
       real tolerance)
   {
-    return isParallel(circle0.normal(), circle1.normal(), tolerance);
+    return isParallel(circle0_in.normal(), circle1_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -461,7 +461,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isParallel(line_in.direction(), segment_in.toUnitvector_in(), tolerance);
+    return isParallel(line_in.direction(), segment_in.toUnitVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -505,7 +505,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isParallel(ray_in.direction(), segment_in.toUnitvector_in(), tolerance);
+    return isParallel(ray_in.direction(), segment_in.toUnitVector(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -538,7 +538,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitvector_in(), plane_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitVector(), plane_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -571,7 +571,7 @@ namespace acme
       triangle const &triangle_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitvector_in(), triangle_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitVector(), triangle_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -582,7 +582,7 @@ namespace acme
       circle const &circle_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitvector_in(), circle_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitVector(), circle_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

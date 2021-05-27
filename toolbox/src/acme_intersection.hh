@@ -114,7 +114,7 @@ namespace acme
   bool
   intersection(
       point const &point_in,              //!< Input point
-      segment const &segment,             //!< Input segment
+      segment const &segment_in,          //!< Input segment
       point &point_out = THROWAWAY_POINT, //!< Output point
       real tolerance = EPSILON            //!< Tolerance
   );

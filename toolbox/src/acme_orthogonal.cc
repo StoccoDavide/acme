@@ -47,238 +47,238 @@ namespace acme
 
   bool
   isOrthogonal(
-      entity const *entity0,
-      entity const *entity1,
+      entity const *entity0_in,
+      entity const *entity1_in,
       real tolerance)
   {
-    integer slide = entity0->level() * 100 + entity1->level();
+    integer slide = entity0_in->level() * 100 + entity1_in->level();
     switch (slide)
     {
 
       // - - - - - - - - - - - - - - LINE - - - - - - - - - - - - - -
 
     case 303:
-      return isOrthogonal(*dynamic_cast<line const *>(entity0),
-                          *dynamic_cast<line const *>(entity1),
+      return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
+                          *dynamic_cast<line const *>(entity1_in),
                           tolerance);
       break;
 
     case 304:
-      return isOrthogonal(*dynamic_cast<line const *>(entity0),
-                          *dynamic_cast<ray const *>(entity1),
+      return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
+                          *dynamic_cast<ray const *>(entity1_in),
                           tolerance);
       break;
 
     case 305:
-      return isOrthogonal(*dynamic_cast<line const *>(entity0),
-                          *dynamic_cast<plane const *>(entity1),
+      return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
+                          *dynamic_cast<plane const *>(entity1_in),
                           tolerance);
       break;
 
     case 306:
-      return isOrthogonal(*dynamic_cast<line const *>(entity0),
-                          *dynamic_cast<segment const *>(entity1),
+      return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
+                          *dynamic_cast<segment const *>(entity1_in),
                           tolerance);
       break;
 
     case 307:
-      return isOrthogonal(*dynamic_cast<line const *>(entity0),
-                          *dynamic_cast<triangle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
+                          *dynamic_cast<triangle const *>(entity1_in),
                           tolerance);
       break;
 
     case 308:
-      return isOrthogonal(*dynamic_cast<line const *>(entity0),
-                          *dynamic_cast<circle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
+                          *dynamic_cast<circle const *>(entity1_in),
                           tolerance);
       break;
 
       // - - - - - - - - - - - - - - RAY - - - - - - - - - - - - - -
 
     case 403:
-      return isOrthogonal(*dynamic_cast<line const *>(entity1),
-                          *dynamic_cast<ray const *>(entity0),
+      return isOrthogonal(*dynamic_cast<line const *>(entity1_in),
+                          *dynamic_cast<ray const *>(entity0_in),
                           tolerance);
       break;
 
     case 404:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity0),
-                          *dynamic_cast<ray const *>(entity1),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity0_in),
+                          *dynamic_cast<ray const *>(entity1_in),
                           tolerance);
       break;
 
     case 405:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity0),
-                          *dynamic_cast<plane const *>(entity1),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity0_in),
+                          *dynamic_cast<plane const *>(entity1_in),
                           tolerance);
       break;
 
     case 406:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity0),
-                          *dynamic_cast<segment const *>(entity1),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity0_in),
+                          *dynamic_cast<segment const *>(entity1_in),
                           tolerance);
       break;
 
     case 407:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity0),
-                          *dynamic_cast<triangle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity0_in),
+                          *dynamic_cast<triangle const *>(entity1_in),
                           tolerance);
       break;
 
     case 408:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity0),
-                          *dynamic_cast<circle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity0_in),
+                          *dynamic_cast<circle const *>(entity1_in),
                           tolerance);
       break;
 
       // - - - - - - - - - - - - - - PLANE - - - - - - - - - - - - - -
 
     case 503:
-      return isOrthogonal(*dynamic_cast<line const *>(entity1),
-                          *dynamic_cast<plane const *>(entity0),
+      return isOrthogonal(*dynamic_cast<line const *>(entity1_in),
+                          *dynamic_cast<plane const *>(entity0_in),
                           tolerance);
       break;
 
     case 504:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity1),
-                          *dynamic_cast<plane const *>(entity0),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity1_in),
+                          *dynamic_cast<plane const *>(entity0_in),
                           tolerance);
       break;
 
     case 505:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity0),
-                          *dynamic_cast<plane const *>(entity1),
+      return isOrthogonal(*dynamic_cast<plane const *>(entity0_in),
+                          *dynamic_cast<plane const *>(entity1_in),
                           tolerance);
       break;
 
     case 506:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity0),
-                          *dynamic_cast<segment const *>(entity1),
+      return isOrthogonal(*dynamic_cast<plane const *>(entity0_in),
+                          *dynamic_cast<segment const *>(entity1_in),
                           tolerance);
       break;
 
     case 507:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity0),
-                          *dynamic_cast<triangle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<plane const *>(entity0_in),
+                          *dynamic_cast<triangle const *>(entity1_in),
                           tolerance);
       break;
 
     case 508:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity0),
-                          *dynamic_cast<circle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<plane const *>(entity0_in),
+                          *dynamic_cast<circle const *>(entity1_in),
                           tolerance);
       break;
 
       // - - - - - - - - - - - - - - SEGMENT - - - - - - - - - - - - - -
 
     case 603:
-      return isOrthogonal(*dynamic_cast<line const *>(entity1),
-                          *dynamic_cast<segment const *>(entity0),
+      return isOrthogonal(*dynamic_cast<line const *>(entity1_in),
+                          *dynamic_cast<segment const *>(entity0_in),
                           tolerance);
       break;
 
     case 604:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity1),
-                          *dynamic_cast<segment const *>(entity0),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity1_in),
+                          *dynamic_cast<segment const *>(entity0_in),
                           tolerance);
       break;
 
     case 605:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity1),
-                          *dynamic_cast<segment const *>(entity0),
+      return isOrthogonal(*dynamic_cast<plane const *>(entity1_in),
+                          *dynamic_cast<segment const *>(entity0_in),
                           tolerance);
       break;
 
     case 606:
-      return isOrthogonal(*dynamic_cast<segment const *>(entity0),
-                          *dynamic_cast<segment const *>(entity1),
+      return isOrthogonal(*dynamic_cast<segment const *>(entity0_in),
+                          *dynamic_cast<segment const *>(entity1_in),
                           tolerance);
       break;
 
     case 607:
-      return isOrthogonal(*dynamic_cast<segment const *>(entity0),
-                          *dynamic_cast<triangle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<segment const *>(entity0_in),
+                          *dynamic_cast<triangle const *>(entity1_in),
                           tolerance);
       break;
 
     case 608:
-      return isOrthogonal(*dynamic_cast<segment const *>(entity0),
-                          *dynamic_cast<circle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<segment const *>(entity0_in),
+                          *dynamic_cast<circle const *>(entity1_in),
                           tolerance);
       break;
 
       // - - - - - - - - - - - - - - TRIANGLE - - - - - - - - - - - - - -
 
     case 703:
-      return isOrthogonal(*dynamic_cast<line const *>(entity1),
-                          *dynamic_cast<triangle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<line const *>(entity1_in),
+                          *dynamic_cast<triangle const *>(entity0_in),
                           tolerance);
       break;
 
     case 704:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity1),
-                          *dynamic_cast<triangle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity1_in),
+                          *dynamic_cast<triangle const *>(entity0_in),
                           tolerance);
       break;
 
     case 705:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity1),
-                          *dynamic_cast<triangle const *>(entity0), tolerance);
+      return isOrthogonal(*dynamic_cast<plane const *>(entity1_in),
+                          *dynamic_cast<triangle const *>(entity0_in), tolerance);
       break;
 
     case 706:
-      return isOrthogonal(*dynamic_cast<segment const *>(entity1),
-                          *dynamic_cast<triangle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<segment const *>(entity1_in),
+                          *dynamic_cast<triangle const *>(entity0_in),
                           tolerance);
       break;
 
     case 707:
-      return isOrthogonal(*dynamic_cast<triangle const *>(entity0),
-                          *dynamic_cast<triangle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<triangle const *>(entity0_in),
+                          *dynamic_cast<triangle const *>(entity1_in),
                           tolerance);
       break;
 
     case 708:
-      return isOrthogonal(*dynamic_cast<triangle const *>(entity0),
-                          *dynamic_cast<circle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<triangle const *>(entity0_in),
+                          *dynamic_cast<circle const *>(entity1_in),
                           tolerance);
       break;
 
       // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
     case 803:
-      return isOrthogonal(*dynamic_cast<line const *>(entity1),
-                          *dynamic_cast<circle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<line const *>(entity1_in),
+                          *dynamic_cast<circle const *>(entity0_in),
                           tolerance);
       break;
 
     case 804:
-      return isOrthogonal(*dynamic_cast<ray const *>(entity1),
-                          *dynamic_cast<circle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<ray const *>(entity1_in),
+                          *dynamic_cast<circle const *>(entity0_in),
                           tolerance);
       break;
 
     case 805:
-      return isOrthogonal(*dynamic_cast<plane const *>(entity1),
-                          *dynamic_cast<circle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<plane const *>(entity1_in),
+                          *dynamic_cast<circle const *>(entity0_in),
                           tolerance);
       break;
 
     case 806:
-      return isOrthogonal(*dynamic_cast<segment const *>(entity1),
-                          *dynamic_cast<circle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<segment const *>(entity1_in),
+                          *dynamic_cast<circle const *>(entity0_in),
                           tolerance);
       break;
 
     case 807:
-      return isOrthogonal(*dynamic_cast<triangle const *>(entity1),
-                          *dynamic_cast<circle const *>(entity0),
+      return isOrthogonal(*dynamic_cast<triangle const *>(entity1_in),
+                          *dynamic_cast<circle const *>(entity0_in),
                           tolerance);
       break;
 
     case 808:
-      return isOrthogonal(*dynamic_cast<circle const *>(entity0),
-                          *dynamic_cast<circle const *>(entity1),
+      return isOrthogonal(*dynamic_cast<circle const *>(entity0_in),
+                          *dynamic_cast<circle const *>(entity1_in),
                           tolerance);
       break;
 
