@@ -96,19 +96,15 @@
 
   <span class="n">AABBtree</span><span class="o">::~</span><span class="n">AABBtree</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">delete</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">;</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_children</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">AABBtree</span><span class="o">::</span><span class="n">AABBtree</span><span class="p">()</span>
-      <span class="o">:</span> <span class="n">m_ptrbox</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span>
   <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_children</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
   <span class="p">}</span>
 
@@ -117,11 +113,7 @@
   <span class="kt">void</span>
   <span class="n">AABBtree</span><span class="o">::</span><span class="n">clear</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">delete</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">;</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_children</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
   <span class="p">}</span>
 
@@ -130,7 +122,7 @@
   <span class="kt">bool</span>
   <span class="n">AABBtree</span><span class="o">::</span><span class="n">isEmpty</span><span class="p">()</span> <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_children</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_children</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -152,12 +144,7 @@
       <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">delete</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="p">;</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">=</span> <span class="k">new</span> <span class="n">aabb</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span> <span class="k">const</span><span class="o">&gt;</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
     <span class="n">real</span> <span class="n">xmin</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="o">-&gt;</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
     <span class="n">real</span> <span class="n">ymin</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ptrbox</span><span class="o">-&gt;</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -224,8 +211,8 @@
       <span class="n">neg_boxes</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">mid_idx</span><span class="p">,</span> <span class="n">neg_boxes</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
     <span class="p">}</span>
 
-    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">neg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AABBtree</span><span class="p">();</span>
-    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">pos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AABBtree</span><span class="p">();</span>
+    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">neg</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">();</span>
 
     <span class="n">neg</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="n">neg_boxes</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">neg</span><span class="o">-&gt;</span><span class="n">isEmpty</span><span class="p">())</span>

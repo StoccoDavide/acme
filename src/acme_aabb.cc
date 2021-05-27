@@ -136,7 +136,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real
+  real const &
   aabb::min(
       size_t i)
       const
@@ -185,7 +185,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real
+  real const &
   aabb::max(
       size_t i)
       const

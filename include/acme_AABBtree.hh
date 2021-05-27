@@ -62,8 +62,8 @@ namespace acme
   class AABBtree
   {
   public:
-    typedef AABBtree *ptr;           //!< Pointer to AABB tree object
-    typedef std::vector<ptr> vecptr; //!< Vector of pointers to AABB tree objects
+    typedef std::shared_ptr<AABBtree> ptr; //!< Shared ointer to AABB tree object
+    typedef std::vector<ptr> vecptr;       //!< Vector of pointers to AABB tree objects
 
   private:
     aabb::ptr m_ptrbox; //!< Pointer to AABB tree

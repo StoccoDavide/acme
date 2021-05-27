@@ -306,72 +306,72 @@ namespace acme
 
   bool
   isParallel(
-      vec3 const &vector,
+      vec3 const &vector_in,
       line const &line_in,
       real tolerance)
   {
-    return isParallel(vector, line_in.direction(), tolerance);
+    return isParallel(vector_in, line_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vec3 const &vector_in,
       ray const &ray_in,
       real tolerance)
   {
-    return isParallel(vector, ray_in.direction(), tolerance);
+    return isParallel(vector_in, ray_in.direction(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vec3 const &vector_in,
       plane const &plane_in,
       real tolerance)
   {
-    return isOrthogonal(vector, plane_in.normal(), tolerance);
+    return isOrthogonal(vector_in, plane_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vec3 const &vector_in,
       segment const &segment_in,
       real tolerance)
   {
-    return isParallel(vector, segment_in.toUnitVector(), tolerance);
+    return isParallel(vector_in, segment_in.toUnitvector_in(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vec3 const &vector_in,
       triangle const &triangle_in,
       real tolerance)
   {
-    return isOrthogonal(vector, triangle_in.normal(), tolerance);
+    return isOrthogonal(vector_in, triangle_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      vec3 const &vector,
+      vec3 const &vector_in,
       circle const &circle_in,
       real tolerance)
   {
-    return isOrthogonal(vector, circle_in.normal(), tolerance);
+    return isOrthogonal(vector_in, circle_in.normal(), tolerance);
   }
 
   bool
   isParallel(
-      line const &line0,
-      line const &line1,
+      line const &line0_in,
+      line const &line1_in,
       real tolerance)
   {
     return isParallel(line0.direction(), line1.direction(), tolerance);
@@ -381,8 +381,8 @@ namespace acme
 
   bool
   isParallel(
-      ray const &ray0,
-      ray const &ray1,
+      ray const &ray0_in,
+      ray const &ray1_in,
       real tolerance)
   {
     return isParallel(ray0.direction(), ray1.direction(), tolerance);
@@ -392,8 +392,8 @@ namespace acme
 
   bool
   isParallel(
-      plane const &plane0,
-      plane const &plane1,
+      plane const &plane0_in,
+      plane const &plane1_in,
       real tolerance)
   {
     return isParallel(plane0.normal(), plane1.normal(), tolerance);
@@ -403,18 +403,18 @@ namespace acme
 
   bool
   isParallel(
-      segment const &segment0,
-      segment const &segment1,
+      segment const &segment0_in,
+      segment const &segment1_in,
       real tolerance)
   {
-    return isParallel(segment0.toUnitVector(), segment1.toUnitVector(), tolerance);
+    return isParallel(segment0.toUnitvector_in(), segment1.toUnitvector_in(), tolerance);
   }
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isParallel(
-      triangle const &triangle0,
-      triangle const &triangle1,
+      triangle const &triangle0_in,
+      triangle const &triangle1_in,
       real tolerance)
   {
     return isParallel(triangle0.normal(), triangle1.normal(), tolerance);
@@ -424,8 +424,8 @@ namespace acme
 
   bool
   isParallel(
-      circle const &circle0,
-      circle const &circle1,
+      circle const &circle0_in,
+      circle const &circle1_in,
       real tolerance)
   {
     return isParallel(circle0.normal(), circle1.normal(), tolerance);
@@ -461,7 +461,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isParallel(line_in.direction(), segment_in.toUnitVector(), tolerance);
+    return isParallel(line_in.direction(), segment_in.toUnitvector_in(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -505,7 +505,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isParallel(ray_in.direction(), segment_in.toUnitVector(), tolerance);
+    return isParallel(ray_in.direction(), segment_in.toUnitvector_in(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -538,7 +538,7 @@ namespace acme
       segment const &segment_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitVector(), plane_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitvector_in(), plane_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -571,7 +571,7 @@ namespace acme
       triangle const &triangle_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitVector(), triangle_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitvector_in(), triangle_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -582,7 +582,7 @@ namespace acme
       circle const &circle_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitVector(), circle_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitvector_in(), circle_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

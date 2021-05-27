@@ -54,10 +54,10 @@ namespace acme
   class aabb
   {
   public:
-    typedef aabb const *ptr;                 //!< Shared pointer to aabb object used in AABBtree routines
-    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to aabb objects used in AABBtree routines
-    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to aabb objects used in AABBtree routines
-    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to aabb objects used in AABBtree routines
+    typedef std::shared_ptr<aabb const> ptr; //!< Shared pointer to const aabb object used in AABBtree routines
+    typedef std::pair<ptr, ptr> pairptr;     //!< Pair of pointers to const aabb objects used in AABBtree routines
+    typedef std::vector<ptr> vecptr;         //!< Vector of pointers to const aabb objects used in AABBtree routines
+    typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to const aabb objects used in AABBtree routines
 
   private:
     point m_min;   //!< Box maximum point
@@ -163,8 +163,8 @@ namespace acme
     point &
     min(void);
 
-    //! Get aabb minimum i-th axis value
-    real
+    //! Get aabb minimum i-th axis value const reference
+    real const &
     min(
         size_t i //!< Input i-th value
     ) const;
@@ -191,8 +191,8 @@ namespace acme
     point &
     max(void);
 
-    //! Get aabb maximum i-th point axis value
-    real
+    //! Get aabb maximum i-th point axis value const reference
+    real const &
     max(
         size_t i //!< Input i-th value
     ) const;
