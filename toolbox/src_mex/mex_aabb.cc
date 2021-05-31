@@ -116,7 +116,8 @@
   "%=====================================================================%\n"
 
 using namespace std;
-typedef double real_type;
+
+typedef double real_mex;
 
 static void
 DATA_NEW(
@@ -154,20 +155,20 @@ do_new(int nlhs, mxArray *plhs[],
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
-  real_type min_x = acme::QUIET_NAN;
-  real_type min_y = acme::QUIET_NAN;
-  real_type min_z = acme::QUIET_NAN;
-  real_type max_x = acme::QUIET_NAN;
-  real_type max_y = acme::QUIET_NAN;
-  real_type max_z = acme::QUIET_NAN;
+  real_mex min_x = acme::QUIET_NAN;
+  real_mex min_y = acme::QUIET_NAN;
+  real_mex min_z = acme::QUIET_NAN;
+  real_mex max_x = acme::QUIET_NAN;
+  real_mex max_y = acme::QUIET_NAN;
+  real_mex max_z = acme::QUIET_NAN;
 
   if (nrhs == 3)
   {
-    real_type const *matrix1_ptr;
+    real_mex const *matrix1_ptr;
     mwSize rows1, cols1;
     matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
-    real_type const *matrix2_ptr;
+    real_mex const *matrix2_ptr;
     min_x = matrix1_ptr[0];
     min_y = matrix1_ptr[1];
     min_z = matrix1_ptr[2];
@@ -357,7 +358,7 @@ do_setMinX(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
   self->min(0) = other;
   self->updateMaxMin();
 #undef CMD
@@ -374,7 +375,7 @@ do_setMinY(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
   self->min(1) = other;
   self->updateMaxMin();
 #undef CMD
@@ -391,7 +392,7 @@ do_setMinZ(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
   self->min(2) = other;
   self->updateMaxMin();
 #undef CMD
@@ -425,7 +426,7 @@ do_setMaxX(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
   self->max(0) = other;
   self->updateMaxMin();
 #undef CMD
@@ -442,7 +443,7 @@ do_setMaxY(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
   self->max(1) = other;
   self->updateMaxMin();
 #undef CMD
@@ -459,7 +460,7 @@ do_setMaxZ(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
   self->max(2) = other;
   self->updateMaxMin();
 #undef CMD
@@ -476,13 +477,13 @@ do_translate(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real_mex const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
+  real_mex x = matrix_ptr[0];
+  real_mex y = matrix_ptr[1];
+  real_mex z = matrix_ptr[2];
   self->translate(acme::vec3(x, y, z));
 #undef CMD
 }
@@ -516,7 +517,7 @@ do_isInside(int nlhs, mxArray *plhs[],
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
-  setScalarBool(arg_out_0, self->isInside(*other));
+  setBoolValue(arg_out_0, self->isInside(*other));
 #undef CMD
 }
 
@@ -531,7 +532,7 @@ do_isDegenerated(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarBool(arg_out_0, self->isDegenerated());
+  setBoolValue(arg_out_0, self->isDegenerated());
 #undef CMD
 }
 
@@ -547,7 +548,7 @@ do_isApprox(int nlhs, mxArray *plhs[],
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::aabb *other = DATA_GET(arg_in_2);
-  setScalarBool(arg_out_0, self->isApprox(*other));
+  setBoolValue(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
 
@@ -593,7 +594,7 @@ do_intersects(int nlhs, mxArray *plhs[],
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::aabb *other = DATA_GET(arg_in_2);
-  setScalarBool(arg_out_0, self->intersects(*other));
+  setBoolValue(arg_out_0, self->intersects(*other));
 #undef CMD
 }
 

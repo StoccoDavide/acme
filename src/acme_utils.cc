@@ -26,21 +26,21 @@
 */
 
 ///
-/// file: acme_utilities.cc
+/// file: acme_utils.cc
 ///
 
-#include "acme_utilities.hh"
+#include "acme_utils.hh"
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 namespace acme
 {
   /*\
-   |         _   _ _ _ _   _           
-   |   _   _| |_(_) (_) |_(_) ___  ___ 
-   |  | | | | __| | | | __| |/ _ \/ __|
-   |  | |_| | |_| | | | |_| |  __/\__ \
-   |   \__,_|\__|_|_|_|\__|_|\___||___/
+   |         _   _ _      
+   |   _   _| |_(_) |___ 
+   |  | | | | __| | / __|
+   |  | |_| | |_| | \__ \
+   |   \__,_|\__|_|_|___/
    |                                   
   \*/
 
@@ -263,5 +263,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_utilities.cc
+/// eof: acme_utils.cc
 ///

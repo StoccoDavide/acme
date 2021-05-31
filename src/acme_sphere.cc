@@ -45,6 +45,28 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  sphere::sphere(
+      real radius,
+      real center_x,
+      real center_y,
+      real center_z)
+      : m_radius(radius),
+        m_center(center_x, center_y, center_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  sphere::sphere(
+      real radius,
+      point const &center)
+      : m_radius(radius),
+        m_center(center)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   sphere &
   sphere::operator=(
       sphere const &sphere_in)

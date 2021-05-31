@@ -72,27 +72,19 @@ namespace acme
 
     //! Plane class constructor for plane
     plane(
-        real origin_x, //<! Input x value of plane origin point
-        real origin_y, //<! Input y value of plane origin point
-        real origin_z, //<! Input z value of plane origin point
-        real normal_x, //<! Input x value of plane normal vector
-        real normal_y, //<! Input y value of plane normal vector
-        real normal_z  //<! Input z value of plane normal vector
-        )
-        : m_origin(origin_x, origin_y, origin_z),
-          m_normal(normal_x, normal_y, normal_z)
-    {
-    }
+        real origin_x, //!< Input x value of plane origin point
+        real origin_y, //!< Input y value of plane origin point
+        real origin_z, //!< Input z value of plane origin point
+        real normal_x, //!< Input x value of plane normal vector
+        real normal_y, //!< Input y value of plane normal vector
+        real normal_z  //!< Input z value of plane normal vector
+    );
 
     //! Plane class constructor
     plane(
         point const &origin, //!< Input plane origin point
         vec3 const &normal   //!< Input plane normal vector
-        )
-        : m_origin(origin),
-          m_normal(normal)
-    {
-    }
+    );
 
     //! Equality operator
     plane &
@@ -122,6 +114,10 @@ namespace acme
     //! Return plane normal vector reference
     vec3 &
     normal(void);
+
+    //! Return plane normal unit vector
+    vec3
+    unitNormal(void) const;
 
     //! Normalize plane normal vector
     void

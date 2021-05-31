@@ -141,7 +141,7 @@ classdef acme_line < acme_entity
     %
     function normalize( self )
       % 
-      mex_line( 'normalize', self.objectHandle, other_obj.objectHandle );
+      mex_line( 'normalize', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

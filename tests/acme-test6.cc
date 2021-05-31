@@ -35,7 +35,7 @@
 #include "acme_aabb.hh"
 #include "acme_intersection.hh"
 #include "acme_triangle.hh"
-#include "acme_utilities.hh"
+#include "acme_utils.hh"
 
 using namespace acme;
 

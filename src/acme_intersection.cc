@@ -1501,24 +1501,17 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    // if v and u are parallel (v x u = 0), then no intersection
-    // collinearity imply parallelism!
     if (!isCollinear(line0_in, line1_in, tolerance))
     {
-      point p(line0_in.origin());
-      vec3 v(line0_in.direction());
-      point q(line1_in.origin());
-      vec3 u(line1_in.direction());
-      // find a = v x u
-      vec3 a(v.cross(u));
-      // find dot product = (v x u).(v x u)
-      real dot = a.dot(a);
-      // find b = (Q1-P1) x u
-      vec3 b((q - p).cross(u));
-      // find t = (b.a)/(a.a) = ((Q1-P1) x u).(v x u) / (v x u).(v x u)
-      real t = b.dot(a) / dot;
-      // find intersection point
-      point_out = p + (t * v);
+      point origin_0(line0_in.origin());
+      vec3 direction_0(line0_in.direction());
+      point origin_1(line1_in.origin());
+      vec3 direction_1(line1_in.direction());
+
+      vec3 a(direction_0.cross(direction_1));
+      vec3 b((origin_1 - origin_0).cross(direction_1));
+      real t = b.dot(a) / a.dot(a);
+      point_out = origin_0 + (t * direction_0);
       return true;
     }
     else
@@ -1536,14 +1529,31 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line(ray0_in.origin(), ray0_in.direction()),
-                     line(ray1_in.origin(), ray1_in.direction()),
-                     point_out,
-                     tolerance))
-      return ray0_in.isInside(point_out, tolerance) &&
-             ray1_in.isInside(point_out, tolerance);
+    if (!isCollinear(ray0_in, ray1_in, tolerance))
+    {
+      point origin_0(ray0_in.origin());
+      vec3 direction_0(ray0_in.direction());
+      point origin_1(ray1_in.origin());
+      vec3 direction_1(ray1_in.direction());
+
+      vec3 a_0(direction_0.cross(direction_1));
+      vec3 b_0((origin_1 - origin_0).cross(direction_1));
+      real t0 = b_0.dot(a_0) / a_0.dot(a_0);
+
+      vec3 a_1(-a_0);
+      vec3 b_1((origin_0 - origin_1).cross(direction_0));
+      real t1 = b_1.dot(a_1) / a_1.dot(a_1);
+
+      if (t0 < 0.0 ||
+          t1 < 0.0)
+        return false;
+      point_out = origin_0 + (t0 * direction_0);
+      return true;
+    }
     else
+    {
       return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1555,14 +1565,31 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line(segment0_in.vertex(0), segment0_in.toUnitVector()),
-                     line(segment1_in.vertex(0), segment1_in.toUnitVector()),
-                     point_out,
-                     tolerance))
-      return segment0_in.isInside(point_out, tolerance) &&
-             segment1_in.isInside(point_out, tolerance);
+    if (!isCollinear(segment0_in, segment1_in, tolerance))
+    {
+      point origin_0(segment0_in.vertex(0));
+      vec3 direction_0(segment0_in.toVector());
+      point origin_1(segment1_in.vertex(0));
+      vec3 direction_1(segment1_in.toVector());
+
+      vec3 a_0(direction_0.cross(direction_1));
+      vec3 b_0((origin_1 - origin_0).cross(direction_1));
+      real t0 = b_0.dot(a_0) / a_0.dot(a_0);
+
+      vec3 a_1(-a_0);
+      vec3 b_1((origin_0 - origin_1).cross(direction_0));
+      real t1 = b_1.dot(a_1) / a_1.dot(a_1);
+
+      if (t0 < 0.0 || t1 < 0.0 ||
+          t0 > 1.0 || t1 > 1.0)
+        return false;
+      point_out = origin_0 + (t0 * direction_0);
+      return true;
+    }
     else
+    {
       return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1574,13 +1601,30 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line_in,
-                     line(ray_in.origin(), ray_in.direction()),
-                     point_out,
-                     tolerance))
-      return ray_in.isInside(point_out, tolerance);
+    if (!isCollinear(line_in, ray_in, tolerance))
+    {
+      point origin_0(line_in.origin());
+      vec3 direction_0(line_in.direction());
+      point origin_1(ray_in.origin());
+      vec3 direction_1(ray_in.direction());
+
+      vec3 a_0(direction_0.cross(direction_1));
+      vec3 b_0((origin_1 - origin_0).cross(direction_1));
+      real t0 = b_0.dot(a_0) / a_0.dot(a_0);
+
+      vec3 a_1(-a_0);
+      vec3 b_1((origin_0 - origin_1).cross(direction_0));
+      real t1 = b_1.dot(a_1) / a_1.dot(a_1);
+
+      if (t1 < 0.0)
+        return false;
+      point_out = origin_0 + (t0 * direction_0);
+      return true;
+    }
     else
+    {
       return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1592,13 +1636,30 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line_in,
-                     line(segment_in.vertex(0), segment_in.toUnitVector()),
-                     point_out,
-                     tolerance))
-      return segment_in.isInside(point_out, tolerance);
+    if (!isCollinear(line_in, segment_in, tolerance))
+    {
+      point origin_0(line_in.origin());
+      vec3 direction_0(line_in.direction());
+      point origin_1(segment_in.vertex(0));
+      vec3 direction_1(segment_in.toVector());
+
+      vec3 a_0(direction_0.cross(direction_1));
+      vec3 b_0((origin_1 - origin_0).cross(direction_1));
+      real t0 = b_0.dot(a_0) / a_0.dot(a_0);
+
+      vec3 a_1(-a_0);
+      vec3 b_1((origin_0 - origin_1).cross(direction_0));
+      real t1 = b_1.dot(a_1) / a_1.dot(a_1);
+
+      if (t1 < 0.0 || t1 > 1.0)
+        return false;
+      point_out = origin_0 + (t0 * direction_0);
+      return true;
+    }
     else
+    {
       return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1610,14 +1671,31 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line(ray_in.origin(), ray_in.direction()),
-                     line(segment_in.vertex(0), segment_in.toUnitVector()),
-                     point_out,
-                     tolerance))
-      return segment_in.isInside(point_out, tolerance) &&
-             ray_in.isInside(point_out, tolerance);
+    if (!isCollinear(ray_in, segment_in, tolerance))
+    {
+      point origin_0(ray_in.origin());
+      vec3 direction_0(ray_in.direction());
+      point origin_1(segment_in.vertex(0));
+      vec3 direction_1(segment_in.toVector());
+
+      vec3 a_0(direction_0.cross(direction_1));
+      vec3 b_0((origin_1 - origin_0).cross(direction_1));
+      real t0 = b_0.dot(a_0) / a_0.dot(a_0);
+
+      vec3 a_1(-a_0);
+      vec3 b_1((origin_0 - origin_1).cross(direction_0));
+      real t1 = b_1.dot(a_1) / a_1.dot(a_1);
+
+      if (t0 < 0.0 ||
+          t1 < 0.0 || t1 > 1.0)
+        return false;
+      point_out = origin_0 + (t0 * direction_0);
+      return true;
+    }
     else
+    {
       return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1701,10 +1779,9 @@ namespace acme
       real tolerance)
   {
     point point0, point1, point2;
-    bool bool0, bool1, bool2;
-    bool0 = intersection(line_in, triangle_in.edge(0), point0, tolerance);
-    bool1 = intersection(line_in, triangle_in.edge(1), point1, tolerance);
-    bool2 = intersection(line_in, triangle_in.edge(2), point2, tolerance);
+    bool bool0 = intersection(line_in, triangle_in.edge(0), point0, tolerance);
+    bool bool1 = intersection(line_in, triangle_in.edge(1), point1, tolerance);
+    bool bool2 = intersection(line_in, triangle_in.edge(2), point2, tolerance);
 
     if (bool0 && bool1 && !bool2)
     {
@@ -1765,11 +1842,6 @@ namespace acme
       segment &segment_out,
       real tolerance)
   {
-    // Locate one or two points that are on the circle and line.
-    // If the line is t&D+P, the circle center is C, and the circle radius is r, then
-    // r^2 = |t&D+P-C|^2 = |D|^2&t^2 + 2&Dot(D,P-C)&t + |P-C|^2
-    // This is a quadratic equation of the form
-    // a2&t^2 + 2&a1&t + a0 = 0.
     real circle_radius = circle_in.radius();
     point circle_center(circle_in.center());
     point line_origin(line_in.origin());
@@ -1781,12 +1853,10 @@ namespace acme
     real a0 = diff.dot(diff) - circle_radius * circle_radius;
 
     real discriminant = a1 * a1 - a0 * a2;
-    // No real roots, the circle does not intersection the plane
-    if (discriminant <= -tolerance)
+    if (discriminant < -tolerance)
       return false;
 
     real inv = 1 / a2;
-    // One repeated root, the circle just touches the plane
     if (std::abs(discriminant) < tolerance)
     {
       point int_point(line_origin - (a1 * inv) * line_direction);
@@ -1794,46 +1864,10 @@ namespace acme
       segment_out.vertex(1) = int_point;
       return true;
     }
-
-    // Two distinct, real-valued roots, the circle intersects the plane in two points
     real root = std::sqrt(discriminant);
     segment_out.vertex(0) = line_origin - ((a1 + root) * inv) * line_direction;
     segment_out.vertex(1) = line_origin - ((a1 - root) * inv) * line_direction;
     return true;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  intersection(
-      line const &line_in,
-      sphere const &sphere_in,
-      segment &segment_out,
-      real tolerance)
-  {
-    // The sphere is (X-C)^T*(X-C)-1 = 0 and the line is X = P+t*D.
-    // Substitute the line equation into the sphere equation to
-    // obtain a quadratic equation Q(t) = t^2 + 2*a1*t + a0 = 0, where
-    // a1 = D^T*(P-C) and a0 = (P-C)^T*(P-C)-1
-    vec3 diff(line_in.origin() - sphere_in.center());
-    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
-    real a1 = line_in.direction().dot(diff);
-
-    // Intersection occurs when Q(t) has real roots
-    real discr = a1 * a1 - a0;
-    if (discr > tolerance)
-    {
-      // The line intersects the sphere in 2 distinct points
-      real root = std::sqrt(discr);
-      segment_out.vertex(0) = line_in.origin() + (-a1 - root) * line_in.direction();
-      segment_out.vertex(1) = line_in.origin() + (-a1 + root) * line_in.direction();
-      return true;
-    }
-    else
-    {
-      // The line does not intersect the sphere
-      return false;
-    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1865,7 +1899,6 @@ namespace acme
       segment &segment_out,
       real tolerance)
   {
-    // Compute the intersection of resulting line with the circle
     segment tmp_segment;
     if (intersection(line(ray_in.origin(), ray_in.direction()),
                      triangle_in,
@@ -1885,34 +1918,39 @@ namespace acme
       segment &segment_out,
       real tolerance)
   {
-    // Compute the intersection of resulting line with the circle
-    segment tmp_segment;
-    if (intersection(line(ray_in.origin(), ray_in.direction()),
-                     circle_in,
-                     tmp_segment,
-                     tolerance))
-      return intersection(ray_in, tmp_segment, segment_out, tolerance);
-    else
-      return false;
-  }
+    real circle_radius = circle_in.radius();
+    point circle_center(circle_in.center());
+    point ray_origin(ray_in.origin());
+    vec3 ray_direction(ray_in.direction());
+    vec3 diff(ray_origin - circle_center);
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    real a2 = ray_direction.dot(ray_direction);
+    real a1 = diff.dot(ray_direction);
+    real a0 = diff.dot(diff) - circle_radius * circle_radius;
 
-  bool
-  intersection(
-      ray const &ray_in,
-      sphere const &sphere_in,
-      segment &segment_out,
-      real tolerance)
-  {
-    segment tmp_segment;
-    if (intersection(line(ray_in.origin(), ray_in.direction()),
-                     sphere_in,
-                     tmp_segment,
-                     tolerance))
-      return intersection(ray_in, tmp_segment, segment_out, tolerance);
-    else
+    real discriminant = a1 * a1 - a0 * a2;
+    if (discriminant < -tolerance)
       return false;
+
+    real inv = 1 / a2;
+    if (std::abs(discriminant) < tolerance)
+    {
+      real t = a1 * inv;
+      if (t < 0.0)
+        return false;
+      point int_point(ray_origin - t * ray_direction);
+      segment_out.vertex(0) = int_point;
+      segment_out.vertex(1) = int_point;
+      return true;
+    }
+    real root = std::sqrt(discriminant);
+    real t0 = (a1 + root) * inv;
+    real t1 = (a1 - root) * inv;
+    if (t0 < 0.0 || t1 < 0.0)
+      return false;
+    segment_out.vertex(0) = ray_origin - t0 * ray_direction;
+    segment_out.vertex(1) = ray_origin - t1 * ray_direction;
+    return true;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1979,30 +2017,6 @@ namespace acme
 
   bool
   intersection(
-      plane const &plane_in,
-      sphere const &sphere_in,
-      circle &circle_out,
-      real tolerance)
-  {
-    real signed_distance = plane_in.signedDistance(sphere_in.center());
-    real distance = std::abs(signed_distance);
-    if (distance <= sphere_in.radius())
-    {
-      circle_out.radius() = std::sqrt((sphere_in.radius() + distance) * (sphere_in.radius() - distance));
-      circle_out.center() = sphere_in.center() - signed_distance * plane_in.normal();
-      circle_out.normal() = plane_in.normal();
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  bool
-  intersection(
       segment const &segment_in,
       triangle const &triangle_in,
       segment &segment_out,
@@ -2025,33 +2039,40 @@ namespace acme
       segment &segment_out,
       real tolerance)
   {
-    segment tmp_segment;
-    if (intersection(line(segment_in.vertex(0), segment_in.toUnitVector()),
-                     circle_in,
-                     tmp_segment,
-                     tolerance))
-      return intersection(segment_in, tmp_segment, segment_out, tolerance);
-    else
-      return false;
-  }
+    real circle_radius = circle_in.radius();
+    point circle_center(circle_in.center());
+    point segment_origin(segment_in.vertex(0));
+    vec3 segment_direction(segment_in.toVector());
+    vec3 diff(segment_origin - circle_center);
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    real a2 = segment_direction.dot(segment_direction);
+    real a1 = diff.dot(segment_direction);
+    real a0 = diff.dot(diff) - circle_radius * circle_radius;
 
-  bool
-  intersection(
-      segment const &segment_in,
-      sphere const &sphere_in,
-      segment &segment_out,
-      real tolerance)
-  {
-    segment tmp_segment;
-    if (intersection(line(segment_in.vertex(0), segment_in.toUnitVector()),
-                     sphere_in,
-                     tmp_segment,
-                     tolerance))
-      return intersection(segment_in, tmp_segment, segment_out, tolerance);
-    else
+    real discriminant = a1 * a1 - a0 * a2;
+    if (discriminant < -tolerance)
       return false;
+
+    real inv = 1 / a2;
+    if (std::abs(discriminant) < tolerance)
+    {
+      real t = a1 * inv;
+      if (t < 0.0 || t > 1.0)
+        return false;
+      point int_point(segment_origin - t * segment_direction);
+      segment_out.vertex(0) = int_point;
+      segment_out.vertex(1) = int_point;
+      return true;
+    }
+    real root = std::sqrt(discriminant);
+    real t0 = (a1 + root) * inv;
+    real t1 = (a1 - root) * inv;
+    if (t0 < 0.0 || t0 > 1.0 ||
+        t1 < 0.0 || t1 > 1.0)
+      return false;
+    segment_out.vertex(0) = segment_origin - t0 * segment_direction;
+    segment_out.vertex(1) = segment_origin - t1 * segment_direction;
+    return true;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2117,9 +2138,9 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    vec3 const normal0(plane0_in.normal());
-    vec3 const normal1(plane1_in.normal());
-    vec3 const normal2(plane2_in.normal());
+    vec3 normal0(plane0_in.normal());
+    vec3 normal1(plane1_in.normal());
+    vec3 normal2(plane2_in.normal());
 
     mat3 Mat;
     Mat << normal0, normal1, normal2;
@@ -2199,11 +2220,13 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    real det = line_in.direction().dot(plane_in.normal());
+    vec3 origin(line_in.origin());
+    vec3 direction(line_in.direction());
+    real det = direction.dot(plane_in.normal());
     if (det > tolerance)
     {
-      real t = -(line_in.origin() - plane_in.origin()).dot(plane_in.normal()) / det;
-      point_out = line_in.origin() + line_in.direction() * t;
+      real t = -(origin - plane_in.origin()).dot(plane_in.normal()) / det;
+      point_out = origin + t * direction;
       return true;
     }
     else
@@ -2221,14 +2244,13 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    point vertex0 = triangle_in.vertex(0);
-    point vertex1 = triangle_in.vertex(1);
-    point vertex2 = triangle_in.vertex(2);
-    vec3 edge1 = vertex1 - vertex0;
-    vec3 edge2 = vertex2 - vertex0;
-
-    point origin = line_in.origin();
-    vec3 direction = line_in.direction();
+    point vertex0(triangle_in.vertex(0));
+    point vertex1(triangle_in.vertex(1));
+    point vertex2(triangle_in.vertex(2));
+    vec3 edge1(vertex1 - vertex0);
+    vec3 edge2(vertex2 - vertex0);
+    point origin(line_in.origin());
+    vec3 direction(line_in.direction());
 
     vec3 h, s, q;
     real a, f, u, v;
@@ -2239,14 +2261,14 @@ namespace acme
     f = 1.0 / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < 0.0 || u > 1.0)
       return false;
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < 0.0 || u + v > 1.0)
       return false;
-    float t = f * edge2.dot(q);
-    point_out = origin + direction * t;
+    real t = f * edge2.dot(q);
+    point_out = origin + t * direction;
     return true;
   }
 
@@ -2263,11 +2285,32 @@ namespace acme
                      circle_in.layingPlane(),
                      point_out,
                      tolerance))
+      return circle_in.isInside(point_out, tolerance);
+    else
+      return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  intersection(
+      line const &line_in,
+      sphere const &sphere_in,
+      segment &segment_out,
+      real tolerance)
+  {
+    vec3 origin(line_in.origin());
+    vec3 direction(line_in.toUnitVector());
+    vec3 diff(origin - sphere_in.center());
+    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
+    real a1 = direction.dot(diff);
+    real discr = a1 * a1 - a0;
+    if (discr > tolerance)
     {
-      if ((circle_in.center() - point_out).norm() <= circle_in.radius())
-        return true;
-      else
-        return false;
+      real root = std::sqrt(discr);
+      segment_out.vertex(0) = origin + (-a1 - root) * direction;
+      segment_out.vertex(1) = origin + (-a1 + root) * direction;
+      return true;
     }
     else
     {
@@ -2284,13 +2327,15 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    real det = ray_in.direction().dot(plane_in.normal());
+    vec3 origin(ray_in.origin());
+    vec3 direction(ray_in.direction());
+    real det = direction.dot(plane_in.normal());
     if (det > tolerance)
     {
-      real t = -(ray_in.origin() - plane_in.origin()).dot(plane_in.normal()) / det;
+      real t = -(origin - plane_in.origin()).dot(plane_in.normal()) / det;
       if (t > tolerance)
       {
-        point_out = ray_in.origin() + ray_in.direction() * t;
+        point_out = origin + t * direction;
         return true;
       }
       else
@@ -2318,7 +2363,6 @@ namespace acme
     point vertex2(triangle_in.vertex(2));
     vec3 edge1(vertex1 - vertex0);
     vec3 edge2(vertex2 - vertex0);
-
     point origin(ray_in.origin());
     vec3 direction(ray_in.direction());
 
@@ -2331,16 +2375,16 @@ namespace acme
     f = 1.0 / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < 0.0 || u > 1.0)
       return false;
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < 0.0 || u + v > 1.0)
       return false;
-    float t = f * edge2.dot(q);
-    if (t >= real(0.0))
+    real t = f * edge2.dot(q);
+    if (t >= 0.0)
     {
-      point_out = origin + direction * t;
+      point_out = origin + t * direction;
       return true;
     }
     else
@@ -2356,13 +2400,47 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line(ray_in.origin(), ray_in.direction()),
+    if (intersection(ray_in,
                      circle_in.layingPlane(),
                      point_out,
                      tolerance))
-      return ray_in.isInside(point_out, tolerance);
+      return circle_in.isInside(point_out, tolerance);
     else
       return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  intersection(
+      ray const &ray_in,
+      sphere const &sphere_in,
+      segment &segment_out,
+      real tolerance)
+  {
+    vec3 origin(ray_in.origin());
+    vec3 direction(ray_in.toUnitVector());
+    vec3 diff(origin - sphere_in.center());
+    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
+    real a1 = direction.dot(diff);
+    real discr = a1 * a1 - a0;
+    if (discr > tolerance)
+    {
+      real root = std::sqrt(discr);
+      real t0 = -a1 - root;
+      real t1 = -a1 + root;
+      if (t0 < 0.0 && t1 < 0.0)
+        return false;
+      t0 = std::max(t0, 0.0);
+      t1 = std::max(t1, 0.0);
+      segment_out.vertex(0) = origin + t0 * direction;
+      segment_out.vertex(1) = origin + t1 * direction;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2374,23 +2452,21 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    real d0 = plane_in.signedDistance(segment_in.vertex(0));
-    real d1 = plane_in.signedDistance(segment_in.vertex(1));
-    if (isApprox(d0, 0.0, tolerance))
+    vec3 origin(segment_in.vertex(0));
+    vec3 direction(segment_in.toVector());
+    real det = direction.dot(plane_in.normal());
+    if (det > tolerance)
     {
-      point_out = segment_in.vertex(0);
-      return true;
-    }
-    else if (isApprox(d1, 0.0, tolerance))
-    {
-      point_out = segment_in.vertex(1);
-      return true;
-    }
-    else if (d0 * d1 < 0)
-    {
-      real t = d0 / (d0 - d1);
-      point_out = segment_in.vertex(0) + t * (segment_in.vertex(1) - segment_in.vertex(0));
-      return true;
+      real t = -(origin - plane_in.origin()).dot(plane_in.normal()) / det;
+      if (t >= 0.0 && t <= 1.0)
+      {
+        point_out = origin + t * direction;
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
     else
     {
@@ -2440,16 +2516,65 @@ namespace acme
 
   bool
   intersection(
+      plane const &plane_in,
+      sphere const &sphere_in,
+      circle &circle_out,
+      real tolerance)
+  {
+    vec3 normal(plane_in.unitNormal());
+    real signed_distance = (sphere_in.center() - plane_in.origin()).dot(normal);
+    real distance = std::abs(signed_distance);
+    if (distance <= sphere_in.radius())
+    {
+      circle_out.radius() = std::sqrt((sphere_in.radius() + distance) * (sphere_in.radius() - distance));
+      circle_out.center() = sphere_in.center() - signed_distance * normal;
+      circle_out.normal() = normal;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  intersection(
       segment const &segment_in,
       triangle const &triangle_in,
       point &point_out,
       real tolerance)
   {
-    if (intersection(line(segment_in.vertex(0), segment_in.toUnitVector()),
-                     triangle_in,
-                     point_out,
-                     tolerance))
-      return segment_in.isInside(point_out, tolerance);
+    point vertex0(triangle_in.vertex(0));
+    point vertex1(triangle_in.vertex(1));
+    point vertex2(triangle_in.vertex(2));
+    vec3 edge1(vertex1 - vertex0);
+    vec3 edge2(vertex2 - vertex0);
+    point origin(segment_in.vertex(0));
+    vec3 direction(segment_in.toVector());
+
+    vec3 h, s, q;
+    real a, f, u, v;
+    h = direction.cross(edge2);
+    a = edge1.dot(h);
+    if (a > -tolerance && a < tolerance)
+      return false;
+    f = 1.0 / a;
+    s = origin - vertex0;
+    u = f * s.dot(h);
+    if (u < 0.0 || u > 1.0)
+      return false;
+    q = s.cross(edge1);
+    v = f * direction.dot(q);
+    if (v < 0.0 || u + v > 1.0)
+      return false;
+    real t = f * edge2.dot(q);
+    if (t >= 0.0 && t <= 1.0)
+    {
+      point_out = origin + direction * t;
+      return true;
+    }
     else
       return false;
   }
@@ -2463,13 +2588,50 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (intersection(line(segment_in.vertex(0), segment_in.toUnitVector()),
-                     circle_in,
+    if (intersection(circle_in.layingPlane(),
+                     segment_in,
                      point_out,
                      tolerance))
-      return segment_in.isInside(point_out, tolerance);
+      return circle_in.isInside(point_out, tolerance);
     else
       return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  intersection(
+      segment const &segment_in,
+      sphere const &sphere_in,
+      segment &segment_out,
+      real tolerance)
+  {
+    vec3 origin(segment_in.vertex(0));
+    vec3 direction(segment_in.toVector());
+    vec3 diff(origin - sphere_in.center());
+    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
+    real a1 = direction.dot(diff);
+    real discr = a1 * a1 - a0;
+    if (discr > tolerance)
+    {
+      real root = std::sqrt(discr);
+      real t0 = -a1 - root;
+      real t1 = -a1 + root;
+      if ((t0 < 0.0 && t1 < 0.0) ||
+          (t0 > 1.0 && t1 > 1.0))
+        return false;
+      t0 = std::max(t0, 0.0);
+      t0 = std::min(t0, 1.0);
+      t1 = std::max(t1, 0.0);
+      t1 = std::min(t1, 1.0);
+      segment_out.vertex(0) = origin + t0 * direction;
+      segment_out.vertex(1) = origin + t1 * direction;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2490,6 +2652,16 @@ namespace acme
     else
       return false;
   }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  // bool
+  // intersection(
+  //     triangle const &triangle_in,
+  //     sphere const &sphere_in,
+  //     ??????
+  //     real tolerance
+  // );
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

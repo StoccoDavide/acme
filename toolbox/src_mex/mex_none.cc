@@ -85,7 +85,7 @@
 
 using namespace std;
 
-typedef double real_type;
+typedef double real_mex;
 
 static void
 DATA_NEW(
@@ -193,7 +193,7 @@ do_isParallel(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isParallel(self, other));
+  setBoolValue(arg_out_0, acme::isParallel(self, other));
 #undef CMD
 }
 
@@ -230,7 +230,7 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
+  setBoolValue(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
 }
 
@@ -268,7 +268,7 @@ do_isCollinear(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isCollinear(self, other));
+  setBoolValue(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
 }
 
@@ -306,7 +306,7 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isCoplanar(self, other));
+  setBoolValue(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
 }
 

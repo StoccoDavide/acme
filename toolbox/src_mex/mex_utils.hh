@@ -52,6 +52,10 @@
 #define arg_in_9 prhs[9]
 #define arg_in_10 prhs[10]
 #define arg_in_11 prhs[11]
+#define arg_in_12 prhs[12]
+#define arg_in_13 prhs[13]
+#define arg_in_14 prhs[14]
+#define arg_in_15 prhs[15]
 
 #define arg_out_0 plhs[0]
 #define arg_out_1 plhs[1]
@@ -63,6 +67,12 @@
 #define arg_out_7 plhs[7]
 #define arg_out_8 plhs[8]
 #define arg_out_9 plhs[9]
+#define arg_out_10 plhs[10]
+#define arg_out_11 plhs[11]
+#define arg_out_12 plhs[12]
+#define arg_out_13 plhs[13]
+#define arg_out_14 plhs[14]
+#define arg_out_15 plhs[15]
 
 #define MEX_ASSERT(COND, MSG)            \
   if (!(COND))                           \
@@ -75,7 +85,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline bool
-isScalar(mxArray const *arg, char const msg[])
+isScalarValue(mxArray const *arg, char const msg[])
 {
   mwSize number_of_dimensions = mxGetNumberOfDimensions(arg);
   MEX_ASSERT(number_of_dimensions == 2, msg);
@@ -100,7 +110,7 @@ getScalarValue(mxArray const *arg, char const msg[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline bool
-getBool(mxArray const *arg, char const msg[])
+getBoolValue(mxArray const *arg, char const msg[])
 {
   MEX_ASSERT(mxIsLogicalScalar(arg), msg);
   return mxIsLogicalScalarTrue(arg);
@@ -109,7 +119,7 @@ getBool(mxArray const *arg, char const msg[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline int64_t
-getInt(mxArray const *arg, char const msg[])
+getIntValue(mxArray const *arg, char const msg[])
 {
   mwSize number_of_dimensions = mxGetNumberOfDimensions(arg);
   MEX_ASSERT(number_of_dimensions == 2, msg);
@@ -165,7 +175,7 @@ getInt(mxArray const *arg, char const msg[])
   }
   break;
   default:
-    MEX_ASSERT(false, msg << " bad type scalar");
+    MEX_ASSERT(false, msg << " bad type scalar.");
     break;
   }
   return res;
@@ -211,7 +221,7 @@ setScalarValue(mxArray *&arg, double value)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline void
-setScalarInt(mxArray *&arg, int32_t value)
+setIntValue(mxArray *&arg, int32_t value)
 {
   arg = mxCreateNumericMatrix(1, 1, mxINT32_CLASS, mxREAL);
   *static_cast<int32_t *>(mxGetData(arg)) = value;
@@ -220,7 +230,7 @@ setScalarInt(mxArray *&arg, int32_t value)
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static inline void
-setScalarBool(mxArray *&arg, bool value)
+setBoolValue(mxArray *&arg, bool value)
 {
   arg = mxCreateLogicalScalar(value);
 }
@@ -283,7 +293,7 @@ class class_handle
   base *ptr_m;
   std::string name_m;
 
-  public:
+public:
   class_handle(base *ptr)
       : ptr_m(ptr), name_m(typeid(base).name())
   {
@@ -320,7 +330,7 @@ inline class_handle<base> *
 convertMat2HandlePtr(const mxArray *in)
 {
   if (mxGetNumberOfElements(in) != 1 || mxGetClassID(in) != mxUINT64_CLASS || mxIsComplex(in))
-    mexErrMsgTxt("Input must be an uint64 scalar.");
+    mexErrMsgTxt("Input must be an uint64.");
   class_handle<base> *ptr = reinterpret_cast<class_handle<base> *>(*((uint64_t *)mxGetData(in)));
   if (!ptr->isValid())
     mexErrMsgTxt("Handle not valid.");

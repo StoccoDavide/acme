@@ -77,21 +77,13 @@ namespace acme
         real center_x, //!< Input sphere center x value
         real center_y, //!< Input sphere center y value
         real center_z  //!< Input sphere center z value
-        )
-        : m_radius(radius),
-          m_center(center_x, center_y, center_z)
-    {
-    }
+    );
 
     //! Sphere class constructor
     sphere(
         real radius,        //!< Input sphere radius
         point const &center //!< Input sphere center
-        )
-        : m_radius(radius),
-          m_center(center)
-    {
-    }
+    );
 
     //! Equality operator
     sphere &

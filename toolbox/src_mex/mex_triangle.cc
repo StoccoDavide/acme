@@ -69,7 +69,7 @@
   "%                        V1Z, : Triangle vertex 1 z value             %\n" \
   "%                        V2X, : Triangle vertex 2 x value             %\n" \
   "%                        V2Y, : Triangle vertex 2 y value             %\n" \
-  "%                        V2Z  : Triangle vertex 2 z value             %\n" \
+  "%                        V2Z, : Triangle vertex 2 z value             %\n" \
   "%                        V3X, : Triangle vertex 3 x value             %\n" \
   "%                        V3Y, : Triangle vertex 3 y value             %\n" \
   "%                        V3Z  : Triangle vertex 3 z value             %\n" \
@@ -122,7 +122,7 @@
 
 using namespace std;
 
-typedef double real_type;
+typedef double real_mex;
 
 static void
 DATA_NEW(
@@ -160,33 +160,33 @@ do_new(int nlhs, mxArray *plhs[],
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
-  real_type x1 = acme::QUIET_NAN;
-  real_type y1 = acme::QUIET_NAN;
-  real_type z1 = acme::QUIET_NAN;
-  real_type x2 = acme::QUIET_NAN;
-  real_type y2 = acme::QUIET_NAN;
-  real_type z2 = acme::QUIET_NAN;
-  real_type x3 = acme::QUIET_NAN;
-  real_type y3 = acme::QUIET_NAN;
-  real_type z3 = acme::QUIET_NAN;
+  real_mex x1 = acme::QUIET_NAN;
+  real_mex y1 = acme::QUIET_NAN;
+  real_mex z1 = acme::QUIET_NAN;
+  real_mex x2 = acme::QUIET_NAN;
+  real_mex y2 = acme::QUIET_NAN;
+  real_mex z2 = acme::QUIET_NAN;
+  real_mex x3 = acme::QUIET_NAN;
+  real_mex y3 = acme::QUIET_NAN;
+  real_mex z3 = acme::QUIET_NAN;
 
   if (nrhs == 4)
   {
-    real_type const *matrix1_ptr;
+    real_mex const *matrix1_ptr;
     mwSize rows1, cols1;
     matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
     x1 = matrix1_ptr[0];
     y1 = matrix1_ptr[1];
     z1 = matrix1_ptr[2];
-    real_type const *matrix2_ptr;
+    real_mex const *matrix2_ptr;
     mwSize rows2, cols2;
     matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
     MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
     x2 = matrix2_ptr[0];
     y2 = matrix2_ptr[1];
     z2 = matrix2_ptr[2];
-    real_type const *matrix3_ptr;
+    real_mex const *matrix3_ptr;
     mwSize rows3, cols3;
     matrix3_ptr = getMatrixPointer(arg_in_3, rows3, cols3, CMD "Error in third input matrix");
     MEX_ASSERT(rows3 == 3 || cols3 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows3 << ", cols = " << cols3 << '\n');
@@ -333,13 +333,13 @@ do_translate(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real_mex const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
+  real_mex x = matrix_ptr[0];
+  real_mex y = matrix_ptr[1];
+  real_mex z = matrix_ptr[2];
   self->translate(acme::vec3(x, y, z));
 #undef CMD
 }
@@ -372,7 +372,7 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real_mex const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
@@ -397,7 +397,7 @@ do_isInside(int nlhs, mxArray *plhs[],
 
   acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
-  setScalarBool(arg_out_0, self->isInside(*other));
+  setBoolValue(arg_out_0, self->isInside(*other));
 #undef CMD
 }
 
@@ -412,7 +412,7 @@ do_isDegenerated(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  setScalarBool(arg_out_0, self->isDegenerated());
+  setBoolValue(arg_out_0, self->isDegenerated());
 #undef CMD
 }
 
@@ -428,7 +428,7 @@ do_isApprox(int nlhs, mxArray *plhs[],
 
   acme::triangle *self = DATA_GET(arg_in_1);
   acme::triangle *other = DATA_GET(arg_in_2);
-  setScalarBool(arg_out_0, self->isApprox(*other));
+  setBoolValue(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
 
@@ -459,7 +459,7 @@ do_normal(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real_mex *output = createMatrixValue(arg_out_0, 3, 1);
   acme::vec3 outvec(self->normal());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -494,7 +494,7 @@ do_edge(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  int i = getInt(arg_in_2, CMD "Error in first input integer");
+  int i = getIntValue(arg_in_2, CMD "Error in first input integer");
   acme::segment *out = new acme::segment(self->edge(i));
   arg_out_0 = convertPtr2Mat<acme::segment>(out);
 #undef CMD
@@ -511,8 +511,8 @@ do_swap(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::triangle *self = DATA_GET(arg_in_1);
-  int i = getInt(arg_in_2, CMD "Error in first input integer");
-  int j = getInt(arg_in_3, CMD "Error in second input integer");
+  int i = getIntValue(arg_in_2, CMD "Error in first input integer");
+  int j = getIntValue(arg_in_3, CMD "Error in second input integer");
   self->swap(i, j);
 #undef CMD
 }
@@ -576,7 +576,7 @@ do_barycentric(int nlhs, mxArray *plhs[],
 
   acme::triangle *self = DATA_GET(arg_in_1);
   acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real_mex *output = createMatrixValue(arg_out_0, 3, 1);
   self->barycentric(*other, output[0], output[1], output[2]);
 #undef CMD
 }
@@ -614,7 +614,7 @@ do_isParallel(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isParallel(self, other));
+  setBoolValue(arg_out_0, acme::isParallel(self, other));
 #undef CMD
 }
 
@@ -651,7 +651,7 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
+  setBoolValue(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
 }
 
@@ -689,7 +689,7 @@ do_isCollinear(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isCollinear(self, other));
+  setBoolValue(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
 }
 
@@ -727,7 +727,7 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isCoplanar(self, other));
+  setBoolValue(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
 }
 

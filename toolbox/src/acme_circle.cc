@@ -45,6 +45,43 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  circle::circle(
+      real radius,
+      plane const &plane)
+      : m_radius(radius),
+        m_plane(plane)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  circle::circle(
+      real radius,
+      point const &center,
+      vec3 const &normal)
+      : m_radius(radius),
+        m_plane(center, normal)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  circle::circle(
+      real radius,
+      real center_x,
+      real center_y,
+      real center_z,
+      real normal_x,
+      real normal_y,
+      real normal_z)
+      : m_radius(radius),
+        m_plane(center_x, center_y, center_z,
+                normal_x, normal_y, normal_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   circle &
   circle::operator=(
       circle const &circle_in)

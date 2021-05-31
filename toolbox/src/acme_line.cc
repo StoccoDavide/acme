@@ -45,6 +45,30 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  line::line(
+      real ox,
+      real oy,
+      real oz,
+      real dx,
+      real dy,
+      real dz)
+      : m_origin(ox, oy, oz),
+        m_direction(dx, dy, dz)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  line::line(
+      point const &origin,
+      vec3 const &direction)
+      : m_origin(origin),
+        m_direction(direction)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   line &
   line::operator=(
       line const &line_in)

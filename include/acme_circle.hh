@@ -76,22 +76,14 @@ namespace acme
     circle(
         real radius,       //!< Input circle radius
         plane const &plane //!< Input circle laying plane
-        )
-        : m_radius(radius),
-          m_plane(plane)
-    {
-    }
+    );
 
     //! Circle class constructor
     circle(
         real radius,         //!< Input circle radius
         point const &center, //!< Input circle center
         vec3 const &normal   //!< Input circle normal to the laying plane
-        )
-        : m_radius(radius),
-          m_plane(center, normal)
-    {
-    }
+    );
 
     //! Circle class constructor
     circle(
@@ -102,12 +94,7 @@ namespace acme
         real normal_x, //!< Input circle normal x value to the laying plane
         real normal_y, //!< Input circle normal y value to the laying plane
         real normal_z  //!< Input circle normal z value to the laying plane
-        )
-        : m_radius(radius),
-          m_plane(center_x, center_y, center_z,
-                  normal_x, normal_y, normal_z)
-    {
-    }
+    );
 
     //! Equality operator
     circle &

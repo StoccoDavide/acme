@@ -45,6 +45,30 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  plane::plane(
+      real origin_x,
+      real origin_y,
+      real origin_z,
+      real normal_x,
+      real normal_y,
+      real normal_z)
+      : m_origin(origin_x, origin_y, origin_z),
+        m_normal(normal_x, normal_y, normal_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane::plane(
+      point const &origin,
+      vec3 const &normal)
+      : m_origin(origin),
+        m_normal(normal)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   plane &
   plane::operator=(
       plane const &plane_in)
@@ -103,6 +127,15 @@ namespace acme
   plane::normal(void)
   {
     return this->m_normal;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  vec3
+  plane::unitNormal(void)
+      const
+  {
+    return this->m_normal.normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

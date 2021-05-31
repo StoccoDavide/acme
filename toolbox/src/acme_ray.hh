@@ -73,27 +73,19 @@ namespace acme
 
     //! Ray class constructor
     ray(
-        real origin_x,    //<! Input x value of ray origin point
-        real origin_y,    //<! Input y value of ray origin point
-        real origin_z,    //<! Input z value of ray origin point
-        real direction_x, //<! Input x value of ray direction
-        real direction_y, //<! Input y value of ray direction
-        real direction_z  //<! Input z value of ray direction
-        )
-        : m_origin(origin_x, origin_y, origin_z),
-          m_direction(direction_x, direction_y, direction_z)
-    {
-    }
+        real origin_x,    //!< Input x value of ray origin point
+        real origin_y,    //!< Input y value of ray origin point
+        real origin_z,    //!< Input z value of ray origin point
+        real direction_x, //!< Input x value of ray direction
+        real direction_y, //!< Input y value of ray direction
+        real direction_z  //!< Input z value of ray direction
+    );
 
     //! Ray class constructor
     ray(
         point const &origin,  //!< Input ray origin point
         vec3 const &direction //!< Input ray direction vector
-        )
-        : m_origin(origin),
-          m_direction(direction)
-    {
-    }
+    );
 
     //! Equality operator
     ray &

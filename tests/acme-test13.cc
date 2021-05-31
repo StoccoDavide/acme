@@ -37,7 +37,7 @@
 #include "acme_orthogonal.hh"
 #include "acme_parallel.hh"
 #include "acme_point.hh"
-#include "acme_utilities.hh"
+#include "acme_utils.hh"
 
 using namespace acme;
 

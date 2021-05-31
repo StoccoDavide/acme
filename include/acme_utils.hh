@@ -26,11 +26,11 @@
 */
 
 ///
-/// file: acme_utilities.hh
+/// file: acme_utils.hh
 ///
 
-#ifndef INCLUDE_ACME_UTILTIES
-#define INCLUDE_ACME_UTILTIES
+#ifndef INCLUDE_ACME_UTILS
+#define INCLUDE_ACME_UTILS
 
 #include "acme.hh"
 #include "acme_aabb.hh"
@@ -136,5 +136,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_utilities.hh
+/// eof: acme_utils.hh
 ///

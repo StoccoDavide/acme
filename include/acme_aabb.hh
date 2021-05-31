@@ -76,32 +76,19 @@ namespace acme
     aabb(aabb &&) = default;
 
     //! Box class constructor
-    aabb()
-        : m_min(NAN_POINT),
-          m_max(NAN_POINT),
-          m_id(0),
-          m_pos(0)
-    {
-    }
+    aabb();
 
     //! Box class constructor
     aabb(
-        real min_x,  //<! Input x value of aabb minimum point
-        real min_y,  //<! Input y value of aabb minimum point
-        real min_z,  //<! Input z value of aabb minimum point
-        real max_x,  //<! Input x value of aabb maximum point
-        real max_y,  //<! Input y value of aabb maximum point
-        real max_z,  //<! Input z value of aabb maximum point
-        integer id,  //<! Input id value
-        integer ipos //<! Input rank value
-        )
-        : m_min(min_x, min_y, min_z),
-          m_max(max_x, max_y, max_z),
-          m_id(id),
-          m_pos(ipos)
-    {
-      this->updateMaxMin();
-    }
+        real min_x,  //!< Input x value of aabb minimum point
+        real min_y,  //!< Input y value of aabb minimum point
+        real min_z,  //!< Input z value of aabb minimum point
+        real max_x,  //!< Input x value of aabb maximum point
+        real max_y,  //!< Input y value of aabb maximum point
+        real max_z,  //!< Input z value of aabb maximum point
+        integer id,  //!< Input id value
+        integer ipos //!< Input rank value
+    );
 
     //! Box class constructor
     aabb(
@@ -109,27 +96,14 @@ namespace acme
         point const &max, //!< Input aabb maximum point
         integer id,       //!< Input aabb id value
         integer ipos      //!< Input aabb rank value
-        )
-        : m_min(min),
-          m_max(max),
-          m_id(id),
-          m_pos(ipos)
-    {
-      this->updateMaxMin();
-    }
+    );
 
     //! Box class constructor
     aabb(
         std::vector<aabb::ptr> const &boxes, //!< Input reference to vector of boxes
         integer id,                          //!< Input aabb id value
         integer ipos                         //!< Input aabb rank value
-        )
-        : m_id(id),
-          m_pos(ipos)
-    {
-      this->merged(boxes);
-      this->updateMaxMin();
-    }
+    );
 
     //! Equality operator
     aabb &operator=(

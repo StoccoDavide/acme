@@ -74,15 +74,15 @@ namespace acme
 
     //! Triangle class constructor
     triangle(
-        real vertex0_x, //<! Input x value of first triangle vertex
-        real vertex0_y, //<! Input y value of first triangle vertex
-        real vertex0_z, //<! Input z value of first triangle vertex
-        real vertex1_x, //<! Input x value of second triangle vertex
-        real vertex1_y, //<! Input y value of second triangle vertex
-        real vertex1_z, //<! Input z value of second triangle vertex
-        real vertex2_x, //<! Input x value of third triangle vertex
-        real vertex2_y, //<! Input y value of third triangle vertex
-        real vertex2_z  //<! Input z value of third triangle vertex
+        real vertex0_x, //!< Input x value of first triangle vertex
+        real vertex0_y, //!< Input y value of first triangle vertex
+        real vertex0_z, //!< Input z value of first triangle vertex
+        real vertex1_x, //!< Input x value of second triangle vertex
+        real vertex1_y, //!< Input y value of second triangle vertex
+        real vertex1_z, //!< Input z value of second triangle vertex
+        real vertex2_x, //!< Input x value of third triangle vertex
+        real vertex2_y, //!< Input y value of third triangle vertex
+        real vertex2_z  //!< Input z value of third triangle vertex
     );
 
     //! Triangle class constructor

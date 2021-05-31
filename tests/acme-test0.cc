@@ -31,7 +31,7 @@
 
 #include "acme.hh"
 #include "acme_math.hh"
-#include "acme_utilities.hh"
+#include "acme_utils.hh"
 
 int main(void)
 {

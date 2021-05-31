@@ -5,7 +5,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File acme_circle.cc &#8212; ACME v</title>
+    <title>Program Listing for File acme_circle.cc &#8212; ACME v0.1
+</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
@@ -81,6 +82,43 @@
 <span class="cm">   |   \___|_|_|  \___|_|\___|</span>
 <span class="cm">   |</span>
 <span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">circle</span><span class="o">::</span><span class="n">circle</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">radius</span><span class="p">,</span>
+      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">m_radius</span><span class="p">(</span><span class="n">radius</span><span class="p">),</span>
+        <span class="n">m_plane</span><span class="p">(</span><span class="n">plane</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">circle</span><span class="o">::</span><span class="n">circle</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">radius</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">center</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">m_radius</span><span class="p">(</span><span class="n">radius</span><span class="p">),</span>
+        <span class="n">m_plane</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">normal</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">circle</span><span class="o">::</span><span class="n">circle</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">radius</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">center_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">center_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">center_z</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">normal_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">normal_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">normal_z</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">m_radius</span><span class="p">(</span><span class="n">radius</span><span class="p">),</span>
+        <span class="n">m_plane</span><span class="p">(</span><span class="n">center_x</span><span class="p">,</span> <span class="n">center_y</span><span class="p">,</span> <span class="n">center_z</span><span class="p">,</span>
+                <span class="n">normal_x</span><span class="p">,</span> <span class="n">normal_y</span><span class="p">,</span> <span class="n">normal_z</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 

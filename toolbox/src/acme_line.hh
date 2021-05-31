@@ -73,27 +73,19 @@ namespace acme
 
     //! Line class constructor for line
     line(
-        real ox, //<! Input x value of line origin point
-        real oy, //<! Input y value of line origin point
-        real oz, //<! Input z value of line origin point
-        real dx, //<! Input x value of line direction vector
-        real dy, //<! Input y value of line direction vector
-        real dz  //<! Input z value of line direction vector
-        )
-        : m_origin(ox, oy, oz),
-          m_direction(dx, dy, dz)
-    {
-    }
+        real ox, //!< Input x value of line origin point
+        real oy, //!< Input y value of line origin point
+        real oz, //!< Input z value of line origin point
+        real dx, //!< Input x value of line direction vector
+        real dy, //!< Input y value of line direction vector
+        real dz  //!< Input z value of line direction vector
+    );
 
     //! Line class constructor
     line(
         point const &origin,  //!< Input line origin point
         vec3 const &direction //!< Input line direction vector
-        )
-        : m_origin(origin),
-          m_direction(direction)
-    {
-    }
+    );
 
     //! Equality operator
     line &

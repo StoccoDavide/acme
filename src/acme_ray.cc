@@ -45,6 +45,30 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  ray::ray(
+      real origin_x,
+      real origin_y,
+      real origin_z,
+      real direction_x,
+      real direction_y,
+      real direction_z)
+      : m_origin(origin_x, origin_y, origin_z),
+        m_direction(direction_x, direction_y, direction_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ray::ray(
+      point const &origin,
+      vec3 const &direction)
+      : m_origin(origin),
+        m_direction(direction)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   ray &
   ray::operator=(
       ray const &ray_in)

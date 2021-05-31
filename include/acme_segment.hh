@@ -72,12 +72,12 @@ namespace acme
 
     //! Segment class constructor
     segment(
-        real vertex0_x, //<! Input x value of first segment vertex
-        real vertex0_y, //<! Input y value of first segment vertex
-        real vertex0_z, //<! Input z value of first segment vertex
-        real vertex1_x, //<! Input x value of second segment vertex
-        real vertex1_y, //<! Input y value of second segment vertex
-        real vertex1_z  //<! Input z value of second segment vertex
+        real vertex0_x, //!< Input x value of first segment vertex
+        real vertex0_y, //!< Input y value of first segment vertex
+        real vertex0_z, //!< Input z value of first segment vertex
+        real vertex1_x, //!< Input x value of second segment vertex
+        real vertex1_y, //!< Input y value of second segment vertex
+        real vertex1_z  //!< Input z value of second segment vertex
     );
 
     //! Segment class constructor

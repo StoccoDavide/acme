@@ -45,6 +45,63 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  aabb::aabb()
+      : m_min(NAN_POINT),
+        m_max(NAN_POINT),
+        m_id(0),
+        m_pos(0)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  aabb::aabb(
+      real min_x,
+      real min_y,
+      real min_z,
+      real max_x,
+      real max_y,
+      real max_z,
+      integer id,
+      integer ipos)
+      : m_min(min_x, min_y, min_z),
+        m_max(max_x, max_y, max_z),
+        m_id(id),
+        m_pos(ipos)
+  {
+    this->updateMaxMin();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  aabb::aabb(
+      point const &min,
+      point const &max,
+      integer id,
+      integer ipos)
+      : m_min(min),
+        m_max(max),
+        m_id(id),
+        m_pos(ipos)
+  {
+    this->updateMaxMin();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  aabb::aabb(
+      std::vector<aabb::ptr> const &boxes,
+      integer id,
+      integer ipos)
+      : m_id(id),
+        m_pos(ipos)
+  {
+    this->merged(boxes);
+    this->updateMaxMin();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   aabb &
   aabb::operator=(
       aabb const &aabb_in)

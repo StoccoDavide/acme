@@ -116,7 +116,7 @@
 
 using namespace std;
 
-typedef double real_type;
+typedef double real_mex;
 
 static void
 DATA_NEW(
@@ -154,22 +154,22 @@ do_new(int nlhs, mxArray *plhs[],
       mxIsChar(arg_in_0),
       CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
-  real_type r = acme::QUIET_NAN;
-  real_type cx = acme::QUIET_NAN;
-  real_type cy = acme::QUIET_NAN;
-  real_type cz = acme::QUIET_NAN;
-  real_type nx = acme::QUIET_NAN;
-  real_type ny = acme::QUIET_NAN;
-  real_type nz = acme::QUIET_NAN;
+  real_mex r = acme::QUIET_NAN;
+  real_mex cx = acme::QUIET_NAN;
+  real_mex cy = acme::QUIET_NAN;
+  real_mex cz = acme::QUIET_NAN;
+  real_mex nx = acme::QUIET_NAN;
+  real_mex ny = acme::QUIET_NAN;
+  real_mex nz = acme::QUIET_NAN;
 
   if (nrhs == 4)
   {
     r = getScalarValue(arg_in_1, CMD "Error in reading radius value");
-    real_type const *matrix1_ptr;
+    real_mex const *matrix1_ptr;
     mwSize rows1, cols1;
     matrix1_ptr = getMatrixPointer(arg_in_2, rows1, cols1, CMD "Error in first input matrix");
     MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
-    real_type const *matrix2_ptr;
+    real_mex const *matrix2_ptr;
     cx = matrix1_ptr[0];
     cy = matrix1_ptr[1];
     cz = matrix1_ptr[2];
@@ -252,7 +252,7 @@ do_getNormal(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::circle *self = DATA_GET(arg_in_1);
-  real_type *output = createMatrixValue(arg_out_0, 3, 1);
+  real_mex *output = createMatrixValue(arg_out_0, 3, 1);
   acme::vec3 outvec(self->normal());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -303,13 +303,13 @@ do_setNormal(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::circle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real_mex const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
+  real_mex x = matrix_ptr[0];
+  real_mex y = matrix_ptr[1];
+  real_mex z = matrix_ptr[2];
   self->normal() = acme::vec3(x, y, z);
 #undef CMD
 }
@@ -325,13 +325,13 @@ do_translate(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::circle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real_mex const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
+  real_mex x = matrix_ptr[0];
+  real_mex y = matrix_ptr[1];
+  real_mex z = matrix_ptr[2];
   self->translate(acme::vec3(x, y, z));
 #undef CMD
 }
@@ -347,7 +347,7 @@ do_transform(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   acme::circle *self = DATA_GET(arg_in_1);
-  real_type const *matrix_ptr;
+  real_mex const *matrix_ptr;
   mwSize rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
@@ -388,7 +388,7 @@ do_isInside(int nlhs, mxArray *plhs[],
 
   acme::circle *self = DATA_GET(arg_in_1);
   acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
-  setScalarBool(arg_out_0, self->isInside(*other));
+  setBoolValue(arg_out_0, self->isInside(*other));
 #undef CMD
 }
 
@@ -403,7 +403,7 @@ do_isDegenerated(int nlhs, mxArray *plhs[],
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   acme::circle *self = DATA_GET(arg_in_1);
-  setScalarBool(arg_out_0, self->isDegenerated());
+  setBoolValue(arg_out_0, self->isDegenerated());
 #undef CMD
 }
 
@@ -419,7 +419,7 @@ do_isApprox(int nlhs, mxArray *plhs[],
 
   acme::circle *self = DATA_GET(arg_in_1);
   acme::circle *other = DATA_GET(arg_in_2);
-  setScalarBool(arg_out_0, self->isApprox(*other));
+  setBoolValue(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
 
@@ -549,7 +549,7 @@ do_isParallel(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isParallel(self, other));
+  setBoolValue(arg_out_0, acme::isParallel(self, other));
 #undef CMD
 }
 
@@ -586,7 +586,7 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isOrthogonal(self, other));
+  setBoolValue(arg_out_0, acme::isOrthogonal(self, other));
 #undef CMD
 }
 
@@ -624,7 +624,7 @@ do_isCollinear(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isCollinear(self, other));
+  setBoolValue(arg_out_0, acme::isCollinear(self, other));
 #undef CMD
 }
 
@@ -662,7 +662,7 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
-  setScalarBool(arg_out_0, acme::isCoplanar(self, other));
+  setBoolValue(arg_out_0, acme::isCoplanar(self, other));
 #undef CMD
 }
 

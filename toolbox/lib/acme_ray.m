@@ -134,7 +134,7 @@ classdef acme_ray < acme_entity
     %
     function normalize( self )
       % 
-      mex_ray( 'normalize', self.objectHandle, other_obj.objectHandle );
+      mex_ray( 'normalize', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
