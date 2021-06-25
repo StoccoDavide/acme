@@ -104,15 +104,6 @@ install/fast: preinstall/fast
 	/usr/local/Cellar/cmake/3.20.2/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -132,6 +123,15 @@ edit_cache:
 # Special rule for the target edit_cache
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -295,19 +295,6 @@ acme-test12/fast:
 .PHONY : acme-test12/fast
 
 #=============================================================================
-# Target rules for targets named SHARED
-
-# Build rule for target.
-SHARED: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SHARED
-.PHONY : SHARED
-
-# fast build rule for target.
-SHARED/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/build
-.PHONY : SHARED/fast
-
-#=============================================================================
 # Target rules for targets named acme-test14
 
 # Build rule for target.
@@ -332,6 +319,19 @@ acme-test1: cmake_check_build_system
 acme-test1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme-test1.dir/build.make CMakeFiles/acme-test1.dir/build
 .PHONY : acme-test1/fast
+
+#=============================================================================
+# Target rules for targets named acme_osx
+
+# Build rule for target.
+acme_osx: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 acme_osx
+.PHONY : acme_osx
+
+# fast build rule for target.
+acme_osx/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/build
+.PHONY : acme_osx/fast
 
 #=============================================================================
 # Target rules for targets named acme-test5
@@ -390,7 +390,7 @@ src/acme_AABBtree.o: src/acme_AABBtree.cc.o
 
 # target to build an object file
 src/acme_AABBtree.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_AABBtree.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_AABBtree.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_AABBtree.cc.o
 .PHONY : src/acme_AABBtree.cc.o
 
@@ -399,7 +399,7 @@ src/acme_AABBtree.i: src/acme_AABBtree.cc.i
 
 # target to preprocess a source file
 src/acme_AABBtree.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_AABBtree.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_AABBtree.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_AABBtree.cc.i
 .PHONY : src/acme_AABBtree.cc.i
 
@@ -408,7 +408,7 @@ src/acme_AABBtree.s: src/acme_AABBtree.cc.s
 
 # target to generate assembly for a file
 src/acme_AABBtree.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_AABBtree.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_AABBtree.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_AABBtree.cc.s
 .PHONY : src/acme_AABBtree.cc.s
 
@@ -417,7 +417,7 @@ src/acme_aabb.o: src/acme_aabb.cc.o
 
 # target to build an object file
 src/acme_aabb.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_aabb.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_aabb.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_aabb.cc.o
 .PHONY : src/acme_aabb.cc.o
 
@@ -426,7 +426,7 @@ src/acme_aabb.i: src/acme_aabb.cc.i
 
 # target to preprocess a source file
 src/acme_aabb.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_aabb.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_aabb.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_aabb.cc.i
 .PHONY : src/acme_aabb.cc.i
 
@@ -435,7 +435,7 @@ src/acme_aabb.s: src/acme_aabb.cc.s
 
 # target to generate assembly for a file
 src/acme_aabb.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_aabb.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_aabb.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_aabb.cc.s
 .PHONY : src/acme_aabb.cc.s
 
@@ -444,7 +444,7 @@ src/acme_circle.o: src/acme_circle.cc.o
 
 # target to build an object file
 src/acme_circle.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_circle.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_circle.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_circle.cc.o
 .PHONY : src/acme_circle.cc.o
 
@@ -453,7 +453,7 @@ src/acme_circle.i: src/acme_circle.cc.i
 
 # target to preprocess a source file
 src/acme_circle.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_circle.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_circle.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_circle.cc.i
 .PHONY : src/acme_circle.cc.i
 
@@ -462,7 +462,7 @@ src/acme_circle.s: src/acme_circle.cc.s
 
 # target to generate assembly for a file
 src/acme_circle.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_circle.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_circle.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_circle.cc.s
 .PHONY : src/acme_circle.cc.s
 
@@ -471,7 +471,7 @@ src/acme_collinear.o: src/acme_collinear.cc.o
 
 # target to build an object file
 src/acme_collinear.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_collinear.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_collinear.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_collinear.cc.o
 .PHONY : src/acme_collinear.cc.o
 
@@ -480,7 +480,7 @@ src/acme_collinear.i: src/acme_collinear.cc.i
 
 # target to preprocess a source file
 src/acme_collinear.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_collinear.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_collinear.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_collinear.cc.i
 .PHONY : src/acme_collinear.cc.i
 
@@ -489,7 +489,7 @@ src/acme_collinear.s: src/acme_collinear.cc.s
 
 # target to generate assembly for a file
 src/acme_collinear.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_collinear.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_collinear.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_collinear.cc.s
 .PHONY : src/acme_collinear.cc.s
 
@@ -498,7 +498,7 @@ src/acme_coplanar.o: src/acme_coplanar.cc.o
 
 # target to build an object file
 src/acme_coplanar.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_coplanar.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_coplanar.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_coplanar.cc.o
 .PHONY : src/acme_coplanar.cc.o
 
@@ -507,7 +507,7 @@ src/acme_coplanar.i: src/acme_coplanar.cc.i
 
 # target to preprocess a source file
 src/acme_coplanar.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_coplanar.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_coplanar.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_coplanar.cc.i
 .PHONY : src/acme_coplanar.cc.i
 
@@ -516,7 +516,7 @@ src/acme_coplanar.s: src/acme_coplanar.cc.s
 
 # target to generate assembly for a file
 src/acme_coplanar.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_coplanar.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_coplanar.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_coplanar.cc.s
 .PHONY : src/acme_coplanar.cc.s
 
@@ -525,7 +525,7 @@ src/acme_intersection.o: src/acme_intersection.cc.o
 
 # target to build an object file
 src/acme_intersection.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_intersection.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_intersection.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_intersection.cc.o
 .PHONY : src/acme_intersection.cc.o
 
@@ -534,7 +534,7 @@ src/acme_intersection.i: src/acme_intersection.cc.i
 
 # target to preprocess a source file
 src/acme_intersection.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_intersection.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_intersection.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_intersection.cc.i
 .PHONY : src/acme_intersection.cc.i
 
@@ -543,7 +543,7 @@ src/acme_intersection.s: src/acme_intersection.cc.s
 
 # target to generate assembly for a file
 src/acme_intersection.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_intersection.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_intersection.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_intersection.cc.s
 .PHONY : src/acme_intersection.cc.s
 
@@ -552,7 +552,7 @@ src/acme_line.o: src/acme_line.cc.o
 
 # target to build an object file
 src/acme_line.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_line.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_line.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_line.cc.o
 .PHONY : src/acme_line.cc.o
 
@@ -561,7 +561,7 @@ src/acme_line.i: src/acme_line.cc.i
 
 # target to preprocess a source file
 src/acme_line.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_line.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_line.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_line.cc.i
 .PHONY : src/acme_line.cc.i
 
@@ -570,7 +570,7 @@ src/acme_line.s: src/acme_line.cc.s
 
 # target to generate assembly for a file
 src/acme_line.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_line.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_line.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_line.cc.s
 .PHONY : src/acme_line.cc.s
 
@@ -579,7 +579,7 @@ src/acme_math.o: src/acme_math.cc.o
 
 # target to build an object file
 src/acme_math.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_math.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_math.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_math.cc.o
 .PHONY : src/acme_math.cc.o
 
@@ -588,7 +588,7 @@ src/acme_math.i: src/acme_math.cc.i
 
 # target to preprocess a source file
 src/acme_math.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_math.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_math.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_math.cc.i
 .PHONY : src/acme_math.cc.i
 
@@ -597,7 +597,7 @@ src/acme_math.s: src/acme_math.cc.s
 
 # target to generate assembly for a file
 src/acme_math.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_math.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_math.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_math.cc.s
 .PHONY : src/acme_math.cc.s
 
@@ -606,7 +606,7 @@ src/acme_orthogonal.o: src/acme_orthogonal.cc.o
 
 # target to build an object file
 src/acme_orthogonal.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_orthogonal.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_orthogonal.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_orthogonal.cc.o
 .PHONY : src/acme_orthogonal.cc.o
 
@@ -615,7 +615,7 @@ src/acme_orthogonal.i: src/acme_orthogonal.cc.i
 
 # target to preprocess a source file
 src/acme_orthogonal.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_orthogonal.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_orthogonal.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_orthogonal.cc.i
 .PHONY : src/acme_orthogonal.cc.i
 
@@ -624,7 +624,7 @@ src/acme_orthogonal.s: src/acme_orthogonal.cc.s
 
 # target to generate assembly for a file
 src/acme_orthogonal.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_orthogonal.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_orthogonal.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_orthogonal.cc.s
 .PHONY : src/acme_orthogonal.cc.s
 
@@ -633,7 +633,7 @@ src/acme_parallel.o: src/acme_parallel.cc.o
 
 # target to build an object file
 src/acme_parallel.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_parallel.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_parallel.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_parallel.cc.o
 .PHONY : src/acme_parallel.cc.o
 
@@ -642,7 +642,7 @@ src/acme_parallel.i: src/acme_parallel.cc.i
 
 # target to preprocess a source file
 src/acme_parallel.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_parallel.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_parallel.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_parallel.cc.i
 .PHONY : src/acme_parallel.cc.i
 
@@ -651,7 +651,7 @@ src/acme_parallel.s: src/acme_parallel.cc.s
 
 # target to generate assembly for a file
 src/acme_parallel.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_parallel.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_parallel.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_parallel.cc.s
 .PHONY : src/acme_parallel.cc.s
 
@@ -660,7 +660,7 @@ src/acme_plane.o: src/acme_plane.cc.o
 
 # target to build an object file
 src/acme_plane.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_plane.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_plane.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_plane.cc.o
 .PHONY : src/acme_plane.cc.o
 
@@ -669,7 +669,7 @@ src/acme_plane.i: src/acme_plane.cc.i
 
 # target to preprocess a source file
 src/acme_plane.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_plane.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_plane.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_plane.cc.i
 .PHONY : src/acme_plane.cc.i
 
@@ -678,7 +678,7 @@ src/acme_plane.s: src/acme_plane.cc.s
 
 # target to generate assembly for a file
 src/acme_plane.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_plane.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_plane.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_plane.cc.s
 .PHONY : src/acme_plane.cc.s
 
@@ -687,7 +687,7 @@ src/acme_ray.o: src/acme_ray.cc.o
 
 # target to build an object file
 src/acme_ray.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_ray.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_ray.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_ray.cc.o
 .PHONY : src/acme_ray.cc.o
 
@@ -696,7 +696,7 @@ src/acme_ray.i: src/acme_ray.cc.i
 
 # target to preprocess a source file
 src/acme_ray.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_ray.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_ray.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_ray.cc.i
 .PHONY : src/acme_ray.cc.i
 
@@ -705,7 +705,7 @@ src/acme_ray.s: src/acme_ray.cc.s
 
 # target to generate assembly for a file
 src/acme_ray.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_ray.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_ray.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_ray.cc.s
 .PHONY : src/acme_ray.cc.s
 
@@ -714,7 +714,7 @@ src/acme_segment.o: src/acme_segment.cc.o
 
 # target to build an object file
 src/acme_segment.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_segment.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_segment.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_segment.cc.o
 .PHONY : src/acme_segment.cc.o
 
@@ -723,7 +723,7 @@ src/acme_segment.i: src/acme_segment.cc.i
 
 # target to preprocess a source file
 src/acme_segment.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_segment.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_segment.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_segment.cc.i
 .PHONY : src/acme_segment.cc.i
 
@@ -732,7 +732,7 @@ src/acme_segment.s: src/acme_segment.cc.s
 
 # target to generate assembly for a file
 src/acme_segment.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_segment.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_segment.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_segment.cc.s
 .PHONY : src/acme_segment.cc.s
 
@@ -741,7 +741,7 @@ src/acme_sphere.o: src/acme_sphere.cc.o
 
 # target to build an object file
 src/acme_sphere.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_sphere.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_sphere.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_sphere.cc.o
 .PHONY : src/acme_sphere.cc.o
 
@@ -750,7 +750,7 @@ src/acme_sphere.i: src/acme_sphere.cc.i
 
 # target to preprocess a source file
 src/acme_sphere.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_sphere.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_sphere.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_sphere.cc.i
 .PHONY : src/acme_sphere.cc.i
 
@@ -759,7 +759,7 @@ src/acme_sphere.s: src/acme_sphere.cc.s
 
 # target to generate assembly for a file
 src/acme_sphere.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_sphere.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_sphere.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_sphere.cc.s
 .PHONY : src/acme_sphere.cc.s
 
@@ -768,7 +768,7 @@ src/acme_triangle.o: src/acme_triangle.cc.o
 
 # target to build an object file
 src/acme_triangle.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_triangle.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_triangle.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_triangle.cc.o
 .PHONY : src/acme_triangle.cc.o
 
@@ -777,7 +777,7 @@ src/acme_triangle.i: src/acme_triangle.cc.i
 
 # target to preprocess a source file
 src/acme_triangle.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_triangle.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_triangle.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_triangle.cc.i
 .PHONY : src/acme_triangle.cc.i
 
@@ -786,7 +786,7 @@ src/acme_triangle.s: src/acme_triangle.cc.s
 
 # target to generate assembly for a file
 src/acme_triangle.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_triangle.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_triangle.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_triangle.cc.s
 .PHONY : src/acme_triangle.cc.s
 
@@ -795,7 +795,7 @@ src/acme_utils.o: src/acme_utils.cc.o
 
 # target to build an object file
 src/acme_utils.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_utils.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_utils.cc.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_utils.cc.o
 .PHONY : src/acme_utils.cc.o
 
@@ -804,7 +804,7 @@ src/acme_utils.i: src/acme_utils.cc.i
 
 # target to preprocess a source file
 src/acme_utils.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_utils.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_utils.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_utils.cc.i
 .PHONY : src/acme_utils.cc.i
 
@@ -813,7 +813,7 @@ src/acme_utils.s: src/acme_utils.cc.s
 
 # target to generate assembly for a file
 src/acme_utils.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SHARED.dir/build.make CMakeFiles/SHARED.dir/src/acme_utils.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx.dir/build.make CMakeFiles/acme_osx.dir/src/acme_utils.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/acme_osx_static.dir/build.make CMakeFiles/acme_osx_static.dir/src/acme_utils.cc.s
 .PHONY : src/acme_utils.cc.s
 
@@ -1189,7 +1189,6 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... SHARED"
 	@echo "... acme-test0"
 	@echo "... acme-test1"
 	@echo "... acme-test10"
@@ -1205,6 +1204,7 @@ help:
 	@echo "... acme-test7"
 	@echo "... acme-test8"
 	@echo "... acme-test9"
+	@echo "... acme_osx"
 	@echo "... acme_osx_static"
 	@echo "... src/acme_AABBtree.o"
 	@echo "... src/acme_AABBtree.i"

@@ -155,9 +155,9 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = toNormalizedVector( self )
+    function out = toUnitVector( self )
       % Transform segment to normalized vector
-      out = mex_segment( 'toNormalizedVector', self.objectHandle );
+      out = mex_segment( 'toUnitVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

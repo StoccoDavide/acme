@@ -32,15 +32,12 @@ elseif ispc
   EIGEN3_PATH = ' -I/?';
 end
 
-CMD = [ MEX_CMD ' -c '];
+CMD = [ MEX_CMD, ' -c', EIGEN3_PATH ];
 if ismac
-  CMD = [CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"'];
-  CMD = [CMD, EIGEN3_PATH];
+  CMD = [ CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"' ];
 elseif isunix
-  CMD = [CMD, 'CXXFLAGS="\$CXXFLAGS -Wall -O2 -g" '];
-  CMD = [CMD, EIGEN3_PATH];
+  CMD = [ CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"' ];
 elseif ispc
-  CMD = [CMD, EIGEN3_PATH];
 end
 CMD = [ CMD, LIB_SRCS ];
 
@@ -70,11 +67,10 @@ for k=1:length(NAMES)
   CMD = [ 'while mislocked(''' N '''); munlock(''' N '''); end;'];
   eval(CMD);
 
-  CMD = [ MEX_CMD, ' -output ./bin/', N ];
+  CMD = [ MEX_CMD, ' -output ./bin/', N, EIGEN3_PATH ];
   CMD = [ CMD, ' -largeArrayDims ./src_mex/', N, '.cc ', LIB_OBJS ];
   if ismac
-    CMD = [CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"'];
-    CMD = [CMD, EIGEN3_PATH];
+    CMD = [ CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"'];
   elseif isunix
     % Workaround for MATLAB 2020 that force dynamic link with old libstdc++
     % solution: link with static libstdc++
@@ -86,9 +82,7 @@ for k=1:length(NAMES)
       ' LDFLAGS="\$LDFLAGS -static-libgcc -static-libstdc++"' ...
       ' LINKLIBS="-L' PATH1 ' -L' PATH2 ' -lMatlabDataArray -lmx -lmex -lmat -lm "' ...
       ];
-    CMD = [CMD, EIGEN3_PATH];
   elseif ispc
-    CMD = [CMD, EIGEN3_PATH];
   end
   disp(CMD);
   eval(CMD);

@@ -1501,7 +1501,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(line0_in, line1_in, tolerance))
+    if (!isParallel(line0_in, line1_in, tolerance))
     {
       point origin_0(line0_in.origin());
       vec3 direction_0(line0_in.direction());
@@ -1529,7 +1529,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(ray0_in, ray1_in, tolerance))
+    if (!isParallel(ray0_in, ray1_in, tolerance))
     {
       point origin_0(ray0_in.origin());
       vec3 direction_0(ray0_in.direction());
@@ -1565,7 +1565,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(segment0_in, segment1_in, tolerance))
+    if (!isParallel(segment0_in, segment1_in, tolerance))
     {
       point origin_0(segment0_in.vertex(0));
       vec3 direction_0(segment0_in.toVector());
@@ -1601,7 +1601,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(line_in, ray_in, tolerance))
+    if (!isParallel(line_in, ray_in, tolerance))
     {
       point origin_0(line_in.origin());
       vec3 direction_0(line_in.direction());
@@ -1636,7 +1636,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(line_in, segment_in, tolerance))
+    if (!isParallel(line_in, segment_in, tolerance))
     {
       point origin_0(line_in.origin());
       vec3 direction_0(line_in.direction());
@@ -1671,7 +1671,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(ray_in, segment_in, tolerance))
+    if (!isParallel(ray_in, segment_in, tolerance))
     {
       point origin_0(ray_in.origin());
       vec3 direction_0(ray_in.direction());
