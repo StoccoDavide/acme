@@ -1,5 +1,6 @@
 clc;
 clear functions;
+
 [~,mexLoaded] = inmem('-completenames');
 
 old_dir = cd(fileparts(which(mfilename)));

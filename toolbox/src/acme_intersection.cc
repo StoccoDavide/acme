@@ -1501,7 +1501,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(line0_in, line1_in, tolerance))
+    if (!isParallel(line0_in, line1_in, tolerance))
     {
       point origin_0(line0_in.origin());
       vec3 direction_0(line0_in.direction());
@@ -1529,7 +1529,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(ray0_in, ray1_in, tolerance))
+    if (!isParallel(ray0_in, ray1_in, tolerance))
     {
       point origin_0(ray0_in.origin());
       vec3 direction_0(ray0_in.direction());
@@ -1565,7 +1565,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(segment0_in, segment1_in, tolerance))
+    if (!isParallel(segment0_in, segment1_in, tolerance))
     {
       point origin_0(segment0_in.vertex(0));
       vec3 direction_0(segment0_in.toVector());
@@ -1601,7 +1601,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(line_in, ray_in, tolerance))
+    if (!isParallel(line_in, ray_in, tolerance))
     {
       point origin_0(line_in.origin());
       vec3 direction_0(line_in.direction());
@@ -1636,7 +1636,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(line_in, segment_in, tolerance))
+    if (!isParallel(line_in, segment_in, tolerance))
     {
       point origin_0(line_in.origin());
       vec3 direction_0(line_in.direction());
@@ -1671,7 +1671,7 @@ namespace acme
       point &point_out,
       real tolerance)
   {
-    if (!isCollinear(ray_in, segment_in, tolerance))
+    if (!isParallel(ray_in, segment_in, tolerance))
     {
       point origin_0(ray_in.origin());
       vec3 direction_0(ray_in.direction());
@@ -1823,7 +1823,7 @@ namespace acme
       }
       else
       {
-        ACME_ERROR("acme::ntersection(line, triangle, segment): exception not handled.\n")
+        ACME_ERROR("acme::intersection(line, triangle, segment): exception not handled.\n")
         return false;
       }
     }
@@ -1935,21 +1935,23 @@ namespace acme
     real inv = 1 / a2;
     if (std::abs(discriminant) < tolerance)
     {
-      real t = a1 * inv;
+      real t = -a1 * inv;
       if (t < 0.0)
         return false;
-      point int_point(ray_origin - t * ray_direction);
+      point int_point(ray_origin + t * ray_direction);
       segment_out.vertex(0) = int_point;
       segment_out.vertex(1) = int_point;
       return true;
     }
     real root = std::sqrt(discriminant);
-    real t0 = (a1 + root) * inv;
-    real t1 = (a1 - root) * inv;
-    if (t0 < 0.0 || t1 < 0.0)
+    real t0 = -(a1 + root) * inv;
+    real t1 = -(a1 - root) * inv;
+    if (t0 < 0.0 && t1 < 0.0)
       return false;
-    segment_out.vertex(0) = ray_origin - t0 * ray_direction;
-    segment_out.vertex(1) = ray_origin - t1 * ray_direction;
+    t0 = std::max(0.0, t0);
+    t1 = std::max(0.0, t1);
+    segment_out.vertex(0) = ray_origin + t0 * ray_direction;
+    segment_out.vertex(1) = ray_origin + t1 * ray_direction;
     return true;
   }
 
@@ -2056,22 +2058,24 @@ namespace acme
     real inv = 1 / a2;
     if (std::abs(discriminant) < tolerance)
     {
-      real t = a1 * inv;
+      real t = -a1 * inv;
       if (t < 0.0 || t > 1.0)
         return false;
-      point int_point(segment_origin - t * segment_direction);
+      point int_point(segment_origin + t * segment_direction);
       segment_out.vertex(0) = int_point;
       segment_out.vertex(1) = int_point;
       return true;
     }
     real root = std::sqrt(discriminant);
-    real t0 = (a1 + root) * inv;
-    real t1 = (a1 - root) * inv;
-    if (t0 < 0.0 || t0 > 1.0 ||
-        t1 < 0.0 || t1 > 1.0)
+    real t0 = -(a1 + root) * inv;
+    real t1 = -(a1 - root) * inv;
+    if ((t0 < 0.0 && t1 < 0.0) ||
+        (t0 > 1.0 && t1 > 1.0))
       return false;
-    segment_out.vertex(0) = segment_origin - t0 * segment_direction;
-    segment_out.vertex(1) = segment_origin - t1 * segment_direction;
+    t0 = std::max(0.0, std::min(t0, 1.0));
+    t1 = std::max(0.0, std::min(t1, 1.0));
+    segment_out.vertex(0) = segment_origin + t0 * segment_direction;
+    segment_out.vertex(1) = segment_origin + t1 * segment_direction;
     return true;
   }
 

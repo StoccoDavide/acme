@@ -142,8 +142,8 @@ classdef acme_segment < acme_entity
     %
     function out = centroid( self )
       % Get segment centroid as ACME point objecty instance
-      out = point();
-      out.copyByHandle( mex_segment( 'centroid', self.objectHandle, other_obj.objectHandle ) );
+      out = acme_point();
+      out.copyByHandle( mex_segment( 'centroid', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
