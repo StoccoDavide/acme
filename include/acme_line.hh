@@ -71,7 +71,7 @@ namespace acme
     //! Line move constructor
     line(line &&) = default;
 
-    //! Line class constructor for line
+    //! Line class constructor
     line(
         real ox, //!< Input x value of line origin point
         real oy, //!< Input y value of line origin point
@@ -189,6 +189,12 @@ namespace acme
 
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
+
+    //! Check whether in the line is clampable
+    bool isClampable(void) const override { return false; }
+
+    //! Check whether in the line is non-clampable
+    bool isNonClampable(void) const override { return true; }
 
   }; // class line
 

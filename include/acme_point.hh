@@ -138,6 +138,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the point is clampable
+    bool isClampable(void) const override { return true; }
+
+    //! Check whether in the point is non-clampable
+    bool isNonClampable(void) const override { return false; }
+
   }; // class point
 
   static point const NAN_POINT = point::Constant(QUIET_NAN); //!< Not-a-Number static const point object

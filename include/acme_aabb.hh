@@ -26,14 +26,13 @@
 */
 
 ///
-/// file: acme_box.hh
+/// file: acme_aabb.hh
 ///
 
-#ifndef INCLUDE_ACME_BOX
-#define INCLUDE_ACME_BOX
+#ifndef INCLUDE_ACME_AABB
+#define INCLUDE_ACME_AABB
 
 #include "acme.hh"
-#include "acme_point.hh"
 
 namespace acme
 {
@@ -60,8 +59,8 @@ namespace acme
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to const aabb objects used in AABBtree routines
 
   private:
-    point m_min;   //!< Box maximum point
-    point m_max;   //!< Box minimum point
+    vec3 m_min;    //!< Box maximum point
+    vec3 m_max;    //!< Box minimum point
     integer m_id;  //!< Box id (may be used in external algorithms)
     integer m_pos; //!< Box rank (may be used in external algorithms)
 
@@ -92,10 +91,10 @@ namespace acme
 
     //! Box class constructor
     aabb(
-        point const &min, //!< Input aabb minimum point
-        point const &max, //!< Input aabb maximum point
-        integer id,       //!< Input aabb id value
-        integer ipos      //!< Input aabb rank value
+        vec3 const &min, //!< Input aabb minimum point
+        vec3 const &max, //!< Input aabb maximum point
+        integer id,      //!< Input aabb id value
+        integer ipos     //!< Input aabb rank value
     );
 
     //! Box class constructor
@@ -130,11 +129,11 @@ namespace acme
     updateMaxMin(void);
 
     //! Get minimum point const reference
-    point const &
+    vec3 const &
     min(void) const;
 
     //! Get minimum point reference
-    point &
+    vec3 &
     min(void);
 
     //! Get aabb minimum i-th axis value const reference
@@ -158,11 +157,11 @@ namespace acme
     );
 
     //! Get aabb maximum point const reference
-    point const &
+    vec3 const &
     max(void) const;
 
     //! Get aabb maximum point reference
-    point &
+    vec3 &
     max(void);
 
     //! Get aabb maximum i-th point axis value const reference
@@ -200,36 +199,44 @@ namespace acme
     //! Distance of a point to the aabb
     real
     centerDistance(
-        point const &point_in //!< Query point
+        vec3 const &point_in //!< Query point
     ) const;
 
     //! Maximum distance of a point to the aabb
     real
     exteriorDistance(
-        point const &point_in //!< Query point
+        vec3 const &point_in //!< Query point
     ) const;
 
     //! Resize the aabb as the minimum bounding aabb containing three input points
     void
     clamp(
-        point const &point0_in, //!< Input point 0
-        point const &point1_in, //!< Input point 1
-        point const &point2_in  //!< Input point 2
+        vec3 const &point0_in, //!< Input point 0
+        vec3 const &point1_in, //!< Input point 1
+        vec3 const &point2_in  //!< Input point 2
     );
 
     //! Resize the aabb as the minimum bounding aabb containing three input points
     void
     clamp(
-        point const point_in[3] //!< Input points
+        vec3 const point_in[3] //!< Input points
     );
 
-    //!< Return aabb id
+    //!< Return aabb id const reference
     integer const &
     id(void) const;
 
-    //!< Return aabb position
+    //!< Return aabb id reference
+    integer &
+    id(void);
+
+    //!< Return aabb position const reference
     integer const &
     pos(void) const;
+
+    //!< Return aabb position reference
+    integer &
+    pos(void);
 
     //! Translate aabb by vector
     void
@@ -240,7 +247,7 @@ namespace acme
     // Check whether the point is inside the aabb
     bool
     isInside(
-        point const &point_in,   //!< Query point
+        vec3 const &point_in,    //!< Query point
         real tolerance = EPSILON //!< Tolerance
     ) const;
 
@@ -252,13 +259,13 @@ namespace acme
 
   }; //class aabb
 
-  static aabb const NAN_AABB = aabb(NAN_POINT, NAN_POINT, 0, 0); //!< Not-a-Number static const aabb object
-  static aabb THROWAWAY_AABB = aabb(NAN_AABB);                   //!< Throwaway static non-const aabb object
+  static aabb const NAN_AABB = aabb(NAN_VEC3, NAN_VEC3, 0, 0); //!< Not-a-Number static const aabb object
+  static aabb THROWAWAY_AABB = aabb(NAN_AABB);                  //!< Throwaway static non-const aabb object
 
 } // namespace acme
 
 #endif
 
 ///
-/// eof: acme_box.hh
+/// eof: acme_aabb.hh
 ///

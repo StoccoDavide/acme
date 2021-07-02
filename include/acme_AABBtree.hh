@@ -166,14 +166,14 @@ namespace acme
   private:
     //! Find the candidate at minimum distance from point
     void selectMinimumDistance(
-        point const &query,         //!< Input point
+        vec3 const &query,         //!< Input point
         aabb::vecptr &candidateList //!< Output candidate list
     ) const;
 
     //! Compute the minimum of the maximum distance between a point
     static real
     minimumExteriorDistance(
-        point const &query,   //!< Input point
+        vec3 const &query,   //!< Input point
         AABBtree const &tree, //!< Input tree
         real distance         //!< Output distance
     );
@@ -181,7 +181,7 @@ namespace acme
     //! Select the candidate which aabb have distance less than distance
     static void
     selectLessThanDistance(
-        point const &query,         //!< Input point
+        vec3 const &query,         //!< Input point
         real distance,              //!< Input distance
         AABBtree const &tree,       //!< Input tree
         aabb::vecptr &candidateList //!< Output candidate list

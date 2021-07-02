@@ -67,23 +67,26 @@ endif
 
 LIB_ACME = libacme
 MKDIR = mkdir -p
-DEPS	= include/acme.hh              \
-				include/acme_math.hh         \
-				include/acme_eigen.hh        \
+DEPS	= include/acme_aabb.hh         \
 				include/acme_AABBtree.hh     \
-				include/acme_box.hh          \
 				include/acme_circle.hh       \
+				include/acme_collection.hh   \
+				include/acme_collinear.hh    \
+				include/acme_coplanar.hh     \
+				include/acme_entity.hh       \
+				include/acme_intersection.hh \
 				include/acme_line.hh         \
+				include/acme_math.hh         \
+				include/acme_none.hh         \
+				include/acme_orthogonal.hh   \
+				include/acme_parallel.hh     \
 				include/acme_plane.hh        \
+				include/acme_point.hh        \
 				include/acme_ray.hh          \
 				include/acme_segment.hh      \
 				include/acme_triangle.hh     \
-				include/acme_intersection.hh \
-				include/acme_collinear.hh    \
-				include/acme_coplanar.hh     \
-				include/acme_parallel.hh     \
-				include/acme_orthogonal.hh   \
-				include/acme_utilities.hh    \
+				include/acme_utils.hh        \
+				include/acme.hh              \
 
 # prefix for installation, use make PREFIX=/new/prefix install
 # to override

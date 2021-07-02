@@ -207,6 +207,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the plane is clampable
+    bool isClampable(void) const override { return false; }
+
+    //! Check whether in the plane is non-clampable
+    bool isNonClampable(void) const override { return true; }
+
   }; // class plane
 
   static plane const NAN_PLANE = plane(NAN_POINT, NAN_VEC3); //!< Not-a-Number static const plane object

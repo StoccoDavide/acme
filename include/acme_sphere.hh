@@ -186,6 +186,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return true; }
 
+    //! Check whether in the sphere is clampable
+    bool isClampable(void) const override { return true; }
+
+    //! Check whether in the sphere is non-clampable
+    bool isNonClampable(void) const override { return false; }
+
   }; // class sphere
 
   static sphere const NAN_SPHERE = sphere(QUIET_NAN, NAN_POINT); //!< Not-a-Number static const sphere object

@@ -113,6 +113,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the circle is clampable
+    bool isClampable(void) const override { return false; }
+
+    //! Check whether in the circle is non-clampable
+    bool isNonClampable(void) const override { return false; }
+
   }; // class none
 
   static none THROWAWAY_NONE = none(); //!< Throwaway static non-const none object

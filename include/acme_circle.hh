@@ -222,6 +222,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the circle is clampable
+    bool isClampable(void) const override { return true; }
+
+    //! Check whether in the circle is non-clampable
+    bool isNonClampable(void) const override { return false; }
+
   }; // class circle
 
   static circle const NAN_CIRCLE = circle(QUIET_NAN, NAN_PLANE); //!< Not-a-Number static const circle object

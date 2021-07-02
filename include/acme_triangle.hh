@@ -241,6 +241,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the triangle is clampable
+    bool isClampable(void) const override { return true; }
+
+    //! Check whether in the triangle is non-clampable
+    bool isNonClampable(void) const override { return false; }
+
   }; // class triangle
 
   static triangle const NAN_TRIANGLE = triangle(NAN_POINT, NAN_POINT, NAN_POINT); //!< Not-a-Number static const triangle object

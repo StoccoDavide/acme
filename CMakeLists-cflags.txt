@@ -1,3 +1,5 @@
+# cmake -G "Unix Makefiles" -B ./build -DCMAKE_BUILD_TYPE=Release
+
 SET( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE )
 SET( CMAKE_VERBOSE_MAKEFILE            TRUE )
 SET( BUILD_EXECUTABLE      true )

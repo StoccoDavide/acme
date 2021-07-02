@@ -212,6 +212,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the segment is clampable
+    bool isClampable(void) const override { return true; }
+
+    //! Check whether in the segment is non-clampable
+    bool isNonClampable(void) const override { return false; }
+
   }; // class segment
 
   static segment const NAN_SEGMENT = segment(NAN_POINT, NAN_POINT); //!< Not-a-Number static const segment object

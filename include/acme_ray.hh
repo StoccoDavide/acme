@@ -194,6 +194,12 @@ namespace acme
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
 
+    //! Check whether in the ray is clampable
+    bool isClampable(void) const override { return false; }
+
+    //! Check whether in the ray is non-clampable
+    bool isNonClampable(void) const override { return true; }
+
   }; // class ray
 
   static ray const NAN_RAY = ray(NAN_POINT, NAN_VEC3); //!< Not-a-Number static const ray object
