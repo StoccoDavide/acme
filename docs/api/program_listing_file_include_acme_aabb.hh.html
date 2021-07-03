@@ -69,8 +69,8 @@
 <span class="cm">*/</span>
 
 
-<span class="cp">#ifndef INCLUDE_ACME_BOX</span>
-<span class="cp">#define INCLUDE_ACME_BOX</span>
+<span class="cp">#ifndef INCLUDE_ACME_AABB</span>
+<span class="cp">#define INCLUDE_ACME_AABB</span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_point.hh"</span><span class="cp"></span>
@@ -118,21 +118,21 @@
         <span class="n">real</span> <span class="n">max_x</span><span class="p">,</span>
         <span class="n">real</span> <span class="n">max_y</span><span class="p">,</span>
         <span class="n">real</span> <span class="n">max_z</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">ipos</span>
+        <span class="n">integer</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">integer</span> <span class="n">ipos</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="p">);</span>
 
     <span class="n">aabb</span><span class="p">(</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">min</span><span class="p">,</span>
         <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">max</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">ipos</span>
+        <span class="n">integer</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">integer</span> <span class="n">ipos</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="p">);</span>
 
     <span class="n">aabb</span><span class="p">(</span>
         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">boxes</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>
-        <span class="n">integer</span> <span class="n">ipos</span>
+        <span class="n">integer</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">integer</span> <span class="n">ipos</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="p">);</span>
 
     <span class="n">aabb</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
@@ -235,12 +235,18 @@
     <span class="n">integer</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">id</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="n">integer</span> <span class="o">&amp;</span>
+    <span class="nf">id</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
     <span class="n">integer</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">pos</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="n">integer</span> <span class="o">&amp;</span>
+    <span class="nf">pos</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
     <span class="kt">void</span>
     <span class="nf">translate</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span>
+        <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span>
     <span class="p">);</span>
 
     <span class="c1">// Check whether the point is inside the aabb</span>

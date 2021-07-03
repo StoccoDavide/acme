@@ -25,7 +25,7 @@
 (***********************************************************************)
 */
 
-// TEST 6 - SEGMENT CIRCLE INTERSECTION
+// TEST 6 - LINE CIRCLE INTERSECTION
 
 #include <fstream>
 #include <iostream>

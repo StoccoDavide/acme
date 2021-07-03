@@ -146,39 +146,39 @@ clean:
 	rm -rf $(OBJECTS)
 
 tests: $(OBJECTS) $(TESTS_SOURCES)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc -o bin/acme-test2 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc -o bin/acme-test3 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc -o bin/acme-test4 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc -o bin/acme-test5 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc -o bin/acme-test6 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc -o bin/acme-test7 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc -o bin/acme-test8 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test9.cc -o bin/acme-test9 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test12.cc -o bin/acme-test12 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test13.cc -o bin/acme-test13 $(LIBS)
-	#$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test14.cc -o bin/acme-test14 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test3.cc -o bin/acme-test3 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test4.cc -o bin/acme-test4 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test5.cc -o bin/acme-test5 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test6.cc -o bin/acme-test6 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test7.cc -o bin/acme-test7 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test8.cc -o bin/acme-test8 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test9.cc -o bin/acme-test9 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test10.cc -o bin/acme-test10 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test11.cc -o bin/acme-test11 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test12.cc -o bin/acme-test12 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test13.cc -o bin/acme-test13 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test14.cc -o bin/acme-test14 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test15.cc -o bin/acme-test15 $(LIBS)
 
 tests_run:
-	#./bin/acme-test0
-	#./bin/acme-test1
+	./bin/acme-test0
+	./bin/acme-test1
 	./bin/acme-test2
-	#./bin/acme-test3
-	#./bin/acme-test4
-	#./bin/acme-test5
-	#./bin/acme-test6
-	#./bin/acme-test7
-	#./bin/acme-test8
-	#./bin/acme-test9
-	#./bin/acme-test10
-	#./bin/acme-test11
-	#./bin/acme-test12
-	#./bin/acme-test13
-	#./bin/acme-test14
+	./bin/acme-test3
+	./bin/acme-test4
+	./bin/acme-test5
+	./bin/acme-test6
+	./bin/acme-test7
+	./bin/acme-test8
+	./bin/acme-test9
+	./bin/acme-test10
+	./bin/acme-test11
+	./bin/acme-test12
+	./bin/acme-test13
+	./bin/acme-test14
 	./bin/acme-test15
 
 #

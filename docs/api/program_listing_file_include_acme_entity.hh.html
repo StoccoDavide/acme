@@ -90,6 +90,9 @@
   <span class="k">class</span> <span class="nc">entity</span>
   <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">entity</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ptr</span><span class="o">&gt;</span> <span class="n">vecptr</span><span class="p">;</span>
+
     <span class="k">virtual</span> <span class="o">~</span><span class="n">entity</span><span class="p">(){};</span>
 
     <span class="n">entity</span><span class="p">(){};</span>
@@ -104,6 +107,12 @@
         <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
         <span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
+    <span class="kt">void</span>
+    <span class="nf">rotate</span><span class="p">(</span>
+        <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
+        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span>
+    <span class="p">);</span>
+
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isDegenerated</span><span class="p">(</span>
         <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
     <span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -111,6 +120,8 @@
     <span class="k">virtual</span> <span class="n">integer</span> <span class="n">level</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kt">bool</span> <span class="nf">isEntity</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
@@ -129,6 +140,26 @@
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isSphere</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">isNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span>
+    <span class="n">clamp</span><span class="p">(</span>
+        <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">min</span><span class="p">,</span>
+        <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">max</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">virtual</span> <span class="kt">bool</span>
+    <span class="n">clamp</span><span class="p">(</span>
+        <span class="n">real</span> <span class="o">&amp;</span><span class="n">min_x</span><span class="p">,</span>
+        <span class="n">real</span> <span class="o">&amp;</span><span class="n">min_y</span><span class="p">,</span>
+        <span class="n">real</span> <span class="o">&amp;</span><span class="n">min_z</span><span class="p">,</span>
+        <span class="n">real</span> <span class="o">&amp;</span><span class="n">max_x</span><span class="p">,</span>
+        <span class="n">real</span> <span class="o">&amp;</span><span class="n">max_y</span><span class="p">,</span>
+        <span class="n">real</span> <span class="o">&amp;</span><span class="n">max_z</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
   <span class="p">};</span> <span class="c1">// class entity</span>
 

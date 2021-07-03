@@ -263,7 +263,7 @@ namespace acme
 
   real
   AABBtree::minimumExteriorDistance(
-      vec3 const &query,
+      point const &query,
       AABBtree const &tree,
       real distance)
   {
@@ -287,7 +287,7 @@ namespace acme
 
   void
   AABBtree::selectLessThanDistance(
-      vec3 const &query,
+      point const &query,
       real distance,
       AABBtree const &tree,
       aabb::vecptr &candidate_list)
@@ -314,7 +314,7 @@ namespace acme
 
   void
   AABBtree::selectMinimumDistance(
-      vec3 const &query,
+      point const &query,
       aabb::vecptr &candidate_list)
       const
   {

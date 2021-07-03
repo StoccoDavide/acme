@@ -78,15 +78,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  //void
-  //collection::push_back(
-  //    entity const &entity_in)
-  //{
-  //  this->m_entities.push_back(std::move(std::shared_ptr<entity>(entity_in)));
-  //}
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   void
   collection::push_back(
       entity::ptr entity_in)
@@ -186,11 +177,11 @@ namespace acme
   void
   collection::removeNone(void)
   {
-    //remove_if(
-    //    this->m_entities.begin(),
-    //    this->m_entities.end(),
-    //    [this](entity::ptr &entity)
-    //    { return this->isNone(); });
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isNone(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -251,8 +242,11 @@ namespace acme
   void
   collection::removePoint(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isPoint);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isPoint(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -313,8 +307,11 @@ namespace acme
   void
   collection::removeLine(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isLine);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isLine(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -375,8 +372,11 @@ namespace acme
   void
   collection::removeRay(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isRay);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isRay(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -437,8 +437,11 @@ namespace acme
   void
   collection::removePlane(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isPlane);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isPlane(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -499,8 +502,11 @@ namespace acme
   void
   collection::removeSegment(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isSegment);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isSegment(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -561,8 +567,11 @@ namespace acme
   void
   collection::removeTriangle(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isTriangle);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isTriangle(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -623,8 +632,11 @@ namespace acme
   void
   collection::removeCircle(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isCircle);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isCircle(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -685,8 +697,11 @@ namespace acme
   void
   collection::removeSphere(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isSphere);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isSphere(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -751,8 +766,11 @@ namespace acme
   collection::removeDegenerated(
       real tolerance)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isDegenerated(tolerance));
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [tolerance](entity::ptr &entity)
+        { return entity->isDegenerated(tolerance); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -814,8 +832,11 @@ namespace acme
   void
   collection::removeClampable(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isClampable);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isClampable(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -876,8 +897,11 @@ namespace acme
   void
   collection::removeNonClampable(void)
   {
-    //entity::vecptr::iterator it;
-    //it = remove_if(this->m_entities.begin(), this->m_entities.end(), isNonClampable);
+    remove_if(
+        this->m_entities.begin(),
+        this->m_entities.end(),
+        [](entity::ptr &entity)
+        { return entity->isNonClampable(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -929,17 +953,18 @@ namespace acme
 
   void
   collection::clamp(
-      std::vector<std::shared_ptr<aabb>> &boxes)
+      aabb::vecptr &boxes)
       const
   {
     boxes.clear();
-    boxes.resize(this->m_entities.size());
+    vec3 min;
+    vec3 max;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
-      //if (this->m_entities[i]->isClampable())
-      //  this->m_entities[i]->clamp(*boxes[i], i, 0);
-      //else
-      //  ACME_ERROR("acme::collection::clamp(): non-clampable object detected.");
+      if (this->m_entities[i]->clamp(min, max))
+        boxes.push_back(std::make_shared<aabb>(min, max, i, 0));
+      else
+        ACME_ERROR("acme::collection::clamp(): non-clampable object detected.");
     }
   }
 
@@ -947,11 +972,10 @@ namespace acme
 
   void
   collection::buildAABBtree(void)
-      const
   {
-    std::vector<std::shared_ptr<aabb>> ptrVecbox;
+    aabb::vecptr ptrVecbox;
     this->clamp(ptrVecbox);
-    //this->m_AABBtree->build(std::const_pointer_cast<aabb::ptr>(ptrVecbox));
+    this->m_AABBtree->build(ptrVecbox);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1021,6 +1045,23 @@ namespace acme
     aabb::vecptr ptrVecbox;
     ptrVecbox.push_back(ptrbox);
     return this->intersection(ptrVecbox, candidates);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  collection::intersection(
+      collection &entities,
+      real tolerance)
+      const
+  {
+    int size = this->m_entities.size();
+    entities.clear();
+    for (size_t i = 0; i < size; ++i)
+      for (size_t j = i; j < size; ++j)
+        entities.push_back(entity::ptr(acme::intersection(this->m_entities[i].get(),
+                                                          this->m_entities[j].get(),
+                                                          tolerance)));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

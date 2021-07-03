@@ -197,22 +197,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  circle::clamp(
-      aabb &aabb_in)
-      const
-  {
-    aabb_in.min(0) = -this->m_radius;
-    aabb_in.min(1) = -this->m_radius;
-    aabb_in.min(2) = -this->m_radius;
-    aabb_in.max(0) = this->m_radius;
-    aabb_in.max(1) = this->m_radius;
-    aabb_in.max(2) = this->m_radius;
-    aabb_in.translate(this->m_plane.origin());
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   real
   circle::perimeter(void)
       const
@@ -270,7 +254,47 @@ namespace acme
            this->m_plane.isDegenerated(tolerance);
   }
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -˚
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::clamp(
+      vec3 &min,
+      vec3 &max)
+      const
+  {
+    point origin(this->m_plane.origin());
+    min[0] = -this->m_radius + origin[0];
+    min[1] = -this->m_radius + origin[1];
+    min[2] = -this->m_radius + origin[2];
+    max[0] = this->m_radius + origin[0];
+    max[1] = this->m_radius + origin[1];
+    max[2] = this->m_radius + origin[2];
+    return this->isClampable();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  circle::clamp(
+      real &min_x,
+      real &min_y,
+      real &min_z,
+      real &max_x,
+      real &max_y,
+      real &max_z)
+      const
+  {
+    point origin(this->m_plane.origin());
+    min_x = -this->m_radius + origin[0];
+    min_y = -this->m_radius + origin[1];
+    min_z = -this->m_radius + origin[2];
+    max_x = this->m_radius + origin[0];
+    max_y = this->m_radius + origin[1];
+    max_z = this->m_radius + origin[2];
+    return this->isClampable();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
 

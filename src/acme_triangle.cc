@@ -206,21 +206,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  void
-  triangle::clamp(
-      aabb &aabb_in)
-      const
-  {
-    aabb_in.min(0) = std::min(this->m_vertex[0].x(), std::min(this->m_vertex[1].x(), this->m_vertex[2].x()));
-    aabb_in.min(1) = std::min(this->m_vertex[0].y(), std::min(this->m_vertex[1].y(), this->m_vertex[2].y()));
-    aabb_in.min(2) = std::min(this->m_vertex[0].z(), std::min(this->m_vertex[1].z(), this->m_vertex[2].z()));
-    aabb_in.max(0) = std::max(this->m_vertex[0].x(), std::max(this->m_vertex[1].x(), this->m_vertex[2].x()));
-    aabb_in.max(1) = std::max(this->m_vertex[0].y(), std::max(this->m_vertex[1].y(), this->m_vertex[2].y()));
-    aabb_in.max(2) = std::max(this->m_vertex[0].z(), std::max(this->m_vertex[1].z(), this->m_vertex[2].z()));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   real
   triangle::perimeter(void)
       const
@@ -322,6 +307,44 @@ namespace acme
     return acme::isApprox((this->m_vertex[0] - this->m_vertex[1]).norm(), 0.0, tolerance) ||
            acme::isApprox((this->m_vertex[1] - this->m_vertex[2]).norm(), 0.0, tolerance) ||
            acme::isApprox((this->m_vertex[2] - this->m_vertex[0]).norm(), 0.0, tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  triangle::clamp(
+      vec3 &min,
+      vec3 &max)
+      const
+  {
+    min[0] = std::min(this->m_vertex[0].x(), std::min(this->m_vertex[1].x(), this->m_vertex[2].x()));
+    min[1] = std::min(this->m_vertex[0].y(), std::min(this->m_vertex[1].y(), this->m_vertex[2].y()));
+    min[2] = std::min(this->m_vertex[0].z(), std::min(this->m_vertex[1].z(), this->m_vertex[2].z()));
+    max[0] = std::max(this->m_vertex[0].x(), std::max(this->m_vertex[1].x(), this->m_vertex[2].x()));
+    max[1] = std::max(this->m_vertex[0].y(), std::max(this->m_vertex[1].y(), this->m_vertex[2].y()));
+    max[2] = std::max(this->m_vertex[0].z(), std::max(this->m_vertex[1].z(), this->m_vertex[2].z()));
+    return this->isClampable();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  triangle::clamp(
+      real &min_x,
+      real &min_y,
+      real &min_z,
+      real &max_x,
+      real &max_y,
+      real &max_z)
+      const
+  {
+    min_x = std::min(this->m_vertex[0].x(), std::min(this->m_vertex[1].x(), this->m_vertex[2].x()));
+    min_y = std::min(this->m_vertex[0].y(), std::min(this->m_vertex[1].y(), this->m_vertex[2].y()));
+    min_z = std::min(this->m_vertex[0].z(), std::min(this->m_vertex[1].z(), this->m_vertex[2].z()));
+    max_x = std::max(this->m_vertex[0].x(), std::max(this->m_vertex[1].x(), this->m_vertex[2].x()));
+    max_y = std::max(this->m_vertex[0].y(), std::max(this->m_vertex[1].y(), this->m_vertex[2].y()));
+    max_z = std::max(this->m_vertex[0].z(), std::max(this->m_vertex[1].z(), this->m_vertex[2].z()));
+    return this->isClampable();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

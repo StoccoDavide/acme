@@ -236,6 +236,32 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  bool
+  plane::clamp(
+      vec3 &min,
+      vec3 &max)
+      const
+  {
+    return this->isClampable();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  plane::clamp(
+      real &min_x,
+      real &min_y,
+      real &min_z,
+      real &max_x,
+      real &max_y,
+      real &max_z)
+      const
+  {
+    return this->isClampable();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 } // namespace acme
 
 ///

@@ -275,8 +275,6 @@ namespace acme
 
       default:
         ACME_ERROR("acme::intersection(entity, entity): exception not handled (colliear).\n")
-        collide = false;
-        entity_out = new none();
         break;
       }
     }
@@ -519,21 +517,21 @@ namespace acme
                                tolerance);
         break;
 
-        // case 707:
-        //   entity_out = new ??????();
-        //   collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
-        //                             *dynamic_cast<triangle const *>(entity1_in),
-        //                             *dynamic_cast<?????? *>(entity_out),
-        //                             tolerance);
-        //   break;
+      case 707:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
+                               *dynamic_cast<triangle const *>(entity1_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
-        // case 708:
-        //   entity_out = new ??????();
-        //   collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
-        //                             *dynamic_cast<circle const *>(entity1_in),
-        //                             *dynamic_cast<?????? *>(entity_out),
-        //                             tolerance);
-        //   break;
+      case 708:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
+                               *dynamic_cast<circle const *>(entity1_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
         // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
@@ -569,28 +567,26 @@ namespace acme
                                tolerance);
         break;
 
-        // case 807:
-        //   entity_out = new ????????();
-        //   collide = intersection(*dynamic_cast<triangle const *>(entity1_in),
-        //                          *dynamic_cast<circle const *>(entity0_in),
-        //                          *dynamic_cast<???????? *>(entity_out),
-        //                          tolerance);
-        //   break;
+      case 807:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<triangle const *>(entity1_in),
+                               *dynamic_cast<circle const *>(entity0_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
-        // case 808:
-        //   entity_out = new ????????();
-        //   collide = intersection(*dynamic_cast<circle const *>(entity0_in),
-        //                          *dynamic_cast<circle const *>(entity1_in),
-        //                          *dynamic_cast<<???????? *>(entity_out),
-        //                          tolerance);
-        //   break;
+      case 808:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<circle const *>(entity0_in),
+                               *dynamic_cast<circle const *>(entity1_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
       default:
         ACME_ERROR("acme::intersection(entity, entity): exception not handled (coplanar).\n")
-        collide = false;
-        entity_out = new none();
         break;
       }
     }
@@ -880,13 +876,13 @@ namespace acme
                                tolerance);
         break;
 
-        // case 709:
-        //   entity_out = ??????();
-        //   collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
-        //                          *dynamic_cast<sphere const *>(entity1_in),
-        //                          ??????
-        //                          tolerance);
-        //   break;
+      case 709:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
+                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
         // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
 
@@ -938,13 +934,13 @@ namespace acme
                                tolerance);
         break;
 
-        // case 809:
-        //   entity_out = ??????();
-        //   collide = intersection(*dynamic_cast<circle const *>(entity0_in),
-        //                          *dynamic_cast<sphere const *>(entity1_in),
-        //                          ??????
-        //                          tolerance);
-        //   break;
+      case 809:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<circle const *>(entity0_in),
+                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
         // - - - - - - - - - - - - - - SPHERE - - - - - - - - - - - - - -
 
@@ -980,53 +976,44 @@ namespace acme
                                tolerance);
         break;
 
-        // case 907:
-        //   entity_out = ??????();
-        //   collide = intersection(*dynamic_cast<triangle const *>(entity1_in),
-        //                          *dynamic_cast<sphere const *>(entity0_in),
-        //                          ??????
-        //                          tolerance);
-        //   break;
+      case 907:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<triangle const *>(entity1_in),
+                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
-        // case 908:
-        //   entity_out = ??????();;
-        //   collide = intersection(*dynamic_cast<circle const *>(entity1_in),
-        //                          *dynamic_cast<sphere const *>(entity0_in),
-        //                          ??????
-        //                          tolerance);
-        //   break;
+      case 908:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<circle const *>(entity1_in),
+                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
-        // case 909:
-        //   entity_out = ??????();
-        //   collide = intersection(*dynamic_cast<sphere const *>(entity0_in),
-        //                          *dynamic_cast<sphere const *>(entity1_in),
-        //                          ??????
-        //                          tolerance);
-        //   break;
+      case 909:
+        entity_out = new none();
+        collide = intersection(*dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<none *>(entity_out),
+                               tolerance);
+        break;
 
         // - - - - - - - - - - - - - - DEFAULT - - - - - - - - - - - - - -
 
       default:
         ACME_ERROR("acme::intersection(entity, entity): exception not handled (general).\n")
-        collide = false;
         break;
       }
     }
-    if (collide)
+    if (!collide)
     {
-      return entity_out;
-    }
-    else if (!collide)
-    {
+      delete entity_out;
       entity_out = new none();
       return entity_out;
     }
-    else
-    {
-      ACME_ERROR("acme::intersection(entity, entity): return exception not handled.\n")
-      entity_out = new none();
-      return entity_out;
-    }
+    return entity_out;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1731,23 +1718,42 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  // bool
-  // intersection(
-  //     triangle const &triangle_in,
-  //     triangle const &triangle_in,
-  //     ??????
-  //     real tolerance
-  // );
+  bool
+  intersection(
+      triangle const &triangle0_in,
+      triangle const &triangle1_in,
+      none &none_out,
+      real tolerance)
+  {
+    ACME_ERROR("acme::intersection(triangle, triangle): function not supported")
+    return false;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  // bool
-  // intersection(
-  //     circle const &circle_in,
-  //     circle const &circle_in,
-  //     ??????
-  //     real tolerance
-  // );
+  bool
+  intersection(
+      circle const &circle0_in,
+      circle const &circle1_in,
+      none &none_out,
+      real tolerance)
+  {
+    ACME_ERROR("acme::intersection(circle, circle): function not supported")
+    return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  intersection(
+      sphere const &sphere0_in,
+      sphere const &sphere1_in,
+      none &none_out,
+      real tolerance)
+  {
+    ACME_ERROR("acme::intersection(sphere, sphere): function not supported")
+    return false;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -2081,13 +2087,16 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  // bool
-  // intersection(
-  //     triangle const &triangle_in,
-  //     circle const &circle_in,
-  //     ??????
-  //     real tolerance
-  // );
+  bool
+  intersection(
+      triangle const &triangle_in,
+      circle const &circle_in,
+      none &none_out,
+      real tolerance)
+  {
+    ACME_ERROR("acme::intersection(triangle, circle): function not supported")
+    return false;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -2659,13 +2668,29 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  // bool
-  // intersection(
-  //     triangle const &triangle_in,
-  //     sphere const &sphere_in,
-  //     ??????
-  //     real tolerance
-  // );
+  bool
+  intersection(
+      triangle const &triangle_in,
+      sphere const &sphere_in,
+      none &none_out,
+      real tolerance)
+  {
+    ACME_ERROR("acme::intersection(triangle, sphere): function not supported")
+    return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  intersection(
+      circle const &circle_in,
+      sphere const &sphere_in,
+      none &none_out,
+      real tolerance)
+  {
+    ACME_ERROR("acme::intersection(circle, sphere): function not supported")
+    return false;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

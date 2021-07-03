@@ -308,25 +308,21 @@
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
-  <span class="c1">// //! Intersection triangle with circle \n</span>
-  <span class="c1">// //! WARNING: This function does only support coplanar objects!</span>
-  <span class="c1">// bool</span>
-  <span class="c1">// intersection(</span>
-  <span class="c1">//     triangle const &amp;triangle_in, //!&lt; Input triangle</span>
-  <span class="c1">//     triangle const &amp;triangle_in, //!&lt; Input triangle</span>
-  <span class="c1">//     ??????</span>
-  <span class="c1">//     real tolerance = EPSILON     //!&lt; Tolerance</span>
-  <span class="c1">// );</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1_in</span><span class="p">,</span>
+      <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
 
-  <span class="c1">// //! Intersection triangle with circle \n</span>
-  <span class="c1">// //! WARNING: This function does only support coplanar objects!</span>
-  <span class="c1">// bool</span>
-  <span class="c1">// intersection(</span>
-  <span class="c1">//     circle const &amp;circle_in, //!&lt; Input circle</span>
-  <span class="c1">//     circle const &amp;circle_in, //!&lt; Input circle</span>
-  <span class="c1">//     ??????</span>
-  <span class="c1">//     real tolerance = EPSILON     //!&lt; Tolerance</span>
-  <span class="c1">// );</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
+      <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
@@ -416,15 +412,13 @@
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
-  <span class="c1">// //! Intersection triangle with circle \n</span>
-  <span class="c1">// //! WARNING: This function does only support coplanar objects!</span>
-  <span class="c1">// bool</span>
-  <span class="c1">// intersection(</span>
-  <span class="c1">//     triangle const &amp;triangle_in, //!&lt; Input triangle</span>
-  <span class="c1">//     circle const &amp;circle_in,     //!&lt; Input circle</span>
-  <span class="c1">//     ??????</span>
-  <span class="c1">//     real tolerance = EPSILON     //!&lt; Tolerance</span>
-  <span class="c1">// );</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
 
   <span class="cm">/*\</span>
 <span class="cm">   |   _   _              ____            _</span>
@@ -468,15 +462,13 @@
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
-  <span class="c1">// //! Intersection between spheres \n</span>
-  <span class="c1">// //! WARNING: This function does not support coplanarity!</span>
-  <span class="c1">// bool</span>
-  <span class="c1">// intersection(</span>
-  <span class="c1">//     sphere const &amp;sphere0_in,                //!&lt; Input sphere 0</span>
-  <span class="c1">//     sphere const &amp;sphere1_in,                //!&lt; Input sphere 1</span>
-  <span class="c1">//     ??????</span>
-  <span class="c1">//     real tolerance = EPSILON              //!&lt; Tolerance</span>
-  <span class="c1">// );</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere0_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere1_in</span><span class="p">,</span>
+      <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
@@ -606,25 +598,21 @@
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
-  <span class="c1">// //! Intersection triangle and sphere \n</span>
-  <span class="c1">// //! WARNING: This function does not support coplanarity!</span>
-  <span class="c1">// bool</span>
-  <span class="c1">// intersection(</span>
-  <span class="c1">//     triangle const &amp;triangle_in,           //!&lt; Input triangle</span>
-  <span class="c1">//     sphere const &amp;sphere_in,               //!&lt; Input sphere</span>
-  <span class="c1">//     ??????</span>
-  <span class="c1">//     real tolerance = EPSILON            //!&lt; Tolerance</span>
-  <span class="c1">// );</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
 
-  <span class="c1">// //! Intersection circle and sphere \n</span>
-  <span class="c1">// //! WARNING: This function does not support coplanarity!</span>
-  <span class="c1">// bool</span>
-  <span class="c1">// intersection(</span>
-  <span class="c1">//     circle const &amp;circle_in,           //!&lt; Input circle</span>
-  <span class="c1">//     sphere const &amp;sphere_in,               //!&lt; Input sphere</span>
-  <span class="c1">//     ??????</span>
-  <span class="c1">//     real tolerance = EPSILON            //!&lt; Tolerance</span>
-  <span class="c1">// );</span>
+  <span class="kt">bool</span>
+  <span class="nf">intersection</span><span class="p">(</span>
+      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
 
   <span class="cm">/*\</span>
 <span class="cm">   |   __  __ _              _ _</span>

@@ -114,12 +114,6 @@ namespace acme
     point &
     center(void);
 
-    //! Get minumum cubic aabb containing the current sphere object
-    void
-    clamp(
-        aabb &aabb_in //!< Input aabb object
-    ) const;
-
     //! Calculate sphere area
     real
     area(void) const;
@@ -191,6 +185,24 @@ namespace acme
 
     //! Check whether in the sphere is non-clampable
     bool isNonClampable(void) const override { return false; }
+
+    //! Get minumum and maximum values along axes
+    bool
+    clamp(
+        vec3 &min, //!< Input minimum point
+        vec3 &max  //!< Input maximum point
+    ) const override;
+
+    //! Get minumum and maximum values along axes
+    bool
+    clamp(
+        real &min_x, //!< Input x value of minimum point
+        real &min_y, //!< Input y value of minimum point
+        real &min_z, //!< Input z value of minimum point
+        real &max_x, //!< Input x value of maximum point
+        real &max_y, //!< Input y value of maximum point
+        real &max_z  //!< Input z value of maximum point
+    ) const override;
 
   }; // class sphere
 

@@ -46,8 +46,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   aabb::aabb()
-      : m_min(NAN_VEC3),
-        m_max(NAN_VEC3),
+      : m_min(NAN_POINT),
+        m_max(NAN_POINT),
         m_id(0),
         m_pos(0)
   {
@@ -75,8 +75,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   aabb::aabb(
-      vec3 const &min,
-      vec3 const &max,
+      point const &min,
+      point const &max,
       integer id,
       integer ipos)
       : m_min(min),
@@ -126,8 +126,8 @@ namespace acme
   aabb::clear(
       void)
   {
-    this->m_min = NAN_VEC3;
-    this->m_max = NAN_VEC3;
+    this->m_min = NAN_POINT;
+    this->m_max = NAN_POINT;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -176,7 +176,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
+  point const &
   aabb::min(void)
       const
   {
@@ -185,7 +185,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 &
+  point &
   aabb::min(void)
   {
     return this->m_min;
@@ -225,7 +225,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 const &
+  point const &
   aabb::max(void)
       const
   {
@@ -234,7 +234,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  vec3 &
+  point &
   aabb::max(void)
   {
     return this->m_max;
@@ -292,8 +292,8 @@ namespace acme
   {
     if (boxes.empty())
     {
-      this->m_min = vec3::Constant(0.0);
-      this->m_max = vec3::Constant(0.0);
+      this->m_min = point::Constant(0.0);
+      this->m_max = point::Constant(0.0);
     }
     else
     {
@@ -325,12 +325,12 @@ namespace acme
 
   real
   aabb::centerDistance(
-      vec3 const &point_in)
+      point const &point_in)
       const
   {
-    vec3 center((this->m_max + this->m_min) / 2);
-    vec3 point_max_centered(this->m_max - center);
-    vec3 point_centered(point_in - center);
+    point center((this->m_max + this->m_min) / 2);
+    point point_max_centered(this->m_max - center);
+    point point_centered(point_in - center);
     real x_scale = std::abs(1.0 / point_max_centered.x());
     real y_scale = std::abs(1.0 / point_max_centered.y());
     real z_scale = std::abs(1.0 / point_max_centered.z());
@@ -344,7 +344,7 @@ namespace acme
 
   real
   aabb::exteriorDistance(
-      vec3 const &point_in)
+      point const &point_in)
       const
   {
     real dx = std::max(std::abs(point_in.x() - this->m_min.x()), std::abs(point_in.x() - this->m_max.x()));
@@ -357,9 +357,9 @@ namespace acme
 
   void
   aabb::clamp(
-      vec3 const &point0_in,
-      vec3 const &point1_in,
-      vec3 const &point2_in)
+      point const &point0_in,
+      point const &point1_in,
+      point const &point2_in)
   {
     this->m_min.x() = std::min(point0_in.x(), std::min(point1_in.x(), point2_in.x()));
     this->m_min.y() = std::min(point0_in.y(), std::min(point1_in.y(), point2_in.y()));
@@ -373,7 +373,7 @@ namespace acme
 
   void
   aabb::clamp(
-      vec3 const point_in[3])
+      point const point_in[3])
   {
     this->m_min.x() = std::min(point_in[0].x(), std::min(point_in[1].x(), point_in[2].x()));
     this->m_min.y() = std::min(point_in[0].y(), std::min(point_in[1].y(), point_in[2].y()));
@@ -421,7 +421,7 @@ namespace acme
 
   void
   aabb::translate(
-      vec3 const &vector_in)
+      point const &vector_in)
   {
     this->m_min = vector_in + this->m_min;
     this->m_max = vector_in + this->m_max;
@@ -431,7 +431,7 @@ namespace acme
 
   bool
   aabb::isInside(
-      vec3 const &point_in,
+      point const &point_in,
       real tolerance)
       const
   {

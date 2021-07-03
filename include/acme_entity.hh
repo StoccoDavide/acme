@@ -92,6 +92,9 @@ namespace acme
     //! Return object type as string
     virtual std::string type(void) const = 0;
 
+    //! Check whether the object is an entity
+    bool isEntity(void) const;
+
     //! Check whether the object is no entity
     virtual bool isNone(void) const = 0;
 
@@ -125,10 +128,23 @@ namespace acme
     //! Check whether in the entity is non clampable
     virtual bool isNonClampable(void) const = 0;
 
-    //! Get minumum aabb containing the current entity object
-    //virtual void clamp(
-    //    aabb &aabb_in //!< Input aabb object
-    //) const = 0;
+    //! Get minumum and maximum values along axes
+    virtual bool
+    clamp(
+        vec3 &min, //!< Input minimum point
+        vec3 &max  //!< Input maximum point
+    ) const = 0;
+
+    //! Get minumum and maximum values along axes
+    virtual bool
+    clamp(
+        real &min_x, //!< Input x value of minimum point
+        real &min_y, //!< Input y value of minimum point
+        real &min_z, //!< Input z value of minimum point
+        real &max_x, //!< Input x value of maximum point
+        real &max_y, //!< Input y value of maximum point
+        real &max_z  //!< Input z value of maximum point
+    ) const = 0;
 
   }; // class entity
 

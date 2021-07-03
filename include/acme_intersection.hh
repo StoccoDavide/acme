@@ -304,25 +304,25 @@ namespace acme
       real tolerance = EPSILON       //!< Tolerance
   );
 
-  // //! Intersection triangle with circle \n
-  // //! WARNING: This function does only support coplanar objects!
-  // bool
-  // intersection(
-  //     triangle const &triangle_in, //!< Input triangle
-  //     triangle const &triangle_in, //!< Input triangle
-  //     ??????
-  //     real tolerance = EPSILON     //!< Tolerance
-  // );
+  //! Intersection triangle with circle \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      triangle const &triangle0_in,     //!< Input triangle
+      triangle const &triangle1_in,     //!< Input triangle
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
-  // //! Intersection triangle with circle \n
-  // //! WARNING: This function does only support coplanar objects!
-  // bool
-  // intersection(
-  //     circle const &circle_in, //!< Input circle
-  //     circle const &circle_in, //!< Input circle
-  //     ??????
-  //     real tolerance = EPSILON     //!< Tolerance
-  // );
+  //! Intersection triangle with circle \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      circle const &circle0_in,         //!< Input circle
+      circle const &circle1_in,         //!< Input circle
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
   //! Intersection line with plane \n
   //! WARNING: This function does only support coplanar objects!
@@ -434,15 +434,15 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  // //! Intersection triangle with circle \n
-  // //! WARNING: This function does only support coplanar objects!
-  // bool
-  // intersection(
-  //     triangle const &triangle_in, //!< Input triangle
-  //     circle const &circle_in,     //!< Input circle
-  //     ??????
-  //     real tolerance = EPSILON     //!< Tolerance
-  // );
+  //! Intersection triangle with circle \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      triangle const &triangle_in,     //!< Input triangle
+      circle const &circle_in,         //!< Input circle
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
   /*\
    |   _   _              ____            _
@@ -494,15 +494,15 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  // //! Intersection between spheres \n
-  // //! WARNING: This function does not support coplanarity!
-  // bool
-  // intersection(
-  //     sphere const &sphere0_in,                //!< Input sphere 0
-  //     sphere const &sphere1_in,                //!< Input sphere 1
-  //     ??????
-  //     real tolerance = EPSILON              //!< Tolerance
-  // );
+  //! Intersection between spheres \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      sphere const &sphere0_in,              //!< Input sphere 0
+      sphere const &sphere1_in,              //!< Input sphere 1
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON               //!< Tolerance
+  );
 
   //! Intersection line with plane \n
   //! WARNING: This function does not support coplanarity!
@@ -660,29 +660,29 @@ namespace acme
   intersection(
       triangle const &triangle_in,              //!< Input triangle
       circle const &circle_in,                  //!< Input circle
-      segment &segment_out = THROWAWAY_SEGMENT, //!< Output plane
+      segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  // //! Intersection triangle and sphere \n
-  // //! WARNING: This function does not support coplanarity!
-  // bool
-  // intersection(
-  //     triangle const &triangle_in,           //!< Input triangle
-  //     sphere const &sphere_in,               //!< Input sphere
-  //     ??????
-  //     real tolerance = EPSILON            //!< Tolerance
-  // );
+  //! Intersection triangle and sphere \n
+  //! WARNING: Function not supported!
+  bool
+  intersection(
+      triangle const &triangle_in,           //!< Input triangle
+      sphere const &sphere_in,               //!< Input sphere
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON               //!< Tolerance
+  );
 
-  // //! Intersection circle and sphere \n
-  // //! WARNING: This function does not support coplanarity!
-  // bool
-  // intersection(
-  //     circle const &circle_in,           //!< Input circle
-  //     sphere const &sphere_in,               //!< Input sphere
-  //     ??????
-  //     real tolerance = EPSILON            //!< Tolerance
-  // );
+  //! Intersection circle and sphere \n
+  //! WARNING: Function not supported!
+  bool
+  intersection(
+      circle const &circle_in,               //!< Input circle
+      sphere const &sphere_in,               //!< Input sphere
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON               //!< Tolerance
+  );
 
   /*\
    |   __  __ _              _ _

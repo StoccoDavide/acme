@@ -434,6 +434,14 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
+  <span class="n">integer</span> <span class="o">&amp;</span>
+  <span class="n">aabb</span><span class="o">::</span><span class="n">id</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_id</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
   <span class="n">integer</span> <span class="k">const</span> <span class="o">&amp;</span>
   <span class="n">aabb</span><span class="o">::</span><span class="n">pos</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
@@ -443,9 +451,17 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
+  <span class="n">integer</span> <span class="o">&amp;</span>
+  <span class="n">aabb</span><span class="o">::</span><span class="n">pos</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pos</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
   <span class="kt">void</span>
   <span class="n">aabb</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">)</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_min</span> <span class="o">=</span> <span class="n">vector_in</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_min</span><span class="p">;</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_max</span> <span class="o">=</span> <span class="n">vector_in</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_max</span><span class="p">;</span>

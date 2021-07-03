@@ -35,10 +35,9 @@
 #include <map>
 
 #include "acme.hh"
-#include "acme_entity.hh"
 #include "acme_AABBtree.hh"
-
-class entity;
+#include "acme_entity.hh"
+#include "acme_intersection.hh"
 
 namespace acme
 {
@@ -87,12 +86,6 @@ namespace acme
     void
     resize(
         size_t size //!< Input size
-    );
-
-    //! Adds a new element at the end of the collection shared pointer vector
-    void
-    push_back(
-        entity const &entity //!< Input entity
     );
 
     //! Adds a new element at the end of the collection shared pointer vector
@@ -425,21 +418,22 @@ namespace acme
     //! Get vector of shered pointer to collection objects aabbs
     void
     clamp(
-        std::vector<std::shared_ptr<aabb>> &boxes //!< Vector of shered pointer to collection objects aabbs
+        aabb::vecptr &boxes //!< Vector of shered pointer to collection objects aabbs
     ) const;
 
     //! Build collection AABB tree
-    void buildAABBtree(void) const;
+    void buildAABBtree(void);
 
     //! Return collection AABB tree shared pointer
-    AABBtree::ptr const &ptrAABBtree(void);
+    AABBtree::ptr const &
+    ptrAABBtree(void);
 
     //! Intersect the collection with an external collection
     bool
     intersection(
-        collection &entities,
-        collection &candidates)
-        const;
+        collection &entities,  //!< External entities collection
+        collection &candidates //!< Intersection candidates
+    ) const;
 
     //! Intersect the collection AABB tree with an external AABB tree
     bool intersection(
@@ -459,6 +453,13 @@ namespace acme
     intersection(
         aabb::ptr const box, //!< External aabb object pointer
         collection &entities //!< Intersected entities vector list
+    ) const;
+
+    //! Intersect all
+    void
+    intersection(
+        collection &entities,    //!< Intersection candidates
+        real tolerance = EPSILON //!< Tolerance
     ) const;
 
   }; // class collection
