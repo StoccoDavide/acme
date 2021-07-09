@@ -25,7 +25,7 @@
 (***********************************************************************)
 */
 
-// TEST 6 - SEGMENT CIRCLE INTERSECTION
+// TEST 6 - SEGMENT DISK INTERSECTION
 
 #include <fstream>
 #include <iostream>
@@ -42,33 +42,33 @@ using namespace acme;
 // Main function
 int main()
 {
-  // Initialize circle
-  circle Circle(1.0, point(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
+  // Initialize disk
+  disk Disk(1.0, point(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
 
-  // Initialize segments
-  segment In1(point(0.0, 0.0, 0.5), vec3(1.0, 0.0, 0.0));
-  segment In2(point(-2.0, 0.0, 0.5), vec3(1.0, 0.0, 0.0));
-  segment Out(point(1.0, 2.0, 0.5), vec3(1.0, 0.0, 0.0));
-  segment Tan(point(1.0, 1.0, 0.5), vec3(1.0, 0.0, 0.0));
+  // Initialize segment
+  segment In1(point(0.0, 0.0, 0.5), vec3(1.0, 0.0, 0.5));
+  segment In2(point(-2.0, 0.0, 0.5), vec3(-1.1, 0.0, 0.5));
+  segment Out(point(1.0, 2.0, 0.5), vec3(1.0, 0.0, 0.5));
+  segment Tan(point(1.0, 1.0, 0.5), vec3(1.0, 0.0, 0.5));
 
   // Initialize intersection segments and output bools
   segment IntIn1, IntIn2, IntOut, IntTan;
   bool boolIn1, boolIn2, boolOut, boolTan;
 
   // Calculate intersections
-  boolIn1 = intersection(In1, Circle, IntIn1);
-  boolIn2 = intersection(In2, Circle, IntIn2);
-  boolOut = intersection(Out, Circle, IntOut);
-  boolTan = intersection(Tan, Circle, IntTan);
+  boolIn1 = intersection(In1, Disk, IntIn1);
+  boolIn2 = intersection(In2, Disk, IntIn2);
+  boolOut = intersection(Out, Disk, IntOut);
+  boolTan = intersection(Tan, Disk, IntTan);
 
   // Display results
   std::cout
       << std::endl
-      << "TEST 6 - SEGMENT DISK INTERSECTION" << std::endl
+      << "TEST 15 - SEGMENT/DISK INTERSECTION" << std::endl
       << std::endl
-      << "Radius = " << Circle.radius() << std::endl
-      << "Center = " << Circle.center() << std::endl
-      << "Normal = " << Circle.normal() << std::endl
+      << "Radius = " << Disk.radius() << std::endl
+      << "Center = " << Disk.center() << std::endl
+      << "Normal = " << Disk.normal() << std::endl
       << std::endl
       << "Segment 1 with two intersections: bool(" << boolIn1 << ") intersection found" << std::endl
       << "Segment Point 0     \t= " << In1.vertex(0) << std::endl
@@ -96,7 +96,7 @@ int main()
       << std::endl
       << "Check the results..." << std::endl
       << std::endl
-      << "TEST 6: Completed" << std::endl;
+      << "TEST 15: Completed" << std::endl;
 
   // Exit the program
   return 0;

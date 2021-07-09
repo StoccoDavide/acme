@@ -27,9 +27,9 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_circle.hh"
 #include "acme_collinear.hh"
 #include "acme_coplanar.hh"
+#include "acme_disk.hh"
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"

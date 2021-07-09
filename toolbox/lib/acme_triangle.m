@@ -186,10 +186,9 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = clamp( self )
-      % Get triangle minimum bounding box as ACME aabb object instance
-      out = acme_aabb();
-      out.copyByHandle( mex_triangle( 'clamp', self.objectHandle ) );
+    function [out1, out2] = clamp( self )
+      % Get triangle minimum and maximum points of object instance
+      [out1, out2] = mex_triangle( 'clamp', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

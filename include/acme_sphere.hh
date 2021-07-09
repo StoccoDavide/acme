@@ -91,7 +91,7 @@ namespace acme
         sphere const &sphere_in //!< Input sphere object
     );
 
-    //! Check if circles are (almost) equal
+    //! Check if disks are (almost) equal
     bool
     isApprox(
         sphere const &sphere_in, //!< Input sphere object
@@ -174,8 +174,8 @@ namespace acme
     //! Check whether the object is a triangle
     bool isTriangle(void) const override { return false; }
 
-    //! Check whether the object is a circle
-    bool isCircle(void) const override { return false; }
+    //! Check whether the object is a disk
+    bool isDisk(void) const override { return false; }
 
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return true; }
@@ -214,5 +214,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_circle.hh
+/// eof: acme_disk.hh
 ///

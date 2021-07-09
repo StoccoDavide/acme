@@ -394,6 +394,14 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  integer &
+  aabb::id(void)
+  {
+    return this->m_id;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   integer const &
   aabb::pos(void)
       const
@@ -403,9 +411,17 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  integer &
+  aabb::pos(void)
+  {
+    return this->m_pos;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   aabb::translate(
-      vec3 const &vector_in)
+      point const &vector_in)
   {
     this->m_min = vector_in + this->m_min;
     this->m_max = vector_in + this->m_max;

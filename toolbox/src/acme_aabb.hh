@@ -26,11 +26,11 @@
 */
 
 ///
-/// file: acme_box.hh
+/// file: acme_aabb.hh
 ///
 
-#ifndef INCLUDE_ACME_BOX
-#define INCLUDE_ACME_BOX
+#ifndef INCLUDE_ACME_AABB
+#define INCLUDE_ACME_AABB
 
 #include "acme.hh"
 #include "acme_point.hh"
@@ -80,29 +80,29 @@ namespace acme
 
     //! Box class constructor
     aabb(
-        real min_x,  //!< Input x value of aabb minimum point
-        real min_y,  //!< Input y value of aabb minimum point
-        real min_z,  //!< Input z value of aabb minimum point
-        real max_x,  //!< Input x value of aabb maximum point
-        real max_y,  //!< Input y value of aabb maximum point
-        real max_z,  //!< Input z value of aabb maximum point
-        integer id,  //!< Input id value
-        integer ipos //!< Input rank value
+        real min_x,      //!< Input x value of aabb minimum point
+        real min_y,      //!< Input y value of aabb minimum point
+        real min_z,      //!< Input z value of aabb minimum point
+        real max_x,      //!< Input x value of aabb maximum point
+        real max_y,      //!< Input y value of aabb maximum point
+        real max_z,      //!< Input z value of aabb maximum point
+        integer id = 0,  //!< Input id value
+        integer ipos = 0 //!< Input rank value
     );
 
     //! Box class constructor
     aabb(
         point const &min, //!< Input aabb minimum point
         point const &max, //!< Input aabb maximum point
-        integer id,       //!< Input aabb id value
-        integer ipos      //!< Input aabb rank value
+        integer id = 0,   //!< Input aabb id value
+        integer ipos = 0  //!< Input aabb rank value
     );
 
     //! Box class constructor
     aabb(
         std::vector<aabb::ptr> const &boxes, //!< Input reference to vector of boxes
-        integer id,                          //!< Input aabb id value
-        integer ipos                         //!< Input aabb rank value
+        integer id = 0,                      //!< Input aabb id value
+        integer ipos = 0                     //!< Input aabb rank value
     );
 
     //! Equality operator
@@ -223,18 +223,26 @@ namespace acme
         point const point_in[3] //!< Input points
     );
 
-    //!< Return aabb id
+    //!< Return aabb id const reference
     integer const &
     id(void) const;
 
-    //!< Return aabb position
+    //!< Return aabb id reference
+    integer &
+    id(void);
+
+    //!< Return aabb position const reference
     integer const &
     pos(void) const;
+
+    //!< Return aabb position reference
+    integer &
+    pos(void);
 
     //! Translate aabb by vector
     void
     translate(
-        vec3 const &vector_in //!< Input translation vector
+        point const &vector_in //!< Input translation vector
     );
 
     // Check whether the point is inside the aabb
@@ -260,5 +268,5 @@ namespace acme
 #endif
 
 ///
-/// eof: acme_box.hh
+/// eof: acme_aabb.hh
 ///

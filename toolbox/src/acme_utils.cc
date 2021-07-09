@@ -200,7 +200,7 @@ namespace acme
   out_stream &
   operator<<(
       out_stream &os,
-      circle const &obj)
+      disk const &obj)
   {
     point obj_center(obj.center());
     vec3 obj_normal(obj.normal());

@@ -74,9 +74,9 @@
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_collinear.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_coplanar.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_disk.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_none.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
@@ -164,7 +164,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -318,8 +318,8 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk0_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk1_in</span><span class="p">,</span>
       <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -343,7 +343,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -367,7 +367,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -391,8 +391,8 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="o">&amp;</span><span class="n">circle_out</span> <span class="o">=</span> <span class="n">THROWAWAY_CIRCLE</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="o">&amp;</span><span class="n">disk_out</span> <span class="o">=</span> <span class="n">THROWAWAY_DISK</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -407,7 +407,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -415,7 +415,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -456,8 +456,8 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk0_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk1_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -489,7 +489,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -521,7 +521,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -553,7 +553,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -562,7 +562,7 @@
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
       <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="o">&amp;</span><span class="n">circle_out</span> <span class="o">=</span> <span class="n">THROWAWAY_CIRCLE</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="o">&amp;</span><span class="n">disk_out</span> <span class="o">=</span> <span class="n">THROWAWAY_DISK</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -577,7 +577,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">point</span> <span class="o">&amp;</span><span class="n">point_out</span> <span class="o">=</span> <span class="n">THROWAWAY_POINT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -593,7 +593,7 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span> <span class="o">=</span> <span class="n">THROWAWAY_SEGMENT</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
@@ -608,7 +608,7 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
       <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span> <span class="o">=</span> <span class="n">THROWAWAY_NONE</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>

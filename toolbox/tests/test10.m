@@ -1,31 +1,34 @@
+% Clear workspace
+
 clc;
 clear all;
 close all;
 
-% Create circle
+% Create segments and disk
 
-% obj_1 = acme_line([1 -1 1]', [-1 1 -1]');
-% obj_1.normalize();
-% obj_2 = acme_line([1 1 -1]', [-1 -1 1]');
-% obj_2.normalize();
+s_1 = acme_segment([ 0.0 1 1.6]', [1 0 -1]');
+s_2 = acme_segment([-2 0 0.5]', [-1.1 0 0.5]');
 
-obj_1 = acme_ray([1 -1 1]', [-1 1 -1]');
-obj_1.normalize();
-obj_2 = acme_ray([1 1 -1]', [-3 -3 3]');
-obj_2.normalize();
-
-% obj_1 = acme_segment([1 -1 1]', [-1 1 -1]');
-% obj_2 = acme_segment([1 1 -1]', [-1 -1 1]');
+c_1 = acme_disk(1, [0 0 0.5]', [0 0 1]');
+p_1 = acme_plane([0 0 0.5]', [0 0 1]');
 
 % Intersect
 
-point = obj_1.intersection(obj_2);
+o_1 = s_1.intersection(c_1)
+o_2 = s_2.intersection(c_1)
+o_3 = s_1.intersection(p_1)
+o_4 = s_2.intersection(p_1)
 
 % Plot output
 
 out = figure;
 hold on;
 axis equal;
-obj_1.plot(out, 'red', 15)
-obj_2.plot(out, 'blue', 15)
-point.plot(out, 'green')
+p_1.plot(out, 'black')
+s_1.plot(out, 'red')
+s_2.plot(out, 'blue')
+o_1.plot(out, 'green')
+o_2.plot(out, 'yellow')
+o_3.plot(out, 'yellow')
+o_4.plot(out, 'green')
+

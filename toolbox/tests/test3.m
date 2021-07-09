@@ -1,11 +1,13 @@
-clc
-clear all
-close all
+% Clear workspace
 
-% Create circles
+clc;
+clear all;
+close all;
 
-c1 = acme_circle(2, [0 0 0]', [0 1 0]')
-c2 = acme_circle(1, [0 0 0]', [1 -1 0]')
+% Create disks
+
+c1 = acme_disk(2, [0 0 0]', [0 1 0]')
+c2 = acme_disk(1, [0 0 0]', [1 -1 0]')
 
 % Intersect segments
 

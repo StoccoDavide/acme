@@ -132,10 +132,9 @@ classdef acme_sphere < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = clamp( self )
-      % Get sphere minimum bounding box as ACME aabb object instance
-      out = acme_aabb();
-      out.copyByHandle( mex_sphere( 'clamp', self.objectHandle ) );
+    function [out1, out2] = clamp( self )
+        % Get sphere minimum and maximum points of object instance
+        [out1, out2] = mex_sphere( 'clamp', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -632,12 +632,12 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="n">collection</span><span class="o">::</span><span class="n">containCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
     <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isCircle</span><span class="p">())</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isDisk</span><span class="p">())</span>
         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
@@ -646,12 +646,12 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="n">collection</span><span class="o">::</span><span class="n">areCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
     <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isCircle</span><span class="p">())</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isDisk</span><span class="p">())</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
@@ -660,35 +660,35 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="n">collection</span><span class="o">::</span><span class="n">isCircle</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isDisk</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isCircle</span><span class="p">();</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isDisk</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="n">collection</span><span class="o">::</span><span class="n">removeCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span>
         <span class="p">[](</span><span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="o">&amp;</span><span class="n">entity</span><span class="p">)</span>
-        <span class="p">{</span> <span class="k">return</span> <span class="n">entity</span><span class="o">-&gt;</span><span class="n">isCircle</span><span class="p">();</span> <span class="p">});</span>
+        <span class="p">{</span> <span class="k">return</span> <span class="n">entity</span><span class="o">-&gt;</span><span class="n">isDisk</span><span class="p">();</span> <span class="p">});</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="n">collection</span><span class="o">::</span><span class="n">countCircle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
     <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isCircle</span><span class="p">())</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">isDisk</span><span class="p">())</span>
         <span class="o">++</span><span class="n">count</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
@@ -982,7 +982,7 @@
             <span class="p">{</span><span class="s">"plane"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countPlane</span><span class="p">()},</span>
             <span class="p">{</span><span class="s">"segment"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countSegment</span><span class="p">()},</span>
             <span class="p">{</span><span class="s">"triangle"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countTriangle</span><span class="p">()},</span>
-            <span class="p">{</span><span class="s">"circle"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countCircle</span><span class="p">()},</span>
+            <span class="p">{</span><span class="s">"disk"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countDisk</span><span class="p">()},</span>
             <span class="p">{</span><span class="s">"sphere"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countSphere</span><span class="p">()},</span>
             <span class="p">{</span><span class="s">"degenerated"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countDegenerated</span><span class="p">(</span><span class="n">tolerance</span><span class="p">)},</span>
             <span class="p">{</span><span class="s">"clampable"</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">countClampable</span><span class="p">()},</span>

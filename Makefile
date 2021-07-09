@@ -69,7 +69,7 @@ LIB_ACME = libacme
 MKDIR = mkdir -p
 DEPS	= include/acme_aabb.hh         \
 				include/acme_AABBtree.hh     \
-				include/acme_circle.hh       \
+				include/acme_disk.hh         \
 				include/acme_collection.hh   \
 				include/acme_collinear.hh    \
 				include/acme_coplanar.hh     \
@@ -162,6 +162,7 @@ tests: $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test13.cc -o bin/acme-test13 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test14.cc -o bin/acme-test14 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test15.cc -o bin/acme-test15 $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test16.cc -o bin/acme-test16 $(LIBS)
 
 tests_run:
 	./bin/acme-test0
@@ -180,6 +181,7 @@ tests_run:
 	./bin/acme-test13
 	./bin/acme-test14
 	./bin/acme-test15
+	./bin/acme-test16
 
 #
 # That's All Folks!

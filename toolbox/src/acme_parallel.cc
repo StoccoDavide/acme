@@ -89,7 +89,7 @@ namespace acme
 
     case 308:
       return isParallel(*dynamic_cast<line const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -127,7 +127,7 @@ namespace acme
 
     case 408:
       return isParallel(*dynamic_cast<ray const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -165,7 +165,7 @@ namespace acme
 
     case 508:
       return isParallel(*dynamic_cast<plane const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -203,7 +203,7 @@ namespace acme
 
     case 608:
       return isParallel(*dynamic_cast<segment const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -240,45 +240,45 @@ namespace acme
 
     case 708:
       return isParallel(*dynamic_cast<triangle const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
-      // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - DISK - - - - - - - - - - - - - -
 
     case 803:
       return isParallel(*dynamic_cast<line const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 804:
       return isParallel(*dynamic_cast<ray const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 805:
       return isParallel(*dynamic_cast<plane const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 806:
       return isParallel(*dynamic_cast<segment const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 807:
       return isParallel(*dynamic_cast<triangle const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 808:
-      return isParallel(*dynamic_cast<circle const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+      return isParallel(*dynamic_cast<disk const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -362,10 +362,10 @@ namespace acme
   bool
   isParallel(
       vec3 const &vector_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isOrthogonal(vector_in, circle_in.normal(), tolerance);
+    return isOrthogonal(vector_in, disk_in.normal(), tolerance);
   }
 
   bool
@@ -424,11 +424,11 @@ namespace acme
 
   bool
   isParallel(
-      circle const &circle0_in,
-      circle const &circle1_in,
+      disk const &disk0_in,
+      disk const &disk1_in,
       real tolerance)
   {
-    return isParallel(circle0_in.normal(), circle1_in.normal(), tolerance);
+    return isParallel(disk0_in.normal(), disk1_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -480,10 +480,10 @@ namespace acme
   bool
   isParallel(
       line const &line_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isOrthogonal(line_in.direction(), circle_in.normal(), tolerance);
+    return isOrthogonal(line_in.direction(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -524,10 +524,10 @@ namespace acme
   bool
   isParallel(
       ray const &ray_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isOrthogonal(ray_in.direction(), circle_in.normal(), tolerance);
+    return isOrthogonal(ray_in.direction(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -557,10 +557,10 @@ namespace acme
   bool
   isParallel(
       plane const &plane_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isParallel(plane_in.normal(), circle_in.normal(), tolerance);
+    return isParallel(plane_in.normal(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -579,10 +579,10 @@ namespace acme
   bool
   isParallel(
       segment const &segment_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isOrthogonal(segment_in.toUnitVector(), circle_in.normal(), tolerance);
+    return isOrthogonal(segment_in.toUnitVector(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -590,10 +590,10 @@ namespace acme
   bool
   isParallel(
       triangle const &triangle_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isParallel(triangle_in.normal(), circle_in.normal(), tolerance);
+    return isParallel(triangle_in.normal(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

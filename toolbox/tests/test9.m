@@ -1,8 +1,10 @@
+% Clear workspace
+
 clc;
 clear all;
 close all;
 
-% Create circle
+% Create disk
 
 % obj_1 = acme_line([1 -1 1]', [-1 1 -1]');
 % obj_1.normalize();

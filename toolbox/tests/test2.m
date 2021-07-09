@@ -1,3 +1,5 @@
+% Clear workspace
+
 clc;
 clear all;
 close all;

@@ -89,7 +89,7 @@ namespace acme
 
     case 308:
       return isOrthogonal(*dynamic_cast<line const *>(entity0_in),
-                          *dynamic_cast<circle const *>(entity1_in),
+                          *dynamic_cast<disk const *>(entity1_in),
                           tolerance);
       break;
 
@@ -127,7 +127,7 @@ namespace acme
 
     case 408:
       return isOrthogonal(*dynamic_cast<ray const *>(entity0_in),
-                          *dynamic_cast<circle const *>(entity1_in),
+                          *dynamic_cast<disk const *>(entity1_in),
                           tolerance);
       break;
 
@@ -165,7 +165,7 @@ namespace acme
 
     case 508:
       return isOrthogonal(*dynamic_cast<plane const *>(entity0_in),
-                          *dynamic_cast<circle const *>(entity1_in),
+                          *dynamic_cast<disk const *>(entity1_in),
                           tolerance);
       break;
 
@@ -203,7 +203,7 @@ namespace acme
 
     case 608:
       return isOrthogonal(*dynamic_cast<segment const *>(entity0_in),
-                          *dynamic_cast<circle const *>(entity1_in),
+                          *dynamic_cast<disk const *>(entity1_in),
                           tolerance);
       break;
 
@@ -240,45 +240,45 @@ namespace acme
 
     case 708:
       return isOrthogonal(*dynamic_cast<triangle const *>(entity0_in),
-                          *dynamic_cast<circle const *>(entity1_in),
+                          *dynamic_cast<disk const *>(entity1_in),
                           tolerance);
       break;
 
-      // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - DISK - - - - - - - - - - - - - -
 
     case 803:
       return isOrthogonal(*dynamic_cast<line const *>(entity1_in),
-                          *dynamic_cast<circle const *>(entity0_in),
+                          *dynamic_cast<disk const *>(entity0_in),
                           tolerance);
       break;
 
     case 804:
       return isOrthogonal(*dynamic_cast<ray const *>(entity1_in),
-                          *dynamic_cast<circle const *>(entity0_in),
+                          *dynamic_cast<disk const *>(entity0_in),
                           tolerance);
       break;
 
     case 805:
       return isOrthogonal(*dynamic_cast<plane const *>(entity1_in),
-                          *dynamic_cast<circle const *>(entity0_in),
+                          *dynamic_cast<disk const *>(entity0_in),
                           tolerance);
       break;
 
     case 806:
       return isOrthogonal(*dynamic_cast<segment const *>(entity1_in),
-                          *dynamic_cast<circle const *>(entity0_in),
+                          *dynamic_cast<disk const *>(entity0_in),
                           tolerance);
       break;
 
     case 807:
       return isOrthogonal(*dynamic_cast<triangle const *>(entity1_in),
-                          *dynamic_cast<circle const *>(entity0_in),
+                          *dynamic_cast<disk const *>(entity0_in),
                           tolerance);
       break;
 
     case 808:
-      return isOrthogonal(*dynamic_cast<circle const *>(entity0_in),
-                          *dynamic_cast<circle const *>(entity1_in),
+      return isOrthogonal(*dynamic_cast<disk const *>(entity0_in),
+                          *dynamic_cast<disk const *>(entity1_in),
                           tolerance);
       break;
 
@@ -362,10 +362,10 @@ namespace acme
   bool
   isOrthogonal(
       vec3 const &vector_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isParallel(vector_in, circle_in.normal(), tolerance);
+    return isParallel(vector_in, disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -427,11 +427,11 @@ namespace acme
 
   bool
   isOrthogonal(
-      circle const &circle0_in,
-      circle const &circle1_in,
+      disk const &disk0_in,
+      disk const &disk1_in,
       real tolerance)
   {
-    return isOrthogonal(circle0_in.normal(), circle1_in.normal(), tolerance);
+    return isOrthogonal(disk0_in.normal(), disk1_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -483,10 +483,10 @@ namespace acme
   bool
   isOrthogonal(
       line const &line_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isParallel(line_in.direction(), circle_in.normal(), tolerance);
+    return isParallel(line_in.direction(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -527,10 +527,10 @@ namespace acme
   bool
   isOrthogonal(
       ray const &ray_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isParallel(ray_in.direction(), circle_in.normal(), tolerance);
+    return isParallel(ray_in.direction(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -560,10 +560,10 @@ namespace acme
   bool
   isOrthogonal(
       plane const &plane_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isOrthogonal(plane_in.normal(), circle_in.normal(), tolerance);
+    return isOrthogonal(plane_in.normal(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -582,10 +582,10 @@ namespace acme
   bool
   isOrthogonal(
       segment const &segment_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isParallel(segment_in.toUnitVector(), circle_in.normal(), tolerance);
+    return isParallel(segment_in.toUnitVector(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -593,10 +593,10 @@ namespace acme
   bool
   isOrthogonal(
       triangle const &triangle_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isOrthogonal(triangle_in.normal(), circle_in.normal(), tolerance);
+    return isOrthogonal(triangle_in.normal(), disk_in.normal(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

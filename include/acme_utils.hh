@@ -34,7 +34,7 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_circle.hh"
+#include "acme_disk.hh"
 #include "acme_line.hh"
 #include "acme_plane.hh"
 #include "acme_point.hh"
@@ -110,11 +110,11 @@ namespace acme
       triangle const &obj //!< Triangle object
   );
 
-  //! Stream out operator for circle object
+  //! Stream out operator for disk object
   out_stream &
   operator<<(
-      out_stream &os,   //!< Output stream
-      circle const &obj //!< Circle object
+      out_stream &os, //!< Output stream
+      disk const &obj //!< Disk object
   );
 
   //! Stream out operator for sphere object

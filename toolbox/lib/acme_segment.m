@@ -169,10 +169,9 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = clamp( self )
-      % Get segment minimum bounding box as ACME aabb object instance
-      out = acme_aabb();
-      out.copyByHandle( mex_segment( 'clamp', self.objectHandle ) );
+    function [out1, out2] = clamp( self )
+      % Get segment minimum and maximum points of object instance
+      [out1, out2] = mex_segment( 'clamp', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

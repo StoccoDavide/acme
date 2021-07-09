@@ -1,6 +1,8 @@
-clc
-clear all
-close all
+% Clear workspace
+
+clc;
+clear all;
+close all;
 
 % Create sphere
 

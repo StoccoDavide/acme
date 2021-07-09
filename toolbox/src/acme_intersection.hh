@@ -34,9 +34,9 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_circle.hh"
 #include "acme_collinear.hh"
 #include "acme_coplanar.hh"
+#include "acme_disk.hh"
 #include "acme_line.hh"
 #include "acme_none.hh"
 #include "acme_plane.hh"
@@ -128,11 +128,11 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection between point and circle
+  //! Intersection between point and disk
   bool
   intersection(
       point const &point_in,              //!< Input point
-      circle const &circle_in,            //!< Input circle
+      disk const &disk_in,                //!< Input disk
       point &point_out = THROWAWAY_POINT, //!< Output point
       real tolerance = EPSILON            //!< Tolerance
   );
@@ -304,25 +304,25 @@ namespace acme
       real tolerance = EPSILON       //!< Tolerance
   );
 
-  // //! Intersection triangle with circle \n
-  // //! WARNING: This function does only support coplanar objects!
-  // bool
-  // intersection(
-  //     triangle const &triangle_in, //!< Input triangle
-  //     triangle const &triangle_in, //!< Input triangle
-  //     ??????
-  //     real tolerance = EPSILON     //!< Tolerance
-  // );
+  //! Intersection triangle with disk \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      triangle const &triangle0_in,    //!< Input triangle
+      triangle const &triangle1_in,    //!< Input triangle
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
-  // //! Intersection triangle with circle \n
-  // //! WARNING: This function does only support coplanar objects!
-  // bool
-  // intersection(
-  //     circle const &circle_in, //!< Input circle
-  //     circle const &circle_in, //!< Input circle
-  //     ??????
-  //     real tolerance = EPSILON     //!< Tolerance
-  // );
+  //! Intersection triangle with disk \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      disk const &disk0_in,            //!< Input disk
+      disk const &disk1_in,            //!< Input disk
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
   //! Intersection line with plane \n
   //! WARNING: This function does only support coplanar objects!
@@ -344,12 +344,12 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection line with circle \n
+  //! Intersection line with disk \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
       line const &line_in,                      //!< Input line
-      circle const &circle_in,                  //!< Input circle
+      disk const &disk_in,                      //!< Input disk
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
@@ -374,12 +374,12 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection ray with circle \n
+  //! Intersection ray with disk \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
       ray const &ray_in,                        //!< Input ray
-      circle const &circle_in,                  //!< Input circle
+      disk const &disk_in,                      //!< Input disk
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
@@ -404,14 +404,14 @@ namespace acme
       real tolerance = EPSILON                     //!< Tolerance
   );
 
-  //! Intersection plane with circle \n
+  //! Intersection plane with disk \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
-      plane const &plane_in,                 //!< Input plane
-      circle const &circle_in,               //!< Input circle
-      circle &circle_out = THROWAWAY_CIRCLE, //!< Output circle
-      real tolerance = EPSILON               //!< Tolerance
+      plane const &plane_in,           //!< Input plane
+      disk const &disk_in,             //!< Input disk
+      disk &disk_out = THROWAWAY_DISK, //!< Output disk
+      real tolerance = EPSILON         //!< Tolerance
   );
 
   //! Intersection segment with triangle \n
@@ -424,25 +424,25 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection segment with circle \n
+  //! Intersection segment with disk \n
   //! WARNING: This function does only support coplanar objects!
   bool
   intersection(
       segment const &segment_in,                //!< Input segment
-      circle const &circle_in,                  //!< Input circle
+      disk const &disk_in,                      //!< Input disk
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  // //! Intersection triangle with circle \n
-  // //! WARNING: This function does only support coplanar objects!
-  // bool
-  // intersection(
-  //     triangle const &triangle_in, //!< Input triangle
-  //     circle const &circle_in,     //!< Input circle
-  //     ??????
-  //     real tolerance = EPSILON     //!< Tolerance
-  // );
+  //! Intersection triangle with disk \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      triangle const &triangle_in,     //!< Input triangle
+      disk const &disk_in,             //!< Input disk
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
   /*\
    |   _   _              ____            _
@@ -484,25 +484,25 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection between circles \n
+  //! Intersection between disks \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      circle const &circle0_in,                 //!< Input circle 0
-      circle const &circle1_in,                 //!< Input circle 1
+      disk const &disk0_in,                     //!< Input disk 0
+      disk const &disk1_in,                     //!< Input disk 1
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  // //! Intersection between spheres \n
-  // //! WARNING: This function does not support coplanarity!
-  // bool
-  // intersection(
-  //     sphere const &sphere0_in,                //!< Input sphere 0
-  //     sphere const &sphere1_in,                //!< Input sphere 1
-  //     ??????
-  //     real tolerance = EPSILON              //!< Tolerance
-  // );
+  //! Intersection between spheres \n
+  //! WARNING: This function not supported!
+  bool
+  intersection(
+      sphere const &sphere0_in,        //!< Input sphere 0
+      sphere const &sphere1_in,        //!< Input sphere 1
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
   //! Intersection line with plane \n
   //! WARNING: This function does not support coplanarity!
@@ -524,12 +524,12 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection line and circle \n
+  //! Intersection line and disk \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       line const &line_in,                //!< Input line
-      circle const &circle_in,            //!< Input circle
+      disk const &disk_in,                //!< Input disk
       point &point_out = THROWAWAY_POINT, //!< Output point
       real tolerance = EPSILON            //!< Tolerance
   );
@@ -564,12 +564,12 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection ray with circle \n
+  //! Intersection ray with disk \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       ray const &ray_in,                  //!< Input ray
-      circle const &circle_in,            //!< Input circle
+      disk const &disk_in,                //!< Input disk
       point &point_out = THROWAWAY_POINT, //!< Output point
       real tolerance = EPSILON            //!< Tolerance
   );
@@ -604,12 +604,12 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection plane with circle \n
+  //! Intersection plane with disk \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       plane const &plane_in,                    //!< Input plane
-      circle const &circle_in,                  //!< Input circle
+      disk const &disk_in,                      //!< Input disk
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
@@ -618,10 +618,10 @@ namespace acme
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
-      plane const &plane_in,                 //!< Input plane
-      sphere const &sphere_in,               //!< Input sphere
-      circle &circle_out = THROWAWAY_CIRCLE, //!< Output circle
-      real tolerance = EPSILON               //!< Tolerance
+      plane const &plane_in,           //!< Input plane
+      sphere const &sphere_in,         //!< Input sphere
+      disk &disk_out = THROWAWAY_DISK, //!< Output disk
+      real tolerance = EPSILON         //!< Tolerance
   );
 
   //! Intersection ray with triangle \n
@@ -634,12 +634,12 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection segment with circle \n
+  //! Intersection segment with disk \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       segment const &segment_in,          //!< Input segment
-      circle const &circle_in,            //!< Input circle
+      disk const &disk_in,                //!< Input disk
       point &point_out = THROWAWAY_POINT, //!< Output point
       real tolerance = EPSILON            //!< Tolerance
   );
@@ -654,35 +654,35 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection triangle with circle \n
+  //! Intersection triangle with disk \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       triangle const &triangle_in,              //!< Input triangle
-      circle const &circle_in,                  //!< Input circle
-      segment &segment_out = THROWAWAY_SEGMENT, //!< Output plane
+      disk const &disk_in,                      //!< Input disk
+      segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  // //! Intersection triangle and sphere \n
-  // //! WARNING: This function does not support coplanarity!
-  // bool
-  // intersection(
-  //     triangle const &triangle_in,           //!< Input triangle
-  //     sphere const &sphere_in,               //!< Input sphere
-  //     ??????
-  //     real tolerance = EPSILON            //!< Tolerance
-  // );
+  //! Intersection triangle and sphere \n
+  //! WARNING: Function not supported!
+  bool
+  intersection(
+      triangle const &triangle_in,     //!< Input triangle
+      sphere const &sphere_in,         //!< Input sphere
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
-  // //! Intersection circle and sphere \n
-  // //! WARNING: This function does not support coplanarity!
-  // bool
-  // intersection(
-  //     circle const &circle_in,           //!< Input circle
-  //     sphere const &sphere_in,               //!< Input sphere
-  //     ??????
-  //     real tolerance = EPSILON            //!< Tolerance
-  // );
+  //! Intersection disk and sphere \n
+  //! WARNING: Function not supported!
+  bool
+  intersection(
+      disk const &disk_in,             //!< Input disk
+      sphere const &sphere_in,         //!< Input sphere
+      none &none_out = THROWAWAY_NONE, //!< Output none
+      real tolerance = EPSILON         //!< Tolerance
+  );
 
   /*\
    |   __  __ _              _ _

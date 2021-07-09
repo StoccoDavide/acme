@@ -27,9 +27,9 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_circle.hh"
 #include "acme_collinear.hh"
 #include "acme_coplanar.hh"
+#include "acme_disk.hh"
 #include "acme_entity.hh"
 #include "acme_intersection.hh"
 #include "acme_line.hh"
@@ -481,8 +481,8 @@ do_isParallel(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
-  else if (type == "circle")
-    other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
@@ -518,8 +518,8 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
-  else if (type == "circle")
-    other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
@@ -556,8 +556,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
-  else if (type == "circle")
-    other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
@@ -594,8 +594,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
-  else if (type == "circle")
-    other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
@@ -632,8 +632,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     other = convertMat2Ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
     other = convertMat2Ptr<acme::triangle>(arg_in_2);
-  else if (type == "circle")
-    other = convertMat2Ptr<acme::circle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
   else if (type == "sphere")
     other = convertMat2Ptr<acme::sphere>(arg_in_2);
 
@@ -653,8 +653,8 @@ do_intersection(int nlhs, mxArray *plhs[],
     arg_out_0 = convertPtr2Mat<acme::segment>(dynamic_cast<acme::segment *>(out));
   else if (out_type == "triangle")
     arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
-  else if (out_type == "circle")
-    arg_out_0 = convertPtr2Mat<acme::circle>(dynamic_cast<acme::circle *>(out));
+  else if (out_type == "disk")
+    arg_out_0 = convertPtr2Mat<acme::disk>(dynamic_cast<acme::disk *>(out));
   else if (out_type == "sphere")
     arg_out_0 = convertPtr2Mat<acme::sphere>(dynamic_cast<acme::sphere *>(out));
 

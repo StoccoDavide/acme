@@ -116,8 +116,8 @@ namespace acme
     //! Check whether the object is a triangle
     virtual bool isTriangle(void) const = 0;
 
-    //! Check whether the object is a circle
-    virtual bool isCircle(void) const = 0;
+    //! Check whether the object is a disk
+    virtual bool isDisk(void) const = 0;
 
     //! Check whether the object is a sphere
     virtual bool isSphere(void) const = 0;

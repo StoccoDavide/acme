@@ -129,7 +129,7 @@
 
     <span class="k">case</span> <span class="mi">308</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
@@ -167,7 +167,7 @@
 
     <span class="k">case</span> <span class="mi">408</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
@@ -205,7 +205,7 @@
 
     <span class="k">case</span> <span class="mi">508</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
@@ -243,7 +243,7 @@
 
     <span class="k">case</span> <span class="mi">608</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
@@ -280,45 +280,45 @@
 
     <span class="k">case</span> <span class="mi">708</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
-      <span class="c1">// - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -</span>
+      <span class="c1">// - - - - - - - - - - - - - - DISK - - - - - - - - - - - - - -</span>
 
     <span class="k">case</span> <span class="mi">803</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">804</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">805</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">806</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">807</span><span class="o">:</span>
       <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
     <span class="k">case</span> <span class="mi">808</span><span class="o">:</span>
-      <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">circle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+      <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                          <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                           <span class="n">tolerance</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
 
@@ -402,10 +402,10 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">vector_in</span><span class="p">,</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">vector_in</span><span class="p">,</span> <span class="n">disk_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -467,11 +467,11 @@
 
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk0_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">circle0_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">circle1_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">disk0_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">disk1_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -523,10 +523,10 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">disk_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -567,10 +567,10 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">direction</span><span class="p">(),</span> <span class="n">disk_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -600,10 +600,10 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">disk_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -622,10 +622,10 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isParallel</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">(),</span> <span class="n">disk_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -633,10 +633,10 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">triangle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">circle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">isOrthogonal</span><span class="p">(</span><span class="n">triangle_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">disk_in</span><span class="p">.</span><span class="n">normal</span><span class="p">(),</span> <span class="n">tolerance</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

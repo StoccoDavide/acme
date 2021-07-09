@@ -188,11 +188,35 @@ namespace acme
     //! Check whether the object is a triangle
     bool isTriangle(void) const override { return false; }
 
-    //! Check whether the object is a circle
-    bool isCircle(void) const override { return false; }
+    //! Check whether the object is a disk
+    bool isDisk(void) const override { return false; }
 
     //! Check whether the object is a sphere
     bool isSphere(void) const override { return false; }
+
+    //! Check whether in the ray is clampable
+    bool isClampable(void) const override { return false; }
+
+    //! Check whether in the ray is non-clampable
+    bool isNonClampable(void) const override { return true; }
+
+    //! Get minumum and maximum values along axes
+    bool
+    clamp(
+        vec3 &min, //!< Input minimum point
+        vec3 &max  //!< Input maximum point
+    ) const override;
+
+    //! Get minumum and maximum values along axes
+    bool
+    clamp(
+        real &min_x, //!< Input x value of minimum point
+        real &min_y, //!< Input y value of minimum point
+        real &min_z, //!< Input z value of minimum point
+        real &max_x, //!< Input x value of maximum point
+        real &max_y, //!< Input y value of maximum point
+        real &max_z  //!< Input z value of maximum point
+    ) const override;
 
   }; // class ray
 

@@ -1,8 +1,10 @@
+% Clear workspace
+
 clc;
 clear all;
 close all;
 
-% Create circle
+% Create disk
 
 s1 = acme_segment([1.49675 -142.294 0.236235]', [1.64152 -142.294 0.236235]');
 l1 = acme_line([0 -140.54 0.236235]', [1 0 0]');

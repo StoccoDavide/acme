@@ -1,0 +1,799 @@
+/*
+(***********************************************************************)
+(*                                                                     *)
+(* The ACME project                                                    *)
+(*                                                                     *)
+(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
+(*                                                                     *)
+(* The ACME project and its components are supplied under the terms of *)
+(* the open source BSD 2-Clause License. The contents of the ACME      *)
+(* project and its components may not be copied or disclosed except in *)
+(* accordance with the terms of the BSD 2-Clause License.              *)
+(*                                                                     *)
+(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(*                                                                     *)
+(*    Davide Stocco                                                    *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: davide.stocco@unitn.it                                   *)
+(*                                                                     *)
+(*    Enrico Bertolazzi                                                *)
+(*    Department of Industrial Engineering                             *)
+(*    University of Trento                                             *)
+(*    e-mail: enrico.bertolazzi@unitn.it                               *)
+(*                                                                     *)
+(***********************************************************************)
+*/
+
+#include "acme.hh"
+#include "acme_aabb.hh"
+#include "acme_collinear.hh"
+#include "acme_coplanar.hh"
+#include "acme_disk.hh"
+#include "acme_entity.hh"
+#include "acme_intersection.hh"
+#include "acme_line.hh"
+#include "acme_none.hh"
+#include "acme_orthogonal.hh"
+#include "acme_parallel.hh"
+#include "acme_plane.hh"
+#include "acme_point.hh"
+#include "acme_ray.hh"
+#include "acme_segment.hh"
+#include "acme_sphere.hh"
+#include "acme_triangle.hh"
+#include "mex_utils.hh"
+
+#define ASSERT(COND, MSG)               \
+  if (!(COND))                          \
+  {                                     \
+    std::ostringstream ost;             \
+    ost << "mex_disk: " << MSG << '\n'; \
+    mexErrMsgTxt(ost.str().c_str());    \
+  }
+
+#define MEX_ERROR_MESSAGE                                                     \
+  "%=====================================================================%\n" \
+  "% mex_disk: Mex wrapper for ACME disk object.                         %\n" \
+  "%                                                                     %\n" \
+  "% CONSTRUCTORS:                                                       %\n" \
+  "%   obj = mex_disk( 'new' );                                          %\n" \
+  "%   obj = mex_disk( 'new',                                            %\n" \
+  "%                     RADIUS,    : Disk radius                        %\n" \
+  "%                     [X; Y; Z], : Disk center                        %\n" \
+  "%                     [X; Y; Z]  : Disk face normal                   %\n" \
+  "%   obj = mex_disk( 'new',                                            %\n" \
+  "%                     RADIUS, : Disk radius                           %\n" \
+  "%                     CX,     : Disk center x value                   %\n" \
+  "%                     CY,     : Disk center y value                   %\n" \
+  "%                     CZ,     : Disk center z value                   %\n" \
+  "%                     NX,     : Disk face normal x value              %\n" \
+  "%                     NY,     : Disk face normal y value              %\n" \
+  "%                     NZ      : Disk face normal z value              %\n" \
+  "%                   );                                                %\n" \
+  "%                                                                     %\n" \
+  "% DESTRUCTOR:                                                         %\n" \
+  "%   mex_disk( 'delete', OBJ );                                        %\n" \
+  "%                                                                     %\n" \
+  "% USAGE:                                                              %\n" \
+  "%   OUT = mex_disk( 'getRadius', OBJ );                               %\n" \
+  "%   OUT = mex_disk( 'getCenter', OBJ );                               %\n" \
+  "%   OUT = mex_disk( 'getNormal', OBJ );                               %\n" \
+  "%         mex_disk( 'setRadius', OBJ, OTHER_OBJ );                    %\n" \
+  "%         mex_disk( 'setCenter', OBJ, OTHER_OBJ );                    %\n" \
+  "%         mex_disk( 'setNormal', OBJ, OTHER_OBJ );                    %\n" \
+  "%         mex_disk( 'translate', OBJ, VECTOR );                       %\n" \
+  "%         mex_disk( 'transform', OBJ, MATRIX );                       %\n" \
+  "%         mex_disk( 'copy', OBJ, OTHER_OBJ );                         %\n" \
+  "%   OUT = mex_disk( 'isInside', OBJ, OTHER_OBJ );                     %\n" \
+  "%   OUT = mex_disk( 'isDegenerated', OBJ );                           %\n" \
+  "%   OUT = mex_disk( 'isApprox', OBJ, OTHER_OBJ );                     %\n" \
+  "%         mex_disk( 'normalize', OBJ );                               %\n" \
+  "%   OUT = mex_disk( 'layingPlane', OBJ );                             %\n" \
+  "%         mex_disk( 'reverse', OBJ );                                 %\n" \
+  "%   OUT = mex_disk( 'clamp', OBJ );                                   %\n" \
+  "%   OUT = mex_disk( 'perimeter', OBJ );                               %\n" \
+  "%   OUT = mex_disk( 'area', OBJ );                                    %\n" \
+  "%   OUT = mex_disk( 'isParallel', OBJ, OTHER_OBJ );                   %\n" \
+  "%   OUT = mex_disk( 'isOrthogonal', OBJ, OTHER_OBJ );                 %\n" \
+  "%   OUT = mex_disk( 'isCollinear', OBJ, OTHER_OBJ );                  %\n" \
+  "%   OUT = mex_disk( 'isCoplanar', OBJ, OTHER_OBJ );                   %\n" \
+  "%   OUT = mex_disk( 'intersection', OBJ, OTHER_OBJ, TYPE );           %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n" \
+  "%                                                                     %\n" \
+  "%    Davide Stocco                                                    %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    davide.stocco@unitn.it                                           %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%                                                                     %\n" \
+  "%=====================================================================%\n"
+
+using namespace std;
+
+typedef double real_mex;
+
+static void
+DATA_NEW(
+    mxArray *&mx_id,
+    acme::disk *ptr)
+{
+  mx_id = convertPtr2Mat<acme::disk>(ptr);
+}
+
+static inline acme::disk *
+DATA_GET(
+    mxArray const *&mx_id)
+{
+  return convertMat2Ptr<acme::disk>(mx_id);
+}
+
+static void
+DATA_DELETE(
+    mxArray const *&mx_id)
+{
+  destroyObject<acme::disk>(mx_id);
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_new(int nlhs, mxArray *plhs[],
+       int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'new', [, args] ): "
+  MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 8, CMD "expected 1, 4 or 8 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  MEX_ASSERT(
+      mxIsChar(arg_in_0),
+      CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
+
+  real_mex r = acme::QUIET_NAN;
+  real_mex cx = acme::QUIET_NAN;
+  real_mex cy = acme::QUIET_NAN;
+  real_mex cz = acme::QUIET_NAN;
+  real_mex nx = acme::QUIET_NAN;
+  real_mex ny = acme::QUIET_NAN;
+  real_mex nz = acme::QUIET_NAN;
+
+  if (nrhs == 4)
+  {
+    r = getScalarValue(arg_in_1, CMD "Error in reading radius value");
+    real_mex const *matrix1_ptr;
+    mwSize rows1, cols1;
+    matrix1_ptr = getMatrixPointer(arg_in_2, rows1, cols1, CMD "Error in first input matrix");
+    MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
+    real_mex const *matrix2_ptr;
+    cx = matrix1_ptr[0];
+    cy = matrix1_ptr[1];
+    cz = matrix1_ptr[2];
+    mwSize rows2, cols2;
+    matrix2_ptr = getMatrixPointer(arg_in_3, rows2, cols2, CMD "Error in second input matrix");
+    MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
+    nx = matrix2_ptr[0];
+    ny = matrix2_ptr[1];
+    nz = matrix2_ptr[2];
+  }
+  else if (nrhs == 8)
+  {
+    r = getScalarValue(arg_in_1, CMD "Error in reading radius value");
+    cx = getScalarValue(arg_in_2, CMD "Error in reading center x value");
+    cy = getScalarValue(arg_in_3, CMD "Error in reading center y value");
+    cz = getScalarValue(arg_in_4, CMD "Error in reading center z value");
+    nx = getScalarValue(arg_in_5, CMD "Error in reading normal x value");
+    ny = getScalarValue(arg_in_6, CMD "Error in reading normal y value");
+    nz = getScalarValue(arg_in_7, CMD "Error in reading normal z value");
+  }
+
+  acme::disk *ptr = new acme::disk(r, cx, cy, cz, nx, ny, nz);
+  DATA_NEW(arg_out_0, ptr);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_delete(int nlhs, mxArray *plhs[],
+          int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'delete', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  DATA_DELETE(arg_in_1);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_getRadius(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'getRadius', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  setScalarValue(arg_out_0, self->radius());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_getCenter(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'getCenter', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  acme::point *out = new acme::point(self->center());
+  arg_out_0 = convertPtr2Mat<acme::point>(out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_getNormal(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'getNormal', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  real_mex *output = createMatrixValue(arg_out_0, 3, 1);
+  acme::vec3 outvec(self->normal());
+  output[0] = outvec.x();
+  output[1] = outvec.y();
+  output[2] = outvec.z();
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_setRadius(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'setRadius', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  setScalarValue(arg_out_0, self->radius());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_setCenter(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'setCenter', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  acme::point *obj = convertMat2Ptr<acme::point>(arg_in_2);
+  self->center() = *obj;
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_setNormal(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+
+#define CMD "mex_disk( 'setNormal', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  real_mex const *matrix_ptr;
+  mwSize rows, cols;
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
+  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  real_mex x = matrix_ptr[0];
+  real_mex y = matrix_ptr[1];
+  real_mex z = matrix_ptr[2];
+  self->normal() = acme::vec3(x, y, z);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_translate(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'translate', OBJ, VECTOR ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  real_mex const *matrix_ptr;
+  mwSize rows, cols;
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
+  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  real_mex x = matrix_ptr[0];
+  real_mex y = matrix_ptr[1];
+  real_mex z = matrix_ptr[2];
+  self->translate(acme::vec3(x, y, z));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_transform(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'transform', OBJ, MATRIX ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  real_mex const *matrix_ptr;
+  mwSize rows, cols;
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
+  acme::affine matrix;
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8], matrix_ptr[12],
+      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9], matrix_ptr[13],
+      matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+      matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+  self->transform(matrix);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_copy(int nlhs, mxArray *plhs[],
+        int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'copy', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  acme::disk *other = DATA_GET(arg_in_2);
+  *self = *other;
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isInside(int nlhs, mxArray *plhs[],
+            int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isInside', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
+  setBoolValue(arg_out_0, self->isInside(*other));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isDegenerated(int nlhs, mxArray *plhs[],
+                 int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isDegenerated', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  setBoolValue(arg_out_0, self->isDegenerated());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isApprox(int nlhs, mxArray *plhs[],
+            int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isApprox', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  acme::disk *other = DATA_GET(arg_in_2);
+  setBoolValue(arg_out_0, self->isApprox(*other));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_normalize(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'normalize', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  self->normalize();
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_layingPlane(int nlhs, mxArray *plhs[],
+               int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'layingPlane', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  acme::plane *out = new acme::plane(self->layingPlane());
+  arg_out_0 = convertPtr2Mat<acme::plane>(out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_reverse(int nlhs, mxArray *plhs[],
+           int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'reverse', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  self->reverse();
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_clamp(int nlhs, mxArray *plhs[],
+         int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'clamp', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+
+  acme::vec3 min(acme::NAN_VEC3);
+  acme::vec3 max(acme::NAN_VEC3);
+  self->clamp(min, max);
+
+  real_mex *output_min = createMatrixValue(arg_out_0, 3, 1);
+  output_min[0] = min.x();
+  output_min[1] = min.y();
+  output_min[2] = min.z();
+
+  real_mex *output_max = createMatrixValue(arg_out_1, 3, 1);
+  output_max[0] = max.x();
+  output_max[1] = max.y();
+  output_max[2] = max.z();
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_perimeter(int nlhs, mxArray *plhs[],
+             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'perimeter', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  setScalarValue(arg_out_0, self->perimeter());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_area(int nlhs, mxArray *plhs[],
+        int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'area', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  setScalarValue(arg_out_0, self->area());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isParallel(int nlhs, mxArray *plhs[],
+              int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isParallel', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  string type = mxArrayToString(arg_in_3);
+  acme::entity *other = nullptr;
+
+  if (type == "none")
+    other = convertMat2Ptr<acme::none>(arg_in_2);
+  else if (type == "point")
+    other = convertMat2Ptr<acme::point>(arg_in_2);
+  else if (type == "line")
+    other = convertMat2Ptr<acme::line>(arg_in_2);
+  else if (type == "ray")
+    other = convertMat2Ptr<acme::ray>(arg_in_2);
+  else if (type == "plane")
+    other = convertMat2Ptr<acme::plane>(arg_in_2);
+  else if (type == "segment")
+    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
+
+  setBoolValue(arg_out_0, acme::isParallel(self, other));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isOrthogonal(int nlhs, mxArray *plhs[],
+                int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isOrthogonal', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  string type = mxArrayToString(arg_in_3);
+  acme::entity *other = nullptr;
+
+  if (type == "none")
+    other = convertMat2Ptr<acme::none>(arg_in_2);
+  else if (type == "point")
+    other = convertMat2Ptr<acme::point>(arg_in_2);
+  else if (type == "line")
+    other = convertMat2Ptr<acme::line>(arg_in_2);
+  else if (type == "ray")
+    other = convertMat2Ptr<acme::ray>(arg_in_2);
+  else if (type == "plane")
+    other = convertMat2Ptr<acme::plane>(arg_in_2);
+  else if (type == "segment")
+    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
+
+  setBoolValue(arg_out_0, acme::isOrthogonal(self, other));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isCollinear(int nlhs, mxArray *plhs[],
+               int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isCollinear', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  string type = mxArrayToString(arg_in_3);
+
+  acme::entity *other = nullptr;
+
+  if (type == "none")
+    other = convertMat2Ptr<acme::none>(arg_in_2);
+  else if (type == "point")
+    other = convertMat2Ptr<acme::point>(arg_in_2);
+  else if (type == "line")
+    other = convertMat2Ptr<acme::line>(arg_in_2);
+  else if (type == "ray")
+    other = convertMat2Ptr<acme::ray>(arg_in_2);
+  else if (type == "plane")
+    other = convertMat2Ptr<acme::plane>(arg_in_2);
+  else if (type == "segment")
+    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
+
+  setBoolValue(arg_out_0, acme::isCollinear(self, other));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_isCoplanar(int nlhs, mxArray *plhs[],
+              int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'isCoplanar', OBJ, OTHER_OBJ ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  string type = mxArrayToString(arg_in_3);
+
+  acme::entity *other = nullptr;
+
+  if (type == "none")
+    other = convertMat2Ptr<acme::none>(arg_in_2);
+  else if (type == "point")
+    other = convertMat2Ptr<acme::point>(arg_in_2);
+  else if (type == "line")
+    other = convertMat2Ptr<acme::line>(arg_in_2);
+  else if (type == "ray")
+    other = convertMat2Ptr<acme::ray>(arg_in_2);
+  else if (type == "plane")
+    other = convertMat2Ptr<acme::plane>(arg_in_2);
+  else if (type == "segment")
+    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
+
+  setBoolValue(arg_out_0, acme::isCoplanar(self, other));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_intersection(int nlhs, mxArray *plhs[],
+                int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_disk( 'intersection', OBJ, OTHER_OBJ, TYPE ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
+
+  acme::disk *self = DATA_GET(arg_in_1);
+  string type = mxArrayToString(arg_in_3);
+
+  acme::entity *other = nullptr;
+
+  if (type == "none")
+    other = convertMat2Ptr<acme::none>(arg_in_2);
+  else if (type == "point")
+    other = convertMat2Ptr<acme::point>(arg_in_2);
+  else if (type == "line")
+    other = convertMat2Ptr<acme::line>(arg_in_2);
+  else if (type == "ray")
+    other = convertMat2Ptr<acme::ray>(arg_in_2);
+  else if (type == "plane")
+    other = convertMat2Ptr<acme::plane>(arg_in_2);
+  else if (type == "segment")
+    other = convertMat2Ptr<acme::segment>(arg_in_2);
+  else if (type == "triangle")
+    other = convertMat2Ptr<acme::triangle>(arg_in_2);
+  else if (type == "disk")
+    other = convertMat2Ptr<acme::disk>(arg_in_2);
+  else if (type == "sphere")
+    other = convertMat2Ptr<acme::sphere>(arg_in_2);
+
+  acme::entity *out = acme::intersection(self, other);
+  string out_type = out->type();
+  if (out_type == "none")
+    arg_out_0 = convertPtr2Mat<acme::none>(dynamic_cast<acme::none *>(out));
+  else if (out_type == "point")
+    arg_out_0 = convertPtr2Mat<acme::point>(dynamic_cast<acme::point *>(out));
+  else if (out_type == "line")
+    arg_out_0 = convertPtr2Mat<acme::line>(dynamic_cast<acme::line *>(out));
+  else if (out_type == "ray")
+    arg_out_0 = convertPtr2Mat<acme::ray>(dynamic_cast<acme::ray *>(out));
+  else if (out_type == "plane")
+    arg_out_0 = convertPtr2Mat<acme::plane>(dynamic_cast<acme::plane *>(out));
+  else if (out_type == "segment")
+    arg_out_0 = convertPtr2Mat<acme::segment>(dynamic_cast<acme::segment *>(out));
+  else if (out_type == "triangle")
+    arg_out_0 = convertPtr2Mat<acme::triangle>(dynamic_cast<acme::triangle *>(out));
+  else if (out_type == "disk")
+    arg_out_0 = convertPtr2Mat<acme::disk>(dynamic_cast<acme::disk *>(out));
+  else if (out_type == "sphere")
+    arg_out_0 = convertPtr2Mat<acme::sphere>(dynamic_cast<acme::sphere *>(out));
+
+  arg_out_1 = mxCreateString(out_type.c_str());
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+typedef void (*DO_CMD)(int nlhs, mxArray *plhs[],
+                       int nrhs, mxArray const *prhs[]);
+
+static map<string, DO_CMD> cmd_to_fun = {
+    {"new", do_new},
+    {"delete", do_delete},
+    {"getRadius", do_getRadius},
+    {"getCenter", do_getCenter},
+    {"getNormal", do_getNormal},
+    {"setRadius", do_setRadius},
+    {"setCenter", do_setCenter},
+    {"setNormal", do_setNormal},
+    {"copy", do_copy},
+    {"translate", do_translate},
+    {"transform", do_transform},
+    {"isInside", do_isInside},
+    {"isDegenerated", do_isDegenerated},
+    {"isApprox", do_isApprox},
+    {"normalize", do_normalize},
+    {"layingPlane", do_layingPlane},
+    {"reverse", do_reverse},
+    {"clamp", do_clamp},
+    {"perimeter", do_perimeter},
+    {"area", do_area},
+    {"isParallel", do_isParallel},
+    {"isOrthogonal", do_isOrthogonal},
+    {"isCollinear", do_isCollinear},
+    {"isCoplanar", do_isCoplanar},
+    {"intersection", do_intersection}};
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+extern "C" void
+mexFunction(int nlhs, mxArray *plhs[],
+            int nrhs, mxArray const *prhs[])
+{
+  // First argument must be a string
+  if (nrhs == 0)
+  {
+    mexErrMsgTxt(MEX_ERROR_MESSAGE);
+    return;
+  }
+
+  try
+  {
+    MEX_ASSERT(mxIsChar(arg_in_0), "First argument must be a string");
+    string cmd = mxArrayToString(arg_in_0);
+    DO_CMD pfun = cmd_to_fun.at(cmd);
+    pfun(nlhs, plhs, nrhs, prhs);
+  }
+  catch (exception const &e)
+  {
+    mexErrMsgTxt((string("mex_disk Error: ") + e.what()).c_str());
+  }
+  catch (...)
+  {
+    mexErrMsgTxt("mex_disk failed\n");
+  }
+}

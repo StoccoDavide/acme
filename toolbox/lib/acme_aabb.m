@@ -25,18 +25,18 @@
 
 classdef acme_aabb < acme_entity
   %
-  % Class container for ACME circle object
+  % Class container for ACME disk object
   %
   methods
     function self = acme_aabb( varargin )
-      % Create a new C++ pointer to circle object instance
+      % Create a new C++ pointer to disk object instance
       self.objectHandle = mex_aabb( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function delete( self )
-      % Create C++ pointer to circle object instance
+      % Create C++ pointer to disk object instance
       mex_aabb( 'delete', self.objectHandle );
     end
     %
@@ -260,7 +260,7 @@ classdef acme_aabb < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     function plot( self, figure_name, color )
-      % Plot circle object
+      % Plot disk object
       figure_name;
       hold on;
       min = self.getMin().get();

@@ -25,7 +25,7 @@
 (***********************************************************************)
 */
 
-// TEST 3 - POINT INSIDE CIRCLE
+// TEST 3 - POINT INSIDE DISK
 
 #include <fstream>
 #include <iostream>
@@ -43,7 +43,7 @@ using namespace acme;
 int main()
 {
   // Initialize disk
-  circle Circle(1.0, point(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
+  disk Disk(1.0, point(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
 
   // Query points and intersection bools
   point PointIn(0.0, 0.0, 0.5);
@@ -53,16 +53,16 @@ int main()
   bool PtInBool, PtOutBool, PtBordBool;
 
   // Calculate intersection
-  PtInBool = Circle.isInside(PointIn);
-  PtOutBool = Circle.isInside(PointOut);
-  PtBordBool = Circle.isInside(PointBorder);
+  PtInBool = Disk.isInside(PointIn);
+  PtOutBool = Disk.isInside(PointOut);
+  PtBordBool = Disk.isInside(PointBorder);
 
   std::cout
       << "TEST 3 - POINT INSIDE DISK" << std::endl
       << std::endl
-      << "Radius = " << Circle.radius() << std::endl
-      << "Center = " << Circle.center() << std::endl
-      << "Normal = " << Circle.normal() << std::endl
+      << "Radius = " << Disk.radius() << std::endl
+      << "Center = " << Disk.center() << std::endl
+      << "Normal = " << Disk.normal() << std::endl
       << std::endl;
 
   // Show results

@@ -89,7 +89,7 @@ namespace acme
 
     case 308:
       return isCoplanar(*dynamic_cast<line const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -127,7 +127,7 @@ namespace acme
 
     case 408:
       return isCoplanar(*dynamic_cast<ray const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -165,7 +165,7 @@ namespace acme
 
     case 508:
       return isCoplanar(*dynamic_cast<plane const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -203,7 +203,7 @@ namespace acme
 
     case 608:
       return isCoplanar(*dynamic_cast<segment const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -241,45 +241,45 @@ namespace acme
 
     case 708:
       return isCoplanar(*dynamic_cast<triangle const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
-      // - - - - - - - - - - - - - - CIRCLE - - - - - - - - - - - - - -
+      // - - - - - - - - - - - - - - DISK - - - - - - - - - - - - - -
 
     case 803:
       return isCoplanar(*dynamic_cast<line const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 804:
       return isCoplanar(*dynamic_cast<ray const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 805:
       return isCoplanar(*dynamic_cast<plane const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 806:
       return isCoplanar(*dynamic_cast<segment const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 807:
       return isCoplanar(*dynamic_cast<triangle const *>(entity1_in),
-                        *dynamic_cast<circle const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity0_in),
                         tolerance);
       break;
 
     case 808:
-      return isCoplanar(*dynamic_cast<circle const *>(entity0_in),
-                        *dynamic_cast<circle const *>(entity1_in),
+      return isCoplanar(*dynamic_cast<disk const *>(entity0_in),
+                        *dynamic_cast<disk const *>(entity1_in),
                         tolerance);
       break;
 
@@ -354,12 +354,12 @@ namespace acme
 
   bool
   isCoplanar(
-      circle const &circle0_in,
-      circle const &circle1_in,
+      disk const &disk0_in,
+      disk const &disk1_in,
       real tolerance)
   {
-    return isCoplanar(circle0_in.layingPlane(),
-                      circle1_in.layingPlane(),
+    return isCoplanar(disk0_in.layingPlane(),
+                      disk1_in.layingPlane(),
                       tolerance);
   }
 
@@ -415,11 +415,11 @@ namespace acme
   bool
   isCoplanar(
       line const &line_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
     return isCoplanar(line_in,
-                      circle_in.layingPlane(),
+                      disk_in.layingPlane(),
                       tolerance);
   }
 
@@ -464,11 +464,11 @@ namespace acme
   bool
   isCoplanar(
       ray const &ray_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
     return isCoplanar(ray_in,
-                      circle_in.layingPlane(),
+                      disk_in.layingPlane(),
                       tolerance);
   }
 
@@ -502,11 +502,11 @@ namespace acme
   bool
   isCoplanar(
       plane const &plane_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
     return isCoplanar(plane_in,
-                      circle_in.layingPlane(),
+                      disk_in.layingPlane(),
                       tolerance);
   }
 
@@ -528,10 +528,10 @@ namespace acme
   bool
   isCoplanar(
       segment const &segment_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
-    return isCoplanar(circle_in.layingPlane(),
+    return isCoplanar(disk_in.layingPlane(),
                       segment_in,
                       tolerance);
   }
@@ -541,11 +541,11 @@ namespace acme
   bool
   isCoplanar(
       triangle const &triangle_in,
-      circle const &circle_in,
+      disk const &disk_in,
       real tolerance)
   {
     return isCoplanar(triangle_in.layingPlane(),
-                      circle_in.layingPlane(),
+                      disk_in.layingPlane(),
                       tolerance);
   }
 

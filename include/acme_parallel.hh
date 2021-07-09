@@ -34,7 +34,7 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_circle.hh"
+#include "acme_disk.hh"
 #include "acme_line.hh"
 #include "acme_orthogonal.hh"
 #include "acme_plane.hh"
@@ -110,11 +110,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if vector and circle are parallel
+  //! Check if vector and disk are parallel
   bool
   isParallel(
       vec3 const &vector_in,   //!< Input vector
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -158,12 +158,12 @@ namespace acme
       real tolerance = EPSILON      //!< Tolerance
   );
 
-  //! Check if circles layng planes are parallel
+  //! Check if disks layng planes are parallel
   bool
   isParallel(
-      circle const &circle0_in, //!< Input circle 0
-      circle const &circle1_in, //!< Input circle 1
-      real tolerance = EPSILON  //!< Tolerance
+      disk const &disk0_in,    //!< Input disk 0
+      disk const &disk1_in,    //!< Input disk 1
+      real tolerance = EPSILON //!< Tolerance
   );
 
   //! Check if line and ray are parallel
@@ -198,11 +198,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if line and circle are parallel
+  //! Check if line and disk are parallel
   bool
   isParallel(
       line const &line_in,     //!< Input line
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -230,11 +230,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if ray and circle are parallel
+  //! Check if ray and disk are parallel
   bool
   isParallel(
       ray const &ray_in,       //!< Input ray
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -254,11 +254,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if plane and circle layng plane are parallel
+  //! Check if plane and disk layng plane are parallel
   bool
   isParallel(
       plane const &plane_in,   //!< Input plane
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -270,19 +270,19 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if segment and circle are parallel
+  //! Check if segment and disk are parallel
   bool
   isParallel(
       segment const &segment_in, //!< Input segment
-      circle const &circle_in,   //!< Input circle
+      disk const &disk_in,       //!< Input disk
       real tolerance = EPSILON   //!< Tolerance
   );
 
-  //! Check if triangle and circle are parallel
+  //! Check if triangle and disk are parallel
   bool
   isParallel(
       triangle const &triangle_in, //!< Input triangle
-      circle const &circle_in,     //!< Input circle
+      disk const &disk_in,         //!< Input disk
       real tolerance = EPSILON     //!< Tolerance
   );
 

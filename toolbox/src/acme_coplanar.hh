@@ -34,7 +34,7 @@
 
 #include "acme.hh"
 #include "acme_aabb.hh"
-#include "acme_circle.hh"
+#include "acme_disk.hh"
 #include "acme_line.hh"
 #include "acme_parallel.hh"
 #include "acme_plane.hh"
@@ -102,12 +102,12 @@ namespace acme
       real tolerance = EPSILON      //!< Tolerance
   );
 
-  //! Check if circles layng planes are coplanar
+  //! Check if disks layng planes are coplanar
   bool
   isCoplanar(
-      circle const &circle0_in, //!< Input circle 0
-      circle const &circle1_in, //!< Input circle 1
-      real tolerance = EPSILON  //!< Tolerance
+      disk const &disk0_in,    //!< Input disk 0
+      disk const &disk1_in,    //!< Input disk 1
+      real tolerance = EPSILON //!< Tolerance
   );
 
   //! Check if line and ray are coplanar
@@ -142,11 +142,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if line and circle are coplanar
+  //! Check if line and disk are coplanar
   bool
   isCoplanar(
       line const &line_in,     //!< Input line
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -174,11 +174,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if ray and circle are coplanar
+  //! Check if ray and disk are coplanar
   bool
   isCoplanar(
       ray const &ray_in,       //!< Input ray
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -198,11 +198,11 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if plane and circle layng plane are coplanar
+  //! Check if plane and disk layng plane are coplanar
   bool
   isCoplanar(
       plane const &plane_in,   //!< Input plane
-      circle const &circle_in, //!< Input circle
+      disk const &disk_in,     //!< Input disk
       real tolerance = EPSILON //!< Tolerance
   );
 
@@ -214,19 +214,19 @@ namespace acme
       real tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Check if segment and circle are coplanar
+  //! Check if segment and disk are coplanar
   bool
   isCoplanar(
       segment const &segment_in, //!< Input segment
-      circle const &circle_in,   //!< Input circle
+      disk const &disk_in,       //!< Input disk
       real tolerance = EPSILON   //!< Tolerance
   );
 
-  //! Check if triangle and circle are coplanar
+  //! Check if triangle and disk are coplanar
   bool
   isCoplanar(
       triangle const &triangle_in, //!< Input triangle
-      circle const &circle_in,     //!< Input circle
+      disk const &disk_in,         //!< Input disk
       real tolerance = EPSILON     //!< Tolerance
   );
 

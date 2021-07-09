@@ -74,7 +74,7 @@
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_circle.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_disk.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_parallel.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
@@ -146,7 +146,7 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -187,8 +187,8 @@
 
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle0_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle1_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk0_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk1_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -223,7 +223,7 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -251,7 +251,7 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -272,7 +272,7 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
@@ -286,14 +286,14 @@
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 
   <span class="kt">bool</span>
   <span class="nf">isOrthogonal</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">circle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">circle_in</span><span class="p">,</span>
+      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
   <span class="p">);</span>
 

@@ -1,10 +1,12 @@
-clc
-clear all
-close all
+% Clear workspace
+
+clc;
+clear all;
+close all;
 
 % Create points
 
-c1 = acme_circle(2, [1 2 3]', [1 2 3]');
+c1 = acme_disk(2, [1 2 3]', [1 2 3]');
 l1 = acme_ray([0 0 0]', 3*[1.2 1.5 1]');
 
 % Intersect segments
