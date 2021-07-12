@@ -4,15 +4,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Program Listing for File acme_intersection.cc &#8212; ACME v0.1
 </title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -36,7 +37,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="program-listing-for-file-acme-intersection-cc">
+  <section id="program-listing-for-file-acme-intersection-cc">
 <span id="program-listing-file-src-acme-intersection-cc"></span><h1>Program Listing for File acme_intersection.cc<a class="headerlink" href="#program-listing-for-file-acme-intersection-cc" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_src_acme_intersection.cc.html#file-src-acme-intersection-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/acme_intersection.cc</span></code>)</p>
@@ -71,7 +72,7 @@
 
 <span class="cp">#include</span> <span class="cpf">"acme_intersection.hh"</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">acme</span>
+<span class="k">namespace</span> <span class="nn">acme</span>
 <span class="p">{</span>
 
   <span class="cm">/*\</span>
@@ -688,7 +689,7 @@
       <span class="k">case</span> <span class="mi">309</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -746,7 +747,7 @@
       <span class="k">case</span> <span class="mi">409</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -803,7 +804,7 @@
       <span class="k">case</span> <span class="mi">509</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">disk</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -861,7 +862,7 @@
       <span class="k">case</span> <span class="mi">609</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -919,7 +920,7 @@
       <span class="k">case</span> <span class="mi">709</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">none</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -977,17 +978,17 @@
       <span class="k">case</span> <span class="mi">809</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">none</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
 
-        <span class="c1">// - - - - - - - - - - - - - - SPHERE - - - - - - - - - - - - - -</span>
+        <span class="c1">// - - - - - - - - - - - - - - BALL - - - - - - - - - - - - - -</span>
 
       <span class="k">case</span> <span class="mi">903</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">line</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -995,7 +996,7 @@
       <span class="k">case</span> <span class="mi">904</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ray</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -1003,7 +1004,7 @@
       <span class="k">case</span> <span class="mi">905</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">disk</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">plane</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -1011,7 +1012,7 @@
       <span class="k">case</span> <span class="mi">906</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">segment</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">segment</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -1019,7 +1020,7 @@
       <span class="k">case</span> <span class="mi">907</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">triangle</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">none</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -1027,15 +1028,15 @@
       <span class="k">case</span> <span class="mi">908</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
         <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">disk</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">none</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
 
       <span class="k">case</span> <span class="mi">909</span><span class="o">:</span>
         <span class="n">entity_out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">none</span><span class="p">();</span>
-        <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
-                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">sphere</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
+        <span class="n">collide</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity0_in</span><span class="p">),</span>
+                               <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">ball</span> <span class="k">const</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity1_in</span><span class="p">),</span>
                                <span class="o">*</span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">none</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">entity_out</span><span class="p">),</span>
                                <span class="n">tolerance</span><span class="p">);</span>
         <span class="k">break</span><span class="p">;</span>
@@ -1786,12 +1787,12 @@
 
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere0_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere1_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball0_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball1_in</span><span class="p">,</span>
       <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(sphere, sphere): function not supported"</span><span class="p">)</span>
+    <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(ball, ball): function not supported"</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
 
@@ -2348,14 +2349,14 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">vec3</span> <span class="n">origin</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
     <span class="n">vec3</span> <span class="n">direction</span><span class="p">(</span><span class="n">line_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">origin</span> <span class="o">-</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
-    <span class="n">real</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">-</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">*</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
+    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">origin</span> <span class="o">-</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
+    <span class="n">real</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">-</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">*</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
     <span class="n">real</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">direction</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">);</span>
     <span class="n">real</span> <span class="n">discr</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a0</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">discr</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">)</span>
@@ -2467,14 +2468,14 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">vec3</span> <span class="n">origin</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">origin</span><span class="p">());</span>
     <span class="n">vec3</span> <span class="n">direction</span><span class="p">(</span><span class="n">ray_in</span><span class="p">.</span><span class="n">toUnitVector</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">origin</span> <span class="o">-</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
-    <span class="n">real</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">-</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">*</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
+    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">origin</span> <span class="o">-</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
+    <span class="n">real</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">-</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">*</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
     <span class="n">real</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">direction</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">);</span>
     <span class="n">real</span> <span class="n">discr</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a0</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">discr</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">)</span>
@@ -2570,17 +2571,17 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball_in</span><span class="p">,</span>
       <span class="n">disk</span> <span class="o">&amp;</span><span class="n">disk_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">vec3</span> <span class="n">normal</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">unitNormal</span><span class="p">());</span>
-    <span class="n">real</span> <span class="n">signed_distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">sphere_in</span><span class="p">.</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
+    <span class="n">real</span> <span class="n">signed_distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">ball_in</span><span class="p">.</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">origin</span><span class="p">()).</span><span class="n">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
     <span class="n">real</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">signed_distance</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">distance</span> <span class="o">&lt;=</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">())</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">distance</span> <span class="o">&lt;=</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">())</span>
     <span class="p">{</span>
-      <span class="n">disk_out</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">((</span><span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">+</span> <span class="n">distance</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">-</span> <span class="n">distance</span><span class="p">));</span>
-      <span class="n">disk_out</span><span class="p">.</span><span class="n">center</span><span class="p">()</span> <span class="o">=</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="n">signed_distance</span> <span class="o">*</span> <span class="n">normal</span><span class="p">;</span>
+      <span class="n">disk_out</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">((</span><span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">+</span> <span class="n">distance</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">-</span> <span class="n">distance</span><span class="p">));</span>
+      <span class="n">disk_out</span><span class="p">.</span><span class="n">center</span><span class="p">()</span> <span class="o">=</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="n">signed_distance</span> <span class="o">*</span> <span class="n">normal</span><span class="p">;</span>
       <span class="n">disk_out</span><span class="p">.</span><span class="n">normal</span><span class="p">()</span> <span class="o">=</span> <span class="n">normal</span><span class="p">;</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
@@ -2655,14 +2656,14 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball_in</span><span class="p">,</span>
       <span class="n">segment</span> <span class="o">&amp;</span><span class="n">segment_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">vec3</span> <span class="n">origin</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
     <span class="n">vec3</span> <span class="n">direction</span><span class="p">(</span><span class="n">segment_in</span><span class="p">.</span><span class="n">toVector</span><span class="p">());</span>
-    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">origin</span> <span class="o">-</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
-    <span class="n">real</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">-</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">*</span> <span class="n">sphere_in</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
+    <span class="n">vec3</span> <span class="n">diff</span><span class="p">(</span><span class="n">origin</span> <span class="o">-</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">center</span><span class="p">());</span>
+    <span class="n">real</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">diff</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="o">-</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">()</span> <span class="o">*</span> <span class="n">ball_in</span><span class="p">.</span><span class="n">radius</span><span class="p">();</span>
     <span class="n">real</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">direction</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">diff</span><span class="p">);</span>
     <span class="n">real</span> <span class="n">discr</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a0</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">discr</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">)</span>
@@ -2711,11 +2712,11 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball_in</span><span class="p">,</span>
       <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(triangle, sphere): function not supported"</span><span class="p">)</span>
+    <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(triangle, ball): function not supported"</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
 
@@ -2724,11 +2725,11 @@
   <span class="kt">bool</span>
   <span class="nf">intersection</span><span class="p">(</span>
       <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">sphere</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">sphere_in</span><span class="p">,</span>
+      <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ball_in</span><span class="p">,</span>
       <span class="n">none</span> <span class="o">&amp;</span><span class="n">none_out</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(disk, sphere): function not supported"</span><span class="p">)</span>
+    <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::intersection(disk, ball): function not supported"</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
 
@@ -2776,7 +2777,7 @@
 <span class="c1">///</span>
 </pre></div>
 </div>
-</div>
+</section>
 
 
 
@@ -2787,13 +2788,13 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+              <img class="logo" src="../_static/../logo.png" alt="Logo"/>
             </a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -2814,7 +2815,7 @@
       &copy;2020, Davide Stocco.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

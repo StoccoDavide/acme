@@ -4,15 +4,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class disk &#8212; ACME v0.1
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Class collection &#8212; ACME v0.1
 </title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
     <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -20,8 +21,8 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class entity" href="class_a00145.html" />
-    <link rel="prev" title="Class collection" href="class_a00137.html" />
+    <link rel="next" title="Class disk" href="class_a00145.html" />
+    <link rel="prev" title="Class ball" href="class_a00137.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -38,83 +39,171 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="class-disk">
-<span id="exhale-class-a00141"></span><h1>Class disk<a class="headerlink" href="#class-disk" title="Permalink to this headline">¶</a>
+  <section id="class-collection">
+<span id="exhale-class-a00141"></span><h1>Class collection<a class="headerlink" href="#class-collection" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_disk.hh.html#file-include-acme-disk-hh"><span class="std std-ref">File acme_disk.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_include_acme_collection.hh.html#file-include-acme-collection-hh"><span class="std std-ref">File acme_collection.hh</span></a></p></li>
 </ul>
-<div class="section" id="inheritance-relationships">
-<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
-</h2>
-<div class="section" id="base-type">
-<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
-</h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00145.html#exhale-class-a00145"><span class="std std-ref">Class entity</span></a>)</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="class-documentation">
+<section id="class-documentation">
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <dl class="cpp class">
-<dt id="_CPPv4N4acme4diskE">
-<span id="_CPPv3N4acme4diskE"></span><span id="_CPPv2N4acme4diskE"></span><span id="acme::disk"></span><span class="target" id="a00141"></span><em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">acme</span><code class="sig-prename descclassname"><span class="pre">::</span></code></code><code class="sig-name descname"><span class="pre">disk</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">acme</span><span class="pre">::</span><a class="reference internal" href="class_a00145.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="pre">entity</span></a><a class="headerlink" href="#_CPPv4N4acme4diskE" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collectionE">
+<span id="_CPPv3N4acme10collectionE"></span><span id="_CPPv2N4acme10collectionE"></span><span id="acme::collection"></span><span class="target" id="a00141"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">acme</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">collection</span></span></span><a class="headerlink" href="#_CPPv4N4acme10collectionE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk class container. </p>
-<p>Disk in 3D space and defined by a radius and a plane (disk center + normal vector). </p>
+<p>Collection class container. </p>
+<p>Collection of entity objects in 3D space. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4diskD0Ev">
-<span id="_CPPv3N4acme4diskD0Ev"></span><span id="_CPPv2N4acme4diskD0Ev"></span><span id="acme::disk::~disk"></span><span class="target" id="a00141_1a82c573a689b996c9a9ee208ca643c306"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">~disk</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4diskD0Ev" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collectionD0Ev">
+<span id="_CPPv3N4acme10collectionD0Ev"></span><span id="_CPPv2N4acme10collectionD0Ev"></span><span id="acme::collection::~collection"></span><span class="target" id="a00141_1a2c5b3f0337d52f04d1e984c259cb5cd3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~collection</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collectionD0Ev" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk class deconstructor. </p>
+<p>Collection class destructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk4diskEv">
-<span id="_CPPv3N4acme4disk4diskEv"></span><span id="_CPPv2N4acme4disk4diskEv"></span><span id="acme::disk::disk"></span><span class="target" id="a00141_1abf51440e6f5d6bdafd6e07d237aec293"></span><em class="property"><span class="pre">inline</span></em> <code class="sig-name descname"><span class="pre">disk</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10collectionERK10collection">
+<span id="_CPPv3N4acme10collection10collectionERK10collection"></span><span id="_CPPv2N4acme10collection10collectionERK10collection"></span><span id="acme::collection::collection__collectionCR"></span><span class="target" id="a00141_1adfef8df4f2f523271bbebd5e5ff2830d"></span><span class="sig-name descname"><span class="n"><span class="pre">collection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme10collection10collectionERK10collection" title="acme::collection::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme10collection10collectionERK10collection" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk class constructor. </p>
+<p>Collection copy constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk4diskERK4disk">
-<span id="_CPPv3N4acme4disk4diskERK4disk"></span><span id="_CPPv2N4acme4disk4diskERK4disk"></span><span id="acme::disk::disk__diskCR"></span><span class="target" id="a00141_1adb6a6f997da30f1bd7a7a74547a7a793"></span><code class="sig-name descname"><span class="pre">disk</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4disk4diskERK4disk" title="acme::disk::disk"><span class="pre">disk</span></a> <em class="property"><span class="pre">const</span></em><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskERK4disk" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10collectionERR10collection">
+<span id="_CPPv3N4acme10collection10collectionERR10collection"></span><span id="_CPPv2N4acme10collection10collectionERR10collection"></span><span id="acme::collection::collection__collectionRR"></span><span class="target" id="a00141_1a6483e581f14d993934a432bd5719e374"></span><span class="sig-name descname"><span class="n"><span class="pre">collection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme10collection10collectionERR10collection" title="acme::collection::collection"><span class="n"><span class="pre">collection</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme10collection10collectionERR10collection" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk copy constructor. </p>
+<p>Collection move constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk4diskERR4disk">
-<span id="_CPPv3N4acme4disk4diskERR4disk"></span><span id="_CPPv2N4acme4disk4diskERR4disk"></span><span id="acme::disk::disk__diskRR"></span><span class="target" id="a00141_1a2daf29f03ca54fe324a83acec9356c07"></span><code class="sig-name descname"><span class="pre">disk</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4disk4diskERR4disk" title="acme::disk::disk"><span class="pre">disk</span></a><span class="pre">&amp;</span><span class="pre">&amp;</span><span class="sig-paren">)</span> <span class="pre">=</span> <span class="pre">default</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskERR4disk" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10collectionEv">
+<span id="_CPPv3N4acme10collection10collectionEv"></span><span id="_CPPv2N4acme10collection10collectionEv"></span><span id="acme::collection::collection"></span><span class="target" id="a00141_1aab6c771e5a27bb30f26f753268f0b662"></span><span class="sig-name descname"><span class="n"><span class="pre">collection</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection10collectionEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk move constructor. </p>
+<p>Collection class constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk4diskE4realRK5plane">
-<span id="_CPPv3N4acme4disk4diskE4realRK5plane"></span><span id="_CPPv2N4acme4disk4diskE4realRK5plane"></span><span id="acme::disk::disk__real.planeCR"></span><span class="target" id="a00141_1a05724d4d984926429ff35853056cf73d"></span><code class="sig-name descname"><span class="pre">disk</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">radius</span></em>, <a class="reference internal" href="#_CPPv4N4acme4disk4diskE4realRK5plane" title="acme::disk::disk::plane"><span class="pre">plane</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">plane</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskE4realRK5plane" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10collectionERN6entity6vecptrE">
+<span id="_CPPv3N4acme10collection10collectionERN6entity6vecptrE"></span><span id="_CPPv2N4acme10collection10collectionERN6entity6vecptrE"></span><span id="acme::collection::collection__entity::vecptrR"></span><span class="target" id="a00141_1a164f898e95ee9557bad7a868b9d15712"></span><span class="sig-name descname"><span class="n"><span class="pre">collection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entity6vecptrE" title="acme::entity::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">entities</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection10collectionERN6entity6vecptrE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk class constructor. </p>
+<p>Collection class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>entities</strong> – Vector of shared pointers to entity objects </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection5clearEv">
+<span id="_CPPv3N4acme10collection5clearEv"></span><span id="_CPPv2N4acme10collection5clearEv"></span><span id="acme::collection::clear__void"></span><span class="target" id="a00141_1a7d1d35e9b34c5ddb8fe76c18e9203a9e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection5clearEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Clear all collection object data. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection6resizeE6size_t">
+<span id="_CPPv3N4acme10collection6resizeE6size_t"></span><span id="_CPPv2N4acme10collection6resizeE6size_t"></span><span id="acme::collection::resize__s"></span><span class="target" id="a00141_1ac17e91e662c98c16010753f5cccb47dc"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resize</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection6resizeE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Resize collection shared pointer vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>size</strong> – Input size </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection9push_backEN6entity3ptrE">
+<span id="_CPPv3N4acme10collection9push_backEN6entity3ptrE"></span><span id="_CPPv2N4acme10collection9push_backEN6entity3ptrE"></span><span id="acme::collection::push_back__entity::ptr"></span><span class="target" id="a00141_1ae8b6f7ee5aa4448bcc91d083e600e4aa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">push_back</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme10collection9push_backEN6entity3ptrE" title="acme::collection::push_back::entity"><span class="n"><span class="pre">entity</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ptr</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection9push_backEN6entity3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Adds a new element at the end of the collection shared pointer vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>entity</strong> – Input shared pointer to entity </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collectionixE6size_t">
+<span id="_CPPv3N4acme10collectionixE6size_t"></span><span id="_CPPv2N4acme10collectionixE6size_t"></span><span id="acme::collection::subscript-operator__s"></span><span class="target" id="a00141_1ad8063c8a727d695a61bc9a52a70e123c"></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collectionixE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get i-th entity object shared pointer reference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collectionixE6size_t">
+<span id="_CPPv3NK4acme10collectionixE6size_t"></span><span id="_CPPv2NK4acme10collectionixE6size_t"></span><span id="acme::collection::subscript-operator__sC"></span><span class="target" id="a00141_1ac4d8384ecfca8428b1f917f6e29d9bb6"></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entity3ptrE" title="acme::entity::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collectionixE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get i-th entity object shared pointer const reference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection9translateERK4vec3">
+<span id="_CPPv3N4acme10collection9translateERK4vec3"></span><span id="_CPPv2N4acme10collection9translateERK4vec3"></span><span id="acme::collection::translate__vec3CR"></span><span class="target" id="a00141_1a83373686cbb312a3645c23bb6226eedf"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection9translateERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Translate collection by vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>input</strong> – Input translation vector </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection6rotateE4realRK4vec3">
+<span id="_CPPv3N4acme10collection6rotateE4realRK4vec3"></span><span id="_CPPv2N4acme10collection6rotateE4realRK4vec3"></span><span id="acme::collection::rotate__real.vec3CR"></span><span class="target" id="a00141_1ae239f2487ee776be285b6d6711253785"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection6rotateE4realRK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Rotate collection by a rotation angle around an arbitrary axis. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>radius</strong> – Input disk radius </p></li>
-<li><p><strong>plane</strong> – Input disk laying plane </p></li>
+<li><p><strong>angle</strong> – Input angle [rad] </p></li>
+<li><p><strong>axis</strong> – Input axis </p></li>
 </ul>
 </dd>
 </dl>
@@ -122,18 +211,17 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk4diskE4realRK5pointRK4vec3">
-<span id="_CPPv3N4acme4disk4diskE4realRK5pointRK4vec3"></span><span id="_CPPv2N4acme4disk4diskE4realRK5pointRK4vec3"></span><span id="acme::disk::disk__real.pointCR.vec3CR"></span><span class="target" id="a00141_1a7832218351ede9860a5e2a2e97d6a804"></span><code class="sig-name descname"><span class="pre">disk</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">radius</span></em>, <a class="reference internal" href="class_a00161.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">center</span></em>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">normal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskE4realRK5pointRK4vec3" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection6rotateE4realRKNSt6stringE">
+<span id="_CPPv3N4acme10collection6rotateE4realRKNSt6stringE"></span><span id="_CPPv2N4acme10collection6rotateE4realRKNSt6stringE"></span><span id="acme::collection::rotate__real.ssCR"></span><span class="target" id="a00141_1a197c9fbf279a4492df39e40da8c14214"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection6rotateE4realRKNSt6stringE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk class constructor. </p>
+<p>Rotate tire by a rotation angle around an arbitrary axis. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>radius</strong> – Input disk radius </p></li>
-<li><p><strong>center</strong> – Input disk center </p></li>
-<li><p><strong>normal</strong> – Input disk normal to the laying plane </p></li>
+<li><p><strong>angle</strong> – Input angle [rad] </p></li>
+<li><p><strong>axis</strong> – Input axis </p></li>
 </ul>
 </dd>
 </dl>
@@ -141,222 +229,485 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk4diskE4real4real4real4real4real4real4real">
-<span id="_CPPv3N4acme4disk4diskE4real4real4real4real4real4real4real"></span><span id="_CPPv2N4acme4disk4diskE4real4real4real4real4real4real4real"></span><span id="acme::disk::disk__real.real.real.real.real.real.real"></span><span class="target" id="a00141_1a715737d88c33f2d1705d61161da6d376"></span><code class="sig-name descname"><span class="pre">disk</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">radius</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">center_x</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">center_y</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">center_z</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">normal_x</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">normal_y</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">normal_z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskE4real4real4real4real4real4real4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection9transformERK6affine">
+<span id="_CPPv3N4acme10collection9transformERK6affine"></span><span id="_CPPv2N4acme10collection9transformERK6affine"></span><span id="acme::collection::transform__affineCR"></span><span class="target" id="a00141_1aa3fa51524f831b815fe90b49b7c27cf2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="n"><span class="pre">affine</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">matrix</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection9transformERK6affine" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Disk class constructor. </p>
+<p>Transform collection with affine transformation matrix. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<ul class="simple">
-<li><p><strong>radius</strong> – Input disk radius </p></li>
-<li><p><strong>center_x</strong> – Input disk center x value </p></li>
-<li><p><strong>center_y</strong> – Input disk center y value </p></li>
-<li><p><strong>center_z</strong> – Input disk center z value </p></li>
-<li><p><strong>normal_x</strong> – Input disk normal x value to the laying plane </p></li>
-<li><p><strong>normal_y</strong> – Input disk normal y value to the laying plane </p></li>
-<li><p><strong>normal_z</strong> – Input disk normal z value to the laying plane </p></li>
-</ul>
+<p><strong>matrix</strong> – 4x4 affine transformation matrix </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4diskaSERK4disk">
-<span id="_CPPv3N4acme4diskaSERK4disk"></span><span id="_CPPv2N4acme4diskaSERK4disk"></span><span id="acme::disk::assign-operator__diskCR"></span><span class="target" id="a00141_1a44306c65798b1361a6bc723a32f9ed4a"></span><a class="reference internal" href="#_CPPv4N4acme4diskE" title="acme::disk"><span class="pre">disk</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">operator=</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4diskE" title="acme::disk"><span class="pre">disk</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">disk_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4diskaSERK4disk" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection11containNoneEv">
+<span id="_CPPv3NK4acme10collection11containNoneEv"></span><span id="_CPPv2NK4acme10collection11containNoneEv"></span><span id="acme::collection::containNone__voidC"></span><span class="target" id="a00141_1a5618af1573664ebb1676ea8dc2354cb7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containNone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection11containNoneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Equality operator. </p>
+<p>Check whether in the collection there are any none entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection7areNoneEv">
+<span id="_CPPv3NK4acme10collection7areNoneEv"></span><span id="_CPPv2NK4acme10collection7areNoneEv"></span><span id="acme::collection::areNone__voidC"></span><span class="target" id="a00141_1a7df0547c1bb1b8bcf507a71f8e8e0526"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areNone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection7areNoneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by none entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection6isNoneE6size_t">
+<span id="_CPPv3NK4acme10collection6isNoneE6size_t"></span><span id="_CPPv2NK4acme10collection6isNoneE6size_t"></span><span id="acme::collection::isNone__sC"></span><span class="target" id="a00141_1adb2f3249e5beec63bc3dee4360f032da"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNone</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection6isNoneE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a none entity object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>disk_in</strong> – Input disk object </p>
+<p><strong>i</strong> – Input i-th value </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk8isApproxERK4disk4real">
-<span id="_CPPv3NK4acme4disk8isApproxERK4disk4real"></span><span id="_CPPv2NK4acme4disk8isApproxERK4disk4real"></span><span id="acme::disk::isApprox__diskCR.realC"></span><span class="target" id="a00141_1a51d74b07a9773afc818a87215f18e066"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isApprox</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4diskE" title="acme::disk"><span class="pre">disk</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">disk_in</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="pre">EPSILON</span></a><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk8isApproxERK4disk4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10removeNoneEv">
+<span id="_CPPv3N4acme10collection10removeNoneEv"></span><span id="_CPPv2N4acme10collection10removeNoneEv"></span><span id="acme::collection::removeNone__void"></span><span class="target" id="a00141_1a0df56279a58a7b32ab033ab102918075"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeNone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection10removeNoneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check if disks are (almost) equal. </p>
+<p>Remove all none entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection9countNoneEv">
+<span id="_CPPv3NK4acme10collection9countNoneEv"></span><span id="_CPPv2NK4acme10collection9countNoneEv"></span><span id="acme::collection::countNone__voidC"></span><span class="target" id="a00141_1a5582716d9944e1d8efea6fdbaa93d542"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countNone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection9countNoneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all none entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12containPointEv">
+<span id="_CPPv3NK4acme10collection12containPointEv"></span><span id="_CPPv2NK4acme10collection12containPointEv"></span><span id="acme::collection::containPoint__voidC"></span><span class="target" id="a00141_1a8f64e6f73a8bf7c9d3815c7e544dd633"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containPoint</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12containPointEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any point entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection8arePointEv">
+<span id="_CPPv3NK4acme10collection8arePointEv"></span><span id="_CPPv2NK4acme10collection8arePointEv"></span><span id="acme::collection::arePoint__voidC"></span><span class="target" id="a00141_1ace1975382b16ba2d425569bb13a1ec31"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arePoint</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection8arePointEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by point entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection7isPointE6size_t">
+<span id="_CPPv3NK4acme10collection7isPointE6size_t"></span><span id="_CPPv2NK4acme10collection7isPointE6size_t"></span><span id="acme::collection::isPoint__sC"></span><span class="target" id="a00141_1a5cb1bc74f58b39f9f604dd2bedc5eea0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPoint</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection7isPointE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a point entity object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<ul class="simple">
-<li><p><strong>disk_in</strong> – Input disk object </p></li>
-<li><p><strong>tolerance</strong> – Tolerance </p></li>
-</ul>
+<p><strong>i</strong> – Input i-th value </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk6radiusEv">
-<span id="_CPPv3NK4acme4disk6radiusEv"></span><span id="_CPPv2NK4acme4disk6radiusEv"></span><span id="acme::disk::radius__voidC"></span><span class="target" id="a00141_1ac0c929a7ec4555954f86c3e7f1e3d6cb"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">radius</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk6radiusEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection11removePointEv">
+<span id="_CPPv3N4acme10collection11removePointEv"></span><span id="_CPPv2N4acme10collection11removePointEv"></span><span id="acme::collection::removePoint__void"></span><span class="target" id="a00141_1ac47886e5569493f7dbd092040c4207f8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removePoint</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection11removePointEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Get disk radius const reference. </p>
+<p>Remove all point entity objects from collection. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk6radiusEv">
-<span id="_CPPv3N4acme4disk6radiusEv"></span><span id="_CPPv2N4acme4disk6radiusEv"></span><span id="acme::disk::radius__void"></span><span class="target" id="a00141_1ae0e3ebda7c650028f795b4f53f7ab903"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">radius</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6radiusEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection10countPointEv">
+<span id="_CPPv3NK4acme10collection10countPointEv"></span><span id="_CPPv2NK4acme10collection10countPointEv"></span><span id="acme::collection::countPoint__voidC"></span><span class="target" id="a00141_1a24be45419115c12bae3e688d2dc3b140"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countPoint</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection10countPointEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Get disk radius reference. </p>
+<p>Count all point entity objects in collection. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk6centerEv">
-<span id="_CPPv3NK4acme4disk6centerEv"></span><span id="_CPPv2NK4acme4disk6centerEv"></span><span id="acme::disk::center__voidC"></span><span class="target" id="a00141_1add56db0aa6ea3baa218ea5c8b3f4a098"></span><a class="reference internal" href="class_a00161.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">center</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk6centerEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection11containLineEv">
+<span id="_CPPv3NK4acme10collection11containLineEv"></span><span id="_CPPv2NK4acme10collection11containLineEv"></span><span id="acme::collection::containLine__voidC"></span><span class="target" id="a00141_1a502bf656c0bf17bc52c29c6b8b890500"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containLine</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection11containLineEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Get disk center point const reference. </p>
+<p>Check whether in the collection there are any line entity objects. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk6centerEv">
-<span id="_CPPv3N4acme4disk6centerEv"></span><span id="_CPPv2N4acme4disk6centerEv"></span><span id="acme::disk::center__void"></span><span class="target" id="a00141_1ae4f33be0e39db1be6da3dd404533a833"></span><a class="reference internal" href="class_a00161.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">center</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6centerEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection7areLineEv">
+<span id="_CPPv3NK4acme10collection7areLineEv"></span><span id="_CPPv2NK4acme10collection7areLineEv"></span><span id="acme::collection::areLine__voidC"></span><span class="target" id="a00141_1a09b314a685cac443bc8f1a44d6cf4d2d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areLine</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection7areLineEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Get disk center point reference. </p>
+<p>Check whether the collection is composed only by line entity objects. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk6normalEv">
-<span id="_CPPv3NK4acme4disk6normalEv"></span><span id="_CPPv2NK4acme4disk6normalEv"></span><span id="acme::disk::normal__voidC"></span><span class="target" id="a00141_1ab58a4899383a3a19ab92b53a23d63b52"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">normal</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk6normalEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection6isLineE6size_t">
+<span id="_CPPv3NK4acme10collection6isLineE6size_t"></span><span id="_CPPv2NK4acme10collection6isLineE6size_t"></span><span id="acme::collection::isLine__sC"></span><span class="target" id="a00141_1ad1344851c4187d7317c7cb89743399b6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection6isLineE6size_t" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Get disk laying plane normal vector const reference. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N4acme4disk6normalEv">
-<span id="_CPPv3N4acme4disk6normalEv"></span><span id="_CPPv2N4acme4disk6normalEv"></span><span id="acme::disk::normal__void"></span><span class="target" id="a00141_1a29696a2d3879579cb314a5f3f0eb20f2"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">normal</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6normalEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Get disk laying plane normal vector reference. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk11layingPlaneEv">
-<span id="_CPPv3NK4acme4disk11layingPlaneEv"></span><span id="_CPPv2NK4acme4disk11layingPlaneEv"></span><span id="acme::disk::layingPlane__voidC"></span><span class="target" id="a00141_1a4e2e07db219ba56b675770fc81c8c44b"></span><a class="reference internal" href="class_a00157.html#_CPPv4N4acme5planeE" title="acme::plane"><span class="pre">plane</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">layingPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk11layingPlaneEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Get cicle laying plane const reference. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N4acme4disk11layingPlaneEv">
-<span id="_CPPv3N4acme4disk11layingPlaneEv"></span><span id="_CPPv2N4acme4disk11layingPlaneEv"></span><span id="acme::disk::layingPlane__void"></span><span class="target" id="a00141_1acff74d44976396f15738cfa496e4b41a"></span><a class="reference internal" href="class_a00157.html#_CPPv4N4acme5planeE" title="acme::plane"><span class="pre">plane</span></a> <span class="pre">&amp;</span><code class="sig-name descname"><span class="pre">layingPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk11layingPlaneEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Get cicle laying plane reference. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N4acme4disk9normalizeEv">
-<span id="_CPPv3N4acme4disk9normalizeEv"></span><span id="_CPPv2N4acme4disk9normalizeEv"></span><span id="acme::disk::normalize__void"></span><span class="target" id="a00141_1a9d8be108b28dcc18a1ced371bf58c7b8"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">normalize</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk9normalizeEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Normalize disk normal vector. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N4acme4disk7reverseEv">
-<span id="_CPPv3N4acme4disk7reverseEv"></span><span id="_CPPv2N4acme4disk7reverseEv"></span><span id="acme::disk::reverse__void"></span><span class="target" id="a00141_1a81fd14841280df839703360214831f4d"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">reverse</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk7reverseEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Reverse disk normal vector. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk9perimeterEv">
-<span id="_CPPv3NK4acme4disk9perimeterEv"></span><span id="_CPPv2NK4acme4disk9perimeterEv"></span><span id="acme::disk::perimeter__voidC"></span><span class="target" id="a00141_1a9b12cd7fcd62ca41ca41aecd3d776d14"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <code class="sig-name descname"><span class="pre">perimeter</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk9perimeterEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Calculate disk circumference length. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk4areaEv">
-<span id="_CPPv3NK4acme4disk4areaEv"></span><span id="_CPPv2NK4acme4disk4areaEv"></span><span id="acme::disk::area__voidC"></span><span class="target" id="a00141_1a95c21a733a382c69a3b0059f7b4ad9fb"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <code class="sig-name descname"><span class="pre">area</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk4areaEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Calculate disk area. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N4acme4disk9translateERK4vec3">
-<span id="_CPPv3N4acme4disk9translateERK4vec3"></span><span id="_CPPv2N4acme4disk9translateERK4vec3"></span><span id="acme::disk::translate__vec3CR"></span><span class="target" id="a00141_1a14ddecf475ad030fd8c2cb0fc2f6ca34"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">translate</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">vector_in</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4N4acme4disk9translateERK4vec3" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Translate by vector. </p>
+<p>Check whether in the collection the i-th element is a line entity object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>vector_in</strong> – Input translation vector </p>
+<p><strong>i</strong> – Input i-th value </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4acme4disk9transformERK6affine">
-<span id="_CPPv3N4acme4disk9transformERK6affine"></span><span id="_CPPv2N4acme4disk9transformERK6affine"></span><span id="acme::disk::transform__affineCR"></span><span class="target" id="a00141_1a95977bb8b412e0298ff34770f4e36e5b"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">void</span> <code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="pre">affine</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">affine_in</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4N4acme4disk9transformERK6affine" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10removeLineEv">
+<span id="_CPPv3N4acme10collection10removeLineEv"></span><span id="_CPPv2N4acme10collection10removeLineEv"></span><span id="acme::collection::removeLine__void"></span><span class="target" id="a00141_1acd81df1dc2a6fa7ddc99dd7d19c96651"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeLine</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection10removeLineEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Transform disk with affine transformation matrix. </p>
+<p>Remove all line entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection9countLineEv">
+<span id="_CPPv3NK4acme10collection9countLineEv"></span><span id="_CPPv2NK4acme10collection9countLineEv"></span><span id="acme::collection::countLine__voidC"></span><span class="target" id="a00141_1a8a0101f8236a434c889f77994ee2e19c"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countLine</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection9countLineEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all line entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection10containRayEv">
+<span id="_CPPv3NK4acme10collection10containRayEv"></span><span id="_CPPv2NK4acme10collection10containRayEv"></span><span id="acme::collection::containRay__voidC"></span><span class="target" id="a00141_1aea89f20da0c42193514dce154d7c01c8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containRay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection10containRayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any ray entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection6areRayEv">
+<span id="_CPPv3NK4acme10collection6areRayEv"></span><span id="_CPPv2NK4acme10collection6areRayEv"></span><span id="acme::collection::areRay__voidC"></span><span class="target" id="a00141_1a5df467fd92645db124a3d922688358dc"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areRay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection6areRayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by ray entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection5isRayE6size_t">
+<span id="_CPPv3NK4acme10collection5isRayE6size_t"></span><span id="_CPPv2NK4acme10collection5isRayE6size_t"></span><span id="acme::collection::isRay__sC"></span><span class="target" id="a00141_1a0c0c0ee482c401a7a19c04a053ad2c96"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRay</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection5isRayE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a ray entity object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>affine_in</strong> – 4x4 affine transformation matrix </p>
+<p><strong>i</strong> – Input i-th value </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk8isInsideERK5point4real">
-<span id="_CPPv3NK4acme4disk8isInsideERK5point4real"></span><span id="_CPPv2NK4acme4disk8isInsideERK5point4real"></span><span id="acme::disk::isInside__pointCR.realC"></span><span class="target" id="a00141_1a1b3cd80cf8fd95c076b5ea160579a7a2"></span><span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isInside</span></code><span class="sig-paren">(</span><a class="reference internal" href="class_a00161.html#_CPPv4N4acme5pointE" title="acme::point"><span class="pre">point</span></a> <em class="property"><span class="pre">const</span></em> <span class="pre">&amp;</span><em><span class="pre">point_in</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="pre">EPSILON</span></a><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk8isInsideERK5point4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection9removeRayEv">
+<span id="_CPPv3N4acme10collection9removeRayEv"></span><span id="_CPPv2N4acme10collection9removeRayEv"></span><span id="acme::collection::removeRay__void"></span><span class="target" id="a00141_1abfb9f55452390f63c2a8f3c1208075aa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeRay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection9removeRayEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
+<p>Remove all ray entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection8countRayEv">
+<span id="_CPPv3NK4acme10collection8countRayEv"></span><span id="_CPPv2NK4acme10collection8countRayEv"></span><span id="acme::collection::countRay__voidC"></span><span class="target" id="a00141_1a8483c9f1e3b0350da6c787a8a21f0813"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countRay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection8countRayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all ray entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12containPlaneEv">
+<span id="_CPPv3NK4acme10collection12containPlaneEv"></span><span id="_CPPv2NK4acme10collection12containPlaneEv"></span><span id="acme::collection::containPlane__voidC"></span><span class="target" id="a00141_1a43921e97780f912aff296f122f88881f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containPlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12containPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any plane entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection8arePlaneEv">
+<span id="_CPPv3NK4acme10collection8arePlaneEv"></span><span id="_CPPv2NK4acme10collection8arePlaneEv"></span><span id="acme::collection::arePlane__voidC"></span><span class="target" id="a00141_1a14a8fe4561c19fa62d7d9432a97242c6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arePlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection8arePlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by plane entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection7isPlaneE6size_t">
+<span id="_CPPv3NK4acme10collection7isPlaneE6size_t"></span><span id="_CPPv2NK4acme10collection7isPlaneE6size_t"></span><span id="acme::collection::isPlane__sC"></span><span class="target" id="a00141_1a2d978081afbeb703d3d53cc43aaab962"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPlane</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection7isPlaneE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a plane entity object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<ul class="simple">
-<li><p><strong>point_in</strong> – Query point </p></li>
-<li><p><strong>tolerance</strong> – Tolerance </p></li>
-</ul>
+<p><strong>i</strong> – Input i-th value </p>
 </dd>
 </dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk13isDegeneratedE4real">
-<span id="_CPPv3NK4acme4disk13isDegeneratedE4real"></span><span id="_CPPv2NK4acme4disk13isDegeneratedE4real"></span><span id="acme::disk::isDegenerated__realC"></span><span class="target" id="a00141_1a16cb41e8ccb60067dc79dd8b2e5eb3d2"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDegenerated</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <em><span class="pre">tolerance</span></em> <span class="pre">=</span> <a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="pre">EPSILON</span></a><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk13isDegeneratedE4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection11removePlaneEv">
+<span id="_CPPv3N4acme10collection11removePlaneEv"></span><span id="_CPPv2N4acme10collection11removePlaneEv"></span><span id="acme::collection::removePlane__void"></span><span class="target" id="a00141_1adae6e3b8c3b7f19583569eaff3a34fe2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removePlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection11removePlaneEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Check if disk is degenerated. </p>
+<p>Remove all plane entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection10countPlaneEv">
+<span id="_CPPv3NK4acme10collection10countPlaneEv"></span><span id="_CPPv2NK4acme10collection10countPlaneEv"></span><span id="acme::collection::countPlane__voidC"></span><span class="target" id="a00141_1a7512c96440cbec19ac56946d60dcb046"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countPlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection10countPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all plane entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection14containSegmentEv">
+<span id="_CPPv3NK4acme10collection14containSegmentEv"></span><span id="_CPPv2NK4acme10collection14containSegmentEv"></span><span id="acme::collection::containSegment__voidC"></span><span class="target" id="a00141_1a6bf36cf6fcb20f8e2bc83d16a7dc2384"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containSegment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection14containSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any segment entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection10areSegmentEv">
+<span id="_CPPv3NK4acme10collection10areSegmentEv"></span><span id="_CPPv2NK4acme10collection10areSegmentEv"></span><span id="acme::collection::areSegment__voidC"></span><span class="target" id="a00141_1a3ff60938e98a2c350b0135293da739c5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areSegment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection10areSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by segment entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection9isSegmentE6size_t">
+<span id="_CPPv3NK4acme10collection9isSegmentE6size_t"></span><span id="_CPPv2NK4acme10collection9isSegmentE6size_t"></span><span id="acme::collection::isSegment__sC"></span><span class="target" id="a00141_1a1451ad4ec5f384e2eb26116816a71133"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSegment</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection9isSegmentE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a segment entity object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection13removeSegmentEv">
+<span id="_CPPv3N4acme10collection13removeSegmentEv"></span><span id="_CPPv2N4acme10collection13removeSegmentEv"></span><span id="acme::collection::removeSegment__void"></span><span class="target" id="a00141_1a6ef98b5a347c64ccd05a21870751d3d5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeSegment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection13removeSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Remove all segment entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12countSegmentEv">
+<span id="_CPPv3NK4acme10collection12countSegmentEv"></span><span id="_CPPv2NK4acme10collection12countSegmentEv"></span><span id="acme::collection::countSegment__voidC"></span><span class="target" id="a00141_1ad977ddee9270a4fecab72ca98f1d52dd"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countSegment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12countSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all segment entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection15containTriangleEv">
+<span id="_CPPv3NK4acme10collection15containTriangleEv"></span><span id="_CPPv2NK4acme10collection15containTriangleEv"></span><span id="acme::collection::containTriangle__voidC"></span><span class="target" id="a00141_1a411eb7006e3890908e35678f7599866d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containTriangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection15containTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any triangle entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection11areTriangleEv">
+<span id="_CPPv3NK4acme10collection11areTriangleEv"></span><span id="_CPPv2NK4acme10collection11areTriangleEv"></span><span id="acme::collection::areTriangle__voidC"></span><span class="target" id="a00141_1a6ddea160cd063150abafcc2645a923f5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areTriangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection11areTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by triangle entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection10isTriangleE6size_t">
+<span id="_CPPv3NK4acme10collection10isTriangleE6size_t"></span><span id="_CPPv2NK4acme10collection10isTriangleE6size_t"></span><span id="acme::collection::isTriangle__sC"></span><span class="target" id="a00141_1acb545002ec6c2d874e04bb58ad996a44"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isTriangle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection10isTriangleE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a triangle entity object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection14removeTriangleEv">
+<span id="_CPPv3N4acme10collection14removeTriangleEv"></span><span id="_CPPv2N4acme10collection14removeTriangleEv"></span><span id="acme::collection::removeTriangle__void"></span><span class="target" id="a00141_1a9d559550af559f8dd06cb08a288c5517"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeTriangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection14removeTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Remove all triangle entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection13countTriangleEv">
+<span id="_CPPv3NK4acme10collection13countTriangleEv"></span><span id="_CPPv2NK4acme10collection13countTriangleEv"></span><span id="acme::collection::countTriangle__voidC"></span><span class="target" id="a00141_1aa89bf294b11cb8b711ba75cd59459f1a"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countTriangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection13countTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all triangle entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection11containDiskEv">
+<span id="_CPPv3NK4acme10collection11containDiskEv"></span><span id="_CPPv2NK4acme10collection11containDiskEv"></span><span id="acme::collection::containDisk__voidC"></span><span class="target" id="a00141_1a9ca37739749ce2e7d4648208aede203e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containDisk</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection11containDiskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any disk entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection7areDiskEv">
+<span id="_CPPv3NK4acme10collection7areDiskEv"></span><span id="_CPPv2NK4acme10collection7areDiskEv"></span><span id="acme::collection::areDisk__voidC"></span><span class="target" id="a00141_1a682eb08b6e66dff09667052a9fa09d8f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areDisk</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection7areDiskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by disk entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection6isDiskE6size_t">
+<span id="_CPPv3NK4acme10collection6isDiskE6size_t"></span><span id="_CPPv2NK4acme10collection6isDiskE6size_t"></span><span id="acme::collection::isDisk__sC"></span><span class="target" id="a00141_1a7547abd98c281f856bbba8885c87c977"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDisk</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection6isDiskE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a disk entity object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10removeDiskEv">
+<span id="_CPPv3N4acme10collection10removeDiskEv"></span><span id="_CPPv2N4acme10collection10removeDiskEv"></span><span id="acme::collection::removeDisk__void"></span><span class="target" id="a00141_1abf2b91de3ef46de60b46dbad8c7db3df"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeDisk</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection10removeDiskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Remove all disk entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection9countDiskEv">
+<span id="_CPPv3NK4acme10collection9countDiskEv"></span><span id="_CPPv2NK4acme10collection9countDiskEv"></span><span id="acme::collection::countDisk__voidC"></span><span class="target" id="a00141_1a2c352878015e00d4504960bb9acbe227"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countDisk</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection9countDiskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all disk entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection11containBallEv">
+<span id="_CPPv3NK4acme10collection11containBallEv"></span><span id="_CPPv2NK4acme10collection11containBallEv"></span><span id="acme::collection::containBall__voidC"></span><span class="target" id="a00141_1a23582c6ebeb1a72b19d16b76e68fdc7e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containBall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection11containBallEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any ball entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection7areBallEv">
+<span id="_CPPv3NK4acme10collection7areBallEv"></span><span id="_CPPv2NK4acme10collection7areBallEv"></span><span id="acme::collection::areBall__voidC"></span><span class="target" id="a00141_1a28ec5025e6d428c6c4574c1d6f8f4017"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areBall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection7areBallEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by ball entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection6isBallE6size_t">
+<span id="_CPPv3NK4acme10collection6isBallE6size_t"></span><span id="_CPPv2NK4acme10collection6isBallE6size_t"></span><span id="acme::collection::isBall__sC"></span><span class="target" id="a00141_1a10961ec0f21f3ad71bd7435281c93d60"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isBall</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection6isBallE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a ball entity object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection10removeBallEv">
+<span id="_CPPv3N4acme10collection10removeBallEv"></span><span id="_CPPv2N4acme10collection10removeBallEv"></span><span id="acme::collection::removeBall__void"></span><span class="target" id="a00141_1a9e7caf309caacc1f96d298fa67fc8be1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeBall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection10removeBallEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Remove all ball entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection9countBallEv">
+<span id="_CPPv3NK4acme10collection9countBallEv"></span><span id="_CPPv2NK4acme10collection9countBallEv"></span><span id="acme::collection::countBall__voidC"></span><span class="target" id="a00141_1a8fa554b66cecb86c6b44be8a697277c5"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countBall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection9countBallEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all ball entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection18containDegeneratedE4real">
+<span id="_CPPv3NK4acme10collection18containDegeneratedE4real"></span><span id="_CPPv2NK4acme10collection18containDegeneratedE4real"></span><span id="acme::collection::containDegenerated__realC"></span><span class="target" id="a00141_1a8ddf36976681acfd09f96d271775de61"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection18containDegeneratedE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if one of the objects in the collection is degenerated. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
@@ -367,134 +718,32 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk5levelEv">
-<span id="_CPPv3NK4acme4disk5levelEv"></span><span id="_CPPv2NK4acme4disk5levelEv"></span><span id="acme::disk::level__voidC"></span><span class="target" id="a00141_1af879f24fe959bcc1ea48d21ff717ab3d"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="pre">integer</span></a> <code class="sig-name descname"><span class="pre">level</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk5levelEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection14areDegeneratedE4real">
+<span id="_CPPv3NK4acme10collection14areDegeneratedE4real"></span><span id="_CPPv2NK4acme10collection14areDegeneratedE4real"></span><span id="acme::collection::areDegenerated__realC"></span><span class="target" id="a00141_1af6fbfa2f20b271f2489701a82a9c8ac5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection14areDegeneratedE4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Return object hierarchical level. </p>
+<p>Check whether the collection is composed only by degenerated entity objects. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk4typeEv">
-<span id="_CPPv3NK4acme4disk4typeEv"></span><span id="_CPPv2NK4acme4disk4typeEv"></span><span id="acme::disk::type__voidC"></span><span class="target" id="a00141_1ac2ecc7c9d7cda0c6c3ddd31ad15af137"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">std</span><span class="pre">::</span><span class="pre">string</span> <code class="sig-name descname"><span class="pre">type</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk4typeEv" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection13isDegeneratedE6size_t4real">
+<span id="_CPPv3NK4acme10collection13isDegeneratedE6size_t4real"></span><span id="_CPPv2NK4acme10collection13isDegeneratedE6size_t4real"></span><span id="acme::collection::isDegenerated__s.realC"></span><span class="target" id="a00141_1aa5084996b357d0f3168cdef890f35149"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDegenerated</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection13isDegeneratedE6size_t4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Return object type as string. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk6isNoneEv">
-<span id="_CPPv3NK4acme4disk6isNoneEv"></span><span id="_CPPv2NK4acme4disk6isNoneEv"></span><span id="acme::disk::isNone__voidC"></span><span class="target" id="a00141_1a46dac95d0af8df01b4638aab14a4aebe"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isNone</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk6isNoneEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is no entity. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk7isPointEv">
-<span id="_CPPv3NK4acme4disk7isPointEv"></span><span id="_CPPv2NK4acme4disk7isPointEv"></span><span id="acme::disk::isPoint__voidC"></span><span class="target" id="a00141_1a98535fea48a7fcdeccce8682026a5f2b"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPoint</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk7isPointEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a point. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk6isLineEv">
-<span id="_CPPv3NK4acme4disk6isLineEv"></span><span id="_CPPv2NK4acme4disk6isLineEv"></span><span id="acme::disk::isLine__voidC"></span><span class="target" id="a00141_1a0aeb5df0ffce6d019e3fd9c500e78c0e"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isLine</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk6isLineEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a line. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk5isRayEv">
-<span id="_CPPv3NK4acme4disk5isRayEv"></span><span id="_CPPv2NK4acme4disk5isRayEv"></span><span id="acme::disk::isRay__voidC"></span><span class="target" id="a00141_1aad8a129cb74d4de535635079c8bd0d27"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isRay</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk5isRayEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a ray. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk7isPlaneEv">
-<span id="_CPPv3NK4acme4disk7isPlaneEv"></span><span id="_CPPv2NK4acme4disk7isPlaneEv"></span><span id="acme::disk::isPlane__voidC"></span><span class="target" id="a00141_1a75dc057eb68809ee10faaf0661ef49b3"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isPlane</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk7isPlaneEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a plane. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk9isSegmentEv">
-<span id="_CPPv3NK4acme4disk9isSegmentEv"></span><span id="_CPPv2NK4acme4disk9isSegmentEv"></span><span id="acme::disk::isSegment__voidC"></span><span class="target" id="a00141_1a0f8fd86a75d8d300aea89c9d9663209d"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSegment</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk9isSegmentEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a segment. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk10isTriangleEv">
-<span id="_CPPv3NK4acme4disk10isTriangleEv"></span><span id="_CPPv2NK4acme4disk10isTriangleEv"></span><span id="acme::disk::isTriangle__voidC"></span><span class="target" id="a00141_1a547fdb98009c3b5f499358ee17b03dc4"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isTriangle</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk10isTriangleEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a triangle. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk6isDiskEv">
-<span id="_CPPv3NK4acme4disk6isDiskEv"></span><span id="_CPPv2NK4acme4disk6isDiskEv"></span><span id="acme::disk::isDisk__voidC"></span><span class="target" id="a00141_1a9baf40eb60c9710f9801a2babd2e52c6"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isDisk</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk6isDiskEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a disk. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk8isSphereEv">
-<span id="_CPPv3NK4acme4disk8isSphereEv"></span><span id="_CPPv2NK4acme4disk8isSphereEv"></span><span id="acme::disk::isSphere__voidC"></span><span class="target" id="a00141_1a59e4c5d7b5379013115151599bed896e"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isSphere</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk8isSphereEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether the object is a sphere. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk11isClampableEv">
-<span id="_CPPv3NK4acme4disk11isClampableEv"></span><span id="_CPPv2NK4acme4disk11isClampableEv"></span><span id="acme::disk::isClampable__voidC"></span><span class="target" id="a00141_1aa58adee99e6200117368615f4f34dd9e"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isClampable</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk11isClampableEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether in the disk is clampable. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk14isNonClampableEv">
-<span id="_CPPv3NK4acme4disk14isNonClampableEv"></span><span id="_CPPv2NK4acme4disk14isNonClampableEv"></span><span id="acme::disk::isNonClampable__voidC"></span><span class="target" id="a00141_1a6e2b619c9b00f5bfa1d08d6bb1dc0128"></span><em class="property"><span class="pre">inline</span></em> <em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">isNonClampable</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk14isNonClampableEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Check whether in the disk is non-clampable. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk5clampER4vec3R4vec3">
-<span id="_CPPv3NK4acme4disk5clampER4vec3R4vec3"></span><span id="_CPPv2NK4acme4disk5clampER4vec3R4vec3"></span><span id="acme::disk::clamp__vec3R.vec3RC"></span><span class="target" id="a00141_1a569374f488585ec71fe995bcaace635b"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">clamp</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <span class="pre">&amp;</span><em><span class="pre">min</span></em>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="pre">vec3</span></a> <span class="pre">&amp;</span><em><span class="pre">max</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk5clampER4vec3R4vec3" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Get minumum and maximum values along axes. </p>
+<p>Check whether in the collection the i-th element is a degenerated entity object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>min</strong> – Input minimum point </p></li>
-<li><p><strong>max</strong> – Input maximum point </p></li>
+<li><p><strong>i</strong> – Input i-th value </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
 </ul>
 </dd>
 </dl>
@@ -502,21 +751,278 @@
 </dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4acme4disk5clampER4realR4realR4realR4realR4realR4real">
-<span id="_CPPv3NK4acme4disk5clampER4realR4realR4realR4realR4realR4real"></span><span id="_CPPv2NK4acme4disk5clampER4realR4realR4realR4realR4realR4real"></span><span id="acme::disk::clamp__realR.realR.realR.realR.realR.realRC"></span><span class="target" id="a00141_1a1a327a46909396efffe0efd16300600d"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">bool</span> <code class="sig-name descname"><span class="pre">clamp</span></code><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">min_x</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">min_y</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">min_z</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">max_x</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">max_y</span></em>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="pre">real</span></a> <span class="pre">&amp;</span><em><span class="pre">max_z</span></em><span class="sig-paren">)</span> <em class="property"><span class="pre">const</span></em> <em class="property"><span class="pre">override</span></em><a class="headerlink" href="#_CPPv4NK4acme4disk5clampER4realR4realR4realR4realR4realR4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection17removeDegeneratedE4real">
+<span id="_CPPv3N4acme10collection17removeDegeneratedE4real"></span><span id="_CPPv2N4acme10collection17removeDegeneratedE4real"></span><span id="acme::collection::removeDegenerated__real"></span><span class="target" id="a00141_1a302973e99a9e591ccb30f4a62bc660cb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection17removeDegeneratedE4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Get minumum and maximum values along axes. </p>
+<p>Remove all degenerated entity objects from collection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection16countDegeneratedE4real">
+<span id="_CPPv3NK4acme10collection16countDegeneratedE4real"></span><span id="_CPPv2NK4acme10collection16countDegeneratedE4real"></span><span id="acme::collection::countDegenerated__realC"></span><span class="target" id="a00141_1a4df1a17bd2c58c215e4e3d5267ec16e6"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection16countDegeneratedE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all degenerated entity objects in collection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection16containClampableEv">
+<span id="_CPPv3NK4acme10collection16containClampableEv"></span><span id="_CPPv2NK4acme10collection16containClampableEv"></span><span id="acme::collection::containClampable__voidC"></span><span class="target" id="a00141_1a0f76aee7dee0d1a6ead3bf2ea401b8e9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection16containClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any clampable entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12areClampableEv">
+<span id="_CPPv3NK4acme10collection12areClampableEv"></span><span id="_CPPv2NK4acme10collection12areClampableEv"></span><span id="acme::collection::areClampable__voidC"></span><span class="target" id="a00141_1ae9f82162eb5b009eecbc6936a99e49b3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12areClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by clampable entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection11isClampableE6size_t">
+<span id="_CPPv3NK4acme10collection11isClampableE6size_t"></span><span id="_CPPv2NK4acme10collection11isClampableE6size_t"></span><span id="acme::collection::isClampable__sC"></span><span class="target" id="a00141_1a4850e3574b6a39f787b15d7e9e37138c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isClampable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection11isClampableE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a clampable entity object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection15removeClampableEv">
+<span id="_CPPv3N4acme10collection15removeClampableEv"></span><span id="_CPPv2N4acme10collection15removeClampableEv"></span><span id="acme::collection::removeClampable__void"></span><span class="target" id="a00141_1a44577592c034a090c148bcc0e572a169"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection15removeClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Remove all clampable entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection14countClampableEv">
+<span id="_CPPv3NK4acme10collection14countClampableEv"></span><span id="_CPPv2NK4acme10collection14countClampableEv"></span><span id="acme::collection::countClampable__voidC"></span><span class="target" id="a00141_1ae054501f8d171abb06a958c7935f8cdf"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection14countClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all clampable entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection19containNonClampableEv">
+<span id="_CPPv3NK4acme10collection19containNonClampableEv"></span><span id="_CPPv2NK4acme10collection19containNonClampableEv"></span><span id="acme::collection::containNonClampable__voidC"></span><span class="target" id="a00141_1a5eb3919f95c1a04d823f409de8e3d3f4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">containNonClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection19containNonClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection there are any non clampable entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection15areNonClampableEv">
+<span id="_CPPv3NK4acme10collection15areNonClampableEv"></span><span id="_CPPv2NK4acme10collection15areNonClampableEv"></span><span id="acme::collection::areNonClampable__voidC"></span><span class="target" id="a00141_1af715a46ba307dc56433d019ae55468d6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">areNonClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection15areNonClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the collection is composed only by non clampable entity objects. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection14isNonClampableE6size_t">
+<span id="_CPPv3NK4acme10collection14isNonClampableE6size_t"></span><span id="_CPPv2NK4acme10collection14isNonClampableE6size_t"></span><span id="acme::collection::isNonClampable__sC"></span><span class="target" id="a00141_1a332a75b3b2daa36433c615b21b42f5de"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNonClampable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection14isNonClampableE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the collection the i-th element is a non clampable entity object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection18removeNonClampableEv">
+<span id="_CPPv3N4acme10collection18removeNonClampableEv"></span><span id="_CPPv2N4acme10collection18removeNonClampableEv"></span><span id="acme::collection::removeNonClampable__void"></span><span class="target" id="a00141_1a6e3e447aefe1d475393206ff70353117"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">removeNonClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection18removeNonClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Remove all non clampable entity objects from collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection17countNonClampableEv">
+<span id="_CPPv3NK4acme10collection17countNonClampableEv"></span><span id="_CPPv2NK4acme10collection17countNonClampableEv"></span><span id="acme::collection::countNonClampable__voidC"></span><span class="target" id="a00141_1ac0b6314c5e2ecbd950e772c4c70fbf37"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">countNonClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection17countNonClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all non clampable entity objects in collection. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection4sizeEv">
+<span id="_CPPv3NK4acme10collection4sizeEv"></span><span id="_CPPv2NK4acme10collection4sizeEv"></span><span id="acme::collection::size__voidC"></span><span class="target" id="a00141_1acc08235b7f571ab8a2fc52bf5b61e4f9"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection4sizeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get collection size (number of entities) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection5countE4real">
+<span id="_CPPv3NK4acme10collection5countE4real"></span><span id="_CPPv2NK4acme10collection5countE4real"></span><span id="acme::collection::count__realC"></span><span class="target" id="a00141_1ab99d6cc06ebd10d05ce283808faaa2bb"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">count</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection5countE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Count all entity types objects in collection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection5clampERN4aabb6vecptrE">
+<span id="_CPPv3NK4acme10collection5clampERN4aabb6vecptrE"></span><span id="_CPPv2NK4acme10collection5clampERN4aabb6vecptrE"></span><span id="acme::collection::clamp__aabb::vecptrRC"></span><span class="target" id="a00141_1ad83e78415297c52b6088677d65e997c0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00129.html#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00129.html#_CPPv4N4acme4aabb6vecptrE" title="acme::aabb::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">boxes</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection5clampERN4aabb6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get vector of shered pointer to collection objects aabbs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>boxes</strong> – Vector of shered pointer to collection objects aabbs </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection13buildAABBtreeEv">
+<span id="_CPPv3N4acme10collection13buildAABBtreeEv"></span><span id="_CPPv2N4acme10collection13buildAABBtreeEv"></span><span id="acme::collection::buildAABBtree__void"></span><span class="target" id="a00141_1ad8944c2684db588e6441d85534e24cd7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buildAABBtree</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection13buildAABBtreeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Build collection AABB tree. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme10collection11ptrAABBtreeEv">
+<span id="_CPPv3N4acme10collection11ptrAABBtreeEv"></span><span id="_CPPv2N4acme10collection11ptrAABBtreeEv"></span><span id="acme::collection::ptrAABBtree__void"></span><span class="target" id="a00141_1a8c5a112a68340345ce6ffc9b0d5b4cec"></span><a class="reference internal" href="class_a00133.html#_CPPv4N4acme8AABBtreeE" title="acme::AABBtree"><span class="n"><span class="pre">AABBtree</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00133.html#_CPPv4N4acme8AABBtree3ptrE" title="acme::AABBtree::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">ptrAABBtree</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme10collection11ptrAABBtreeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return collection AABB tree shared pointer. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12intersectionER10collectionR10collection">
+<span id="_CPPv3NK4acme10collection12intersectionER10collectionR10collection"></span><span id="_CPPv2NK4acme10collection12intersectionER10collectionR10collection"></span><span id="acme::collection::intersection__collectionR.collectionRC"></span><span class="target" id="a00141_1ae9cc97bd7494310d38eb644b08937636"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme10collectionE" title="acme::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">entities</span></span>, <a class="reference internal" href="#_CPPv4N4acme10collectionE" title="acme::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">candidates</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12intersectionER10collectionR10collection" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Intersect the collection with an external collection. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>min_x</strong> – Input x value of minimum point </p></li>
-<li><p><strong>min_y</strong> – Input y value of minimum point </p></li>
-<li><p><strong>min_z</strong> – Input z value of minimum point </p></li>
-<li><p><strong>max_x</strong> – Input x value of maximum point </p></li>
-<li><p><strong>max_y</strong> – Input y value of maximum point </p></li>
-<li><p><strong>max_z</strong> – Input z value of maximum point </p></li>
+<li><p><strong>entities</strong> – External entities collection </p></li>
+<li><p><strong>candidates</strong> – Intersection candidates </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12intersectionERKN8AABBtree3ptrER10collection">
+<span id="_CPPv3NK4acme10collection12intersectionERKN8AABBtree3ptrER10collection"></span><span id="_CPPv2NK4acme10collection12intersectionERKN8AABBtree3ptrER10collection"></span><span id="acme::collection::intersection__AABBtree::ptrCR.collectionRC"></span><span class="target" id="a00141_1a6e6f7a8d51dcd9372459b57de5ee897c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4NK4acme10collection12intersectionERKN8AABBtree3ptrER10collection" title="acme::collection::intersection::AABBtree"><span class="n"><span class="pre">AABBtree</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ptr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">AABBtree</span></span>, <a class="reference internal" href="#_CPPv4N4acme10collectionE" title="acme::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">entities</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12intersectionERKN8AABBtree3ptrER10collection" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Intersect the collection AABB tree with an external AABB tree. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>AABBtree</strong> – External <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> object pointer </p></li>
+<li><p><strong>entities</strong> – Intersected entities vector list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12intersectionERKN4aabb6vecptrER10collection">
+<span id="_CPPv3NK4acme10collection12intersectionERKN4aabb6vecptrER10collection"></span><span id="_CPPv2NK4acme10collection12intersectionERKN4aabb6vecptrER10collection"></span><span id="acme::collection::intersection__aabb::vecptrCR.collectionRC"></span><span class="target" id="a00141_1a753d215b5764ec311919cf9e4cf5b374"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00129.html#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00129.html#_CPPv4N4acme4aabb6vecptrE" title="acme::aabb::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">boxes</span></span>, <a class="reference internal" href="#_CPPv4N4acme10collectionE" title="acme::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">entities</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12intersectionERKN4aabb6vecptrER10collection" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update the collection <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> with an external aabb object pointer vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>boxes</strong> – External aabb object pointer vector </p></li>
+<li><p><strong>entities</strong> – Intersected entities vector list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12intersectionEKN4aabb3ptrER10collection">
+<span id="_CPPv3NK4acme10collection12intersectionEKN4aabb3ptrER10collection"></span><span id="_CPPv2NK4acme10collection12intersectionEKN4aabb3ptrER10collection"></span><span id="acme::collection::intersection__aabb::ptrC.collectionRC"></span><span class="target" id="a00141_1a1f0833fbd2fe661dd4c8967925739e11"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00129.html#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00129.html#_CPPv4N4acme4aabb3ptrE" title="acme::aabb::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">box</span></span>, <a class="reference internal" href="#_CPPv4N4acme10collectionE" title="acme::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">entities</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12intersectionEKN4aabb3ptrER10collection" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update the collection <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> with an external aabb object pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>box</strong> – External aabb object pointer </p></li>
+<li><p><strong>entities</strong> – Intersected entities vector list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme10collection12intersectionER10collection4real">
+<span id="_CPPv3NK4acme10collection12intersectionER10collection4real"></span><span id="_CPPv2NK4acme10collection12intersectionER10collection4real"></span><span id="acme::collection::intersection__collectionR.realC"></span><span class="target" id="a00141_1aedbcc7c8d43b3da0e464d3d564a4d70d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme10collectionE" title="acme::collection"><span class="n"><span class="pre">collection</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">entities</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme10collection12intersectionER10collection4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Intersect all. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>entities</strong> – Intersection candidates </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
 </ul>
 </dd>
 </dl>
@@ -527,8 +1033,8 @@
 </dd>
 </dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
 
@@ -539,13 +1045,13 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+              <img class="logo" src="../_static/../logo.png" alt="Logo"/>
             </a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -566,7 +1072,7 @@
       &copy;2020, Davide Stocco.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

@@ -4,9 +4,9 @@ clc;
 clear all;
 close all;
 
-% Create sphere
+% Create Ball
 
-i1 = acme_sphere(3, [1 2 3]');
+i1 = acme_ball(3, [1 2 3]');
 
 % Create line, ray, plane and segment
 

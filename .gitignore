@@ -48,3 +48,6 @@ docs_build/sphinx/api
 docs_build/xml
 docs_build/xml-cpp
 license.txt
+
+.DS_Store
+

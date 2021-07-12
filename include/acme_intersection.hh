@@ -42,7 +42,7 @@
 #include "acme_plane.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
-#include "acme_sphere.hh"
+#include "acme_ball.hh"
 #include "acme_triangle.hh"
 
 namespace acme
@@ -494,12 +494,12 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection between spheres \n
+  //! Intersection between balls \n
   //! WARNING: This function not supported!
   bool
   intersection(
-      sphere const &sphere0_in,        //!< Input sphere 0
-      sphere const &sphere1_in,        //!< Input sphere 1
+      ball const &ball0_in,        //!< Input ball 0
+      ball const &ball1_in,        //!< Input ball 1
       none &none_out = THROWAWAY_NONE, //!< Output none
       real tolerance = EPSILON         //!< Tolerance
   );
@@ -534,12 +534,12 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection line and sphere \n
+  //! Intersection line and ball \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       line const &line_in,                      //!< Input line
-      sphere const &sphere_in,                  //!< Input sphere
+      ball const &ball_in,                  //!< Input ball
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
@@ -574,12 +574,12 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection ray and sphere \n
+  //! Intersection ray and ball \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       ray const &ray_in,                        //!< Input ray
-      sphere const &sphere_in,                  //!< Input sphere
+      ball const &ball_in,                  //!< Input ball
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
@@ -614,12 +614,12 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection plane and sphere \n
+  //! Intersection plane and ball \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       plane const &plane_in,           //!< Input plane
-      sphere const &sphere_in,         //!< Input sphere
+      ball const &ball_in,         //!< Input ball
       disk &disk_out = THROWAWAY_DISK, //!< Output disk
       real tolerance = EPSILON         //!< Tolerance
   );
@@ -644,12 +644,12 @@ namespace acme
       real tolerance = EPSILON            //!< Tolerance
   );
 
-  //! Intersection segment and sphere \n
+  //! Intersection segment and ball \n
   //! WARNING: This function does not support coplanarity!
   bool
   intersection(
       segment const &segment_in,                //!< Input segment
-      sphere const &sphere_in,                  //!< Input sphere
+      ball const &ball_in,                  //!< Input ball
       segment &segment_out = THROWAWAY_SEGMENT, //!< Output segment
       real tolerance = EPSILON                  //!< Tolerance
   );
@@ -664,22 +664,22 @@ namespace acme
       real tolerance = EPSILON                  //!< Tolerance
   );
 
-  //! Intersection triangle and sphere \n
+  //! Intersection triangle and ball \n
   //! WARNING: Function not supported!
   bool
   intersection(
       triangle const &triangle_in,     //!< Input triangle
-      sphere const &sphere_in,         //!< Input sphere
+      ball const &ball_in,         //!< Input ball
       none &none_out = THROWAWAY_NONE, //!< Output none
       real tolerance = EPSILON         //!< Tolerance
   );
 
-  //! Intersection disk and sphere \n
+  //! Intersection disk and ball \n
   //! WARNING: Function not supported!
   bool
   intersection(
       disk const &disk_in,             //!< Input disk
-      sphere const &sphere_in,         //!< Input sphere
+      ball const &ball_in,         //!< Input ball
       none &none_out = THROWAWAY_NONE, //!< Output none
       real tolerance = EPSILON         //!< Tolerance
   );

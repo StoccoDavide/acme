@@ -119,8 +119,8 @@ namespace acme
     //! Check whether the object is a disk
     virtual bool isDisk(void) const = 0;
 
-    //! Check whether the object is a sphere
-    virtual bool isSphere(void) const = 0;
+    //! Check whether the object is a ball
+    virtual bool isBall(void) const = 0;
 
     //! Check whether in the entity is clampable
     virtual bool isClampable(void) const = 0;

@@ -40,7 +40,7 @@
 #include "acme_point.hh"
 #include "acme_ray.hh"
 #include "acme_segment.hh"
-#include "acme_sphere.hh"
+#include "acme_ball.hh"
 #include "acme_triangle.hh"
 
 namespace acme
@@ -117,11 +117,11 @@ namespace acme
       disk const &obj //!< Disk object
   );
 
-  //! Stream out operator for sphere object
+  //! Stream out operator for ball object
   out_stream &
   operator<<(
       out_stream &os,   //!< Output stream
-      sphere const &obj //!< Sphere object
+      ball const &obj //!< Ball object
   );
 
   //! Stream out operator for affine object

@@ -222,7 +222,7 @@ namespace acme
   out_stream &
   operator<<(
       out_stream &os,
-      sphere const &obj)
+      ball const &obj)
   {
     real obj_radius(obj.radius());
     point obj_center(obj.center());

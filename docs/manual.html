@@ -4,15 +4,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>ACME general features &#8212; ACME v0.1
 </title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -36,7 +37,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="acme-general-features">
+  <section id="acme-general-features">
 <h1>ACME general features<a class="headerlink" href="#acme-general-features" title="Permalink to this headline">¶</a>
 </h1>
 <p>Geometrical entities in ACME are organised in classes with the following structure:</p>
@@ -49,13 +50,13 @@
 <li><p>class <cite>plane</cite> &lt; <cite>entity</cite>;</p></li>
 <li><p>class <cite>segment</cite> &lt; <cite>entity</cite>;</p></li>
 <li><p>class <cite>triangle</cite> &lt; <cite>entity</cite>;</p></li>
-<li><p>class <cite>circle</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>disk</cite> &lt; <cite>entity</cite>;</p></li>
 <li><p>class <cite>aabb</cite> &lt; <cite>entity</cite>;</p></li>
 <li><p>class <cite>AABBtree</cite>;</p></li>
 </ul>
 <p>where the symbol &lt; indicates the inheritance. Let us get a closer and detailed
 look to each of these classes.</p>
-<div class="section" id="class-entity">
+<section id="class-entity">
 <h2>Class <cite>entity</cite><a class="headerlink" href="#class-entity" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>entity</cite> class is the most basic class. Its aim is to provide a common framework
@@ -71,11 +72,11 @@ the geometric entity itself are the following:</p>
 <li><p>virtual method <cite>isPlane</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isSegment</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isTriangle</cite> which returns a <cite>bool</cite> type;</p></li>
-<li><p>virtual method <cite>isCircle</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isDisk</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isAabb</cite> which returns a <cite>bool</cite> type;</p></li>
 </ul>
-</div>
-<div class="section" id="class-none">
+</section>
+<section id="class-none">
 <h2>Class <cite>none</cite><a class="headerlink" href="#class-none" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>none</cite> class is a publicly inherited class from <cite>entity</cite>. Its aim is to represent
@@ -83,8 +84,8 @@ nothing than nothing. As will be later explained if we exploit the the polymorph
 this class will represent the null intersection between objects. The <cite>none</cite> class
 is a non-abstract class with no members. The implemented methods only override the
 virtual ones defined in the base class <cite>entity</cite>.</p>
-</div>
-<div class="section" id="class-line">
+</section>
+<section id="class-line">
 <h2>Class <cite>line</cite><a class="headerlink" href="#class-line" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>line</cite> class publicly inherit from <cite>entity</cite> and it represents a line the 3D space.
@@ -110,8 +111,8 @@ It is built out of two members:</p>
 <li><p><cite>transform</cite>: transform line with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the line.</p></li>
 </ul>
-</div>
-<div class="section" id="class-ray">
+</section>
+<section id="class-ray">
 <h2>Class <cite>ray</cite><a class="headerlink" href="#class-ray" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>ray</cite> class publicly inherit from <cite>entity</cite> and it represents a ray the 3D space.
@@ -137,8 +138,8 @@ It is very similar to the <cite>line</cite> class and it built out of two member
 <li><p><cite>transform</cite>: transform ray with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the ray.</p></li>
 </ul>
-</div>
-<div class="section" id="class-plane">
+</section>
+<section id="class-plane">
 <h2>Class <cite>plane</cite><a class="headerlink" href="#class-plane" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>plane</cite> class publicly inherit from <cite>entity</cite> and it represents a generic
@@ -168,8 +169,8 @@ plane the 3D space. It is built out of two members:</p>
 <li><p><cite>squaredDistance</cite>: squared distance between point and plane;</p></li>
 <li><p><cite>signedDistance</cite>: signed distance between point and plane.</p></li>
 </ul>
-</div>
-<div class="section" id="class-segment">
+</section>
+<section id="class-segment">
 <h2>Class <cite>segment</cite><a class="headerlink" href="#class-segment" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>segment</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -192,8 +193,8 @@ of type <cite>point</cite>.</p>
 <li><p><cite>transform</cite>: transform segment with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the segment.</p></li>
 </ul>
-</div>
-<div class="section" id="class-triangle">
+</section>
+<section id="class-triangle">
 <h2>Class <cite>triangle</cite><a class="headerlink" href="#class-triangle" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>triangle</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -221,12 +222,12 @@ of type <cite>point</cite>.</p>
 <li><p><cite>transform</cite>: transform triangle with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the triangle.</p></li>
 </ul>
-</div>
-<div class="section" id="class-circle">
-<h2>Class <cite>circle</cite><a class="headerlink" href="#class-circle" title="Permalink to this headline">¶</a>
+</section>
+<section id="class-disk">
+<h2>Class <cite>disk</cite><a class="headerlink" href="#class-disk" title="Permalink to this headline">¶</a>
 </h2>
-<p>The <cite>circle</cite> class publicly inherit from <cite>entity</cite> and represents a generic
-circle the 3D space. It is built out of three members:</p>
+<p>The <cite>disk</cite> class publicly inherit from <cite>entity</cite> and represents a generic
+disk the 3D space. It is built out of three members:</p>
 <ul class="simple">
 <li><p>an <strong>radius</strong>, represented by a member of type <cite>real</cite>;</p></li>
 <li><p>an <strong>center</strong> point, represented by a member of type <cite>point</cite>;</p></li>
@@ -235,26 +236,26 @@ circle the 3D space. It is built out of three members:</p>
 <p>The implemented methods are:</p>
 <ul class="simple">
 <li><p><cite>operator=</cite>: equality operator;</p></li>
-<li><p><cite>isApprox</cite>: check if circle are (almost) equal;</p></li>
+<li><p><cite>isApprox</cite>: check if disk are (almost) equal;</p></li>
 <li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
-<li><p><cite>radius</cite>: return circle radius;</p></li>
-<li><p><cite>radius</cite>: set circle radius;</p></li>
-<li><p><cite>center</cite>: return circle center point;</p></li>
-<li><p><cite>center</cite>: set circle center point;</p></li>
-<li><p><cite>normal</cite>: return circle normal vector;</p></li>
-<li><p><cite>normal</cite>: set circle normal vector;</p></li>
-<li><p><cite>normalize</cite>: get normalize circle normal vector;</p></li>
-<li><p><cite>layingPlane</cite>: get circle laying plane;</p></li>
-<li><p><cite>reverse</cite>: reverse circle normal vector;</p></li>
-<li><p><cite>clamp</cite>: resize minimum aabb containing the circle object</p></li>
-<li><p><cite>perimeter</cite>: calculate circle perimeter;</p></li>
-<li><p><cite>area</cite>: calculate circle area;</p></li>
-<li><p><cite>translate</cite>: translate circle by vector;</p></li>
-<li><p><cite>transform</cite>: transform circle with affine transformation matrix;</p></li>
-<li><p><cite>isInside</cite>: check whether the point is inside the circle.</p></li>
+<li><p><cite>radius</cite>: return disk radius;</p></li>
+<li><p><cite>radius</cite>: set disk radius;</p></li>
+<li><p><cite>center</cite>: return disk center point;</p></li>
+<li><p><cite>center</cite>: set disk center point;</p></li>
+<li><p><cite>normal</cite>: return disk normal vector;</p></li>
+<li><p><cite>normal</cite>: set disk normal vector;</p></li>
+<li><p><cite>normalize</cite>: get normalize disk normal vector;</p></li>
+<li><p><cite>layingPlane</cite>: get disk laying plane;</p></li>
+<li><p><cite>reverse</cite>: reverse disk normal vector;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the disk object</p></li>
+<li><p><cite>perimeter</cite>: calculate disk perimeter;</p></li>
+<li><p><cite>area</cite>: calculate disk area;</p></li>
+<li><p><cite>translate</cite>: translate disk by vector;</p></li>
+<li><p><cite>transform</cite>: transform disk with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
 </ul>
-</div>
-<div class="section" id="class-aabb">
+</section>
+<section id="class-aabb">
 <h2>Class <cite>aabb</cite><a class="headerlink" href="#class-aabb" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>aabb</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -266,28 +267,28 @@ axis-aligne bounding box in the 3D space. It is built out of two members:</p>
 <p>The implemented methods are:</p>
 <ul class="simple">
 <li><p><cite>operator=</cite>: equality operator;</p></li>
-<li><p><cite>isApprox</cite>: check if circle are (almost) equal;</p></li>
+<li><p><cite>isApprox</cite>: check if disk are (almost) equal;</p></li>
 <li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
-<li><p><cite>radius</cite>: return circle radius;</p></li>
-<li><p><cite>radius</cite>: set circle radius;</p></li>
-<li><p><cite>center</cite>: return circle center point;</p></li>
-<li><p><cite>center</cite>: set circle center point;</p></li>
-<li><p><cite>normal</cite>: return circle normal vector;</p></li>
-<li><p><cite>normal</cite>: set circle normal vector;</p></li>
-<li><p><cite>normalize</cite>: get normalize circle normal vector;</p></li>
-<li><p><cite>layingPlane</cite>: get circle laying plane;</p></li>
-<li><p><cite>reverse</cite>: reverse circle normal vector;</p></li>
-<li><p><cite>clamp</cite>: resize minimum aabb containing the circle object</p></li>
-<li><p><cite>perimeter</cite>: calculate circle perimeter;</p></li>
-<li><p><cite>area</cite>: calculate circle area;</p></li>
-<li><p><cite>translate</cite>: translate circle by vector;</p></li>
-<li><p><cite>transform</cite>: transform circle with affine transformation matrix;</p></li>
-<li><p><cite>isInside</cite>: check whether the point is inside the circle.</p></li>
+<li><p><cite>radius</cite>: return disk radius;</p></li>
+<li><p><cite>radius</cite>: set disk radius;</p></li>
+<li><p><cite>center</cite>: return disk center point;</p></li>
+<li><p><cite>center</cite>: set disk center point;</p></li>
+<li><p><cite>normal</cite>: return disk normal vector;</p></li>
+<li><p><cite>normal</cite>: set disk normal vector;</p></li>
+<li><p><cite>normalize</cite>: get normalize disk normal vector;</p></li>
+<li><p><cite>layingPlane</cite>: get disk laying plane;</p></li>
+<li><p><cite>reverse</cite>: reverse disk normal vector;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the disk object</p></li>
+<li><p><cite>perimeter</cite>: calculate disk perimeter;</p></li>
+<li><p><cite>area</cite>: calculate disk area;</p></li>
+<li><p><cite>translate</cite>: translate disk by vector;</p></li>
+<li><p><cite>transform</cite>: transform disk with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
 </ul>
 <p>Even if <cite>aabb</cite> is considered to be a geometrical entity there are still no external functions
 implemented for geometrical intersections with the other entities.</p>
-</div>
-<div class="section" id="class-aabbtree">
+</section>
+<section id="class-aabbtree">
 <h2>Class <cite>AABBtree</cite><a class="headerlink" href="#class-aabbtree" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>AABBtree</cite> represents a generic axis-aligned bouding box tree class container.
@@ -305,8 +306,8 @@ It is built out of two members:</p>
 <li><p><cite>collision</cite>: template function to check if two AABB tree collide;</p></li>
 <li><p><cite>intersection</cite>: compute all the intersection leafs of AABB trees.</p></li>
 </ul>
-</div>
-<div class="section" id="external-functions">
+</section>
+<section id="external-functions">
 <h2>External functions<a class="headerlink" href="#external-functions" title="Permalink to this headline">¶</a>
 </h2>
 <p>Objects defined by the previous classes can interact between them through external
@@ -321,8 +322,8 @@ entities <em>collide</em>;</p></li>
 </ul>
 <p>Each of these functions are overloaded and they can take objects or raw pointers
 to <cite>entity</cite> as input.</p>
-</div>
-</div>
+</section>
+</section>
 
 
 
@@ -333,13 +334,13 @@ to <cite>entity</cite> as input.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo.png" alt="Logo"/>
+              <img class="logo" src="_static/../logo.png" alt="Logo"/>
             </a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -360,7 +361,7 @@ to <cite>entity</cite> as input.</p>
       &copy;2020, Davide Stocco.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

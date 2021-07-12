@@ -73,6 +73,11 @@ About the authors
 | University of Trento
 | enrico.bertolazzi@unitn.it
 
+3rd parties libs
+----------------
+
+- `Eigen3 <https://eigen.tuxfamily.org>`__
+
 References
 ----------
 

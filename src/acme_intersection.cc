@@ -648,7 +648,7 @@ namespace acme
       case 309:
         entity_out = new segment();
         collide = intersection(*dynamic_cast<line const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<segment *>(entity_out),
                                tolerance);
         break;
@@ -706,7 +706,7 @@ namespace acme
       case 409:
         entity_out = new segment();
         collide = intersection(*dynamic_cast<ray const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<segment *>(entity_out),
                                tolerance);
         break;
@@ -763,7 +763,7 @@ namespace acme
       case 509:
         entity_out = new disk();
         collide = intersection(*dynamic_cast<plane const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<disk *>(entity_out),
                                tolerance);
         break;
@@ -821,7 +821,7 @@ namespace acme
       case 609:
         entity_out = new segment();
         collide = intersection(*dynamic_cast<segment const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<segment *>(entity_out),
                                tolerance);
         break;
@@ -879,7 +879,7 @@ namespace acme
       case 709:
         entity_out = new none();
         collide = intersection(*dynamic_cast<triangle const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<none *>(entity_out),
                                tolerance);
         break;
@@ -937,17 +937,17 @@ namespace acme
       case 809:
         entity_out = new none();
         collide = intersection(*dynamic_cast<disk const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<none *>(entity_out),
                                tolerance);
         break;
 
-        // - - - - - - - - - - - - - - SPHERE - - - - - - - - - - - - - -
+        // - - - - - - - - - - - - - - BALL - - - - - - - - - - - - - -
 
       case 903:
         entity_out = new segment();
         collide = intersection(*dynamic_cast<line const *>(entity1_in),
-                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity0_in),
                                *dynamic_cast<segment *>(entity_out),
                                tolerance);
         break;
@@ -955,7 +955,7 @@ namespace acme
       case 904:
         entity_out = new segment();
         collide = intersection(*dynamic_cast<ray const *>(entity1_in),
-                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity0_in),
                                *dynamic_cast<segment *>(entity_out),
                                tolerance);
         break;
@@ -963,7 +963,7 @@ namespace acme
       case 905:
         entity_out = new disk();
         collide = intersection(*dynamic_cast<plane const *>(entity1_in),
-                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity0_in),
                                *dynamic_cast<disk *>(entity_out),
                                tolerance);
         break;
@@ -971,7 +971,7 @@ namespace acme
       case 906:
         entity_out = new segment();
         collide = intersection(*dynamic_cast<segment const *>(entity1_in),
-                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity0_in),
                                *dynamic_cast<segment *>(entity_out),
                                tolerance);
         break;
@@ -979,7 +979,7 @@ namespace acme
       case 907:
         entity_out = new none();
         collide = intersection(*dynamic_cast<triangle const *>(entity1_in),
-                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity0_in),
                                *dynamic_cast<none *>(entity_out),
                                tolerance);
         break;
@@ -987,15 +987,15 @@ namespace acme
       case 908:
         entity_out = new none();
         collide = intersection(*dynamic_cast<disk const *>(entity1_in),
-                               *dynamic_cast<sphere const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity0_in),
                                *dynamic_cast<none *>(entity_out),
                                tolerance);
         break;
 
       case 909:
         entity_out = new none();
-        collide = intersection(*dynamic_cast<sphere const *>(entity0_in),
-                               *dynamic_cast<sphere const *>(entity1_in),
+        collide = intersection(*dynamic_cast<ball const *>(entity0_in),
+                               *dynamic_cast<ball const *>(entity1_in),
                                *dynamic_cast<none *>(entity_out),
                                tolerance);
         break;
@@ -1746,12 +1746,12 @@ namespace acme
 
   bool
   intersection(
-      sphere const &sphere0_in,
-      sphere const &sphere1_in,
+      ball const &ball0_in,
+      ball const &ball1_in,
       none &none_out,
       real tolerance)
   {
-    ACME_ERROR("acme::intersection(sphere, sphere): function not supported")
+    ACME_ERROR("acme::intersection(ball, ball): function not supported")
     return false;
   }
 
@@ -2308,14 +2308,14 @@ namespace acme
   bool
   intersection(
       line const &line_in,
-      sphere const &sphere_in,
+      ball const &ball_in,
       segment &segment_out,
       real tolerance)
   {
     vec3 origin(line_in.origin());
     vec3 direction(line_in.toUnitVector());
-    vec3 diff(origin - sphere_in.center());
-    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
+    vec3 diff(origin - ball_in.center());
+    real a0 = diff.dot(diff) - ball_in.radius() * ball_in.radius();
     real a1 = direction.dot(diff);
     real discr = a1 * a1 - a0;
     if (discr > tolerance)
@@ -2427,14 +2427,14 @@ namespace acme
   bool
   intersection(
       ray const &ray_in,
-      sphere const &sphere_in,
+      ball const &ball_in,
       segment &segment_out,
       real tolerance)
   {
     vec3 origin(ray_in.origin());
     vec3 direction(ray_in.toUnitVector());
-    vec3 diff(origin - sphere_in.center());
-    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
+    vec3 diff(origin - ball_in.center());
+    real a0 = diff.dot(diff) - ball_in.radius() * ball_in.radius();
     real a1 = direction.dot(diff);
     real discr = a1 * a1 - a0;
     if (discr > tolerance)
@@ -2530,17 +2530,17 @@ namespace acme
   bool
   intersection(
       plane const &plane_in,
-      sphere const &sphere_in,
+      ball const &ball_in,
       disk &disk_out,
       real tolerance)
   {
     vec3 normal(plane_in.unitNormal());
-    real signed_distance = (sphere_in.center() - plane_in.origin()).dot(normal);
+    real signed_distance = (ball_in.center() - plane_in.origin()).dot(normal);
     real distance = std::abs(signed_distance);
-    if (distance <= sphere_in.radius())
+    if (distance <= ball_in.radius())
     {
-      disk_out.radius() = std::sqrt((sphere_in.radius() + distance) * (sphere_in.radius() - distance));
-      disk_out.center() = sphere_in.center() - signed_distance * normal;
+      disk_out.radius() = std::sqrt((ball_in.radius() + distance) * (ball_in.radius() - distance));
+      disk_out.center() = ball_in.center() - signed_distance * normal;
       disk_out.normal() = normal;
       return true;
     }
@@ -2615,14 +2615,14 @@ namespace acme
   bool
   intersection(
       segment const &segment_in,
-      sphere const &sphere_in,
+      ball const &ball_in,
       segment &segment_out,
       real tolerance)
   {
     vec3 origin(segment_in.vertex(0));
     vec3 direction(segment_in.toVector());
-    vec3 diff(origin - sphere_in.center());
-    real a0 = diff.dot(diff) - sphere_in.radius() * sphere_in.radius();
+    vec3 diff(origin - ball_in.center());
+    real a0 = diff.dot(diff) - ball_in.radius() * ball_in.radius();
     real a1 = direction.dot(diff);
     real discr = a1 * a1 - a0;
     if (discr > tolerance)
@@ -2671,11 +2671,11 @@ namespace acme
   bool
   intersection(
       triangle const &triangle_in,
-      sphere const &sphere_in,
+      ball const &ball_in,
       none &none_out,
       real tolerance)
   {
-    ACME_ERROR("acme::intersection(triangle, sphere): function not supported")
+    ACME_ERROR("acme::intersection(triangle, ball): function not supported")
     return false;
   }
 
@@ -2684,11 +2684,11 @@ namespace acme
   bool
   intersection(
       disk const &disk_in,
-      sphere const &sphere_in,
+      ball const &ball_in,
       none &none_out,
       real tolerance)
   {
-    ACME_ERROR("acme::intersection(disk, sphere): function not supported")
+    ACME_ERROR("acme::intersection(disk, ball): function not supported")
     return false;
   }
 

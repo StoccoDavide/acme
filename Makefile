@@ -23,79 +23,81 @@
 # (*                                                                     *)
 # (***********************************************************************)
 
-OS	= $(shell uname -s)
+OS  = $(shell uname -s)
 PWD = $(shell pwd)
 
-SOURCES				= $(wildcard src/*.cc)
-OBJECTS				= $(patsubst src/%.cc, build/%.o, $(SOURCES))
+SOURCES       = $(wildcard src/*.cc)
+OBJECTS       = $(patsubst src/%.cc, build/%.o, $(SOURCES))
 TESTS_SOURCES = $(wildcard tests/*.cc)
-INCLUDEDIRS 	 = -Iinclude -Isubmodules/acme/lib/include
+INCLUDEDIRS   = -Iinclude -Isubmodules/acme/lib/include
 
-CXXFLAGS			= $(INCLUDEDIRS) $(shell pkg-config --cflags eigen3) 
-LIBS					= 
-DEFS					=
-STATIC_EXT		= .a
-DYNAMIC_EXT		= .so
+CXXFLAGS    = $(INCLUDEDIRS) $(shell pkg-config --cflags eigen3) 
+LIBS        = 
+DEFS        =
+STATIC_EXT  = .a
+DYNAMIC_EXT = .so
 
 # check if the OS string contains 'Linux'
 ifneq (,$(findstring Linux, $(OS)))
-	LIBS			+= #-static -L./lib -lacme
-	CXXFLAGS 	+= -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment $(RPATH)
-	AR				= ar rcs
-	LDCONFIG	= sudo ldconfig
+  LIBS     += #-static -L./lib -lacme
+  CXXFLAGS += -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment $(RPATH)
+  AR       = ar rcs
+  LDCONFIG = sudo ldconfig
 endif
 
 # check if the OS string contains 'MINGW'
 ifneq (,$(findstring MINGW, $(OS)))
-	LIBS			+= #-static -L./lib -lacme
-	CXXFLAGS 	+= -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment
-	AR				= ar rcs
-	LDCONFIG	= sudo ldconfig
+  LIBS     += #-static -L./lib -lacme
+  CXXFLAGS += -g -std=c++11 $(WARN) -O2 -fPIC -Wall -Wpedantic -Wextra -Wno-comment
+  AR        = ar rcs
+  LDCONFIG  = sudo ldconfig
 endif
 
 # check if the OS string contains 'Darwin'
 ifneq (,$(findstring Darwin, $(OS)))
-	LIBS				+= #-L./lib -lacme
-	WARN				= -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
-	CC					= clang
-	CXX					= clang++ -std=c++11 -g
-	CXXFLAGS		+= $(WARN) -O2 -fPIC
-	AR					= libtool -static -o
-	LDCONFIG		= 
-	DYNAMIC_EXT = .dylib
+  LIBS += #-L./lib -lacme
+  WARN  = -Wall -Wno-sign-compare -Wno-global-constructors -Wno-padded -Wno-documentation-unknown-command
+  CC          = clang
+  CXX         = clang++ -std=c++11 -g
+  CXXFLAGS   += $(WARN) -O2 -fPIC
+  AR          = libtool -static -o
+  LDCONFIG    = 
+  DYNAMIC_EXT = .dylib
 endif
 
 LIB_ACME = libacme
 MKDIR = mkdir -p
-DEPS	= include/acme_aabb.hh         \
-				include/acme_AABBtree.hh     \
-				include/acme_disk.hh         \
-				include/acme_collection.hh   \
-				include/acme_collinear.hh    \
-				include/acme_coplanar.hh     \
-				include/acme_entity.hh       \
-				include/acme_intersection.hh \
-				include/acme_line.hh         \
-				include/acme_math.hh         \
-				include/acme_none.hh         \
-				include/acme_orthogonal.hh   \
-				include/acme_parallel.hh     \
-				include/acme_plane.hh        \
-				include/acme_point.hh        \
-				include/acme_ray.hh          \
-				include/acme_segment.hh      \
-				include/acme_triangle.hh     \
-				include/acme_utils.hh        \
-				include/acme.hh              \
+DEPS  = \
+include/acme_aabb.hh         \
+include/acme_AABBtree.hh     \
+include/acme_disk.hh         \
+include/acme_collection.hh   \
+include/acme_collinear.hh    \
+include/acme_coplanar.hh     \
+include/acme_entity.hh       \
+include/acme_intersection.hh \
+include/acme_line.hh         \
+include/acme_math.hh         \
+include/acme_none.hh         \
+include/acme_orthogonal.hh   \
+include/acme_parallel.hh     \
+include/acme_plane.hh        \
+include/acme_point.hh        \
+include/acme_ray.hh          \
+include/acme_segment.hh      \
+include/acme_triangle.hh     \
+include/acme_utils.hh        \
+include/acme.hh              \
 
 # prefix for installation, use make PREFIX=/new/prefix install
 # to override
 PREFIX    = /usr/local
 FRAMEWORK = acme
 
-all: $(OBJECTS)
 
-lib: lib/$(LIB_ACME)$(STATIC_EXT) lib/$(LIB_ACME)$(DYNAMIC_EXT)
+all: dir $(OBJECTS)
+
+lib: dir lib/$(LIB_ACME)$(STATIC_EXT) lib/$(LIB_ACME)$(DYNAMIC_EXT)
 
 include_local:
 	@rm -rf lib/include
@@ -145,7 +147,7 @@ clean:
 	rm -rf $(TARGET)
 	rm -rf $(OBJECTS)
 
-tests: $(OBJECTS) $(TESTS_SOURCES)
+tests: dir $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test0.cc -o bin/acme-test0 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test1.cc -o bin/acme-test1 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test2.cc -o bin/acme-test2 $(LIBS)
@@ -164,7 +166,7 @@ tests: $(OBJECTS) $(TESTS_SOURCES)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test15.cc -o bin/acme-test15 $(LIBS)
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) tests/acme-test16.cc -o bin/acme-test16 $(LIBS)
 
-tests_run:
+run:
 	./bin/acme-test0
 	./bin/acme-test1
 	./bin/acme-test2

@@ -204,8 +204,8 @@ namespace acme
     //! Check whether the object is a disk
     bool isDisk(void) const override { return false; }
 
-    //! Check whether the object is a sphere
-    bool isSphere(void) const override { return false; }
+    //! Check whether the object is a ball
+    bool isBall(void) const override { return false; }
 
     //! Check whether in the plane is clampable
     bool isClampable(void) const override { return false; }

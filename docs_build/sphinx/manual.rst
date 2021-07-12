@@ -11,7 +11,7 @@ Geometrical entities in ACME are organised in classes with the following structu
 - class `plane` < `entity`;
 - class `segment` < `entity`;
 - class `triangle` < `entity`;
-- class `circle` < `entity`;
+- class `disk` < `entity`;
 - class `aabb` < `entity`;
 - class `AABBtree`;
 
@@ -34,7 +34,7 @@ the geometric entity itself are the following:
 -  virtual method `isPlane` which returns a `bool` type;
 -  virtual method `isSegment` which returns a `bool` type;
 -  virtual method `isTriangle` which returns a `bool` type;
--  virtual method `isCircle` which returns a `bool` type;
+-  virtual method `isDisk` which returns a `bool` type;
 -  virtual method `isAabb` which returns a `bool` type;
 
 Class `none`
@@ -181,11 +181,11 @@ The implemented methods are:
 - `transform`: transform triangle with affine transformation matrix;
 - `isInside`: check whether the point is inside the triangle.
 
-Class `circle`
+Class `disk`
 --------------
 
-The `circle` class publicly inherit from `entity` and represents a generic
-circle the 3D space. It is built out of three members:
+The `disk` class publicly inherit from `entity` and represents a generic
+disk the 3D space. It is built out of three members:
 
 - an **radius**, represented by a member of type `real`;
 - an **center** point, represented by a member of type `point`;
@@ -194,23 +194,23 @@ circle the 3D space. It is built out of three members:
 The implemented methods are:
 
 - `operator=`: equality operator;
-- `isApprox`: check if circle are (almost) equal;
+- `isApprox`: check if disk are (almost) equal;
 - `isDegenerated`: check if radius is degenerated (radius is zero and normal vector has zero norm);
-- `radius`: return circle radius;
-- `radius`: set circle radius;
-- `center`: return circle center point;
-- `center`: set circle center point;
-- `normal`: return circle normal vector;
-- `normal`: set circle normal vector;
-- `normalize`: get normalize circle normal vector;
-- `layingPlane`: get circle laying plane;
-- `reverse`: reverse circle normal vector;
-- `clamp`: resize minimum aabb containing the circle object
-- `perimeter`: calculate circle perimeter;
-- `area`: calculate circle area;
-- `translate`: translate circle by vector;
-- `transform`: transform circle with affine transformation matrix;
-- `isInside`: check whether the point is inside the circle.
+- `radius`: return disk radius;
+- `radius`: set disk radius;
+- `center`: return disk center point;
+- `center`: set disk center point;
+- `normal`: return disk normal vector;
+- `normal`: set disk normal vector;
+- `normalize`: get normalize disk normal vector;
+- `layingPlane`: get disk laying plane;
+- `reverse`: reverse disk normal vector;
+- `clamp`: resize minimum aabb containing the disk object
+- `perimeter`: calculate disk perimeter;
+- `area`: calculate disk area;
+- `translate`: translate disk by vector;
+- `transform`: transform disk with affine transformation matrix;
+- `isInside`: check whether the point is inside the disk.
 
 Class `aabb`
 ------------
@@ -224,23 +224,23 @@ axis-aligne bounding box in the 3D space. It is built out of two members:
 The implemented methods are:
 
 - `operator=`: equality operator;
-- `isApprox`: check if circle are (almost) equal;
+- `isApprox`: check if disk are (almost) equal;
 - `isDegenerated`: check if radius is degenerated (radius is zero and normal vector has zero norm);
-- `radius`: return circle radius;
-- `radius`: set circle radius;
-- `center`: return circle center point;
-- `center`: set circle center point;
-- `normal`: return circle normal vector;
-- `normal`: set circle normal vector;
-- `normalize`: get normalize circle normal vector;
-- `layingPlane`: get circle laying plane;
-- `reverse`: reverse circle normal vector;
-- `clamp`: resize minimum aabb containing the circle object
-- `perimeter`: calculate circle perimeter;
-- `area`: calculate circle area;
-- `translate`: translate circle by vector;
-- `transform`: transform circle with affine transformation matrix;
-- `isInside`: check whether the point is inside the circle.
+- `radius`: return disk radius;
+- `radius`: set disk radius;
+- `center`: return disk center point;
+- `center`: set disk center point;
+- `normal`: return disk normal vector;
+- `normal`: set disk normal vector;
+- `normalize`: get normalize disk normal vector;
+- `layingPlane`: get disk laying plane;
+- `reverse`: reverse disk normal vector;
+- `clamp`: resize minimum aabb containing the disk object
+- `perimeter`: calculate disk perimeter;
+- `area`: calculate disk area;
+- `translate`: translate disk by vector;
+- `transform`: transform disk with affine transformation matrix;
+- `isInside`: check whether the point is inside the disk.
 
 Even if `aabb` is considered to be a geometrical entity there are still no external functions
 implemented for geometrical intersections with the other entities.

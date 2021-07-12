@@ -308,27 +308,27 @@ namespace acme
     integer
     countDisk(void) const;
 
-    //! Check whether in the collection there are any sphere entity objects
+    //! Check whether in the collection there are any ball entity objects
     bool
-    containSphere(void) const;
+    containBall(void) const;
 
-    //! Check whether the collection is composed only by sphere entity objects
+    //! Check whether the collection is composed only by ball entity objects
     bool
-    areSphere(void) const;
+    areBall(void) const;
 
-    //! Check whether in the collection the i-th element is a sphere entity object
+    //! Check whether in the collection the i-th element is a ball entity object
     bool
-    isSphere(
+    isBall(
         size_t i //!< Input i-th value
     ) const;
 
-    //! Remove all sphere entity objects from collection
+    //! Remove all ball entity objects from collection
     void
-    removeSphere(void);
+    removeBall(void);
 
-    //! Count all sphere entity objects in collection
+    //! Count all ball entity objects in collection
     integer
-    countSphere(void) const;
+    countBall(void) const;
 
     //! Check if one of the objects in the collection is degenerated
     bool

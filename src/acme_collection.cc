@@ -481,7 +481,7 @@ namespace acme
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
-      if (!this->m_entities[i]->isSphere())
+      if (!this->m_entities[i]->isBall())
         return false;
     }
     return true;
@@ -657,12 +657,12 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  collection::containSphere(void)
+  collection::containBall(void)
       const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
-      if (this->m_entities[i]->isSphere())
+      if (this->m_entities[i]->isBall())
         return true;
     }
     return false;
@@ -671,12 +671,12 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  collection::areSphere(void)
+  collection::areBall(void)
       const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
-      if (!this->m_entities[i]->isSphere())
+      if (!this->m_entities[i]->isBall())
         return false;
     }
     return true;
@@ -685,35 +685,35 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  collection::isSphere(
+  collection::isBall(
       size_t i)
       const
   {
-    return this->m_entities[i]->isSphere();
+    return this->m_entities[i]->isBall();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  collection::removeSphere(void)
+  collection::removeBall(void)
   {
     remove_if(
         this->m_entities.begin(),
         this->m_entities.end(),
         [](entity::ptr &entity)
-        { return entity->isSphere(); });
+        { return entity->isBall(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
-  collection::countSphere(void)
+  collection::countBall(void)
       const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
-      if (this->m_entities[i]->isSphere())
+      if (this->m_entities[i]->isBall())
         ++count;
     }
     return count;
@@ -943,7 +943,7 @@ namespace acme
             {"segment", this->countSegment()},
             {"triangle", this->countTriangle()},
             {"disk", this->countDisk()},
-            {"sphere", this->countSphere()},
+            {"ball", this->countBall()},
             {"degenerated", this->countDegenerated(tolerance)},
             {"clampable", this->countClampable()},
             {"non-clampable", this->countNonClampable()}};
