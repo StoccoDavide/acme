@@ -2,7 +2,7 @@ github:
 	@rm -rf xml
 	@rm -rf sphinx/_build
 	@rm -rf sphinx/api
-	@cd sphinx; make clean; make html; cd ..
+	@cd sphinx; make clean; make html; ruby filter.rb; cd ..
 	@make install
 
 install:

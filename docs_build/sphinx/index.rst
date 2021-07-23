@@ -18,8 +18,9 @@ by Davide Stocco and Enrico Bertolazzi
 .. toctree::
    :maxdepth: 2
 
-   readme.rst   
-   api/library_root.rst
+   readme.rst
+   api-cpp/root.rst
+   api-matlab/root.rst
 
 License
 -------

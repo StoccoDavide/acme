@@ -2,74 +2,96 @@
 import os
 from pathlib import Path
 
+
 # -- Project information -----------------------------------------------------
 exec(open("../project_common.py").read())
 
 
 # Setup the breathe extension
-breathe_projects = { project : "../xml-cpp" }
-breathe_default_project = project+"_cpp"
-
-extensions.append('exhale');
 extensions.append('breathe');
+extensions.append('exhale');
 
-dir_path = os.path.dirname(os.path.realpath(__file__))+"../../.."
-dir_path = Path(dir_path).resolve()
-
-breathe_default_project = project
-
-# Setup the exhale extension
-exhale_args = {
-  # These arguments are required
-  "containmentFolder":     "./api",
-  "rootFileName":          "library_root.rst",
-  "rootFileTitle":         "C++ API",
-  "doxygenStripFromPath":  str(dir_path),
-  # Suggested optional arguments
-  "createTreeView":        True,
-  # TIP: if using the sphinx-bootstrap-theme, you need
-  # "treeViewIsBootstrap": True,
-  "exhaleExecutesDoxygen": True,
-  #"exhaleDoxygenStdin":    "INPUT = ../../src"
-  "exhaleDoxygenStdin":
-'''
-        QUIET               = YES
-        INPUT               = ../../src ../../include
-        EXAMPLE_RECURSIVE   = NO
-        MARKDOWN_SUPPORT    = YES
-        IMAGE_PATH          = ../images
-        FILE_PATTERNS       = *.c *.cc *.h *.hh *.hxx
-
-        EXTRACT_ALL            = YES
-        EXTRACT_STATIC         = YES
-        SHORT_NAMES            = YES
-        INHERIT_DOCS           = YES
-        ENABLE_PREPROCESSING   = YES
-        MACRO_EXPANSION        = NO
-        XML_OUTPUT             = xml-cpp
-        XML_PROGRAMLISTING     = YES
-        XML_NS_MEMB_FILE_SCOPE = NO
-        SOURCE_BROWSER         = NO
-        OPTIMIZE_OUTPUT_FOR_C  = NO
-        HIDE_SCOPE_NAMES       = NO
-        SEARCH_INCLUDES        = NO
-        CALLER_GRAPH           = YES
-        GRAPHICAL_HIERARCHY    = YES
-        HAVE_DOT               = YES
-        SHOW_INCLUDE_FILES     = YES
-        GENERATE_TREEVIEW      = YES
-        PREDEFINED           += protected=private
-'''
+breathe_projects = {
+  "doc_matlab": "_doxygen/"+"doc_matlab/xml-matlab",
+  "doc_cpp":    "_doxygen/"+"doc_cpp/xml-cpp",
 }
 
-# Tell sphinx what the primary language being documented is.
-primary_domain = 'cpp'
+breathe_default_project = "doc_cpp"
 
-# Tell sphinx what the pygments highlight language should be.
-highlight_language = 'cpp'
+dir_path_cpp = os.path.dirname(os.path.realpath(__file__))+"../../.."
+dir_path_cpp = Path(dir_path_cpp).resolve()
 
-html_theme = 'alabaster'
-html_logo  = '../logo.png'
+dir_path_matlab = os.path.dirname(os.path.realpath(__file__))+"../../../toolbox/lib"
+dir_path_matlab = Path(dir_path_matlab).resolve()
 
-email_automode = True
-autodoc_member_order = 'bysource'
+doxygen_common_stdin = """
+        EXTRACT_ALL         = YES
+        SOURCE_BROWSER      = YES
+        EXTRACT_STATIC      = YES
+        HIDE_SCOPE_NAMES    = NO
+        CALLER_GRAPH        = YES
+        GRAPHICAL_HIERARCHY = YES
+        HAVE_DOT            = YES
+        QUIET               = NO
+        GENERATE_TREEVIEW   = YES
+        SHORT_NAMES         = YES
+        IMAGE_PATH          = ../images
+
+        XML_PROGRAMLISTING    = YES
+        RECURSIVE             = YES
+        FULL_PATH_NAMES       = YES
+        ENABLE_PREPROCESSING  = YES
+        MACRO_EXPANSION       = YES
+        SKIP_FUNCTION_MACROS  = NO
+        EXPAND_ONLY_PREDEF    = NO
+        INHERIT_DOCS          = YES
+        INLINE_INHERITED_MEMB = YES
+        EXTRACT_PRIVATE       = YES
+        PREDEFINED           += protected=private
+        GENERATE_HTML         = NO
+"""
+
+exhale_projects_args = {
+  # Third Party Project Includes
+  "doc_matlab": {
+    'verboseBuild':          True,
+    "rootFileName":          "root.rst",
+    "createTreeView":        True,
+    "exhaleExecutesDoxygen": True,
+    "doxygenStripFromPath":  str(dir_path_matlab),
+    "exhaleDoxygenStdin":   '''
+        INPUT               = ../../toolbox/lib
+        PREDEFINED         += protected=private
+        XML_OUTPUT          = xml-matlab
+        EXTENSION_MAPPING   = .m=C++
+        FILE_PATTERNS       = *.m
+        FILTER_PATTERNS     = *.m=./m2cpp.pl
+'''+doxygen_common_stdin,
+    "containmentFolder":    os.path.realpath('./api-matlab'),
+    "rootFileTitle":        "MATLAB API",
+    "lexerMapping": { r".*\.m": "MATLAB" }
+  },
+
+  "doc_cpp": {
+    'verboseBuild':          True,
+    "rootFileName":          "root.rst",
+    "createTreeView":        True,
+    "exhaleExecutesDoxygen": True,
+    "doxygenStripFromPath":  str(dir_path_cpp),
+    "exhaleDoxygenStdin":   '''
+        INPUT               = ../../src
+        PREDEFINED         += protected=private
+        XML_OUTPUT          = xml-cpp
+'''+doxygen_common_stdin,
+    "containmentFolder":    os.path.realpath('./api-cpp'),
+    "rootFileTitle":        "C++ API",
+  }
+}
+
+cpp_index_common_prefix = ['acme::']
+
+# If false, no module index is generated.
+html_domain_indices = True
+
+# If false, no index is generated.
+html_use_index = True

@@ -24,48 +24,48 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_aabb < acme_entity
-  %
-  % Class container for ACME disk object
-  %
+  %>
+  %> Class container for ACME disk object
+  %>
   methods
+    %> Create a new C++ pointer to disk object instance
     function self = acme_aabb( varargin )
-      % Create a new C++ pointer to disk object instance
       self.objectHandle = mex_aabb( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Create C++ pointer to disk object instance
     function delete( self )
-      % Create C++ pointer to disk object instance
       mex_aabb( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get minimum aabb as ACME point
     function out = getMin( self )
-      % Get minimum aabb as ACME point
       out = acme_point();
       out.copyByHandle( mex_aabb( 'getMin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get aabb minimum point X value
     function out = getMinX( self )
-      % Get aabb minimum point X value
       out = mex_aabb( 'getMinX', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get aabb minimum point X value
     function out = getMinY( self )
-      % Get aabb minimum point X value
       out = mex_aabb( 'getMinY', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get aabb minimum point Z value
     function out = getMinZ( self )
-      % Get aabb minimum point Z value
       out = mex_aabb( 'getMinZ', self.objectHandle );
     end
     %
