@@ -14,3 +14,9 @@ Variable Documentation
    :project: doc_cpp
    :project: doc_cpp
    :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

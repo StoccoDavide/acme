@@ -1739,7 +1739,7 @@
 </briefdescription>
         </param>
         <briefdescription>
-<para>Intersect all. </para>
+<para>Intersect all entities of the two collections. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

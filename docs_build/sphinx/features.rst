@@ -1,7 +1,8 @@
-ACME general features
-=====================
+ACME features
+=============
 
-Geometrical entities in ACME are organised in classes with the following structure:
+For both C++ library and MATLAB mex interface, ACME geometrical entities are
+organised in classes with the following structure:
 
 - virtual class `entity`;
 - class `none` < `entity`;
@@ -12,10 +13,12 @@ Geometrical entities in ACME are organised in classes with the following structu
 - class `segment` < `entity`;
 - class `triangle` < `entity`;
 - class `disk` < `entity`;
-- class `aabb` < `entity`;
+- class `ball` < `entity`;
+- class `collection`;
+- class `aabb`;
 - class `AABBtree`;
 
-where the symbol < indicates the inheritance. Let us get a closer and detailed
+where the symbol < indicates the public inheritance. Let us get a closer and detailed
 look to each of these classes.
 
 Class `entity`
@@ -27,6 +30,7 @@ virtual* class with no members. The virtual methods aimed to check the nature of
 the geometric entity itself are the following:
 
 -  virtual method `type` which returns a `std::string` type;
+-  virtual method `isEntity` which returns a `bool` type;
 -  virtual method `isNone` which returns a `bool` type;
 -  virtual method `isPoint` which returns a `bool` type;
 -  virtual method `isLine` which returns a `bool` type;
@@ -35,16 +39,18 @@ the geometric entity itself are the following:
 -  virtual method `isSegment` which returns a `bool` type;
 -  virtual method `isTriangle` which returns a `bool` type;
 -  virtual method `isDisk` which returns a `bool` type;
--  virtual method `isAabb` which returns a `bool` type;
+-  virtual method `isBall` which returns a `bool` type;
+-  virtual method `isClampable` which returns a `bool` type;
+-  virtual method `clamp` which returns maximum aminimum values alog the three axes.
 
 Class `none`
 ------------
 
 The `none` class is a publicly inherited class from `entity`. Its aim is to represent
-nothing than nothing. As will be later explained if we exploit the the polymorphism
-this class will represent the null intersection between objects. The `none` class
-is a non-abstract class with no members. The implemented methods only override the
-virtual ones defined in the base class `entity`.
+nothing than nothing. As will be later explained if the C++ polymorphic behaviour is
+exploited this class will represent the null intersection between objects. The `none`
+class is a non-abstract class with no members. The implemented methods only override
+the virtual ones defined in the base class `entity`.
 
 Class `line`
 ------------
@@ -187,9 +193,9 @@ Class `disk`
 The `disk` class publicly inherit from `entity` and represents a generic
 disk the 3D space. It is built out of three members:
 
-- an **radius**, represented by a member of type `real`;
-- an **center** point, represented by a member of type `point`;
-- an **normal** to the face, represented by a member of type `vec3`.
+- a **radius**, represented by a member of type `real`;
+- a **center** point, represented by a member of type `point`;
+- a **normal** to the face, represented by a member of type `vec3`.
 
 The implemented methods are:
 
@@ -212,11 +218,51 @@ The implemented methods are:
 - `transform`: transform disk with affine transformation matrix;
 - `isInside`: check whether the point is inside the disk.
 
+Class `ball`
+--------------
+
+The `ball` class publicly inherit from `entity` and represents a generic
+ball the 3D space. It is built out of three members:
+
+- a **radius**, represented by a member of type `real`;
+- a **center** point, represented by a member of type `point`.
+
+The implemented methods are:
+
+- `operator=`: equality operator;
+- `isApprox`: check if ball are (almost) equal;
+- `isDegenerated`: check if radius is degenerated (radius is zero and normal vector has zero norm);
+- `radius`: return ball radius;
+- `radius`: set ball radius;
+- `center`: return ball center point;
+- `center`: set ball center point;
+- `clamp`: resize minimum aabb containing the ball object
+- `area`: calculate ball external surface area;
+- `volume`: calculate ball volume;
+- `translate`: translate ball by vector;
+- `transform`: transform ball with affine transformation matrix;
+- `isInside`: check whether the point is inside the ball.
+
+Class `collecion`
+----------------
+
+The class `collection` represents a generic set of geometrical entites.
+It is built out of two members:
+
+- a **vector of shared pointers** to entity objects of the type `std::vector<std::shared_ptr<entity>>`.
+- a **bounding volume hierarcy tree** of the type `AABBtree` of the type `std::shared_ptr<AABBtree>`.
+
+The implemented methods are specifically designed to intersect a large number
+numer of eninties with only few commands. thus, it is very useful with large sets 
+of heteregeneous objects. Moreover, implemented methods also include sorting,
+counting and removal of specific ojects types. Additional objects can be pushed
+back or subtituted with already exixting ones.
+
 Class `aabb`
 ------------
 
-The `aabb` class publicly inherit from `entity` and represents a generic
-axis-aligne bounding box in the 3D space. It is built out of two members:
+The class `aabb` represents a generic axis-aligned bounding box in the 3D space.
+It is built out of two members:
 
 - a **minimum** point, represented by a member of type `point`;
 - a **maximum** point, represented by a member of type `point`.
@@ -224,26 +270,26 @@ axis-aligne bounding box in the 3D space. It is built out of two members:
 The implemented methods are:
 
 - `operator=`: equality operator;
-- `isApprox`: check if disk are (almost) equal;
+- `isApprox`: check if aabb are (almost) equal;
 - `isDegenerated`: check if radius is degenerated (radius is zero and normal vector has zero norm);
-- `radius`: return disk radius;
-- `radius`: set disk radius;
-- `center`: return disk center point;
-- `center`: set disk center point;
-- `normal`: return disk normal vector;
-- `normal`: set disk normal vector;
-- `normalize`: get normalize disk normal vector;
-- `layingPlane`: get disk laying plane;
-- `reverse`: reverse disk normal vector;
-- `clamp`: resize minimum aabb containing the disk object
-- `perimeter`: calculate disk perimeter;
-- `area`: calculate disk area;
-- `translate`: translate disk by vector;
-- `transform`: transform disk with affine transformation matrix;
-- `isInside`: check whether the point is inside the disk.
+- `max`: return aabb maximum point;
+- `max`: set aabb maximum point;
+- `min`: return aabb minimum point;
+- `min`: set aabb minimum point;
+- `centerDistance`: return aabb center distance from point;
+- `exteriorDistance`: return aabb exterior distance from point;
+- `merged`: return aabb merged with another aabb;
+- `center`: set aabb center point;
+- `normal`: return aabb normal vector;
+- `normal`: set aabb normal vector;
+- `id`: return aabb identfication number;
+- `id`: set aabb identfication number;
+- `pos`: return aabb position number;
+- `pos`: set aabb position number;
+- `intersects`: check if two aabbs intersects.
 
-Even if `aabb` is considered to be a geometrical entity there are still no external functions
-implemented for geometrical intersections with the other entities.
+Notice that `aabb` is bot considered to be a geometrical entity and thus there are
+no external functions implemented for intersections with the other geometrical entities.
 
 Class `AABBtree`
 ----------------
