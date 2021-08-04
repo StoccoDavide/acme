@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACME general features &#8212; ACME v0.2
+    <title>ACME features &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
@@ -42,7 +42,9 @@
     
 
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++ API" href="api-cpp/root.html" />
+    <link rel="prev" title="The ACME library" href="readme.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -56,9 +58,15 @@
         <li class="right" >
           <a href="index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="api-cpp/root.html" title="C++ API"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="readme.html" title="The ACME library"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ACME</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">ACME general features</a></li> 
+        <li class="nav-item nav-item-this"><a href="">ACME features</a></li> 
       </ul>
     </div>
     </div>
@@ -69,10 +77,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="acme-general-features">
-<h1>ACME general features<a class="headerlink" href="#acme-general-features" title="Permalink to this headline">¶</a>
+  <div class="section" id="acme-features">
+<h1>ACME features<a class="headerlink" href="#acme-features" title="Permalink to this headline">¶</a>
 </h1>
-<p>Geometrical entities in ACME are organised in classes with the following structure:</p>
+<p>For both C++ library and MATLAB mex interface, ACME geometrical entities are
+organised in classes with the following structure:</p>
 <ul class="simple">
 <li><p>virtual class <cite>entity</cite>;</p></li>
 <li><p>class <cite>none</cite> &lt; <cite>entity</cite>;</p></li>
@@ -83,10 +92,12 @@
 <li><p>class <cite>segment</cite> &lt; <cite>entity</cite>;</p></li>
 <li><p>class <cite>triangle</cite> &lt; <cite>entity</cite>;</p></li>
 <li><p>class <cite>disk</cite> &lt; <cite>entity</cite>;</p></li>
-<li><p>class <cite>aabb</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>ball</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>collection</cite>;</p></li>
+<li><p>class <cite>aabb</cite>;</p></li>
 <li><p>class <cite>AABBtree</cite>;</p></li>
 </ul>
-<p>where the symbol &lt; indicates the inheritance. Let us get a closer and detailed
+<p>where the symbol &lt; indicates the public inheritance. Let us get a closer and detailed
 look to each of these classes.</p>
 <div class="section" id="class-entity">
 <h2>Class <cite>entity</cite><a class="headerlink" href="#class-entity" title="Permalink to this headline">¶</a>
@@ -97,6 +108,7 @@ virtual</em> class with no members. The virtual methods aimed to check the natur
 the geometric entity itself are the following:</p>
 <ul class="simple">
 <li><p>virtual method <cite>type</cite> which returns a <cite>std::string</cite> type;</p></li>
+<li><p>virtual method <cite>isEntity</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isNone</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isPoint</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isLine</cite> which returns a <cite>bool</cite> type;</p></li>
@@ -105,17 +117,19 @@ the geometric entity itself are the following:</p>
 <li><p>virtual method <cite>isSegment</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isTriangle</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isDisk</cite> which returns a <cite>bool</cite> type;</p></li>
-<li><p>virtual method <cite>isAabb</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isBall</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isClampable</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>clamp</cite> which returns maximum aminimum values alog the three axes.</p></li>
 </ul>
 </div>
 <div class="section" id="class-none">
 <h2>Class <cite>none</cite><a class="headerlink" href="#class-none" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>none</cite> class is a publicly inherited class from <cite>entity</cite>. Its aim is to represent
-nothing than nothing. As will be later explained if we exploit the the polymorphism
-this class will represent the null intersection between objects. The <cite>none</cite> class
-is a non-abstract class with no members. The implemented methods only override the
-virtual ones defined in the base class <cite>entity</cite>.</p>
+nothing than nothing. As will be later explained if the C++ polymorphic behaviour is
+exploited this class will represent the null intersection between objects. The <cite>none</cite>
+class is a non-abstract class with no members. The implemented methods only override
+the virtual ones defined in the base class <cite>entity</cite>.</p>
 </div>
 <div class="section" id="class-line">
 <h2>Class <cite>line</cite><a class="headerlink" href="#class-line" title="Permalink to this headline">¶</a>
@@ -261,9 +275,9 @@ of type <cite>point</cite>.</p>
 <p>The <cite>disk</cite> class publicly inherit from <cite>entity</cite> and represents a generic
 disk the 3D space. It is built out of three members:</p>
 <ul class="simple">
-<li><p>an <strong>radius</strong>, represented by a member of type <cite>real</cite>;</p></li>
-<li><p>an <strong>center</strong> point, represented by a member of type <cite>point</cite>;</p></li>
-<li><p>an <strong>normal</strong> to the face, represented by a member of type <cite>vec3</cite>.</p></li>
+<li><p>a <strong>radius</strong>, represented by a member of type <cite>real</cite>;</p></li>
+<li><p>a <strong>center</strong> point, represented by a member of type <cite>point</cite>;</p></li>
+<li><p>a <strong>normal</strong> to the face, represented by a member of type <cite>vec3</cite>.</p></li>
 </ul>
 <p>The implemented methods are:</p>
 <ul class="simple">
@@ -287,11 +301,52 @@ disk the 3D space. It is built out of three members:</p>
 <li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
 </ul>
 </div>
+<div class="section" id="class-ball">
+<h2>Class <cite>ball</cite><a class="headerlink" href="#class-ball" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>ball</cite> class publicly inherit from <cite>entity</cite> and represents a generic
+ball the 3D space. It is built out of three members:</p>
+<ul class="simple">
+<li><p>a <strong>radius</strong>, represented by a member of type <cite>real</cite>;</p></li>
+<li><p>a <strong>center</strong> point, represented by a member of type <cite>point</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if ball are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
+<li><p><cite>radius</cite>: return ball radius;</p></li>
+<li><p><cite>radius</cite>: set ball radius;</p></li>
+<li><p><cite>center</cite>: return ball center point;</p></li>
+<li><p><cite>center</cite>: set ball center point;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the ball object</p></li>
+<li><p><cite>area</cite>: calculate ball external surface area;</p></li>
+<li><p><cite>volume</cite>: calculate ball volume;</p></li>
+<li><p><cite>translate</cite>: translate ball by vector;</p></li>
+<li><p><cite>transform</cite>: transform ball with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the ball.</p></li>
+</ul>
+</div>
+<div class="section" id="class-collecion">
+<h2>Class <cite>collecion</cite><a class="headerlink" href="#class-collecion" title="Permalink to this headline">¶</a>
+</h2>
+<p>The class <cite>collection</cite> represents a generic set of geometrical entites.
+It is built out of two members:</p>
+<ul class="simple">
+<li><p>a <strong>vector of shared pointers</strong> to entity objects of the type <cite>std::vector&lt;std::shared_ptr&lt;entity&gt;&gt;</cite>.</p></li>
+<li><p>a <strong>bounding volume hierarcy tree</strong> of the type <cite>AABBtree</cite> of the type <cite>std::shared_ptr&lt;AABBtree&gt;</cite>.</p></li>
+</ul>
+<p>The implemented methods are specifically designed to intersect a large number
+numer of eninties with only few commands. thus, it is very useful with large sets
+of heteregeneous objects. Moreover, implemented methods also include sorting,
+counting and removal of specific ojects types. Additional objects can be pushed
+back or subtituted with already exixting ones.</p>
+</div>
 <div class="section" id="class-aabb">
 <h2>Class <cite>aabb</cite><a class="headerlink" href="#class-aabb" title="Permalink to this headline">¶</a>
 </h2>
-<p>The <cite>aabb</cite> class publicly inherit from <cite>entity</cite> and represents a generic
-axis-aligne bounding box in the 3D space. It is built out of two members:</p>
+<p>The class <cite>aabb</cite> represents a generic axis-aligned bounding box in the 3D space.
+It is built out of two members:</p>
 <ul class="simple">
 <li><p>a <strong>minimum</strong> point, represented by a member of type <cite>point</cite>;</p></li>
 <li><p>a <strong>maximum</strong> point, represented by a member of type <cite>point</cite>.</p></li>
@@ -299,26 +354,26 @@ axis-aligne bounding box in the 3D space. It is built out of two members:</p>
 <p>The implemented methods are:</p>
 <ul class="simple">
 <li><p><cite>operator=</cite>: equality operator;</p></li>
-<li><p><cite>isApprox</cite>: check if disk are (almost) equal;</p></li>
+<li><p><cite>isApprox</cite>: check if aabb are (almost) equal;</p></li>
 <li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
-<li><p><cite>radius</cite>: return disk radius;</p></li>
-<li><p><cite>radius</cite>: set disk radius;</p></li>
-<li><p><cite>center</cite>: return disk center point;</p></li>
-<li><p><cite>center</cite>: set disk center point;</p></li>
-<li><p><cite>normal</cite>: return disk normal vector;</p></li>
-<li><p><cite>normal</cite>: set disk normal vector;</p></li>
-<li><p><cite>normalize</cite>: get normalize disk normal vector;</p></li>
-<li><p><cite>layingPlane</cite>: get disk laying plane;</p></li>
-<li><p><cite>reverse</cite>: reverse disk normal vector;</p></li>
-<li><p><cite>clamp</cite>: resize minimum aabb containing the disk object</p></li>
-<li><p><cite>perimeter</cite>: calculate disk perimeter;</p></li>
-<li><p><cite>area</cite>: calculate disk area;</p></li>
-<li><p><cite>translate</cite>: translate disk by vector;</p></li>
-<li><p><cite>transform</cite>: transform disk with affine transformation matrix;</p></li>
-<li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
+<li><p><cite>max</cite>: return aabb maximum point;</p></li>
+<li><p><cite>max</cite>: set aabb maximum point;</p></li>
+<li><p><cite>min</cite>: return aabb minimum point;</p></li>
+<li><p><cite>min</cite>: set aabb minimum point;</p></li>
+<li><p><cite>centerDistance</cite>: return aabb center distance from point;</p></li>
+<li><p><cite>exteriorDistance</cite>: return aabb exterior distance from point;</p></li>
+<li><p><cite>merged</cite>: return aabb merged with another aabb;</p></li>
+<li><p><cite>center</cite>: set aabb center point;</p></li>
+<li><p><cite>normal</cite>: return aabb normal vector;</p></li>
+<li><p><cite>normal</cite>: set aabb normal vector;</p></li>
+<li><p><cite>id</cite>: return aabb identfication number;</p></li>
+<li><p><cite>id</cite>: set aabb identfication number;</p></li>
+<li><p><cite>pos</cite>: return aabb position number;</p></li>
+<li><p><cite>pos</cite>: set aabb position number;</p></li>
+<li><p><cite>intersects</cite>: check if two aabbs intersects.</p></li>
 </ul>
-<p>Even if <cite>aabb</cite> is considered to be a geometrical entity there are still no external functions
-implemented for geometrical intersections with the other entities.</p>
+<p>Notice that <cite>aabb</cite> is bot considered to be a geometrical entity and thus there are
+no external functions implemented for intersections with the other geometrical entities.</p>
 </div>
 <div class="section" id="class-aabbtree">
 <h2>Class <cite>AABBtree</cite><a class="headerlink" href="#class-aabbtree" title="Permalink to this headline">¶</a>
@@ -380,9 +435,24 @@ to <cite>entity</cite> as input.</p>
 <script>$('#searchbox').show(0);</script>
 <div class="sphinx-toc sphinxglobaltoc">
 <h3><a href="index.html">Table of Contents</a></h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">The ACME library</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme.html#acme-general-features">ACME general features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ACME features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#class-entity">Class <cite>entity</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-none">Class <cite>none</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-line">Class <cite>line</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-ray">Class <cite>ray</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-plane">Class <cite>plane</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-segment">Class <cite>segment</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-triangle">Class <cite>triangle</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-disk">Class <cite>disk</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-ball">Class <cite>ball</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-collecion">Class <cite>collecion</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-aabb">Class <cite>aabb</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-aabbtree">Class <cite>AABBtree</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#external-functions">External functions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
 </ul>
@@ -419,9 +489,15 @@ to <cite>entity</cite> as input.</p>
         <li class="right" >
           <a href="index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="api-cpp/root.html" title="C++ API"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="readme.html" title="The ACME library"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ACME</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">ACME general features</a></li> 
+        <li class="nav-item nav-item-this"><a href="">ACME features</a></li> 
       </ul>
     </div>
     </div>
