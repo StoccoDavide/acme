@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a2dc7b43d437a9da4b1a03b18f0f4b523:
+
+Function acme::operator<<(out_stream&, ball const&)
+===================================================
+
+- Defined in :ref:`file_include_acme_utils.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::operator<<(out_stream&, ball const&)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

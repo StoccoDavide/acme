@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1add095a71c023f3975bdbf5ae4ffa2480:
+
+Function acme::isParallel(plane const&, triangle const&, real)
+==============================================================
+
+- Defined in :ref:`file_include_acme_parallel.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isParallel(plane const&, triangle const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

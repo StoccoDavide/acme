@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a7a9b8dfb48f390920372695bf9cf1e14:
+
+Function acme::isCoplanar(segment const&, triangle const&, real)
+================================================================
+
+- Defined in :ref:`file_include_acme_coplanar.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isCoplanar(segment const&, triangle const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

@@ -24,26 +24,26 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_none < acme_entity
-  %
-  % Class container for ACME none object
-  %
+  %>
+  %> Class container for ACME none object
+  %>
   methods
+    %> Create C++ pointer to none object instance
     function self = acme_none( self )
-      % Create C++ pointer to none object instance
       self.objectHandle = mex_none( 'new' );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Delete C++ pointer to none object instance
     function delete( self )
-      % Delete C++ pointer to none object instance
       mex_none( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy none object from another none
     function copy( self, other_obj )
-      % Copy none object from another none
       if (other_obj.type() == "none")
         mex_none( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -53,22 +53,22 @@ classdef acme_none < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy none object from another none handle
     function copyByHandle( self, handle )
-      % Copy none object from another none handle
       mex_none( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function disp( self )
-      % Get object type as string
       disp('none');
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot none object
     function plot( self, figure_name, color )
-      % Plot none object
       figure_name;
       hold on;
       hold off;
@@ -76,8 +76,8 @@ classdef acme_none < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'none';
     end
   end

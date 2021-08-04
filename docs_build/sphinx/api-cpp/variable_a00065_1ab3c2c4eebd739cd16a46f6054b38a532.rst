@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1ab3c2c4eebd739cd16a46f6054b38a532:
+
+Variable acme::NAN_MAT2
+=======================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::NAN_MAT2
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

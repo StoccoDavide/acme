@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1ab3ae966be3419c66da06317aa4eb6ca0:
+
+Function acme::intersection(segment const&, triangle const&, point&, real)
+==========================================================================
+
+- Defined in :ref:`file_src_acme_intersection.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(segment const&, triangle const&, point&, real)
+   :project: doc_cpp

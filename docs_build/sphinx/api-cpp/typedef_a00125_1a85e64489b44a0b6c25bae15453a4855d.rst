@@ -1,0 +1,14 @@
+.. _exhale_typedef_a00125_1a85e64489b44a0b6c25bae15453a4855d:
+
+Typedef acme::angleaxis
+=======================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: acme::angleaxis
+   :project: doc_cpp

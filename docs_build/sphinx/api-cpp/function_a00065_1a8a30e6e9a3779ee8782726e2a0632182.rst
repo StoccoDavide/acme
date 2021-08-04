@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a8a30e6e9a3779ee8782726e2a0632182:
+
+Function acme::isParallel(line const&, ray const&, real)
+========================================================
+
+- Defined in :ref:`file_include_acme_parallel.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isParallel(line const&, ray const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1a4f3aa0d08639ad27d58912bae991b08a:
+
+Function acme::intersection(entity const \*, entity const \*, real)
+===================================================================
+
+- Defined in :ref:`file_src_acme_intersection.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(entity const *, entity const *, real)
+   :project: doc_cpp

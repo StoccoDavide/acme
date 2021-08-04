@@ -1,0 +1,703 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class disk &#8212; ACME v0.2
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class entity" href="class_a00149.html" />
+    <link rel="prev" title="Class collection" href="class_a00141.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00149.html" title="Class entity"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00141.html" title="Class collection"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class disk</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-disk">
+<span id="exhale-class-a00145"></span><h1>Class disk<a class="headerlink" href="#class-disk" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_acme_disk.hh.html#file-include-acme-disk-hh"><span class="std std-ref">File acme_disk.hh</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00149.html#exhale-class-a00149"><span class="std std-ref">Class entity</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4diskE">
+<span id="_CPPv3N4acme4diskE"></span><span id="_CPPv2N4acme4diskE"></span><span id="acme::disk"></span><span class="target" id="a00145"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">acme</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">acme</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><a class="headerlink" href="#_CPPv4N4acme4diskE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk class container. </p>
+<p>Disk in 3D space and defined by a radius and a plane (disk center + normal vector). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk3ptrE">
+<span id="_CPPv3N4acme4disk3ptrE"></span><span id="_CPPv2N4acme4disk3ptrE"></span><span id="acme::disk::ptr"></span><span class="target" id="a00149_1a2e82edbaf0d05e2009a19330ba1cac91"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme4disk3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shared pointer to entity object. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk6vecptrE">
+<span id="_CPPv3N4acme4disk6vecptrE"></span><span id="_CPPv2N4acme4disk6vecptrE"></span><span id="acme::disk::vecptr"></span><span class="target" id="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme4disk3ptrE" title="acme::disk::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme4disk6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to entity objects. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4diskD0Ev">
+<span id="_CPPv3N4acme4diskD0Ev"></span><span id="_CPPv2N4acme4diskD0Ev"></span><span id="acme::disk::~disk"></span><span class="target" id="a00145_1a82c573a689b996c9a9ee208ca643c306"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~disk</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4diskD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk class deconstructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk4diskEv">
+<span id="_CPPv3N4acme4disk4diskEv"></span><span id="_CPPv2N4acme4disk4diskEv"></span><span id="acme::disk::disk"></span><span class="target" id="a00145_1abf51440e6f5d6bdafd6e07d237aec293"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk4diskERK4disk">
+<span id="_CPPv3N4acme4disk4diskERK4disk"></span><span id="_CPPv2N4acme4disk4diskERK4disk"></span><span id="acme::disk::disk__diskCR"></span><span class="target" id="a00145_1adb6a6f997da30f1bd7a7a74547a7a793"></span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4disk4diskERK4disk" title="acme::disk::disk"><span class="n"><span class="pre">disk</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme4disk4diskERK4disk" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk copy constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk4diskERR4disk">
+<span id="_CPPv3N4acme4disk4diskERR4disk"></span><span id="_CPPv2N4acme4disk4diskERR4disk"></span><span id="acme::disk::disk__diskRR"></span><span class="target" id="a00145_1a2daf29f03ca54fe324a83acec9356c07"></span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4disk4diskERR4disk" title="acme::disk::disk"><span class="n"><span class="pre">disk</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme4disk4diskERR4disk" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk4diskE4realRK5plane">
+<span id="_CPPv3N4acme4disk4diskE4realRK5plane"></span><span id="_CPPv2N4acme4disk4diskE4realRK5plane"></span><span id="acme::disk::disk__real.planeCR"></span><span class="target" id="a00145_1a05724d4d984926429ff35853056cf73d"></span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <a class="reference internal" href="#_CPPv4N4acme4disk4diskE4realRK5plane" title="acme::disk::disk::plane"><span class="n"><span class="pre">plane</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">plane</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskE4realRK5plane" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>radius</strong> – Input disk radius </p></li>
+<li><p><strong>plane</strong> – Input disk laying plane </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk4diskE4realRK5pointRK4vec3">
+<span id="_CPPv3N4acme4disk4diskE4realRK5pointRK4vec3"></span><span id="_CPPv2N4acme4disk4diskE4realRK5pointRK4vec3"></span><span id="acme::disk::disk__real.pointCR.vec3CR"></span><span class="target" id="a00145_1a7832218351ede9860a5e2a2e97d6a804"></span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">center</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">normal</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskE4realRK5pointRK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>radius</strong> – Input disk radius </p></li>
+<li><p><strong>center</strong> – Input disk center </p></li>
+<li><p><strong>normal</strong> – Input disk normal to the laying plane </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk4diskE4real4real4real4real4real4real4real">
+<span id="_CPPv3N4acme4disk4diskE4real4real4real4real4real4real4real"></span><span id="_CPPv2N4acme4disk4diskE4real4real4real4real4real4real4real"></span><span id="acme::disk::disk__real.real.real.real.real.real.real"></span><span class="target" id="a00145_1a715737d88c33f2d1705d61161da6d376"></span><span class="sig-name descname"><span class="n"><span class="pre">disk</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">center_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">center_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">center_z</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">normal_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">normal_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">normal_z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk4diskE4real4real4real4real4real4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Disk class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>radius</strong> – Input disk radius </p></li>
+<li><p><strong>center_x</strong> – Input disk center x value </p></li>
+<li><p><strong>center_y</strong> – Input disk center y value </p></li>
+<li><p><strong>center_z</strong> – Input disk center z value </p></li>
+<li><p><strong>normal_x</strong> – Input disk normal x value to the laying plane </p></li>
+<li><p><strong>normal_y</strong> – Input disk normal y value to the laying plane </p></li>
+<li><p><strong>normal_z</strong> – Input disk normal z value to the laying plane </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4diskaSERK4disk">
+<span id="_CPPv3N4acme4diskaSERK4disk"></span><span id="_CPPv2N4acme4diskaSERK4disk"></span><span id="acme::disk::assign-operator__diskCR"></span><span class="target" id="a00145_1a44306c65798b1361a6bc723a32f9ed4a"></span><a class="reference internal" href="#_CPPv4N4acme4diskE" title="acme::disk"><span class="n"><span class="pre">disk</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4diskE" title="acme::disk"><span class="n"><span class="pre">disk</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">disk_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4diskaSERK4disk" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Equality operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>disk_in</strong> – Input disk object </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk8isApproxERK4disk4real">
+<span id="_CPPv3NK4acme4disk8isApproxERK4disk4real"></span><span id="_CPPv2NK4acme4disk8isApproxERK4disk4real"></span><span id="acme::disk::isApprox__diskCR.realC"></span><span class="target" id="a00145_1a51d74b07a9773afc818a87215f18e066"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4diskE" title="acme::disk"><span class="n"><span class="pre">disk</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">disk_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk8isApproxERK4disk4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if disks are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>disk_in</strong> – Input disk object </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6radiusEv">
+<span id="_CPPv3NK4acme4disk6radiusEv"></span><span id="_CPPv2NK4acme4disk6radiusEv"></span><span id="acme::disk::radius__voidC"></span><span class="target" id="a00145_1ac0c929a7ec4555954f86c3e7f1e3d6cb"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">radius</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6radiusEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get disk radius const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk6radiusEv">
+<span id="_CPPv3N4acme4disk6radiusEv"></span><span id="_CPPv2N4acme4disk6radiusEv"></span><span id="acme::disk::radius__void"></span><span class="target" id="a00145_1ae0e3ebda7c650028f795b4f53f7ab903"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">radius</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6radiusEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get disk radius reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6centerEv">
+<span id="_CPPv3NK4acme4disk6centerEv"></span><span id="_CPPv2NK4acme4disk6centerEv"></span><span id="acme::disk::center__voidC"></span><span class="target" id="a00145_1add56db0aa6ea3baa218ea5c8b3f4a098"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">center</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6centerEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get disk center point const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk6centerEv">
+<span id="_CPPv3N4acme4disk6centerEv"></span><span id="_CPPv2N4acme4disk6centerEv"></span><span id="acme::disk::center__void"></span><span class="target" id="a00145_1ae4f33be0e39db1be6da3dd404533a833"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">center</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6centerEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get disk center point reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6normalEv">
+<span id="_CPPv3NK4acme4disk6normalEv"></span><span id="_CPPv2NK4acme4disk6normalEv"></span><span id="acme::disk::normal__voidC"></span><span class="target" id="a00145_1ab58a4899383a3a19ab92b53a23d63b52"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">normal</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6normalEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get disk laying plane normal vector const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk6normalEv">
+<span id="_CPPv3N4acme4disk6normalEv"></span><span id="_CPPv2N4acme4disk6normalEv"></span><span id="acme::disk::normal__void"></span><span class="target" id="a00145_1a29696a2d3879579cb314a5f3f0eb20f2"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">normal</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6normalEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get disk laying plane normal vector reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk11layingPlaneEv">
+<span id="_CPPv3NK4acme4disk11layingPlaneEv"></span><span id="_CPPv2NK4acme4disk11layingPlaneEv"></span><span id="acme::disk::layingPlane__voidC"></span><span class="target" id="a00145_1a4e2e07db219ba56b675770fc81c8c44b"></span><a class="reference internal" href="class_a00161.html#_CPPv4N4acme5planeE" title="acme::plane"><span class="n"><span class="pre">plane</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">layingPlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk11layingPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get cicle laying plane const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk11layingPlaneEv">
+<span id="_CPPv3N4acme4disk11layingPlaneEv"></span><span id="_CPPv2N4acme4disk11layingPlaneEv"></span><span id="acme::disk::layingPlane__void"></span><span class="target" id="a00145_1acff74d44976396f15738cfa496e4b41a"></span><a class="reference internal" href="class_a00161.html#_CPPv4N4acme5planeE" title="acme::plane"><span class="n"><span class="pre">plane</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">layingPlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk11layingPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get cicle laying plane reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk9normalizeEv">
+<span id="_CPPv3N4acme4disk9normalizeEv"></span><span id="_CPPv2N4acme4disk9normalizeEv"></span><span id="acme::disk::normalize__void"></span><span class="target" id="a00145_1a9d8be108b28dcc18a1ced371bf58c7b8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">normalize</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk9normalizeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Normalize disk normal vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk7reverseEv">
+<span id="_CPPv3N4acme4disk7reverseEv"></span><span id="_CPPv2N4acme4disk7reverseEv"></span><span id="acme::disk::reverse__void"></span><span class="target" id="a00145_1a81fd14841280df839703360214831f4d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reverse</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk7reverseEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Reverse disk normal vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk9perimeterEv">
+<span id="_CPPv3NK4acme4disk9perimeterEv"></span><span id="_CPPv2NK4acme4disk9perimeterEv"></span><span id="acme::disk::perimeter__voidC"></span><span class="target" id="a00145_1a9b12cd7fcd62ca41ca41aecd3d776d14"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">perimeter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk9perimeterEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Calculate disk circumference length. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk4areaEv">
+<span id="_CPPv3NK4acme4disk4areaEv"></span><span id="_CPPv2NK4acme4disk4areaEv"></span><span id="acme::disk::area__voidC"></span><span class="target" id="a00145_1a95c21a733a382c69a3b0059f7b4ad9fb"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">area</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk4areaEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Calculate disk area. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk9translateERK4vec3">
+<span id="_CPPv3N4acme4disk9translateERK4vec3"></span><span id="_CPPv2N4acme4disk9translateERK4vec3"></span><span id="acme::disk::translate__vec3CR"></span><span class="target" id="a00145_1a14ddecf475ad030fd8c2cb0fc2f6ca34"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector_in</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N4acme4disk9translateERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Translate by vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>vector_in</strong> – Input translation vector </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk9transformERK6affine">
+<span id="_CPPv3N4acme4disk9transformERK6affine"></span><span id="_CPPv2N4acme4disk9transformERK6affine"></span><span id="acme::disk::transform__affineCR"></span><span class="target" id="a00145_1a95977bb8b412e0298ff34770f4e36e5b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="n"><span class="pre">affine</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N4acme4disk9transformERK6affine" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Transform disk with affine transformation matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>affine_in</strong> – 4x4 affine transformation matrix </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk8isInsideERK5point4real">
+<span id="_CPPv3NK4acme4disk8isInsideERK5point4real"></span><span id="_CPPv2NK4acme4disk8isInsideERK5point4real"></span><span id="acme::disk::isInside__pointCR.realC"></span><span class="target" id="a00145_1a1b3cd80cf8fd95c076b5ea160579a7a2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isInside</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk8isInsideERK5point4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point_in</strong> – Query point </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk13isDegeneratedE4real">
+<span id="_CPPv3NK4acme4disk13isDegeneratedE4real"></span><span id="_CPPv2NK4acme4disk13isDegeneratedE4real"></span><span id="acme::disk::isDegenerated__realC"></span><span class="target" id="a00145_1a16cb41e8ccb60067dc79dd8b2e5eb3d2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk13isDegeneratedE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if disk is degenerated. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk5levelEv">
+<span id="_CPPv3NK4acme4disk5levelEv"></span><span id="_CPPv2NK4acme4disk5levelEv"></span><span id="acme::disk::level__voidC"></span><span class="target" id="a00145_1af879f24fe959bcc1ea48d21ff717ab3d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">level</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk5levelEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return object hierarchical level. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk4typeEv">
+<span id="_CPPv3NK4acme4disk4typeEv"></span><span id="_CPPv2NK4acme4disk4typeEv"></span><span id="acme::disk::type__voidC"></span><span class="target" id="a00145_1ac2ecc7c9d7cda0c6c3ddd31ad15af137"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk4typeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return object type as string. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6isNoneEv">
+<span id="_CPPv3NK4acme4disk6isNoneEv"></span><span id="_CPPv2NK4acme4disk6isNoneEv"></span><span id="acme::disk::isNone__voidC"></span><span class="target" id="a00145_1a46dac95d0af8df01b4638aab14a4aebe"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6isNoneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is no entity. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk7isPointEv">
+<span id="_CPPv3NK4acme4disk7isPointEv"></span><span id="_CPPv2NK4acme4disk7isPointEv"></span><span id="acme::disk::isPoint__voidC"></span><span class="target" id="a00145_1a98535fea48a7fcdeccce8682026a5f2b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPoint</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk7isPointEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a point. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6isLineEv">
+<span id="_CPPv3NK4acme4disk6isLineEv"></span><span id="_CPPv2NK4acme4disk6isLineEv"></span><span id="acme::disk::isLine__voidC"></span><span class="target" id="a00145_1a0aeb5df0ffce6d019e3fd9c500e78c0e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLine</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6isLineEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a line. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk5isRayEv">
+<span id="_CPPv3NK4acme4disk5isRayEv"></span><span id="_CPPv2NK4acme4disk5isRayEv"></span><span id="acme::disk::isRay__voidC"></span><span class="target" id="a00145_1aad8a129cb74d4de535635079c8bd0d27"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk5isRayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a ray. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk7isPlaneEv">
+<span id="_CPPv3NK4acme4disk7isPlaneEv"></span><span id="_CPPv2NK4acme4disk7isPlaneEv"></span><span id="acme::disk::isPlane__voidC"></span><span class="target" id="a00145_1a75dc057eb68809ee10faaf0661ef49b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk7isPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a plane. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk9isSegmentEv">
+<span id="_CPPv3NK4acme4disk9isSegmentEv"></span><span id="_CPPv2NK4acme4disk9isSegmentEv"></span><span id="acme::disk::isSegment__voidC"></span><span class="target" id="a00145_1a0f8fd86a75d8d300aea89c9d9663209d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSegment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk9isSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a segment. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk10isTriangleEv">
+<span id="_CPPv3NK4acme4disk10isTriangleEv"></span><span id="_CPPv2NK4acme4disk10isTriangleEv"></span><span id="acme::disk::isTriangle__voidC"></span><span class="target" id="a00145_1a547fdb98009c3b5f499358ee17b03dc4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isTriangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk10isTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a triangle. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6isDiskEv">
+<span id="_CPPv3NK4acme4disk6isDiskEv"></span><span id="_CPPv2NK4acme4disk6isDiskEv"></span><span id="acme::disk::isDisk__voidC"></span><span class="target" id="a00145_1a9baf40eb60c9710f9801a2babd2e52c6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDisk</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6isDiskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a disk. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk6isBallEv">
+<span id="_CPPv3NK4acme4disk6isBallEv"></span><span id="_CPPv2NK4acme4disk6isBallEv"></span><span id="acme::disk::isBall__voidC"></span><span class="target" id="a00145_1a545bcd284e489887c99eadcb8a5907ab"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isBall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk6isBallEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a ball. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk11isClampableEv">
+<span id="_CPPv3NK4acme4disk11isClampableEv"></span><span id="_CPPv2NK4acme4disk11isClampableEv"></span><span id="acme::disk::isClampable__voidC"></span><span class="target" id="a00145_1aa58adee99e6200117368615f4f34dd9e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk11isClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the disk is clampable. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk14isNonClampableEv">
+<span id="_CPPv3NK4acme4disk14isNonClampableEv"></span><span id="_CPPv2NK4acme4disk14isNonClampableEv"></span><span id="acme::disk::isNonClampable__voidC"></span><span class="target" id="a00145_1a6e2b619c9b00f5bfa1d08d6bb1dc0128"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNonClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk14isNonClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the disk is non-clampable. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk5clampER4vec3R4vec3">
+<span id="_CPPv3NK4acme4disk5clampER4vec3R4vec3"></span><span id="_CPPv2NK4acme4disk5clampER4vec3R4vec3"></span><span id="acme::disk::clamp__vec3R.vec3RC"></span><span class="target" id="a00145_1a569374f488585ec71fe995bcaace635b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk5clampER4vec3R4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minumum and maximum values along axes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min</strong> – Input minimum point </p></li>
+<li><p><strong>max</strong> – Input maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk5clampER4realR4realR4realR4realR4realR4real">
+<span id="_CPPv3NK4acme4disk5clampER4realR4realR4realR4realR4realR4real"></span><span id="_CPPv2NK4acme4disk5clampER4realR4realR4realR4realR4realR4real"></span><span id="acme::disk::clamp__realR.realR.realR.realR.realR.realRC"></span><span class="target" id="a00145_1a1a327a46909396efffe0efd16300600d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min_z</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max_z</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk5clampER4realR4realR4realR4realR4realR4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minumum and maximum values along axes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min_x</strong> – Input x value of minimum point </p></li>
+<li><p><strong>min_y</strong> – Input y value of minimum point </p></li>
+<li><p><strong>min_z</strong> – Input z value of minimum point </p></li>
+<li><p><strong>max_x</strong> – Input x value of maximum point </p></li>
+<li><p><strong>max_y</strong> – Input y value of maximum point </p></li>
+<li><p><strong>max_z</strong> – Input z value of maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4disk6rotateE4realRK4vec3">
+<span id="_CPPv3N4acme4disk6rotateE4realRK4vec3"></span><span id="_CPPv2N4acme4disk6rotateE4realRK4vec3"></span><span id="acme::disk::rotate__real.vec3CR"></span><span class="target" id="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4disk6rotateE4realRK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Rotate entity by a rotation angle around an arbitrary axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>angle</strong> – Input angle [rad] </p></li>
+<li><p><strong>axis</strong> – Input axis </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4disk8isEntityEv">
+<span id="_CPPv3NK4acme4disk8isEntityEv"></span><span id="_CPPv2NK4acme4disk8isEntityEv"></span><span id="acme::disk::isEntity__voidC"></span><span class="target" id="a00149_1a534ab97324296ad976e253051482322f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEntity</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4disk8isEntityEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is an entity. </p>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.png" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#acme-general-features">ACME general features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00149.html" title="Class entity"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00141.html" title="Class collection"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class disk</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

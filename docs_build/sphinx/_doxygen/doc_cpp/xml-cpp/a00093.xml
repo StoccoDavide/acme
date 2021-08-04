@@ -1,0 +1,926 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00093" kind="class" language="C++" prot="public">
+    <compoundname>acme::line</compoundname>
+    <basecompoundref refid="a00089" prot="public" virt="non-virtual">acme::entity</basecompoundref>
+    <includes refid="a00032" local="no">acme_line.hh</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00093_1aed4c43bd7eb89ae56a34f25de5cf0df3" prot="private" static="no" mutable="no">
+        <type><ref refid="a00105" kindref="compound">point</ref></type>
+        <definition>point acme::line::m_origin</definition>
+        <argsstring></argsstring>
+        <name>m_origin</name>
+        <briefdescription>
+<para>Origin point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="58" column="11" bodyfile="include/acme_line.hh" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00093_1a679b8d1f98f8cef51e22bb7625816ff9" prot="private" static="no" mutable="no">
+        <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::line::m_direction</definition>
+        <argsstring></argsstring>
+        <name>m_direction</name>
+        <briefdescription>
+<para>Direction vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="59" column="10" bodyfile="include/acme_line.hh" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00093_1a440d9dd080db37a59c6d8913d881b917" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::line::~line</definition>
+        <argsstring>()</argsstring>
+        <name>~line</name>
+        <briefdescription>
+<para>Line class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="63" column="5" bodyfile="include/acme_line.hh" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a40b15afc1bdb8902ff68486654f0bfaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::line::line</definition>
+        <argsstring>()</argsstring>
+        <name>line</name>
+        <briefdescription>
+<para>Line class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="66" column="5" bodyfile="include/acme_line.hh" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1addee9c97135d05fb1de331127bdd0ff3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::line::line</definition>
+        <argsstring>(line const &amp;)=default</argsstring>
+        <name>line</name>
+        <param>
+          <type><ref refid="a00093" kindref="compound">line</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>Line copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="69" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1aeaea91b86e6d6676578d87210491f561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::line::line</definition>
+        <argsstring>(line &amp;&amp;)=default</argsstring>
+        <name>line</name>
+        <param>
+          <type><ref refid="a00093" kindref="compound">line</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Line move constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="72" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1abbdbefd6a48e4779ffa96d9c0acdaca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::line::line</definition>
+        <argsstring>(real ox, real oy, real oz, real dx, real dy, real dz)</argsstring>
+        <name>line</name>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>ox</declname>
+          <briefdescription><para>Input x value of line origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>oy</declname>
+          <briefdescription><para>Input y value of line origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>oz</declname>
+          <briefdescription><para>Input z value of line origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>dx</declname>
+          <briefdescription><para>Input x value of line direction vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>dy</declname>
+          <briefdescription><para>Input y value of line direction vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>dz</declname>
+          <briefdescription><para>Input z value of line direction vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Line class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="75" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ad232ae6243216db18f508decdfe576bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::line::line</definition>
+        <argsstring>(point const &amp;origin, vec3 const &amp;direction)</argsstring>
+        <name>line</name>
+        <param>
+          <type><ref refid="a00105" kindref="compound">point</ref> const &amp;</type>
+          <declname>origin</declname>
+          <briefdescription><para>Input line origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>direction</declname>
+          <briefdescription><para>Input line direction vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Line class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="85" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ac5172b4ae988fad2dd05113ca89118c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00093" kindref="compound">line</ref> &amp;</type>
+        <definition>line&amp; acme::line::operator=</definition>
+        <argsstring>(line const &amp;line_in)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="a00093" kindref="compound">line</ref> const &amp;</type>
+          <declname>line_in</declname>
+          <briefdescription><para>Input line object </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Equality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="92" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1aafb7003e863ec4b149932456e97ebb21" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isApprox</definition>
+        <argsstring>(line const &amp;line_in, real tolerance=EPSILON) const</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type><ref refid="a00093" kindref="compound">line</ref> const &amp;</type>
+          <declname>line_in</declname>
+          <briefdescription><para>Input line object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00065_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if objects are (almost) equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="98" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a996bb905804a335386938f35a2a1b0bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00105" kindref="compound">point</ref> const  &amp;</type>
+        <definition>point const&amp; acme::line::origin</definition>
+        <argsstring>(void) const</argsstring>
+        <name>origin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return line origin point const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="105" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a063ba8bbe94610352faf8ca116be1a23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00105" kindref="compound">point</ref> &amp;</type>
+        <definition>point&amp; acme::line::origin</definition>
+        <argsstring>(void)</argsstring>
+        <name>origin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return line origin point reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="109" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ae80ff2ae46012d5ab3980b6ebf9d1959" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const  &amp;</type>
+        <definition>vec3 const&amp; acme::line::direction</definition>
+        <argsstring>(void) const</argsstring>
+        <name>direction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return line direction vector const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="113" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1aaa4b60aa00d7660ac89093ec058f309f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+        <definition>vec3&amp; acme::line::direction</definition>
+        <argsstring>(void)</argsstring>
+        <name>direction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return line direction vector reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="117" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1aa8e15b293aa98e3c58ff89ee688727f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::line::normalize</definition>
+        <argsstring>(void)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Normalize line direction vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="121" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1accebf5115d47586becec6403190cecff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::line::toVector</definition>
+        <argsstring>(void) const</argsstring>
+        <name>toVector</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Convert line to vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="125" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a0695b475a8daa3acba67992c13407ad0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::line::toUnitVector</definition>
+        <argsstring>(void) const</argsstring>
+        <name>toUnitVector</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Convert line to normalized vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="129" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1aefdcde39d9179f8fca99d1ab6df9c0f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::line::reverse</definition>
+        <argsstring>(void)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reverse line direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="133" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ab079f473046bb2cfc4a8c518628597b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void acme::line::translate</definition>
+        <argsstring>(vec3 const &amp;vector_in) override</argsstring>
+        <name>translate</name>
+        <reimplements refid="a00089_1a9979154e5dfe4f69fc04f4b25ac76aea">translate</reimplements>
+        <param>
+          <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>vector_in</declname>
+          <briefdescription><para>Input translation vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Translate line by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="137" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ac9b972d058f2213626bca350abcb71e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void acme::line::transform</definition>
+        <argsstring>(affine const &amp;affine_in) override</argsstring>
+        <name>transform</name>
+        <reimplements refid="a00089_1a48c8a3f95aaea32d4368e918fdadd021">transform</reimplements>
+        <param>
+          <type><ref refid="a00065_1a6b659ea9a43cbc19b6dd7ef2aae482dc" kindref="member">affine</ref> const &amp;</type>
+          <declname>affine_in</declname>
+          <briefdescription><para>4x4 affine transformation matrix </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Transform line with affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="143" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a835ccfb6831aa5442690be49abff3380" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isInside</definition>
+        <argsstring>(point const &amp;point_in, real tolerance=EPSILON) const</argsstring>
+        <name>isInside</name>
+        <param>
+          <type><ref refid="a00105" kindref="compound">point</ref> const &amp;</type>
+          <declname>point_in</declname>
+          <briefdescription><para>Query point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00065_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="149" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a93c0adcb1d5edcc4fca9480264b55d18" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isDegenerated</definition>
+        <argsstring>(real tolerance=EPSILON) const override</argsstring>
+        <name>isDegenerated</name>
+        <reimplements refid="a00089_1a4535419695613294d8f946eb872bd5bd">isDegenerated</reimplements>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00065_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if line is degenerated (direction vector has zero norm) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="156" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1af23f18017ec12b017efe008287e52b89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="a00065_1a9223400d01496dcba963b2f723c89d4a" kindref="member">integer</ref></type>
+        <definition>integer acme::line::level</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>level</name>
+        <reimplements refid="a00089_1a4b9630c90d73a823e2e0efd8e9a79cd0">level</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object hierarchical level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="161" column="13" bodyfile="include/acme_line.hh" bodystart="161" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a404ce8a5310d8336fb5bfa5ef4f50211" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string acme::line::type</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>type</name>
+        <reimplements refid="a00089_1ac2e74fd5ab901b53d8242d3bb70755a4">type</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="164" column="17" bodyfile="include/acme_line.hh" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1abe447cbc2b41a8d8f39a14d8cc598147" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isNone</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isNone</name>
+        <reimplements refid="a00089_1a6dcf252926f1c1b1aad147d5caa5eed3">isNone</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is no entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="167" column="10" bodyfile="include/acme_line.hh" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a38f22eafeb8bd37e751eda23064c5d70" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isPoint</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isPoint</name>
+        <reimplements refid="a00089_1a0ca14dc6ba289cadc1207064eae92373">isPoint</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="170" column="10" bodyfile="include/acme_line.hh" bodystart="170" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1aea5b4a82cfb165286ad7251d67f7c6b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isLine</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isLine</name>
+        <reimplements refid="a00089_1a68bd00af11831aee5fef3531850ff433">isLine</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="173" column="10" bodyfile="include/acme_line.hh" bodystart="173" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a350ffa0ce5ff0b747c8606ff3c254504" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isRay</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isRay</name>
+        <reimplements refid="a00089_1a9ab36cd844cde471a9c3908c1cee09a2">isRay</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ray. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="176" column="10" bodyfile="include/acme_line.hh" bodystart="176" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1adab1ee88d7142733d73bf00350a6b08f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isPlane</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isPlane</name>
+        <reimplements refid="a00089_1a9df7782cc14bf5d21cd85e59ef1c1d5c">isPlane</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="179" column="10" bodyfile="include/acme_line.hh" bodystart="179" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ac0f5f64e84fcf0243767685facfeb455" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isSegment</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isSegment</name>
+        <reimplements refid="a00089_1ac7d126acf87e2da6a552814be7ebc126">isSegment</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="182" column="10" bodyfile="include/acme_line.hh" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1af68ce85dff7f8e21d22d88c80465d85e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isTriangle</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isTriangle</name>
+        <reimplements refid="a00089_1a5d0657b831d799da5f6f2fed1ff12179">isTriangle</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a triangle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="185" column="10" bodyfile="include/acme_line.hh" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ae7ee9690d04278d28b9c9e2219a8b6f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isDisk</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isDisk</name>
+        <reimplements refid="a00089_1aed5ee0dee6a1a1c0a8c29e4d3a217894">isDisk</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="188" column="10" bodyfile="include/acme_line.hh" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a708d2350c033773d7ad7fe1ac9f7837b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isBall</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isBall</name>
+        <reimplements refid="a00089_1a73add88b6838e9b0a9a261a679da9515">isBall</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ball. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="191" column="10" bodyfile="include/acme_line.hh" bodystart="191" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1ad337ea39eec6626336c9a98eeda3aca4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isClampable</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isClampable</name>
+        <reimplements refid="a00089_1a2014bd40547fe4fd4a270b5e40c6cc07">isClampable</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the line is clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="194" column="10" bodyfile="include/acme_line.hh" bodystart="194" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a01da4d9559330bf3a02f3621c8c7f980" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::isNonClampable</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isNonClampable</name>
+        <reimplements refid="a00089_1a5a5c33241ac3032efb4908744d3174dc">isNonClampable</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the line is non-clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="197" column="10" bodyfile="include/acme_line.hh" bodystart="197" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a0976c9db9348a430d8c90cdb78ff947c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::clamp</definition>
+        <argsstring>(vec3 &amp;min, vec3 &amp;max) const override</argsstring>
+        <name>clamp</name>
+        <reimplements refid="a00089_1afebc220f247db840f78b7df51e175a28">clamp</reimplements>
+        <param>
+          <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>min</declname>
+          <briefdescription><para>Input minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>max</declname>
+          <briefdescription><para>Input maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="201" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00093_1a73ee8008ff4f883be071a821690c7537" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::line::clamp</definition>
+        <argsstring>(real &amp;min_x, real &amp;min_y, real &amp;min_z, real &amp;max_x, real &amp;max_y, real &amp;max_z) const override</argsstring>
+        <name>clamp</name>
+        <reimplements refid="a00089_1a071efafd454180bf95903a38029a5b6b">clamp</reimplements>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_x</declname>
+          <briefdescription><para>Input x value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_y</declname>
+          <briefdescription><para>Input y value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_z</declname>
+          <briefdescription><para>Input z value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_x</declname>
+          <briefdescription><para>Input x value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_y</declname>
+          <briefdescription><para>Input y value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_z</declname>
+          <briefdescription><para>Input z value of maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_line.hh" line="208" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::entity::rotate</definition>
+        <argsstring>(real angle, vec3 const &amp;axis)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type><ref refid="a00065_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>angle</declname>
+          <briefdescription><para>Input angle [rad] </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00065_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>axis</declname>
+          <briefdescription><para>Input axis </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Rotate entity by a rotation angle around an arbitrary axis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="79" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00089_1a534ab97324296ad976e253051482322f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::entity::isEntity</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isEntity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="96" column="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00089_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00089" kindref="compound">entity</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;entity&gt; acme::entity::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to entity object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="56" column="29" bodyfile="include/acme_entity.hh" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00089_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00089_1a2e82edbaf0d05e2009a19330ba1cac91" kindref="member">ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;ptr&gt; acme::entity::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of pointers to entity objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="57" column="25" bodyfile="include/acme_entity.hh" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Line class container. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Infinite line in 3D space and defined by any point lying on the line and a direction vector. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>acme::line</label>
+        <link refid="a00093"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme::entity</label>
+        <link refid="a00089"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Eigen::Matrix&lt; real, 3, 1 &gt;</label>
+      </node>
+      <node id="1">
+        <label>acme::line</label>
+        <link refid="a00093"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_origin</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme::entity</label>
+        <link refid="a00089"/>
+      </node>
+      <node id="3">
+        <label>acme::point</label>
+        <link refid="a00105"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/acme_line.hh" line="55" column="3" bodyfile="include/acme_line.hh" bodystart="56" bodyend="217"/>
+    <listofallmembers>
+      <member refid="a00093_1a0976c9db9348a430d8c90cdb78ff947c" prot="public" virt="virtual"><scope>acme::line</scope><name>clamp</name></member>
+      <member refid="a00093_1a73ee8008ff4f883be071a821690c7537" prot="public" virt="virtual"><scope>acme::line</scope><name>clamp</name></member>
+      <member refid="a00093_1ae80ff2ae46012d5ab3980b6ebf9d1959" prot="public" virt="non-virtual"><scope>acme::line</scope><name>direction</name></member>
+      <member refid="a00093_1aaa4b60aa00d7660ac89093ec058f309f" prot="public" virt="non-virtual"><scope>acme::line</scope><name>direction</name></member>
+      <member refid="a00089_1a8e7b0764a8cd9a367fd56231597fe517" prot="public" virt="non-virtual"><scope>acme::line</scope><name>entity</name></member>
+      <member refid="a00093_1aafb7003e863ec4b149932456e97ebb21" prot="public" virt="non-virtual"><scope>acme::line</scope><name>isApprox</name></member>
+      <member refid="a00093_1a708d2350c033773d7ad7fe1ac9f7837b" prot="public" virt="virtual"><scope>acme::line</scope><name>isBall</name></member>
+      <member refid="a00093_1ad337ea39eec6626336c9a98eeda3aca4" prot="public" virt="virtual"><scope>acme::line</scope><name>isClampable</name></member>
+      <member refid="a00093_1a93c0adcb1d5edcc4fca9480264b55d18" prot="public" virt="virtual"><scope>acme::line</scope><name>isDegenerated</name></member>
+      <member refid="a00093_1ae7ee9690d04278d28b9c9e2219a8b6f4" prot="public" virt="virtual"><scope>acme::line</scope><name>isDisk</name></member>
+      <member refid="a00089_1a534ab97324296ad976e253051482322f" prot="public" virt="non-virtual"><scope>acme::line</scope><name>isEntity</name></member>
+      <member refid="a00093_1a835ccfb6831aa5442690be49abff3380" prot="public" virt="non-virtual"><scope>acme::line</scope><name>isInside</name></member>
+      <member refid="a00093_1aea5b4a82cfb165286ad7251d67f7c6b2" prot="public" virt="virtual"><scope>acme::line</scope><name>isLine</name></member>
+      <member refid="a00093_1a01da4d9559330bf3a02f3621c8c7f980" prot="public" virt="virtual"><scope>acme::line</scope><name>isNonClampable</name></member>
+      <member refid="a00093_1abe447cbc2b41a8d8f39a14d8cc598147" prot="public" virt="virtual"><scope>acme::line</scope><name>isNone</name></member>
+      <member refid="a00093_1adab1ee88d7142733d73bf00350a6b08f" prot="public" virt="virtual"><scope>acme::line</scope><name>isPlane</name></member>
+      <member refid="a00093_1a38f22eafeb8bd37e751eda23064c5d70" prot="public" virt="virtual"><scope>acme::line</scope><name>isPoint</name></member>
+      <member refid="a00093_1a350ffa0ce5ff0b747c8606ff3c254504" prot="public" virt="virtual"><scope>acme::line</scope><name>isRay</name></member>
+      <member refid="a00093_1ac0f5f64e84fcf0243767685facfeb455" prot="public" virt="virtual"><scope>acme::line</scope><name>isSegment</name></member>
+      <member refid="a00093_1af68ce85dff7f8e21d22d88c80465d85e" prot="public" virt="virtual"><scope>acme::line</scope><name>isTriangle</name></member>
+      <member refid="a00093_1af23f18017ec12b017efe008287e52b89" prot="public" virt="virtual"><scope>acme::line</scope><name>level</name></member>
+      <member refid="a00093_1a40b15afc1bdb8902ff68486654f0bfaa" prot="public" virt="non-virtual"><scope>acme::line</scope><name>line</name></member>
+      <member refid="a00093_1addee9c97135d05fb1de331127bdd0ff3" prot="public" virt="non-virtual"><scope>acme::line</scope><name>line</name></member>
+      <member refid="a00093_1aeaea91b86e6d6676578d87210491f561" prot="public" virt="non-virtual"><scope>acme::line</scope><name>line</name></member>
+      <member refid="a00093_1abbdbefd6a48e4779ffa96d9c0acdaca5" prot="public" virt="non-virtual"><scope>acme::line</scope><name>line</name></member>
+      <member refid="a00093_1ad232ae6243216db18f508decdfe576bc" prot="public" virt="non-virtual"><scope>acme::line</scope><name>line</name></member>
+      <member refid="a00093_1a679b8d1f98f8cef51e22bb7625816ff9" prot="private" virt="non-virtual"><scope>acme::line</scope><name>m_direction</name></member>
+      <member refid="a00093_1aed4c43bd7eb89ae56a34f25de5cf0df3" prot="private" virt="non-virtual"><scope>acme::line</scope><name>m_origin</name></member>
+      <member refid="a00093_1aa8e15b293aa98e3c58ff89ee688727f7" prot="public" virt="non-virtual"><scope>acme::line</scope><name>normalize</name></member>
+      <member refid="a00093_1ac5172b4ae988fad2dd05113ca89118c3" prot="public" virt="non-virtual"><scope>acme::line</scope><name>operator=</name></member>
+      <member refid="a00093_1a996bb905804a335386938f35a2a1b0bc" prot="public" virt="non-virtual"><scope>acme::line</scope><name>origin</name></member>
+      <member refid="a00093_1a063ba8bbe94610352faf8ca116be1a23" prot="public" virt="non-virtual"><scope>acme::line</scope><name>origin</name></member>
+      <member refid="a00089_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" virt="non-virtual"><scope>acme::line</scope><name>ptr</name></member>
+      <member refid="a00093_1aefdcde39d9179f8fca99d1ab6df9c0f3" prot="public" virt="non-virtual"><scope>acme::line</scope><name>reverse</name></member>
+      <member refid="a00089_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" virt="non-virtual"><scope>acme::line</scope><name>rotate</name></member>
+      <member refid="a00093_1a0695b475a8daa3acba67992c13407ad0" prot="public" virt="non-virtual"><scope>acme::line</scope><name>toUnitVector</name></member>
+      <member refid="a00093_1accebf5115d47586becec6403190cecff" prot="public" virt="non-virtual"><scope>acme::line</scope><name>toVector</name></member>
+      <member refid="a00093_1ac9b972d058f2213626bca350abcb71e5" prot="public" virt="virtual"><scope>acme::line</scope><name>transform</name></member>
+      <member refid="a00093_1ab079f473046bb2cfc4a8c518628597b1" prot="public" virt="virtual"><scope>acme::line</scope><name>translate</name></member>
+      <member refid="a00093_1a404ce8a5310d8336fb5bfa5ef4f50211" prot="public" virt="virtual"><scope>acme::line</scope><name>type</name></member>
+      <member refid="a00089_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" virt="non-virtual"><scope>acme::line</scope><name>vecptr</name></member>
+      <member refid="a00089_1a89e8a5f825d508d52f9e4423169f75ee" prot="public" virt="virtual"><scope>acme::line</scope><name>~entity</name></member>
+      <member refid="a00093_1a440d9dd080db37a59c6d8913d881b917" prot="public" virt="non-virtual"><scope>acme::line</scope><name>~line</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

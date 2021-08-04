@@ -24,55 +24,55 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_ball < acme_entity
-  %
-  % Class container for ACME ball object
-  %
+  %>
+  %> Class container for ACME ball object
+  %>
   methods
+    %> Create a new C++ pointer to ball object instance
     function self = acme_ball( varargin )
-      % Create a new C++ pointer to ball object instance
       self.objectHandle = mex_ball( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Create C++ pointer to ball object instance
     function delete( self )
-      % Create C++ pointer to ball object instance
       mex_ball( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ball radius
     function out = getRadius( self )
-      % Get ball radius
       out = mex_ball( 'getRadius', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ball center as ACME point object
     function out = getCenter( self )
-      % Get ball center as ACME point object
       out = acme_point();
       out.copyByHandle( mex_ball( 'getCenter', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set ball radius
     function setRadius( self, radius )
-      % Set ball radius
       mex_ball( 'setRadius', self.objectHandle, radius );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set ball center with an ACME point object
     function setCenter( self, other_obj )
-      % Set ball center with an ACME point object
       mex_ball( 'setCenter', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy segment object from another segment
     function copy( self, other_obj )
-      % Copy segment object from another segment
       if (other_obj.type() == "ball")
         mex_ball( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -82,29 +82,29 @@ classdef acme_ball < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy ball object from another ball handle
     function copyByHandle( self, handle )
-      % Copy ball object from another ball handle
       mex_ball( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate ball by vector
     function translate( self, other_obj )
-     % Translate ball by vector
       mex_ball( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform ball by 4x4 affine transformation matrix
     function transform( self, affine )
-      % Transform ball by 4x4 affine transformation matrix
       mex_ball( 'transform', self.objectHandle, affine );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the ball
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the ball
       if (other_obj.type() == "point")
         out = mex_ball( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -114,15 +114,15 @@ classdef acme_ball < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ball is degenerated
     function out = isDegenerated( self )
-      % Check if ball is degenerated
       out = mex_ball( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if balls are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if balls are approximatively equal
       if (other_obj.type() == "ball")
         out = mex_ball( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -132,57 +132,57 @@ classdef acme_ball < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ball minimum and maximum points of object instance
     function [out1, out2] = clamp( self )
-        % Get ball minimum and maximum points of object instance
-        [out1, out2] = mex_ball( 'clamp', self.objectHandle );
+      [out1, out2] = mex_ball( 'clamp', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ball perimeter
     function out = area( self )
-      % Get ball perimeter
       out = mex_ball( 'area', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ball volume
     function out = volume( self )
-      % Get ball volume
       out = mex_ball( 'volume', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ball is parallel to an ACME object
     function out = isParallel( self, other_obj )
-      % Check if ball is parallel to an ACME object
       out = mex_ball( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ball is orthogonal to an ACME object
     function out = isOrthogonal( self, other_obj )
-      % Check if ball is orthogonal to an ACME object
       out = mex_ball( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ball is collinear to an ACME object
     function out = isCollinear( self, other_obj )
-      % Check if ball is collinear to an ACME object
       out = mex_ball( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ball is coplanar to an ACME object
     function out = isCoplanar( self, other_obj )
-      % Check if ball is coplanar to an ACME object
       out = mex_ball( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Intersect ball with an ACME object
     function out = intersection( self, other_obj )
-      % Intersect ball with an ACME object
       [handle, type] = mex_ball( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()') );
       out.copyByHandle( handle );
@@ -190,15 +190,15 @@ classdef acme_ball < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [ [self.getRadius(), NaN, NaN]', self.getCenter().get()] ); %[self.getRadius() 0 0]',
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot ball object
     function plot( self, figure_name, color )
-      % Plot ball object
       figure_name;
       hold on;
       radius = self.getRadius();
@@ -216,8 +216,8 @@ classdef acme_ball < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'ball';
     end
   end

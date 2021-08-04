@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1a217fe29f07d54a52e1fdbaf85ae10c86:
+
+Variable acme::PI
+=================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::PI
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

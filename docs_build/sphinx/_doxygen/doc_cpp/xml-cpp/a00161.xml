@@ -1,0 +1,1033 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00161" kind="class" language="C++" prot="public">
+    <compoundname>acme::plane</compoundname>
+    <basecompoundref refid="a00149" prot="public" virt="non-virtual">acme::entity</basecompoundref>
+    <includes refid="a00047" local="no">acme_plane.hh</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00161_1a37a947baf2d2c6f5225aa41f1eb9ba61" prot="private" static="no" mutable="no">
+        <type><ref refid="a00165" kindref="compound">point</ref></type>
+        <definition>point acme::plane::m_origin</definition>
+        <argsstring></argsstring>
+        <name>m_origin</name>
+        <briefdescription>
+<para>Plane origin point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="57" column="11" bodyfile="include/acme_plane.hh" bodystart="57" bodyend="-1"/>
+        <referencedby refid="a00161_1acbcf192680b2b810bee4eb5edf65a2e5" compoundref="a00107" startline="160" endline="164">d</referencedby>
+        <referencedby refid="a00161_1a2427a4a5e51dd2aeab07dc74b8eeb524" compoundref="a00107" startline="91" endline="98">isApprox</referencedby>
+        <referencedby refid="a00161_1a5a49909abdcada4b17eb2ab20dc62e9c" compoundref="a00107" startline="73" endline="86">operator=</referencedby>
+        <referencedby refid="a00161_1af3eaf7104a3858480ef748577997fe1f" compoundref="a00107" startline="103" endline="106">origin</referencedby>
+        <referencedby refid="a00161_1aa881f39f09cb0aba49fe8f40993fada4" compoundref="a00107" startline="190" endline="195">signedDistance</referencedby>
+        <referencedby refid="a00161_1a1931313d9ffce1cf743c98f2c964f9d3" compoundref="a00107" startline="209" endline="214">transform</referencedby>
+        <referencedby refid="a00161_1a99a525676cf8b9816e7dc9996131d57f" compoundref="a00107" startline="200" endline="204">translate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00161_1a69cc3f1b9def2d6b5f1bc16f5755c1ee" prot="private" static="no" mutable="no">
+        <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::plane::m_normal</definition>
+        <argsstring></argsstring>
+        <name>m_normal</name>
+        <briefdescription>
+<para>Plane normal vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="58" column="10" bodyfile="include/acme_plane.hh" bodystart="58" bodyend="-1"/>
+        <referencedby refid="a00161_1acbcf192680b2b810bee4eb5edf65a2e5" compoundref="a00107" startline="160" endline="164">d</referencedby>
+        <referencedby refid="a00161_1a2427a4a5e51dd2aeab07dc74b8eeb524" compoundref="a00107" startline="91" endline="98">isApprox</referencedby>
+        <referencedby refid="a00161_1a567cf25d27e6136f7f1b1b968fbbca67" compoundref="a00107" startline="230" endline="235">isDegenerated</referencedby>
+        <referencedby refid="a00161_1aac7006c98c53ec9d707733f82a0e4a93" compoundref="a00107" startline="119" endline="122">normal</referencedby>
+        <referencedby refid="a00161_1a7c731f50abe8ed541482e547d15696ba" compoundref="a00107" startline="144" endline="147">normalize</referencedby>
+        <referencedby refid="a00161_1a5a49909abdcada4b17eb2ab20dc62e9c" compoundref="a00107" startline="73" endline="86">operator=</referencedby>
+        <referencedby refid="a00161_1ae2bbf763daa0a6f268f7d59a01b6b9ce" compoundref="a00107" startline="152" endline="155">reverse</referencedby>
+        <referencedby refid="a00161_1aa881f39f09cb0aba49fe8f40993fada4" compoundref="a00107" startline="190" endline="195">signedDistance</referencedby>
+        <referencedby refid="a00161_1a1931313d9ffce1cf743c98f2c964f9d3" compoundref="a00107" startline="209" endline="214">transform</referencedby>
+        <referencedby refid="a00161_1aa6c94219d14c00fe1ce9c6b0a669d5ea" compoundref="a00107" startline="135" endline="139">unitNormal</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00161_1a2c67f034bdfefb34a20ce02f250c4477" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::plane::~plane</definition>
+        <argsstring>()</argsstring>
+        <name>~plane</name>
+        <briefdescription>
+<para>Plane class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="62" column="5" bodyfile="include/acme_plane.hh" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1aa40e6f58c335caff1842d8502c8ffb6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::plane::plane</definition>
+        <argsstring>()</argsstring>
+        <name>plane</name>
+        <briefdescription>
+<para>Plane class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="65" column="5" bodyfile="include/acme_plane.hh" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a3389e016780769c9e76eadfaf4bf94ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::plane::plane</definition>
+        <argsstring>(plane const &amp;)=default</argsstring>
+        <name>plane</name>
+        <param>
+          <type><ref refid="a00161" kindref="compound">plane</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>Plane copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="68" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a519a74e357cc410924d029b9eee5f949" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::plane::plane</definition>
+        <argsstring>(plane &amp;&amp;)=default</argsstring>
+        <name>plane</name>
+        <param>
+          <type><ref refid="a00161" kindref="compound">plane</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Plane move constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="71" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a23f0266d0eba571c13b7682b0cf7af76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::plane::plane</definition>
+        <argsstring>(real origin_x, real origin_y, real origin_z, real normal_x, real normal_y, real normal_z)</argsstring>
+        <name>plane</name>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>origin_x</declname>
+          <briefdescription><para>Input x value of plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>origin_y</declname>
+          <briefdescription><para>Input y value of plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>origin_z</declname>
+          <briefdescription><para>Input z value of plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>normal_x</declname>
+          <briefdescription><para>Input x value of plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>normal_y</declname>
+          <briefdescription><para>Input y value of plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>normal_z</declname>
+          <briefdescription><para>Input z value of plane normal vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Plane class constructor for plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="74" column="5" bodyfile="src/acme_plane.cc" bodystart="48" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a847b3bfd0c5f5085ebb105cf16edde06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::plane::plane</definition>
+        <argsstring>(point const &amp;origin, vec3 const &amp;normal)</argsstring>
+        <name>plane</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>origin</declname>
+          <briefdescription><para>Input plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>normal</declname>
+          <briefdescription><para>Input plane normal vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Plane class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="84" column="5" bodyfile="src/acme_plane.cc" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a5a49909abdcada4b17eb2ab20dc62e9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00161" kindref="compound">plane</ref> &amp;</type>
+        <definition>plane &amp; acme::plane::operator=</definition>
+        <argsstring>(plane const &amp;plane_in)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="a00161" kindref="compound">plane</ref> const &amp;</type>
+          <declname>plane_in</declname>
+          <briefdescription><para>Input plane object </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Equality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="91" column="5" bodyfile="src/acme_plane.cc" bodystart="73" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a2427a4a5e51dd2aeab07dc74b8eeb524" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isApprox</definition>
+        <argsstring>(plane const &amp;plane_in, real tolerance=EPSILON) const</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type><ref refid="a00161" kindref="compound">plane</ref> const &amp;</type>
+          <declname>plane_in</declname>
+          <briefdescription><para>Input plane object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if objects are (almost) equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="97" column="5" bodyfile="src/acme_plane.cc" bodystart="91" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1af3eaf7104a3858480ef748577997fe1f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref> const  &amp;</type>
+        <definition>point const  &amp; acme::plane::origin</definition>
+        <argsstring>(void) const</argsstring>
+        <name>origin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return plane origin point const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="104" column="5" bodyfile="src/acme_plane.cc" bodystart="103" bodyend="106"/>
+        <referencedby refid="a00145_1add56db0aa6ea3baa218ea5c8b3f4a098" compoundref="a00083" startline="134" endline="138">acme::disk::center</referencedby>
+        <referencedby refid="a00145_1a569374f488585ec71fe995bcaace635b" compoundref="a00083" startline="260" endline="273">acme::disk::clamp</referencedby>
+        <referencedby refid="a00125_1a3d6b9a3230eb379038b1278023055d47" compoundref="a00089" startline="2230" endline="2249">acme::intersection</referencedby>
+        <referencedby refid="a00145_1a51d74b07a9773afc818a87215f18e066" compoundref="a00083" startline="104" endline="112">acme::disk::isApprox</referencedby>
+        <referencedby refid="a00125_1a08ed2f0943964862922a2fb3807844a3" compoundref="a00080" startline="320" endline="327">acme::isCoplanar</referencedby>
+        <referencedby refid="a00145_1a1b3cd80cf8fd95c076b5ea160579a7a2" compoundref="a00083" startline="237" endline="244">acme::disk::isInside</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a68a3c2e926a40c2e441f5a549e9888f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref> &amp;</type>
+        <definition>point &amp; acme::plane::origin</definition>
+        <argsstring>(void)</argsstring>
+        <name>origin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return plane origin point reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="108" column="5" bodyfile="src/acme_plane.cc" bodystart="111" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1aac7006c98c53ec9d707733f82a0e4a93" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const  &amp;</type>
+        <definition>vec3 const  &amp; acme::plane::normal</definition>
+        <argsstring>(void) const</argsstring>
+        <name>normal</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return plane normal vector const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="112" column="5" bodyfile="src/acme_plane.cc" bodystart="119" bodyend="122"/>
+        <referencedby refid="a00125_1ad4526d05f99f04aaffb03c5e055b8e45" compoundref="a00089" startline="2115" endline="2142">acme::intersection</referencedby>
+        <referencedby refid="a00145_1a51d74b07a9773afc818a87215f18e066" compoundref="a00083" startline="104" endline="112">acme::disk::isApprox</referencedby>
+        <referencedby refid="a00125_1a08ed2f0943964862922a2fb3807844a3" compoundref="a00080" startline="320" endline="327">acme::isCoplanar</referencedby>
+        <referencedby refid="a00125_1afe01940c7eed39607923fd05d2cc8362" compoundref="a00101" startline="330" endline="336">acme::isOrthogonal</referencedby>
+        <referencedby refid="a00125_1a27ab02fd6515c27eae619d27322e33d3" compoundref="a00104" startline="330" endline="336">acme::isParallel</referencedby>
+        <referencedby refid="a00145_1ab58a4899383a3a19ab92b53a23d63b52" compoundref="a00083" startline="151" endline="155">acme::disk::normal</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a417a40cfa0fe5e2f636c653bcf1accf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+        <definition>vec3 &amp; acme::plane::normal</definition>
+        <argsstring>(void)</argsstring>
+        <name>normal</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return plane normal vector reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="116" column="5" bodyfile="src/acme_plane.cc" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1aa6c94219d14c00fe1ce9c6b0a669d5ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::plane::unitNormal</definition>
+        <argsstring>(void) const</argsstring>
+        <name>unitNormal</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return plane normal unit vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="120" column="5" bodyfile="src/acme_plane.cc" bodystart="135" bodyend="139"/>
+        <referencedby refid="a00125_1ade00216e2db7ee64adbd722942b1d0d4" compoundref="a00089" startline="2531" endline="2551">acme::intersection</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a7c731f50abe8ed541482e547d15696ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::plane::normalize</definition>
+        <argsstring>(void)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Normalize plane normal vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="124" column="5" bodyfile="src/acme_plane.cc" bodystart="144" bodyend="147"/>
+        <referencedby refid="a00145_1a9d8be108b28dcc18a1ced371bf58c7b8" compoundref="a00083" startline="185" endline="188">acme::disk::normalize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1acbcf192680b2b810bee4eb5edf65a2e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+        <definition>real acme::plane::d</definition>
+        <argsstring>(void) const</argsstring>
+        <name>d</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return plane equation d value (ax + by + cz + d = 0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="128" column="5" bodyfile="src/acme_plane.cc" bodystart="160" bodyend="164"/>
+        <referencedby refid="a00125_1ad4526d05f99f04aaffb03c5e055b8e45" compoundref="a00089" startline="2115" endline="2142">acme::intersection</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1adac5efaed0ed695db1e824fd5ccb42fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+        <definition>real acme::plane::distance</definition>
+        <argsstring>(point const &amp;point_in) const</argsstring>
+        <name>distance</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>point_in</declname>
+          <briefdescription><para>Input </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Distance between point and plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="132" column="5" bodyfile="src/acme_plane.cc" bodystart="169" bodyend="174"/>
+        <referencedby refid="a00161_1a116ee95e0c2171522f7ed62058e69928" compoundref="a00107" startline="179" endline="185">squaredDistance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a116ee95e0c2171522f7ed62058e69928" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+        <definition>real acme::plane::squaredDistance</definition>
+        <argsstring>(point const &amp;point_in) const</argsstring>
+        <name>squaredDistance</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>point_in</declname>
+          <briefdescription><para>Input </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Squared distance between point and plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="138" column="5" bodyfile="src/acme_plane.cc" bodystart="179" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1aa881f39f09cb0aba49fe8f40993fada4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+        <definition>real acme::plane::signedDistance</definition>
+        <argsstring>(point const &amp;point_in) const</argsstring>
+        <name>signedDistance</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>point_in</declname>
+          <briefdescription><para>Input </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Signed distance between point and plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="144" column="5" bodyfile="src/acme_plane.cc" bodystart="190" bodyend="195"/>
+        <referencedby refid="a00161_1adac5efaed0ed695db1e824fd5ccb42fe" compoundref="a00107" startline="169" endline="174">distance</referencedby>
+        <referencedby refid="a00125_1a08ed2f0943964862922a2fb3807844a3" compoundref="a00080" startline="320" endline="327">acme::isCoplanar</referencedby>
+        <referencedby refid="a00161_1a2630f77e3aec0ccb842eca443c97e945" compoundref="a00107" startline="219" endline="225">isInside</referencedby>
+        <referencedby refid="a00161_1a116ee95e0c2171522f7ed62058e69928" compoundref="a00107" startline="179" endline="185">squaredDistance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1ae2bbf763daa0a6f268f7d59a01b6b9ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::plane::reverse</definition>
+        <argsstring>(void)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reverse plane normal vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="150" column="5" bodyfile="src/acme_plane.cc" bodystart="152" bodyend="155"/>
+        <referencedby refid="a00145_1a81fd14841280df839703360214831f4d" compoundref="a00083" startline="193" endline="196">acme::disk::reverse</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a99a525676cf8b9816e7dc9996131d57f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void acme::plane::translate</definition>
+        <argsstring>(vec3 const &amp;vector_in) override</argsstring>
+        <name>translate</name>
+        <reimplements refid="a00149_1a9979154e5dfe4f69fc04f4b25ac76aea">translate</reimplements>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>vector_in</declname>
+          <briefdescription><para>Input translation vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Translate plane by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="154" column="5" bodyfile="src/acme_plane.cc" bodystart="200" bodyend="204"/>
+        <referencedby refid="a00145_1a14ddecf475ad030fd8c2cb0fc2f6ca34" compoundref="a00083" startline="219" endline="223">acme::disk::translate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a1931313d9ffce1cf743c98f2c964f9d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void acme::plane::transform</definition>
+        <argsstring>(affine const &amp;affine_in) override</argsstring>
+        <name>transform</name>
+        <reimplements refid="a00149_1a48c8a3f95aaea32d4368e918fdadd021">transform</reimplements>
+        <param>
+          <type><ref refid="a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc" kindref="member">affine</ref> const &amp;</type>
+          <declname>affine_in</declname>
+          <briefdescription><para>4x4 affine transformation matrix </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Transform plane from with affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="160" column="5" bodyfile="src/acme_plane.cc" bodystart="209" bodyend="214"/>
+        <referencedby refid="a00145_1a95977bb8b412e0298ff34770f4e36e5b" compoundref="a00083" startline="228" endline="232">acme::disk::transform</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a2630f77e3aec0ccb842eca443c97e945" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isInside</definition>
+        <argsstring>(point const &amp;point_in, real tolerance=EPSILON) const</argsstring>
+        <name>isInside</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>point_in</declname>
+          <briefdescription><para>Query point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="166" column="5" bodyfile="src/acme_plane.cc" bodystart="219" bodyend="225"/>
+        <referencedby refid="a00125_1addaa11f01c4c981002932a52f462ebee" compoundref="a00089" startline="1396" endline="1411">acme::intersection</referencedby>
+        <referencedby refid="a00145_1a1b3cd80cf8fd95c076b5ea160579a7a2" compoundref="a00083" startline="237" endline="244">acme::disk::isInside</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a567cf25d27e6136f7f1b1b968fbbca67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isDegenerated</definition>
+        <argsstring>(real tolerance=EPSILON) const override</argsstring>
+        <name>isDegenerated</name>
+        <reimplements refid="a00149_1a4535419695613294d8f946eb872bd5bd">isDegenerated</reimplements>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if plane is degenerated (normal has zero norm) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="173" column="5" bodyfile="src/acme_plane.cc" bodystart="230" bodyend="235"/>
+        <referencedby refid="a00145_1a16cb41e8ccb60067dc79dd8b2e5eb3d2" compoundref="a00083" startline="249" endline="255">acme::disk::isDegenerated</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1addc5392cd600fe973d62acf6fd8cc248" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="a00125_1a9223400d01496dcba963b2f723c89d4a" kindref="member">integer</ref></type>
+        <definition>integer acme::plane::level</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>level</name>
+        <reimplements refid="a00149_1a4b9630c90d73a823e2e0efd8e9a79cd0">level</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object hierarchical level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="178" column="13" bodyfile="include/acme_plane.hh" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a2f05e10a1218d5697470c550cb49444c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string acme::plane::type</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>type</name>
+        <reimplements refid="a00149_1ac2e74fd5ab901b53d8242d3bb70755a4">type</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="181" column="17" bodyfile="include/acme_plane.hh" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1ae95ff7be5152906d3c21fc893473d78d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isNone</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isNone</name>
+        <reimplements refid="a00149_1a6dcf252926f1c1b1aad147d5caa5eed3">isNone</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is no entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="184" column="10" bodyfile="include/acme_plane.hh" bodystart="184" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a944befd25440d8d6028f4defee7dd5b8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isPoint</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isPoint</name>
+        <reimplements refid="a00149_1a0ca14dc6ba289cadc1207064eae92373">isPoint</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="187" column="10" bodyfile="include/acme_plane.hh" bodystart="187" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1aaee1d8c99118d4f4006757266e90d50a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isLine</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isLine</name>
+        <reimplements refid="a00149_1a68bd00af11831aee5fef3531850ff433">isLine</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="190" column="10" bodyfile="include/acme_plane.hh" bodystart="190" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1ae8ae8648f07659239e5d87a21449117c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isRay</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isRay</name>
+        <reimplements refid="a00149_1a9ab36cd844cde471a9c3908c1cee09a2">isRay</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ray. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="193" column="10" bodyfile="include/acme_plane.hh" bodystart="193" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1ad547d6d9fa83f4cabb9eaa50147a2169" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isPlane</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isPlane</name>
+        <reimplements refid="a00149_1a9df7782cc14bf5d21cd85e59ef1c1d5c">isPlane</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="196" column="10" bodyfile="include/acme_plane.hh" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a99526047c2dce57edfc97fba37d658b6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isSegment</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isSegment</name>
+        <reimplements refid="a00149_1ac7d126acf87e2da6a552814be7ebc126">isSegment</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="199" column="10" bodyfile="include/acme_plane.hh" bodystart="199" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a5eb15d12cc22238710457df832435916" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isTriangle</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isTriangle</name>
+        <reimplements refid="a00149_1a5d0657b831d799da5f6f2fed1ff12179">isTriangle</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a triangle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="202" column="10" bodyfile="include/acme_plane.hh" bodystart="202" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a0c4fe94cc00af52c99c0408b1dea8c91" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isDisk</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isDisk</name>
+        <reimplements refid="a00149_1aed5ee0dee6a1a1c0a8c29e4d3a217894">isDisk</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="205" column="10" bodyfile="include/acme_plane.hh" bodystart="205" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a3670d7881fc7d1d95644f51bd6640d3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isBall</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isBall</name>
+        <reimplements refid="a00149_1a73add88b6838e9b0a9a261a679da9515">isBall</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ball. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="208" column="10" bodyfile="include/acme_plane.hh" bodystart="208" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1ad9dd9067c6b2143e7e50c182a1cbec20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isClampable</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isClampable</name>
+        <reimplements refid="a00149_1a2014bd40547fe4fd4a270b5e40c6cc07">isClampable</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the plane is clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="211" column="10" bodyfile="include/acme_plane.hh" bodystart="211" bodyend="211"/>
+        <referencedby refid="a00161_1a334cf5cb4b939ac2e68b0d7e8b8f5184" compoundref="a00107" startline="240" endline="246">clamp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a6e3fad32419c6b551f554a7c8d2f4fa6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::isNonClampable</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isNonClampable</name>
+        <reimplements refid="a00149_1a5a5c33241ac3032efb4908744d3174dc">isNonClampable</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the plane is non-clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="214" column="10" bodyfile="include/acme_plane.hh" bodystart="214" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a334cf5cb4b939ac2e68b0d7e8b8f5184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::clamp</definition>
+        <argsstring>(vec3 &amp;min, vec3 &amp;max) const override</argsstring>
+        <name>clamp</name>
+        <reimplements refid="a00149_1afebc220f247db840f78b7df51e175a28">clamp</reimplements>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>min</declname>
+          <briefdescription><para>Input minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>max</declname>
+          <briefdescription><para>Input maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="218" column="5" bodyfile="src/acme_plane.cc" bodystart="240" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="a00161_1a1400cdfe9ffae6192ab57ac63da401d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::plane::clamp</definition>
+        <argsstring>(real &amp;min_x, real &amp;min_y, real &amp;min_z, real &amp;max_x, real &amp;max_y, real &amp;max_z) const override</argsstring>
+        <name>clamp</name>
+        <reimplements refid="a00149_1a071efafd454180bf95903a38029a5b6b">clamp</reimplements>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_x</declname>
+          <briefdescription><para>Input x value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_y</declname>
+          <briefdescription><para>Input y value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_z</declname>
+          <briefdescription><para>Input z value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_x</declname>
+          <briefdescription><para>Input x value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_y</declname>
+          <briefdescription><para>Input y value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_z</declname>
+          <briefdescription><para>Input z value of maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_plane.hh" line="225" column="5" bodyfile="src/acme_plane.cc" bodystart="251" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::entity::rotate</definition>
+        <argsstring>(real angle, vec3 const &amp;axis)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>angle</declname>
+          <briefdescription><para>Input angle [rad] </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>axis</declname>
+          <briefdescription><para>Input axis </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Rotate entity by a rotation angle around an arbitrary axis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="79" column="5" bodyfile="src/acme_entity.cc" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a534ab97324296ad976e253051482322f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::entity::isEntity</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isEntity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="96" column="10" bodyfile="src/acme_entity.cc" bodystart="61" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00149" kindref="compound">entity</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;entity&gt; acme::entity::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to entity object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="56" column="29" bodyfile="include/acme_entity.hh" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" kindref="member">ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;ptr&gt; acme::entity::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of pointers to entity objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="57" column="25" bodyfile="include/acme_entity.hh" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Plane class container. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>3D plane defined by the normal vector to plane and an arbitraty point laying on the plane. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>acme::entity</label>
+        <link refid="a00149"/>
+      </node>
+      <node id="1">
+        <label>acme::plane</label>
+        <link refid="a00161"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Eigen::Matrix&lt; real, 3, 1 &gt;</label>
+      </node>
+      <node id="2">
+        <label>acme::entity</label>
+        <link refid="a00149"/>
+      </node>
+      <node id="1">
+        <label>acme::plane</label>
+        <link refid="a00161"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_origin</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>acme::point</label>
+        <link refid="a00165"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/acme_plane.hh" line="54" column="3" bodyfile="include/acme_plane.hh" bodystart="55" bodyend="234"/>
+    <listofallmembers>
+      <member refid="a00161_1a334cf5cb4b939ac2e68b0d7e8b8f5184" prot="public" virt="virtual"><scope>acme::plane</scope><name>clamp</name></member>
+      <member refid="a00161_1a1400cdfe9ffae6192ab57ac63da401d4" prot="public" virt="virtual"><scope>acme::plane</scope><name>clamp</name></member>
+      <member refid="a00161_1acbcf192680b2b810bee4eb5edf65a2e5" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>d</name></member>
+      <member refid="a00161_1adac5efaed0ed695db1e824fd5ccb42fe" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>distance</name></member>
+      <member refid="a00149_1a8e7b0764a8cd9a367fd56231597fe517" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>entity</name></member>
+      <member refid="a00161_1a2427a4a5e51dd2aeab07dc74b8eeb524" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>isApprox</name></member>
+      <member refid="a00161_1a3670d7881fc7d1d95644f51bd6640d3c" prot="public" virt="virtual"><scope>acme::plane</scope><name>isBall</name></member>
+      <member refid="a00161_1ad9dd9067c6b2143e7e50c182a1cbec20" prot="public" virt="virtual"><scope>acme::plane</scope><name>isClampable</name></member>
+      <member refid="a00161_1a567cf25d27e6136f7f1b1b968fbbca67" prot="public" virt="virtual"><scope>acme::plane</scope><name>isDegenerated</name></member>
+      <member refid="a00161_1a0c4fe94cc00af52c99c0408b1dea8c91" prot="public" virt="virtual"><scope>acme::plane</scope><name>isDisk</name></member>
+      <member refid="a00149_1a534ab97324296ad976e253051482322f" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>isEntity</name></member>
+      <member refid="a00161_1a2630f77e3aec0ccb842eca443c97e945" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>isInside</name></member>
+      <member refid="a00161_1aaee1d8c99118d4f4006757266e90d50a" prot="public" virt="virtual"><scope>acme::plane</scope><name>isLine</name></member>
+      <member refid="a00161_1a6e3fad32419c6b551f554a7c8d2f4fa6" prot="public" virt="virtual"><scope>acme::plane</scope><name>isNonClampable</name></member>
+      <member refid="a00161_1ae95ff7be5152906d3c21fc893473d78d" prot="public" virt="virtual"><scope>acme::plane</scope><name>isNone</name></member>
+      <member refid="a00161_1ad547d6d9fa83f4cabb9eaa50147a2169" prot="public" virt="virtual"><scope>acme::plane</scope><name>isPlane</name></member>
+      <member refid="a00161_1a944befd25440d8d6028f4defee7dd5b8" prot="public" virt="virtual"><scope>acme::plane</scope><name>isPoint</name></member>
+      <member refid="a00161_1ae8ae8648f07659239e5d87a21449117c" prot="public" virt="virtual"><scope>acme::plane</scope><name>isRay</name></member>
+      <member refid="a00161_1a99526047c2dce57edfc97fba37d658b6" prot="public" virt="virtual"><scope>acme::plane</scope><name>isSegment</name></member>
+      <member refid="a00161_1a5eb15d12cc22238710457df832435916" prot="public" virt="virtual"><scope>acme::plane</scope><name>isTriangle</name></member>
+      <member refid="a00161_1addc5392cd600fe973d62acf6fd8cc248" prot="public" virt="virtual"><scope>acme::plane</scope><name>level</name></member>
+      <member refid="a00161_1a69cc3f1b9def2d6b5f1bc16f5755c1ee" prot="private" virt="non-virtual"><scope>acme::plane</scope><name>m_normal</name></member>
+      <member refid="a00161_1a37a947baf2d2c6f5225aa41f1eb9ba61" prot="private" virt="non-virtual"><scope>acme::plane</scope><name>m_origin</name></member>
+      <member refid="a00161_1aac7006c98c53ec9d707733f82a0e4a93" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>normal</name></member>
+      <member refid="a00161_1a417a40cfa0fe5e2f636c653bcf1accf7" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>normal</name></member>
+      <member refid="a00161_1a7c731f50abe8ed541482e547d15696ba" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>normalize</name></member>
+      <member refid="a00161_1a5a49909abdcada4b17eb2ab20dc62e9c" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>operator=</name></member>
+      <member refid="a00161_1af3eaf7104a3858480ef748577997fe1f" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>origin</name></member>
+      <member refid="a00161_1a68a3c2e926a40c2e441f5a549e9888f8" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>origin</name></member>
+      <member refid="a00161_1aa40e6f58c335caff1842d8502c8ffb6e" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>plane</name></member>
+      <member refid="a00161_1a3389e016780769c9e76eadfaf4bf94ce" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>plane</name></member>
+      <member refid="a00161_1a519a74e357cc410924d029b9eee5f949" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>plane</name></member>
+      <member refid="a00161_1a23f0266d0eba571c13b7682b0cf7af76" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>plane</name></member>
+      <member refid="a00161_1a847b3bfd0c5f5085ebb105cf16edde06" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>plane</name></member>
+      <member refid="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>ptr</name></member>
+      <member refid="a00161_1ae2bbf763daa0a6f268f7d59a01b6b9ce" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>reverse</name></member>
+      <member refid="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>rotate</name></member>
+      <member refid="a00161_1aa881f39f09cb0aba49fe8f40993fada4" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>signedDistance</name></member>
+      <member refid="a00161_1a116ee95e0c2171522f7ed62058e69928" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>squaredDistance</name></member>
+      <member refid="a00161_1a1931313d9ffce1cf743c98f2c964f9d3" prot="public" virt="virtual"><scope>acme::plane</scope><name>transform</name></member>
+      <member refid="a00161_1a99a525676cf8b9816e7dc9996131d57f" prot="public" virt="virtual"><scope>acme::plane</scope><name>translate</name></member>
+      <member refid="a00161_1a2f05e10a1218d5697470c550cb49444c" prot="public" virt="virtual"><scope>acme::plane</scope><name>type</name></member>
+      <member refid="a00161_1aa6c94219d14c00fe1ce9c6b0a669d5ea" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>unitNormal</name></member>
+      <member refid="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>vecptr</name></member>
+      <member refid="a00149_1a89e8a5f825d508d52f9e4423169f75ee" prot="public" virt="virtual"><scope>acme::plane</scope><name>~entity</name></member>
+      <member refid="a00161_1a2c67f034bdfefb34a20ce02f250c4477" prot="public" virt="non-virtual"><scope>acme::plane</scope><name>~plane</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

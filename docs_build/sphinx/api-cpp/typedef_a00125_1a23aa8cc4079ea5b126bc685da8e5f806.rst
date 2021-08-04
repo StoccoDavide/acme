@@ -1,0 +1,14 @@
+.. _exhale_typedef_a00125_1a23aa8cc4079ea5b126bc685da8e5f806:
+
+Typedef acme::vec2
+==================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: acme::vec2
+   :project: doc_cpp

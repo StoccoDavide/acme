@@ -79,7 +79,7 @@ exhale_projects_args = {
     "exhaleExecutesDoxygen": True,
     "doxygenStripFromPath":  str(dir_path_cpp),
     "exhaleDoxygenStdin":   '''
-        INPUT               = ../../src
+        INPUT               = ../../include ../../src
         PREDEFINED         += protected=private
         XML_OUTPUT          = xml-cpp
 '''+doxygen_common_stdin,

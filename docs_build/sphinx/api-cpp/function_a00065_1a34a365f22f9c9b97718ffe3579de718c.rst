@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a34a365f22f9c9b97718ffe3579de718c:
+
+Function acme::intersection(ray const&, triangle const&, point&, real)
+======================================================================
+
+- Defined in :ref:`file_include_acme_intersection.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(ray const&, triangle const&, point&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

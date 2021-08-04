@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1ade00216e2db7ee64adbd722942b1d0d4:
+
+Function acme::intersection(plane const&, ball const&, disk&, real)
+===================================================================
+
+- Defined in :ref:`file_include_acme_intersection.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(plane const&, ball const&, disk&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

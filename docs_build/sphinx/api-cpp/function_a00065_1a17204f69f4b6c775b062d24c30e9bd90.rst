@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a17204f69f4b6c775b062d24c30e9bd90:
+
+Function acme::operator<<(out_stream&, ray const&)
+==================================================
+
+- Defined in :ref:`file_include_acme_utils.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::operator<<(out_stream&, ray const&)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1a098de970b2b24168e543af34b437c63b:
+
+Variable acme::IDENTITY_MAT2
+============================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::IDENTITY_MAT2
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

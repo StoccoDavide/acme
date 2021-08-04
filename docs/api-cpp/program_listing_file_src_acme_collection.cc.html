@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program Listing for File acme_collection.cc &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -70,7 +69,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="program-listing-for-file-acme-collection-cc">
+  <div class="section" id="program-listing-for-file-acme-collection-cc">
 <span id="program-listing-file-src-acme-collection-cc"></span><h1>Program Listing for File acme_collection.cc<a class="headerlink" href="#program-listing-for-file-acme-collection-cc" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_src_acme_collection.cc.html#file-src-acme-collection-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/acme_collection.cc</span></code>)</p>
@@ -105,7 +104,7 @@
 
 <span class="cp">#include</span> <span class="cpf">"acme_collection.hh"</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="nn">acme</span>
+<span class="k">namespace</span> <span class="n">acme</span>
 <span class="p">{</span>
 
   <span class="cm">/*\</span>
@@ -136,7 +135,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::clear</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">clear</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
   <span class="p">}</span>
@@ -144,7 +143,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::resize</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">resize</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
@@ -153,7 +152,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::push_back</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">push_back</span><span class="p">(</span>
       <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="n">entity_in</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">entity_in</span><span class="p">);</span>
@@ -180,7 +179,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::translate</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
       <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -190,7 +189,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::rotate</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
       <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span><span class="p">)</span>
   <span class="p">{</span>
@@ -201,7 +200,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::transform</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span>
       <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -211,7 +210,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -225,7 +224,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -239,7 +238,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isNone</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isNone</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -249,7 +248,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -261,7 +260,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -276,7 +275,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -290,7 +289,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::arePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">arePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -304,7 +303,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isPoint</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isPoint</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -314,7 +313,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -326,7 +325,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -341,7 +340,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -355,7 +354,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -369,7 +368,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isLine</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isLine</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -379,7 +378,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -391,7 +390,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -406,7 +405,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -420,7 +419,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -434,7 +433,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isRay</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isRay</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -444,7 +443,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -456,7 +455,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -471,7 +470,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -485,7 +484,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::arePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">arePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -499,7 +498,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isPlane</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isPlane</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -509,7 +508,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -521,7 +520,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -536,7 +535,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -550,7 +549,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -564,7 +563,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isSegment</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isSegment</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -574,7 +573,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -586,7 +585,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -601,7 +600,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -615,7 +614,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -629,7 +628,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isTriangle</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isTriangle</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -639,7 +638,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -651,7 +650,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -666,7 +665,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -680,7 +679,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -694,7 +693,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isDisk</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isDisk</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -704,7 +703,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -716,7 +715,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -731,7 +730,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -745,7 +744,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -759,7 +758,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isBall</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isBall</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -769,7 +768,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -781,7 +780,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -796,7 +795,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containDegenerated</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containDegenerated</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -811,7 +810,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areDegenerated</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areDegenerated</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -826,7 +825,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isDegenerated</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
@@ -837,7 +836,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeDegenerated</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeDegenerated</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
@@ -850,7 +849,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countDegenerated</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countDegenerated</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -866,7 +865,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -880,7 +879,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -894,7 +893,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isClampable</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isClampable</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -904,7 +903,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -916,7 +915,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -931,7 +930,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::containNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">containNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -945,7 +944,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::areNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">areNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -959,7 +958,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
-  <span class="nf">collection::isNonClampable</span><span class="p">(</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">isNonClampable</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
@@ -969,7 +968,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">void</span>
-  <span class="nf">collection::removeNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">removeNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">remove_if</span><span class="p">(</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span>
@@ -981,7 +980,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::countNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">countNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">integer</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -996,7 +995,7 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">integer</span>
-  <span class="nf">collection::size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="n">collection</span><span class="o">::</span><span class="n">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -1038,7 +1037,7 @@
       <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_entities</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">clamp</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">))</span>
         <span class="n">boxes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span><span class="p">(</span><span class="n">min</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
       <span class="k">else</span>
-        <span class="n">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::collection::clamp(): non-clampable object detected."</span><span class="p">);</span>
+        <span class="nf">ACME_ERROR</span><span class="p">(</span><span class="s">"acme::collection::clamp()</span><span class="o">:</span> <span class="n">non</span><span class="o">-</span><span class="n">clampable</span> <span class="n">object</span> <span class="n">detected</span><span class="p">.</span><span class="s">")</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
@@ -1103,7 +1102,7 @@
       <span class="n">collection</span> <span class="o">&amp;</span><span class="n">candidates</span><span class="p">)</span>
       <span class="k">const</span>
   <span class="p">{</span>
-    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="nf">ptrAABBtree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">ptrAABBtree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">());</span>
     <span class="n">ptrAABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="n">ptrVecbox</span><span class="p">);</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">intersection</span><span class="p">(</span><span class="n">ptrAABBtree</span><span class="p">,</span> <span class="n">candidates</span><span class="p">);</span>
   <span class="p">}</span>
@@ -1145,7 +1144,7 @@
 <span class="c1">///</span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
 
@@ -1218,7 +1217,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

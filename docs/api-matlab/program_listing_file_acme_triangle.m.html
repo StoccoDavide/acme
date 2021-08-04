@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program Listing for File acme_triangle.m &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -70,7 +69,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="program-listing-for-file-acme-triangle-m">
+  <div class="section" id="program-listing-for-file-acme-triangle-m">
 <span id="program-listing-file-acme-triangle-m"></span><h1>Program Listing for File acme_triangle.m<a class="headerlink" href="#program-listing-for-file-acme-triangle-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_acme_triangle.m.html#file-acme-triangle-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">acme_triangle.m</span></code>)</p>
@@ -101,71 +100,71 @@
 <span class="c">% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %</span><span class="w"></span>
 
 <span class="k">classdef</span><span class="w"> </span><span class="n">acme_triangle</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">acme_entity</span><span class="w"></span>
-<span class="w">  </span><span class="c">%</span><span class="w"></span>
-<span class="w">  </span><span class="c">% Class container for ACME triangle object</span><span class="w"></span>
-<span class="w">  </span><span class="c">%</span><span class="w"></span>
+<span class="w">  </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="c">%&gt; Class container for ACME triangle object</span><span class="w"></span>
+<span class="w">  </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Create a new C++ pointer to triangle object instance</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_triangle</span><span class="p">(</span> varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Create a new C++ pointer to triangle object instance</span><span class="w"></span>
 <span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Create C++ pointer to triangle object instance</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Create C++ pointer to triangle object instance</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle vertex 1 as ACME point object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getVertex1</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle vertex 1 as ACME point object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'getVertex1'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle vertex 2 as ACME point object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getVertex2</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle vertex 2 as ACME point object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'getVertex2'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle vertex 3 as ACME point object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getVertex3</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle vertex 3 as ACME point object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'getVertex3'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Set triangle vertex 1 with an ACME point object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setVertex1</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Set triangle vertex 1 with an ACME point object</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'setVertex1'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Set triangle vertex 2 with an ACME point object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setVertex2</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Set triangle vertex 2 with an ACME point object</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'setVertex2'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Set triangle vertex 3 with an ACME point object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setVertex3</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Set triangle vertex 3 with an ACME point object</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'setVertex3'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Copy segment object from another segment</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Copy segment object from another segment</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"triangle"</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
@@ -175,29 +174,29 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Copy triangle object from another triangle handle</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> self, handle <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Copy triangle object from another triangle handle</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Translate triangle by vector</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="c">% Translate triangle by vector</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'translate'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Transform triangle by 4x4 affine transformation matrix</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span> self, varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Transform triangle by 4x4 affine transformation matrix</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'transform'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if ACME point is inside the triangle</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isInside</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if ACME point is inside the triangle</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"point"</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isInside'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
@@ -207,15 +206,15 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if triangle is degenerated</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isDegenerated</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if triangle is degenerated</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isDegenerated'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if triangles are approximatively equal</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isApprox</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if triangles are approximatively equal</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"triangle"</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isApprox'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
@@ -225,67 +224,67 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle centroid as ACME point objecty instance</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">centroid</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle centroid as ACME point objecty instance</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'centroid'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle normal</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">normal</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle normal</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'normal'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle laying plane</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">layingPlane</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="c">% Get triangle laying plane</span><span class="w"></span>
 <span class="w">     </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_plane</span><span class="p">();</span><span class="w"></span>
 <span class="w">     </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'layingPlane'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle i-th edge</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">edge</span><span class="p">(</span> self, i <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle i-th edge</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_segment</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'edge'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">i</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Swap triangle i-th and j-th vertex</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span> self, i, j <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Swap triangle i-th and j-th vertex</span><span class="w"></span>
 <span class="w">      </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'swap'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">i</span><span class="p">,</span><span class="w"> </span><span class="nb">j</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle minimum and maximum points of object instance</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">[out1, out2] = clamp</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle minimum and maximum points of object instance</span><span class="w"></span>
 <span class="w">      </span><span class="p">[</span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'clamp'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle perimeter</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle perimeter</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'perimeter'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get triangle perimeter</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get triangle perimeter</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'area'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Compute barycentric coordinates (u,v,w) for ACME point</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">barycentric</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Compute barycentric coordinates (u,v,w) for ACME point</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">other_obj</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"point"</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'barycenter'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
@@ -295,36 +294,36 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if triangle is parallel to an ACME object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isParallel</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if triangle is parallel to an ACME object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isParallel'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if triangle is orthogonal to an ACME object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isOrthogonal</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if triangle is orthogonal to an ACME object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isOrthogonal'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if triangle is collinear to an ACME object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isCollinear</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if triangle is collinear to an ACME object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isCollinear'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Check if triangle is coplanar to an ACME object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isCoplanar</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Check if triangle is coplanar to an ACME object</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'isCoplanar'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Intersect triangle with an ACME object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersection</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Intersect triangle with an ACME object</span><span class="w"></span>
 <span class="w">      </span><span class="p">[</span><span class="nb">handle</span><span class="p">,</span><span class="w"> </span><span class="nb">type</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_triangle</span><span class="p">(</span><span class="w"> </span><span class="s">'intersection'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="w"> </span><span class="nb">strcat</span><span class="p">(</span><span class="w"> </span><span class="s">'acme_'</span><span class="p">,</span><span class="w"> </span><span class="nb">type</span><span class="p">,</span><span class="w"> </span><span class="s">'()'</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
@@ -332,15 +331,15 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Display object data</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Display object data</span><span class="w"></span>
 <span class="w">      </span><span class="nb">disp</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">getVertex1</span><span class="p">().</span><span class="n">get</span><span class="p">(),</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getVertex2</span><span class="p">().</span><span class="n">get</span><span class="p">(),</span><span class="w">  </span><span class="n">self</span><span class="p">.</span><span class="n">getVertex3</span><span class="p">().</span><span class="n">get</span><span class="p">()]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Plot triangle object</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, figure_name, color <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Plot triangle object</span><span class="w"></span>
 <span class="w">      </span><span class="n">figure_name</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">Vertex1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getVertex1</span><span class="p">().</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
@@ -355,15 +354,15 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Get object type as string</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Get object type as string</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'triangle'</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
 
@@ -436,7 +435,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

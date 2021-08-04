@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1a87950720395a59dc6603d977cfade879:
+
+Variable acme::UNITX_VEC3
+=========================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::UNITX_VEC3
+   :project: doc_cpp

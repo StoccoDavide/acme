@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1a53f892a05bf1a9bda84c04a5f4d4b406:
+
+Variable acme::EPSILON_MEDIUM
+=============================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::EPSILON_MEDIUM
+   :project: doc_cpp

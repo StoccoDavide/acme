@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1ad722a11bf680e3f6b11bf6ea55b71401:
+
+Variable acme::NAN_AABB
+=======================
+
+- Defined in :ref:`file_include_acme_aabb.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::NAN_AABB
+   :project: doc_cpp

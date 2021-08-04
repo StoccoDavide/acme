@@ -1,0 +1,19 @@
+.. _exhale_function_a00062_1a5b948dc360fdd55e05745c9636f43c32:
+
+Function acme::isOrthogonal(entity const \*, entity const \*, real)
+===================================================================
+
+- Defined in :ref:`file_src_acme_orthogonal.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isOrthogonal(entity const *, entity const *, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

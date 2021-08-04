@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1adc9f9051f7af6c16ff803d0ce3da9140:
+
+Variable acme::THROWAWAY_POINT
+==============================
+
+- Defined in :ref:`file_include_acme_point.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::THROWAWAY_POINT
+   :project: doc_cpp

@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1ac69e935d91e5bbcd51fd28bd6b93897c:
+
+Function acme::isOrthogonal(ray const&, disk const&, real)
+==========================================================
+
+- Defined in :ref:`file_include_acme_orthogonal.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isOrthogonal(ray const&, disk const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

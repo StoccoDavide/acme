@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1adda9fa0864228df8c2aee33472c6c048:
+
+Function acme::isOrthogonal(segment const&, triangle const&, real)
+==================================================================
+
+- Defined in :ref:`file_src_acme_orthogonal.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isOrthogonal(segment const&, triangle const&, real)
+   :project: doc_cpp

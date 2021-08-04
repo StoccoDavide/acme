@@ -24,62 +24,62 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_plane < acme_entity
-  %
-  % Class container for ACME plane object
-  %
+  %>
+  %> Class container for ACME plane object
+  %>
   methods
+    %> Create a new C++ pointer to plane object instance
     function self = acme_plane( varargin )
-      % Create a new C++ pointer to plane object instance
       self.objectHandle = mex_plane( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Delete C++ pointer to plane object instance
     function delete( self )
-      % Delete C++ pointer to plane object instance
       mex_plane( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'plane';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get plane origin as ACME point object
     function out = getOrigin( self )
-      % Get plane origin as ACME point object
       out = acme_point();
       out.copyByHandle( mex_plane( 'getOrigin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get plane normal
     function out = getNormal( self )
-      % Get plane normal
       out = mex_plane( 'getNormal', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set plane origin with an ACME point object
     function setOrigin( self, other_obj )
-      % Set plane origin with an ACME point object
       mex_plane( 'setOrigin', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set plane normal
     function setNormal( self, other_obj )
-      % Set plane normal
       mex_plane( 'setNormal', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy plane object from another plane
     function copy( self, other_obj )
-      % Copy plane object from another plane
       if (other_obj.type() == "plane")
         mex_plane( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -89,29 +89,29 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy plane object from another plane handle
     function copyByHandle( self, handle )
-      % Copy plane object from another plane handle
       mex_plane( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate plane by vector
     function translate( self, other_obj )
-     % Translate plane by vector
       mex_plane( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform plane by 4x4 affine transformation matrix
     function transform( self, varargin )
-      % Transform plane by 4x4 affine transformation matrix
       mex_plane( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the plane 
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the plane 
       if (other_obj.type() == "point")
         out = mex_plane( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -121,15 +121,15 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if plane is degenerated
     function out = isDegenerated( self )
-      % Check if plane is degenerated
       out = mex_plane( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if planes are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if planes are approximatively equal
       if (other_obj.type() == "plane") 
         out = mex_plane( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -139,15 +139,15 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Normalize normal vectoe
     function normalize( self )
-      % 
       mex_plane( 'normalize', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Distance between an ACME point and plane
     function out = distance( self, other_obj )
-      % Distance between an ACME point and plane
       if (other_obj.type() == "point") 
         out = mex_plane( 'distance', self.objectHandle, other_obj.objectHandle );
       else
@@ -157,8 +157,8 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Squared distance between an ACME point and plane
     function out = squaredDistance( self, other_obj )
-      % Squared distance between an ACME point and plane
       if (other_obj.type() == "point") 
         out = mex_plane( 'squaredDistance', self.objectHandle, other_obj.objectHandle );
       else
@@ -168,8 +168,8 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Signed distance between an ACME point and plane
     function out = signedDistance( self, other_obj )
-      % Signed distance between an ACME point and plane
       if (other_obj.type() == "point") 
         out = mex_plane( 'signedDistance', self.objectHandle, other_obj.objectHandle );
       else
@@ -179,50 +179,50 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform plane to normalized vector
     function out = toNormalizedVector( self )
-      % Transform plane to normalized vector
       out = mex_plane( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Swap plane vertices
     function reverse( self )
-      % Swap plane vertices
       mex_plane( 'reverse', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if plane is parallel to an ACME object
     function out = isParallel( self, other_obj )
-      % Check if plane is parallel to an ACME object
       out = mex_plane( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if plane is orthogonal to an ACME object
     function out = isOrthogonal( self, other_obj )
-      % Check if plane is orthogonal to an ACME object
       out = mex_plane( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if plane is colplanear to an ACME object
     function out = isColplanear( self, other_obj )
-      % Check if plane is colplanear to an ACME object
       out = mex_plane( 'isColplanear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if plane is coplanar to an ACME object 
     function out = isCoplanar( self, other_obj )
-      % Check if plane is coplanar to an ACME object 
       out = mex_plane( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Intersect plane with an ACME object
     function out = intersection( self, other_obj )
-      % Intersect plane with an ACME object
       [handle, type] = mex_plane( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()' ) );
       out.copyByHandle( handle );
@@ -230,15 +230,15 @@ classdef acme_plane < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [self.getOrigin().get(), self.getNormal()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot plane object
     function plot( self, figure_name, color )
-      % Plot plane object
       figure_name;
       hold on;
       origin = self.getOrigin().get();

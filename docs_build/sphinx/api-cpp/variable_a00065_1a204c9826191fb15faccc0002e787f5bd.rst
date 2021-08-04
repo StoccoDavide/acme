@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1a204c9826191fb15faccc0002e787f5bd:
+
+Variable acme::NAN_TRIANGLE
+===========================
+
+- Defined in :ref:`file_include_acme_triangle.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::NAN_TRIANGLE
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

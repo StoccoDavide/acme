@@ -24,55 +24,55 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_ray < acme_entity
-  %
-  % Class container for ACME ray object
-  %
+  %>
+  %> Class container for ACME ray object
+  %>
   methods
+    %> Create a new C++ pointer to ray object instance
     function self = acme_ray( varargin )
-      % Create a new C++ pointer to ray object instance
       self.objectHandle = mex_ray( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Delete C++ pointer to ray object instance
     function delete( self )
-      % Delete C++ pointer to ray object instance
       mex_ray( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ray origin as ACME point object
     function out = getOrigin( self )
-      % Get ray origin as ACME point object
       out = acme_point();
       out.copyByHandle( mex_ray( 'getOrigin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get ray direction
     function out = getDirection( self )
-      % Get ray direction
       out = mex_ray( 'getDirection', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set ray origin with an ACME point object
     function setOrigin( self, other_obj )
-      % Set ray origin with an ACME point object
       mex_ray( 'setOrigin', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set ray direction
     function setDirection( self, other_obj )
-      % Set ray direction
       mex_ray( 'setDirection', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy ray object from another ray
     function copy( self, other_obj )
-      % Copy ray object from another ray
       if (other_obj.type() == "ray")
         mex_ray( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -82,29 +82,29 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy ray object from another ray handle
     function copyByHandle( self, handle )
-      % Copy ray object from another ray handle
       mex_ray( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate ray by vector
     function translate( self, other_obj )
-     % Translate ray by vector
       mex_ray( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform ray by 4x4 affine transformation matrix
     function transform( self, varargin )
-      % Transform ray by 4x4 affine transformation matrix
       mex_ray( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the ray 
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the ray 
       if (other_obj.type() == "point")
         out = mex_ray( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -114,15 +114,15 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ray is degenerated
     function out = isDegenerated( self )
-      % Check if ray is degenerated
       out = mex_ray( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if rays are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if rays are approximatively equal
       if (other_obj.type() == "ray") 
         out = mex_ray( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -132,64 +132,64 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Normalize direction vector
     function normalize( self )
-      % 
       mex_ray( 'normalize', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform ray to vector
     function out = toVector( self )
-       % Transform ray to vector
       out = mex_ray( 'toVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform ray to normalized vector
     function out = toNormalizedVector( self )
-      % Transform ray to normalized vector
       out = mex_ray( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Swap ray vertices
     function reverse( self )
-      % Swap ray vertices
       mex_ray( 'reverse', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ray is parallel to an ACME object
     function out = isParallel( self, other_obj )
-      % Check if ray is parallel to an ACME object
       out = mex_ray( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ray is orthogonal to an ACME object
     function out = isOrthogonal( self, other_obj )
-      % Check if ray is orthogonal to an ACME object
       out = mex_ray( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ray is collinear to an ACME object
     function out = isCollinear( self, other_obj )
-      % Check if ray is collinear to an ACME object
       out = mex_ray( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ray is coplanar to an ACME object 
     function out = isCoplanar( self, other_obj )
-      % Check if ray is coplanar to an ACME object 
       out = mex_ray( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Intersect ray with an ACME object
     function out = intersection( self, other_obj )
-      % Intersect ray with an ACME object
       [handle, type] = mex_ray( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()' ) );
       out.objectHandle = handle;
@@ -197,15 +197,15 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [self.getOrigin().get(), self.getDirection()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot ray object
     function plot( self, figure_name, color, limit )
-      % Plot ray object
       figure_name;
       hold on;
       origin = self.getOrigin().get();
@@ -219,8 +219,8 @@ classdef acme_ray < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'ray';
     end
   end

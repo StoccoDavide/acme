@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1a6862af316bb171dbdc0c922650a2a689:
+
+Variable acme::THROWAWAY_SEGMENT
+================================
+
+- Defined in :ref:`file_include_acme_segment.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::THROWAWAY_SEGMENT
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

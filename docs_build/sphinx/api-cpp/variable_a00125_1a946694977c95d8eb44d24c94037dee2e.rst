@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1a946694977c95d8eb44d24c94037dee2e:
+
+Variable acme::THROWAWAY_VEC2
+=============================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::THROWAWAY_VEC2
+   :project: doc_cpp

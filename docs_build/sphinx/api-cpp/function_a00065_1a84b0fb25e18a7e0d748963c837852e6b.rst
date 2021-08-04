@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a84b0fb25e18a7e0d748963c837852e6b:
+
+Function acme::intersection(line const&, ray const&, ray&, real)
+================================================================
+
+- Defined in :ref:`file_include_acme_intersection.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(line const&, ray const&, ray&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

@@ -1,0 +1,19 @@
+.. _exhale_function_a00062_1a2ceab08ddf63b47963777efd18913cb4:
+
+Function acme::isCoplanar(segment const&, disk const&, real)
+============================================================
+
+- Defined in :ref:`file_src_acme_coplanar.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isCoplanar(segment const&, disk const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

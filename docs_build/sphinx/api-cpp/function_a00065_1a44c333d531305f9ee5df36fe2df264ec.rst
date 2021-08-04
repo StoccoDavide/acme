@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a44c333d531305f9ee5df36fe2df264ec:
+
+Function acme::isParallel(vec3 const&, vec3 const&, real)
+=========================================================
+
+- Defined in :ref:`file_include_acme_parallel.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isParallel(vec3 const&, vec3 const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

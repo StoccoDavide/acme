@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00133" kind="class" language="C++" prot="public">
+    <compoundname>acme::AABBtree</compoundname>
+    <includes refid="a00008" local="no">acme_AABBtree.hh</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00133_1a7d335513f3bdca20441084d20d272e13" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00133" kindref="compound">AABBtree</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;AABBtree&gt; acme::AABBtree::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared ointer to AABB tree object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="65" column="29" bodyfile="include/acme_AABBtree.hh" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00133_1ae201b01d2e5d2c0ee69048345f36f016" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00133_1a7d335513f3bdca20441084d20d272e13" kindref="member">ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;ptr&gt; acme::AABBtree::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of pointers to AABB tree objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="66" column="25" bodyfile="include/acme_AABBtree.hh" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00133_1a5a5f974efc56f993096d024e86fc9732" prot="private" static="no" mutable="no">
+        <type><ref refid="a00129_1a30c38d287590f2b2ab406bd922b23ebc" kindref="member">aabb::ptr</ref></type>
+        <definition>aabb::ptr acme::AABBtree::m_ptrbox</definition>
+        <argsstring></argsstring>
+        <name>m_ptrbox</name>
+        <briefdescription>
+<para>Pointer to AABB tree. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="69" column="15" bodyfile="include/acme_AABBtree.hh" bodystart="69" bodyend="-1"/>
+        <referencedby refid="a00133_1afee9883c8377e71000c1845addb1b867" compoundref="a00068" startline="66" endline="70">AABBtree</referencedby>
+        <referencedby refid="a00133_1a88e91a576c79ecf83a6fd8027d7f3a84" compoundref="a00068" startline="92" endline="185">build</referencedby>
+        <referencedby refid="a00133_1a5331c3c9a0a206cf3aae9274e873e86e" compoundref="a00068" startline="75" endline="79">clear</referencedby>
+        <referencedby refid="a00133_1ac6df038a159f05285749df15b0c3d1be" compoundref="a00008" startline="105" endline="156">collision</referencedby>
+        <referencedby refid="a00133_1ac4aaf5ce46242cc51e4a3e9b66aabf2c" compoundref="a00068" startline="217" endline="260">intersection</referencedby>
+        <referencedby refid="a00133_1a7ca96fdb2cdc438cbe394b230b63000e" compoundref="a00068" startline="84" endline="87">isEmpty</referencedby>
+        <referencedby refid="a00133_1abe3e8f00d96655ccd81cef297219ffc4" compoundref="a00068" startline="265" endline="284">minimumExteriorDistance</referencedby>
+        <referencedby refid="a00133_1a204045d2568282f99151616b762db035" compoundref="a00068" startline="190" endline="212">print</referencedby>
+        <referencedby refid="a00133_1ac512fb0f4ec835da09ac2f3b077eb210" compoundref="a00068" startline="289" endline="311">selectLessThanDistance</referencedby>
+        <referencedby refid="a00133_1a8a2d43b86ee166c761700fb3bee7b984" compoundref="a00068" startline="58" endline="62">~AABBtree</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00133_1aa40f8a74e7bae3ab929a3d4f59158983" prot="private" static="no" mutable="no">
+        <type><ref refid="a00133_1ae201b01d2e5d2c0ee69048345f36f016" kindref="member">AABBtree::vecptr</ref></type>
+        <definition>AABBtree::vecptr acme::AABBtree::m_children</definition>
+        <argsstring></argsstring>
+        <name>m_children</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="70" column="22" bodyfile="include/acme_AABBtree.hh" bodystart="70" bodyend="-1"/>
+        <referencedby refid="a00133_1afee9883c8377e71000c1845addb1b867" compoundref="a00068" startline="66" endline="70">AABBtree</referencedby>
+        <referencedby refid="a00133_1a88e91a576c79ecf83a6fd8027d7f3a84" compoundref="a00068" startline="92" endline="185">build</referencedby>
+        <referencedby refid="a00133_1a5331c3c9a0a206cf3aae9274e873e86e" compoundref="a00068" startline="75" endline="79">clear</referencedby>
+        <referencedby refid="a00133_1ac6df038a159f05285749df15b0c3d1be" compoundref="a00008" startline="105" endline="156">collision</referencedby>
+        <referencedby refid="a00133_1ac4aaf5ce46242cc51e4a3e9b66aabf2c" compoundref="a00068" startline="217" endline="260">intersection</referencedby>
+        <referencedby refid="a00133_1a7ca96fdb2cdc438cbe394b230b63000e" compoundref="a00068" startline="84" endline="87">isEmpty</referencedby>
+        <referencedby refid="a00133_1abe3e8f00d96655ccd81cef297219ffc4" compoundref="a00068" startline="265" endline="284">minimumExteriorDistance</referencedby>
+        <referencedby refid="a00133_1a204045d2568282f99151616b762db035" compoundref="a00068" startline="190" endline="212">print</referencedby>
+        <referencedby refid="a00133_1ac512fb0f4ec835da09ac2f3b077eb210" compoundref="a00068" startline="289" endline="311">selectLessThanDistance</referencedby>
+        <referencedby refid="a00133_1a8a2d43b86ee166c761700fb3bee7b984" compoundref="a00068" startline="58" endline="62">~AABBtree</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="a00133_1a126dc0fb880b462b82e1da281b9471c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::AABBtree::AABBtree</definition>
+        <argsstring>(AABBtree const &amp;tree)</argsstring>
+        <name>AABBtree</name>
+        <param>
+          <type><ref refid="a00133" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="72" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1a894792ff9b95f86b71fd3527b1d1d678" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::AABBtree::selectMinimumDistance</definition>
+        <argsstring>(point const &amp;query, aabb::vecptr &amp;candidateList) const</argsstring>
+        <name>selectMinimumDistance</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>query</declname>
+          <briefdescription><para>Input point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00129_1a992e467202cf0239f3b089878518861a" kindref="member">aabb::vecptr</ref> &amp;</type>
+          <declname>candidateList</declname>
+          <briefdescription><para>Output candidate list </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Find the candidate at minimum distance from point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="168" column="10" bodyfile="src/acme_AABBtree.cc" bodystart="316" bodyend="323"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00133_1a8a2d43b86ee166c761700fb3bee7b984" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::AABBtree::~AABBtree</definition>
+        <argsstring>()</argsstring>
+        <name>~AABBtree</name>
+        <briefdescription>
+<para>AABB tree class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="76" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="58" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1afee9883c8377e71000c1845addb1b867" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::AABBtree::AABBtree</definition>
+        <argsstring>()</argsstring>
+        <name>AABBtree</name>
+        <briefdescription>
+<para>AABB tree class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="79" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="66" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1a5331c3c9a0a206cf3aae9274e873e86e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::AABBtree::clear</definition>
+        <argsstring>(void)</argsstring>
+        <name>clear</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clear AABB tree data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="83" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="75" bodyend="79"/>
+        <referencedby refid="a00133_1a88e91a576c79ecf83a6fd8027d7f3a84" compoundref="a00068" startline="92" endline="185">build</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1a7ca96fdb2cdc438cbe394b230b63000e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::AABBtree::isEmpty</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isEmpty</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if AABB tree is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="87" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="84" bodyend="87"/>
+        <referencedby refid="a00133_1a204045d2568282f99151616b762db035" compoundref="a00068" startline="190" endline="212">print</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1a88e91a576c79ecf83a6fd8027d7f3a84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::AABBtree::build</definition>
+        <argsstring>(aabb::vecptr const &amp;boxes)</argsstring>
+        <name>build</name>
+        <param>
+          <type><ref refid="a00129_1a992e467202cf0239f3b089878518861a" kindref="member">aabb::vecptr</ref> const &amp;</type>
+          <declname>boxes</declname>
+          <briefdescription><para>List of boxes </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Build AABB tree given a list of boxes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="91" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="92" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1a204045d2568282f99151616b762db035" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::AABBtree::print</definition>
+        <argsstring>(out_stream &amp;stream, int level=0) const</argsstring>
+        <name>print</name>
+        <param>
+          <type><ref refid="a00125_1ad5eedfe3a832e21ca67cbce7d047f46b" kindref="member">out_stream</ref> &amp;</type>
+          <declname>stream</declname>
+          <briefdescription><para>Output stream </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+          <defval>0</defval>
+          <briefdescription><para>Level to print </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Print AABB tree data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="97" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="190" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1ac6df038a159f05285749df15b0c3d1be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename <ref refid="a00133_1ac6df038a159f05285749df15b0c3d1be" kindref="member">collision</ref></type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool acme::AABBtree::collision</definition>
+        <argsstring>(AABBtree const &amp;tree, collision function, bool swap_tree=false) const</argsstring>
+        <name>collision</name>
+        <param>
+          <type><ref refid="a00133" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>AABB tree used to check collision </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>collision</type>
+          <declname>function</declname>
+          <briefdescription><para>Function to check if the contents of two aabb collide </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>swap_tree</declname>
+          <defval>false</defval>
+          <briefdescription><para>If true exchange the tree in computation </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if two AABB tree collide. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="105" column="5" bodyfile="include/acme_AABBtree.hh" bodystart="105" bodyend="156"/>
+        <referencedby refid="a00133_1ac6df038a159f05285749df15b0c3d1be" compoundref="a00008" startline="105" endline="156">collision</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1ac4aaf5ce46242cc51e4a3e9b66aabf2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::AABBtree::intersection</definition>
+        <argsstring>(AABBtree const &amp;tree, aabb::vecpairptr &amp;intersectionList, bool swap_tree=false) const</argsstring>
+        <name>intersection</name>
+        <param>
+          <type><ref refid="a00133" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>AABB tree used to check collision </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00129_1a3b3de0421f5d4846c7c50af711efa760" kindref="member">aabb::vecpairptr</ref> &amp;</type>
+          <declname>intersectionList</declname>
+          <briefdescription><para>List of pair aabb that overlaps </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>swap_tree</declname>
+          <defval>false</defval>
+          <briefdescription><para>If true exchange the tree in computation </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Compute all the intersection candidates of AABB trees. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="160" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="217" bodyend="260"/>
+        <referencedby refid="a00133_1ac4aaf5ce46242cc51e4a3e9b66aabf2c" compoundref="a00068" startline="217" endline="260">intersection</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="a00133_1abe3e8f00d96655ccd81cef297219ffc4" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+        <definition>real acme::AABBtree::minimumExteriorDistance</definition>
+        <argsstring>(point const &amp;query, AABBtree const &amp;tree, real distance)</argsstring>
+        <name>minimumExteriorDistance</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>query</declname>
+          <briefdescription><para>Input point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00133" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>Input tree </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>distance</declname>
+          <briefdescription><para>Output distance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Compute the minimum of the maximum distance between a point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="175" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="265" bodyend="284"/>
+        <referencedby refid="a00133_1a894792ff9b95f86b71fd3527b1d1d678" compoundref="a00068" startline="316" endline="323">selectMinimumDistance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00133_1ac512fb0f4ec835da09ac2f3b077eb210" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::AABBtree::selectLessThanDistance</definition>
+        <argsstring>(point const &amp;query, real distance, AABBtree const &amp;tree, aabb::vecptr &amp;candidateList)</argsstring>
+        <name>selectLessThanDistance</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>query</declname>
+          <briefdescription><para>Input point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>distance</declname>
+          <briefdescription><para>Input distance </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00133" kindref="compound">AABBtree</ref> const &amp;</type>
+          <declname>tree</declname>
+          <briefdescription><para>Input tree </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00129_1a992e467202cf0239f3b089878518861a" kindref="member">aabb::vecptr</ref> &amp;</type>
+          <declname>candidateList</declname>
+          <briefdescription><para>Output candidate list </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Select the candidate which aabb have distance less than distance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_AABBtree.hh" line="183" column="5" bodyfile="src/acme_AABBtree.cc" bodystart="289" bodyend="311"/>
+        <referencedby refid="a00133_1a894792ff9b95f86b71fd3527b1d1d678" compoundref="a00068" startline="316" endline="323">selectMinimumDistance</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Axis-aligned bouding box tree class container. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Axis-aligned bouding box AABB tree. </para>
+    </detaileddescription>
+    <location file="include/acme_AABBtree.hh" line="62" column="3" bodyfile="include/acme_AABBtree.hh" bodystart="63" bodyend="190"/>
+    <listofallmembers>
+      <member refid="a00133_1a126dc0fb880b462b82e1da281b9471c6" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>AABBtree</name></member>
+      <member refid="a00133_1afee9883c8377e71000c1845addb1b867" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>AABBtree</name></member>
+      <member refid="a00133_1a88e91a576c79ecf83a6fd8027d7f3a84" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>build</name></member>
+      <member refid="a00133_1a5331c3c9a0a206cf3aae9274e873e86e" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>clear</name></member>
+      <member refid="a00133_1ac6df038a159f05285749df15b0c3d1be" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>collision</name></member>
+      <member refid="a00133_1ac4aaf5ce46242cc51e4a3e9b66aabf2c" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>intersection</name></member>
+      <member refid="a00133_1a7ca96fdb2cdc438cbe394b230b63000e" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>isEmpty</name></member>
+      <member refid="a00133_1aa40f8a74e7bae3ab929a3d4f59158983" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>m_children</name></member>
+      <member refid="a00133_1a5a5f974efc56f993096d024e86fc9732" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>m_ptrbox</name></member>
+      <member refid="a00133_1abe3e8f00d96655ccd81cef297219ffc4" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>minimumExteriorDistance</name></member>
+      <member refid="a00133_1a204045d2568282f99151616b762db035" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>print</name></member>
+      <member refid="a00133_1a7d335513f3bdca20441084d20d272e13" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>ptr</name></member>
+      <member refid="a00133_1ac512fb0f4ec835da09ac2f3b077eb210" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>selectLessThanDistance</name></member>
+      <member refid="a00133_1a894792ff9b95f86b71fd3527b1d1d678" prot="private" virt="non-virtual"><scope>acme::AABBtree</scope><name>selectMinimumDistance</name></member>
+      <member refid="a00133_1ae201b01d2e5d2c0ee69048345f36f016" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>vecptr</name></member>
+      <member refid="a00133_1a8a2d43b86ee166c761700fb3bee7b984" prot="public" virt="non-virtual"><scope>acme::AABBtree</scope><name>~AABBtree</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

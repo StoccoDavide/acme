@@ -71,37 +71,37 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get maximum aabb as ACME point
     function out = getMax( self )
-      % Get maximum aabb as ACME point
       out = acme_point();
       out.copyByHandle( mex_aabb( 'getMax', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get aabb maximum point X value
     function out = getMaxX( self )
-      % Get aabb maximum point X value
       out = mex_aabb( 'getMaxX', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get aabb maximum point X value
     function out = getMaxY( self )
-      % Get aabb maximum point X value
       out = mex_aabb( 'getMaxY', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get aabb maximum point Z value
     function out = getMaxZ( self )
-      % Get aabb maximum point Z value
       out = mex_aabb( 'getMaxZ', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set minimum aabb as ACME point
     function setMin( self, other_obj )
-      % Set minimum aabb as ACME point
       if (other_obj.type() == "point")
         mex_aabb( 'setMin', self.objectHandle, other_obj.objectHandle );
       else
@@ -111,29 +111,29 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set aabb minimum point X value
     function setMinX( self, value )
-      % Set aabb minimum point X value
       mex_aabb( 'setMinX', self.objectHandle, value );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set aabb minimum point X value
     function setMinY( self, value )
-      % Set aabb minimum point X value
       mex_aabb( 'setMinY', self.objectHandle, value );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set aabb minimum point Z value
     function setMinZ( self, value )
-      % Set aabb minimum point Z value
       mex_aabb( 'setMinZ', self.objectHandle, value );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set maximum aabb as ACME point
     function setMax( self, other_obj )
-      % Set maximum aabb as ACME point
       if (other_obj.type() == "point")
         mex_aabb( 'setMax', self.objectHandle, other_obj.objectHandle );
       else
@@ -143,29 +143,29 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set aabb maximum point X value
     function setMaxX( self, value )
-      % Set aabb maximum point X value
       mex_aabb( 'setMaxX', self.objectHandle, value );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set aabb maximum point X value
     function setMaxY( self, value )
-      % Set aabb maximum point X value
       mex_aabb( 'setMaxY', self.objectHandle, value );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set aabb maximum point Z value
     function setMaxZ( self )
-      % Set aabb maximum point Z value
       mex_aabb( 'setMaxZ', self.objectHandle, value );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy aabb object from another aabb
     function copy( self, other_obj )
-      % Copy aabb object from another aabb
       if (other_obj.type() == "aabb")
         mex_aabb( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -175,22 +175,22 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy aabb object from another aabb handle
     function copyByHandle( self, handle )
-      % Copy aabb object from another aabb handle
       mex_aabb( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate aabb by vector
     function translate( self, other_obj )
-     % Translate aabb by vector
       mex_aabb( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the aabb 
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the aabb 
       if (other_obj.type() == "point")
         out = mex_aabb( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -200,15 +200,15 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if aabb is degenerated
     function out = isDegenerated( self )
-      % Check if aabb is degenerated
       out = mex_aabb( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if aabbs are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if aabbs are approximatively equal
       if (other_obj.type() == "aabb") 
         out = mex_aabb( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -218,20 +218,21 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Return aabb id
     function out = id( self )
-      % Return aabb id
       out = mex_aabb( 'id', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Return aabb position
     function out = pos( self )
-     % Return aabb position
      out = mex_aabb( 'pos', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Perform intersection with another ACME entity and return intersection object
     function out = intersection( self, other_obj )
       if (other_obj.type() == "aabb") 
         out = mex_aabb( 'intersection', self.objectHandle, other_obj.objectHandle );
@@ -242,6 +243,7 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if aabb intersects with another ACME entity  and return boolean
     function out = intersects( self, other_obj )
       if (other_obj.type() == "aabb") 
         out = mex_aabb( 'intersects', self.objectHandle, other_obj.objectHandle );
@@ -252,15 +254,15 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [ self.getMin().get(),  self.getMax().get() ] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot disk object
     function plot( self, figure_name, color )
-      % Plot disk object
       figure_name;
       hold on;
       min = self.getMin().get();
@@ -343,8 +345,8 @@ classdef acme_aabb < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'aabb';
     end
   end

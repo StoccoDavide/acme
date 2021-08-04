@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1a6a47e794096c09118be045e772ef3087:
+
+Function acme::operator<<(out_stream&, disk const&)
+===================================================
+
+- Defined in :ref:`file_include_acme_utils.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::operator<<(out_stream&, disk const&)
+   :project: doc_cpp

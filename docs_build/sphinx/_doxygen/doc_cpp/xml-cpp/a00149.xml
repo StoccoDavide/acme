@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00149" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>acme::entity</compoundname>
+    <derivedcompoundref refid="a00137" prot="public" virt="non-virtual">acme::ball</derivedcompoundref>
+    <derivedcompoundref refid="a00145" prot="public" virt="non-virtual">acme::disk</derivedcompoundref>
+    <derivedcompoundref refid="a00153" prot="public" virt="non-virtual">acme::line</derivedcompoundref>
+    <derivedcompoundref refid="a00157" prot="public" virt="non-virtual">acme::none</derivedcompoundref>
+    <derivedcompoundref refid="a00161" prot="public" virt="non-virtual">acme::plane</derivedcompoundref>
+    <derivedcompoundref refid="a00165" prot="public" virt="non-virtual">acme::point</derivedcompoundref>
+    <derivedcompoundref refid="a00169" prot="public" virt="non-virtual">acme::ray</derivedcompoundref>
+    <derivedcompoundref refid="a00173" prot="public" virt="non-virtual">acme::segment</derivedcompoundref>
+    <derivedcompoundref refid="a00177" prot="public" virt="non-virtual">acme::triangle</derivedcompoundref>
+    <includes refid="a00026" local="no">acme_entity.hh</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00149" kindref="compound">entity</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;entity&gt; acme::entity::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to entity object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="56" column="29" bodyfile="include/acme_entity.hh" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" kindref="member">ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;ptr&gt; acme::entity::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of pointers to entity objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="57" column="25" bodyfile="include/acme_entity.hh" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00149_1a89e8a5f825d508d52f9e4423169f75ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual acme::entity::~entity</definition>
+        <argsstring>()</argsstring>
+        <name>~entity</name>
+        <briefdescription>
+<para>Entity class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="60" column="13" bodyfile="include/acme_entity.hh" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a8e7b0764a8cd9a367fd56231597fe517" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::entity::entity</definition>
+        <argsstring>()</argsstring>
+        <name>entity</name>
+        <briefdescription>
+<para>Entity class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="63" column="5" bodyfile="include/acme_entity.hh" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a9979154e5dfe4f69fc04f4b25ac76aea" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void acme::entity::translate</definition>
+        <argsstring>(vec3 const &amp;input)=0</argsstring>
+        <name>translate</name>
+        <reimplementedby refid="a00169_1a9f9b1f29f22a00ada792b1545e28ef13">translate</reimplementedby>
+        <reimplementedby refid="a00137_1a441ee7c119a35fc85722a1bf25342abb">translate</reimplementedby>
+        <reimplementedby refid="a00145_1a14ddecf475ad030fd8c2cb0fc2f6ca34">translate</reimplementedby>
+        <reimplementedby refid="a00153_1ab079f473046bb2cfc4a8c518628597b1">translate</reimplementedby>
+        <reimplementedby refid="a00157_1a37cf583a25dc936f8356dff6a861f2ae">translate</reimplementedby>
+        <reimplementedby refid="a00161_1a99a525676cf8b9816e7dc9996131d57f">translate</reimplementedby>
+        <reimplementedby refid="a00165_1aa8be555cba335229fc9d9684bfb31558">translate</reimplementedby>
+        <reimplementedby refid="a00173_1ab65af90bc8421408710a3d212e3c2751">translate</reimplementedby>
+        <reimplementedby refid="a00177_1a9f4c4dc5e8b5b4a2b478637b5a76d113">translate</reimplementedby>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>input</declname>
+          <briefdescription><para>Input translation vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Translate entity by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a48c8a3f95aaea32d4368e918fdadd021" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void acme::entity::transform</definition>
+        <argsstring>(affine const &amp;matrix)=0</argsstring>
+        <name>transform</name>
+        <reimplementedby refid="a00137_1aaa6ac36fbf4f5067e74e0301e50283cd">transform</reimplementedby>
+        <reimplementedby refid="a00145_1a95977bb8b412e0298ff34770f4e36e5b">transform</reimplementedby>
+        <reimplementedby refid="a00153_1ac9b972d058f2213626bca350abcb71e5">transform</reimplementedby>
+        <reimplementedby refid="a00157_1aac3a7a6fb6774bb7ad4c3886375f5e74">transform</reimplementedby>
+        <reimplementedby refid="a00161_1a1931313d9ffce1cf743c98f2c964f9d3">transform</reimplementedby>
+        <reimplementedby refid="a00165_1a805fe8db65915d7732a389ae2c562d15">transform</reimplementedby>
+        <reimplementedby refid="a00169_1a622b58b0b7c7ab26123b975f24a0caf3">transform</reimplementedby>
+        <reimplementedby refid="a00173_1a89572a35e04ff8337831812ac3b937e3">transform</reimplementedby>
+        <reimplementedby refid="a00177_1ac5425c9ec8c299cd11fe191c95e86d5a">transform</reimplementedby>
+        <param>
+          <type><ref refid="a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc" kindref="member">affine</ref> const &amp;</type>
+          <declname>matrix</declname>
+          <briefdescription><para>4x4 affine transformation matrix </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Transform entity with affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="73" column="5"/>
+        <referencedby refid="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" compoundref="a00086" startline="49" endline="56">rotate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::entity::rotate</definition>
+        <argsstring>(real angle, vec3 const &amp;axis)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>angle</declname>
+          <briefdescription><para>Input angle [rad] </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>axis</declname>
+          <briefdescription><para>Input axis </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Rotate entity by a rotation angle around an arbitrary axis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="79" column="5" bodyfile="src/acme_entity.cc" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a4535419695613294d8f946eb872bd5bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isDegenerated</definition>
+        <argsstring>(real tolerance=EPSILON) const =0</argsstring>
+        <name>isDegenerated</name>
+        <reimplementedby refid="a00165_1aff16e92d6455682e9b1c77c19fff4ab8">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00137_1a23df275e226d2cd1830523802a9baad5">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00145_1a16cb41e8ccb60067dc79dd8b2e5eb3d2">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00153_1a93c0adcb1d5edcc4fca9480264b55d18">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00157_1ae583594084f531cda37ee03847d11ca7">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00161_1a567cf25d27e6136f7f1b1b968fbbca67">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00169_1a8b6c49530f4255238d95e9e4e1fd19f2">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00173_1ab06846d10f2eb624f675a92130feec36">isDegenerated</reimplementedby>
+        <reimplementedby refid="a00177_1a65ea29ad558880936a38ec30cc81c3ab">isDegenerated</reimplementedby>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if entity is degenerated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="85" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a4b9630c90d73a823e2e0efd8e9a79cd0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="a00125_1a9223400d01496dcba963b2f723c89d4a" kindref="member">integer</ref></type>
+        <definition>virtual integer acme::entity::level</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>level</name>
+        <reimplementedby refid="a00137_1a114549b1d1b27c87c94fbbf7cc401f9c">level</reimplementedby>
+        <reimplementedby refid="a00145_1af879f24fe959bcc1ea48d21ff717ab3d">level</reimplementedby>
+        <reimplementedby refid="a00153_1af23f18017ec12b017efe008287e52b89">level</reimplementedby>
+        <reimplementedby refid="a00157_1ad6fe01cff77e2b0303dc3dd833026fd3">level</reimplementedby>
+        <reimplementedby refid="a00161_1addc5392cd600fe973d62acf6fd8cc248">level</reimplementedby>
+        <reimplementedby refid="a00165_1a29bb39638d6afe0ba61abac5827fc3bd">level</reimplementedby>
+        <reimplementedby refid="a00169_1aa86c179f19dab8ec8a4d6c80be74eee8">level</reimplementedby>
+        <reimplementedby refid="a00173_1ad4229b8d06aaabd848a4c9ebeeb7c26b">level</reimplementedby>
+        <reimplementedby refid="a00177_1ae9be42d532616b3485acdd090ce720fc">level</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object hierarchical level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="90" column="21"/>
+        <referencedby refid="a00125_1a4f3aa0d08639ad27d58912bae991b08a" compoundref="a00089" startline="49" endline="1017">acme::intersection</referencedby>
+        <referencedby refid="a00125_1a55838adca5f8e3fa074c75e3fab8ed0f" compoundref="a00077" startline="44" endline="120">acme::isCollinear</referencedby>
+        <referencedby refid="a00125_1aee3f21b0a5d33078516c8f475e7ba049" compoundref="a00080" startline="49" endline="293">acme::isCoplanar</referencedby>
+        <referencedby refid="a00125_1a3a6447b7a23ecdc47bb6f557a8a5e9ae" compoundref="a00101" startline="49" endline="292">acme::isOrthogonal</referencedby>
+        <referencedby refid="a00125_1aa10a7f7d9a941da19af1f151e926edd9" compoundref="a00104" startline="49" endline="292">acme::isParallel</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1ac2e74fd5ab901b53d8242d3bb70755a4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string acme::entity::type</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>type</name>
+        <reimplementedby refid="a00137_1a8445805caac9b4649ee10db912279dc7">type</reimplementedby>
+        <reimplementedby refid="a00145_1ac2ecc7c9d7cda0c6c3ddd31ad15af137">type</reimplementedby>
+        <reimplementedby refid="a00153_1a404ce8a5310d8336fb5bfa5ef4f50211">type</reimplementedby>
+        <reimplementedby refid="a00157_1aa1a118a43d94ba1788007d607a67f8f9">type</reimplementedby>
+        <reimplementedby refid="a00161_1a2f05e10a1218d5697470c550cb49444c">type</reimplementedby>
+        <reimplementedby refid="a00165_1a50b0411bd3e7684ee0cc46b090a2e716">type</reimplementedby>
+        <reimplementedby refid="a00169_1a9280d836624f54f5ff48a4e203d6d31f">type</reimplementedby>
+        <reimplementedby refid="a00173_1a0beb0ca89d5a0d08d2306236cd5d0aa0">type</reimplementedby>
+        <reimplementedby refid="a00177_1a9caa7908cf57e1ed72574e7af012ee3b">type</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="93" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a534ab97324296ad976e253051482322f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::entity::isEntity</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isEntity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="96" column="10" bodyfile="src/acme_entity.cc" bodystart="61" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a6dcf252926f1c1b1aad147d5caa5eed3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isNone</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isNone</name>
+        <reimplementedby refid="a00137_1a72a78115bd000200c175fd4ed4018adc">isNone</reimplementedby>
+        <reimplementedby refid="a00145_1a46dac95d0af8df01b4638aab14a4aebe">isNone</reimplementedby>
+        <reimplementedby refid="a00153_1abe447cbc2b41a8d8f39a14d8cc598147">isNone</reimplementedby>
+        <reimplementedby refid="a00157_1ad19fcba928042bf6c42f92573ee36b1c">isNone</reimplementedby>
+        <reimplementedby refid="a00161_1ae95ff7be5152906d3c21fc893473d78d">isNone</reimplementedby>
+        <reimplementedby refid="a00165_1a1a7a9b3e1aef73fac364e0aec646fc18">isNone</reimplementedby>
+        <reimplementedby refid="a00169_1a9773909aa54466cd40a2f1324ab48365">isNone</reimplementedby>
+        <reimplementedby refid="a00173_1a77d638a79b479515d1e50ef20e4be619">isNone</reimplementedby>
+        <reimplementedby refid="a00177_1a4f94f560fcd6af803c1ca93fa0066b46">isNone</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is no entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="99" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a0ca14dc6ba289cadc1207064eae92373" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isPoint</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isPoint</name>
+        <reimplementedby refid="a00137_1aa08c4b0ee451baad399ad5c559865619">isPoint</reimplementedby>
+        <reimplementedby refid="a00145_1a98535fea48a7fcdeccce8682026a5f2b">isPoint</reimplementedby>
+        <reimplementedby refid="a00153_1a38f22eafeb8bd37e751eda23064c5d70">isPoint</reimplementedby>
+        <reimplementedby refid="a00157_1aa96b10fa33c1a979d417ecd805cd9062">isPoint</reimplementedby>
+        <reimplementedby refid="a00161_1a944befd25440d8d6028f4defee7dd5b8">isPoint</reimplementedby>
+        <reimplementedby refid="a00165_1a26f1135e4a5d0fde2f050770bc3cdbd7">isPoint</reimplementedby>
+        <reimplementedby refid="a00169_1a37f43380781c077290b448c0e84aa0a6">isPoint</reimplementedby>
+        <reimplementedby refid="a00173_1a476e69aad73d875d6cf60b552ab3fd66">isPoint</reimplementedby>
+        <reimplementedby refid="a00177_1a7fa07a4c7e47cb61d5c9da06250e47a5">isPoint</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="102" column="18"/>
+        <referencedby refid="a00125_1a4f3aa0d08639ad27d58912bae991b08a" compoundref="a00089" startline="49" endline="1017">acme::intersection</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a68bd00af11831aee5fef3531850ff433" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isLine</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isLine</name>
+        <reimplementedby refid="a00137_1a7ec4546697e4938bb96c7f4652b904bf">isLine</reimplementedby>
+        <reimplementedby refid="a00145_1a0aeb5df0ffce6d019e3fd9c500e78c0e">isLine</reimplementedby>
+        <reimplementedby refid="a00153_1aea5b4a82cfb165286ad7251d67f7c6b2">isLine</reimplementedby>
+        <reimplementedby refid="a00157_1a19697c3193560d86ac2b47a3506ff308">isLine</reimplementedby>
+        <reimplementedby refid="a00161_1aaee1d8c99118d4f4006757266e90d50a">isLine</reimplementedby>
+        <reimplementedby refid="a00165_1a5b95d2c6322bd656a6a701e8c3b35456">isLine</reimplementedby>
+        <reimplementedby refid="a00169_1abe4ee14712f16d4f843937641c02a389">isLine</reimplementedby>
+        <reimplementedby refid="a00173_1ad7f7f1f5d02cceb854cdb689cad5354f">isLine</reimplementedby>
+        <reimplementedby refid="a00177_1a4499636a3846e588f0812a69514fa80f">isLine</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="105" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a9ab36cd844cde471a9c3908c1cee09a2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isRay</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isRay</name>
+        <reimplementedby refid="a00137_1a7327648ac4af52aff7b5d60e8ac22604">isRay</reimplementedby>
+        <reimplementedby refid="a00145_1aad8a129cb74d4de535635079c8bd0d27">isRay</reimplementedby>
+        <reimplementedby refid="a00153_1a350ffa0ce5ff0b747c8606ff3c254504">isRay</reimplementedby>
+        <reimplementedby refid="a00157_1a34cfce4bf9960bbf411a937a113e1143">isRay</reimplementedby>
+        <reimplementedby refid="a00161_1ae8ae8648f07659239e5d87a21449117c">isRay</reimplementedby>
+        <reimplementedby refid="a00165_1a47fcc5819f9c9764a07f5b8f945c37db">isRay</reimplementedby>
+        <reimplementedby refid="a00169_1a5133ee41264e9dcd39caba6ec2a88412">isRay</reimplementedby>
+        <reimplementedby refid="a00173_1af4dfd72d3b7c1250cdc4455ec3fdeef9">isRay</reimplementedby>
+        <reimplementedby refid="a00177_1a5d0ce1044912488c55ca98eb4cf43f34">isRay</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ray. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="108" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a9df7782cc14bf5d21cd85e59ef1c1d5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isPlane</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isPlane</name>
+        <reimplementedby refid="a00137_1a6fd87ab0a633c4a4cc736db37f91917b">isPlane</reimplementedby>
+        <reimplementedby refid="a00145_1a75dc057eb68809ee10faaf0661ef49b3">isPlane</reimplementedby>
+        <reimplementedby refid="a00153_1adab1ee88d7142733d73bf00350a6b08f">isPlane</reimplementedby>
+        <reimplementedby refid="a00157_1a34b7ede780d003c0ac019746165087c0">isPlane</reimplementedby>
+        <reimplementedby refid="a00161_1ad547d6d9fa83f4cabb9eaa50147a2169">isPlane</reimplementedby>
+        <reimplementedby refid="a00165_1a170670d9aca7bd2718536efbda15ed8f">isPlane</reimplementedby>
+        <reimplementedby refid="a00169_1af20907970713fe16142fa72da2b47034">isPlane</reimplementedby>
+        <reimplementedby refid="a00173_1ab32f47e049bd286e6ff6a024866fc3eb">isPlane</reimplementedby>
+        <reimplementedby refid="a00177_1a892afe9be05abd7ae45763d5959f51c9">isPlane</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="111" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1ac7d126acf87e2da6a552814be7ebc126" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isSegment</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isSegment</name>
+        <reimplementedby refid="a00137_1a0fa7a43dc292bfe0a3952f3c2c107cc5">isSegment</reimplementedby>
+        <reimplementedby refid="a00145_1a0f8fd86a75d8d300aea89c9d9663209d">isSegment</reimplementedby>
+        <reimplementedby refid="a00153_1ac0f5f64e84fcf0243767685facfeb455">isSegment</reimplementedby>
+        <reimplementedby refid="a00157_1a1de8deb64d59de6f55412054d16c0ca2">isSegment</reimplementedby>
+        <reimplementedby refid="a00161_1a99526047c2dce57edfc97fba37d658b6">isSegment</reimplementedby>
+        <reimplementedby refid="a00165_1a6746b01b9892b125007da6bee7cfb6b2">isSegment</reimplementedby>
+        <reimplementedby refid="a00169_1ada57045083ee0b6d343b01a86e7becbb">isSegment</reimplementedby>
+        <reimplementedby refid="a00173_1a3eda8371d47c3bec7a5494956bca9db7">isSegment</reimplementedby>
+        <reimplementedby refid="a00177_1a297ebaf886d99449dd3779dacf119df2">isSegment</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="114" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a5d0657b831d799da5f6f2fed1ff12179" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isTriangle</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isTriangle</name>
+        <reimplementedby refid="a00137_1ab1823e260fb68f8b9077dfe89e7017c8">isTriangle</reimplementedby>
+        <reimplementedby refid="a00145_1a547fdb98009c3b5f499358ee17b03dc4">isTriangle</reimplementedby>
+        <reimplementedby refid="a00153_1af68ce85dff7f8e21d22d88c80465d85e">isTriangle</reimplementedby>
+        <reimplementedby refid="a00157_1a0d976a3389193c2e633d4f56c2eb5b93">isTriangle</reimplementedby>
+        <reimplementedby refid="a00161_1a5eb15d12cc22238710457df832435916">isTriangle</reimplementedby>
+        <reimplementedby refid="a00165_1a202dbe8b881bc0a7700489164aa7af86">isTriangle</reimplementedby>
+        <reimplementedby refid="a00169_1adb9c5dcbd4d11da396bbfebf1a05f76a">isTriangle</reimplementedby>
+        <reimplementedby refid="a00173_1a06e1afa384537fb338f431c6592ad4d1">isTriangle</reimplementedby>
+        <reimplementedby refid="a00177_1a14c358962dbd123fcdf6c13ca280ddc0">isTriangle</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a triangle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="117" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1aed5ee0dee6a1a1c0a8c29e4d3a217894" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isDisk</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isDisk</name>
+        <reimplementedby refid="a00137_1ae9a8f9ad8b4b7f4488a0359233b61319">isDisk</reimplementedby>
+        <reimplementedby refid="a00145_1a9baf40eb60c9710f9801a2babd2e52c6">isDisk</reimplementedby>
+        <reimplementedby refid="a00153_1ae7ee9690d04278d28b9c9e2219a8b6f4">isDisk</reimplementedby>
+        <reimplementedby refid="a00157_1a9731dcd8bb08b07690fb02a73083a498">isDisk</reimplementedby>
+        <reimplementedby refid="a00161_1a0c4fe94cc00af52c99c0408b1dea8c91">isDisk</reimplementedby>
+        <reimplementedby refid="a00165_1a209f0ff7c2faba83c70dc081bfc039cc">isDisk</reimplementedby>
+        <reimplementedby refid="a00169_1a36341c7ae41a71ad64cd2755383b9e36">isDisk</reimplementedby>
+        <reimplementedby refid="a00173_1a8b3c41e67b8f1bcfcc16b4b2d06f86bb">isDisk</reimplementedby>
+        <reimplementedby refid="a00177_1a7569e1b50c3507e9426f092de1c6e5d2">isDisk</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="120" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a73add88b6838e9b0a9a261a679da9515" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isBall</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isBall</name>
+        <reimplementedby refid="a00137_1a8f2a4cfae7661cc405d6cff3a12f2cb8">isBall</reimplementedby>
+        <reimplementedby refid="a00145_1a545bcd284e489887c99eadcb8a5907ab">isBall</reimplementedby>
+        <reimplementedby refid="a00153_1a708d2350c033773d7ad7fe1ac9f7837b">isBall</reimplementedby>
+        <reimplementedby refid="a00157_1a3146f63e21dca3c9b14d1da5d7ab81a8">isBall</reimplementedby>
+        <reimplementedby refid="a00161_1a3670d7881fc7d1d95644f51bd6640d3c">isBall</reimplementedby>
+        <reimplementedby refid="a00165_1a6079957c661df36ff7554c61ce88cc22">isBall</reimplementedby>
+        <reimplementedby refid="a00169_1ae5bee342a6affe45e8fe3caaa5147d89">isBall</reimplementedby>
+        <reimplementedby refid="a00173_1ad07c8b17bef5bee9dfc6561d57faac93">isBall</reimplementedby>
+        <reimplementedby refid="a00177_1a25f895caee1bc3dc755607ca964eedc5">isBall</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ball. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="123" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a2014bd40547fe4fd4a270b5e40c6cc07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isClampable</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isClampable</name>
+        <reimplementedby refid="a00137_1af57c21164690c5b8f9ddb94bd12120d8">isClampable</reimplementedby>
+        <reimplementedby refid="a00145_1aa58adee99e6200117368615f4f34dd9e">isClampable</reimplementedby>
+        <reimplementedby refid="a00153_1ad337ea39eec6626336c9a98eeda3aca4">isClampable</reimplementedby>
+        <reimplementedby refid="a00157_1a759f1b27d65a62fa9671ef15f1fb1375">isClampable</reimplementedby>
+        <reimplementedby refid="a00161_1ad9dd9067c6b2143e7e50c182a1cbec20">isClampable</reimplementedby>
+        <reimplementedby refid="a00165_1ad08cb47e0831eb6532b9ceb546551623">isClampable</reimplementedby>
+        <reimplementedby refid="a00169_1a2c9c0e713017937f2da543d796a94105">isClampable</reimplementedby>
+        <reimplementedby refid="a00173_1a0443e605b6f370d6aa94d641f116b839">isClampable</reimplementedby>
+        <reimplementedby refid="a00177_1a8292848489d7ca19ee2ba43b1e711d52">isClampable</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the entity is clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="126" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a5a5c33241ac3032efb4908744d3174dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::isNonClampable</definition>
+        <argsstring>(void) const =0</argsstring>
+        <name>isNonClampable</name>
+        <reimplementedby refid="a00137_1aa6be7f0cf658040ce949c3034db2bfa3">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00145_1a6e2b619c9b00f5bfa1d08d6bb1dc0128">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00153_1a01da4d9559330bf3a02f3621c8c7f980">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00157_1aaeb94eeed320419ab68a413b530927e6">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00161_1a6e3fad32419c6b551f554a7c8d2f4fa6">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00165_1a2b1bc3e61ec0b890f98d6e8508f45b5e">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00169_1aafa3becfdcc8a0254197a8f9e584c43e">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00173_1ac68435ee7a354a37b082885ceaed24b5">isNonClampable</reimplementedby>
+        <reimplementedby refid="a00177_1ae1800f631d42a325c8b76bd52bb39bf6">isNonClampable</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the entity is non clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="129" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1afebc220f247db840f78b7df51e175a28" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::clamp</definition>
+        <argsstring>(vec3 &amp;min, vec3 &amp;max) const =0</argsstring>
+        <name>clamp</name>
+        <reimplementedby refid="a00165_1a85576f7926ecb8744f1ec87b6338891b">clamp</reimplementedby>
+        <reimplementedby refid="a00137_1ae6b4dc8859841aae58313165c9ca0c82">clamp</reimplementedby>
+        <reimplementedby refid="a00145_1a569374f488585ec71fe995bcaace635b">clamp</reimplementedby>
+        <reimplementedby refid="a00153_1a0976c9db9348a430d8c90cdb78ff947c">clamp</reimplementedby>
+        <reimplementedby refid="a00157_1a209f92963757be088be5454d3cebb3b0">clamp</reimplementedby>
+        <reimplementedby refid="a00161_1a334cf5cb4b939ac2e68b0d7e8b8f5184">clamp</reimplementedby>
+        <reimplementedby refid="a00169_1af496ab1255448d176ca8f491eef7f418">clamp</reimplementedby>
+        <reimplementedby refid="a00173_1ae003954b02fc9c863dbafd5db913d14b">clamp</reimplementedby>
+        <reimplementedby refid="a00177_1a6fce9b60e171791be1857c49ff06151c">clamp</reimplementedby>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>min</declname>
+          <briefdescription><para>Input minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>max</declname>
+          <briefdescription><para>Input maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="133" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a071efafd454180bf95903a38029a5b6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool acme::entity::clamp</definition>
+        <argsstring>(real &amp;min_x, real &amp;min_y, real &amp;min_z, real &amp;max_x, real &amp;max_y, real &amp;max_z) const =0</argsstring>
+        <name>clamp</name>
+        <reimplementedby refid="a00165_1a48ca1b4ccc4b8d37c8401ada3a718296">clamp</reimplementedby>
+        <reimplementedby refid="a00137_1a98cbdd951e9d0ffe9c6661f9964e4ee3">clamp</reimplementedby>
+        <reimplementedby refid="a00145_1a1a327a46909396efffe0efd16300600d">clamp</reimplementedby>
+        <reimplementedby refid="a00153_1a73ee8008ff4f883be071a821690c7537">clamp</reimplementedby>
+        <reimplementedby refid="a00157_1acd0543f6a457e9a690ec91ec1318bdfe">clamp</reimplementedby>
+        <reimplementedby refid="a00161_1a1400cdfe9ffae6192ab57ac63da401d4">clamp</reimplementedby>
+        <reimplementedby refid="a00169_1a9ff4c2021f70758f720408d5df31bf7a">clamp</reimplementedby>
+        <reimplementedby refid="a00173_1a7f3299a0f4b7d286b37e9ea79d4cb7f0">clamp</reimplementedby>
+        <reimplementedby refid="a00177_1af3f6a64c779ddccdb29619e7f915cf1d">clamp</reimplementedby>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_x</declname>
+          <briefdescription><para>Input x value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_y</declname>
+          <briefdescription><para>Input y value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_z</declname>
+          <briefdescription><para>Input z value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_x</declname>
+          <briefdescription><para>Input x value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_y</declname>
+          <briefdescription><para>Input y value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_z</declname>
+          <briefdescription><para>Input z value of maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="140" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Geometrical entity class container. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Geometrical entity in 3D space. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>acme::ray</label>
+        <link refid="a00169"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>acme::line</label>
+        <link refid="a00153"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>acme::entity</label>
+        <link refid="a00149"/>
+      </node>
+      <node id="6">
+        <label>acme::plane</label>
+        <link refid="a00161"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>acme::triangle</label>
+        <link refid="a00177"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>acme::segment</label>
+        <link refid="a00173"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>acme::none</label>
+        <link refid="a00157"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>acme::point</label>
+        <link refid="a00165"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme::ball</label>
+        <link refid="a00137"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>acme::disk</label>
+        <link refid="a00145"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/acme_entity.hh" line="53" column="3" bodyfile="include/acme_entity.hh" bodystart="54" bodyend="149"/>
+    <listofallmembers>
+      <member refid="a00149_1afebc220f247db840f78b7df51e175a28" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>clamp</name></member>
+      <member refid="a00149_1a071efafd454180bf95903a38029a5b6b" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>clamp</name></member>
+      <member refid="a00149_1a8e7b0764a8cd9a367fd56231597fe517" prot="public" virt="non-virtual"><scope>acme::entity</scope><name>entity</name></member>
+      <member refid="a00149_1a73add88b6838e9b0a9a261a679da9515" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isBall</name></member>
+      <member refid="a00149_1a2014bd40547fe4fd4a270b5e40c6cc07" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isClampable</name></member>
+      <member refid="a00149_1a4535419695613294d8f946eb872bd5bd" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isDegenerated</name></member>
+      <member refid="a00149_1aed5ee0dee6a1a1c0a8c29e4d3a217894" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isDisk</name></member>
+      <member refid="a00149_1a534ab97324296ad976e253051482322f" prot="public" virt="non-virtual"><scope>acme::entity</scope><name>isEntity</name></member>
+      <member refid="a00149_1a68bd00af11831aee5fef3531850ff433" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isLine</name></member>
+      <member refid="a00149_1a5a5c33241ac3032efb4908744d3174dc" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isNonClampable</name></member>
+      <member refid="a00149_1a6dcf252926f1c1b1aad147d5caa5eed3" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isNone</name></member>
+      <member refid="a00149_1a9df7782cc14bf5d21cd85e59ef1c1d5c" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isPlane</name></member>
+      <member refid="a00149_1a0ca14dc6ba289cadc1207064eae92373" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isPoint</name></member>
+      <member refid="a00149_1a9ab36cd844cde471a9c3908c1cee09a2" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isRay</name></member>
+      <member refid="a00149_1ac7d126acf87e2da6a552814be7ebc126" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isSegment</name></member>
+      <member refid="a00149_1a5d0657b831d799da5f6f2fed1ff12179" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>isTriangle</name></member>
+      <member refid="a00149_1a4b9630c90d73a823e2e0efd8e9a79cd0" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>level</name></member>
+      <member refid="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" virt="non-virtual"><scope>acme::entity</scope><name>ptr</name></member>
+      <member refid="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" virt="non-virtual"><scope>acme::entity</scope><name>rotate</name></member>
+      <member refid="a00149_1a48c8a3f95aaea32d4368e918fdadd021" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>transform</name></member>
+      <member refid="a00149_1a9979154e5dfe4f69fc04f4b25ac76aea" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>translate</name></member>
+      <member refid="a00149_1ac2e74fd5ab901b53d8242d3bb70755a4" prot="public" virt="pure-virtual"><scope>acme::entity</scope><name>type</name></member>
+      <member refid="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" virt="non-virtual"><scope>acme::entity</scope><name>vecptr</name></member>
+      <member refid="a00149_1a89e8a5f825d508d52f9e4423169f75ee" prot="public" virt="virtual"><scope>acme::entity</scope><name>~entity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

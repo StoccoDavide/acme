@@ -1,0 +1,568 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00042" kind="class" language="C++" prot="public">
+    <compoundname>acme_ball</compoundname>
+    <basecompoundref refid="a00050" prot="public" virt="non-virtual">acme_entity</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00042_1a96f46528f9ca65ed2c2277a2fe1d8b7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::acme_ball</definition>
+        <argsstring>(in varargin)</argsstring>
+        <name>acme_ball</name>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Create a new C++ pointer to ball object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME ball object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="35" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1ada7e1a4ff554f41106e18a9820cbeb57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::getRadius</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getRadius</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Create C++ pointer to ball object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get ball radius </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="50" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a47dd26179b21a18e1a30aa6c5750477e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::getCenter</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getCenter</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get ball center as ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="58" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a7dbcd6e374b970d6d27e0dc18ded7d31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::setRadius</definition>
+        <argsstring>(in self, in radius)</argsstring>
+        <name>setRadius</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+<para>Set ball radius. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="67" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a4111f3072ce31fe21e7291f53cab1331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::setCenter</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setCenter</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set ball center with an ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="75" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1abd167ae30efb8884d67e3083283139fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::copy</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Copy segment object from another segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="83" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a9c80aeda39cffb7c59da22c4f56b13b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::copyByHandle</definition>
+        <argsstring>(in self, in handle)</argsstring>
+        <name>copyByHandle</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Copy ball object from another ball handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="95" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1adafedda8c157866ac16fa72d458eaea9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::translate</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Translate ball by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="103" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a856094713590e59e0e0a9fc6c1010f65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::transform</definition>
+        <argsstring>(in self, in affine)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>affine</declname>
+        </param>
+        <briefdescription>
+<para>Transform ball by 4x4 affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="111" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a3184da93c9aaab9d035ac746d5fbe04a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isInside</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isInside</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ACME point is inside the ball. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="119" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1aeef9a301a53d8666938221445b4de2e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isDegenerated</definition>
+        <argsstring>(in self)</argsstring>
+        <name>isDegenerated</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Check if ball is degenerated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="131" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1ac60bd387c86ada3a4787a918f9dc5d17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isApprox</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if balls are approximatively equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="139" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1af25df4298c2ba68328e0000683878317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::clamp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>clamp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get ball minimum and maximum points of object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="151" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1aa5428ff566dedeafd10da837da0e6d44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::area</definition>
+        <argsstring>(in self)</argsstring>
+        <name>area</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get ball perimeter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="159" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1abd26c4982e28edffbfc0bd882ec7de60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::volume</definition>
+        <argsstring>(in self)</argsstring>
+        <name>volume</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get ball volume. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="167" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a573a34619d016a881f23c0c590cf3964" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isParallel</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isParallel</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ball is parallel to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="175" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1abdf1ca51065a5c1d20a85bc571fe1c16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isOrthogonal</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isOrthogonal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ball is orthogonal to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="183" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1adf08db26b454ecc5cbb9de645fc6dd6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isCollinear</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCollinear</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ball is collinear to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="191" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a0d15870ddfb7a4201652e58f69953032" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::isCoplanar</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCoplanar</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ball is coplanar to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="199" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1ab3e001ea8c7e113e28cd531dec9e62c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::intersection</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>intersection</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Intersect ball with an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="207" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a914c05f98eb2a466cd310b88a3e9deb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::disp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>disp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Display object data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="217" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1a905e3915aba2ea800c3ff3edc791e1b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_ball::plot</definition>
+        <argsstring>(in self, in figure_name, in color)</argsstring>
+        <name>plot</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot ball object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="225" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00042_1aa0c9ccd43c80ae86dab380c48cf653ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>function acme_ball::type</definition>
+        <argsstring>(in self)</argsstring>
+        <name>type</name>
+        <reimplements refid="a00050_1adadea5f13cd73eeac368db18de967f49">type</reimplements>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_ball.m" line="245" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property acme_entity::objectHandle</definition>
+        <argsstring></argsstring>
+        <name>objectHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME entity object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="34" column="10" bodyfile="acme_entity.m" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>acme_ball</label>
+        <link refid="a00042"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>acme_ball</label>
+        <link refid="a00042"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="acme_ball.m" line="26" column="1" bodyfile="acme_ball.m" bodystart="27" bodyend="250"/>
+    <listofallmembers>
+      <member refid="a00042_1a96f46528f9ca65ed2c2277a2fe1d8b7c" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>acme_ball</name></member>
+      <member refid="a00050_1aa9604c371b05fe29d288f8229d673d70" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>acme_entity</name></member>
+      <member refid="a00042_1aa5428ff566dedeafd10da837da0e6d44" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>area</name></member>
+      <member refid="a00042_1af25df4298c2ba68328e0000683878317" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>clamp</name></member>
+      <member refid="a00042_1abd167ae30efb8884d67e3083283139fd" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>copy</name></member>
+      <member refid="a00042_1a9c80aeda39cffb7c59da22c4f56b13b7" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>copyByHandle</name></member>
+      <member refid="a00042_1a914c05f98eb2a466cd310b88a3e9deb2" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>disp</name></member>
+      <member refid="a00042_1a47dd26179b21a18e1a30aa6c5750477e" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>getCenter</name></member>
+      <member refid="a00042_1ada7e1a4ff554f41106e18a9820cbeb57" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>getRadius</name></member>
+      <member refid="a00042_1ab3e001ea8c7e113e28cd531dec9e62c6" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>intersection</name></member>
+      <member refid="a00042_1ac60bd387c86ada3a4787a918f9dc5d17" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isApprox</name></member>
+      <member refid="a00042_1adf08db26b454ecc5cbb9de645fc6dd6b" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isCollinear</name></member>
+      <member refid="a00042_1a0d15870ddfb7a4201652e58f69953032" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isCoplanar</name></member>
+      <member refid="a00042_1aeef9a301a53d8666938221445b4de2e5" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isDegenerated</name></member>
+      <member refid="a00042_1a3184da93c9aaab9d035ac746d5fbe04a" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isInside</name></member>
+      <member refid="a00042_1abdf1ca51065a5c1d20a85bc571fe1c16" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isOrthogonal</name></member>
+      <member refid="a00042_1a573a34619d016a881f23c0c590cf3964" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>isParallel</name></member>
+      <member refid="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" virt="non-virtual"><scope>acme_ball</scope><name>objectHandle</name></member>
+      <member refid="a00042_1a905e3915aba2ea800c3ff3edc791e1b6" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>plot</name></member>
+      <member refid="a00042_1a4111f3072ce31fe21e7291f53cab1331" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>setCenter</name></member>
+      <member refid="a00042_1a7dbcd6e374b970d6d27e0dc18ded7d31" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>setRadius</name></member>
+      <member refid="a00042_1a856094713590e59e0e0a9fc6c1010f65" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>transform</name></member>
+      <member refid="a00042_1adafedda8c157866ac16fa72d458eaea9" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>translate</name></member>
+      <member refid="a00042_1aa0c9ccd43c80ae86dab380c48cf653ee" prot="public" virt="virtual"><scope>acme_ball</scope><name>type</name></member>
+      <member refid="a00042_1abd26c4982e28edffbfc0bd882ec7de60" prot="public" virt="non-virtual"><scope>acme_ball</scope><name>volume</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

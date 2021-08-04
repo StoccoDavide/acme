@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1a3e93062bed3b13b374138dfc45c5cf98:
+
+Variable acme::INFTY
+====================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::INFTY
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

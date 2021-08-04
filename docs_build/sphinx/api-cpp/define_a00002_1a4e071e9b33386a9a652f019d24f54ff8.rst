@@ -1,0 +1,14 @@
+.. _exhale_define_a00002_1a4e071e9b33386a9a652f019d24f54ff8:
+
+Define ACME_ASSERT
+==================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: ACME_ASSERT
+   :project: doc_cpp

@@ -1,0 +1,637 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00062" kind="class" language="C++" prot="public">
+    <compoundname>acme_plane</compoundname>
+    <basecompoundref refid="a00050" prot="public" virt="non-virtual">acme_entity</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00062_1a680c8fe04761a5cc4356954ee4bfee77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::acme_plane</definition>
+        <argsstring>(in varargin)</argsstring>
+        <name>acme_plane</name>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Create a new C++ pointer to plane object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME plane object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="35" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a9c63701bef2727179050163a533c3aa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>function acme_plane::type</definition>
+        <argsstring>(in self)</argsstring>
+        <name>type</name>
+        <reimplements refid="a00050_1adadea5f13cd73eeac368db18de967f49">type</reimplements>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Delete C++ pointer to plane object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get object type as string </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="50" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a93573d1783ffbfe5235610e57156da66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::getOrigin</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getOrigin</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get plane origin as ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="58" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a967c74618cb293c70673ce08dcbdb6cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::getNormal</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getNormal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get plane normal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="67" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1aa9c2c307b4ecf7c5fd10e8c28ba38887" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::setOrigin</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setOrigin</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set plane origin with an ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="75" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a3966d9df559fb60fdfc6cf45ab2a872e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::setNormal</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setNormal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set plane normal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="83" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a09706373559d8b0c3e9ee28d9272311c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::copy</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Copy plane object from another plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="91" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a36dcf2bfee53533ed43bc541cba704b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::copyByHandle</definition>
+        <argsstring>(in self, in handle)</argsstring>
+        <name>copyByHandle</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Copy plane object from another plane handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="103" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a0d2e2d0f1f857c1f45c7ebafdaaef722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::translate</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Translate plane by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="111" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a06342da0b316632c149ce6093a0111b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::transform</definition>
+        <argsstring>(in self, in varargin)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Transform plane by 4x4 affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="119" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a2a0ec437ed5ef5ae0b61f68336d2b19e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isInside</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isInside</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ACME point is inside the plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="127" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1ae74c62d972105149f4f459f8854e8890" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isDegenerated</definition>
+        <argsstring>(in self)</argsstring>
+        <name>isDegenerated</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Check if plane is degenerated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="139" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1ab9220a8fad5450f3d6dde4cd35afadbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isApprox</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if planes are approximatively equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="147" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a5dab1d536f5f811e1e566c6a34833feb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::normalize</definition>
+        <argsstring>(in self)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Normalize normal vectoe. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="159" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a216383bf198748aa50c2f630586cf456" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::distance</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>distance</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Distance between an ACME point and plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="167" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1ac7b5a821ad733d3678f6c21872b8c700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::squaredDistance</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>squaredDistance</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Squared distance between an ACME point and plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="179" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a40387262de991a4917a5e0d0a40abb2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::signedDistance</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>signedDistance</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Signed distance between an ACME point and plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="191" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a758e0965591baaa985afcfc11d81d1e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::toNormalizedVector</definition>
+        <argsstring>(in self)</argsstring>
+        <name>toNormalizedVector</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Transform plane to normalized vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="203" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1ab2aafb3380256c6ac592e1da8e71f694" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::reverse</definition>
+        <argsstring>(in self)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Swap plane vertices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="211" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a5a5f13def2c542ca14d2963467424039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isParallel</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isParallel</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if plane is parallel to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="219" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1abe48d73318a37e5acf7ce9a1d04dc0ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isOrthogonal</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isOrthogonal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if plane is orthogonal to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="227" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1ad0121b2e017abf6e55f22a4c7252efbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isColplanear</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isColplanear</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if plane is colplanear to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="235" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a623a0e6e299d0d1162bf594538edee48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::isCoplanar</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCoplanar</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if plane is coplanar to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="243" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a27c55ecdaec3c2fbfc657fcdfdcf9560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::intersection</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>intersection</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Intersect plane with an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="251" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a73e3e77eaa694658f91be6ab02a1fad2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::disp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>disp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Display object data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="261" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00062_1a7ec3644f2d33cf29d1c8e7ac4401d68a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_plane::plot</definition>
+        <argsstring>(in self, in figure_name, in color)</argsstring>
+        <name>plot</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot plane object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_plane.m" line="269" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property acme_entity::objectHandle</definition>
+        <argsstring></argsstring>
+        <name>objectHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME entity object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="34" column="10" bodyfile="acme_entity.m" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_plane</label>
+        <link refid="a00062"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_plane</label>
+        <link refid="a00062"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="acme_plane.m" line="26" column="1" bodyfile="acme_plane.m" bodystart="27" bodyend="288"/>
+    <listofallmembers>
+      <member refid="a00050_1aa9604c371b05fe29d288f8229d673d70" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>acme_entity</name></member>
+      <member refid="a00062_1a680c8fe04761a5cc4356954ee4bfee77" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>acme_plane</name></member>
+      <member refid="a00062_1a09706373559d8b0c3e9ee28d9272311c" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>copy</name></member>
+      <member refid="a00062_1a36dcf2bfee53533ed43bc541cba704b8" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>copyByHandle</name></member>
+      <member refid="a00062_1a73e3e77eaa694658f91be6ab02a1fad2" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>disp</name></member>
+      <member refid="a00062_1a216383bf198748aa50c2f630586cf456" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>distance</name></member>
+      <member refid="a00062_1a967c74618cb293c70673ce08dcbdb6cb" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>getNormal</name></member>
+      <member refid="a00062_1a93573d1783ffbfe5235610e57156da66" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>getOrigin</name></member>
+      <member refid="a00062_1a27c55ecdaec3c2fbfc657fcdfdcf9560" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>intersection</name></member>
+      <member refid="a00062_1ab9220a8fad5450f3d6dde4cd35afadbc" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isApprox</name></member>
+      <member refid="a00062_1ad0121b2e017abf6e55f22a4c7252efbb" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isColplanear</name></member>
+      <member refid="a00062_1a623a0e6e299d0d1162bf594538edee48" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isCoplanar</name></member>
+      <member refid="a00062_1ae74c62d972105149f4f459f8854e8890" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isDegenerated</name></member>
+      <member refid="a00062_1a2a0ec437ed5ef5ae0b61f68336d2b19e" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isInside</name></member>
+      <member refid="a00062_1abe48d73318a37e5acf7ce9a1d04dc0ab" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isOrthogonal</name></member>
+      <member refid="a00062_1a5a5f13def2c542ca14d2963467424039" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>isParallel</name></member>
+      <member refid="a00062_1a5dab1d536f5f811e1e566c6a34833feb" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>normalize</name></member>
+      <member refid="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" virt="non-virtual"><scope>acme_plane</scope><name>objectHandle</name></member>
+      <member refid="a00062_1a7ec3644f2d33cf29d1c8e7ac4401d68a" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>plot</name></member>
+      <member refid="a00062_1ab2aafb3380256c6ac592e1da8e71f694" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>reverse</name></member>
+      <member refid="a00062_1a3966d9df559fb60fdfc6cf45ab2a872e" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>setNormal</name></member>
+      <member refid="a00062_1aa9c2c307b4ecf7c5fd10e8c28ba38887" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>setOrigin</name></member>
+      <member refid="a00062_1a40387262de991a4917a5e0d0a40abb2a" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>signedDistance</name></member>
+      <member refid="a00062_1ac7b5a821ad733d3678f6c21872b8c700" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>squaredDistance</name></member>
+      <member refid="a00062_1a758e0965591baaa985afcfc11d81d1e1" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>toNormalizedVector</name></member>
+      <member refid="a00062_1a06342da0b316632c149ce6093a0111b5" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>transform</name></member>
+      <member refid="a00062_1a0d2e2d0f1f857c1f45c7ebafdaaef722" prot="public" virt="non-virtual"><scope>acme_plane</scope><name>translate</name></member>
+      <member refid="a00062_1a9c63701bef2727179050163a533c3aa0" prot="public" virt="virtual"><scope>acme_plane</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

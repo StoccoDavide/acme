@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1aeddcdef79e5d43675a599c5e351835f7:
+
+Function acme::intersection(segment const&, ball const&, segment&, real)
+========================================================================
+
+- Defined in :ref:`file_include_acme_intersection.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(segment const&, ball const&, segment&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

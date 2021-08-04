@@ -1,0 +1,19 @@
+.. _exhale_function_a00062_1a315680226757f7b7923aaad651533851:
+
+Function acme::intersection(line const&, triangle const&, segment&, real)
+=========================================================================
+
+- Defined in :ref:`file_src_acme_intersection.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(line const&, triangle const&, segment&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

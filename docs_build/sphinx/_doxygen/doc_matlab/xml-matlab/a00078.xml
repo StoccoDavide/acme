@@ -1,0 +1,740 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00078" kind="class" language="C++" prot="public">
+    <compoundname>acme_triangle</compoundname>
+    <basecompoundref refid="a00050" prot="public" virt="non-virtual">acme_entity</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00078_1ad0b91a00c126319cbb3449f1ff9f1e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::acme_triangle</definition>
+        <argsstring>(in varargin)</argsstring>
+        <name>acme_triangle</name>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Create a new C++ pointer to triangle object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME triangle object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="35" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1adad7ffac46ea12e48b1b386f3f0ce839" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::getVertex1</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getVertex1</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Create C++ pointer to triangle object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get triangle vertex 1 as ACME point object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="50" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1afbf095091137f433f51420d6444a0973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::getVertex2</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getVertex2</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle vertex 2 as ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="59" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1ac382ee769bd9a51d2ce061356234a55d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::getVertex3</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getVertex3</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle vertex 3 as ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="68" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a8791982a5df1e1d5fa9f84ed883f65e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::setVertex1</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setVertex1</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set triangle vertex 1 with an ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="77" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a7fcf3c917a3a555b33b3ca9b2449aed3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::setVertex2</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setVertex2</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set triangle vertex 2 with an ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="85" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1acd66feb30ffd2a5f670ef5caa6ce4a79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::setVertex3</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setVertex3</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set triangle vertex 3 with an ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="93" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a34136eff2e2e4f6c8bbe7f23d9573b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::copy</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Copy segment object from another segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="101" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a9dc3627852c6884122bfb7ce182f9788" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::copyByHandle</definition>
+        <argsstring>(in self, in handle)</argsstring>
+        <name>copyByHandle</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Copy triangle object from another triangle handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="113" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1af414f4fdb624bc6b1e939948d3b714f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::translate</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Translate triangle by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="121" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a531cf6d146c434efa10fd1b7b2bb3b0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::transform</definition>
+        <argsstring>(in self, in varargin)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Transform triangle by 4x4 affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="129" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a57ab381a6c24da7cbc801e974347bfe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isInside</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isInside</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ACME point is inside the triangle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="137" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a5f26b01f4854e95fdb3c23d25b336b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isDegenerated</definition>
+        <argsstring>(in self)</argsstring>
+        <name>isDegenerated</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Check if triangle is degenerated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="149" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1aa5fffc395dad9e43a2007ef05e9f7481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isApprox</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if triangles are approximatively equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="157" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1af1ce4259b161da03b6db2c5b576b819d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::centroid</definition>
+        <argsstring>(in self)</argsstring>
+        <name>centroid</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle centroid as ACME point objecty instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="169" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1aefa831210b00661917777144391bf6f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::normal</definition>
+        <argsstring>(in self)</argsstring>
+        <name>normal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle normal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="178" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a8c5eefcb0c117cedf42122283d12fd36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::layingPlane</definition>
+        <argsstring>(in self)</argsstring>
+        <name>layingPlane</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle laying plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="186" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a105ce983b48f6cb38e9d700a7d3d02a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::edge</definition>
+        <argsstring>(in self, in i)</argsstring>
+        <name>edge</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle i-th edge. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="195" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a48bcfa07cca94cc613de190ba884ab3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::swap</definition>
+        <argsstring>(in self, in i, in j)</argsstring>
+        <name>swap</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>Swap triangle i-th and j-th vertex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="204" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a76b768bc38fbb47b8cea3590c5ff36f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::clamp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>clamp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle minimum and maximum points of object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="212" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a88267a62fadc47b2c753fc4c9b8cfb2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::perimeter</definition>
+        <argsstring>(in self)</argsstring>
+        <name>perimeter</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle perimeter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="220" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1ac6fbd06cfbeb3530ee7af82afc611b7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::area</definition>
+        <argsstring>(in self)</argsstring>
+        <name>area</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get triangle perimeter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="228" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a8df515461705b654551b34f8f69b90cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::barycentric</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>barycentric</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Compute barycentric coordinates (u,v,w) for ACME point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="236" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a6d02a750b211f0dd336a10590e190d17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isParallel</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isParallel</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if triangle is parallel to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="248" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a27d207ed3c7ce16e82c327f57f13476a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isOrthogonal</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isOrthogonal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if triangle is orthogonal to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="256" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a19872e15828e7747ede100185dfa852c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isCollinear</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCollinear</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if triangle is collinear to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="264" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1aaffffc71165f95a0c8490fb834ef3a6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::isCoplanar</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCoplanar</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if triangle is coplanar to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="272" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1aff6d7f111ee62b44c40e5523671d9ee8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::intersection</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>intersection</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Intersect triangle with an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="280" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a8d9aa2beda577d20dee38248dbef262d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::disp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>disp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Display object data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="290" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1a275f68ce11a2ee8fef663ac967a8c604" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_triangle::plot</definition>
+        <argsstring>(in self, in figure_name, in color)</argsstring>
+        <name>plot</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot triangle object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="298" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00078_1ae39036b1ddf0c904c7fd4954994ad46f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>function acme_triangle::type</definition>
+        <argsstring>(in self)</argsstring>
+        <name>type</name>
+        <reimplements refid="a00050_1adadea5f13cd73eeac368db18de967f49">type</reimplements>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_triangle.m" line="315" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property acme_entity::objectHandle</definition>
+        <argsstring></argsstring>
+        <name>objectHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME entity object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="34" column="10" bodyfile="acme_entity.m" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_triangle</label>
+        <link refid="a00078"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_triangle</label>
+        <link refid="a00078"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="acme_triangle.m" line="26" column="1" bodyfile="acme_triangle.m" bodystart="27" bodyend="320"/>
+    <listofallmembers>
+      <member refid="a00050_1aa9604c371b05fe29d288f8229d673d70" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>acme_entity</name></member>
+      <member refid="a00078_1ad0b91a00c126319cbb3449f1ff9f1e6c" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>acme_triangle</name></member>
+      <member refid="a00078_1ac6fbd06cfbeb3530ee7af82afc611b7f" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>area</name></member>
+      <member refid="a00078_1a8df515461705b654551b34f8f69b90cc" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>barycentric</name></member>
+      <member refid="a00078_1af1ce4259b161da03b6db2c5b576b819d" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>centroid</name></member>
+      <member refid="a00078_1a76b768bc38fbb47b8cea3590c5ff36f5" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>clamp</name></member>
+      <member refid="a00078_1a34136eff2e2e4f6c8bbe7f23d9573b3a" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>copy</name></member>
+      <member refid="a00078_1a9dc3627852c6884122bfb7ce182f9788" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>copyByHandle</name></member>
+      <member refid="a00078_1a8d9aa2beda577d20dee38248dbef262d" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>disp</name></member>
+      <member refid="a00078_1a105ce983b48f6cb38e9d700a7d3d02a5" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>edge</name></member>
+      <member refid="a00078_1adad7ffac46ea12e48b1b386f3f0ce839" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>getVertex1</name></member>
+      <member refid="a00078_1afbf095091137f433f51420d6444a0973" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>getVertex2</name></member>
+      <member refid="a00078_1ac382ee769bd9a51d2ce061356234a55d" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>getVertex3</name></member>
+      <member refid="a00078_1aff6d7f111ee62b44c40e5523671d9ee8" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>intersection</name></member>
+      <member refid="a00078_1aa5fffc395dad9e43a2007ef05e9f7481" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isApprox</name></member>
+      <member refid="a00078_1a19872e15828e7747ede100185dfa852c" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isCollinear</name></member>
+      <member refid="a00078_1aaffffc71165f95a0c8490fb834ef3a6c" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isCoplanar</name></member>
+      <member refid="a00078_1a5f26b01f4854e95fdb3c23d25b336b6f" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isDegenerated</name></member>
+      <member refid="a00078_1a57ab381a6c24da7cbc801e974347bfe6" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isInside</name></member>
+      <member refid="a00078_1a27d207ed3c7ce16e82c327f57f13476a" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isOrthogonal</name></member>
+      <member refid="a00078_1a6d02a750b211f0dd336a10590e190d17" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>isParallel</name></member>
+      <member refid="a00078_1a8c5eefcb0c117cedf42122283d12fd36" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>layingPlane</name></member>
+      <member refid="a00078_1aefa831210b00661917777144391bf6f0" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>normal</name></member>
+      <member refid="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" virt="non-virtual"><scope>acme_triangle</scope><name>objectHandle</name></member>
+      <member refid="a00078_1a88267a62fadc47b2c753fc4c9b8cfb2d" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>perimeter</name></member>
+      <member refid="a00078_1a275f68ce11a2ee8fef663ac967a8c604" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>plot</name></member>
+      <member refid="a00078_1a8791982a5df1e1d5fa9f84ed883f65e6" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>setVertex1</name></member>
+      <member refid="a00078_1a7fcf3c917a3a555b33b3ca9b2449aed3" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>setVertex2</name></member>
+      <member refid="a00078_1acd66feb30ffd2a5f670ef5caa6ce4a79" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>setVertex3</name></member>
+      <member refid="a00078_1a48bcfa07cca94cc613de190ba884ab3b" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>swap</name></member>
+      <member refid="a00078_1a531cf6d146c434efa10fd1b7b2bb3b0e" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>transform</name></member>
+      <member refid="a00078_1af414f4fdb624bc6b1e939948d3b714f2" prot="public" virt="non-virtual"><scope>acme_triangle</scope><name>translate</name></member>
+      <member refid="a00078_1ae39036b1ddf0c904c7fd4954994ad46f" prot="public" virt="virtual"><scope>acme_triangle</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

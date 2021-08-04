@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The ACME library &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -78,7 +77,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="the-acme-library">
+  <div class="section" id="the-acme-library">
 <h1>The ACME library<a class="headerlink" href="#the-acme-library" title="Permalink to this headline">¶</a>
 </h1>
 <p>Given the amount of material out there one could certainly wonder
@@ -111,7 +110,7 @@ module.</p>
 on a hard real-time DIL driving simulator. It resolves the geometrical
 intersection problems with a real-time factor (RTF) of 50.</p>
 <p><em>Davide Stocco - Spring 2021</em></p>
-<section id="future-developments">
+<div class="section" id="future-developments">
 <h2>Future developments<a class="headerlink" href="#future-developments" title="Permalink to this headline">¶</a>
 </h2>
 <p>In a next future we would like to develop methods and support also for the following
@@ -121,13 +120,13 @@ geometrical entities:</p>
 <li><p>circular arc;</p></li>
 <li><p>convex quadrilateral.</p></li>
 </ul>
-</section>
-<section id="online-documentation">
+</div>
+<div class="section" id="online-documentation">
 <h2>Online documentation<a class="headerlink" href="#online-documentation" title="Permalink to this headline">¶</a>
 </h2>
 <p>Available at: <a class="reference external" href="https://stoccodavide.github.io/acme">https://stoccodavide.github.io/acme</a></p>
-</section>
-<section id="maintenance-and-compatibility">
+</div>
+<div class="section" id="maintenance-and-compatibility">
 <h2>Maintenance and compatibility<a class="headerlink" href="#maintenance-and-compatibility" title="Permalink to this headline">¶</a>
 </h2>
 <p>Library is being tested on Linux and MacOS, it will be soon tested also on Windows.
@@ -135,8 +134,8 @@ If you have questions regarding the library or you want to report a bug,
 please open an <a class="reference external" href="https://github.com/StoccoDavide/acme/issues/new">issue</a>
 at GitHub. If your request would contain confidential information, please send
 us an email.</p>
-</section>
-<section id="about-the-authors">
+</div>
+<div class="section" id="about-the-authors">
 <h2>About the authors<a class="headerlink" href="#about-the-authors" title="Permalink to this headline">¶</a>
 </h2>
 <div class="line-block">
@@ -167,15 +166,15 @@ us an email.</p>
     )
 );</script></div>
 </div>
-</section>
-<section id="rd-parties-libs">
+</div>
+<div class="section" id="rd-parties-libs">
 <h2>3rd parties libs<a class="headerlink" href="#rd-parties-libs" title="Permalink to this headline">¶</a>
 </h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://eigen.tuxfamily.org">Eigen3</a></p></li>
 </ul>
-</section>
-<section id="references">
+</div>
+<div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a>
 </h2>
 <ol class="arabic simple">
@@ -184,10 +183,10 @@ us an email.</p>
 2020, Master Thesis (<em>in Italian</em>),
 <a class="reference external" href="https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf">PDF</a>.</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
-<section id="acme-general-features">
+<div class="section" id="acme-general-features">
 <h1>ACME general features<a class="headerlink" href="#acme-general-features" title="Permalink to this headline">¶</a>
 </h1>
 <p>Geometrical entities in ACME are organised in classes with the following structure:</p>
@@ -206,7 +205,7 @@ us an email.</p>
 </ul>
 <p>where the symbol &lt; indicates the inheritance. Let us get a closer and detailed
 look to each of these classes.</p>
-<section id="class-entity">
+<div class="section" id="class-entity">
 <h2>Class <cite>entity</cite><a class="headerlink" href="#class-entity" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>entity</cite> class is the most basic class. Its aim is to provide a common framework
@@ -225,8 +224,8 @@ the geometric entity itself are the following:</p>
 <li><p>virtual method <cite>isDisk</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>isAabb</cite> which returns a <cite>bool</cite> type;</p></li>
 </ul>
-</section>
-<section id="class-none">
+</div>
+<div class="section" id="class-none">
 <h2>Class <cite>none</cite><a class="headerlink" href="#class-none" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>none</cite> class is a publicly inherited class from <cite>entity</cite>. Its aim is to represent
@@ -234,8 +233,8 @@ nothing than nothing. As will be later explained if we exploit the the polymorph
 this class will represent the null intersection between objects. The <cite>none</cite> class
 is a non-abstract class with no members. The implemented methods only override the
 virtual ones defined in the base class <cite>entity</cite>.</p>
-</section>
-<section id="class-line">
+</div>
+<div class="section" id="class-line">
 <h2>Class <cite>line</cite><a class="headerlink" href="#class-line" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>line</cite> class publicly inherit from <cite>entity</cite> and it represents a line the 3D space.
@@ -261,8 +260,8 @@ It is built out of two members:</p>
 <li><p><cite>transform</cite>: transform line with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the line.</p></li>
 </ul>
-</section>
-<section id="class-ray">
+</div>
+<div class="section" id="class-ray">
 <h2>Class <cite>ray</cite><a class="headerlink" href="#class-ray" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>ray</cite> class publicly inherit from <cite>entity</cite> and it represents a ray the 3D space.
@@ -288,8 +287,8 @@ It is very similar to the <cite>line</cite> class and it built out of two member
 <li><p><cite>transform</cite>: transform ray with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the ray.</p></li>
 </ul>
-</section>
-<section id="class-plane">
+</div>
+<div class="section" id="class-plane">
 <h2>Class <cite>plane</cite><a class="headerlink" href="#class-plane" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>plane</cite> class publicly inherit from <cite>entity</cite> and it represents a generic
@@ -319,8 +318,8 @@ plane the 3D space. It is built out of two members:</p>
 <li><p><cite>squaredDistance</cite>: squared distance between point and plane;</p></li>
 <li><p><cite>signedDistance</cite>: signed distance between point and plane.</p></li>
 </ul>
-</section>
-<section id="class-segment">
+</div>
+<div class="section" id="class-segment">
 <h2>Class <cite>segment</cite><a class="headerlink" href="#class-segment" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>segment</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -343,8 +342,8 @@ of type <cite>point</cite>.</p>
 <li><p><cite>transform</cite>: transform segment with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the segment.</p></li>
 </ul>
-</section>
-<section id="class-triangle">
+</div>
+<div class="section" id="class-triangle">
 <h2>Class <cite>triangle</cite><a class="headerlink" href="#class-triangle" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>triangle</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -372,8 +371,8 @@ of type <cite>point</cite>.</p>
 <li><p><cite>transform</cite>: transform triangle with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the triangle.</p></li>
 </ul>
-</section>
-<section id="class-disk">
+</div>
+<div class="section" id="class-disk">
 <h2>Class <cite>disk</cite><a class="headerlink" href="#class-disk" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>disk</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -404,8 +403,8 @@ disk the 3D space. It is built out of three members:</p>
 <li><p><cite>transform</cite>: transform disk with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
 </ul>
-</section>
-<section id="class-aabb">
+</div>
+<div class="section" id="class-aabb">
 <h2>Class <cite>aabb</cite><a class="headerlink" href="#class-aabb" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>aabb</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -437,8 +436,8 @@ axis-aligne bounding box in the 3D space. It is built out of two members:</p>
 </ul>
 <p>Even if <cite>aabb</cite> is considered to be a geometrical entity there are still no external functions
 implemented for geometrical intersections with the other entities.</p>
-</section>
-<section id="class-aabbtree">
+</div>
+<div class="section" id="class-aabbtree">
 <h2>Class <cite>AABBtree</cite><a class="headerlink" href="#class-aabbtree" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>AABBtree</cite> represents a generic axis-aligned bouding box tree class container.
@@ -456,8 +455,8 @@ It is built out of two members:</p>
 <li><p><cite>collision</cite>: template function to check if two AABB tree collide;</p></li>
 <li><p><cite>intersection</cite>: compute all the intersection leafs of AABB trees.</p></li>
 </ul>
-</section>
-<section id="external-functions">
+</div>
+<div class="section" id="external-functions">
 <h2>External functions<a class="headerlink" href="#external-functions" title="Permalink to this headline">¶</a>
 </h2>
 <p>Objects defined by the previous classes can interact between them through external
@@ -472,8 +471,8 @@ entities <em>collide</em>;</p></li>
 </ul>
 <p>Each of these functions are overloaded and they can take objects or raw pointers
 to <cite>entity</cite> as input.</p>
-</section>
-</section>
+</div>
+</div>
 
 
 
@@ -573,7 +572,7 @@ to <cite>entity</cite> as input.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

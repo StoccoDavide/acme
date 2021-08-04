@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1a9b3bb1eacbea1492701d2f758d04dd34:
+
+Function acme::intersection(disk const&, disk const&, none&, real)
+==================================================================
+
+- Defined in :ref:`file_include_acme_intersection.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(disk const&, disk const&, none&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

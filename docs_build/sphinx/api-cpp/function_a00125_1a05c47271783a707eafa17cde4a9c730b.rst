@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1a05c47271783a707eafa17cde4a9c730b:
+
+Function acme::intersection(aabb const&, aabb const&, aabb&, real)
+==================================================================
+
+- Defined in :ref:`file_src_acme_intersection.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::intersection(aabb const&, aabb const&, aabb&, real)
+   :project: doc_cpp

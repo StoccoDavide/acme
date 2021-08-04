@@ -1,0 +1,16 @@
+.. _exhale_typedef_a00065_1a0a8e3a569595ceedd47ac3a904cf9422:
+
+Typedef acme::translate
+=======================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: acme::translate
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

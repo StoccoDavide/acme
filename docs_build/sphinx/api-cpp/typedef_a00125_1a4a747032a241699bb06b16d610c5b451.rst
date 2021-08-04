@@ -1,0 +1,14 @@
+.. _exhale_typedef_a00125_1a4a747032a241699bb06b16d610c5b451:
+
+Typedef acme::scale
+===================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: acme::scale
+   :project: doc_cpp

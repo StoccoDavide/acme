@@ -1,0 +1,667 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00046" kind="class" language="C++" prot="public">
+    <compoundname>acme_disk</compoundname>
+    <basecompoundref refid="a00050" prot="public" virt="non-virtual">acme_entity</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00046_1a96fdafee063ba41d6a4b0500cb5a3516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::acme_disk</definition>
+        <argsstring>(in varargin)</argsstring>
+        <name>acme_disk</name>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Create a new C++ pointer to disk object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME disk object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="35" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a3ec1c7e4115992b02e2cca20e9165e3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::getRadius</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getRadius</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Create C++ pointer to disk object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get disk radius </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="50" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1abc65fbb9c64dae179b78b0cfdc82078f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::getCenter</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getCenter</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get disk center as ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="58" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a1c243749ec349cf864eaf7d726ec931b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::getNormal</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getNormal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get disk normal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="67" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a15d1c9c64471f3c6e4645d2c8830567b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::setRadius</definition>
+        <argsstring>(in self, in radius)</argsstring>
+        <name>setRadius</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+<para>Set disk radius. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="75" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1ae746b43a6fddf0fa40a1f59275fa4be5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::setCenter</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setCenter</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set disk center with an ACME point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="83" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1af6a4933ec5b1f02cc09a33ba9b724e4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::setNormal</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>setNormal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Set disk normal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="91" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1aca3a9bd772114717ae347bc74a9d8454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::copy</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Copy segment object from another segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="99" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a619300d710ca7fb8fd25fa3fa2a0ea6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::copyByHandle</definition>
+        <argsstring>(in self, in handle)</argsstring>
+        <name>copyByHandle</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+<para>Copy disk object from another disk handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="111" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a8f30333d73fe6cd487cf5713cea63fce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::translate</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Translate disk by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="119" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a2770474a27654120e41afbbd924b974e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::transform</definition>
+        <argsstring>(in self, in affine)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>affine</declname>
+        </param>
+        <briefdescription>
+<para>Transform disk by 4x4 affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="127" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a90a62888f6bbbd5625f3597969ea686e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isInside</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isInside</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if ACME point is inside the disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="135" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1ab95e51ea4503c9834cebf0451b3a01a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isDegenerated</definition>
+        <argsstring>(in self)</argsstring>
+        <name>isDegenerated</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Check if disk is degenerated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="147" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1aa16b1fc07eb04bf270f235a11a2f4ffc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isApprox</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if disks are approximatively equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="155" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1ad011e6ac2dc0be57fab0f5ea75cebfc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::normalize</definition>
+        <argsstring>(in self)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Normalize disk normal vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="167" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a21b9f5564094f69f5aabbb26b32f2fc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::layingPlane</definition>
+        <argsstring>(in self)</argsstring>
+        <name>layingPlane</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get disk laying plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="175" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1aae77722415a57f5a876d517799f18121" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::reverse</definition>
+        <argsstring>(in self)</argsstring>
+        <name>reverse</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Reverse disk normal direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="184" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a81877c03971741baf188c3b04ed3d224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::clamp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>clamp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get disk minimum and maximum points of object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="192" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a2b87e2f722a456ebd86f26795fc70392" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::perimeter</definition>
+        <argsstring>(in self)</argsstring>
+        <name>perimeter</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get disk perimeter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="200" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a37437fc7b9de9e7352b7c9b2f5cae3f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::area</definition>
+        <argsstring>(in self)</argsstring>
+        <name>area</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get disk perimeter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="208" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a125c5ca99dbe73b0c98db0b01815b448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isParallel</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isParallel</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if disk is parallel to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="216" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a8982397ae234a2fea94f12fd4615acae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isOrthogonal</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isOrthogonal</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if disk is orthogonal to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="224" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1abfbb69baea7a610e8e83e51f39b1fa07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isCollinear</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCollinear</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if disk is collinear to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="232" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1ac4762b1c5d27b7ce161e414f69e8927d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::isCoplanar</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>isCoplanar</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Check if disk is coplanar to an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="240" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1ae656c10331dff831f6dfa6bebb3f228e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::intersection</definition>
+        <argsstring>(in self, in other_obj)</argsstring>
+        <name>intersection</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>other_obj</declname>
+        </param>
+        <briefdescription>
+<para>Intersect disk with an ACME object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="248" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1aef081581c9934673736c749867a3383b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::disp</definition>
+        <argsstring>(in self)</argsstring>
+        <name>disp</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Display object data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="258" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a467293f38ef80b1e93cbad83c7b97208" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_disk::plot</definition>
+        <argsstring>(in self, in figure_name, in color)</argsstring>
+        <name>plot</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot disk object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="266" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00046_1a2826025fec08f907b7e390eaa9ddde64" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>function acme_disk::type</definition>
+        <argsstring>(in self)</argsstring>
+        <name>type</name>
+        <reimplements refid="a00050_1adadea5f13cd73eeac368db18de967f49">type</reimplements>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_disk.m" line="310" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property acme_entity::objectHandle</definition>
+        <argsstring></argsstring>
+        <name>objectHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME entity object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="34" column="10" bodyfile="acme_entity.m" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_disk</label>
+        <link refid="a00046"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_disk</label>
+        <link refid="a00046"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="acme_disk.m" line="26" column="1" bodyfile="acme_disk.m" bodystart="27" bodyend="315"/>
+    <listofallmembers>
+      <member refid="a00046_1a96fdafee063ba41d6a4b0500cb5a3516" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>acme_disk</name></member>
+      <member refid="a00050_1aa9604c371b05fe29d288f8229d673d70" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>acme_entity</name></member>
+      <member refid="a00046_1a37437fc7b9de9e7352b7c9b2f5cae3f9" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>area</name></member>
+      <member refid="a00046_1a81877c03971741baf188c3b04ed3d224" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>clamp</name></member>
+      <member refid="a00046_1aca3a9bd772114717ae347bc74a9d8454" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>copy</name></member>
+      <member refid="a00046_1a619300d710ca7fb8fd25fa3fa2a0ea6b" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>copyByHandle</name></member>
+      <member refid="a00046_1aef081581c9934673736c749867a3383b" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>disp</name></member>
+      <member refid="a00046_1abc65fbb9c64dae179b78b0cfdc82078f" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>getCenter</name></member>
+      <member refid="a00046_1a1c243749ec349cf864eaf7d726ec931b" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>getNormal</name></member>
+      <member refid="a00046_1a3ec1c7e4115992b02e2cca20e9165e3a" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>getRadius</name></member>
+      <member refid="a00046_1ae656c10331dff831f6dfa6bebb3f228e" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>intersection</name></member>
+      <member refid="a00046_1aa16b1fc07eb04bf270f235a11a2f4ffc" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isApprox</name></member>
+      <member refid="a00046_1abfbb69baea7a610e8e83e51f39b1fa07" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isCollinear</name></member>
+      <member refid="a00046_1ac4762b1c5d27b7ce161e414f69e8927d" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isCoplanar</name></member>
+      <member refid="a00046_1ab95e51ea4503c9834cebf0451b3a01a0" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isDegenerated</name></member>
+      <member refid="a00046_1a90a62888f6bbbd5625f3597969ea686e" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isInside</name></member>
+      <member refid="a00046_1a8982397ae234a2fea94f12fd4615acae" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isOrthogonal</name></member>
+      <member refid="a00046_1a125c5ca99dbe73b0c98db0b01815b448" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>isParallel</name></member>
+      <member refid="a00046_1a21b9f5564094f69f5aabbb26b32f2fc5" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>layingPlane</name></member>
+      <member refid="a00046_1ad011e6ac2dc0be57fab0f5ea75cebfc7" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>normalize</name></member>
+      <member refid="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" virt="non-virtual"><scope>acme_disk</scope><name>objectHandle</name></member>
+      <member refid="a00046_1a2b87e2f722a456ebd86f26795fc70392" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>perimeter</name></member>
+      <member refid="a00046_1a467293f38ef80b1e93cbad83c7b97208" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>plot</name></member>
+      <member refid="a00046_1aae77722415a57f5a876d517799f18121" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>reverse</name></member>
+      <member refid="a00046_1ae746b43a6fddf0fa40a1f59275fa4be5" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>setCenter</name></member>
+      <member refid="a00046_1af6a4933ec5b1f02cc09a33ba9b724e4f" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>setNormal</name></member>
+      <member refid="a00046_1a15d1c9c64471f3c6e4645d2c8830567b" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>setRadius</name></member>
+      <member refid="a00046_1a2770474a27654120e41afbbd924b974e" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>transform</name></member>
+      <member refid="a00046_1a8f30333d73fe6cd487cf5713cea63fce" prot="public" virt="non-virtual"><scope>acme_disk</scope><name>translate</name></member>
+      <member refid="a00046_1a2826025fec08f907b7e390eaa9ddde64" prot="public" virt="virtual"><scope>acme_disk</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

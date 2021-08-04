@@ -1,0 +1,696 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class aabb &#8212; ACME v0.2
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class AABBtree" href="class_a00133.html" />
+    <link rel="prev" title="Namespace Eigen" href="namespace_Eigen.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00133.html" title="Class AABBtree"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="namespace_Eigen.html" title="Namespace Eigen"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class aabb</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-aabb">
+<span id="exhale-class-a00129"></span><h1>Class aabb<a class="headerlink" href="#class-aabb" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_acme_aabb.hh.html#file-include-acme-aabb-hh"><span class="std std-ref">File acme_aabb.hh</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabbE">
+<span id="_CPPv3N4acme4aabbE"></span><span id="_CPPv2N4acme4aabbE"></span><span id="acme::aabb"></span><span class="target" id="a00129"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">acme</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><a class="headerlink" href="#_CPPv4N4acme4aabbE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Axis-aligebd bounding box class container. </p>
+<p>Axis-aligebd bounding box in 3D space and defined by a “maximum” and a “minimum” point. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3ptrE">
+<span id="_CPPv3N4acme4aabb3ptrE"></span><span id="_CPPv2N4acme4aabb3ptrE"></span><span id="acme::aabb::ptr"></span><span class="target" id="a00129_1a30c38d287590f2b2ab406bd922b23ebc"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme4aabb3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shared pointer to const aabb object used in <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> routines. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb7pairptrE">
+<span id="_CPPv3N4acme4aabb7pairptrE"></span><span id="_CPPv2N4acme4aabb7pairptrE"></span><span id="acme::aabb::pairptr"></span><span class="target" id="a00129_1aaa0c2fcc57d145b26f177ca0bf8f9761"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme4aabb3ptrE" title="acme::aabb::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4acme4aabb3ptrE" title="acme::aabb::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pairptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme4aabb7pairptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Pair of pointers to const aabb objects used in <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> routines. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb6vecptrE">
+<span id="_CPPv3N4acme4aabb6vecptrE"></span><span id="_CPPv2N4acme4aabb6vecptrE"></span><span id="acme::aabb::vecptr"></span><span class="target" id="a00129_1a992e467202cf0239f3b089878518861a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme4aabb3ptrE" title="acme::aabb::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme4aabb6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to const aabb objects used in <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> routines. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb10vecpairptrE">
+<span id="_CPPv3N4acme4aabb10vecpairptrE"></span><span id="_CPPv2N4acme4aabb10vecpairptrE"></span><span id="acme::aabb::vecpairptr"></span><span class="target" id="a00129_1a3b3de0421f5d4846c7c50af711efa760"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme4aabb7pairptrE" title="acme::aabb::pairptr"><span class="n"><span class="pre">pairptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecpairptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme4aabb10vecpairptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pairs of pointers to const aabb objects used in <a class="reference internal" href="class_a00133.html#a00133"><span class="std std-ref">AABBtree</span></a> routines. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabbD0Ev">
+<span id="_CPPv3N4acme4aabbD0Ev"></span><span id="_CPPv2N4acme4aabbD0Ev"></span><span id="acme::aabb::~aabb"></span><span class="target" id="a00129_1a8fd26ac1bc7103cee0773cab3261d06a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~aabb</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabbD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb4aabbERK4aabb">
+<span id="_CPPv3N4acme4aabb4aabbERK4aabb"></span><span id="_CPPv2N4acme4aabb4aabbERK4aabb"></span><span id="acme::aabb::aabb__aabbCR"></span><span class="target" id="a00129_1a3ec53e2a3c88e6de084a823cab1da54c"></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4acme4aabb4aabbERK4aabb" title="acme::aabb::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme4aabb4aabbERK4aabb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box copy constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb4aabbERR4aabb">
+<span id="_CPPv3N4acme4aabb4aabbERR4aabb"></span><span id="_CPPv2N4acme4aabb4aabbERR4aabb"></span><span id="acme::aabb::aabb__aabbRR"></span><span class="target" id="a00129_1a61caf6ef04209e324a09cee4b2933be5"></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabb4aabbERR4aabb" title="acme::aabb::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme4aabb4aabbERR4aabb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb4aabbEv">
+<span id="_CPPv3N4acme4aabb4aabbEv"></span><span id="_CPPv2N4acme4aabb4aabbEv"></span><span id="acme::aabb::aabb"></span><span class="target" id="a00129_1a8c860f74aa21ffe1c45801f397bf7d9a"></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb4aabbEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb4aabbE4real4real4real4real4real4real7integer7integer">
+<span id="_CPPv3N4acme4aabb4aabbE4real4real4real4real4real4real7integer7integer"></span><span id="_CPPv2N4acme4aabb4aabbE4real4real4real4real4real4real7integer7integer"></span><span id="acme::aabb::aabb__real.real.real.real.real.real.integer.integer"></span><span class="target" id="a00129_1ad58ed04134f98610f0d7292648bdd42b"></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">min_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">min_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">min_z</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">max_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">max_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">max_z</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">id</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ipos</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb4aabbE4real4real4real4real4real4real7integer7integer" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min_x</strong> – Input x value of aabb minimum point </p></li>
+<li><p><strong>min_y</strong> – Input y value of aabb minimum point </p></li>
+<li><p><strong>min_z</strong> – Input z value of aabb minimum point </p></li>
+<li><p><strong>max_x</strong> – Input x value of aabb maximum point </p></li>
+<li><p><strong>max_y</strong> – Input y value of aabb maximum point </p></li>
+<li><p><strong>max_z</strong> – Input z value of aabb maximum point </p></li>
+<li><p><strong>id</strong> – Input id value </p></li>
+<li><p><strong>ipos</strong> – Input rank value </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb4aabbERK5pointRK5point7integer7integer">
+<span id="_CPPv3N4acme4aabb4aabbERK5pointRK5point7integer7integer"></span><span id="_CPPv2N4acme4aabb4aabbERK5pointRK5point7integer7integer"></span><span id="acme::aabb::aabb__pointCR.pointCR.integer.integer"></span><span class="target" id="a00129_1a2ab58e186b398c67eb8e8688f24268d8"></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min</span></span>, <a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">id</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ipos</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb4aabbERK5pointRK5point7integer7integer" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min</strong> – Input aabb minimum point </p></li>
+<li><p><strong>max</strong> – Input aabb maximum point </p></li>
+<li><p><strong>id</strong> – Input aabb id value </p></li>
+<li><p><strong>ipos</strong> – Input aabb rank value </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb4aabbERKNSt6vectorIN4aabb3ptrEEE7integer7integer">
+<span id="_CPPv3N4acme4aabb4aabbERKNSt6vectorIN4aabb3ptrEEE7integer7integer"></span><span id="_CPPv2N4acme4aabb4aabbERKNSt6vectorIN4aabb3ptrEEE7integer7integer"></span><span id="acme::aabb::aabb__std::vector:aabb::ptr:CR.integer.integer"></span><span class="target" id="a00129_1ab1900a0ec39223f297efbcfa41b367ab"></span><span class="sig-name descname"><span class="n"><span class="pre">aabb</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme4aabb4aabbERKNSt6vectorIN4aabb3ptrEEE7integer7integer" title="acme::aabb::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ptr</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">boxes</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">id</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ipos</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb4aabbERKNSt6vectorIN4aabb3ptrEEE7integer7integer" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Box class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>boxes</strong> – Input reference to vector of boxes </p></li>
+<li><p><strong>id</strong> – Input aabb id value </p></li>
+<li><p><strong>ipos</strong> – Input aabb rank value </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabbaSERK4aabb">
+<span id="_CPPv3N4acme4aabbaSERK4aabb"></span><span id="_CPPv2N4acme4aabbaSERK4aabb"></span><span id="acme::aabb::assign-operator__aabbCR"></span><span class="target" id="a00129_1aae669751d9a2e470c241a097e3a6d5d9"></span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aabb_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabbaSERK4aabb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Equality operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>aabb_in</strong> – Input </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb5clearEv">
+<span id="_CPPv3N4acme4aabb5clearEv"></span><span id="_CPPv2N4acme4aabb5clearEv"></span><span id="acme::aabb::clear__void"></span><span class="target" id="a00129_1a322b0336f6697532d2a6f442d6266b20"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb5clearEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Clear the aabb domain (set to Not-a-Number) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb8isApproxERK4aabb4real">
+<span id="_CPPv3NK4acme4aabb8isApproxERK4aabb4real"></span><span id="_CPPv2NK4acme4aabb8isApproxERK4aabb4real"></span><span id="acme::aabb::isApprox__aabbCR.realC"></span><span class="target" id="a00129_1ad1a088cbb3b27770245521c941ada782"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aabb_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb8isApproxERK4aabb4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if aabb objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>aabb_in</strong> – Input </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb11checkMaxMinEv">
+<span id="_CPPv3NK4acme4aabb11checkMaxMinEv"></span><span id="_CPPv2NK4acme4aabb11checkMaxMinEv"></span><span id="acme::aabb::checkMaxMin__voidC"></span><span class="target" id="a00129_1a9402b36328edfae4240b2a882b1ae078"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkMaxMin</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb11checkMaxMinEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check aabb max and min points. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb12updateMaxMinEv">
+<span id="_CPPv3N4acme4aabb12updateMaxMinEv"></span><span id="_CPPv2N4acme4aabb12updateMaxMinEv"></span><span id="acme::aabb::updateMaxMin__void"></span><span class="target" id="a00129_1a0dcb27da6d642b2587570e47313f16bf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">updateMaxMin</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb12updateMaxMinEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update and check aabb max and min points. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb3minEv">
+<span id="_CPPv3NK4acme4aabb3minEv"></span><span id="_CPPv2NK4acme4aabb3minEv"></span><span id="acme::aabb::min__voidC"></span><span class="target" id="a00129_1a3d5838595d283bddb336840ea1b3cd54"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">min</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb3minEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minimum point const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3minEv">
+<span id="_CPPv3N4acme4aabb3minEv"></span><span id="_CPPv2N4acme4aabb3minEv"></span><span id="acme::aabb::min__void"></span><span class="target" id="a00129_1a3d422580fbe3877715999777a00dccf1"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">min</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3minEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minimum point reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb3minE6size_t">
+<span id="_CPPv3NK4acme4aabb3minE6size_t"></span><span id="_CPPv2NK4acme4aabb3minE6size_t"></span><span id="acme::aabb::min__sC"></span><span class="target" id="a00129_1a6d66294472cdcdb9525c0df6d7ff0a91"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">min</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb3minE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get aabb minimum i-th axis value const reference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3minE6size_t">
+<span id="_CPPv3N4acme4aabb3minE6size_t"></span><span id="_CPPv2N4acme4aabb3minE6size_t"></span><span id="acme::aabb::min__s"></span><span class="target" id="a00129_1aa0b8f17c509c2c389c2cf8f9e99f9110"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">min</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3minE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get aabb minimum i-th axis value reference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3minE4real4real4real">
+<span id="_CPPv3N4acme4aabb3minE4real4real4real"></span><span id="_CPPv2N4acme4aabb3minE4real4real4real"></span><span id="acme::aabb::min__real.real.real"></span><span class="target" id="a00129_1aba85ded86e1f80916f5ec9cae9766f29"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">min</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3minE4real4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set aabb minimum point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>x</strong> – Input x value of aabb minimum point </p></li>
+<li><p><strong>y</strong> – Input y value of aabb minimum point </p></li>
+<li><p><strong>z</strong> – Input z value of aabb minimum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb3maxEv">
+<span id="_CPPv3NK4acme4aabb3maxEv"></span><span id="_CPPv2NK4acme4aabb3maxEv"></span><span id="acme::aabb::max__voidC"></span><span class="target" id="a00129_1a7d97ac3391df92205671168ddc570ad0"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">max</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb3maxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get aabb maximum point const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3maxEv">
+<span id="_CPPv3N4acme4aabb3maxEv"></span><span id="_CPPv2N4acme4aabb3maxEv"></span><span id="acme::aabb::max__void"></span><span class="target" id="a00129_1a7d84ae05eb595935a8fc22910def62d3"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">max</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3maxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get aabb maximum point reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb3maxE6size_t">
+<span id="_CPPv3NK4acme4aabb3maxE6size_t"></span><span id="_CPPv2NK4acme4aabb3maxE6size_t"></span><span id="acme::aabb::max__sC"></span><span class="target" id="a00129_1a628cc7499f276b522ef7daccadb5c23f"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">max</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb3maxE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get aabb maximum i-th point axis value const reference. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3maxE6size_t">
+<span id="_CPPv3N4acme4aabb3maxE6size_t"></span><span id="_CPPv2N4acme4aabb3maxE6size_t"></span><span id="acme::aabb::max__s"></span><span class="target" id="a00129_1a67d14ca96dc454ec1f66203a0c772705"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">max</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3maxE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get aabb maximum i-th point axis value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th value </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3maxE4real4real4real">
+<span id="_CPPv3N4acme4aabb3maxE4real4real4real"></span><span id="_CPPv2N4acme4aabb3maxE4real4real4real"></span><span id="acme::aabb::max__real.real.real"></span><span class="target" id="a00129_1ac0f44ece118f581b6cdbc38ca2e11dbf"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">max</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3maxE4real4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set aabb maximum point. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>x</strong> – Input x value of aabb maximum point </p></li>
+<li><p><strong>y</strong> – Input y value of aabb maximum point </p></li>
+<li><p><strong>z</strong> – Input z value of aabb maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb10intersectsERK4aabb">
+<span id="_CPPv3NK4acme4aabb10intersectsERK4aabb"></span><span id="_CPPv2NK4acme4aabb10intersectsERK4aabb"></span><span id="acme::aabb::intersects__aabbCRC"></span><span class="target" id="a00129_1a10b4d691692acaa130eb4f4bcc96eff8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersects</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aabb_in</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb10intersectsERK4aabb" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Detect if boxes collide. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>aabb_in</strong> – Input </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb6mergedERKN4aabb6vecptrE">
+<span id="_CPPv3N4acme4aabb6mergedERKN4aabb6vecptrE"></span><span id="_CPPv2N4acme4aabb6mergedERKN4aabb6vecptrE"></span><span id="acme::aabb::merged__aabb::vecptrCR"></span><span class="target" id="a00129_1a188e8fc5b78654c46cdd00aaf5be2721"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">merged</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme4aabbE" title="acme::aabb"><span class="n"><span class="pre">aabb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4acme4aabb6vecptrE" title="acme::aabb::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">boxes</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb6mergedERKN4aabb6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Build aabb with a vector of pointers to boxes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>boxes</strong> – Input poiter to vector of boxes </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb14centerDistanceERK5point">
+<span id="_CPPv3NK4acme4aabb14centerDistanceERK5point"></span><span id="_CPPv2NK4acme4aabb14centerDistanceERK5point"></span><span id="acme::aabb::centerDistance__pointCRC"></span><span class="target" id="a00129_1a6454e3becfd5589162ea65fa24449762"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">centerDistance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_in</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb14centerDistanceERK5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Distance of a point to the aabb. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point_in</strong> – Query point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb16exteriorDistanceERK5point">
+<span id="_CPPv3NK4acme4aabb16exteriorDistanceERK5point"></span><span id="_CPPv2NK4acme4aabb16exteriorDistanceERK5point"></span><span id="acme::aabb::exteriorDistance__pointCRC"></span><span class="target" id="a00129_1a5da4ad8bed06f45cc39db938b9ab622f"></span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exteriorDistance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_in</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb16exteriorDistanceERK5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Maximum distance of a point to the aabb. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point_in</strong> – Query point </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb5clampERK5pointRK5pointRK5point">
+<span id="_CPPv3N4acme4aabb5clampERK5pointRK5pointRK5point"></span><span id="_CPPv2N4acme4aabb5clampERK5pointRK5pointRK5point"></span><span id="acme::aabb::clamp__pointCR.pointCR.pointCR"></span><span class="target" id="a00129_1a3e0ad73c82aeda4c53edea4f835a1563"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point0_in</span></span>, <a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point1_in</span></span>, <a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point2_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb5clampERK5pointRK5pointRK5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Resize the aabb as the minimum bounding aabb containing three input points. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point0_in</strong> – Input point 0 </p></li>
+<li><p><strong>point1_in</strong> – Input point 1 </p></li>
+<li><p><strong>point2_in</strong> – Input point 2 </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb5clampEAL3E_K5point">
+<span id="_CPPv3N4acme4aabb5clampEAL3E_K5point"></span><span id="_CPPv2N4acme4aabb5clampEA3_K5point"></span><span id="acme::aabb::clamp__pointCA"></span><span class="target" id="a00129_1ac1a182d20a2c480cf0dd9c737a4341de"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">point_in</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb5clampEAL3E_K5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Resize the aabb as the minimum bounding aabb containing three input points. </p>
+<p>Return aabb id const reference </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>point_in</strong> – Input points </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb2idEv">
+<span id="_CPPv3NK4acme4aabb2idEv"></span><span id="_CPPv2NK4acme4aabb2idEv"></span><span id="acme::aabb::id__voidC"></span><span class="target" id="a00129_1a5cdbf8bf5606390e35795d894886d25f"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">id</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb2idEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return aabb id reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb2idEv">
+<span id="_CPPv3N4acme4aabb2idEv"></span><span id="_CPPv2N4acme4aabb2idEv"></span><span id="acme::aabb::id__void"></span><span class="target" id="a00129_1a45e53b8dc8f0e263f5d6a896d8293316"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">id</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb2idEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return aabb position const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb3posEv">
+<span id="_CPPv3NK4acme4aabb3posEv"></span><span id="_CPPv2NK4acme4aabb3posEv"></span><span id="acme::aabb::pos__voidC"></span><span class="target" id="a00129_1a74963ec00776771b5bc56883f2fae9c5"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">pos</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb3posEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return aabb position reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb3posEv">
+<span id="_CPPv3N4acme4aabb3posEv"></span><span id="_CPPv2N4acme4aabb3posEv"></span><span id="acme::aabb::pos__void"></span><span class="target" id="a00129_1a49dbca2c7850b07a3661df4c41111681"></span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">pos</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb3posEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme4aabb9translateERK5point">
+<span id="_CPPv3N4acme4aabb9translateERK5point"></span><span id="_CPPv2N4acme4aabb9translateERK5point"></span><span id="acme::aabb::translate__pointCR"></span><span class="target" id="a00129_1ae677441c35b668ff89bcc04fbcd24d11"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme4aabb9translateERK5point" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Translate aabb by vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>vector_in</strong> – Input translation vector </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb8isInsideERK5point4real">
+<span id="_CPPv3NK4acme4aabb8isInsideERK5point4real"></span><span id="_CPPv2NK4acme4aabb8isInsideERK5point4real"></span><span id="acme::aabb::isInside__pointCR.realC"></span><span class="target" id="a00129_1a924603b1cad7c7bb11538c29e9e0d514"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isInside</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb8isInsideERK5point4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point_in</strong> – Query point </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme4aabb13isDegeneratedE4real">
+<span id="_CPPv3NK4acme4aabb13isDegeneratedE4real"></span><span id="_CPPv2NK4acme4aabb13isDegeneratedE4real"></span><span id="acme::aabb::isDegenerated__realC"></span><span class="target" id="a00129_1ac0e8660c06963da4172091afe1bcaa53"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme4aabb13isDegeneratedE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if aabb is degenerated. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.png" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#acme-general-features">ACME general features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00133.html" title="Class AABBtree"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="namespace_Eigen.html" title="Namespace Eigen"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class aabb</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

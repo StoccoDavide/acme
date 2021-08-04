@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1a91331fb1dbd41bd185a6aaa328d16d44:
+
+Function acme::isOrthogonal(vec3 const&, ray const&, real)
+==========================================================
+
+- Defined in :ref:`file_src_acme_orthogonal.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isOrthogonal(vec3 const&, ray const&, real)
+   :project: doc_cpp

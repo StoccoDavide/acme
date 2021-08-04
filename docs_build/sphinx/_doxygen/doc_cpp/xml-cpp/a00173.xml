@@ -1,0 +1,990 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00173" kind="class" language="C++" prot="public">
+    <compoundname>acme::segment</compoundname>
+    <basecompoundref refid="a00149" prot="public" virt="non-virtual">acme::entity</basecompoundref>
+    <includes refid="a00056" local="no">acme_segment.hh</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00173_1abb4f81d72195cff86b8fef5a4561522a" prot="private" static="no" mutable="no">
+        <type><ref refid="a00165" kindref="compound">point</ref></type>
+        <definition>point acme::segment::m_vertex[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>m_vertex</name>
+        <briefdescription>
+<para>Segment extrema points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="58" column="11" bodyfile="include/acme_segment.hh" bodystart="58" bodyend="-1"/>
+        <referencedby refid="a00173_1aacd86ef2c32e9af3ca79997baa1ac93c" compoundref="a00116" startline="112" endline="116">centroid</referencedby>
+        <referencedby refid="a00173_1ae003954b02fc9c863dbafd5db913d14b" compoundref="a00116" startline="237" endline="249">clamp</referencedby>
+        <referencedby refid="a00173_1a2823df4e442ee250b50ca88598f3192d" compoundref="a00116" startline="100" endline="107">isApprox</referencedby>
+        <referencedby refid="a00173_1ab06846d10f2eb624f675a92130feec36" compoundref="a00116" startline="227" endline="232">isDegenerated</referencedby>
+        <referencedby refid="a00173_1a3176cfac75395f42bc8648f9ef7e8bf3" compoundref="a00116" startline="213" endline="222">isInside</referencedby>
+        <referencedby refid="a00173_1a60e85b1655dc2b90e81eda1cfefa11c8" compoundref="a00116" startline="185" endline="188">length</referencedby>
+        <referencedby refid="a00173_1afe2c3250dbb98328b0146b18a6fdcbf6" compoundref="a00116" startline="82" endline="95">operator=</referencedby>
+        <referencedby refid="a00173_1a6d8bc69f288f225ecddf24b5caa0568a" compoundref="a00116" startline="140" endline="145">operator[]</referencedby>
+        <referencedby refid="a00173_1a29c66671c61175780da4212e05e21fda" compoundref="a00116" startline="48" endline="58">segment</referencedby>
+        <referencedby refid="a00173_1add9c4777eac1c228a2d01248b35f4e69" compoundref="a00116" startline="175" endline="180">swap</referencedby>
+        <referencedby refid="a00173_1afdb16c8c03eb5dfea03bf9333f943bae" compoundref="a00116" startline="167" endline="170">toUnitVector</referencedby>
+        <referencedby refid="a00173_1afd7337e3110d9866ec76af52aeb7fe65" compoundref="a00116" startline="159" endline="162">toVector</referencedby>
+        <referencedby refid="a00173_1a89572a35e04ff8337831812ac3b937e3" compoundref="a00116" startline="203" endline="208">transform</referencedby>
+        <referencedby refid="a00173_1ab65af90bc8421408710a3d212e3c2751" compoundref="a00116" startline="193" endline="198">translate</referencedby>
+        <referencedby refid="a00173_1a6738a7d2e36d09e9bde0f5a2af8192f3" compoundref="a00116" startline="121" endline="126">vertex</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00173_1a9e8bc814f611682fc52ee2a13e8d18bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::~segment</definition>
+        <argsstring>()</argsstring>
+        <name>~segment</name>
+        <briefdescription>
+<para>Segment class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="62" column="5" bodyfile="include/acme_segment.hh" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a0f09598fc9e3bc130f470b5e7041cfd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::segment</definition>
+        <argsstring>(segment const &amp;)=default</argsstring>
+        <name>segment</name>
+        <param>
+          <type><ref refid="a00173" kindref="compound">segment</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>Segment copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="65" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a1668d85c227b3ebd5bdf9c1297ebd3a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::segment</definition>
+        <argsstring>(segment &amp;&amp;)=default</argsstring>
+        <name>segment</name>
+        <param>
+          <type><ref refid="a00173" kindref="compound">segment</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Segment move constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="68" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1af85fb1cb18801ba0f3791e3a1f4c88f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::segment</definition>
+        <argsstring>()</argsstring>
+        <name>segment</name>
+        <briefdescription>
+<para>Segment class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="71" column="5" bodyfile="include/acme_segment.hh" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a29c66671c61175780da4212e05e21fda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::segment</definition>
+        <argsstring>(real vertex0_x, real vertex0_y, real vertex0_z, real vertex1_x, real vertex1_y, real vertex1_z)</argsstring>
+        <name>segment</name>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>vertex0_x</declname>
+          <briefdescription><para>Input x value of first segment vertex </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>vertex0_y</declname>
+          <briefdescription><para>Input y value of first segment vertex </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>vertex0_z</declname>
+          <briefdescription><para>Input z value of first segment vertex </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>vertex1_x</declname>
+          <briefdescription><para>Input x value of second segment vertex </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>vertex1_y</declname>
+          <briefdescription><para>Input y value of second segment vertex </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>vertex1_z</declname>
+          <briefdescription><para>Input z value of second segment vertex </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Segment class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="74" column="5" bodyfile="src/acme_segment.cc" bodystart="48" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a451d7ace5ecd0aad57c53144c4419361" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::segment</definition>
+        <argsstring>(point const &amp;vertex0, point const &amp;vertex1)</argsstring>
+        <name>segment</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>vertex0</declname>
+          <briefdescription><para>Input first segment vertex </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>vertex1</declname>
+          <briefdescription><para>Input second segment vertex </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Segment class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="84" column="5" bodyfile="src/acme_segment.cc" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1acd39d36a2638d77a957546172e8724e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>acme::segment::segment</definition>
+        <argsstring>(point const vertex[2])</argsstring>
+        <name>segment</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const</type>
+          <declname>vertex</declname>
+          <array>[2]</array>
+          <briefdescription><para>Input segment vertices </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Segment class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="90" column="5" bodyfile="src/acme_segment.cc" bodystart="72" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1afe2c3250dbb98328b0146b18a6fdcbf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00173" kindref="compound">segment</ref> &amp;</type>
+        <definition>segment &amp; acme::segment::operator=</definition>
+        <argsstring>(segment const &amp;segment_in)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="a00173" kindref="compound">segment</ref> const &amp;</type>
+          <declname>segment_in</declname>
+          <briefdescription><para>Input segment object </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Equality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="96" column="5" bodyfile="src/acme_segment.cc" bodystart="82" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a2823df4e442ee250b50ca88598f3192d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isApprox</definition>
+        <argsstring>(segment const &amp;segment_in, real tolerance=EPSILON) const</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type><ref refid="a00173" kindref="compound">segment</ref> const &amp;</type>
+          <declname>segment_in</declname>
+          <briefdescription><para>Input segment object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if segments are (almost) equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="102" column="5" bodyfile="src/acme_segment.cc" bodystart="100" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1aacd86ef2c32e9af3ca79997baa1ac93c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref></type>
+        <definition>point acme::segment::centroid</definition>
+        <argsstring>(void) const</argsstring>
+        <name>centroid</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get segment centroid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="109" column="5" bodyfile="src/acme_segment.cc" bodystart="112" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a6738a7d2e36d09e9bde0f5a2af8192f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref> const  &amp;</type>
+        <definition>point const  &amp; acme::segment::vertex</definition>
+        <argsstring>(size_t i) const</argsstring>
+        <name>vertex</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+          <briefdescription><para>Intput segment i-th vertex index </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get segment i-th vertex const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="113" column="5" bodyfile="src/acme_segment.cc" bodystart="121" bodyend="126"/>
+        <referencedby refid="a00125_1a26f5b3d0b10bb372552e31a6ec69ae17" compoundref="a00089" startline="1086" endline="1111">acme::intersection</referencedby>
+        <referencedby refid="a00125_1a9cb0e3572b6f83f2f06be5d9ea7f39b5" compoundref="a00077" startline="149" endline="156">acme::isCollinear</referencedby>
+        <referencedby refid="a00125_1a0f90b6a569a74de5b8c41fd018a332f9" compoundref="a00080" startline="332" endline="338">acme::isCoplanar</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1aba3b9b562a4a99db977c0e6dd70379a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref> &amp;</type>
+        <definition>point &amp; acme::segment::vertex</definition>
+        <argsstring>(size_t i)</argsstring>
+        <name>vertex</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+          <briefdescription><para>Intput segment i-th vertex index </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get segment i-th vertex reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="119" column="5" bodyfile="src/acme_segment.cc" bodystart="131" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a6d8bc69f288f225ecddf24b5caa0568a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref> const  &amp;</type>
+        <definition>point const  &amp; acme::segment::operator[]</definition>
+        <argsstring>(size_t i) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+          <briefdescription><para>Intput segment i-th vertex index </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get segment i-th vertex const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="125" column="5" bodyfile="src/acme_segment.cc" bodystart="140" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ae20b199005c0587dbb19a4197c4969b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00165" kindref="compound">point</ref> &amp;</type>
+        <definition>point &amp; acme::segment::operator[]</definition>
+        <argsstring>(size_t i)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>i</declname>
+          <briefdescription><para>Intput segment i-th vertex index </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get segment i-th vertex reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="131" column="5" bodyfile="src/acme_segment.cc" bodystart="150" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1afd7337e3110d9866ec76af52aeb7fe65" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::segment::toVector</definition>
+        <argsstring>(void) const</argsstring>
+        <name>toVector</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Convert segment to vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="137" column="5" bodyfile="src/acme_segment.cc" bodystart="159" bodyend="162"/>
+        <referencedby refid="a00125_1a8909d20403784d6efd29a328bb521aa0" compoundref="a00089" startline="1549" endline="1580">acme::intersection</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1afdb16c8c03eb5dfea03bf9333f943bae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref></type>
+        <definition>vec3 acme::segment::toUnitVector</definition>
+        <argsstring>(void) const</argsstring>
+        <name>toUnitVector</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Convert segment to normalized vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="141" column="5" bodyfile="src/acme_segment.cc" bodystart="167" bodyend="170"/>
+        <referencedby refid="a00125_1a17ed9f5ea9c19dd332241b7ab6600351" compoundref="a00089" startline="2027" endline="2039">acme::intersection</referencedby>
+        <referencedby refid="a00125_1a9cb0e3572b6f83f2f06be5d9ea7f39b5" compoundref="a00077" startline="149" endline="156">acme::isCollinear</referencedby>
+        <referencedby refid="a00125_1a0f90b6a569a74de5b8c41fd018a332f9" compoundref="a00080" startline="332" endline="338">acme::isCoplanar</referencedby>
+        <referencedby refid="a00125_1ad7f4cf9369f8097d0fe5cb4b11d577dd" compoundref="a00101" startline="341" endline="347">acme::isOrthogonal</referencedby>
+        <referencedby refid="a00125_1a628e2c56c17c79fadb5d51cd864a7239" compoundref="a00104" startline="341" endline="347">acme::isParallel</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1add9c4777eac1c228a2d01248b35f4e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::segment::swap</definition>
+        <argsstring>(void)</argsstring>
+        <name>swap</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Swap segment points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="145" column="5" bodyfile="src/acme_segment.cc" bodystart="175" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a60e85b1655dc2b90e81eda1cfefa11c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+        <definition>real acme::segment::length</definition>
+        <argsstring>(void) const</argsstring>
+        <name>length</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Calculate segment length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="149" column="5" bodyfile="src/acme_segment.cc" bodystart="185" bodyend="188"/>
+        <referencedby refid="a00173_1a3176cfac75395f42bc8648f9ef7e8bf3" compoundref="a00116" startline="213" endline="222">isInside</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ab65af90bc8421408710a3d212e3c2751" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void acme::segment::translate</definition>
+        <argsstring>(vec3 const &amp;vector_in) override</argsstring>
+        <name>translate</name>
+        <reimplements refid="a00149_1a9979154e5dfe4f69fc04f4b25ac76aea">translate</reimplements>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>vector_in</declname>
+          <briefdescription><para>Input translation vector </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Translate segment by vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="153" column="5" bodyfile="src/acme_segment.cc" bodystart="193" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a89572a35e04ff8337831812ac3b937e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void acme::segment::transform</definition>
+        <argsstring>(affine const &amp;affine_in) override</argsstring>
+        <name>transform</name>
+        <reimplements refid="a00149_1a48c8a3f95aaea32d4368e918fdadd021">transform</reimplements>
+        <param>
+          <type><ref refid="a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc" kindref="member">affine</ref> const &amp;</type>
+          <declname>affine_in</declname>
+          <briefdescription><para>4x4 affine transformation matrix </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Transform segment with affine transformation matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="159" column="5" bodyfile="src/acme_segment.cc" bodystart="203" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a3176cfac75395f42bc8648f9ef7e8bf3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isInside</definition>
+        <argsstring>(point const &amp;point_in, real tolerance=EPSILON) const</argsstring>
+        <name>isInside</name>
+        <param>
+          <type><ref refid="a00165" kindref="compound">point</ref> const &amp;</type>
+          <declname>point_in</declname>
+          <briefdescription><para>Query point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="165" column="5" bodyfile="src/acme_segment.cc" bodystart="213" bodyend="222"/>
+        <referencedby refid="a00125_1a6cc3c890b92aacbb74f5a444220cdce2" compoundref="a00089" startline="1116" endline="1236">acme::intersection</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ab06846d10f2eb624f675a92130feec36" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isDegenerated</definition>
+        <argsstring>(real tolerance=EPSILON) const override</argsstring>
+        <name>isDegenerated</name>
+        <reimplements refid="a00149_1a4535419695613294d8f946eb872bd5bd">isDegenerated</reimplements>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>tolerance</declname>
+          <defval><ref refid="a00125_1a5be47678e6c38184c3795d1ea41c489d" kindref="member">EPSILON</ref></defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if segment is degenerated to point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="172" column="5" bodyfile="src/acme_segment.cc" bodystart="227" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ad4229b8d06aaabd848a4c9ebeeb7c26b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="a00125_1a9223400d01496dcba963b2f723c89d4a" kindref="member">integer</ref></type>
+        <definition>integer acme::segment::level</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>level</name>
+        <reimplements refid="a00149_1a4b9630c90d73a823e2e0efd8e9a79cd0">level</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object hierarchical level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="177" column="13" bodyfile="include/acme_segment.hh" bodystart="177" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a0beb0ca89d5a0d08d2306236cd5d0aa0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string acme::segment::type</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>type</name>
+        <reimplements refid="a00149_1ac2e74fd5ab901b53d8242d3bb70755a4">type</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Return object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="180" column="17" bodyfile="include/acme_segment.hh" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a77d638a79b479515d1e50ef20e4be619" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isNone</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isNone</name>
+        <reimplements refid="a00149_1a6dcf252926f1c1b1aad147d5caa5eed3">isNone</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is no entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="183" column="10" bodyfile="include/acme_segment.hh" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a476e69aad73d875d6cf60b552ab3fd66" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isPoint</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isPoint</name>
+        <reimplements refid="a00149_1a0ca14dc6ba289cadc1207064eae92373">isPoint</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="186" column="10" bodyfile="include/acme_segment.hh" bodystart="186" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ad7f7f1f5d02cceb854cdb689cad5354f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isLine</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isLine</name>
+        <reimplements refid="a00149_1a68bd00af11831aee5fef3531850ff433">isLine</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="189" column="10" bodyfile="include/acme_segment.hh" bodystart="189" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1af4dfd72d3b7c1250cdc4455ec3fdeef9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isRay</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isRay</name>
+        <reimplements refid="a00149_1a9ab36cd844cde471a9c3908c1cee09a2">isRay</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ray. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="192" column="10" bodyfile="include/acme_segment.hh" bodystart="192" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ab32f47e049bd286e6ff6a024866fc3eb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isPlane</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isPlane</name>
+        <reimplements refid="a00149_1a9df7782cc14bf5d21cd85e59ef1c1d5c">isPlane</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="195" column="10" bodyfile="include/acme_segment.hh" bodystart="195" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a3eda8371d47c3bec7a5494956bca9db7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isSegment</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isSegment</name>
+        <reimplements refid="a00149_1ac7d126acf87e2da6a552814be7ebc126">isSegment</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a segment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="198" column="10" bodyfile="include/acme_segment.hh" bodystart="198" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a06e1afa384537fb338f431c6592ad4d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isTriangle</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isTriangle</name>
+        <reimplements refid="a00149_1a5d0657b831d799da5f6f2fed1ff12179">isTriangle</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a triangle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="201" column="10" bodyfile="include/acme_segment.hh" bodystart="201" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a8b3c41e67b8f1bcfcc16b4b2d06f86bb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isDisk</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isDisk</name>
+        <reimplements refid="a00149_1aed5ee0dee6a1a1c0a8c29e4d3a217894">isDisk</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="204" column="10" bodyfile="include/acme_segment.hh" bodystart="204" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ad07c8b17bef5bee9dfc6561d57faac93" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isBall</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isBall</name>
+        <reimplements refid="a00149_1a73add88b6838e9b0a9a261a679da9515">isBall</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is a ball. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="207" column="10" bodyfile="include/acme_segment.hh" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a0443e605b6f370d6aa94d641f116b839" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isClampable</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isClampable</name>
+        <reimplements refid="a00149_1a2014bd40547fe4fd4a270b5e40c6cc07">isClampable</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the segment is clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="210" column="10" bodyfile="include/acme_segment.hh" bodystart="210" bodyend="210"/>
+        <referencedby refid="a00173_1ae003954b02fc9c863dbafd5db913d14b" compoundref="a00116" startline="237" endline="249">clamp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ac68435ee7a354a37b082885ceaed24b5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::isNonClampable</definition>
+        <argsstring>(void) const override</argsstring>
+        <name>isNonClampable</name>
+        <reimplements refid="a00149_1a5a5c33241ac3032efb4908744d3174dc">isNonClampable</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether in the segment is non-clampable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="213" column="10" bodyfile="include/acme_segment.hh" bodystart="213" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1ae003954b02fc9c863dbafd5db913d14b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::clamp</definition>
+        <argsstring>(vec3 &amp;min, vec3 &amp;max) const override</argsstring>
+        <name>clamp</name>
+        <reimplements refid="a00149_1afebc220f247db840f78b7df51e175a28">clamp</reimplements>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>min</declname>
+          <briefdescription><para>Input minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> &amp;</type>
+          <declname>max</declname>
+          <briefdescription><para>Input maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="217" column="5" bodyfile="src/acme_segment.cc" bodystart="237" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="a00173_1a7f3299a0f4b7d286b37e9ea79d4cb7f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool acme::segment::clamp</definition>
+        <argsstring>(real &amp;min_x, real &amp;min_y, real &amp;min_z, real &amp;max_x, real &amp;max_y, real &amp;max_z) const override</argsstring>
+        <name>clamp</name>
+        <reimplements refid="a00149_1a071efafd454180bf95903a38029a5b6b">clamp</reimplements>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_x</declname>
+          <briefdescription><para>Input x value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_y</declname>
+          <briefdescription><para>Input y value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>min_z</declname>
+          <briefdescription><para>Input z value of minimum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_x</declname>
+          <briefdescription><para>Input x value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_y</declname>
+          <briefdescription><para>Input y value of maximum point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref> &amp;</type>
+          <declname>max_z</declname>
+          <briefdescription><para>Input z value of maximum point </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Get minumum and maximum values along axes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_segment.hh" line="224" column="5" bodyfile="src/acme_segment.cc" bodystart="254" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acme::entity::rotate</definition>
+        <argsstring>(real angle, vec3 const &amp;axis)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type><ref refid="a00125_1a91745012989657825bc70313039f90a0" kindref="member">real</ref></type>
+          <declname>angle</declname>
+          <briefdescription><para>Input angle [rad] </para>
+</briefdescription>
+        </param>
+        <param>
+          <type><ref refid="a00125_1a57043673330479bace38d40b1d93edb0" kindref="member">vec3</ref> const &amp;</type>
+          <declname>axis</declname>
+          <briefdescription><para>Input axis </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Rotate entity by a rotation angle around an arbitrary axis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="79" column="5" bodyfile="src/acme_entity.cc" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="a00149_1a534ab97324296ad976e253051482322f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool acme::entity::isEntity</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isEntity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check whether the object is an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="96" column="10" bodyfile="src/acme_entity.cc" bodystart="61" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00149" kindref="compound">entity</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;entity&gt; acme::entity::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to entity object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="56" column="29" bodyfile="include/acme_entity.hh" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" kindref="member">ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;ptr&gt; acme::entity::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of pointers to entity objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/acme_entity.hh" line="57" column="25" bodyfile="include/acme_entity.hh" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Segment class container. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Segment in 3D space. The segment is defined by two arbitrary points. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>acme::entity</label>
+        <link refid="a00149"/>
+      </node>
+      <node id="1">
+        <label>acme::segment</label>
+        <link refid="a00173"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Eigen::Matrix&lt; real, 3, 1 &gt;</label>
+      </node>
+      <node id="2">
+        <label>acme::entity</label>
+        <link refid="a00149"/>
+      </node>
+      <node id="1">
+        <label>acme::segment</label>
+        <link refid="a00173"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_vertex</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>acme::point</label>
+        <link refid="a00165"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/acme_segment.hh" line="55" column="3" bodyfile="include/acme_segment.hh" bodystart="56" bodyend="233"/>
+    <listofallmembers>
+      <member refid="a00173_1aacd86ef2c32e9af3ca79997baa1ac93c" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>centroid</name></member>
+      <member refid="a00173_1ae003954b02fc9c863dbafd5db913d14b" prot="public" virt="virtual"><scope>acme::segment</scope><name>clamp</name></member>
+      <member refid="a00173_1a7f3299a0f4b7d286b37e9ea79d4cb7f0" prot="public" virt="virtual"><scope>acme::segment</scope><name>clamp</name></member>
+      <member refid="a00149_1a8e7b0764a8cd9a367fd56231597fe517" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>entity</name></member>
+      <member refid="a00173_1a2823df4e442ee250b50ca88598f3192d" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>isApprox</name></member>
+      <member refid="a00173_1ad07c8b17bef5bee9dfc6561d57faac93" prot="public" virt="virtual"><scope>acme::segment</scope><name>isBall</name></member>
+      <member refid="a00173_1a0443e605b6f370d6aa94d641f116b839" prot="public" virt="virtual"><scope>acme::segment</scope><name>isClampable</name></member>
+      <member refid="a00173_1ab06846d10f2eb624f675a92130feec36" prot="public" virt="virtual"><scope>acme::segment</scope><name>isDegenerated</name></member>
+      <member refid="a00173_1a8b3c41e67b8f1bcfcc16b4b2d06f86bb" prot="public" virt="virtual"><scope>acme::segment</scope><name>isDisk</name></member>
+      <member refid="a00149_1a534ab97324296ad976e253051482322f" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>isEntity</name></member>
+      <member refid="a00173_1a3176cfac75395f42bc8648f9ef7e8bf3" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>isInside</name></member>
+      <member refid="a00173_1ad7f7f1f5d02cceb854cdb689cad5354f" prot="public" virt="virtual"><scope>acme::segment</scope><name>isLine</name></member>
+      <member refid="a00173_1ac68435ee7a354a37b082885ceaed24b5" prot="public" virt="virtual"><scope>acme::segment</scope><name>isNonClampable</name></member>
+      <member refid="a00173_1a77d638a79b479515d1e50ef20e4be619" prot="public" virt="virtual"><scope>acme::segment</scope><name>isNone</name></member>
+      <member refid="a00173_1ab32f47e049bd286e6ff6a024866fc3eb" prot="public" virt="virtual"><scope>acme::segment</scope><name>isPlane</name></member>
+      <member refid="a00173_1a476e69aad73d875d6cf60b552ab3fd66" prot="public" virt="virtual"><scope>acme::segment</scope><name>isPoint</name></member>
+      <member refid="a00173_1af4dfd72d3b7c1250cdc4455ec3fdeef9" prot="public" virt="virtual"><scope>acme::segment</scope><name>isRay</name></member>
+      <member refid="a00173_1a3eda8371d47c3bec7a5494956bca9db7" prot="public" virt="virtual"><scope>acme::segment</scope><name>isSegment</name></member>
+      <member refid="a00173_1a06e1afa384537fb338f431c6592ad4d1" prot="public" virt="virtual"><scope>acme::segment</scope><name>isTriangle</name></member>
+      <member refid="a00173_1a60e85b1655dc2b90e81eda1cfefa11c8" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>length</name></member>
+      <member refid="a00173_1ad4229b8d06aaabd848a4c9ebeeb7c26b" prot="public" virt="virtual"><scope>acme::segment</scope><name>level</name></member>
+      <member refid="a00173_1abb4f81d72195cff86b8fef5a4561522a" prot="private" virt="non-virtual"><scope>acme::segment</scope><name>m_vertex</name></member>
+      <member refid="a00173_1afe2c3250dbb98328b0146b18a6fdcbf6" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>operator=</name></member>
+      <member refid="a00173_1a6d8bc69f288f225ecddf24b5caa0568a" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>operator[]</name></member>
+      <member refid="a00173_1ae20b199005c0587dbb19a4197c4969b3" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>operator[]</name></member>
+      <member refid="a00149_1a2e82edbaf0d05e2009a19330ba1cac91" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>ptr</name></member>
+      <member refid="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>rotate</name></member>
+      <member refid="a00173_1a0f09598fc9e3bc130f470b5e7041cfd1" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>segment</name></member>
+      <member refid="a00173_1a1668d85c227b3ebd5bdf9c1297ebd3a9" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>segment</name></member>
+      <member refid="a00173_1af85fb1cb18801ba0f3791e3a1f4c88f9" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>segment</name></member>
+      <member refid="a00173_1a29c66671c61175780da4212e05e21fda" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>segment</name></member>
+      <member refid="a00173_1a451d7ace5ecd0aad57c53144c4419361" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>segment</name></member>
+      <member refid="a00173_1acd39d36a2638d77a957546172e8724e7" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>segment</name></member>
+      <member refid="a00173_1add9c4777eac1c228a2d01248b35f4e69" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>swap</name></member>
+      <member refid="a00173_1afdb16c8c03eb5dfea03bf9333f943bae" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>toUnitVector</name></member>
+      <member refid="a00173_1afd7337e3110d9866ec76af52aeb7fe65" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>toVector</name></member>
+      <member refid="a00173_1a89572a35e04ff8337831812ac3b937e3" prot="public" virt="virtual"><scope>acme::segment</scope><name>transform</name></member>
+      <member refid="a00173_1ab65af90bc8421408710a3d212e3c2751" prot="public" virt="virtual"><scope>acme::segment</scope><name>translate</name></member>
+      <member refid="a00173_1a0beb0ca89d5a0d08d2306236cd5d0aa0" prot="public" virt="virtual"><scope>acme::segment</scope><name>type</name></member>
+      <member refid="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>vecptr</name></member>
+      <member refid="a00173_1a6738a7d2e36d09e9bde0f5a2af8192f3" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>vertex</name></member>
+      <member refid="a00173_1aba3b9b562a4a99db977c0e6dd70379a9" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>vertex</name></member>
+      <member refid="a00149_1a89e8a5f825d508d52f9e4423169f75ee" prot="public" virt="virtual"><scope>acme::segment</scope><name>~entity</name></member>
+      <member refid="a00173_1a9e8bc814f611682fc52ee2a13e8d18bd" prot="public" virt="non-virtual"><scope>acme::segment</scope><name>~segment</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

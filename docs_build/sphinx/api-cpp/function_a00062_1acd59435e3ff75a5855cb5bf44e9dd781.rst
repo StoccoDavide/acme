@@ -1,0 +1,19 @@
+.. _exhale_function_a00062_1acd59435e3ff75a5855cb5bf44e9dd781:
+
+Function acme::isOrthogonal(plane const&, triangle const&, real)
+================================================================
+
+- Defined in :ref:`file_src_acme_orthogonal.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isOrthogonal(plane const&, triangle const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

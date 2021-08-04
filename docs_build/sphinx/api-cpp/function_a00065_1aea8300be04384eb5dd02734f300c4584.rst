@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1aea8300be04384eb5dd02734f300c4584:
+
+Function acme::transform
+========================
+
+- Defined in :ref:`file_include_acme_math.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::transform(vec3&, affine const&)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

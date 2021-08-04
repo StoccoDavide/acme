@@ -24,25 +24,25 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_entity < handle
-  %
-  % Class container for ACME entity object
-  %
+  %>
+  %> Class container for ACME entity object
+  %>
   properties (SetAccess = protected, Hidden = true)
-    objectHandle; % handle to the underlying C++ class instance
+    objectHandle; %> Handle to the underlying C++ class instance
   end
   %
   % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   %
+  %> Create a new entity object instance
   methods
-    % Create a new entity object instance
     function self = acme_entity( )
     end
   end
   %
   % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   %
+  %> Get object type as string (virtual method)
   methods (Abstract)
-    % Get object type as string (virtual method)
     type( self )
   end
 end

@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1afe55953618335bf624f833a12b656200:
+
+Variable acme::NAN_PLANE
+========================
+
+- Defined in :ref:`file_include_acme_plane.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::NAN_PLANE
+   :project: doc_cpp

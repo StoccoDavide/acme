@@ -24,71 +24,71 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_triangle < acme_entity
-  %
-  % Class container for ACME triangle object
-  %
+  %>
+  %> Class container for ACME triangle object
+  %>
   methods
+    %> Create a new C++ pointer to triangle object instance
     function self = acme_triangle( varargin )
-      % Create a new C++ pointer to triangle object instance
       self.objectHandle = mex_triangle( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Create C++ pointer to triangle object instance
     function delete( self )
-      % Create C++ pointer to triangle object instance
       mex_triangle( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle vertex 1 as ACME point object
     function out = getVertex1( self )
-      % Get triangle vertex 1 as ACME point object
       out = acme_point();
       out.copyByHandle( mex_triangle( 'getVertex1', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle vertex 2 as ACME point object
     function out = getVertex2( self )
-      % Get triangle vertex 2 as ACME point object
       out = acme_point();
       out.copyByHandle( mex_triangle( 'getVertex2', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle vertex 3 as ACME point object
     function out = getVertex3( self )
-      % Get triangle vertex 3 as ACME point object
       out = acme_point();
       out.copyByHandle( mex_triangle( 'getVertex3', self.objectHandle) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set triangle vertex 1 with an ACME point object
     function setVertex1( self, other_obj )
-      % Set triangle vertex 1 with an ACME point object
       mex_triangle( 'setVertex1', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set triangle vertex 2 with an ACME point object
     function setVertex2( self, other_obj )
-      % Set triangle vertex 2 with an ACME point object
       mex_triangle( 'setVertex2', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set triangle vertex 3 with an ACME point object
     function setVertex3( self, other_obj )
-      % Set triangle vertex 3 with an ACME point object
       mex_triangle( 'setVertex3', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy segment object from another segment
     function copy( self, other_obj )
-      % Copy segment object from another segment
       if (other_obj.type() == "triangle")
         mex_triangle( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -98,29 +98,29 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy triangle object from another triangle handle
     function copyByHandle( self, handle )
-      % Copy triangle object from another triangle handle
       mex_triangle( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate triangle by vector
     function translate( self, other_obj )
-     % Translate triangle by vector
       mex_triangle( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform triangle by 4x4 affine transformation matrix
     function transform( self, varargin )
-      % Transform triangle by 4x4 affine transformation matrix
       mex_triangle( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the triangle 
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the triangle 
       if (other_obj.type() == "point")
         out = mex_triangle( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -130,15 +130,15 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if triangle is degenerated
     function out = isDegenerated( self )
-      % Check if triangle is degenerated
       out = mex_triangle( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if triangles are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if triangles are approximatively equal
       if (other_obj.type() == "triangle") 
         out = mex_triangle( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -148,67 +148,67 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle centroid as ACME point objecty instance
     function out = centroid( self )
-      % Get triangle centroid as ACME point objecty instance
       out = acme_point();
       out.copyByHandle( mex_triangle( 'centroid', self.objectHandle, other_obj.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle normal
     function out = normal( self )
-      % Get triangle normal
       out = mex_triangle( 'normal', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle laying plane
     function out = layingPlane( self )
-     % Get triangle laying plane
      out = acme_plane();
      out.copyByHandle( mex_triangle( 'layingPlane', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle i-th edge
     function out = edge( self, i )
-      % Get triangle i-th edge
       out = acme_segment();
       out.copyByHandle( mex_triangle( 'edge', self.objectHandle, i ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Swap triangle i-th and j-th vertex
     function swap( self, i, j )
-      % Swap triangle i-th and j-th vertex
       mex_triangle( 'swap', self.objectHandle, i, j );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle minimum and maximum points of object instance
     function [out1, out2] = clamp( self )
-      % Get triangle minimum and maximum points of object instance
       [out1, out2] = mex_triangle( 'clamp', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle perimeter
     function out = perimeter( self )
-      % Get triangle perimeter
       out = mex_triangle( 'perimeter', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get triangle perimeter
     function out = area( self )
-      % Get triangle perimeter
       out = mex_triangle( 'area', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Compute barycentric coordinates (u,v,w) for ACME point
     function out = barycentric( self, other_obj )
-      % Compute barycentric coordinates (u,v,w) for ACME point
       if ( other_obj == "point" )
         out = mex_triangle( 'barycenter', self.objectHandle, other_obj.objectHandle );
       else
@@ -218,36 +218,36 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if triangle is parallel to an ACME object
     function out = isParallel( self, other_obj )
-      % Check if triangle is parallel to an ACME object
       out = mex_triangle( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if triangle is orthogonal to an ACME object
     function out = isOrthogonal( self, other_obj )
-      % Check if triangle is orthogonal to an ACME object
       out = mex_triangle( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if triangle is collinear to an ACME object
     function out = isCollinear( self, other_obj )
-      % Check if triangle is collinear to an ACME object
       out = mex_triangle( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if triangle is coplanar to an ACME object 
     function out = isCoplanar( self, other_obj )
-      % Check if triangle is coplanar to an ACME object 
       out = mex_triangle( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Intersect triangle with an ACME object
     function out = intersection( self, other_obj )
-      % Intersect triangle with an ACME object
       [handle, type] = mex_triangle( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()' ) );
       out.copyByHandle( handle );
@@ -255,15 +255,15 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [self.getVertex1().get(), self.getVertex2().get(),  self.getVertex3().get()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot triangle object
     function plot( self, figure_name, color )
-      % Plot triangle object
       figure_name;
       hold on;
       Vertex1 = self.getVertex1().get();
@@ -278,8 +278,8 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'triangle';
     end
   end

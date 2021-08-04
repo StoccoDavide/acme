@@ -24,62 +24,62 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_line < acme_entity
-  %
-  % Class container for ACME line object
-  %
+  %>
+  %> Class container for ACME line object
+  %>
   methods
+    %> Create a new C++ pointer to line object instance
     function self = acme_line( varargin )
-      % Create a new C++ pointer to line object instance
       self.objectHandle = mex_line( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Delete C++ pointer to line object instance
     function delete( self )
-      % Delete C++ pointer to line object instance
       mex_line( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'line';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get line origin as ACME point object
     function out = getOrigin( self )
-      % Get line origin as ACME point object
       out = acme_point();
       out.copyByHandle( mex_line( 'getOrigin', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get line direction
     function out = getDirection( self )
-      % Get line direction
       out = mex_line( 'getDirection', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set line origin with an ACME point object
     function setOrigin( self, other_obj )
-      % Set line origin with an ACME point object
       mex_line( 'setOrigin', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set line direction
     function setDirection( self, other_obj )
-      % Set line direction
       mex_line( 'setDirection', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy line object from another line
     function copy( self, other_obj )
-      % Copy line object from another line
       if (other_obj.type() == "line")
         mex_line( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -89,29 +89,29 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy line object from another line handle
     function copyByHandle( self, handle )
-      % Copy line object from another line handle
       mex_line( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate line by vector
     function translate( self, other_obj )
-     % Translate line by vector
       mex_line( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform line by 4x4 affine transformation matrix
     function transform( self, varargin )
-      % Transform line by 4x4 affine transformation matrix
       mex_line( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the line 
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the line 
       if (other_obj.type() == "point")
         out = mex_line( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -121,15 +121,15 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if line is degenerated
     function out = isDegenerated( self )
-      % Check if line is degenerated
       out = mex_line( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if lines are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if lines are approximatively equal
       if (other_obj.type() == "line") 
         out = mex_line( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -139,64 +139,64 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Normalize direction vector 
     function normalize( self )
-      % 
       mex_line( 'normalize', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform line to vector
     function out = toVector( self )
-       % Transform line to vector
       out = mex_line( 'toVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform line to normalized vector
     function out = toNormalizedVector( self )
-      % Transform line to normalized vector
       out = mex_line( 'toNormalizedVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Swap line vertices
     function reverse( self )
-      % Swap line vertices
       mex_line( 'reverse', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if line is parallel to an ACME object
     function out = isParallel( self, other_obj )
-      % Check if line is parallel to an ACME object
       out = mex_line( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if line is orthogonal to an ACME object
     function out = isOrthogonal( self, other_obj )
-      % Check if line is orthogonal to an ACME object
       out = mex_line( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if line is collinear to an ACME object
     function out = isCollinear( self, other_obj )
-      % Check if line is collinear to an ACME object
       out = mex_line( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if line is coplanar to an ACME object 
     function out = isCoplanar( self, other_obj )
-      % Check if line is coplanar to an ACME object 
       out = mex_line( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Intersect line with an ACME object
     function out = intersection( self, other_obj )
-      % Intersect line with an ACME object
       [handle, type] = mex_line( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()' ) );
       out.copyByHandle( handle );
@@ -204,15 +204,15 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [self.getOrigin().get(), self.getDirection()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot line object
     function plot( self, figure_name, color )
-      % Plot line object
       figure_name;
       hold on;
       origin = self.getOrigin().get();

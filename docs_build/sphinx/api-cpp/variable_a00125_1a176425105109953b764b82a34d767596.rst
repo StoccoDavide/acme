@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1a176425105109953b764b82a34d767596:
+
+Variable acme::THROWAWAY_MAT3
+=============================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::THROWAWAY_MAT3
+   :project: doc_cpp

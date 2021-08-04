@@ -1,0 +1,16 @@
+.. _exhale_variable_a00065_1a31b86ff96c355ec12f4b562c1e4d227b:
+
+Variable acme::NAN_LINE
+=======================
+
+- Defined in :ref:`file_include_acme_line.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::NAN_LINE
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

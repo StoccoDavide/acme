@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1aa10a7f7d9a941da19af1f151e926edd9:
+
+Function acme::isParallel(entity const \*, entity const \*, real)
+=================================================================
+
+- Defined in :ref:`file_include_acme_parallel.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isParallel(entity const *, entity const *, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

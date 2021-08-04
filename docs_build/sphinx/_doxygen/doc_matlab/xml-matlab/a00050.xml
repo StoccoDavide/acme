@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="a00050" kind="class" language="C++" prot="public">
+    <compoundname>acme_entity</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
+    <derivedcompoundref refid="a00038" prot="public" virt="non-virtual">acme_aabb</derivedcompoundref>
+    <derivedcompoundref refid="a00042" prot="public" virt="non-virtual">acme_ball</derivedcompoundref>
+    <derivedcompoundref refid="a00046" prot="public" virt="non-virtual">acme_disk</derivedcompoundref>
+    <derivedcompoundref refid="a00054" prot="public" virt="non-virtual">acme_line</derivedcompoundref>
+    <derivedcompoundref refid="a00058" prot="public" virt="non-virtual">acme_none</derivedcompoundref>
+    <derivedcompoundref refid="a00062" prot="public" virt="non-virtual">acme_plane</derivedcompoundref>
+    <derivedcompoundref refid="a00066" prot="public" virt="non-virtual">acme_point</derivedcompoundref>
+    <derivedcompoundref refid="a00070" prot="public" virt="non-virtual">acme_ray</derivedcompoundref>
+    <derivedcompoundref refid="a00074" prot="public" virt="non-virtual">acme_segment</derivedcompoundref>
+    <derivedcompoundref refid="a00078" prot="public" virt="non-virtual">acme_triangle</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property acme_entity::objectHandle</definition>
+        <argsstring></argsstring>
+        <name>objectHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ACME entity object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="34" column="10" bodyfile="acme_entity.m" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00050_1aa9604c371b05fe29d288f8229d673d70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function acme_entity::acme_entity</definition>
+        <argsstring>(in)</argsstring>
+        <name>acme_entity</name>
+        <param>
+          <type>in</type>
+        </param>
+        <briefdescription>
+<para>Create a new entity object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="42" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1adadea5f13cd73eeac368db18de967f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>virtual function acme_entity::type</definition>
+        <argsstring>(in self)</argsstring>
+        <name>type</name>
+        <reimplementedby refid="a00038_1ab5fb61648e1451e33b3d619513e9de6b">type</reimplementedby>
+        <reimplementedby refid="a00042_1aa0c9ccd43c80ae86dab380c48cf653ee">type</reimplementedby>
+        <reimplementedby refid="a00046_1a2826025fec08f907b7e390eaa9ddde64">type</reimplementedby>
+        <reimplementedby refid="a00054_1a3be1dae04b34bdd95284beea861749e0">type</reimplementedby>
+        <reimplementedby refid="a00058_1a15393e4d6b043aa5f61af7e1a9580cbd">type</reimplementedby>
+        <reimplementedby refid="a00062_1a9c63701bef2727179050163a533c3aa0">type</reimplementedby>
+        <reimplementedby refid="a00066_1ace890ab61153be1392735a55ae57a3b6">type</reimplementedby>
+        <reimplementedby refid="a00070_1a861003eca130e25d0b15ab3faef18dbc">type</reimplementedby>
+        <reimplementedby refid="a00074_1a3cc3c68a04012b29a4660ab4599ddbd1">type</reimplementedby>
+        <reimplementedby refid="a00078_1ae39036b1ddf0c904c7fd4954994ad46f">type</reimplementedby>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get object type as string (virtual method) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="acme_entity.m" line="51" column="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>acme_aabb</label>
+        <link refid="a00038"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>acme_none</label>
+        <link refid="a00058"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>acme_segment</label>
+        <link refid="a00074"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>acme_ball</label>
+        <link refid="a00042"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="9">
+        <label>acme_point</label>
+        <link refid="a00066"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>acme_plane</label>
+        <link refid="a00062"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>acme_disk</label>
+        <link refid="a00046"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>acme_triangle</label>
+        <link refid="a00078"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>acme_line</label>
+        <link refid="a00054"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>acme_ray</label>
+        <link refid="a00070"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>acme_entity</label>
+        <link refid="a00050"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="acme_entity.m" line="26" column="1" bodyfile="acme_entity.m" bodystart="27" bodyend="54"/>
+    <listofallmembers>
+      <member refid="a00050_1aa9604c371b05fe29d288f8229d673d70" prot="public" virt="non-virtual"><scope>acme_entity</scope><name>acme_entity</name></member>
+      <member refid="a00050_1a419b052079bcfcfb4e813365d647cb51" prot="private" virt="non-virtual"><scope>acme_entity</scope><name>objectHandle</name></member>
+      <member refid="a00050_1adadea5f13cd73eeac368db18de967f49" prot="public" virt="virtual"><scope>acme_entity</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

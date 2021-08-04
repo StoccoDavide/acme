@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1a5be47678e6c38184c3795d1ea41c489d:
+
+Variable acme::EPSILON
+======================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::EPSILON
+   :project: doc_cpp

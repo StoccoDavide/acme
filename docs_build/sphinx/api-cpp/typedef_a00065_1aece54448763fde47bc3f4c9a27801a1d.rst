@@ -1,0 +1,16 @@
+.. _exhale_typedef_a00065_1aece54448763fde47bc3f4c9a27801a1d:
+
+Typedef acme::mat3
+==================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: acme::mat3
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

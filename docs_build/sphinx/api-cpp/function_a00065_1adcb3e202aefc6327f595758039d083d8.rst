@@ -1,0 +1,16 @@
+.. _exhale_function_a00065_1adcb3e202aefc6327f595758039d083d8:
+
+Function acme::isCoplanar(ray const&, ray const&, real)
+=======================================================
+
+- Defined in :ref:`file_include_acme_coplanar.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isCoplanar(ray const&, ray const&, real)
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp

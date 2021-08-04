@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1a166956f7dd6f726b7d917c7bd1b2a231:
+
+Function acme::angle(vec3 const, vec3 const)
+============================================
+
+- Defined in :ref:`file_include_acme_math.hh`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::angle(vec3 const, vec3 const)
+   :project: doc_cpp

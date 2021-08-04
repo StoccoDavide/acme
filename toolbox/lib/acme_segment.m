@@ -24,63 +24,63 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 classdef acme_segment < acme_entity
-  %
-  % Class container for ACME segment object
-  %
+  %>
+  %> Class container for ACME segment object
+  %>
   methods
+    %> Create a new C++ pointer to segment object instance
     function self = acme_segment( varargin )
-      % Create a new C++ pointer to segment object instance
       self.objectHandle = mex_segment( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Delete C++ pointer to segment object instance
     function delete( self )
-      % Delete C++ pointer to segment object instance
       mex_segment( 'delete', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get object type as string
     function out = type( self )
-      % Get object type as string
       out = 'segment';
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get segment vertex 1 as ACME point object
     function out = getVertex1( self )
-      % Get segment vertex 1 as ACME point object
       out = acme_point();
       out.copyByHandle( mex_segment( 'getVertex1', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get segment vertex 2 as ACME point object
     function out = getVertex2( self )
-      % Get segment vertex 2 as ACME point object
       out = acme_point();
       out.copyByHandle( mex_segment( 'getVertex2', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set segment vertex 1 with an ACME point object
     function setVertex1( self, other_obj )
-      % Set segment vertex 1 with an ACME point object
       mex_segment( 'setVertex1', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Set segment vertex 2 with an ACME point object
     function setVertex2( self, other_obj )
-      % Set segment vertex 2 with an ACME point object
       mex_segment( 'setVertex2', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy segment object from another segment
     function copy( self, other_obj )
-      % Copy segment object from another segment
       if (other_obj.type() == "segment")
         mex_segment( 'copy', self.objectHandle, other_obj.objectHandle );
       else
@@ -90,29 +90,29 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Copy segment object from another segment handle
     function copyByHandle( self, handle )
-      % Copy segment object from another segment handle
       mex_segment( 'copy', self.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Translate segment by vector
     function translate( self, other_obj )
-     % Translate segment by vector
       mex_segment( 'translate', self.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform segment by 4x4 affine transformation matrix
     function transform( self, varargin )
-      % Transform segment by 4x4 affine transformation matrix
       mex_segment( 'transform', self.objectHandle, varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if ACME point is inside the segment 
     function out = isInside( self, other_obj )
-      % Check if ACME point is inside the segment 
       if (other_obj.type() == "point")
         out = mex_segment( 'isInside', self.objectHandle, other_obj.objectHandle );
       else
@@ -122,15 +122,15 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if segment is degenerated
     function out = isDegenerated( self )
-      % Check if segment is degenerated
       out = mex_segment( 'isDegenerated', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if segments are approximatively equal
     function out = isApprox( self, other_obj )
-      % Check if segments are approximatively equal
       if (other_obj.type() == "segment") 
         out = mex_segment( 'isApprox', self.objectHandle, other_obj.objectHandle );
       else
@@ -140,79 +140,79 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get segment centroid as ACME point objecty instance
     function out = centroid( self )
-      % Get segment centroid as ACME point objecty instance
       out = acme_point();
       out.copyByHandle( mex_segment( 'centroid', self.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform segment to vector
     function out = toVector( self )
-       % Transform segment to vector
       out = mex_segment( 'toVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Transform segment to normalized vector
     function out = toUnitVector( self )
-      % Transform segment to normalized vector
       out = mex_segment( 'toUnitVector', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Swap segment vertices
     function swap( self )
-      % Swap segment vertices
       mex_segment( 'swap', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get segment minimum and maximum points of object instance
     function [out1, out2] = clamp( self )
-      % Get segment minimum and maximum points of object instance
       [out1, out2] = mex_segment( 'clamp', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get segment length
     function out = length( self )
-      % Get segment length
       out = mex_segment( 'length', self.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if segment is parallel to an ACME object
     function out = isParallel( self, other_obj )
-      % Check if segment is parallel to an ACME object
       out = mex_segment( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if segment is orthogonal to an ACME object
     function out = isOrthogonal( self, other_obj )
-      % Check if segment is orthogonal to an ACME object
       out = mex_segment( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if segment is collinear to an ACME object
     function out = isCollinear( self, other_obj )
-      % Check if segment is collinear to an ACME object
       out = mex_segment( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Check if segment is coplanar to an ACME object 
     function out = isCoplanar( self, other_obj )
-      % Check if segment is coplanar to an ACME object 
       out = mex_segment( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Intersect segment with an ACME object
     function out = intersection( self, other_obj )
-      % Intersect segment with an ACME object
       [handle, type] = mex_segment( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()' ) );
       out.copyByHandle( handle );
@@ -220,15 +220,15 @@ classdef acme_segment < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Display object data
     function disp( self )
-      % Display object data
       disp( [self.getVertex1().get(), self.getVertex2().get()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Plot segment object
     function plot( self, figure_name, color )
-      % Plot segment object
       figure_name;
       hold on;
       Vertex1 = self.getVertex1().get();

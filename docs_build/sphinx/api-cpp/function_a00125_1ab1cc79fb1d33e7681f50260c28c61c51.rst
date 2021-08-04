@@ -1,0 +1,14 @@
+.. _exhale_function_a00125_1ab1cc79fb1d33e7681f50260c28c61c51:
+
+Function acme::isCoplanar(plane const&, triangle const&, real)
+==============================================================
+
+- Defined in :ref:`file_src_acme_coplanar.cc`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: acme::isCoplanar(plane const&, triangle const&, real)
+   :project: doc_cpp

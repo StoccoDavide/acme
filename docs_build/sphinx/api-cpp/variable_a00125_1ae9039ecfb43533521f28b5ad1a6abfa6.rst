@@ -1,0 +1,14 @@
+.. _exhale_variable_a00125_1ae9039ecfb43533521f28b5ad1a6abfa6:
+
+Variable acme::ZEROS_VEC2
+=========================
+
+- Defined in :ref:`file_include_acme.hh`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: acme::ZEROS_VEC2
+   :project: doc_cpp

@@ -1,0 +1,647 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class ray &#8212; ACME v0.2
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class segment" href="class_a00173.html" />
+    <link rel="prev" title="Class point" href="class_a00165.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00173.html" title="Class segment"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00165.html" title="Class point"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class ray</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-ray">
+<span id="exhale-class-a00169"></span><h1>Class ray<a class="headerlink" href="#class-ray" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_acme_ray.hh.html#file-include-acme-ray-hh"><span class="std std-ref">File acme_ray.hh</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">acme::entity</span></code> (<a class="reference internal" href="class_a00149.html#exhale-class-a00149"><span class="std std-ref">Class entity</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3rayE">
+<span id="_CPPv3N4acme3rayE"></span><span id="_CPPv2N4acme3rayE"></span><span id="acme::ray"></span><span class="target" id="a00169"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">acme</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ray</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">acme</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><a class="headerlink" href="#_CPPv4N4acme3rayE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray class container. </p>
+<p>Infinite ray in 3D space and defined by any point lying on the line and a direction vector. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray3ptrE">
+<span id="_CPPv3N4acme3ray3ptrE"></span><span id="_CPPv2N4acme3ray3ptrE"></span><span id="acme::ray::ptr"></span><span class="target" id="a00149_1a2e82edbaf0d05e2009a19330ba1cac91"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="class_a00149.html#_CPPv4N4acme6entityE" title="acme::entity"><span class="n"><span class="pre">entity</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme3ray3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shared pointer to entity object. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray6vecptrE">
+<span id="_CPPv3N4acme3ray6vecptrE"></span><span id="_CPPv2N4acme3ray6vecptrE"></span><span id="acme::ray::vecptr"></span><span class="target" id="a00149_1ad609d9c93a22dedc39d0e77ce2e53ff8"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4acme3ray3ptrE" title="acme::ray::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecptr</span></span></span><a class="headerlink" href="#_CPPv4N4acme3ray6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to entity objects. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3rayD0Ev">
+<span id="_CPPv3N4acme3rayD0Ev"></span><span id="_CPPv2N4acme3rayD0Ev"></span><span id="acme::ray::~ray"></span><span class="target" id="a00169_1aabc35263c86842a40c75f737752506a0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ray</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3rayD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray3rayEv">
+<span id="_CPPv3N4acme3ray3rayEv"></span><span id="_CPPv2N4acme3ray3rayEv"></span><span id="acme::ray::ray"></span><span class="target" id="a00169_1ab28addfbb35c83e9db7e9476cc2214b1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ray</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray3rayERK3ray">
+<span id="_CPPv3N4acme3ray3rayERK3ray"></span><span id="_CPPv2N4acme3ray3rayERK3ray"></span><span id="acme::ray::ray__rayCR"></span><span class="target" id="a00169_1a07ca798442ced888b65d025a0db50254"></span><span class="sig-name descname"><span class="n"><span class="pre">ray</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3ray3rayERK3ray" title="acme::ray::ray"><span class="n"><span class="pre">ray</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme3ray3rayERK3ray" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray copy constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray3rayERR3ray">
+<span id="_CPPv3N4acme3ray3rayERR3ray"></span><span id="_CPPv2N4acme3ray3rayERR3ray"></span><span id="acme::ray::ray__rayRR"></span><span class="target" id="a00169_1a5c6c77f7578828ed294c3898806444e1"></span><span class="sig-name descname"><span class="n"><span class="pre">ray</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3ray3rayERR3ray" title="acme::ray::ray"><span class="n"><span class="pre">ray</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme3ray3rayERR3ray" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray3rayE4real4real4real4real4real4real">
+<span id="_CPPv3N4acme3ray3rayE4real4real4real4real4real4real"></span><span id="_CPPv2N4acme3ray3rayE4real4real4real4real4real4real"></span><span id="acme::ray::ray__real.real.real.real.real.real"></span><span class="target" id="a00169_1a18ac43142cbde50eee2d62fd2e2dca37"></span><span class="sig-name descname"><span class="n"><span class="pre">ray</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">origin_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">origin_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">origin_z</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">direction_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">direction_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">direction_z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayE4real4real4real4real4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>origin_x</strong> – Input x value of ray origin point </p></li>
+<li><p><strong>origin_y</strong> – Input y value of ray origin point </p></li>
+<li><p><strong>origin_z</strong> – Input z value of ray origin point </p></li>
+<li><p><strong>direction_x</strong> – Input x value of ray direction </p></li>
+<li><p><strong>direction_y</strong> – Input y value of ray direction </p></li>
+<li><p><strong>direction_z</strong> – Input z value of ray direction </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray3rayERK5pointRK4vec3">
+<span id="_CPPv3N4acme3ray3rayERK5pointRK4vec3"></span><span id="_CPPv2N4acme3ray3rayERK5pointRK4vec3"></span><span id="acme::ray::ray__pointCR.vec3CR"></span><span class="target" id="a00169_1affcaea5625930615f7a2569c180153fd"></span><span class="sig-name descname"><span class="n"><span class="pre">ray</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">origin</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">direction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray3rayERK5pointRK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Ray class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>origin</strong> – Input ray origin point </p></li>
+<li><p><strong>direction</strong> – Input ray direction vector </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3rayaSERK3ray">
+<span id="_CPPv3N4acme3rayaSERK3ray"></span><span id="_CPPv2N4acme3rayaSERK3ray"></span><span id="acme::ray::assign-operator__rayCR"></span><span class="target" id="a00169_1a69ba5f126c5ed0d3291d2065282bb07c"></span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="n"><span class="pre">ray</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="n"><span class="pre">ray</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ray_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3rayaSERK3ray" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Equality operator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>ray_in</strong> – Input ray object </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray8isApproxERK3ray4real">
+<span id="_CPPv3NK4acme3ray8isApproxERK3ray4real"></span><span id="_CPPv2NK4acme3ray8isApproxERK3ray4real"></span><span id="acme::ray::isApprox__rayCR.realC"></span><span class="target" id="a00169_1a7e2ccc39717508d5d4cc440f35267777"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme3rayE" title="acme::ray"><span class="n"><span class="pre">ray</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ray_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray8isApproxERK3ray4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if ray objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>ray_in</strong> – Input ray object </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray6originEv">
+<span id="_CPPv3NK4acme3ray6originEv"></span><span id="_CPPv2NK4acme3ray6originEv"></span><span id="acme::ray::origin__voidC"></span><span class="target" id="a00169_1ab154379b76fe6f94888837e069d60f91"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">origin</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray6originEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return ray origin point const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray9directionEv">
+<span id="_CPPv3NK4acme3ray9directionEv"></span><span id="_CPPv2NK4acme3ray9directionEv"></span><span id="acme::ray::direction__voidC"></span><span class="target" id="a00169_1a3a38affaf095984172256048bdbd6e13"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">direction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray9directionEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return ray direction vector const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray6originEv">
+<span id="_CPPv3N4acme3ray6originEv"></span><span id="_CPPv2N4acme3ray6originEv"></span><span id="acme::ray::origin__void"></span><span class="target" id="a00169_1a2e3006228f3c77ad6538aa6c83ac97f8"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">origin</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray6originEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return ray origin point reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray9directionEv">
+<span id="_CPPv3N4acme3ray9directionEv"></span><span id="_CPPv2N4acme3ray9directionEv"></span><span id="acme::ray::direction__void"></span><span class="target" id="a00169_1afe2999a3e4469729368098e3f238de45"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">direction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray9directionEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return ray direction vector reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray9normalizeEv">
+<span id="_CPPv3N4acme3ray9normalizeEv"></span><span id="_CPPv2N4acme3ray9normalizeEv"></span><span id="acme::ray::normalize__void"></span><span class="target" id="a00169_1a4f13778f7d87e0bf5d6dc3679ba032de"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">normalize</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray9normalizeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Normalize ray direction vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray8toVectorEv">
+<span id="_CPPv3NK4acme3ray8toVectorEv"></span><span id="_CPPv2NK4acme3ray8toVectorEv"></span><span id="acme::ray::toVector__voidC"></span><span class="target" id="a00169_1a733bcf0b4e0d637138a9ee65edeaa5c7"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">toVector</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray8toVectorEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Convert ray to vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray12toUnitVectorEv">
+<span id="_CPPv3NK4acme3ray12toUnitVectorEv"></span><span id="_CPPv2NK4acme3ray12toUnitVectorEv"></span><span id="acme::ray::toUnitVector__voidC"></span><span class="target" id="a00169_1a99e179c60578da8df4aa24dad8eda30d"></span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">toUnitVector</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray12toUnitVectorEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Convert ray to normalized vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray7reverseEv">
+<span id="_CPPv3N4acme3ray7reverseEv"></span><span id="_CPPv2N4acme3ray7reverseEv"></span><span id="acme::ray::reverse__void"></span><span class="target" id="a00169_1a89b1cdc44b984a069c70caf4841ca2a3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reverse</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray7reverseEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Reverse ray direction. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray9translateERK4vec3">
+<span id="_CPPv3N4acme3ray9translateERK4vec3"></span><span id="_CPPv2N4acme3ray9translateERK4vec3"></span><span id="acme::ray::translate__vec3CR"></span><span class="target" id="a00169_1a9f9b1f29f22a00ada792b1545e28ef13"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N4acme3ray9translateERK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Translate ray by vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>vector</strong> – Input translation vector </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray9transformERK6affine">
+<span id="_CPPv3N4acme3ray9transformERK6affine"></span><span id="_CPPv2N4acme3ray9transformERK6affine"></span><span id="acme::ray::transform__affineCR"></span><span class="target" id="a00169_1a622b58b0b7c7ab26123b975f24a0caf3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a6b659ea9a43cbc19b6dd7ef2aae482dc.html#_CPPv4N4acme6affineE" title="acme::affine"><span class="n"><span class="pre">affine</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N4acme3ray9transformERK6affine" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Transform ray with affine transformation matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>affine_in</strong> – 4x4 affine transformation matrix </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray8isInsideERK5point4real">
+<span id="_CPPv3NK4acme3ray8isInsideERK5point4real"></span><span id="_CPPv2NK4acme3ray8isInsideERK5point4real"></span><span id="acme::ray::isInside__pointCR.realC"></span><span class="target" id="a00169_1a195218497e08f9b0d87f3f67232420da"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isInside</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray8isInsideERK5point4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>point_in</strong> – Query point </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray13isDegeneratedE4real">
+<span id="_CPPv3NK4acme3ray13isDegeneratedE4real"></span><span id="_CPPv2NK4acme3ray13isDegeneratedE4real"></span><span id="acme::ray::isDegenerated__realC"></span><span class="target" id="a00169_1a8b6c49530f4255238d95e9e4e1fd19f2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDegenerated</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray13isDegeneratedE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if ray is degenerated (null vector) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>tolerance</strong> – Tolerance </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray5levelEv">
+<span id="_CPPv3NK4acme3ray5levelEv"></span><span id="_CPPv2NK4acme3ray5levelEv"></span><span id="acme::ray::level__voidC"></span><span class="target" id="a00169_1aa86c179f19dab8ec8a4d6c80be74eee8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">level</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray5levelEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return object hierarchical level. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray4typeEv">
+<span id="_CPPv3NK4acme3ray4typeEv"></span><span id="_CPPv2NK4acme3ray4typeEv"></span><span id="acme::ray::type__voidC"></span><span class="target" id="a00169_1a9280d836624f54f5ff48a4e203d6d31f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray4typeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return object type as string. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray6isNoneEv">
+<span id="_CPPv3NK4acme3ray6isNoneEv"></span><span id="_CPPv2NK4acme3ray6isNoneEv"></span><span id="acme::ray::isNone__voidC"></span><span class="target" id="a00169_1a9773909aa54466cd40a2f1324ab48365"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNone</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray6isNoneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is no entity. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray7isPointEv">
+<span id="_CPPv3NK4acme3ray7isPointEv"></span><span id="_CPPv2NK4acme3ray7isPointEv"></span><span id="acme::ray::isPoint__voidC"></span><span class="target" id="a00169_1a37f43380781c077290b448c0e84aa0a6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPoint</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray7isPointEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a point. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray6isLineEv">
+<span id="_CPPv3NK4acme3ray6isLineEv"></span><span id="_CPPv2NK4acme3ray6isLineEv"></span><span id="acme::ray::isLine__voidC"></span><span class="target" id="a00169_1abe4ee14712f16d4f843937641c02a389"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isLine</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray6isLineEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a line. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray5isRayEv">
+<span id="_CPPv3NK4acme3ray5isRayEv"></span><span id="_CPPv2NK4acme3ray5isRayEv"></span><span id="acme::ray::isRay__voidC"></span><span class="target" id="a00169_1a5133ee41264e9dcd39caba6ec2a88412"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isRay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray5isRayEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a ray. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray7isPlaneEv">
+<span id="_CPPv3NK4acme3ray7isPlaneEv"></span><span id="_CPPv2NK4acme3ray7isPlaneEv"></span><span id="acme::ray::isPlane__voidC"></span><span class="target" id="a00169_1af20907970713fe16142fa72da2b47034"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isPlane</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray7isPlaneEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a plane. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray9isSegmentEv">
+<span id="_CPPv3NK4acme3ray9isSegmentEv"></span><span id="_CPPv2NK4acme3ray9isSegmentEv"></span><span id="acme::ray::isSegment__voidC"></span><span class="target" id="a00169_1ada57045083ee0b6d343b01a86e7becbb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isSegment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray9isSegmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a segment. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray10isTriangleEv">
+<span id="_CPPv3NK4acme3ray10isTriangleEv"></span><span id="_CPPv2NK4acme3ray10isTriangleEv"></span><span id="acme::ray::isTriangle__voidC"></span><span class="target" id="a00169_1adb9c5dcbd4d11da396bbfebf1a05f76a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isTriangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray10isTriangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a triangle. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray6isDiskEv">
+<span id="_CPPv3NK4acme3ray6isDiskEv"></span><span id="_CPPv2NK4acme3ray6isDiskEv"></span><span id="acme::ray::isDisk__voidC"></span><span class="target" id="a00169_1a36341c7ae41a71ad64cd2755383b9e36"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isDisk</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray6isDiskEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a disk. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray6isBallEv">
+<span id="_CPPv3NK4acme3ray6isBallEv"></span><span id="_CPPv2NK4acme3ray6isBallEv"></span><span id="acme::ray::isBall__voidC"></span><span class="target" id="a00169_1ae5bee342a6affe45e8fe3caaa5147d89"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isBall</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray6isBallEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is a ball. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray11isClampableEv">
+<span id="_CPPv3NK4acme3ray11isClampableEv"></span><span id="_CPPv2NK4acme3ray11isClampableEv"></span><span id="acme::ray::isClampable__voidC"></span><span class="target" id="a00169_1a2c9c0e713017937f2da543d796a94105"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray11isClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the ray is clampable. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray14isNonClampableEv">
+<span id="_CPPv3NK4acme3ray14isNonClampableEv"></span><span id="_CPPv2NK4acme3ray14isNonClampableEv"></span><span id="acme::ray::isNonClampable__voidC"></span><span class="target" id="a00169_1aafa3becfdcc8a0254197a8f9e584c43e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNonClampable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray14isNonClampableEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether in the ray is non-clampable. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray5clampER4vec3R4vec3">
+<span id="_CPPv3NK4acme3ray5clampER4vec3R4vec3"></span><span id="_CPPv2NK4acme3ray5clampER4vec3R4vec3"></span><span id="acme::ray::clamp__vec3R.vec3RC"></span><span class="target" id="a00169_1af496ab1255448d176ca8f491eef7f418"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray5clampER4vec3R4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minumum and maximum values along axes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min</strong> – Input minimum point </p></li>
+<li><p><strong>max</strong> – Input maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray5clampER4realR4realR4realR4realR4realR4real">
+<span id="_CPPv3NK4acme3ray5clampER4realR4realR4realR4realR4realR4real"></span><span id="_CPPv2NK4acme3ray5clampER4realR4realR4realR4realR4realR4real"></span><span id="acme::ray::clamp__realR.realR.realR.realR.realR.realRC"></span><span class="target" id="a00169_1a9ff4c2021f70758f720408d5df31bf7a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clamp</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">min_z</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max_x</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max_y</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">max_z</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray5clampER4realR4realR4realR4realR4realR4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get minumum and maximum values along axes. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>min_x</strong> – Input x value of minimum point </p></li>
+<li><p><strong>min_y</strong> – Input y value of minimum point </p></li>
+<li><p><strong>min_z</strong> – Input z value of minimum point </p></li>
+<li><p><strong>max_x</strong> – Input x value of maximum point </p></li>
+<li><p><strong>max_y</strong> – Input y value of maximum point </p></li>
+<li><p><strong>max_z</strong> – Input z value of maximum point </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme3ray6rotateE4realRK4vec3">
+<span id="_CPPv3N4acme3ray6rotateE4realRK4vec3"></span><span id="_CPPv2N4acme3ray6rotateE4realRK4vec3"></span><span id="acme::ray::rotate__real.vec3CR"></span><span class="target" id="a00149_1a15e6ca15ee907e83f3eb13b53212b3ff"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rotate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">angle</span></span>, <a class="reference internal" href="typedef_a00125_1a57043673330479bace38d40b1d93edb0.html#_CPPv4N4acme4vec3E" title="acme::vec3"><span class="n"><span class="pre">vec3</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">axis</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme3ray6rotateE4realRK4vec3" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Rotate entity by a rotation angle around an arbitrary axis. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>angle</strong> – Input angle [rad] </p></li>
+<li><p><strong>axis</strong> – Input axis </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme3ray8isEntityEv">
+<span id="_CPPv3NK4acme3ray8isEntityEv"></span><span id="_CPPv2NK4acme3ray8isEntityEv"></span><span id="acme::ray::isEntity__voidC"></span><span class="target" id="a00149_1a534ab97324296ad976e253051482322f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEntity</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme3ray8isEntityEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check whether the object is an entity. </p>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.png" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#acme-general-features">ACME general features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00173.html" title="Class segment"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00165.html" title="Class point"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ACME</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class ray</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
