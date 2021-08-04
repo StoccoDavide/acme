@@ -3,4 +3,4 @@ ACME
 
 A small 3D geometry library
 
-**Online documentation** `here <https://github.com/StoccoDavide/acme>`__
+**Online documentation** available at: `https://stoccodavide.github.io/acme <https://stoccodavide.github.io/acme>`__

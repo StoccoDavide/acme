@@ -34,11 +34,6 @@ with a real-time factor (RTF) of 50.
 
 *Davide Stocco - Spring 2021*
 
-Online documentation
---------------------
-
-Available at: `https://stoccodavide.github.io/acme <https://stoccodavide.github.io/acme>`__
-
 Maintenance and compatibility
 -----------------------------
 
