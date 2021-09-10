@@ -60,7 +60,7 @@ classdef acme_none < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get object type as string
+    %> Display object data
     function disp( self )
       disp('none');
     end

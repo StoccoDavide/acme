@@ -200,7 +200,7 @@ classdef acme_triangle < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get triangle perimeter
+    %> Get triangle area
     function out = area( self )
       out = mex_triangle( 'area', self.objectHandle );
     end

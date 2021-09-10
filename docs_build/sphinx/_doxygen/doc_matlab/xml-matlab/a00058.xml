@@ -78,7 +78,7 @@
           <declname>self</declname>
         </param>
         <briefdescription>
-<para>Get object type as string. </para>
+<para>Display object data. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

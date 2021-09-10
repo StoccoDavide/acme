@@ -94,7 +94,7 @@
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>point<sp/>Z<sp/>axis<sp/>component</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Set<sp/>point<sp/>Z<sp/>axis<sp/>component</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>setZ(<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>varargin<sp/>)</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_point(<sp/></highlight><highlight class="stringliteral">&apos;setZ&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">.objectHandle,<sp/>varargin{:}<sp/>);</highlight></codeline>
 <codeline lineno="90" refid="a00066_1a3e59d0650f7988c56c7a9d31ba7081fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>

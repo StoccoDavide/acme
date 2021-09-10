@@ -212,7 +212,7 @@ Program Listing for File acme_triangle.m
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
-       %> Get triangle perimeter
+       %> Get triangle area
        function out = area( self )
          out = mex_triangle( 'area', self.objectHandle );
        end

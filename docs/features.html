@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACME features &#8212; ACME v0.2
+    <title>ACME general features &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
@@ -43,7 +43,7 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="C++ API" href="api-cpp/root.html" />
+    <link rel="next" title="Matlab Interface Manual" href="Manual_matlab.html" />
     <link rel="prev" title="The ACME library" href="readme.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
@@ -59,14 +59,14 @@
           <a href="index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="api-cpp/root.html" title="C++ API"
+          <a href="Manual_matlab.html" title="Matlab Interface Manual"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="readme.html" title="The ACME library"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ACME</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">ACME features</a></li> 
+        <li class="nav-item nav-item-this"><a href="">ACME general features</a></li> 
       </ul>
     </div>
     </div>
@@ -77,8 +77,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="acme-features">
-<h1>ACME features<a class="headerlink" href="#acme-features" title="Permalink to this headline">¶</a>
+  <div class="section" id="acme-general-features">
+<h1>ACME general features<a class="headerlink" href="#acme-general-features" title="Permalink to this headline">¶</a>
 </h1>
 <p>For both C++ library and MATLAB mex interface, ACME geometrical entities are
 organised in classes with the following structure:</p>
@@ -126,7 +126,7 @@ the geometric entity itself are the following:</p>
 <h2>Class <cite>none</cite><a class="headerlink" href="#class-none" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>none</cite> class is a publicly inherited class from <cite>entity</cite>. Its aim is to represent
-nothing than nothing. As will be later explained if the C++ polymorphic behaviour is
+nothing than nothing. If the C++ polymorphic behaviour is
 exploited this class will represent the null intersection between objects. The <cite>none</cite>
 class is a non-abstract class with no members. The implemented methods only override
 the virtual ones defined in the base class <cite>entity</cite>.</p>
@@ -327,8 +327,8 @@ ball the 3D space. It is built out of three members:</p>
 <li><p><cite>isInside</cite>: check whether the point is inside the ball.</p></li>
 </ul>
 </div>
-<div class="section" id="class-collecion">
-<h2>Class <cite>collecion</cite><a class="headerlink" href="#class-collecion" title="Permalink to this headline">¶</a>
+<div class="section" id="class-collection">
+<h2>Class <cite>collection</cite><a class="headerlink" href="#class-collection" title="Permalink to this headline">¶</a>
 </h2>
 <p>The class <cite>collection</cite> represents a generic set of geometrical entites.
 It is built out of two members:</p>
@@ -437,7 +437,7 @@ to <cite>entity</cite> as input.</p>
 <h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">The ACME library</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ACME features</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ACME general features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#class-entity">Class <cite>entity</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-none">Class <cite>none</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-line">Class <cite>line</cite></a></li>
@@ -447,12 +447,13 @@ to <cite>entity</cite> as input.</p>
 <li class="toctree-l2"><a class="reference internal" href="#class-triangle">Class <cite>triangle</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-disk">Class <cite>disk</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-ball">Class <cite>ball</cite></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#class-collecion">Class <cite>collecion</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-collection">Class <cite>collection</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-aabb">Class <cite>aabb</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-aabbtree">Class <cite>AABBtree</cite></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#external-functions">External functions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_matlab.html">Matlab Interface Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
 </ul>
@@ -490,14 +491,14 @@ to <cite>entity</cite> as input.</p>
           <a href="index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="api-cpp/root.html" title="C++ API"
+          <a href="Manual_matlab.html" title="Matlab Interface Manual"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="readme.html" title="The ACME library"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ACME</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">ACME features</a></li> 
+        <li class="nav-item nav-item-this"><a href="">ACME general features</a></li> 
       </ul>
     </div>
     </div>

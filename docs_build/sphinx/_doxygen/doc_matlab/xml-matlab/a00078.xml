@@ -442,7 +442,7 @@
           <declname>self</declname>
         </param>
         <briefdescription>
-<para>Get triangle perimeter. </para>
+<para>Get triangle area. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

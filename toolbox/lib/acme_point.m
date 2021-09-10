@@ -84,7 +84,7 @@ classdef acme_point < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get point Z axis component
+    %> Set point Z axis component
     function setZ( self, varargin )
       mex_point( 'setZ', self.objectHandle, varargin{:} );
     end

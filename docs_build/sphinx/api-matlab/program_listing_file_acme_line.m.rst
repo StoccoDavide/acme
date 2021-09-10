@@ -172,7 +172,7 @@ Program Listing for File acme_line.m
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
-       %> Swap line vertices
+       %> Swap line direction
        function reverse( self )
          mex_line( 'reverse', self.objectHandle );
        end

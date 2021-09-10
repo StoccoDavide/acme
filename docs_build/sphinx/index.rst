@@ -20,6 +20,7 @@ by Davide Stocco and Enrico Bertolazzi
 
    readme.rst
    features.rst
+   Manual_matlab.rst
    api-cpp/root.rst
    api-matlab/root.rst
 

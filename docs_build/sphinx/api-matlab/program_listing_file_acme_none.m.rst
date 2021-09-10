@@ -72,7 +72,7 @@ Program Listing for File acme_none.m
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
-       %> Get object type as string
+       %> Display object data
        function disp( self )
          disp('none');
        end

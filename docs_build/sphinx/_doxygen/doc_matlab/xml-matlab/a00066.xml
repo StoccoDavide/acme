@@ -154,7 +154,7 @@
           <declname>varargin</declname>
         </param>
         <briefdescription>
-<para>Get point Z axis component. </para>
+<para>Set point Z axis component. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

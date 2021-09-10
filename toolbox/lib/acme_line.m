@@ -160,7 +160,7 @@ classdef acme_line < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Swap line vertices
+    %> Swap line direction
     function reverse( self )
       mex_line( 'reverse', self.objectHandle );
     end

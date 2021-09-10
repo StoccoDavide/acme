@@ -96,7 +96,7 @@ Program Listing for File acme_point.m
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
-       %> Get point Z axis component
+       %> Set point Z axis component
        function setZ( self, varargin )
          mex_point( 'setZ', self.objectHandle, varargin{:} );
        end

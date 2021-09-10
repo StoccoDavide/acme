@@ -21,6 +21,15 @@ Class Documentation
    :project: doc_cpp
    :project: doc_cpp
    :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
+   :project: doc_cpp
    :members:
    :protected-members:
    :undoc-members:

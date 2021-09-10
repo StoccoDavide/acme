@@ -168,8 +168,8 @@ Program Listing for File acme_segment.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform segment to normalized vector
-       function out = toUnitVector( self )
-         out = mex_segment( 'toUnitVector', self.objectHandle );
+       function out = toNormalizedVector( self )
+         out = mex_segment( 'toNormalizedVector', self.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

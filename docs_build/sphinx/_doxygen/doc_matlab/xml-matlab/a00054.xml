@@ -337,7 +337,7 @@
           <declname>self</declname>
         </param>
         <briefdescription>
-<para>Swap line vertices. </para>
+<para>Swap line direction. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

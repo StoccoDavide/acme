@@ -309,11 +309,11 @@
         </inbodydescription>
         <location file="acme_segment.m" line="169" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00074_1ad92581746034ec3188a1880f1336f604" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00074_1abda2f0542daacb661585b677b3b0892a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function acme_segment::toUnitVector</definition>
+        <definition>function acme_segment::toNormalizedVector</definition>
         <argsstring>(in self)</argsstring>
-        <name>toUnitVector</name>
+        <name>toNormalizedVector</name>
         <param>
           <type>in</type>
           <declname>self</declname>
@@ -615,7 +615,7 @@
       <member refid="a00074_1af72e81b4cc6ce7f157ff46a194669288" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>setVertex1</name></member>
       <member refid="a00074_1ab0c703be0b25184da28ea7aa481495d9" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>setVertex2</name></member>
       <member refid="a00074_1a5008c30552cd3c43daffe24edb06a24e" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>swap</name></member>
-      <member refid="a00074_1ad92581746034ec3188a1880f1336f604" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>toUnitVector</name></member>
+      <member refid="a00074_1abda2f0542daacb661585b677b3b0892a" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>toNormalizedVector</name></member>
       <member refid="a00074_1a476c3a623255655a3b067216b58fac0c" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>toVector</name></member>
       <member refid="a00074_1a913490fdfa4152d7ab661f294981151f" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>transform</name></member>
       <member refid="a00074_1a8fca39cd57580010cc212258582b361b" prot="public" virt="non-virtual"><scope>acme_segment</scope><name>translate</name></member>

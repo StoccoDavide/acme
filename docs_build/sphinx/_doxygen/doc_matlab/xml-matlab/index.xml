@@ -227,7 +227,7 @@
     <member refid="a00074_1a84e84100cd84482d18e7b01170378561" kind="function"><name>isApprox</name></member>
     <member refid="a00074_1ab825a090c50e2ca289a1cc9df1b77dc0" kind="function"><name>centroid</name></member>
     <member refid="a00074_1a476c3a623255655a3b067216b58fac0c" kind="function"><name>toVector</name></member>
-    <member refid="a00074_1ad92581746034ec3188a1880f1336f604" kind="function"><name>toUnitVector</name></member>
+    <member refid="a00074_1abda2f0542daacb661585b677b3b0892a" kind="function"><name>toNormalizedVector</name></member>
     <member refid="a00074_1a5008c30552cd3c43daffe24edb06a24e" kind="function"><name>swap</name></member>
     <member refid="a00074_1a7d74b985f89301eda4342f4ecd63feac" kind="function"><name>clamp</name></member>
     <member refid="a00074_1a2ef125f755f3e8aebb096b2906b3f1eb" kind="function"><name>length</name></member>

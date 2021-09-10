@@ -1,5 +1,5 @@
-ACME features
-=============
+ACME general features
+=====================
 
 For both C++ library and MATLAB mex interface, ACME geometrical entities are
 organised in classes with the following structure:
@@ -47,7 +47,7 @@ Class `none`
 ------------
 
 The `none` class is a publicly inherited class from `entity`. Its aim is to represent
-nothing than nothing. As will be later explained if the C++ polymorphic behaviour is
+nothing than nothing. If the C++ polymorphic behaviour is
 exploited this class will represent the null intersection between objects. The `none`
 class is a non-abstract class with no members. The implemented methods only override
 the virtual ones defined in the base class `entity`.
@@ -243,8 +243,8 @@ The implemented methods are:
 - `transform`: transform ball with affine transformation matrix;
 - `isInside`: check whether the point is inside the ball.
 
-Class `collecion`
-----------------
+Class `collection`
+-----------------
 
 The class `collection` represents a generic set of geometrical entites.
 It is built out of two members:
