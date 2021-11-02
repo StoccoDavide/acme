@@ -2,38 +2,45 @@ CMAKE_MINIMUM_REQUIRED( VERSION 3.0 )
 SET( CMAKE_VERBOSE_MAKEFILE OFF )
 SET( CMAKE_INSTALL_MESSAGE NEVER )
 
-PROJECT( acme )
-INCLUDE( ./CMakeLists-cflags.txt )
+cmake_minimum_required(VERSION 3.0.0)
+set(CMAKE_VERBOSE_MAKEFILE OFF)
+set(CMAKE_INSTALL_MESSAGE NEVER)
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
-IF ( BUILD_SHARED )
-  IF ( APPLE )
-    SET( TARGET acme_osx )
-  ELSEIF( LINUX OR UNIX )
-    SET( TARGET acme_linux )
-  ELSE()
-    SET( TARGET acme_win_${BITS} )
-    SET( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON )
-  ENDIF()
-ENDIF()
+if(ENABLE_CTEST)
+  enable_testing()
+endif()
 
-IF ( APPLE )
-  SET( TARGETS acme_osx_static )
-ELSEIF( LINUX OR UNIX )
-  SET( TARGETS acme_linux_static )
-ELSE()
-  SET( TARGETS acme_win_${BITS}_static )
-ENDIF()
+# get version from the git tag
+execute_process(COMMAND git describe --tags --abbrev=0 OUTPUT_VARIABLE VERSION)
+string(REGEX REPLACE "\n$" "" VERSION "${VERSION}")
+
+project(
+  acme 
+  VERSION ${VERSION}
+  HOMEPAGE_URL "https://stoccodavide.github.io/roadrunner"
+)
+
+include( ./CMakeLists-cflags.txt )
+include( ./CMakeUtilities.txt )
+
+set(BITS "x64" )
+
+# Evaluating the suffix to append to target built by this CMake file
+ebertolazzi_artifacts_suffix(ARTIFACTS_STATIC_SUFFIX TRUE)
+if(BUILD_SHARED)
+  ebertolazzi_artifacts_suffix(ARTIFACTS_DYNAMIC_SUFFIX FALSE)
+endif()
+
+set( TARGETS acme${ARTIFACTS_STATIC_SUFFIX})
+if( BUILD_SHARED )
+  set( TARGET acme${ARTIFACTS_DYNAMIC_SUFFIX})
+endif()
 
 MESSAGE( STATUS "Compiler used: ${CMAKE_CXX_COMPILER_ID}")
 
 SET( CMAKE_C_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE} )
 SET( CMAKE_C_FLAGS_DEBUG   ${CMAKE_CXX_FLAGS_DEBUG} )
-
-SET( EIGEN3_INCLUDE_DIR "${EIGEN3_INCLUDE_DIR}" )
-IF( NOT EIGEN3_INCLUDE_DIR )
-    MESSAGE( FATAL_ERROR "Please point the environment variable EIGEN3_INCLUDE_DIR to the include directory of your Eigen3 installation.")
-ENDIF()
-INCLUDE_DIRECTORIES ( "${EIGEN3_INCLUDE_DIR}" )
 
 SET( SOURCES )
 FILE( GLOB S ./src/*.cc )
@@ -49,7 +56,10 @@ FOREACH (F ${S})
   LIST( APPEND HEADERS ${RF} )
 ENDFOREACH (F ${S})
 
-INCLUDE_DIRECTORIES( ./include/ ./src/ )
+message(STATUS "search  Utils${ARTIFACTS_STATIC_SUFFIX}")
+FIND_LIBRARY( UTILS NAMES Utils${ARTIFACTS_STATIC_SUFFIX} HINTS ../Utils/lib/lib )
+
+INCLUDE_DIRECTORIES( ./include/ ./src/ ../Utils/lib/include )
 
 SET( CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/lib )
 
@@ -84,11 +94,7 @@ IF( BUILD_EXECUTABLE )
     FILE( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
     GET_FILENAME_COMPONENT( TEXE ${RF} NAME_WE )
     ADD_EXECUTABLE( ${TEXE} ${RF} )
-    IF ( UNIX )
-      TARGET_LINK_LIBRARIES( ${TEXE} ${TARGETS} -ldl )
-    ELSE()
-      TARGET_LINK_LIBRARIES( ${TEXE} ${TARGETS} )
-    ENDIF()
+    TARGET_LINK_LIBRARIES( ${TEXE} ${TARGETS} ${UTILS} ${CMAKE_DL} )
   ENDFOREACH( F ${S} )
 ENDIF()
 
@@ -111,6 +117,6 @@ IF(APPLE)
   MESSAGE( STATUS "CMAKE_OSX_DEPLOYMENT_TARGET   = ${CMAKE_OSX_DEPLOYMENT_TARGET}" )
 ENDIF()
 MESSAGE( STATUS "CMAKE_CURRENT_SOURCE_DIR      = ${CMAKE_CURRENT_SOURCE_DIR}" )
-MESSAGE( STATUS "EIGEN3_INCLUDE_DIR            = ${EIGEN3_INCLUDE_DIR}" )
 MESSAGE( STATUS "BUILD_SHARED                  = ${BUILD_SHARED}" )
 MESSAGE( STATUS "BUILD_EXECUTABLE              = ${BUILD_EXECUTABLE}" )
+message( STATUS "Build type                    = ${CMAKE_BUILD_TYPE}")

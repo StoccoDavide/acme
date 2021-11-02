@@ -41,6 +41,7 @@
 build/*
 bin/*
 lib/*
+vs_2017*
 
 # Project
 docs_build/sphinx/_build

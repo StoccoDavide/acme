@@ -63,7 +63,7 @@ namespace acme
     ~line() {}
 
     //! Line class constructor
-    line() {}
+    line() : m_origin() {}
 
     //! Line copy constructor
     line(line const &) = default;

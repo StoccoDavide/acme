@@ -62,7 +62,7 @@ namespace acme
     ~plane() {}
 
     //! Plane class constructor
-    plane() {}
+    plane() : m_origin() {}
 
     //! Plane copy constructor
     plane(plane const &) = default;

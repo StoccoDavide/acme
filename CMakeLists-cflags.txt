@@ -2,8 +2,9 @@
 
 SET( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS TRUE )
 SET( CMAKE_VERBOSE_MAKEFILE            TRUE )
-SET( BUILD_EXECUTABLE      true )
-SET( BUILD_SHARED          true )
+SET( BUILD_EXECUTABLE true )
+SET( BUILD_SHARED     false )
+set(default_build_type "Release")
 
 # /Gd Uses the __cdecl calling convention (x86 only).
 # /Gr Uses the __fastcall calling convention (x86 only).
@@ -35,4 +36,3 @@ MESSAGE( STATUS "Compiler used: ${CMAKE_CXX_COMPILER_ID}")
 SET( CMAKE_C_FLAGS         ${CMAKE_CXX_FLAGS} )
 SET( CMAKE_C_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE} )
 SET( CMAKE_C_FLAGS_DEBUG   ${CMAKE_CXX_FLAGS_DEBUG} )
-SET( EIGEN3_INCLUDE_DIR    /usr/local/include/eigen3/ )

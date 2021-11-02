@@ -63,7 +63,7 @@ namespace acme
     ~ball() {}
 
     //! Ball class constructor
-    ball() {}
+    ball() : m_center(NAN_POINT) {}
 
     //! Ball copy constructor
     ball(ball const &) = default;
