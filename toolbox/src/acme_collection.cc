@@ -925,7 +925,7 @@ namespace acme
   collection::size(void)
       const
   {
-    return this->m_entities.size();
+    return integer(this->m_entities.size());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -952,9 +952,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  collection::clamp(
-      aabb::vecptr &boxes)
-      const
+  collection::clamp( aabb::vecptr &boxes ) const
   {
     boxes.clear();
     vec3 min;
@@ -1055,7 +1053,7 @@ namespace acme
       real tolerance)
       const
   {
-    int size = this->m_entities.size();
+    size_t size = this->m_entities.size();
     entities.clear();
     for (size_t i = 0; i < size; ++i)
       for (size_t j = i; j < size; ++j)

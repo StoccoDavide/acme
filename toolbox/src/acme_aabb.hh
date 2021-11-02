@@ -60,8 +60,8 @@ namespace acme
     typedef std::vector<pairptr> vecpairptr; //!< Vector of pairs of pointers to const aabb objects used in AABBtree routines
 
   private:
-    point m_min;   //!< Box maximum point
-    point m_max;   //!< Box minimum point
+    point   m_min;   //!< Box maximum point
+    point   m_max;   //!< Box minimum point
     integer m_id;  //!< Box id (may be used in external algorithms)
     integer m_pos; //!< Box rank (may be used in external algorithms)
 

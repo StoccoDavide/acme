@@ -30,6 +30,7 @@
 *.exe
 *.out
 *.app
+*.mexw64
 
 # Visual Studio Code
 .vscode/*
@@ -51,4 +52,5 @@ docs_build/xml-cpp
 license.txt
 
 .DS_Store
+
 

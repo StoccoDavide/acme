@@ -61,6 +61,9 @@ namespace acme
   public:
     using Eigen::Matrix<acme::real, 3, 1>::Matrix;
 
+    point() { }
+
+
     // This constructor allows you to construct matrix from Eigen expressions
     template <typename derived>
     point(Eigen::MatrixBase<derived> const &other)

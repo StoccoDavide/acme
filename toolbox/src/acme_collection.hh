@@ -455,7 +455,7 @@ namespace acme
         collection &entities //!< Intersected entities vector list
     ) const;
 
-    //! Intersect all
+    //! Intersect all entities of the two collections
     void
     intersection(
         collection &entities,    //!< Intersection candidates

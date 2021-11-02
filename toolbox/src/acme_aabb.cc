@@ -46,10 +46,10 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   aabb::aabb()
-      : m_min(NAN_POINT),
-        m_max(NAN_POINT),
-        m_id(0),
-        m_pos(0)
+  : m_min(NAN_POINT)
+  , m_max(NAN_POINT)
+  , m_id(0)
+  , m_pos(0)
   {
   }
 
@@ -63,11 +63,12 @@ namespace acme
       real max_y,
       real max_z,
       integer id,
-      integer ipos)
-      : m_min(min_x, min_y, min_z),
-        m_max(max_x, max_y, max_z),
-        m_id(id),
-        m_pos(ipos)
+      integer ipos
+  )
+  : m_min(min_x, min_y, min_z)
+  , m_max(max_x, max_y, max_z)
+  , m_id(id)
+  , m_pos(ipos)
   {
     this->updateMaxMin();
   }
@@ -90,11 +91,14 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   aabb::aabb(
-      std::vector<aabb::ptr> const &boxes,
-      integer id,
-      integer ipos)
-      : m_id(id),
-        m_pos(ipos)
+    std::vector<aabb::ptr> const &boxes,
+    integer id,
+    integer ipos
+  )
+  : m_min(NAN_POINT)
+  , m_max(NAN_POINT)
+  , m_id(id)
+  , m_pos(ipos)
   {
     this->merged(boxes);
     this->updateMaxMin();
