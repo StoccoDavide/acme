@@ -54,3 +54,6 @@ license.txt
 .DS_Store
 
 
+lib3rd
+docs_build/sphinx/_doxygen
+docs_build/sphinx/api-cpp

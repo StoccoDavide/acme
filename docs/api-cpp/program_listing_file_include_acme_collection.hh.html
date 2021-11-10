@@ -6,7 +6,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Program Listing for File acme_collection.hh &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -69,7 +70,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="program-listing-for-file-acme-collection-hh">
+  <section id="program-listing-for-file-acme-collection-hh">
 <span id="program-listing-file-include-acme-collection-hh"></span><h1>Program Listing for File acme_collection.hh<a class="headerlink" href="#program-listing-for-file-acme-collection-hh" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_include_acme_collection.hh.html#file-include-acme-collection-hh"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/acme_collection.hh</span></code>)</p>
@@ -99,365 +100,363 @@
 <span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
-<span class="cm">*/</span>
+<span class="cm">*/</span><span class="w"></span>
 
 
 <span class="cp">#ifndef INCLUDE_ACME_COLLECTION</span>
 <span class="cp">#define INCLUDE_ACME_COLLECTION</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span><span class="cp"></span>
 
-<span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_AABBtree.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_entity.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_intersection.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_AABBtree.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_entity.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_intersection.hh"</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">acme</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">acme</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-  <span class="cm">/*\</span>
+<span class="w">  </span><span class="cm">/*\</span>
 <span class="cm">   |             _ _           _   _</span>
 <span class="cm">   |    ___ ___ | | | ___  ___| |_(_) ___  _ __</span>
 <span class="cm">   |   / __/ _ \| | |/ _ \/ __| __| |/ _ \| '_ \</span>
 <span class="cm">   |  | (_| (_) | | |  __/ (__| |_| | (_) | | | |</span>
 <span class="cm">   |   \___\___/|_|_|\___|\___|\__|_|\___/|_| |_|</span>
 <span class="cm">   |</span>
-<span class="cm">  \*/</span>
+<span class="cm">  \*/</span><span class="w"></span>
 
 
-  <span class="k">class</span> <span class="nc">collection</span>
-  <span class="p">{</span>
-  <span class="k">private</span><span class="o">:</span>
-    <span class="n">entity</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">m_entities</span><span class="p">;</span>
-    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">m_AABBtree</span><span class="p">;</span>
+<span class="w">  </span><span class="k">class</span> <span class="nc">collection</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">entity</span><span class="o">::</span><span class="n">vecptr</span><span class="w"> </span><span class="n">m_entities</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="n">m_AABBtree</span><span class="p">;</span><span class="w"></span>
 
-  <span class="k">public</span><span class="o">:</span>
-    <span class="o">~</span><span class="n">collection</span><span class="p">(){};</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">~</span><span class="n">collection</span><span class="p">(){};</span><span class="w"></span>
 
-    <span class="n">collection</span><span class="p">(</span><span class="n">collection</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">    </span><span class="n">collection</span><span class="p">(</span><span class="n">collection</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">collection</span><span class="p">(</span><span class="n">collection</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="w">    </span><span class="n">collection</span><span class="p">(</span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">collection</span><span class="p">();</span>
+<span class="w">    </span><span class="n">collection</span><span class="p">();</span><span class="w"></span>
 
-    <span class="n">collection</span><span class="p">(</span>
-        <span class="n">entity</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">entities</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="n">collection</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">entity</span><span class="o">::</span><span class="n">vecptr</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entities</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">void</span> <span class="nf">clear</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">resize</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">size</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">resize</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">push_back</span><span class="p">(</span>
-        <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="n">entity</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">push_back</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">entity</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="n">entity</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="o">&amp;</span>
-    <span class="k">operator</span><span class="p">[](</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="n">entity</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">    </span><span class="k">operator</span><span class="p">[](</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">entity</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span>
-    <span class="k">operator</span><span class="p">[](</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">entity</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">    </span><span class="k">operator</span><span class="p">[](</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">translate</span><span class="p">(</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">input</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">translate</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">input</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">rotate</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
-        <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">rotate</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">angle</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">axis</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">rotate</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">angle</span><span class="p">,</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">rotate</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">angle</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">axis</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">transform</span><span class="p">(</span>
-        <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">transform</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">affine</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isNone</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isNone</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeNone</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeNone</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">arePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">arePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isPoint</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isPoint</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removePoint</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isLine</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isLine</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeLine</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeLine</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isRay</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isRay</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeRay</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeRay</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">arePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">arePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isPlane</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isPlane</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removePlane</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isSegment</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isSegment</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isTriangle</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isTriangle</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isDisk</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isDisk</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isBall</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isBall</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeBall</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeBall</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containDegenerated</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areDegenerated</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isDegenerated</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isDegenerated</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeDegenerated</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countDegenerated</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countDegenerated</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isClampable</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isClampable</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">containNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">containNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">areNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">areNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">isNonClampable</span><span class="p">(</span>
-        <span class="kt">size_t</span> <span class="n">i</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">isNonClampable</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">removeNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">removeNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">countNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">countNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">integer</span>
-    <span class="nf">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">integer</span><span class="w"></span>
+<span class="w">    </span><span class="nf">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">integer</span><span class="o">&gt;</span>
-    <span class="n">count</span><span class="p">(</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">integer</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="n">count</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">clamp</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">boxes</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">clamp</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span><span class="w"> </span><span class="o">&amp;</span><span class="n">boxes</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span> <span class="nf">buildAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">buildAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span>
-    <span class="n">ptrAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="w">    </span><span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ptrAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">collection</span> <span class="o">&amp;</span><span class="n">entities</span><span class="p">,</span>
-        <span class="n">collection</span> <span class="o">&amp;</span><span class="n">candidates</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">intersection</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entities</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">candidates</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span> <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">AABBtree</span><span class="p">,</span>
-        <span class="n">collection</span> <span class="o">&amp;</span><span class="n">entities</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">intersection</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">AABBtree</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entities</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">boxes</span><span class="p">,</span>
-        <span class="n">collection</span> <span class="o">&amp;</span><span class="n">entities</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">intersection</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">boxes</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entities</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">bool</span>
-    <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span> <span class="n">box</span><span class="p">,</span>
-        <span class="n">collection</span> <span class="o">&amp;</span><span class="n">entities</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">    </span><span class="nf">intersection</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">box</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entities</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kt">void</span>
-    <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">collection</span> <span class="o">&amp;</span><span class="n">entities</span><span class="p">,</span>
-        <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"></span>
+<span class="w">    </span><span class="nf">intersection</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">collection</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entities</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
-  <span class="p">};</span> <span class="c1">// class collection</span>
+<span class="w">  </span><span class="p">};</span><span class="w"> </span><span class="c1">// class collection</span>
 
-<span class="p">}</span> <span class="c1">// namespace acme</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace acme</span>
 
 <span class="cp">#endif</span>
-
-<span class="c1">///</span>
 </pre></div>
 </div>
-</div>
+</section>
 
 
 
@@ -531,7 +530,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

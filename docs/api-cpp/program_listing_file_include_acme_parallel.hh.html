@@ -6,7 +6,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Program Listing for File acme_parallel.hh &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -69,7 +70,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="program-listing-for-file-acme-parallel-hh">
+  <section id="program-listing-for-file-acme-parallel-hh">
 <span id="program-listing-file-include-acme-parallel-hh"></span><h1>Program Listing for File acme_parallel.hh<a class="headerlink" href="#program-listing-for-file-acme-parallel-hh" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_include_acme_parallel.hh.html#file-include-acme-parallel-hh"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/acme_parallel.hh</span></code>)</p>
@@ -99,245 +100,243 @@
 <span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
-<span class="cm">*/</span>
+<span class="cm">*/</span><span class="w"></span>
 
 
 <span class="cp">#ifndef INCLUDE_ACME_PARALLEL</span>
 <span class="cp">#define INCLUDE_ACME_PARALLEL</span>
 
-<span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_disk.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_orthogonal.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_disk.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_line.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_orthogonal.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">acme</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">acme</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-  <span class="cm">/*\</span>
+<span class="w">  </span><span class="cm">/*\</span>
 <span class="cm">   |   ____                 _ _      _</span>
 <span class="cm">   |  |  _ \ __ _ _ __ __ _| | | ___| |</span>
 <span class="cm">   |  | |_) / _` | '__/ _` | | |/ _ \ |</span>
 <span class="cm">   |  |  __/ (_| | | | (_| | | |  __/ |</span>
 <span class="cm">   |  |_|   \__,_|_|  \__,_|_|_|\___|_|</span>
 <span class="cm">   |</span>
-<span class="cm">  \*/</span>
+<span class="cm">  \*/</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity0_in</span><span class="p">,</span>
-      <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span><span class="n">entity1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">entity</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="n">entity0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">entity</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="n">entity1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector0_in</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line0_in</span><span class="p">,</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray0_in</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane0_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment0_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle0_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk0_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk1_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk0_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk1_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">ray</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ray_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">segment_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-  <span class="kt">bool</span>
-  <span class="nf">isParallel</span><span class="p">(</span>
-      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
-      <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
-  <span class="p">);</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="nf">isParallel</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disk_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPSILON</span><span class="w"></span>
+<span class="w">  </span><span class="p">);</span><span class="w"></span>
 
-<span class="p">}</span> <span class="c1">// namespace acme</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace acme</span>
 
 <span class="cp">#endif</span>
-
-<span class="c1">///</span>
 </pre></div>
 </div>
-</div>
+</section>
 
 
 
@@ -411,7 +410,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

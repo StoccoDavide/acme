@@ -13,4 +13,3 @@ function(ebertolazzi_artifacts_suffix VAR_NAME BUILD_STATIC)
     set(${VAR_NAME} "_win_${BITS}${suffix}" PARENT_SCOPE)
   endif()
 endfunction()
-

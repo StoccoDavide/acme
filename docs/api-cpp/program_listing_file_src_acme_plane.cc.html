@@ -6,7 +6,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Program Listing for File acme_plane.cc &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -69,7 +70,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="program-listing-for-file-acme-plane-cc">
+  <section id="program-listing-for-file-acme-plane-cc">
 <span id="program-listing-file-src-acme-plane-cc"></span><h1>Program Listing for File acme_plane.cc<a class="headerlink" href="#program-listing-for-file-acme-plane-cc" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_src_acme_plane.cc.html#file-src-acme-plane-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/acme_plane.cc</span></code>)</p>
@@ -99,248 +100,246 @@
 <span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
-<span class="cm">*/</span>
+<span class="cm">*/</span><span class="w"></span>
 
 
-<span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
 
-<span class="k">namespace</span> <span class="n">acme</span>
-<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">acme</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
 
-  <span class="cm">/*\</span>
+<span class="w">  </span><span class="cm">/*\</span>
 <span class="cm">   |         _</span>
 <span class="cm">   |   _ __ | | __ _ _ __   ___</span>
 <span class="cm">   |  | '_ \| |/ _` | '_ \ / _ \</span>
 <span class="cm">   |  | |_) | | (_| | | | |  __/</span>
 <span class="cm">   |  | .__/|_|\__,_|_| |_|\___|</span>
 <span class="cm">   |  |_|</span>
-<span class="cm">  \*/</span>
+<span class="cm">  \*/</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">plane</span><span class="o">::</span><span class="n">plane</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">origin_x</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">origin_y</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">origin_z</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">normal_x</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">normal_y</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">normal_z</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">m_origin</span><span class="p">(</span><span class="n">origin_x</span><span class="p">,</span> <span class="n">origin_y</span><span class="p">,</span> <span class="n">origin_z</span><span class="p">),</span>
-        <span class="n">m_normal</span><span class="p">(</span><span class="n">normal_x</span><span class="p">,</span> <span class="n">normal_y</span><span class="p">,</span> <span class="n">normal_z</span><span class="p">)</span>
-  <span class="p">{</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">plane</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">origin_x</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">origin_y</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">origin_z</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">normal_x</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">normal_y</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">normal_z</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">m_origin</span><span class="p">(</span><span class="n">origin_x</span><span class="p">,</span><span class="w"> </span><span class="n">origin_y</span><span class="p">,</span><span class="w"> </span><span class="n">origin_z</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">m_normal</span><span class="p">(</span><span class="n">normal_x</span><span class="p">,</span><span class="w"> </span><span class="n">normal_y</span><span class="p">,</span><span class="w"> </span><span class="n">normal_z</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">plane</span><span class="o">::</span><span class="n">plane</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">m_origin</span><span class="p">(</span><span class="n">origin</span><span class="p">),</span>
-        <span class="n">m_normal</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
-  <span class="p">{</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">plane</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">normal</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">m_origin</span><span class="p">(</span><span class="n">origin</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">m_normal</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">plane</span> <span class="o">&amp;</span>
-  <span class="n">plane</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span> <span class="o">=</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">m_origin</span><span class="p">;</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span> <span class="o">=</span> <span class="n">plane_in</span><span class="p">.</span><span class="n">m_normal</span><span class="p">;</span>
-      <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">plane</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plane_in</span><span class="p">.</span><span class="n">m_origin</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plane_in</span><span class="p">.</span><span class="n">m_normal</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">bool</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span>
-      <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">m_origin</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">m_normal</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">plane_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">m_origin</span><span class="p">,</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="w">           </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="n">plane_in</span><span class="p">.</span><span class="n">m_normal</span><span class="p">,</span><span class="w"> </span><span class="n">tolerance</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">point</span> <span class="o">&amp;</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">point</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">origin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">vec3</span> <span class="o">&amp;</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">vec3</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">vec3</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">unitNormal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">normalized</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">vec3</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">unitNormal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">normalized</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">void</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">normalize</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">normalize</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">void</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span> <span class="o">=</span> <span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">real</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">d</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">real</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">d</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">real</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">point_in</span><span class="p">));</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">real</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">point_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">point_in</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">real</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">squaredDistance</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="n">real</span> <span class="n">distance</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">point_in</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">distance</span> <span class="o">*</span> <span class="n">distance</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">real</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">squaredDistance</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">point_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">real</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">point_in</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">real</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">signedDistance</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">point_in</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="n">real</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">signedDistance</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">point_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">point_in</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">void</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector_in</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span> <span class="o">=</span> <span class="n">vector_in</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vector_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector_in</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">void</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span>
-      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
-    <span class="n">acme</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">,</span> <span class="n">affine_in</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">affine</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">affine_in</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_origin</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">acme</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">,</span><span class="w"> </span><span class="n">affine_in</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">bool</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">isInside</span><span class="p">(</span>
-      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">point_in</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">isInside</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">point_in</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">signedDistance</span><span class="p">(</span><span class="n">point_in</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tolerance</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">bool</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">norm</span><span class="p">(),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">isDegenerated</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="n">tolerance</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">norm</span><span class="p">(),</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">tolerance</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">bool</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">min</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">max</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">isClampable</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">min</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="o">&amp;</span><span class="n">max</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">isClampable</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="kt">bool</span>
-  <span class="n">plane</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">min_x</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">min_y</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">min_z</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">max_x</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">max_y</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">max_z</span><span class="p">)</span>
-      <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">isClampable</span><span class="p">();</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"></span>
+<span class="w">  </span><span class="n">plane</span><span class="o">::</span><span class="n">clamp</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="o">&amp;</span><span class="n">min_x</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="o">&amp;</span><span class="n">min_y</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="o">&amp;</span><span class="n">min_z</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="o">&amp;</span><span class="n">max_x</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="o">&amp;</span><span class="n">max_y</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">real</span><span class="w"> </span><span class="o">&amp;</span><span class="n">max_z</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">const</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">isClampable</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="w">  </span><span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-<span class="p">}</span> <span class="c1">// namespace acme</span>
-
-<span class="c1">///</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// namespace acme</span>
 </pre></div>
 </div>
-</div>
+</section>
 
 
 
@@ -414,7 +413,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>
