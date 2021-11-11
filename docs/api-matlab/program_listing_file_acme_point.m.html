@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program Listing for File acme_point.m &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -70,7 +69,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="program-listing-for-file-acme-point-m">
+  <div class="section" id="program-listing-for-file-acme-point-m">
 <span id="program-listing-file-acme-point-m"></span><h1>Program Listing for File acme_point.m<a class="headerlink" href="#program-listing-for-file-acme-point-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_acme_point.m.html#file-acme-point-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">acme_point.m</span></code>)</p>
@@ -106,79 +105,79 @@
 <span class="w">  </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Create C++ pointer to triangle object instance</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_point</span><span class="p">(</span> varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>this<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_point</span><span class="p">(</span> varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w">  </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Delete C++ pointer to triangle object instance</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get point X axis component</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getX</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'getX'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getX</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'getX'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get point Y axis component</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getY</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'getY'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getY</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'getY'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get point Z axis component</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getZ</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'getZ'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getZ</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'getZ'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get point axes components</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'get'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'get'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set point X axis component</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setX</span><span class="p">(</span> self, varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'setX'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setX</span><span class="p">(</span> this, varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'setX'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set point Y axis component</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setY</span><span class="p">(</span> self, varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'setY'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setY</span><span class="p">(</span> this, varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'setY'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set point Z axis component</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setZ</span><span class="p">(</span> self, varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'setZ'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setZ</span><span class="p">(</span> this, varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'setZ'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set point axes components</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span> self, varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'set'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span> this, varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'set'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Copy point object from another point</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"point"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_point::copy(): other_obj must be an ACME point object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -187,57 +186,57 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Copy point object from another point handle</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> self, handle <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> this, handle <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Translate point by vector</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'translate'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'translate'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Transform point by 4x4 affine transformation matrix</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span> self, varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'transform'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span> this, varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'transform'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if point is parallel to an ACME object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isParallel</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isParallel'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isParallel</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isParallel'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if point is orthogonal to an ACME object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isOrthogonal</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isOrthogonal'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isOrthogonal</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isOrthogonal'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if point is collinear to an ACME object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isCollinear</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isCollinear'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isCollinear</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isCollinear'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if point is coplanar to an ACME object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isCoplanar</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isCoplanar'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isCoplanar</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'isCoplanar'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Intersect point with an ACME object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersection</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">[</span><span class="nb">handle</span><span class="p">,</span><span class="w"> </span><span class="nb">type</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'intersection'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersection</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="nb">handle</span><span class="p">,</span><span class="w"> </span><span class="nb">type</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_point</span><span class="p">(</span><span class="w"> </span><span class="s">'intersection'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="w"> </span><span class="nb">strcat</span><span class="p">(</span><span class="w"> </span><span class="s">'acme_'</span><span class="p">,</span><span class="w"> </span><span class="nb">type</span><span class="p">,</span><span class="w"> </span><span class="s">'()'</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
@@ -245,31 +244,31 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Display object data</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="nb">disp</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="nb">disp</span><span class="p">(</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Plot point object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, figure_name, color <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> this, figure_name, color <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">figure_name</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="nb">scatter3</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">getX</span><span class="p">(),</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getY</span><span class="p">(),</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getZ</span><span class="p">(),</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="s">'filled'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="nb">scatter3</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">getX</span><span class="p">(),</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">getY</span><span class="p">(),</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">getZ</span><span class="p">(),</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="s">'filled'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get object type as string</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'point'</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
 
@@ -343,7 +342,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

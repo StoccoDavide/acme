@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matlab Interface Manual &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -78,7 +77,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section class="emphasize-children html-toggle" id="matlab-interface-manual">
+  <div class="emphasize-children html-toggle section" id="matlab-interface-manual">
 <h1>Matlab Interface Manual<a class="headerlink" href="#matlab-interface-manual" title="Permalink to this headline">¶</a>
 </h1>
 <p>The interface is Object Oriented and you find the following
@@ -95,7 +94,7 @@ objects in the library:</p>
 <li><p>object <code class="docutils literal notranslate"><span class="pre">ball</span></code>;</p></li>
 <li><p>object <code class="docutils literal notranslate"><span class="pre">aabb</span></code>;</p></li>
 </ul>
-<section id="installation-mex-matlab-interface">
+<div class="section" id="installation-mex-matlab-interface">
 <h2>Installation mex/MATLAB interface<a class="headerlink" href="#installation-mex-matlab-interface" title="Permalink to this headline">¶</a>
 </h2>
 <p>In directory <cite>src_mex</cite> you find the C++ implementation of
@@ -120,13 +119,13 @@ ruby populate_toolbox.rb
 </pre></div>
 </div>
 <p>then compile toolbox and install.</p>
-</section>
-<section id="object-none">
+</div>
+<div class="section" id="object-none">
 <h2>Object <cite>none</cite><a class="headerlink" href="#object-none" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>none</cite> class is represents nothing than nothing. If the polymorphic behaviour is
 exploited this class will represent the null intersection between objects.</p>
-<section id="constructors">
+<div class="section" id="constructors">
 <h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -135,8 +134,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">N2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_none</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="methods">
+</div>
+<div class="section" id="methods">
 <h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -150,13 +149,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">N1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-point">
+</div>
+</div>
+<div class="section" id="object-point">
 <h2>Object <cite>point</cite><a class="headerlink" href="#object-point" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>point</cite> object represents a point the 3D space.</p>
-<section id="id1">
+<div class="section" id="id1">
 <h3>Constructors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -165,8 +164,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">P2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h3>Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -226,13 +225,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P2</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-line">
+</div>
+</div>
+<div class="section" id="object-line">
 <h2>Object <cite>line</cite><a class="headerlink" href="#object-line" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>line</cite> object represents a line the 3D space.</p>
-<section id="id3">
+<div class="section" id="id3">
 <h3>Constructors<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -241,8 +240,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">L2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_line</span><span class="p">(</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id4">
+</div>
+<div class="section" id="id4">
 <h3>Methods<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -310,13 +309,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L2</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-ray">
+</div>
+</div>
+<div class="section" id="object-ray">
 <h2>Object <cite>ray</cite><a class="headerlink" href="#object-ray" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>ray</cite> object represents a ray the 3D space.</p>
-<section id="id5">
+<div class="section" id="id5">
 <h3>Constructors<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -325,8 +324,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_ray</span><span class="p">(</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id6">
+</div>
+<div class="section" id="id6">
 <h3>Methods<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -394,13 +393,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-plane">
+</div>
+</div>
+<div class="section" id="object-plane">
 <h2>Object <cite>plane</cite><a class="headerlink" href="#object-plane" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>plane</cite> object represents a plane the 3D space.</p>
-<section id="id7">
+<div class="section" id="id7">
 <h3>Constructors<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -409,8 +408,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_plane</span><span class="p">(</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id8">
+</div>
+<div class="section" id="id8">
 <h3>Methods<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -484,13 +483,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">L1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-segment">
+</div>
+</div>
+<div class="section" id="object-segment">
 <h2>Object <cite>segment</cite><a class="headerlink" href="#object-segment" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>segment</cite> object represents a segment the 3D space.</p>
-<section id="id9">
+<div class="section" id="id9">
 <h3>Constructors<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -499,8 +498,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_segment</span><span class="p">(</span><span class="w"> </span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="p">,</span><span class="w"> </span><span class="n">pz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id10">
+</div>
+<div class="section" id="id10">
 <h3>Methods<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -571,13 +570,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-triangle">
+</div>
+</div>
+<div class="section" id="object-triangle">
 <h2>Object <cite>triangle</cite><a class="headerlink" href="#object-triangle" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>triangle</cite> object represents a triangle the 3D space.</p>
-<section id="id11">
+<div class="section" id="id11">
 <h3>Constructors<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -586,8 +585,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">T2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_triangle</span><span class="p">(</span><span class="w"> </span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="p">,</span><span class="w"> </span><span class="n">pz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id12">
+</div>
+<div class="section" id="id12">
 <h3>Methods<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -673,13 +672,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">L1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-disk">
+</div>
+</div>
+<div class="section" id="object-disk">
 <h2>Object <cite>disk</cite><a class="headerlink" href="#object-disk" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>disk</cite> object represents a disk the 3D space.</p>
-<section id="id13">
+<div class="section" id="id13">
 <h3>Constructors<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -688,8 +687,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">D2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_disk</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id14">
+</div>
+<div class="section" id="id14">
 <h3>Methods<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -769,13 +768,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">S1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-ball">
+</div>
+</div>
+<div class="section" id="object-ball">
 <h2>Object <cite>ball</cite><a class="headerlink" href="#object-ball" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>ball</cite> object represents a ball the 3D space.</p>
-<section id="id15">
+<div class="section" id="id15">
 <h3>Constructors<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -784,8 +783,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">B2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_ball</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id16">
+</div>
+<div class="section" id="id16">
 <h3>Methods<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -865,13 +864,13 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">S1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="object-aabb">
+</div>
+</div>
+<div class="section" id="object-aabb">
 <h2>Object <cite>aabb</cite><a class="headerlink" href="#object-aabb" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>aabb</cite> object represents a aabb the 3D space.</p>
-<section id="id17">
+<div class="section" id="id17">
 <h3>Constructors<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -880,8 +879,8 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">B2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_aabb</span><span class="p">(</span><span class="w"> </span><span class="n">Mx</span><span class="p">,</span><span class="w"> </span><span class="n">My</span><span class="p">,</span><span class="w"> </span><span class="n">Mz</span><span class="p">,</span><span class="w"> </span><span class="n">mx</span><span class="p">,</span><span class="w"> </span><span class="n">my</span><span class="p">,</span><span class="w"> </span><span class="n">mz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-<section id="id18">
+</div>
+<div class="section" id="id18">
 <h3>Methods<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a>
 </h3>
 <div class="highlight-matlab notranslate">
@@ -916,9 +915,9 @@ exploited this class will represent the null intersection between objects.</p>
 <span class="n">B3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">intersects</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
 
@@ -1011,7 +1010,7 @@ exploited this class will represent the null intersection between objects.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

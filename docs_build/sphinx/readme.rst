@@ -56,3 +56,9 @@ References
     **Real-Time Computation of Tire/Road Contact using Tailored Algorithms**,
     2020, Master Thesis (*in Italian*),
     `PDF <https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf>`__.
+
+2.  *D. Stocco and E. Bertolazzi*,
+    **Acme: A small 3D geometry library**,
+    SoftwareX 16 (2021): 100845,
+    DOI `10.1016/j.softx.2021.100845 <https://doi.org/10.1016/j.softx.2021.100845>`__.
+

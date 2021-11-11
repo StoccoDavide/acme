@@ -35,52 +35,61 @@ namespace acme
 {
 
   /*\
-   |                                       _   
-   |   ___  ___  __ _ _ __ ___   ___ _ __ | |_ 
+   |                                       _
+   |   ___  ___  __ _ _ __ ___   ___ _ __ | |_
    |  / __|/ _ \/ _` | '_ ` _ \ / _ \ '_ \| __|
-   |  \__ \  __/ (_| | | | | | |  __/ | | | |_ 
+   |  \__ \  __/ (_| | | | | | |  __/ | | | |_
    |  |___/\___|\__, |_| |_| |_|\___|_| |_|\__|
-   |            |___/                          
+   |            |___/
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  segment::segment(
-      real vertex0_x,
-      real vertex0_y,
-      real vertex0_z,
-      real vertex1_x,
-      real vertex1_y,
-      real vertex1_z)
+  segment::~segment(void)
   {
-    this->m_vertex[0] = point(vertex0_x, vertex0_y, vertex0_z);
-    this->m_vertex[1] = point(vertex1_x, vertex1_y, vertex1_z);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  segment::segment(void)
+  {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      point const &vertex0,
-      point const &vertex1)
+    real vertex0_x,
+    real vertex0_y,
+    real vertex0_z,
+    real vertex1_x,
+    real vertex1_y,
+    real vertex1_z)
+    : m_vertex{point(vertex0_x, vertex0_y, vertex0_z), point(vertex1_x, vertex1_y, vertex1_z)}
   {
-    this->m_vertex[0] = vertex0;
-    this->m_vertex[1] = vertex1;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment::segment(
-      point const vertex[2])
+    point const &vertex0,
+    point const &vertex1)
+    : m_vertex{vertex0, vertex1}
   {
-    this->m_vertex[0] = vertex[0];
-    this->m_vertex[1] = vertex[1];
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  segment::segment(
+    point const vertex[2])
+    : m_vertex{vertex[0], vertex[1]}
+  {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   segment &
   segment::operator=(
-      segment const &segment_in)
+    segment const &segment_in)
   {
     if (this == &segment_in)
     {
@@ -98,9 +107,9 @@ namespace acme
 
   bool
   segment::isApprox(
-      segment const &segment_in,
-      real tolerance)
-      const
+    segment const &segment_in,
+    real           tolerance)
+    const
   {
     return this->m_vertex[0].isApprox(segment_in.m_vertex[0], tolerance) &&
            this->m_vertex[1].isApprox(segment_in.m_vertex[1], tolerance);
@@ -110,7 +119,7 @@ namespace acme
 
   point
   segment::centroid(void)
-      const
+    const
   {
     return (this->m_vertex[0] + this->m_vertex[1]) / 2.0;
   }
@@ -119,8 +128,8 @@ namespace acme
 
   point const &
   segment::vertex(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_vertex[i];
   }
@@ -129,7 +138,7 @@ namespace acme
 
   point &
   segment::vertex(
-      size_t i)
+    size_t i)
   {
     return this->m_vertex[i];
   }
@@ -138,8 +147,8 @@ namespace acme
 
   point const &
   segment::operator[](
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_vertex[i];
   }
@@ -148,7 +157,7 @@ namespace acme
 
   point &
   segment::operator[](
-      size_t i)
+    size_t i)
   {
     return this->m_vertex[i];
   }
@@ -191,7 +200,7 @@ namespace acme
 
   void
   segment::translate(
-      vec3 const &vector_in)
+    vec3 const &vector_in)
   {
     this->m_vertex[0] = vector_in + this->m_vertex[0];
     this->m_vertex[1] = vector_in + this->m_vertex[1];
@@ -201,7 +210,7 @@ namespace acme
 
   void
   segment::transform(
-      affine const &affine_in)
+    affine const &affine_in)
   {
     this->m_vertex[0].transform(affine_in);
     this->m_vertex[1].transform(affine_in);
@@ -211,9 +220,9 @@ namespace acme
 
   bool
   segment::isInside(
-      point const &query,
-      real tolerance)
-      const
+    point const &query,
+    real         tolerance)
+    const
   {
     real d0 = this->length();
     real d1 = (query - this->m_vertex[0]).norm();
@@ -225,8 +234,8 @@ namespace acme
 
   bool
   segment::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return acme::isApprox((this->m_vertex[0] - this->m_vertex[1]).norm(), 0.0, tolerance);
   }
@@ -235,9 +244,9 @@ namespace acme
 
   bool
   segment::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     min[0] = std::min(this->m_vertex[0].x(), this->m_vertex[1].x());
     min[1] = std::min(this->m_vertex[0].y(), this->m_vertex[1].y());
@@ -252,13 +261,13 @@ namespace acme
 
   bool
   segment::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     min_x = std::min(this->m_vertex[0].x(), this->m_vertex[1].x());
     min_y = std::min(this->m_vertex[0].y(), this->m_vertex[1].y());

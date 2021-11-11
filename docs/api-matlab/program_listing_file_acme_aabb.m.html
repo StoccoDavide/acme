@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program Listing for File acme_aabb.m &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -70,7 +69,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="program-listing-for-file-acme-aabb-m">
+  <div class="section" id="program-listing-for-file-acme-aabb-m">
 <span id="program-listing-file-acme-aabb-m"></span><h1>Program Listing for File acme_aabb.m<a class="headerlink" href="#program-listing-for-file-acme-aabb-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_acme_aabb.m.html#file-acme-aabb-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">acme_aabb.m</span></code>)</p>
@@ -106,81 +105,81 @@
 <span class="w">  </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Create a new C++ pointer to disk object instance</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_aabb</span><span class="p">(</span> varargin <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>this<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_aabb</span><span class="p">(</span> varargin <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="p">,</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{:}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Create C++ pointer to disk object instance</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get minimum aabb as ACME point</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMin</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMin</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMin'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMin'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get aabb minimum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMinX</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMinX'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMinX</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMinX'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get aabb minimum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMinY</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMinY'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMinY</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMinY'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get aabb minimum point Z value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMinZ</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMinZ'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMinZ</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMinZ'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get maximum aabb as ACME point</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMax</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMax</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMax'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">copyByHandle</span><span class="p">(</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMax'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get aabb maximum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMaxX</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMaxX'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMaxX</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMaxX'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get aabb maximum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMaxY</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMaxY'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMaxY</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMaxY'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get aabb maximum point Z value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMaxZ</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMaxZ'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getMaxZ</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'getMaxZ'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set minimum aabb as ACME point</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMin</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMin</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"point"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMin'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMin'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::setMin(): other_obj must be an ACME point object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -189,30 +188,30 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set aabb minimum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMinX</span><span class="p">(</span> self, value <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMinX'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMinX</span><span class="p">(</span> this, value <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMinX'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set aabb minimum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMinY</span><span class="p">(</span> self, value <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMinY'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMinY</span><span class="p">(</span> this, value <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMinY'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set aabb minimum point Z value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMinZ</span><span class="p">(</span> self, value <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMinZ'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMinZ</span><span class="p">(</span> this, value <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMinZ'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set maximum aabb as ACME point</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMax</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMax</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"point"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMax'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMax'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::setMax(): other_obj must be an ACME point object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -221,30 +220,30 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set aabb maximum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMaxX</span><span class="p">(</span> self, value <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMaxX'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMaxX</span><span class="p">(</span> this, value <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMaxX'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set aabb maximum point X value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMaxY</span><span class="p">(</span> self, value <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMaxY'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMaxY</span><span class="p">(</span> this, value <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMaxY'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set aabb maximum point Z value</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMaxZ</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMaxZ'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setMaxZ</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'setMaxZ'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Copy aabb object from another aabb</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"aabb"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::copy(): other_obj must be an ACME aabb object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -253,23 +252,23 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Copy aabb object from another aabb handle</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> self, handle <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> this, handle <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Translate aabb by vector</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'translate'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'translate'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if ACME point is inside the aabb</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isInside</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isInside</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"point"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'isInside'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'isInside'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">         </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::isInside(): other_obj must be an ACME point object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -278,16 +277,16 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if aabb is degenerated</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isDegenerated</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'isDegenerated'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isDegenerated</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'isDegenerated'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if aabbs are approximatively equal</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isApprox</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">isApprox</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"aabb"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'isApprox'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'isApprox'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">         </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::isApprox(): other_obj must be an ACME aabb object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -296,23 +295,23 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Return aabb id</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'id'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">id</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'id'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Return aabb position</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">pos</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'pos'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">pos</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'pos'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Perform intersection with another ACME entity and return intersection object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersection</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersection</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"aabb"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'intersection'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'intersection'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::intersection(): other_obj must be an ACME aabb object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -321,9 +320,9 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Check if aabb intersects with another ACME entity  and return boolean</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersects</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">intersects</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"aabb"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'intersects'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_aabb</span><span class="p">(</span><span class="w"> </span><span class="s">'intersects'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_aabb::intersects(): other_obj must be an ACME aabb object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -332,18 +331,18 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Display object data</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="nb">disp</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getMin</span><span class="p">().</span><span class="n">get</span><span class="p">(),</span><span class="w">  </span><span class="n">self</span><span class="p">.</span><span class="n">getMax</span><span class="p">().</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="nb">disp</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">getMin</span><span class="p">().</span><span class="n">get</span><span class="p">(),</span><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">getMax</span><span class="p">().</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Plot disk object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, figure_name, color <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> this, figure_name, color <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">figure_name</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="nb">min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getMin</span><span class="p">().</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="nb">max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">getMax</span><span class="p">().</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="nb">min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">getMin</span><span class="p">().</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="nb">max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">getMax</span><span class="p">().</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="nb">plot3</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)],</span><span class="w"> </span><span class="k">...</span><span class="c"> % 01</span><span class="w"></span>
 <span class="w">             </span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
 <span class="w">             </span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
@@ -423,14 +422,14 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get object type as string</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'aabb'</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
 
@@ -504,7 +503,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

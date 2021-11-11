@@ -36,20 +36,20 @@
 namespace acme
 {
   /*\
-   |         _   _ _      
-   |   _   _| |_(_) |___ 
+   |         _   _ _
+   |   _   _| |_(_) |___
    |  | | | | __| | / __|
    |  | |_| | |_| | \__ \
    |   \__,_|\__|_|_|___/
-   |                                   
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   std::ostream &
   operator<<(
-      std::ostream &os,
-      vec3 const &obj)
+    std::ostream &os,
+    vec3 const   &obj)
   {
     os << std::scientific
        << std::showpoint
@@ -62,8 +62,8 @@ namespace acme
 
   std::ostream &
   operator<<(
-      std::ostream &os,
-      point const &obj)
+    std::ostream &os,
+    point const  &obj)
   {
     os << std::scientific
        << std::showpoint
@@ -76,11 +76,11 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      line const &obj)
+    out_stream &os,
+    line const &obj)
   {
     point obj_origin(obj.origin());
-    vec3 obj_direction(obj.direction());
+    vec3  obj_direction(obj.direction());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -96,11 +96,11 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      ray const &obj)
+    out_stream &os,
+    ray const  &obj)
   {
     point obj_origin(obj.origin());
-    vec3 obj_direction(obj.direction());
+    vec3  obj_direction(obj.direction());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -116,11 +116,11 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      plane const &obj)
+    out_stream  &os,
+    plane const &obj)
   {
     point obj_origin(obj.origin());
-    vec3 obj_normal(obj.normal());
+    vec3  obj_normal(obj.normal());
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
@@ -136,8 +136,8 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      segment const &obj)
+    out_stream    &os,
+    segment const &obj)
   {
     point obj_point_0(obj.vertex(0));
     point obj_point_1(obj.vertex(1));
@@ -156,8 +156,8 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      aabb const &obj)
+    out_stream &os,
+    aabb const &obj)
   {
     point obj_point_min(obj.min());
     point obj_point_max(obj.max());
@@ -176,8 +176,8 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      triangle const &obj)
+    out_stream     &os,
+    triangle const &obj)
   {
     point obj_vertex_0(obj.vertex(0));
     point obj_vertex_2(obj.vertex(1));
@@ -199,11 +199,11 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      disk const &obj)
+    out_stream &os,
+    disk const &obj)
   {
     point obj_center(obj.center());
-    vec3 obj_normal(obj.normal());
+    vec3  obj_normal(obj.normal());
     os << std::scientific
        << std::showpoint
        << std::setprecision(10)
@@ -221,10 +221,10 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      ball const &obj)
+    out_stream &os,
+    ball const &obj)
   {
-    real obj_radius(obj.radius());
+    real  obj_radius(obj.radius());
     point obj_center(obj.center());
     os << std::scientific
        << std::showpoint
@@ -241,8 +241,8 @@ namespace acme
 
   out_stream &
   operator<<(
-      out_stream &os,
-      affine const &obj)
+    out_stream   &os,
+    affine const &obj)
   {
     os << std::scientific
        << std::showpoint

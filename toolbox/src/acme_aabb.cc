@@ -35,40 +35,41 @@ namespace acme
 {
 
   /*\
-   |               _     _     
-   |    __ _  __ _| |__ | |_     
-   |   / _` |/ _` | '_ \| '_ \ 
+   |               _     _
+   |    __ _  __ _| |__ | |_
+   |   / _` |/ _` | '_ \| '_ \
    |  | (_| | (_| | |_) | |_) |
-   |   \__,_|\__,_|_.__/|_.__/ 
-   |                           
+   |   \__,_|\__,_|_.__/|_.__/
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  aabb::aabb()
-  : m_min(NAN_POINT)
-  , m_max(NAN_POINT)
-  , m_id(0)
-  , m_pos(0)
+  aabb::~aabb(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  aabb::aabb(void)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   aabb::aabb(
-      real min_x,
-      real min_y,
-      real min_z,
-      real max_x,
-      real max_y,
-      real max_z,
-      integer id,
-      integer ipos
-  )
-  : m_min(min_x, min_y, min_z)
-  , m_max(max_x, max_y, max_z)
-  , m_id(id)
-  , m_pos(ipos)
+    real    min_x,
+    real    min_y,
+    real    min_z,
+    real    max_x,
+    real    max_y,
+    real    max_z,
+    integer id,
+    integer ipos)
+    : m_min(min_x, min_y, min_z),
+      m_max(max_x, max_y, max_z),
+      m_id(id),
+      m_pos(ipos)
   {
     this->updateMaxMin();
   }
@@ -76,14 +77,14 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   aabb::aabb(
-      point const &min,
-      point const &max,
-      integer id,
-      integer ipos)
-      : m_min(min),
-        m_max(max),
-        m_id(id),
-        m_pos(ipos)
+    point const &min,
+    point const &max,
+    integer      id,
+    integer      ipos)
+    : m_min(min),
+      m_max(max),
+      m_id(id),
+      m_pos(ipos)
   {
     this->updateMaxMin();
   }
@@ -92,13 +93,12 @@ namespace acme
 
   aabb::aabb(
     std::vector<aabb::ptr> const &boxes,
-    integer id,
-    integer ipos
-  )
-  : m_min(NAN_POINT)
-  , m_max(NAN_POINT)
-  , m_id(id)
-  , m_pos(ipos)
+    integer                       id,
+    integer                       ipos)
+    : m_min(NAN_POINT),
+      m_max(NAN_POINT),
+      m_id(id),
+      m_pos(ipos)
   {
     this->merged(boxes);
     this->updateMaxMin();
@@ -108,7 +108,7 @@ namespace acme
 
   aabb &
   aabb::operator=(
-      aabb const &aabb_in)
+    aabb const &aabb_in)
   {
     if (this == &aabb_in)
     {
@@ -118,7 +118,7 @@ namespace acme
     {
       this->m_min = aabb_in.m_min;
       this->m_max = aabb_in.m_max;
-      this->m_id = aabb_in.m_id;
+      this->m_id  = aabb_in.m_id;
       this->m_pos = aabb_in.m_pos;
       return *this;
     }
@@ -128,7 +128,7 @@ namespace acme
 
   void
   aabb::clear(
-      void)
+    void)
   {
     this->m_min = NAN_POINT;
     this->m_max = NAN_POINT;
@@ -138,9 +138,9 @@ namespace acme
 
   bool
   aabb::isApprox(
-      aabb const &aabb_in,
-      real tolerance)
-      const
+    aabb const &aabb_in,
+    real        tolerance)
+    const
   {
     return this->m_min.isApprox(aabb_in.m_min, tolerance) &&
            this->m_max.isApprox(aabb_in.m_max, tolerance);
@@ -150,7 +150,7 @@ namespace acme
 
   bool
   aabb::checkMaxMin(void)
-      const
+    const
   {
     return this->m_max.x() >= this->m_min.x() &&
            this->m_max.y() >= this->m_min.y() &&
@@ -172,7 +172,7 @@ namespace acme
       {
         this->m_max[i] = point_min_tmp;
         this->m_min[i] = point_max_tmp;
-        output = false;
+        output         = false;
       }
     }
     return output;
@@ -182,7 +182,7 @@ namespace acme
 
   point const &
   aabb::min(void)
-      const
+    const
   {
     return this->m_min;
   }
@@ -199,8 +199,8 @@ namespace acme
 
   real const &
   aabb::min(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_min[i];
   }
@@ -209,7 +209,7 @@ namespace acme
 
   real &
   aabb::min(
-      size_t i)
+    size_t i)
   {
     return this->m_min[i];
   }
@@ -218,9 +218,9 @@ namespace acme
 
   void
   aabb::min(
-      real x,
-      real y,
-      real z)
+    real x,
+    real y,
+    real z)
   {
     this->m_min.x() = x;
     this->m_min.y() = y;
@@ -231,7 +231,7 @@ namespace acme
 
   point const &
   aabb::max(void)
-      const
+    const
   {
     return this->m_max;
   }
@@ -248,8 +248,8 @@ namespace acme
 
   real const &
   aabb::max(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_max[i];
   }
@@ -258,7 +258,7 @@ namespace acme
 
   real &
   aabb::max(
-      size_t i)
+    size_t i)
   {
     return this->m_max[i];
   }
@@ -267,9 +267,9 @@ namespace acme
 
   void
   aabb::max(
-      real x,
-      real y,
-      real z)
+    real x,
+    real y,
+    real z)
   {
     this->m_max.x() = x;
     this->m_max.y() = y;
@@ -280,8 +280,8 @@ namespace acme
 
   bool
   aabb::intersects(
-      aabb const &aabb_in)
-      const
+    aabb const &aabb_in)
+    const
   {
     return this->m_min.x() <= aabb_in.m_max.x() && this->m_max.x() >= aabb_in.m_min.x() &&
            this->m_min.y() <= aabb_in.m_max.y() && this->m_max.y() >= aabb_in.m_min.y() &&
@@ -292,7 +292,7 @@ namespace acme
 
   void
   aabb::merged(
-      std::vector<aabb::ptr> const &boxes)
+    std::vector<aabb::ptr> const &boxes)
   {
     if (boxes.empty())
     {
@@ -329,18 +329,18 @@ namespace acme
 
   real
   aabb::centerDistance(
-      point const &point_in)
-      const
+    point const &point_in)
+    const
   {
     point center((this->m_max + this->m_min) / 2);
     point point_max_centered(this->m_max - center);
     point point_centered(point_in - center);
-    real x_scale = std::abs(1.0 / point_max_centered.x());
-    real y_scale = std::abs(1.0 / point_max_centered.y());
-    real z_scale = std::abs(1.0 / point_max_centered.z());
-    real dx = std::max(0.0, std::abs(point_centered.x()) * x_scale - 1.0) / x_scale;
-    real dy = std::max(0.0, std::abs(point_centered.y()) * y_scale - 1.0) / y_scale;
-    real dz = std::max(0.0, std::abs(point_centered.z()) * z_scale - 1.0) / z_scale;
+    real  x_scale = std::abs(1.0 / point_max_centered.x());
+    real  y_scale = std::abs(1.0 / point_max_centered.y());
+    real  z_scale = std::abs(1.0 / point_max_centered.z());
+    real  dx      = std::max(0.0, std::abs(point_centered.x()) * x_scale - 1.0) / x_scale;
+    real  dy      = std::max(0.0, std::abs(point_centered.y()) * y_scale - 1.0) / y_scale;
+    real  dz      = std::max(0.0, std::abs(point_centered.z()) * z_scale - 1.0) / z_scale;
     return std::sqrt(dx * dx + dy * dy + dz * dz);
   }
 
@@ -348,8 +348,8 @@ namespace acme
 
   real
   aabb::exteriorDistance(
-      point const &point_in)
-      const
+    point const &point_in)
+    const
   {
     real dx = std::max(std::abs(point_in.x() - this->m_min.x()), std::abs(point_in.x() - this->m_max.x()));
     real dy = std::max(std::abs(point_in.y() - this->m_min.y()), std::abs(point_in.y() - this->m_max.y()));
@@ -361,9 +361,9 @@ namespace acme
 
   void
   aabb::clamp(
-      point const &point0_in,
-      point const &point1_in,
-      point const &point2_in)
+    point const &point0_in,
+    point const &point1_in,
+    point const &point2_in)
   {
     this->m_min.x() = std::min(point0_in.x(), std::min(point1_in.x(), point2_in.x()));
     this->m_min.y() = std::min(point0_in.y(), std::min(point1_in.y(), point2_in.y()));
@@ -377,7 +377,7 @@ namespace acme
 
   void
   aabb::clamp(
-      point const point_in[3])
+    point const point_in[3])
   {
     this->m_min.x() = std::min(point_in[0].x(), std::min(point_in[1].x(), point_in[2].x()));
     this->m_min.y() = std::min(point_in[0].y(), std::min(point_in[1].y(), point_in[2].y()));
@@ -391,7 +391,7 @@ namespace acme
 
   integer const &
   aabb::id(void)
-      const
+    const
   {
     return this->m_id;
   }
@@ -408,7 +408,7 @@ namespace acme
 
   integer const &
   aabb::pos(void)
-      const
+    const
   {
     return this->m_pos;
   }
@@ -425,7 +425,7 @@ namespace acme
 
   void
   aabb::translate(
-      point const &vector_in)
+    point const &vector_in)
   {
     this->m_min = vector_in + this->m_min;
     this->m_max = vector_in + this->m_max;
@@ -435,9 +435,9 @@ namespace acme
 
   bool
   aabb::isInside(
-      point const &point_in,
-      real tolerance)
-      const
+    point const &point_in,
+    real         tolerance)
+    const
   {
     return this->m_min.x() <= point_in.x() &&
            this->m_min.y() <= point_in.y() &&
@@ -451,8 +451,8 @@ namespace acme
 
   bool
   aabb::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return this->m_min.isApprox(this->m_max, tolerance) &&
            this->checkMaxMin();

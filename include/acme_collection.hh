@@ -29,6 +29,8 @@
 /// file: acme_collection.hh
 ///
 
+#pragma once
+
 #ifndef INCLUDE_ACME_COLLECTION
 #define INCLUDE_ACME_COLLECTION
 
@@ -43,12 +45,12 @@ namespace acme
 {
 
   /*\
-   |             _ _           _   _              
-   |    ___ ___ | | | ___  ___| |_(_) ___  _ __  
-   |   / __/ _ \| | |/ _ \/ __| __| |/ _ \| '_ \ 
+   |             _ _           _   _
+   |    ___ ___ | | | ___  ___| |_(_) ___  _ __
+   |   / __/ _ \| | |/ _ \/ __| __| |/ _ \| '_ \
    |  | (_| (_) | | |  __/ (__| |_| | (_) | | | |
    |   \___\___/|_|_|\___|\___|\__|_|\___/|_| |_|
-   |                                             
+   |
   \*/
 
   //! Collection class container
@@ -59,11 +61,14 @@ namespace acme
   {
   private:
     entity::vecptr m_entities; //!< Vector of shared pointers to entity objects
-    AABBtree::ptr m_AABBtree;  //!< Collection AABB tree pointer
+    AABBtree::ptr  m_AABBtree; //!< Collection AABB tree pointer
 
   public:
     //! Collection class destructor
-    ~collection(){};
+    ~collection(void);
+
+    //! Collection class constructor
+    collection(void);
 
     //! Collection copy constructor
     collection(collection const &) = default;
@@ -72,64 +77,62 @@ namespace acme
     collection(collection &&) = default;
 
     //! Collection class constructor
-    collection();
-
-    //! Collection class constructor
     collection(
-        entity::vecptr &entities //!< Vector of shared pointers to entity objects
+      entity::vecptr &entities //!< Vector of shared pointers to entity objects
     );
 
     //! Clear all collection object data
-    void clear(void);
+    void
+    clear(void);
 
     //! Resize collection shared pointer vector
     void
     resize(
-        size_t size //!< Input size
+      size_t size //!< Input size
     );
 
     //! Adds a new element at the end of the collection shared pointer vector
     void
     push_back(
-        entity::ptr entity //!< Input shared pointer to entity
+      entity::ptr entity //!< Input shared pointer to entity
     );
 
     //! Get i-th entity object shared pointer reference
     entity::ptr &
     operator[](
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     );
 
     //! Get i-th entity object shared pointer const reference
     entity::ptr const &
     operator[](
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Translate collection by vector
     void
     translate(
-        vec3 const &input //!< Input translation vector
+      vec3 const &input //!< Input translation vector
     );
 
     //! Rotate collection by a rotation angle around an arbitrary axis
     void
     rotate(
-        real angle,      //!< Input angle [rad]
-        vec3 const &axis //!< Input axis
+      real        angle, //!< Input angle [rad]
+      vec3 const &axis   //!< Input axis
     );
 
     //! Rotate tire by a rotation angle around an arbitrary axis
     void
     rotate(
-        real angle,             //!< Input angle [rad]
-        std::string const &axis //!< Input axis
+      real               angle, //!< Input angle [rad]
+      std::string const &axis   //!< Input axis
     );
 
     //! Transform collection with affine transformation matrix
     void
     transform(
-        affine const &matrix //!< 4x4 affine transformation matrix
+      affine const &matrix //!< 4x4 affine transformation matrix
     );
 
     //! Check whether in the collection there are any none entity objects
@@ -143,7 +146,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a none entity object
     bool
     isNone(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all none entity objects from collection
@@ -165,7 +168,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a point entity object
     bool
     isPoint(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all point entity objects from collection
@@ -187,7 +190,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a line entity object
     bool
     isLine(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all line entity objects from collection
@@ -209,7 +212,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a ray entity object
     bool
     isRay(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all ray entity objects from collection
@@ -231,7 +234,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a plane entity object
     bool
     isPlane(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all plane entity objects from collection
@@ -253,7 +256,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a segment entity object
     bool
     isSegment(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all segment entity objects from collection
@@ -275,7 +278,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a triangle entity object
     bool
     isTriangle(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all triangle entity objects from collection
@@ -297,7 +300,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a disk entity object
     bool
     isDisk(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all disk entity objects from collection
@@ -319,7 +322,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a ball entity object
     bool
     isBall(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all ball entity objects from collection
@@ -333,32 +336,32 @@ namespace acme
     //! Check if one of the objects in the collection is degenerated
     bool
     containDegenerated(
-        real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check whether the collection is composed only by degenerated entity objects
     bool
     areDegenerated(
-        real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check whether in the collection the i-th element is a degenerated entity object
     bool
     isDegenerated(
-        size_t i,                //!< Input i-th value
-        real tolerance = EPSILON //!< Tolerance
+      size_t i,                  //!< Input i-th value
+      real   tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Remove all degenerated entity objects from collection
     void
     removeDegenerated(
-        real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON //!< Tolerance
     );
 
     //! Count all degenerated entity objects in collection
     integer
     countDegenerated(
-        real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check whether in the collection there are any clampable entity objects
@@ -372,7 +375,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a clampable entity object
     bool
     isClampable(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all clampable entity objects from collection
@@ -394,7 +397,7 @@ namespace acme
     //! Check whether in the collection the i-th element is a non clampable entity object
     bool
     isNonClampable(
-        size_t i //!< Input i-th value
+      size_t i //!< Input i-th value
     ) const;
 
     //! Remove all non clampable entity objects from collection
@@ -412,17 +415,18 @@ namespace acme
     //! Count all entity types objects in collection
     std::map<std::string, integer>
     count(
-        real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Get vector of shered pointer to collection objects aabbs
     void
     clamp(
-        aabb::vecptr &boxes //!< Vector of shered pointer to collection objects aabbs
+      aabb::vecptr &boxes //!< Vector of shered pointer to collection objects aabbs
     ) const;
 
     //! Build collection AABB tree
-    void buildAABBtree(void);
+    void
+    buildAABBtree(void);
 
     //! Return collection AABB tree shared pointer
     AABBtree::ptr const &
@@ -431,35 +435,36 @@ namespace acme
     //! Intersect the collection with an external collection
     bool
     intersection(
-        collection &entities,  //!< External entities collection
-        collection &candidates //!< Intersection candidates
+      collection &entities,  //!< External entities collection
+      collection &candidates //!< Intersection candidates
     ) const;
 
     //! Intersect the collection AABB tree with an external AABB tree
-    bool intersection(
-        AABBtree::ptr const &AABBtree, //!< External AABBtree object pointer
-        collection &entities           //!< Intersected entities vector list
+    bool
+    intersection(
+      AABBtree::ptr const &AABBtree, //!< External AABBtree object pointer
+      collection          &entities  //!< Intersected entities vector list
     ) const;
 
     //! Update the collection AABBtree with an external aabb object pointer vector
     bool
     intersection(
-        aabb::vecptr const &boxes, //!< External aabb object pointer vector
-        collection &entities       //!< Intersected entities vector list
+      aabb::vecptr const &boxes,   //!< External aabb object pointer vector
+      collection         &entities //!< Intersected entities vector list
     ) const;
 
     //! Update the collection AABBtree with an external aabb object pointer
     bool
     intersection(
-        aabb::ptr const box, //!< External aabb object pointer
-        collection &entities //!< Intersected entities vector list
+      aabb::ptr const box,     //!< External aabb object pointer
+      collection     &entities //!< Intersected entities vector list
     ) const;
 
     //! Intersect all entities of the two collections
     void
     intersection(
-        collection &entities,    //!< Intersection candidates
-        real tolerance = EPSILON //!< Tolerance
+      collection &entities,           //!< Intersection candidates
+      real        tolerance = EPSILON //!< Tolerance
     ) const;
 
   }; // class collection

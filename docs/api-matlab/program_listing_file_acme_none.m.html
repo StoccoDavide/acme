@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program Listing for File acme_none.m &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -70,7 +69,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="program-listing-for-file-acme-none-m">
+  <div class="section" id="program-listing-for-file-acme-none-m">
 <span id="program-listing-file-acme-none-m"></span><h1>Program Listing for File acme_none.m<a class="headerlink" href="#program-listing-for-file-acme-none-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_acme_none.m.html#file-acme-none-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">acme_none.m</span></code>)</p>
@@ -106,23 +105,23 @@
 <span class="w">  </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Create C++ pointer to none object instance</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_none</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>this<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">acme_none</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'new'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Delete C++ pointer to none object instance</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'delete'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Copy none object from another none</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> self, other_obj <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other_obj</span><span class="p">.</span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"none"</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'mex_none::copy(): other_obj must be an ACME none object type.'</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
@@ -131,21 +130,21 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Copy none object from another none handle</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> self, handle <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">copyByHandle</span><span class="p">(</span> this, handle <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mex_none</span><span class="p">(</span><span class="w"> </span><span class="s">'copy'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="nb">handle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Display object data</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="nb">disp</span><span class="p">(</span><span class="s">'none'</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Plot none object</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, figure_name, color <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> this, figure_name, color <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">figure_name</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span><span class="w"></span>
@@ -154,14 +153,14 @@
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Get object type as string</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">type</span><span class="p">(</span> this <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'none'</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
 
@@ -235,7 +234,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

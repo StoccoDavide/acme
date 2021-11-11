@@ -1,3 +1,28 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                       #
+#  The ACME project                                                     #
+#                                                                       #
+#  Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.        #
+#                                                                       #
+#  The ACME project and its components are supplied under the terms of  #
+#  the open source BSD 2-Clause License. The contents of the ACME       #
+#  project and its components may not be copied or disclosed except in  #
+#  accordance with the terms of the BSD 2-Clause License.               #
+#                                                                       #
+#  URL: https://opensource.org/licenses/BSD-2-Clause                    #
+#                                                                       #
+#     Davide Stocco                                                     #
+#     Department of Industrial Engineering                              #
+#     University of Trento                                              #
+#     e-mail: davide.stocco@unitn.it                                    #
+#                                                                       #
+#     Enrico Bertolazzi                                                 #
+#     Department of Industrial Engineering                              #
+#     University of Trento                                              #
+#     e-mail: enrico.bertolazzi@unitn.it                                #
+#                                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 %w(colorize rake fileutils).each do |gem|
   begin
     require gem
@@ -38,10 +63,39 @@ desc "run tests"
 task :run do
   puts "Run test".yellow
   Dir.glob('bin/*') do |cmd|
-    next if cmd =~ /.manifest$/
+    next if cmd =~ /.manifest$|.dSYM$/
     puts "execute: #{cmd}".yellow
     sh cmd
   end
+end
+
+task :build_gen do
+
+  dir = "build"
+
+  FileUtils.rm_rf   dir
+  FileUtils.mkdir_p dir
+  FileUtils.cd      dir
+
+  cmd_cmake = "cmake " + cmd_cmake_build
+
+  puts "run CMAKE for ACME".yellow
+  sh cmd_cmake + ' ..'
+  puts "compile with CMAKE for ACME".yellow
+  if COMPILE_DEBUG then
+    sh 'cmake --build . --config Debug --target install '+PARALLEL+QUIET
+  else
+    sh 'cmake --build . --config Release --target install '+PARALLEL+QUIET
+  end
+  FileUtils.cd '..'
+end
+
+desc 'compile for OSX'
+task :build_osx => :build_gen do |t, args|
+end
+
+desc 'compile for LINUX'
+task :build_linux => :build_gen do |t, args|
 end
 
 desc "compile for Visual Studio [default year=2017, bits=x64]"
@@ -69,46 +123,31 @@ task :build_win, [:year, :bits] do |t, args|
   FileUtils.cd '..'
 end
 
+desc "build for OSX/LINUX/WINDOWS"
 task :build do
-
-  dir = "build"
-
-  FileUtils.rm_rf   dir
-  FileUtils.mkdir_p dir
-  FileUtils.cd      dir
-
-  cmd_cmake = "cmake " + cmd_cmake_build
-
-  puts "run CMAKE for ACME".yellow
-  sh cmd_cmake + ' ..'
-  puts "compile with CMAKE for ACME".yellow
-  if COMPILE_DEBUG then
-    sh 'cmake --build . --config Debug --target install '+PARALLEL+QUIET
+  if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil then
+    # LINUX
+    Rake::Task["build_linux"].invoke
+  elsif (/darwin/ =~ RUBY_PLATFORM) != nil then
+    # OSX
+    Rake::Task["build_osx"].invoke
   else
-    sh 'cmake --build . --config Release --target install '+PARALLEL+QUIET
+    # WINDOWS
+    Rake::Task["build_windows"].invoke
   end
-  FileUtils.cd '..'
 end
 
-desc 'compile for OSX'
-task :build_osx => :build do |t, args|
-end
-
-desc 'compile for LINUX'
-task :build_linux => :build do |t, args|
-end
-
-task :clean do
+task :clean_gen do
   FileUtils.rm_rf 'lib'
   FileUtils.rm_rf 'lib3rd'
 end
 
 desc "clean for OSX"
-task :clean_osx => :clean do
+task :clean_osx => :clean_gen do
 end
 
 desc "clean for LINUX"
-task :clean_linux => :clean do
+task :clean_linux => :clean_gen do
 end
 
 desc "clean for WINDOWS"
@@ -116,4 +155,18 @@ task :clean_win do
   FileUtils.rm_rf 'lib'
   FileUtils.rm_rf 'lib3rd'
   FileUtils.rm_rf 'vs_*'
+end
+
+desc "clean for OSX/LINUX/WINDOWS"
+task :clean do
+  if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil then
+    #linux
+    Rake::Task["clean_linux"].invoke
+  elsif (/darwin/ =~ RUBY_PLATFORM) != nil then
+    #osx
+    Rake::Task["clean_linux"].invoke
+  else
+    #windows
+    Rake::Task["clean_linux"].invoke
+  end
 end

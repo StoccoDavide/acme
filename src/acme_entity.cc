@@ -45,10 +45,22 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  entity::~entity(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  entity::entity(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   void
   entity::rotate(
-      real angle,
-      vec3 const &axis)
+    real        angle,
+    vec3 const &axis)
   {
     affine tranformation(IDENTITY_MAT4);
     tranformation.rotate(angleaxis(angle, axis));
@@ -59,7 +71,7 @@ namespace acme
 
   bool
   entity::isEntity(void)
-      const
+    const
   {
     return true;
   }

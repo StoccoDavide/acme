@@ -38,6 +38,8 @@ Program Listing for File acme_triangle.hh
    */
    
    
+   #pragma once
+   
    #ifndef INCLUDE_ACME_TRIANGLE
    #define INCLUDE_ACME_TRIANGLE
    
@@ -51,80 +53,80 @@ Program Listing for File acme_triangle.hh
    {
    
      /*\
-      |   _        _                   _      
-      |  | |_ _ __(_) __ _ _ __   __ _| | ___ 
+      |   _        _                   _
+      |  | |_ _ __(_) __ _ _ __   __ _| | ___
       |  | __| '__| |/ _` | '_ \ / _` | |/ _ \
       |  | |_| |  | | (_| | | | | (_| | |  __/
       |   \__|_|  |_|\__,_|_| |_|\__, |_|\___|
-      |                          |___/        
+      |                          |___/
      \*/
    
    
      class triangle : public entity
      {
      private:
-       point m_vertex[3]; 
+       point m_vertex[3] = {NAN_POINT, NAN_POINT, NAN_POINT}; 
    
      public:
-       ~triangle() {}
+       ~triangle(void);
+   
+       triangle(void);
    
        triangle(triangle const &) = default;
    
        triangle(triangle &&) = default;
    
-       triangle() {}
-   
        triangle(
-           real vertex0_x, 
-           real vertex0_y, 
-           real vertex0_z, 
-           real vertex1_x, 
-           real vertex1_y, 
-           real vertex1_z, 
-           real vertex2_x, 
-           real vertex2_y, 
-           real vertex2_z  
+         real vertex0_x, 
+         real vertex0_y, 
+         real vertex0_z, 
+         real vertex1_x, 
+         real vertex1_y, 
+         real vertex1_z, 
+         real vertex2_x, 
+         real vertex2_y, 
+         real vertex2_z  
        );
    
        triangle(
-           point const &vertex0, 
-           point const &vertex1, 
-           point const &vertex2  
+         point const &vertex0, 
+         point const &vertex1, 
+         point const &vertex2  
        );
    
        triangle(
-           point const vertex[3] 
+         point const vertex[3] 
        );
    
        triangle &
        operator=(
-           triangle const &triangle_in 
+         triangle const &triangle_in 
        );
    
        bool
        isApprox(
-           triangle const &triangle_in, 
-           real tolerance = EPSILON     
+         triangle const &triangle_in,        
+         real            tolerance = EPSILON 
        ) const;
    
        point const &
        vertex(
-           size_t i 
+         size_t i 
        ) const;
    
        point &
        vertex(
-           size_t i 
+         size_t i 
        );
    
        point const &
        operator[](
-           size_t i 
+         size_t i 
        ) const;
    
        point &
        operator[](
-           size_t i 
+         size_t i 
        );
    
        point
@@ -132,7 +134,7 @@ Program Listing for File acme_triangle.hh
    
        segment
        edge(
-           size_t i 
+         size_t i 
        ) const;
    
        vec3
@@ -140,23 +142,23 @@ Program Listing for File acme_triangle.hh
    
        void
        swap(
-           size_t i, 
-           size_t j  
+         size_t i, 
+         size_t j  
        );
    
        real
        perimeter(void)
-           const;
+         const;
    
        real
        area(void) const;
    
        void
        barycentric(
-           point const &point_in, 
-           real &u,               
-           real &v,               
-           real &w                
+         point const &point_in, 
+         real        &u,        
+         real        &v,        
+         real        &w         
        ) const;
    
        plane
@@ -164,71 +166,123 @@ Program Listing for File acme_triangle.hh
    
        void
        translate(
-           vec3 const &vector_in 
-           ) override;
+         vec3 const &vector_in 
+         ) override;
    
        void
        transform(
-           affine const &affine_in 
-           ) override;
+         affine const &affine_in 
+         ) override;
    
        bool
        isInside(
-           point const &point_in,   
-           real tolerance = EPSILON 
+         point const &point_in,           
+         real         tolerance = EPSILON 
        ) const;
    
        bool
        isDegenerated(
-           real tolerance = EPSILON 
+         real tolerance = EPSILON 
        ) const override;
    
-       integer level(void) const override { return 7; }
+       integer
+       level(void) const override
+       {
+         return 7;
+       }
    
-       std::string type(void) const override { return "triangle"; }
+       std::string
+       type(void) const override
+       {
+         return "triangle";
+       }
    
-       bool isNone(void) const override { return false; }
+       bool
+       isNone(void) const override
+       {
+         return false;
+       }
    
-       bool isPoint(void) const override { return false; }
+       bool
+       isPoint(void) const override
+       {
+         return false;
+       }
    
-       bool isLine(void) const override { return false; }
+       bool
+       isLine(void) const override
+       {
+         return false;
+       }
    
-       bool isRay(void) const override { return false; }
+       bool
+       isRay(void) const override
+       {
+         return false;
+       }
    
-       bool isPlane(void) const override { return false; }
+       bool
+       isPlane(void) const override
+       {
+         return false;
+       }
    
-       bool isSegment(void) const override { return false; }
+       bool
+       isSegment(void) const override
+       {
+         return false;
+       }
    
-       bool isTriangle(void) const override { return true; }
+       bool
+       isTriangle(void) const override
+       {
+         return true;
+       }
    
-       bool isDisk(void) const override { return false; }
+       bool
+       isDisk(void) const override
+       {
+         return false;
+       }
    
-       bool isBall(void) const override { return false; }
+       bool
+       isBall(void) const override
+       {
+         return false;
+       }
    
-       bool isClampable(void) const override { return true; }
+       bool
+       isClampable(void) const override
+       {
+         return true;
+       }
    
-       bool isNonClampable(void) const override { return false; }
+       bool
+       isNonClampable(void) const override
+       {
+         return false;
+       }
    
        bool
        clamp(
-           vec3 &min, 
-           vec3 &max  
+         vec3 &min, 
+         vec3 &max  
        ) const override;
    
        bool
        clamp(
-           real &min_x, 
-           real &min_y, 
-           real &min_z, 
-           real &max_x, 
-           real &max_y, 
-           real &max_z  
+         real &min_x, 
+         real &min_y, 
+         real &min_z, 
+         real &max_x, 
+         real &max_y, 
+         real &max_z  
        ) const override;
    
      }; // class triangle
    
-     static triangle const NAN_TRIANGLE = triangle(NAN_POINT, NAN_POINT, NAN_POINT); 
-     static triangle THROWAWAY_TRIANGLE = triangle(NAN_TRIANGLE);                    
+     static triangle const NAN_TRIANGLE       = triangle(NAN_POINT, NAN_POINT, NAN_POINT); 
+     static triangle       THROWAWAY_TRIANGLE = triangle(NAN_TRIANGLE);                    
    
    } // namespace acme
    

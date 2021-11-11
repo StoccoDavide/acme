@@ -41,59 +41,59 @@ Program Listing for File acme_plane.m
      %>
      methods
        %> Create a new C++ pointer to plane object instance
-       function self = acme_plane( varargin )
-         self.objectHandle = mex_plane( 'new', varargin{:} );
+       function this = acme_plane( varargin )
+         this.objectHandle = mex_plane( 'new', varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Delete C++ pointer to plane object instance
-       function delete( self )
-         mex_plane( 'delete', self.objectHandle );
+       function delete( this )
+         mex_plane( 'delete', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get object type as string
-       function out = type( self )
+       function out = type( this )
          out = 'plane';
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get plane origin as ACME point object
-       function out = getOrigin( self )
+       function out = getOrigin( this )
          out = acme_point();
-         out.copyByHandle( mex_plane( 'getOrigin', self.objectHandle ) );
+         out.copyByHandle( mex_plane( 'getOrigin', this.objectHandle ) );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get plane normal
-       function out = getNormal( self )
-         out = mex_plane( 'getNormal', self.objectHandle );
+       function out = getNormal( this )
+         out = mex_plane( 'getNormal', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set plane origin with an ACME point object
-       function setOrigin( self, other_obj )
-         mex_plane( 'setOrigin', self.objectHandle, other_obj.objectHandle );
+       function setOrigin( this, other_obj )
+         mex_plane( 'setOrigin', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set plane normal
-       function setNormal( self, other_obj )
-         mex_plane( 'setNormal', self.objectHandle, other_obj.objectHandle );
+       function setNormal( this, other_obj )
+         mex_plane( 'setNormal', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy plane object from another plane
-       function copy( self, other_obj )
+       function copy( this, other_obj )
          if (other_obj.type() == "plane")
-           mex_plane( 'copy', self.objectHandle, other_obj.objectHandle );
+           mex_plane( 'copy', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_plane::copy(): other_obj must be an ACME plane object type.');
          end
@@ -102,30 +102,30 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy plane object from another plane handle
-       function copyByHandle( self, handle )
-         mex_plane( 'copy', self.objectHandle, handle );
+       function copyByHandle( this, handle )
+         mex_plane( 'copy', this.objectHandle, handle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Translate plane by vector
-       function translate( self, other_obj )
-         mex_plane( 'translate', self.objectHandle, other_obj.objectHandle );
+       function translate( this, other_obj )
+         mex_plane( 'translate', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform plane by 4x4 affine transformation matrix
-       function transform( self, varargin )
-         mex_plane( 'transform', self.objectHandle, varargin{:} );
+       function transform( this, varargin )
+         mex_plane( 'transform', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if ACME point is inside the plane 
-       function out = isInside( self, other_obj )
+       function out = isInside( this, other_obj )
          if (other_obj.type() == "point")
-           out = mex_plane( 'isInside', self.objectHandle, other_obj.objectHandle );
+           out = mex_plane( 'isInside', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_plane::isInside(): other_obj must be an ACME point object type.');
          end
@@ -134,16 +134,16 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if plane is degenerated
-       function out = isDegenerated( self )
-         out = mex_plane( 'isDegenerated', self.objectHandle );
+       function out = isDegenerated( this )
+         out = mex_plane( 'isDegenerated', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if planes are approximatively equal
-       function out = isApprox( self, other_obj )
+       function out = isApprox( this, other_obj )
          if (other_obj.type() == "plane") 
-           out = mex_plane( 'isApprox', self.objectHandle, other_obj.objectHandle );
+           out = mex_plane( 'isApprox', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_plane::isApprox(): other_obj must be an ACME plane object type.');
          end
@@ -152,16 +152,16 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Normalize normal vectoe
-       function normalize( self )
-         mex_plane( 'normalize', self.objectHandle );
+       function normalize( this )
+         mex_plane( 'normalize', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Distance between an ACME point and plane
-       function out = distance( self, other_obj )
+       function out = distance( this, other_obj )
          if (other_obj.type() == "point") 
-           out = mex_plane( 'distance', self.objectHandle, other_obj.objectHandle );
+           out = mex_plane( 'distance', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_plane::distance(): other_obj must be an ACME point object type.');
          end
@@ -170,9 +170,9 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Squared distance between an ACME point and plane
-       function out = squaredDistance( self, other_obj )
+       function out = squaredDistance( this, other_obj )
          if (other_obj.type() == "point") 
-           out = mex_plane( 'squaredDistance', self.objectHandle, other_obj.objectHandle );
+           out = mex_plane( 'squaredDistance', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_plane::squaredDistance(): other_obj must be an ACME point object type.');
          end
@@ -181,9 +181,9 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Signed distance between an ACME point and plane
-       function out = signedDistance( self, other_obj )
+       function out = signedDistance( this, other_obj )
          if (other_obj.type() == "point") 
-           out = mex_plane( 'signedDistance', self.objectHandle, other_obj.objectHandle );
+           out = mex_plane( 'signedDistance', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_plane::signedDistance(): other_obj must be an ACME point object type.');
          end
@@ -192,50 +192,50 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform plane to normalized vector
-       function out = toNormalizedVector( self )
-         out = mex_plane( 'toNormalizedVector', self.objectHandle );
+       function out = toNormalizedVector( this )
+         out = mex_plane( 'toNormalizedVector', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Swap plane vertices
-       function reverse( self )
-         mex_plane( 'reverse', self.objectHandle );
+       function reverse( this )
+         mex_plane( 'reverse', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if plane is parallel to an ACME object
-       function out = isParallel( self, other_obj )
-         out = mex_plane( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isParallel( this, other_obj )
+         out = mex_plane( 'isParallel', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if plane is orthogonal to an ACME object
-       function out = isOrthogonal( self, other_obj )
-         out = mex_plane( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isOrthogonal( this, other_obj )
+         out = mex_plane( 'isOrthogonal', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if plane is colplanear to an ACME object
-       function out = isColplanear( self, other_obj )
-         out = mex_plane( 'isColplanear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isColplanear( this, other_obj )
+         out = mex_plane( 'isColplanear', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if plane is coplanar to an ACME object 
-       function out = isCoplanar( self, other_obj )
-         out = mex_plane( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isCoplanar( this, other_obj )
+         out = mex_plane( 'isCoplanar', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Intersect plane with an ACME object
-       function out = intersection( self, other_obj )
-         [handle, type] = mex_plane( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = intersection( this, other_obj )
+         [handle, type] = mex_plane( 'intersection', this.objectHandle, other_obj.objectHandle, other_obj.type() );
          out = eval( strcat( 'acme_', type, '()' ) );
          out.copyByHandle( handle );
        end
@@ -243,18 +243,18 @@ Program Listing for File acme_plane.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Display object data
-       function disp( self )
-         disp( [self.getOrigin().get(), self.getNormal()] );
+       function disp( this )
+         disp( [this.getOrigin().get(), this.getNormal()] );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Plot plane object
-       function plot( self, figure_name, color )
+       function plot( this, figure_name, color )
          figure_name;
          hold on;
-         origin = self.getOrigin().get();
-         normal = self.getNormal();
+         origin = this.getOrigin().get();
+         normal = this.getNormal();
          % Find two orthonormal vectors orthogonal to plane normal
          w = null(normal');
          limit = 4;

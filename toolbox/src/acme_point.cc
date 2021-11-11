@@ -35,21 +35,62 @@ namespace acme
 {
 
   /*\
-   |               _       _   
-   |   _ __   ___ (_)_ __ | |_ 
+   |               _       _
+   |   _ __   ___ (_)_ __ | |_
    |  | '_ \ / _ \| | '_ \| __|
-   |  | |_) | (_) | | | | | |_ 
+   |  | |_) | (_) | | | | | |_
    |  | .__/ \___/|_|_| |_|\__|
-   |  |_|                      
+   |  |_|
   \*/
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point::~point(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  point::point(void)
+  {
+    this->Constant(QUIET_NAN);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  point::translate(
+    vec3 const &vector_in)
+  {
+    *this += vector_in;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  point::transform(
+    affine const &affine_in)
+  {
+    *this = affine_in * *this;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  point::isDegenerated(
+    acme::real tolerance)
+    const
+  {
+    return false;
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   point::clamp(
-      acme::vec3 &min,
-      acme::vec3 &max)
-      const
+    acme::vec3 &min,
+    acme::vec3 &max)
+    const
   {
     min = *this;
     max = *this;
@@ -60,13 +101,13 @@ namespace acme
 
   bool
   point::clamp(
-      acme::real &min_x,
-      acme::real &min_y,
-      acme::real &min_z,
-      acme::real &max_x,
-      acme::real &max_y,
-      acme::real &max_z)
-      const
+    acme::real &min_x,
+    acme::real &min_y,
+    acme::real &min_z,
+    acme::real &max_x,
+    acme::real &max_y,
+    acme::real &max_z)
+    const
   {
     min_x = this->x();
     min_y = this->y();

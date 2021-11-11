@@ -12,7 +12,7 @@ Inheritance Relationships
 Base Types
 **********
 
-- ``public Eigen::Matrix< real, 3, 1 >``
+- ``public vec3``
 - ``public acme::entity`` (:ref:`exhale_class_a00149`)
 
 

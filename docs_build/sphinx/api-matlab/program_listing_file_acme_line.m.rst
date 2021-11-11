@@ -41,59 +41,59 @@ Program Listing for File acme_line.m
      %>
      methods
        %> Create a new C++ pointer to line object instance
-       function self = acme_line( varargin )
-         self.objectHandle = mex_line( 'new', varargin{:} );
+       function this = acme_line( varargin )
+         this.objectHandle = mex_line( 'new', varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Delete C++ pointer to line object instance
-       function delete( self )
-         mex_line( 'delete', self.objectHandle );
+       function delete( this )
+         mex_line( 'delete', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get object type as string
-       function out = type( self )
+       function out = type( this )
          out = 'line';
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get line origin as ACME point object
-       function out = getOrigin( self )
+       function out = getOrigin( this )
          out = acme_point();
-         out.copyByHandle( mex_line( 'getOrigin', self.objectHandle ) );
+         out.copyByHandle( mex_line( 'getOrigin', this.objectHandle ) );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get line direction
-       function out = getDirection( self )
-         out = mex_line( 'getDirection', self.objectHandle );
+       function out = getDirection( this )
+         out = mex_line( 'getDirection', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set line origin with an ACME point object
-       function setOrigin( self, other_obj )
-         mex_line( 'setOrigin', self.objectHandle, other_obj.objectHandle );
+       function setOrigin( this, other_obj )
+         mex_line( 'setOrigin', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set line direction
-       function setDirection( self, other_obj )
-         mex_line( 'setDirection', self.objectHandle, other_obj.objectHandle );
+       function setDirection( this, other_obj )
+         mex_line( 'setDirection', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy line object from another line
-       function copy( self, other_obj )
+       function copy( this, other_obj )
          if (other_obj.type() == "line")
-           mex_line( 'copy', self.objectHandle, other_obj.objectHandle );
+           mex_line( 'copy', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_line::copy(): other_obj must be an ACME line object type.');
          end
@@ -102,30 +102,30 @@ Program Listing for File acme_line.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy line object from another line handle
-       function copyByHandle( self, handle )
-         mex_line( 'copy', self.objectHandle, handle );
+       function copyByHandle( this, handle )
+         mex_line( 'copy', this.objectHandle, handle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Translate line by vector
-       function translate( self, other_obj )
-         mex_line( 'translate', self.objectHandle, other_obj.objectHandle );
+       function translate( this, other_obj )
+         mex_line( 'translate', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform line by 4x4 affine transformation matrix
-       function transform( self, varargin )
-         mex_line( 'transform', self.objectHandle, varargin{:} );
+       function transform( this, varargin )
+         mex_line( 'transform', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if ACME point is inside the line 
-       function out = isInside( self, other_obj )
+       function out = isInside( this, other_obj )
          if (other_obj.type() == "point")
-           out = mex_line( 'isInside', self.objectHandle, other_obj.objectHandle );
+           out = mex_line( 'isInside', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_line::isInside(): other_obj must be an ACME point object type.');
          end
@@ -134,16 +134,16 @@ Program Listing for File acme_line.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if line is degenerated
-       function out = isDegenerated( self )
-         out = mex_line( 'isDegenerated', self.objectHandle );
+       function out = isDegenerated( this )
+         out = mex_line( 'isDegenerated', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if lines are approximatively equal
-       function out = isApprox( self, other_obj )
+       function out = isApprox( this, other_obj )
          if (other_obj.type() == "line") 
-           out = mex_line( 'isApprox', self.objectHandle, other_obj.objectHandle );
+           out = mex_line( 'isApprox', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_line::isApprox(): other_obj must be an ACME line object type.');
          end
@@ -152,64 +152,64 @@ Program Listing for File acme_line.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Normalize direction vector 
-       function normalize( self )
-         mex_line( 'normalize', self.objectHandle );
+       function normalize( this )
+         mex_line( 'normalize', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform line to vector
-       function out = toVector( self )
-         out = mex_line( 'toVector', self.objectHandle );
+       function out = toVector( this )
+         out = mex_line( 'toVector', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform line to normalized vector
-       function out = toNormalizedVector( self )
-         out = mex_line( 'toNormalizedVector', self.objectHandle );
+       function out = toNormalizedVector( this )
+         out = mex_line( 'toNormalizedVector', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Swap line direction
-       function reverse( self )
-         mex_line( 'reverse', self.objectHandle );
+       function reverse( this )
+         mex_line( 'reverse', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if line is parallel to an ACME object
-       function out = isParallel( self, other_obj )
-         out = mex_line( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isParallel( this, other_obj )
+         out = mex_line( 'isParallel', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if line is orthogonal to an ACME object
-       function out = isOrthogonal( self, other_obj )
-         out = mex_line( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isOrthogonal( this, other_obj )
+         out = mex_line( 'isOrthogonal', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if line is collinear to an ACME object
-       function out = isCollinear( self, other_obj )
-         out = mex_line( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isCollinear( this, other_obj )
+         out = mex_line( 'isCollinear', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if line is coplanar to an ACME object 
-       function out = isCoplanar( self, other_obj )
-         out = mex_line( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isCoplanar( this, other_obj )
+         out = mex_line( 'isCoplanar', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Intersect line with an ACME object
-       function out = intersection( self, other_obj )
-         [handle, type] = mex_line( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = intersection( this, other_obj )
+         [handle, type] = mex_line( 'intersection', this.objectHandle, other_obj.objectHandle, other_obj.type() );
          out = eval( strcat( 'acme_', type, '()' ) );
          out.copyByHandle( handle );
        end
@@ -217,18 +217,18 @@ Program Listing for File acme_line.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Display object data
-       function disp( self )
-         disp( [self.getOrigin().get(), self.getDirection()] );
+       function disp( this )
+         disp( [this.getOrigin().get(), this.getDirection()] );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Plot line object
-       function plot( self, figure_name, color )
+       function plot( this, figure_name, color )
          figure_name;
          hold on;
-         origin = self.getOrigin().get();
-         direction = self.getDirection();
+         origin = this.getOrigin().get();
+         direction = this.getDirection();
          xt = @(t) origin(1) + t*direction(1);
          yt = @(t) origin(2) + t*direction(2);
          zt = @(t) origin(3) + t*direction(3);

@@ -45,25 +45,37 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ray::ray(
-      real origin_x,
-      real origin_y,
-      real origin_z,
-      real direction_x,
-      real direction_y,
-      real direction_z)
-      : m_origin(origin_x, origin_y, origin_z),
-        m_direction(direction_x, direction_y, direction_z)
+  ray::~ray(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ray::ray(void)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   ray::ray(
-      point const &origin,
-      vec3 const &direction)
-      : m_origin(origin),
-        m_direction(direction)
+    real origin_x,
+    real origin_y,
+    real origin_z,
+    real direction_x,
+    real direction_y,
+    real direction_z)
+    : m_origin(origin_x, origin_y, origin_z),
+      m_direction(direction_x, direction_y, direction_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ray::ray(
+    point const &origin,
+    vec3 const  &direction)
+    : m_origin(origin),
+      m_direction(direction)
   {
   }
 
@@ -71,7 +83,7 @@ namespace acme
 
   ray &
   ray::operator=(
-      ray const &ray_in)
+    ray const &ray_in)
   {
     if (this == &ray_in)
     {
@@ -79,7 +91,7 @@ namespace acme
     }
     else
     {
-      this->m_origin = ray_in.m_origin;
+      this->m_origin    = ray_in.m_origin;
       this->m_direction = ray_in.m_direction;
       return *this;
     }
@@ -89,9 +101,9 @@ namespace acme
 
   bool
   ray::isApprox(
-      ray const &ray_in,
-      real tolerance)
-      const
+    ray const &ray_in,
+    real       tolerance)
+    const
   {
     return this->m_origin.isApprox(ray_in.m_origin, tolerance) &&
            this->m_direction.isApprox(ray_in.m_direction, tolerance);
@@ -101,7 +113,7 @@ namespace acme
 
   point const &
   ray::origin(void)
-      const
+    const
   {
     return this->m_origin;
   }
@@ -110,7 +122,7 @@ namespace acme
 
   vec3 const &
   ray::direction(void)
-      const
+    const
   {
     return this->m_direction;
   }
@@ -143,7 +155,7 @@ namespace acme
 
   vec3
   ray::toVector(void)
-      const
+    const
   {
     return this->m_direction;
   }
@@ -152,7 +164,7 @@ namespace acme
 
   vec3
   ray::toUnitVector(void)
-      const
+    const
   {
     return this->m_direction.normalized();
   }
@@ -169,7 +181,7 @@ namespace acme
 
   void
   ray::translate(
-      vec3 const &vector_in)
+    vec3 const &vector_in)
   {
     this->m_origin = vector_in + this->m_origin;
   }
@@ -178,7 +190,7 @@ namespace acme
 
   void
   ray::transform(
-      affine const &affine_in)
+    affine const &affine_in)
   {
     this->m_origin.transform(affine_in);
     acme::transform(this->m_direction, affine_in);
@@ -188,21 +200,19 @@ namespace acme
 
   bool
   ray::isInside(
-      point const &point_in,
-      real tolerance)
-      const
+    point const &point_in,
+    real         tolerance)
+    const
   {
-    return acme::isApprox((point_in - this->m_origin).normalized().cross(this->m_direction).norm(),
-                          0.0,
-                          tolerance);
+    return acme::isApprox((point_in - this->m_origin).normalized().cross(this->m_direction).norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   ray::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return acme::isApprox(this->m_direction.norm(), 0.0, tolerance);
   }
@@ -211,9 +221,9 @@ namespace acme
 
   bool
   ray::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     return this->isClampable();
   }
@@ -222,13 +232,13 @@ namespace acme
 
   bool
   ray::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     return this->isClampable();
   }

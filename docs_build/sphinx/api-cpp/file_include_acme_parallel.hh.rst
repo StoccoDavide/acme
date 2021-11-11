@@ -70,3 +70,10 @@ Namespaces
 
 - :ref:`namespace_acme`
 
+
+Defines
+-------
+
+
+- :ref:`exhale_define_a00059_1a41ee8e9d89e4bc5c228a597de8892fcc`
+

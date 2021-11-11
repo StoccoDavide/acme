@@ -41,81 +41,81 @@ Program Listing for File acme_aabb.m
      %>
      methods
        %> Create a new C++ pointer to disk object instance
-       function self = acme_aabb( varargin )
-         self.objectHandle = mex_aabb( 'new', varargin{:} );
+       function this = acme_aabb( varargin )
+         this.objectHandle = mex_aabb( 'new', varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Create C++ pointer to disk object instance
-       function delete( self )
-         mex_aabb( 'delete', self.objectHandle );
+       function delete( this )
+         mex_aabb( 'delete', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get minimum aabb as ACME point
-       function out = getMin( self )
+       function out = getMin( this )
          out = acme_point();
-         out.copyByHandle( mex_aabb( 'getMin', self.objectHandle ) );
+         out.copyByHandle( mex_aabb( 'getMin', this.objectHandle ) );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get aabb minimum point X value
-       function out = getMinX( self )
-         out = mex_aabb( 'getMinX', self.objectHandle );
+       function out = getMinX( this )
+         out = mex_aabb( 'getMinX', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get aabb minimum point X value
-       function out = getMinY( self )
-         out = mex_aabb( 'getMinY', self.objectHandle );
+       function out = getMinY( this )
+         out = mex_aabb( 'getMinY', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get aabb minimum point Z value
-       function out = getMinZ( self )
-         out = mex_aabb( 'getMinZ', self.objectHandle );
+       function out = getMinZ( this )
+         out = mex_aabb( 'getMinZ', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get maximum aabb as ACME point
-       function out = getMax( self )
+       function out = getMax( this )
          out = acme_point();
-         out.copyByHandle( mex_aabb( 'getMax', self.objectHandle ) );
+         out.copyByHandle( mex_aabb( 'getMax', this.objectHandle ) );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get aabb maximum point X value
-       function out = getMaxX( self )
-         out = mex_aabb( 'getMaxX', self.objectHandle );
+       function out = getMaxX( this )
+         out = mex_aabb( 'getMaxX', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get aabb maximum point X value
-       function out = getMaxY( self )
-         out = mex_aabb( 'getMaxY', self.objectHandle );
+       function out = getMaxY( this )
+         out = mex_aabb( 'getMaxY', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get aabb maximum point Z value
-       function out = getMaxZ( self )
-         out = mex_aabb( 'getMaxZ', self.objectHandle );
+       function out = getMaxZ( this )
+         out = mex_aabb( 'getMaxZ', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set minimum aabb as ACME point
-       function setMin( self, other_obj )
+       function setMin( this, other_obj )
          if (other_obj.type() == "point")
-           mex_aabb( 'setMin', self.objectHandle, other_obj.objectHandle );
+           mex_aabb( 'setMin', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_aabb::setMin(): other_obj must be an ACME point object type.');
          end
@@ -124,30 +124,30 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set aabb minimum point X value
-       function setMinX( self, value )
-         mex_aabb( 'setMinX', self.objectHandle, value );
+       function setMinX( this, value )
+         mex_aabb( 'setMinX', this.objectHandle, value );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set aabb minimum point X value
-       function setMinY( self, value )
-         mex_aabb( 'setMinY', self.objectHandle, value );
+       function setMinY( this, value )
+         mex_aabb( 'setMinY', this.objectHandle, value );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set aabb minimum point Z value
-       function setMinZ( self, value )
-         mex_aabb( 'setMinZ', self.objectHandle, value );
+       function setMinZ( this, value )
+         mex_aabb( 'setMinZ', this.objectHandle, value );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set maximum aabb as ACME point
-       function setMax( self, other_obj )
+       function setMax( this, other_obj )
          if (other_obj.type() == "point")
-           mex_aabb( 'setMax', self.objectHandle, other_obj.objectHandle );
+           mex_aabb( 'setMax', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_aabb::setMax(): other_obj must be an ACME point object type.');
          end
@@ -156,30 +156,30 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set aabb maximum point X value
-       function setMaxX( self, value )
-         mex_aabb( 'setMaxX', self.objectHandle, value );
+       function setMaxX( this, value )
+         mex_aabb( 'setMaxX', this.objectHandle, value );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set aabb maximum point X value
-       function setMaxY( self, value )
-         mex_aabb( 'setMaxY', self.objectHandle, value );
+       function setMaxY( this, value )
+         mex_aabb( 'setMaxY', this.objectHandle, value );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set aabb maximum point Z value
-       function setMaxZ( self )
-         mex_aabb( 'setMaxZ', self.objectHandle, value );
+       function setMaxZ( this )
+         mex_aabb( 'setMaxZ', this.objectHandle, value );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy aabb object from another aabb
-       function copy( self, other_obj )
+       function copy( this, other_obj )
          if (other_obj.type() == "aabb")
-           mex_aabb( 'copy', self.objectHandle, other_obj.objectHandle );
+           mex_aabb( 'copy', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_aabb::copy(): other_obj must be an ACME aabb object type.');
          end
@@ -188,23 +188,23 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy aabb object from another aabb handle
-       function copyByHandle( self, handle )
-         mex_aabb( 'copy', self.objectHandle, handle );
+       function copyByHandle( this, handle )
+         mex_aabb( 'copy', this.objectHandle, handle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Translate aabb by vector
-       function translate( self, other_obj )
-         mex_aabb( 'translate', self.objectHandle, other_obj.objectHandle );
+       function translate( this, other_obj )
+         mex_aabb( 'translate', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if ACME point is inside the aabb 
-       function out = isInside( self, other_obj )
+       function out = isInside( this, other_obj )
          if (other_obj.type() == "point")
-           out = mex_aabb( 'isInside', self.objectHandle, other_obj.objectHandle );
+           out = mex_aabb( 'isInside', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_aabb::isInside(): other_obj must be an ACME point object type.');
          end
@@ -213,16 +213,16 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if aabb is degenerated
-       function out = isDegenerated( self )
-         out = mex_aabb( 'isDegenerated', self.objectHandle );
+       function out = isDegenerated( this )
+         out = mex_aabb( 'isDegenerated', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if aabbs are approximatively equal
-       function out = isApprox( self, other_obj )
+       function out = isApprox( this, other_obj )
          if (other_obj.type() == "aabb") 
-           out = mex_aabb( 'isApprox', self.objectHandle, other_obj.objectHandle );
+           out = mex_aabb( 'isApprox', this.objectHandle, other_obj.objectHandle );
          else
             error('mex_aabb::isApprox(): other_obj must be an ACME aabb object type.');
          end
@@ -231,23 +231,23 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Return aabb id
-       function out = id( self )
-         out = mex_aabb( 'id', self.objectHandle );
+       function out = id( this )
+         out = mex_aabb( 'id', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Return aabb position
-       function out = pos( self )
-        out = mex_aabb( 'pos', self.objectHandle );
+       function out = pos( this )
+        out = mex_aabb( 'pos', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Perform intersection with another ACME entity and return intersection object
-       function out = intersection( self, other_obj )
+       function out = intersection( this, other_obj )
          if (other_obj.type() == "aabb") 
-           out = mex_aabb( 'intersection', self.objectHandle, other_obj.objectHandle );
+           out = mex_aabb( 'intersection', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_aabb::intersection(): other_obj must be an ACME aabb object type.');
          end
@@ -256,9 +256,9 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if aabb intersects with another ACME entity  and return boolean
-       function out = intersects( self, other_obj )
+       function out = intersects( this, other_obj )
          if (other_obj.type() == "aabb") 
-           out = mex_aabb( 'intersects', self.objectHandle, other_obj.objectHandle );
+           out = mex_aabb( 'intersects', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_aabb::intersects(): other_obj must be an ACME aabb object type.');
          end
@@ -267,18 +267,18 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Display object data
-       function disp( self )
-         disp( [ self.getMin().get(),  self.getMax().get() ] );
+       function disp( this )
+         disp( [ this.getMin().get(),  this.getMax().get() ] );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Plot disk object
-       function plot( self, figure_name, color )
+       function plot( this, figure_name, color )
          figure_name;
          hold on;
-         min = self.getMin().get();
-         max = self.getMax().get();
+         min = this.getMin().get();
+         max = this.getMax().get();
          plot3( [min(1), max(1)], ... % 01
                 [min(2), min(2)], ...
                 [min(3), min(3)], ...
@@ -358,7 +358,7 @@ Program Listing for File acme_aabb.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get object type as string
-       function out = type( self )
+       function out = type( this )
          out = 'aabb';
        end
      end

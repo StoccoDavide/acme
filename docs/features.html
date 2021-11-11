@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ACME general features &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -78,7 +77,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="acme-general-features">
+  <div class="section" id="acme-general-features">
 <h1>ACME general features<a class="headerlink" href="#acme-general-features" title="Permalink to this headline">¶</a>
 </h1>
 <p>For both C++ library and MATLAB mex interface, ACME geometrical entities are
@@ -100,7 +99,7 @@ organised in classes with the following structure:</p>
 </ul>
 <p>where the symbol &lt; indicates the public inheritance. Let us get a closer and detailed
 look to each of these classes.</p>
-<section id="class-entity">
+<div class="section" id="class-entity">
 <h2>Class <cite>entity</cite><a class="headerlink" href="#class-entity" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>entity</cite> class is the most basic class. Its aim is to provide a common framework
@@ -122,8 +121,8 @@ the geometric entity itself are the following:</p>
 <li><p>virtual method <cite>isClampable</cite> which returns a <cite>bool</cite> type;</p></li>
 <li><p>virtual method <cite>clamp</cite> which returns maximum aminimum values alog the three axes.</p></li>
 </ul>
-</section>
-<section id="class-none">
+</div>
+<div class="section" id="class-none">
 <h2>Class <cite>none</cite><a class="headerlink" href="#class-none" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>none</cite> class is a publicly inherited class from <cite>entity</cite>. Its aim is to represent
@@ -131,8 +130,8 @@ nothing than nothing. If the C++ polymorphic behaviour is
 exploited this class will represent the null intersection between objects. The <cite>none</cite>
 class is a non-abstract class with no members. The implemented methods only override
 the virtual ones defined in the base class <cite>entity</cite>.</p>
-</section>
-<section id="class-line">
+</div>
+<div class="section" id="class-line">
 <h2>Class <cite>line</cite><a class="headerlink" href="#class-line" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>line</cite> class publicly inherit from <cite>entity</cite> and it represents a line the 3D space.
@@ -158,8 +157,8 @@ It is built out of two members:</p>
 <li><p><cite>transform</cite>: transform line with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the line.</p></li>
 </ul>
-</section>
-<section id="class-ray">
+</div>
+<div class="section" id="class-ray">
 <h2>Class <cite>ray</cite><a class="headerlink" href="#class-ray" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>ray</cite> class publicly inherit from <cite>entity</cite> and it represents a ray the 3D space.
@@ -185,8 +184,8 @@ It is very similar to the <cite>line</cite> class and it built out of two member
 <li><p><cite>transform</cite>: transform ray with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the ray.</p></li>
 </ul>
-</section>
-<section id="class-plane">
+</div>
+<div class="section" id="class-plane">
 <h2>Class <cite>plane</cite><a class="headerlink" href="#class-plane" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>plane</cite> class publicly inherit from <cite>entity</cite> and it represents a generic
@@ -216,8 +215,8 @@ plane the 3D space. It is built out of two members:</p>
 <li><p><cite>squaredDistance</cite>: squared distance between point and plane;</p></li>
 <li><p><cite>signedDistance</cite>: signed distance between point and plane.</p></li>
 </ul>
-</section>
-<section id="class-segment">
+</div>
+<div class="section" id="class-segment">
 <h2>Class <cite>segment</cite><a class="headerlink" href="#class-segment" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>segment</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -240,8 +239,8 @@ of type <cite>point</cite>.</p>
 <li><p><cite>transform</cite>: transform segment with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the segment.</p></li>
 </ul>
-</section>
-<section id="class-triangle">
+</div>
+<div class="section" id="class-triangle">
 <h2>Class <cite>triangle</cite><a class="headerlink" href="#class-triangle" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>triangle</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -269,8 +268,8 @@ of type <cite>point</cite>.</p>
 <li><p><cite>transform</cite>: transform triangle with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the triangle.</p></li>
 </ul>
-</section>
-<section id="class-disk">
+</div>
+<div class="section" id="class-disk">
 <h2>Class <cite>disk</cite><a class="headerlink" href="#class-disk" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>disk</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -301,8 +300,8 @@ disk the 3D space. It is built out of three members:</p>
 <li><p><cite>transform</cite>: transform disk with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
 </ul>
-</section>
-<section id="class-ball">
+</div>
+<div class="section" id="class-ball">
 <h2>Class <cite>ball</cite><a class="headerlink" href="#class-ball" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>ball</cite> class publicly inherit from <cite>entity</cite> and represents a generic
@@ -327,8 +326,8 @@ ball the 3D space. It is built out of three members:</p>
 <li><p><cite>transform</cite>: transform ball with affine transformation matrix;</p></li>
 <li><p><cite>isInside</cite>: check whether the point is inside the ball.</p></li>
 </ul>
-</section>
-<section id="class-collection">
+</div>
+<div class="section" id="class-collection">
 <h2>Class <cite>collection</cite><a class="headerlink" href="#class-collection" title="Permalink to this headline">¶</a>
 </h2>
 <p>The class <cite>collection</cite> represents a generic set of geometrical entites.
@@ -342,8 +341,8 @@ numer of eninties with only few commands. thus, it is very useful with large set
 of heteregeneous objects. Moreover, implemented methods also include sorting,
 counting and removal of specific ojects types. Additional objects can be pushed
 back or subtituted with already exixting ones.</p>
-</section>
-<section id="class-aabb">
+</div>
+<div class="section" id="class-aabb">
 <h2>Class <cite>aabb</cite><a class="headerlink" href="#class-aabb" title="Permalink to this headline">¶</a>
 </h2>
 <p>The class <cite>aabb</cite> represents a generic axis-aligned bounding box in the 3D space.
@@ -375,8 +374,8 @@ It is built out of two members:</p>
 </ul>
 <p>Notice that <cite>aabb</cite> is bot considered to be a geometrical entity and thus there are
 no external functions implemented for intersections with the other geometrical entities.</p>
-</section>
-<section id="class-aabbtree">
+</div>
+<div class="section" id="class-aabbtree">
 <h2>Class <cite>AABBtree</cite><a class="headerlink" href="#class-aabbtree" title="Permalink to this headline">¶</a>
 </h2>
 <p>The <cite>AABBtree</cite> represents a generic axis-aligned bouding box tree class container.
@@ -394,8 +393,8 @@ It is built out of two members:</p>
 <li><p><cite>collision</cite>: template function to check if two AABB tree collide;</p></li>
 <li><p><cite>intersection</cite>: compute all the intersection leafs of AABB trees.</p></li>
 </ul>
-</section>
-<section id="external-functions">
+</div>
+<div class="section" id="external-functions">
 <h2>External functions<a class="headerlink" href="#external-functions" title="Permalink to this headline">¶</a>
 </h2>
 <p>Objects defined by the previous classes can interact between them through external
@@ -410,8 +409,8 @@ entities <em>collide</em>;</p></li>
 </ul>
 <p>Each of these functions are overloaded and they can take objects or raw pointers
 to <cite>entity</cite> as input.</p>
-</section>
-</section>
+</div>
+</div>
 
 
 
@@ -506,7 +505,7 @@ to <cite>entity</cite> as input.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

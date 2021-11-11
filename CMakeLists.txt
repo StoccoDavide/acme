@@ -1,38 +1,38 @@
-# *******************************************************************
-#
-# The ACME project
-#                                                                    
-# Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.      
-#                                                                    
-# The ACME project and its components are supplied under the terms of
-# the open source BSD 2-Clause License. The contents of the ACME     
-# project and its components may not be copied or disclosed except in
-# accordance with the terms of the BSD 2-Clause License.             
-#                                                                    
-# URL: https://opensource.org/licenses/BSD-2-Clause                  
-#                                                                    
-#    Davide Stocco                                                   
-#    Department of Industrial Engineering                            
-#    University of Trento                                            
-#    e-mail: davide.stocco@unitn.it                                  
-#                                                                    
-#    Enrico Bertolazzi                                               
-#    Department of Industrial Engineering                            
-#    University of Trento                                            
-#    e-mail: enrico.bertolazzi@unitn.it                              
-#                                                                    
-# *******************************************************************
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                     #
+# The ACME project                                                    #
+#                                                                     #
+# Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       #
+#                                                                     #
+# The ACME project and its components are supplied under the terms of #
+# the open source BSD 2-Clause License. The contents of the ACME      #
+# project and its components may not be copied or disclosed except in #
+# accordance with the terms of the BSD 2-Clause License.              #
+#                                                                     #
+# URL: https://opensource.org/licenses/BSD-2-Clause                   #
+#                                                                     #
+#    Davide Stocco                                                    #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: davide.stocco@unitn.it                                   #
+#                                                                     #
+#    Enrico Bertolazzi                                                #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: enrico.bertolazzi@unitn.it                               #
+#                                                                     #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 cmake_minimum_required(VERSION 3.2.0)
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
-#set(CMAKE_INSTALL_MESSAGE NEVER)
+# set(CMAKE_INSTALL_MESSAGE NEVER)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 if(ENABLE_CTEST)
   enable_testing()
 endif()
 
-# get version from the git tag
+# Get version from the git tag
 execute_process(
   COMMAND git describe --tags --abbrev=0 OUTPUT_VARIABLE VERSION
 )
@@ -81,7 +81,7 @@ foreach (F ${S})
 endforeach (F ${S})
 
 
-# DEPENDENCIES (TRY TO USE ALREADY COMPILED SUBMODULE IN LARGE PROJECT)
+# Dependencies (try to use already complied submodule on large project)
 set(UPDIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(DEPEND_TARGETS)
 find_library(
@@ -127,11 +127,11 @@ if(BUILD_SHARED)
     PUBLIC_HEADER "${HEADERS}"
     POSITION_INDEPENDENT_CODE ON
   )
-  #target_include_directories(
-  #  ${DYNAMIC_PROJECT} PUBLIC 
-  #  "$<BUILD_INTERFACE:${Clothoids_DIR}>"
-  #  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
-  #)
+  # target_include_directories(
+  #   ${DYNAMIC_PROJECT} PUBLIC 
+  #   "$<BUILD_INTERFACE:${Clothoids_DIR}>"
+  #   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+  # )
   target_link_libraries( ${DYNAMIC_PROJECT} PUBLIC ${UTILS} )
   if(WIN32)
     set_target_properties(
@@ -158,7 +158,7 @@ if(BUILD_EXECUTABLE OR ENABLE_CTEST)
   endforeach()
 endif()
 
-# INSTALL TARGETS
+# Install targets
 set(INSTALL_TARGETS ${STATIC_PROJECT})
 if(BUILD_SHARED)
   set(INSTALL_TARGETS ${INSTALL_TARGETS} ${DYNAMIC_PROJECT})

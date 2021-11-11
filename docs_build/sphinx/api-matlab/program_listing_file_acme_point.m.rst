@@ -41,79 +41,79 @@ Program Listing for File acme_point.m
      %>
      methods
        %> Create C++ pointer to triangle object instance
-       function self = acme_point( varargin )
-         self.objectHandle = mex_point( 'new', varargin{:}  );
+       function this = acme_point( varargin )
+         this.objectHandle = mex_point( 'new', varargin{:}  );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Delete C++ pointer to triangle object instance
-       function delete( self )
-         mex_point( 'delete', self.objectHandle );
+       function delete( this )
+         mex_point( 'delete', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get point X axis component
-       function out = getX( self )
-         out = mex_point( 'getX', self.objectHandle );
+       function out = getX( this )
+         out = mex_point( 'getX', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get point Y axis component
-       function out = getY( self )
-         out = mex_point( 'getY', self.objectHandle );
+       function out = getY( this )
+         out = mex_point( 'getY', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get point Z axis component
-       function out = getZ( self )
-         out = mex_point( 'getZ', self.objectHandle );
+       function out = getZ( this )
+         out = mex_point( 'getZ', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get point axes components
-       function out = get( self )
-         out = mex_point( 'get', self.objectHandle );
+       function out = get( this )
+         out = mex_point( 'get', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set point X axis component
-       function setX( self, varargin )
-         mex_point( 'setX', self.objectHandle, varargin{:} );
+       function setX( this, varargin )
+         mex_point( 'setX', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set point Y axis component
-       function setY( self, varargin )
-         mex_point( 'setY', self.objectHandle, varargin{:} );
+       function setY( this, varargin )
+         mex_point( 'setY', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set point Z axis component
-       function setZ( self, varargin )
-         mex_point( 'setZ', self.objectHandle, varargin{:} );
+       function setZ( this, varargin )
+         mex_point( 'setZ', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Set point axes components
-       function set( self, varargin )
-         mex_point( 'set', self.objectHandle, varargin{:} );
+       function set( this, varargin )
+         mex_point( 'set', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy point object from another point
-       function copy( self, other_obj )
+       function copy( this, other_obj )
          if (other_obj.type() == "point")
-           mex_point( 'copy', self.objectHandle, other_obj.objectHandle );
+           mex_point( 'copy', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_point::copy(): other_obj must be an ACME point object type.');
          end
@@ -122,57 +122,57 @@ Program Listing for File acme_point.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy point object from another point handle
-       function copyByHandle( self, handle )
-         mex_point( 'copy', self.objectHandle, handle );
+       function copyByHandle( this, handle )
+         mex_point( 'copy', this.objectHandle, handle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Translate point by vector
-       function translate( self, other_obj )
-         mex_point( 'translate', self.objectHandle, other_obj.objectHandle );
+       function translate( this, other_obj )
+         mex_point( 'translate', this.objectHandle, other_obj.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Transform point by 4x4 affine transformation matrix
-       function transform( self, varargin )
-         mex_point( 'transform', self.objectHandle, varargin{:} );
+       function transform( this, varargin )
+         mex_point( 'transform', this.objectHandle, varargin{:} );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if point is parallel to an ACME object
-       function out = isParallel( self, other_obj )
-         out = mex_point( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isParallel( this, other_obj )
+         out = mex_point( 'isParallel', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if point is orthogonal to an ACME object
-       function out = isOrthogonal( self, other_obj )
-         out = mex_point( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isOrthogonal( this, other_obj )
+         out = mex_point( 'isOrthogonal', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if point is collinear to an ACME object
-       function out = isCollinear( self, other_obj )
-         out = mex_point( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isCollinear( this, other_obj )
+         out = mex_point( 'isCollinear', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Check if point is coplanar to an ACME object 
-       function out = isCoplanar( self, other_obj )
-         out = mex_point( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = isCoplanar( this, other_obj )
+         out = mex_point( 'isCoplanar', this.objectHandle, other_obj.objectHandle, other_obj.type() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Intersect point with an ACME object
-       function out = intersection( self, other_obj )
-         [handle, type] = mex_point( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+       function out = intersection( this, other_obj )
+         [handle, type] = mex_point( 'intersection', this.objectHandle, other_obj.objectHandle, other_obj.type() );
          out = eval( strcat( 'acme_', type, '()' ) );
          out.copyByHandle( handle );
        end
@@ -180,24 +180,24 @@ Program Listing for File acme_point.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Display object data
-       function disp( self )
-         disp( self.get() );
+       function disp( this )
+         disp( this.get() );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Plot point object
-       function plot( self, figure_name, color )
+       function plot( this, figure_name, color )
          figure_name;
          hold on;
-         scatter3(self.getX(), self.getY(), self.getZ(), color, 'filled');
+         scatter3(this.getX(), this.getY(), this.getZ(), color, 'filled');
          hold off;
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get object type as string
-       function out = type( self )
+       function out = type( this )
          out = 'point';
        end
      end

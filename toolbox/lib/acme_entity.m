@@ -35,7 +35,7 @@ classdef acme_entity < handle
   %
   %> Create a new entity object instance
   methods
-    function self = acme_entity( )
+    function this = acme_entity( )
     end
   end
   %
@@ -43,6 +43,6 @@ classdef acme_entity < handle
   %
   %> Get object type as string (virtual method)
   methods (Abstract)
-    type( self )
+    type( this )
   end
 end

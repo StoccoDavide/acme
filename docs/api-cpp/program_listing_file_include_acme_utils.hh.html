@@ -6,8 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Program Listing for File acme_utils.hh &#8212; ACME v0.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -70,7 +69,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="program-listing-for-file-acme-utils-hh">
+  <div class="section" id="program-listing-for-file-acme-utils-hh">
 <span id="program-listing-file-include-acme-utils-hh"></span><h1>Program Listing for File acme_utils.hh<a class="headerlink" href="#program-listing-for-file-acme-utils-hh" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file_include_acme_utils.hh.html#file-include-acme-utils-hh"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/acme_utils.hh</span></code>)</p>
@@ -100,106 +99,108 @@
 <span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(***********************************************************************)</span>
-<span class="cm">*/</span><span class="w"></span>
+<span class="cm">*/</span>
 
+
+<span class="cp">#pragma once</span>
 
 <span class="cp">#ifndef INCLUDE_ACME_UTILS</span>
 <span class="cp">#define INCLUDE_ACME_UTILS</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_disk.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_line.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_point.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_ball.hh"</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_aabb.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_ball.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_disk.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_line.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_plane.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_point.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_ray.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_segment.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"acme_triangle.hh"</span><span class="cp"></span>
 
-<span class="k">namespace</span><span class="w"> </span><span class="nn">acme</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="cm">/*\</span>
-<span class="cm">   |         _   _ _ _ _   _</span>
-<span class="cm">   |   _   _| |_(_) (_) |_(_) ___  ___</span>
-<span class="cm">   |  | | | | __| | | | __| |/ _ \/ __|</span>
-<span class="cm">   |  | |_| | |_| | | | |_| |  __/\__ \</span>
-<span class="cm">   |   \__,_|\__|_|_|_|\__|_|\___||___/</span>
+<span class="k">namespace</span> <span class="n">acme</span>
+<span class="p">{</span>
+  <span class="cm">/*\</span>
+<span class="cm">   |   _   _ _   _ _</span>
+<span class="cm">   |  | | | | |_(_) |___</span>
+<span class="cm">   |  | | | | __| | / __|</span>
+<span class="cm">   |  | |_| | |_| | \__ \</span>
+<span class="cm">   |   \___/ \__|_|_|___/</span>
 <span class="cm">   |</span>
-<span class="cm">  \*/</span><span class="w"></span>
+<span class="cm">  \*/</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">vec3</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">point</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span>  <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">line</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">ray</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">ray</span> <span class="k">const</span>  <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">plane</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span>  <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">segment</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span>    <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">aabb</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">triangle</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span>     <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">disk</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">ball</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="w">  </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
-<span class="w">  </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">      </span><span class="n">out_stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">os</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">affine</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">obj</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+  <span class="n">out_stream</span> <span class="o">&amp;</span>
+  <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+    <span class="n">out_stream</span>   <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span>
+    <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">obj</span>
+  <span class="p">);</span>
 
-<span class="p">}</span><span class="w"> </span><span class="c1">// namespace acme</span>
+<span class="p">}</span> <span class="c1">// namespace acme</span>
 
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-</section>
+</div>
 
 
 
@@ -273,7 +274,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Davide Stocco.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

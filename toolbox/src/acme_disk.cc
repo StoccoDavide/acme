@@ -35,48 +35,59 @@ namespace acme
 {
 
   /*\
-   |        _          _      
-   |    ___(_)_ __ ___| | ___ 
-   |   / __| | '__/ __| |/ _ \
-   |  | (__| | | | (__| |  __/
-   |   \___|_|_|  \___|_|\___|
-   |                          
+   |       _ _     _
+   |    __| (_)___| | __
+   |   / _` | / __| |/ /
+   |  | (_| | \__ \   <
+   |   \__,_|_|___/_|\_\
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  disk::disk(
-      real radius,
-      plane const &plane)
-      : m_radius(radius),
-        m_plane(plane)
+  disk::~disk(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  disk::disk(void)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   disk::disk(
-      real radius,
-      point const &center,
-      vec3 const &normal)
-      : m_radius(radius),
-        m_plane(center, normal)
+    real         radius,
+    plane const &plane)
+    : m_radius(radius),
+      m_plane(plane)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   disk::disk(
-      real radius,
-      real center_x,
-      real center_y,
-      real center_z,
-      real normal_x,
-      real normal_y,
-      real normal_z)
-      : m_radius(radius),
-        m_plane(center_x, center_y, center_z,
-                normal_x, normal_y, normal_z)
+    real         radius,
+    point const &center,
+    vec3 const  &normal)
+    : m_radius(radius),
+      m_plane(center, normal)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  disk::disk(
+    real radius,
+    real center_x,
+    real center_y,
+    real center_z,
+    real normal_x,
+    real normal_y,
+    real normal_z)
+    : m_radius(radius),
+      m_plane(center_x, center_y, center_z, normal_x, normal_y, normal_z)
   {
   }
 
@@ -84,7 +95,7 @@ namespace acme
 
   disk &
   disk::operator=(
-      disk const &disk_in)
+    disk const &disk_in)
   {
     if (this == &disk_in)
     {
@@ -93,7 +104,7 @@ namespace acme
     else
     {
       this->m_radius = disk_in.m_radius;
-      this->m_plane = disk_in.m_plane;
+      this->m_plane  = disk_in.m_plane;
       return *this;
     }
   }
@@ -102,9 +113,9 @@ namespace acme
 
   bool
   disk::isApprox(
-      disk const &disk_in,
-      real tolerance)
-      const
+    disk const &disk_in,
+    real        tolerance)
+    const
   {
     return acme::isApprox(this->m_radius, disk_in.m_radius, tolerance) &&
            this->m_plane.origin().isApprox(disk_in.m_plane.origin(), tolerance) &&
@@ -115,7 +126,7 @@ namespace acme
 
   real const &
   disk::radius(void)
-      const
+    const
   {
     return this->m_radius;
   }
@@ -132,7 +143,7 @@ namespace acme
 
   point const &
   disk::center(void)
-      const
+    const
   {
     return this->m_plane.origin();
   }
@@ -149,7 +160,7 @@ namespace acme
 
   vec3 const &
   disk::normal(void)
-      const
+    const
   {
     return this->m_plane.normal();
   }
@@ -166,7 +177,7 @@ namespace acme
 
   acme::plane const &
   disk::layingPlane(void)
-      const
+    const
   {
     return this->m_plane;
   }
@@ -199,7 +210,7 @@ namespace acme
 
   real
   disk::perimeter(void)
-      const
+    const
   {
     return PI * this->m_radius * this->m_radius;
   }
@@ -208,7 +219,7 @@ namespace acme
 
   real
   disk::area(void)
-      const
+    const
   {
     return 2 * PI * this->m_radius;
   }
@@ -217,7 +228,7 @@ namespace acme
 
   void
   disk::translate(
-      vec3 const &vector_in)
+    vec3 const &vector_in)
   {
     this->m_plane.translate(vector_in);
   }
@@ -226,7 +237,7 @@ namespace acme
 
   void
   disk::transform(
-      affine const &affine_in)
+    affine const &affine_in)
   {
     this->m_plane.transform(affine_in);
   }
@@ -235,9 +246,9 @@ namespace acme
 
   bool
   disk::isInside(
-      point const &point_in,
-      real tolerance)
-      const
+    point const &point_in,
+    real         tolerance)
+    const
   {
     return this->m_plane.isInside(point_in, tolerance) &&
            (this->m_plane.origin() - point_in).norm() <= this->m_radius;
@@ -247,8 +258,8 @@ namespace acme
 
   bool
   disk::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return acme::isApprox(this->m_radius, 0.0, tolerance) ||
            this->m_plane.isDegenerated(tolerance);
@@ -258,9 +269,9 @@ namespace acme
 
   bool
   disk::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     point origin(this->m_plane.origin());
     min[0] = -this->m_radius + origin[0];
@@ -276,13 +287,13 @@ namespace acme
 
   bool
   disk::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     point origin(this->m_plane.origin());
     min_x = -this->m_radius + origin[0];

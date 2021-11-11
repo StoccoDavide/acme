@@ -29,6 +29,8 @@
 /// file: acme_disk.hh
 ///
 
+#pragma once
+
 #ifndef INCLUDE_ACME_DISK
 #define INCLUDE_ACME_DISK
 
@@ -41,30 +43,30 @@ namespace acme
 {
 
   /*\
-   |        _          _      
-   |    ___(_)_ __ ___| | ___ 
-   |   / __| | '__/ __| |/ _ \
-   |  | (__| | | | (__| |  __/
-   |   \___|_|_|  \___|_|\___|
-   |                          
+   |       _ _     _
+   |    __| (_)___| | __
+   |   / _` | / __| |/ /
+   |  | (_| | \__ \   <
+   |   \__,_|_|___/_|\_\
+   |
   \*/
 
   //! Disk class container
   /**
    * Disk in 3D space and defined by a radius and a plane (disk center + normal vector).
-  */
+   */
   class disk : public entity
   {
   private:
-    real m_radius; //!< Disk radius
-    plane m_plane; //!< Disk plane (disk center + normal vector)
+    real  m_radius = QUIET_NAN; //!< Disk radius
+    plane m_plane  = NAN_PLANE; //!< Disk plane (disk center + normal vector)
 
   public:
     //! Disk class deconstructor
-    ~disk() {}
+    ~disk(void);
 
     //! Disk class constructor
-    disk() {}
+    disk(void);
 
     //! Disk copy constructor
     disk(disk const &) = default;
@@ -74,39 +76,39 @@ namespace acme
 
     //! Disk class constructor
     disk(
-        real radius,       //!< Input disk radius
-        plane const &plane //!< Input disk laying plane
+      real         radius, //!< Input disk radius
+      plane const &plane   //!< Input disk laying plane
     );
 
     //! Disk class constructor
     disk(
-        real radius,         //!< Input disk radius
-        point const &center, //!< Input disk center
-        vec3 const &normal   //!< Input disk normal to the laying plane
+      real         radius, //!< Input disk radius
+      point const &center, //!< Input disk center
+      vec3 const  &normal  //!< Input disk normal to the laying plane
     );
 
     //! Disk class constructor
     disk(
-        real radius,   //!< Input disk radius
-        real center_x, //!< Input disk center x value
-        real center_y, //!< Input disk center y value
-        real center_z, //!< Input disk center z value
-        real normal_x, //!< Input disk normal x value to the laying plane
-        real normal_y, //!< Input disk normal y value to the laying plane
-        real normal_z  //!< Input disk normal z value to the laying plane
+      real radius,   //!< Input disk radius
+      real center_x, //!< Input disk center x value
+      real center_y, //!< Input disk center y value
+      real center_z, //!< Input disk center z value
+      real normal_x, //!< Input disk normal x value to the laying plane
+      real normal_y, //!< Input disk normal y value to the laying plane
+      real normal_z  //!< Input disk normal z value to the laying plane
     );
 
     //! Equality operator
     disk &
     operator=(
-        disk const &disk_in //!< Input disk object
+      disk const &disk_in //!< Input disk object
     );
 
     //! Check if disks are (almost) equal
     bool
     isApprox(
-        disk const &disk_in,     //!< Input disk object
-        real tolerance = EPSILON //!< Tolerance
+      disk const &disk_in,            //!< Input disk object
+      real        tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Get disk radius const reference
@@ -152,7 +154,7 @@ namespace acme
     //! Calculate disk circumference length
     real
     perimeter(void)
-        const;
+      const;
 
     //! Calculate disk area
     real
@@ -161,89 +163,141 @@ namespace acme
     //! Translate by vector
     void
     translate(
-        vec3 const &vector_in //!< Input translation vector
-        ) override;
+      vec3 const &vector_in //!< Input translation vector
+      ) override;
 
     //! Transform disk with affine transformation matrix
     void
     transform(
-        affine const &affine_in //!< 4x4 affine transformation matrix
-        ) override;
+      affine const &affine_in //!< 4x4 affine transformation matrix
+      ) override;
 
     // Check whether the point is inside the disk
     bool
     isInside(
-        point const &point_in,   //!< Query point
-        real tolerance = EPSILON //!< Tolerance
+      point const &point_in,           //!< Query point
+      real         tolerance = EPSILON //!< Tolerance
     ) const;
 
     //! Check if disk is degenerated
     bool
     isDegenerated(
-        real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level
-    integer level(void) const override { return 8; }
+    integer
+    level(void) const override
+    {
+      return 8;
+    }
 
     //! Return object type as string
-    std::string type(void) const override { return "disk"; }
+    std::string
+    type(void) const override
+    {
+      return "disk";
+    }
 
     //! Check whether the object is no entity
-    bool isNone(void) const override { return false; }
+    bool
+    isNone(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a point
-    bool isPoint(void) const override { return false; }
+    bool
+    isPoint(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a line
-    bool isLine(void) const override { return false; }
+    bool
+    isLine(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a ray
-    bool isRay(void) const override { return false; }
+    bool
+    isRay(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a plane
-    bool isPlane(void) const override { return false; }
+    bool
+    isPlane(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a segment
-    bool isSegment(void) const override { return false; }
+    bool
+    isSegment(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a triangle
-    bool isTriangle(void) const override { return false; }
+    bool
+    isTriangle(void) const override
+    {
+      return false;
+    }
 
     //! Check whether the object is a disk
-    bool isDisk(void) const override { return true; }
+    bool
+    isDisk(void) const override
+    {
+      return true;
+    }
 
     //! Check whether the object is a ball
-    bool isBall(void) const override { return false; }
+    bool
+    isBall(void) const override
+    {
+      return false;
+    }
 
     //! Check whether in the disk is clampable
-    bool isClampable(void) const override { return true; }
+    bool
+    isClampable(void) const override
+    {
+      return true;
+    }
 
     //! Check whether in the disk is non-clampable
-    bool isNonClampable(void) const override { return false; }
+    bool
+    isNonClampable(void) const override
+    {
+      return false;
+    }
 
     //! Get minumum and maximum values along axes
     bool
     clamp(
-        vec3 &min, //!< Input minimum point
-        vec3 &max  //!< Input maximum point
+      vec3 &min, //!< Input minimum point
+      vec3 &max  //!< Input maximum point
     ) const override;
 
     //! Get minumum and maximum values along axes
     bool
     clamp(
-        real &min_x, //!< Input x value of minimum point
-        real &min_y, //!< Input y value of minimum point
-        real &min_z, //!< Input z value of minimum point
-        real &max_x, //!< Input x value of maximum point
-        real &max_y, //!< Input y value of maximum point
-        real &max_z  //!< Input z value of maximum point
+      real &min_x, //!< Input x value of minimum point
+      real &min_y, //!< Input y value of minimum point
+      real &min_z, //!< Input z value of minimum point
+      real &max_x, //!< Input x value of maximum point
+      real &max_y, //!< Input y value of maximum point
+      real &max_z  //!< Input z value of maximum point
     ) const override;
 
   }; // class disk
 
-  static disk const NAN_DISK = disk(QUIET_NAN, NAN_PLANE); //!< Not-a-Number static const disk object
-  static disk THROWAWAY_DISK = disk(NAN_DISK);             //!< Throwaway static non-const disk object
+  static disk const NAN_DISK       = disk(QUIET_NAN, NAN_PLANE); //!< Not-a-Number static const disk object
+  static disk       THROWAWAY_DISK = disk(NAN_DISK);             //!< Throwaway static non-const disk object
 
 } // namespace acme
 

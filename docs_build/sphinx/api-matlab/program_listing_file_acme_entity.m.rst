@@ -47,7 +47,7 @@ Program Listing for File acme_entity.m
      %
      %> Create a new entity object instance
      methods
-       function self = acme_entity( )
+       function this = acme_entity( )
        end
      end
      %
@@ -55,6 +55,6 @@ Program Listing for File acme_entity.m
      %
      %> Get object type as string (virtual method)
      methods (Abstract)
-       type( self )
+       type( this )
      end
    end

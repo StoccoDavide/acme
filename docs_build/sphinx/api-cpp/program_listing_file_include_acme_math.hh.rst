@@ -38,6 +38,8 @@ Program Listing for File acme_math.hh
    */
    
    
+   #pragma once
+   
    #ifndef INCLUDE_ACME_MATH
    #define INCLUDE_ACME_MATH
    
@@ -49,31 +51,31 @@ Program Listing for File acme_math.hh
    {
    
      /*\
-      |   __  __       _   _     
-      |  |  \/  | __ _| |_| |__  
-      |  | |\/| |/ _` | __| '_ \ 
+      |   __  __       _   _
+      |  |  \/  | __ _| |_| |__
+      |  | |\/| |/ _` | __| '_ \
       |  | |  | | (_| | |_| | | |
       |  |_|  |_|\__,_|\__|_| |_|
-      |                          
+      |
      \*/
    
      bool
      isApprox(
-         real value0_in,          
-         real value1_in,          
-         real tolerance = EPSILON 
+       real value0_in,          
+       real value1_in,          
+       real tolerance = EPSILON 
      );
    
      void
      transform(
-         vec3 &vector,        
-         affine const &matrix 
+       vec3         &vector, 
+       affine const &matrix  
      );
    
      real
      angle(
-         vec3 const vector0_in, 
-         vec3 const vector1_in  
+       vec3 const vector0_in, 
+       vec3 const vector1_in  
      );
    
    } // namespace acme

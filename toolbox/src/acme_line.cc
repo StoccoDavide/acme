@@ -35,35 +35,47 @@ namespace acme
 {
 
   /*\
-   |   _ _            
-   |  | (_)_ __   ___ 
+   |   _ _
+   |  | (_)_ __   ___
    |  | | | '_ \ / _ \
    |  | | | | | |  __/
    |  |_|_|_| |_|\___|
-   |                  
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  line::line(
-      real ox,
-      real oy,
-      real oz,
-      real dx,
-      real dy,
-      real dz)
-      : m_origin(ox, oy, oz),
-        m_direction(dx, dy, dz)
+  line::~line(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  line::line(void)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   line::line(
-      point const &origin,
-      vec3 const &direction)
-      : m_origin(origin),
-        m_direction(direction)
+    real ox,
+    real oy,
+    real oz,
+    real dx,
+    real dy,
+    real dz)
+    : m_origin(ox, oy, oz),
+      m_direction(dx, dy, dz)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  line::line(
+    point const &origin,
+    vec3 const  &direction)
+    : m_origin(origin),
+      m_direction(direction)
   {
   }
 
@@ -71,7 +83,7 @@ namespace acme
 
   line &
   line::operator=(
-      line const &line_in)
+    line const &line_in)
   {
     if (this == &line_in)
     {
@@ -79,7 +91,7 @@ namespace acme
     }
     else
     {
-      this->m_origin = line_in.m_origin;
+      this->m_origin    = line_in.m_origin;
       this->m_direction = line_in.m_direction;
       return *this;
     }
@@ -89,9 +101,9 @@ namespace acme
 
   bool
   line::isApprox(
-      line const &line_in,
-      real tolerance)
-      const
+    line const &line_in,
+    real        tolerance)
+    const
   {
     return this->m_origin.isApprox(line_in.m_origin, tolerance) &&
            this->m_direction.isApprox(line_in.m_direction, tolerance);
@@ -101,7 +113,7 @@ namespace acme
 
   point const &
   line::origin(void)
-      const
+    const
   {
     return this->m_origin;
   }
@@ -118,7 +130,7 @@ namespace acme
 
   vec3 const &
   line::direction(void)
-      const
+    const
   {
     return this->m_direction;
   }
@@ -143,7 +155,7 @@ namespace acme
 
   vec3
   line::toVector(void)
-      const
+    const
   {
     return this->m_direction;
   }
@@ -152,7 +164,7 @@ namespace acme
 
   vec3
   line::toUnitVector(void)
-      const
+    const
   {
     return this->m_direction.normalized();
   }
@@ -169,7 +181,7 @@ namespace acme
 
   void
   line::translate(
-      vec3 const &vector_in)
+    vec3 const &vector_in)
   {
     this->m_origin = vector_in + this->m_origin;
   }
@@ -178,7 +190,7 @@ namespace acme
 
   void
   line::transform(
-      affine const &affine_in)
+    affine const &affine_in)
   {
     this->m_origin.transform(affine_in);
     acme::transform(this->m_direction, affine_in);
@@ -188,21 +200,19 @@ namespace acme
 
   bool
   line::isInside(
-      point const &point_in,
-      real tolerance)
-      const
+    point const &point_in,
+    real         tolerance)
+    const
   {
-    return acme::isApprox(((point_in - this->m_origin).normalized().cross(this->m_direction)).norm(),
-                          0.0,
-                          tolerance);
+    return acme::isApprox(((point_in - this->m_origin).normalized().cross(this->m_direction)).norm(), 0.0, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   line::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return acme::isApprox(this->m_direction.norm(), 0.0, tolerance);
   }
@@ -211,9 +221,9 @@ namespace acme
 
   bool
   line::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     return this->isClampable();
   }
@@ -222,13 +232,13 @@ namespace acme
 
   bool
   line::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     return this->isClampable();
   }

@@ -35,21 +35,33 @@ namespace acme
 {
 
   /*\
-   |                          
-   |   _ __   ___  _ __   ___ 
+   |
+   |   _ __   ___  _ __   ___
    |  | '_ \ / _ \| '_ \ / _ \
    |  | | | | (_) | | | |  __/
    |  |_| |_|\___/|_| |_|\___|
-   |                          
+   |
   \*/
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  none::~none(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  none::none(void)
+  {
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   none::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     return this->isClampable();
   }
@@ -58,13 +70,13 @@ namespace acme
 
   bool
   none::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     return this->isClampable();
   }

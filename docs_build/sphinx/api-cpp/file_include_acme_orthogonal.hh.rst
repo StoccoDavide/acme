@@ -66,3 +66,10 @@ Namespaces
 
 - :ref:`namespace_acme`
 
+
+Defines
+-------
+
+
+- :ref:`exhale_define_a00011_1a5da68e0fc3f7b756afb41017a5ef653f`
+

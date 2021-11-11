@@ -61,3 +61,10 @@ Functions
 
 - :ref:`exhale_function_a00125_1a166956f7dd6f726b7d917c7bd1b2a231`
 
+
+Defines
+-------
+
+
+- :ref:`exhale_define_a00017_1ad781872417a5e472d6f051d8f6734a92`
+

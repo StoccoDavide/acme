@@ -1,6 +1,28 @@
-#
-#
-#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                     #
+# The ACME project                                                    #
+#                                                                     #
+# Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       #
+#                                                                     #
+# The ACME project and its components are supplied under the terms of #
+# the open source BSD 2-Clause License. The contents of the ACME      #
+# project and its components may not be copied or disclosed except in #
+# accordance with the terms of the BSD 2-Clause License.              #
+#                                                                     #
+# URL: https://opensource.org/licenses/BSD-2-Clause                   #
+#                                                                     #
+#    Davide Stocco                                                    #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: davide.stocco@unitn.it                                   #
+#                                                                     #
+#    Enrico Bertolazzi                                                #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: enrico.bertolazzi@unitn.it                               #
+#                                                                     #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 %w(colorize fileutils pathname rubygems/package net/http zip zlib uri openssl).each do |gem|
   begin
     require gem
@@ -13,13 +35,13 @@ end
 require_relative "./Rakefile_conf.rb"
 
 if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil then
-  #linux
+  # LINUX
   task :default => [:install_linux]
 elsif (/darwin/ =~ RUBY_PLATFORM) != nil then
-  #osx
+  # OSX
   task :default => [:install_osx]
 else
-  #windows
+  # WINDOWS
   task :default => [:install_windows]
 end
 
@@ -139,17 +161,13 @@ def extract_zip( filename, destination_path='.' )
   end
 end
 
-
-
-
 def win_vs( bits, year )
-
+  
   tmp = " -DBITS:VAR=#{bits} -DYEAR:VAR=#{year} "
-
   if USE_NMAKE then
     tmp = 'cmake -G "NMake Makefiles" ' + tmp
   else
-
+    
     win32_64  = ''
     win32_64_ = '-A Win32'
     case bits

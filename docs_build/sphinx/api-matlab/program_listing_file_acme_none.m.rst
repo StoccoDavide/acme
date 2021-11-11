@@ -41,23 +41,23 @@ Program Listing for File acme_none.m
      %>
      methods
        %> Create C++ pointer to none object instance
-       function self = acme_none( self )
-         self.objectHandle = mex_none( 'new' );
+       function this = acme_none( this )
+         this.objectHandle = mex_none( 'new' );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Delete C++ pointer to none object instance
-       function delete( self )
-         mex_none( 'delete', self.objectHandle );
+       function delete( this )
+         mex_none( 'delete', this.objectHandle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy none object from another none
-       function copy( self, other_obj )
+       function copy( this, other_obj )
          if (other_obj.type() == "none")
-           mex_none( 'copy', self.objectHandle, other_obj.objectHandle );
+           mex_none( 'copy', this.objectHandle, other_obj.objectHandle );
          else
            error('mex_none::copy(): other_obj must be an ACME none object type.');
          end
@@ -66,21 +66,21 @@ Program Listing for File acme_none.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Copy none object from another none handle
-       function copyByHandle( self, handle )
-         mex_none( 'copy', self.objectHandle, handle );
+       function copyByHandle( this, handle )
+         mex_none( 'copy', this.objectHandle, handle );
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Display object data
-       function disp( self )
+       function disp( this )
          disp('none');
        end
        %
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Plot none object
-       function plot( self, figure_name, color )
+       function plot( this, figure_name, color )
          figure_name;
          hold on;
          hold off;
@@ -89,7 +89,7 @@ Program Listing for File acme_none.m
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
        %> Get object type as string
-       function out = type( self )
+       function out = type( this )
          out = 'none';
        end
      end

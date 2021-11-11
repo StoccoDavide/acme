@@ -35,35 +35,47 @@ namespace acme
 {
 
   /*\
-   |         _                  
-   |   _ __ | | __ _ _ __   ___ 
+   |         _
+   |   _ __ | | __ _ _ __   ___
    |  | '_ \| |/ _` | '_ \ / _ \
    |  | |_) | | (_| | | | |  __/
    |  | .__/|_|\__,_|_| |_|\___|
-   |  |_|                       
+   |  |_|
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  plane::plane(
-      real origin_x,
-      real origin_y,
-      real origin_z,
-      real normal_x,
-      real normal_y,
-      real normal_z)
-      : m_origin(origin_x, origin_y, origin_z),
-        m_normal(normal_x, normal_y, normal_z)
+  plane::~plane(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane::plane(void)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   plane::plane(
-      point const &origin,
-      vec3 const &normal)
-      : m_origin(origin),
-        m_normal(normal)
+    real origin_x,
+    real origin_y,
+    real origin_z,
+    real normal_x,
+    real normal_y,
+    real normal_z)
+    : m_origin(origin_x, origin_y, origin_z),
+      m_normal(normal_x, normal_y, normal_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  plane::plane(
+    point const &origin,
+    vec3 const  &normal)
+    : m_origin(origin),
+      m_normal(normal)
   {
   }
 
@@ -71,7 +83,7 @@ namespace acme
 
   plane &
   plane::operator=(
-      plane const &plane_in)
+    plane const &plane_in)
   {
     if (this == &plane_in)
     {
@@ -89,9 +101,9 @@ namespace acme
 
   bool
   plane::isApprox(
-      plane const &plane_in,
-      real tolerance)
-      const
+    plane const &plane_in,
+    real         tolerance)
+    const
   {
     return this->m_origin.isApprox(plane_in.m_origin, tolerance) &&
            this->m_normal.isApprox(plane_in.m_normal, tolerance);
@@ -133,7 +145,7 @@ namespace acme
 
   vec3
   plane::unitNormal(void)
-      const
+    const
   {
     return this->m_normal.normalized();
   }
@@ -158,7 +170,7 @@ namespace acme
 
   real
   plane::d(void)
-      const
+    const
   {
     return -this->m_origin.dot(this->m_normal);
   }
@@ -167,8 +179,8 @@ namespace acme
 
   real
   plane::distance(
-      point const &point_in)
-      const
+    point const &point_in)
+    const
   {
     return std::abs(this->signedDistance(point_in));
   }
@@ -177,8 +189,8 @@ namespace acme
 
   real
   plane::squaredDistance(
-      point const &point_in)
-      const
+    point const &point_in)
+    const
   {
     real distance = this->signedDistance(point_in);
     return distance * distance;
@@ -188,8 +200,8 @@ namespace acme
 
   real
   plane::signedDistance(
-      point const &point_in)
-      const
+    point const &point_in)
+    const
   {
     return (point_in - this->m_origin).dot(this->m_normal);
   }
@@ -198,7 +210,7 @@ namespace acme
 
   void
   plane::translate(
-      vec3 const &vector_in)
+    vec3 const &vector_in)
   {
     this->m_origin = vector_in + this->m_origin;
   }
@@ -207,7 +219,7 @@ namespace acme
 
   void
   plane::transform(
-      affine const &affine_in)
+    affine const &affine_in)
   {
     this->m_origin.transform(affine_in);
     acme::transform(this->m_normal, affine_in);
@@ -217,9 +229,9 @@ namespace acme
 
   bool
   plane::isInside(
-      point const &point_in,
-      real tolerance)
-      const
+    point const &point_in,
+    real         tolerance)
+    const
   {
     return this->signedDistance(point_in) < tolerance;
   }
@@ -228,8 +240,8 @@ namespace acme
 
   bool
   plane::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return acme::isApprox(this->m_normal.norm(), 0.0, tolerance);
   }
@@ -238,9 +250,9 @@ namespace acme
 
   bool
   plane::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     return this->isClampable();
   }
@@ -249,13 +261,13 @@ namespace acme
 
   bool
   plane::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     return this->isClampable();
   }

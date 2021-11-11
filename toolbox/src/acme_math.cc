@@ -35,21 +35,21 @@ namespace acme
 {
 
   /*\
-   |   __  __       _   _     
-   |  |  \/  | __ _| |_| |__  
-   |  | |\/| |/ _` | __| '_ \ 
+   |   __  __       _   _
+   |  |  \/  | __ _| |_| |__
+   |  | |\/| |/ _` | __| '_ \
    |  | |  | | (_| | |_| | | |
    |  |_|  |_|\__,_|\__|_| |_|
-   |                          
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   isApprox(
-      real value0_in,
-      real value1_in,
-      real tolerance)
+    real value0_in,
+    real value1_in,
+    real tolerance)
   {
     return std::abs(value0_in - value1_in) < tolerance;
   }
@@ -58,8 +58,8 @@ namespace acme
 
   void
   transform(
-      vec3 &vector,
-      affine const &matrix)
+    vec3         &vector,
+    affine const &matrix)
   {
     vector = matrix.linear() * vector;
   }
@@ -68,8 +68,8 @@ namespace acme
 
   real
   angle(
-      vec3 const &vector0_in,
-      vec3 const &vector1_in)
+    vec3 const &vector0_in,
+    vec3 const &vector1_in)
   {
     return std::acos(vector0_in.dot(vector1_in) / (vector0_in.norm() * vector1_in.norm()));
   }

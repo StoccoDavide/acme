@@ -29,66 +29,66 @@ classdef acme_disk < acme_entity
   %>
   methods
     %> Create a new C++ pointer to disk object instance
-    function self = acme_disk( varargin )
-      self.objectHandle = mex_disk( 'new', varargin{:} );
+    function this = acme_disk( varargin )
+      this.objectHandle = mex_disk( 'new', varargin{:} );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Create C++ pointer to disk object instance
-    function delete( self )
-      mex_disk( 'delete', self.objectHandle );
+    function delete( this )
+      mex_disk( 'delete', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk radius
-    function out = getRadius( self )
-      out = mex_disk( 'getRadius', self.objectHandle );
+    function out = getRadius( this )
+      out = mex_disk( 'getRadius', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk center as ACME point object
-    function out = getCenter( self )
+    function out = getCenter( this )
       out = acme_point();
-      out.copyByHandle( mex_disk( 'getCenter', self.objectHandle ) );
+      out.copyByHandle( mex_disk( 'getCenter', this.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk normal
-    function out = getNormal( self )
-      out = mex_disk( 'getNormal', self.objectHandle );
+    function out = getNormal( this )
+      out = mex_disk( 'getNormal', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set disk radius
-    function setRadius( self, radius )
-      mex_disk( 'setRadius', self.objectHandle, radius );
+    function setRadius( this, radius )
+      mex_disk( 'setRadius', this.objectHandle, radius );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set disk center with an ACME point object
-    function setCenter( self, other_obj )
-      mex_disk( 'setCenter', self.objectHandle, other_obj.objectHandle );
+    function setCenter( this, other_obj )
+      mex_disk( 'setCenter', this.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set disk normal
-    function setNormal( self, other_obj )
-      mex_disk( 'setNormal', self.objectHandle, other_obj );
+    function setNormal( this, other_obj )
+      mex_disk( 'setNormal', this.objectHandle, other_obj );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy segment object from another segment
-    function copy( self, other_obj )
+    function copy( this, other_obj )
       if (other_obj.type() == "disk")
-        mex_disk( 'copy', self.objectHandle, other_obj.objectHandle );
+        mex_disk( 'copy', this.objectHandle, other_obj.objectHandle );
       else
         error('mex_disk::copy(): other_obj must be an ACME disk object type.');
       end
@@ -97,30 +97,30 @@ classdef acme_disk < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy disk object from another disk handle
-    function copyByHandle( self, handle )
-      mex_disk( 'copy', self.objectHandle, handle );
+    function copyByHandle( this, handle )
+      mex_disk( 'copy', this.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Translate disk by vector
-    function translate( self, other_obj )
-      mex_disk( 'translate', self.objectHandle, other_obj.objectHandle );
+    function translate( this, other_obj )
+      mex_disk( 'translate', this.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Transform disk by 4x4 affine transformation matrix
-    function transform( self, affine )
-      mex_disk( 'transform', self.objectHandle, affine );
+    function transform( this, affine )
+      mex_disk( 'transform', this.objectHandle, affine );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if ACME point is inside the disk 
-    function out = isInside( self, other_obj )
+    function out = isInside( this, other_obj )
       if (other_obj.type() == "point")
-        out = mex_disk( 'isInside', self.objectHandle, other_obj.objectHandle );
+        out = mex_disk( 'isInside', this.objectHandle, other_obj.objectHandle );
       else
          error('mex_disk::isInside(): other_obj must be an ACME point object type.');
       end
@@ -129,16 +129,16 @@ classdef acme_disk < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if disk is degenerated
-    function out = isDegenerated( self )
-      out = mex_disk( 'isDegenerated', self.objectHandle );
+    function out = isDegenerated( this )
+      out = mex_disk( 'isDegenerated', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if disks are approximatively equal
-    function out = isApprox( self, other_obj )
+    function out = isApprox( this, other_obj )
       if (other_obj.type() == "disk") 
-        out = mex_disk( 'isApprox', self.objectHandle, other_obj.objectHandle );
+        out = mex_disk( 'isApprox', this.objectHandle, other_obj.objectHandle );
       else
          error('mex_disk::isApprox(): other_obj must be an ACME disk object type.');
       end
@@ -147,79 +147,79 @@ classdef acme_disk < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Normalize disk normal vector
-    function normalize( self )
-      mex_disk( 'normalize', self.objectHandle );
+    function normalize( this )
+      mex_disk( 'normalize', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk laying plane
-    function out = layingPlane( self )
+    function out = layingPlane( this )
      out = acme_plane();
-     out.copyByHandle( mex_disk( 'layingPlane', self.objectHandle ) );
+     out.copyByHandle( mex_disk( 'layingPlane', this.objectHandle ) );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Reverse disk normal direction
-    function reverse( self )
-      mex_disk( 'reverse', self.objectHandle );
+    function reverse( this )
+      mex_disk( 'reverse', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk minimum and maximum points of object instance
-    function [out1, out2] = clamp( self )
-      [out1, out2] = mex_disk( 'clamp', self.objectHandle );
+    function [out1, out2] = clamp( this )
+      [out1, out2] = mex_disk( 'clamp', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk perimeter
-    function out = perimeter( self )
-      out = mex_disk( 'perimeter', self.objectHandle );
+    function out = perimeter( this )
+      out = mex_disk( 'perimeter', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get disk perimeter
-    function out = area( self )
-      out = mex_disk( 'area', self.objectHandle );
+    function out = area( this )
+      out = mex_disk( 'area', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if disk is parallel to an ACME object
-    function out = isParallel( self, other_obj )
-      out = mex_disk( 'isParallel', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    function out = isParallel( this, other_obj )
+      out = mex_disk( 'isParallel', this.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if disk is orthogonal to an ACME object
-    function out = isOrthogonal( self, other_obj )
-      out = mex_disk( 'isOrthogonal', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    function out = isOrthogonal( this, other_obj )
+      out = mex_disk( 'isOrthogonal', this.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if disk is collinear to an ACME object
-    function out = isCollinear( self, other_obj )
-      out = mex_disk( 'isCollinear', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    function out = isCollinear( this, other_obj )
+      out = mex_disk( 'isCollinear', this.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if disk is coplanar to an ACME object 
-    function out = isCoplanar( self, other_obj )
-      out = mex_disk( 'isCoplanar', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    function out = isCoplanar( this, other_obj )
+      out = mex_disk( 'isCoplanar', this.objectHandle, other_obj.objectHandle, other_obj.type() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Intersect disk with an ACME object
-    function out = intersection( self, other_obj )
-      [handle, type] = mex_disk( 'intersection', self.objectHandle, other_obj.objectHandle, other_obj.type() );
+    function out = intersection( this, other_obj )
+      [handle, type] = mex_disk( 'intersection', this.objectHandle, other_obj.objectHandle, other_obj.type() );
       out = eval( strcat( 'acme_', type, '()') );
       out.copyByHandle( handle );
     end
@@ -227,17 +227,17 @@ classdef acme_disk < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Display object data
-    function disp( self )
-      disp( [ [self.getRadius(), NaN, NaN]', self.getCenter().get(),  self.getNormal()] ); %[self.getRadius() 0 0]',
+    function disp( this )
+      disp( [ [this.getRadius(), NaN, NaN]', this.getCenter().get(),  this.getNormal()] ); %[this.getRadius() 0 0]',
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot disk object
-    function plot( self, figure_name, color )
-      radius = self.getRadius();
-      center = self.getCenter().get();
-      normal = self.getNormal();
+    function plot( this, figure_name, color )
+      radius = this.getRadius();
+      center = this.getCenter().get();
+      normal = this.getNormal();
       % Original points, original plane
       t = linspace(0,2*pi);
       x = cos(t)*radius;
@@ -277,7 +277,7 @@ classdef acme_disk < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get object type as string
-    function out = type( self )
+    function out = type( this )
       out = 'disk';
     end
   end

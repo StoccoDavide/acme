@@ -45,17 +45,17 @@ namespace acme
 {
 
   /*\
-   |      _        _    ____  ____  _                 
-   |     / \      / \  | __ )| __ )| |_ _ __ ___  ___ 
+   |      _        _    ____  ____  _
+   |     / \      / \  | __ )| __ )| |_ _ __ ___  ___
    |    / _ \    / _ \ |  _ \|  _ \| __| '__/ _ \/ _ \
    |   / ___ \  / ___ \| |_) | |_) | |_| | |  __/  __/
    |  /_/   \_\/_/   \_\____/|____/ \__|_|  \___|\___|
-   |                                                  
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  AABBtree::~AABBtree()
+  AABBtree::~AABBtree(void)
   {
     this->m_ptrbox.reset();
     this->m_children.clear();
@@ -63,7 +63,7 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  AABBtree::AABBtree()
+  AABBtree::AABBtree(void)
   {
     this->m_ptrbox.reset();
     this->m_children.clear();
@@ -72,7 +72,7 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  AABBtree::clear()
+  AABBtree::clear(void)
   {
     this->m_ptrbox.reset();
     this->m_children.clear();
@@ -81,7 +81,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
-  AABBtree::isEmpty() const
+  AABBtree::isEmpty(void)
+    const
   {
     return this->m_children.empty() && !this->m_ptrbox;
   }
@@ -90,7 +91,7 @@ namespace acme
 
   void
   AABBtree::build(
-      aabb::vecptr const &boxes)
+    aabb::vecptr const &boxes)
   {
     clear();
 
@@ -119,7 +120,7 @@ namespace acme
 
     if ((xmax - xmin) > (ymax - ymin) && (xmax - xmin) > (zmax - zmin))
     {
-      real cut_pos = (xmax + xmin) / 2;
+      real                         cut_pos = (xmax + xmin) / 2;
       aabb::vecptr::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
@@ -132,7 +133,7 @@ namespace acme
     }
     else if ((ymax - ymin) > (xmax - xmin) && (ymax - ymin) > (zmax - zmin))
     {
-      real cut_pos = (ymax + ymin) / 2;
+      real                         cut_pos = (ymax + ymin) / 2;
       aabb::vecptr::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
@@ -145,7 +146,7 @@ namespace acme
     }
     else
     {
-      real cut_pos = (zmax + zmin) / 2;
+      real                         cut_pos = (zmax + zmin) / 2;
       aabb::vecptr::const_iterator it;
       for (it = boxes.begin(); it != boxes.end(); ++it)
       {
@@ -188,9 +189,9 @@ namespace acme
 
   void
   AABBtree::print(
-      out_stream &os,
-      integer level)
-      const
+    out_stream &os,
+    integer     level)
+    const
   {
     if (this->isEmpty())
     {
@@ -215,10 +216,10 @@ namespace acme
 
   void
   AABBtree::intersection(
-      AABBtree const &tree,
-      aabb::vecpairptr &intersection_list,
-      bool swap_tree)
-      const
+    AABBtree const   &tree,
+    aabb::vecpairptr &intersection_list,
+    bool              swap_tree)
+    const
   {
     // Check aabb with
     if (!tree.m_ptrbox->intersects(*this->m_ptrbox))
@@ -263,9 +264,9 @@ namespace acme
 
   real
   AABBtree::minimumExteriorDistance(
-      point const &query,
-      AABBtree const &tree,
-      real distance)
+    point const    &query,
+    AABBtree const &tree,
+    real            distance)
   {
     AABBtree::vecptr const &tree_children = tree.m_children;
     if (tree_children.empty())
@@ -287,13 +288,13 @@ namespace acme
 
   void
   AABBtree::selectLessThanDistance(
-      point const &query,
-      real distance,
-      AABBtree const &tree,
-      aabb::vecptr &candidate_list)
+    point const    &query,
+    real            distance,
+    AABBtree const &tree,
+    aabb::vecptr   &candidate_list)
   {
     AABBtree::vecptr const &tree_children = tree.m_children;
-    real dst = tree.m_ptrbox->centerDistance(query);
+    real                    dst           = tree.m_ptrbox->centerDistance(query);
     if (dst <= distance)
     {
       if (tree_children.empty())
@@ -314,9 +315,9 @@ namespace acme
 
   void
   AABBtree::selectMinimumDistance(
-      point const &query,
-      aabb::vecptr &candidate_list)
-      const
+    point const  &query,
+    aabb::vecptr &candidate_list)
+    const
   {
     real distance = this->minimumExteriorDistance(query, *this, INFTY);
     this->selectLessThanDistance(query, distance, *this, candidate_list);

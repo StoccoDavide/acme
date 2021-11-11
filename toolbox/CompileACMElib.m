@@ -25,15 +25,7 @@ LIB_OBJS = '';
 
 MEX_CMD  = 'mex -largeArrayDims -I./src ';
 
-if ismac
-  EIGEN3_PATH = ' -I/usr/local/include/eigen3/';
-elseif isunix
-  EIGEN3_PATH = ' -I/usr/local/include/eigen3/';
-elseif ispc
-  EIGEN3_PATH = ' -I/?';
-end
-
-CMD = [ MEX_CMD, ' -c', EIGEN3_PATH ];
+CMD = [ MEX_CMD, ' -c' ];
 if ismac
   CMD = [ CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"' ];
 elseif isunix
@@ -68,7 +60,7 @@ for k=1:length(NAMES)
   CMD = [ 'while mislocked(''' N '''); munlock(''' N '''); end;'];
   eval(CMD);
 
-  CMD = [ MEX_CMD, ' -output ./bin/', N, EIGEN3_PATH ];
+  CMD = [ MEX_CMD, ' -output ./bin/', N ];
   CMD = [ CMD, ' -largeArrayDims ./src_mex/', N, '.cc ', LIB_OBJS ];
   if ismac
     CMD = [ CMD, ' CXXFLAGS="\$CXXFLAGS -Wall -O2 -g"'];

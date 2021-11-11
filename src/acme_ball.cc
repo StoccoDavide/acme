@@ -35,33 +35,47 @@ namespace acme
 {
 
   /*\
-   |             _                   
-   |   ___ _ __ | |__   ___ _ __ ___ 
-   |  / __| '_ \| '_ \ / _ \ '__/ _ \
-   |  \__ \ |_) | | | |  __/ | |  __/
-   |  |___/ .__/|_| |_|\___|_|  \___|
-   |      |_|                        
+   |   _           _ _
+   |  | |__   __ _| | |
+   |  | '_ \ / _` | | |
+   |  | |_) | (_| | | |
+   |  |_.__/ \__,_|_|_|
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  ball::ball(
-      real radius,
-      real center_x,
-      real center_y,
-      real center_z)
-      : m_radius(radius),
-        m_center(center_x, center_y, center_z)
+  ball::~ball(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ball::ball(void)
+    : m_radius(QUIET_NAN),
+      m_center(NAN_POINT)
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   ball::ball(
-      real radius,
-      point const &center)
-      : m_radius(radius),
-        m_center(center)
+    real radius,
+    real center_x,
+    real center_y,
+    real center_z)
+    : m_radius(radius),
+      m_center(center_x, center_y, center_z)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  ball::ball(
+    real         radius,
+    point const &center)
+    : m_radius(radius),
+      m_center(center)
   {
   }
 
@@ -69,7 +83,7 @@ namespace acme
 
   ball &
   ball::operator=(
-      ball const &ball_in)
+    ball const &ball_in)
   {
     if (this == &ball_in)
     {
@@ -87,9 +101,9 @@ namespace acme
 
   bool
   ball::isApprox(
-      ball const &ball_in,
-      real tolerance)
-      const
+    ball const &ball_in,
+    real        tolerance)
+    const
   {
     return acme::isApprox(this->m_radius, ball_in.m_radius, tolerance) &&
            this->m_center.isApprox(ball_in.m_center, tolerance);
@@ -99,7 +113,7 @@ namespace acme
 
   real const &
   ball::radius(void)
-      const
+    const
   {
     return this->m_radius;
   }
@@ -108,7 +122,7 @@ namespace acme
 
   point const &
   ball::center(void)
-      const
+    const
   {
     return this->m_center;
   }
@@ -133,7 +147,7 @@ namespace acme
 
   real
   ball::area(void)
-      const
+    const
   {
     return 4 * PI * this->m_radius * this->m_radius;
   }
@@ -142,7 +156,7 @@ namespace acme
 
   real
   ball::volume(void)
-      const
+    const
   {
     return 4.0 / 3.0 * PI * this->m_radius * this->m_radius * this->m_radius;
   }
@@ -151,7 +165,7 @@ namespace acme
 
   void
   ball::translate(
-      vec3 const &vector_in)
+    vec3 const &vector_in)
   {
     this->m_center.translate(vector_in);
   }
@@ -160,7 +174,7 @@ namespace acme
 
   void
   ball::transform(
-      affine const &affine_in)
+    affine const &affine_in)
   {
     this->m_center.transform(affine_in);
   }
@@ -169,9 +183,9 @@ namespace acme
 
   bool
   ball::isInside(
-      point const &point_in,
-      real tolerance)
-      const
+    point const &point_in,
+    real         tolerance)
+    const
   {
     return (this->m_center - point_in).norm() <= this->m_radius;
   }
@@ -180,8 +194,8 @@ namespace acme
 
   bool
   ball::isDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     return acme::isApprox(this->m_radius, 0.0, tolerance);
   }
@@ -190,9 +204,9 @@ namespace acme
 
   bool
   ball::clamp(
-      vec3 &min,
-      vec3 &max)
-      const
+    vec3 &min,
+    vec3 &max)
+    const
   {
     point center(this->m_center);
     min[0] = -this->m_radius + center[0];
@@ -208,13 +222,13 @@ namespace acme
 
   bool
   ball::clamp(
-      real &min_x,
-      real &min_y,
-      real &min_z,
-      real &max_x,
-      real &max_y,
-      real &max_z)
-      const
+    real &min_x,
+    real &min_y,
+    real &min_z,
+    real &max_x,
+    real &max_y,
+    real &max_z)
+    const
   {
     point center(this->m_center);
     min_x = -this->m_radius + center[0];

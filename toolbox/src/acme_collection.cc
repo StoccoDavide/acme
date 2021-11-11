@@ -35,26 +35,32 @@ namespace acme
 {
 
   /*\
-   |             _ _           _   _              
-   |    ___ ___ | | | ___  ___| |_(_) ___  _ __  
-   |   / __/ _ \| | |/ _ \/ __| __| |/ _ \| '_ \ 
+   |             _ _           _   _
+   |    ___ ___ | | | ___  ___| |_(_) ___  _ __
+   |   / __/ _ \| | |/ _ \/ __| __| |/ _ \| '_ \
    |  | (_| (_) | | |  __/ (__| |_| | (_) | | | |
    |   \___\___/|_|_|\___|\___|\__|_|\___/|_| |_|
-   |                                             
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  collection::collection()
-      : m_AABBtree(std::make_shared<AABBtree>())
+  collection::~collection(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  collection::collection(void)
+    : m_AABBtree(std::make_shared<AABBtree>())
   {
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   collection::collection(
-      entity::vecptr &entities)
-      : collection()
+    entity::vecptr &entities)
+    : collection()
   {
     this->m_entities = entities;
   };
@@ -71,7 +77,7 @@ namespace acme
 
   void
   collection::resize(
-      size_t size)
+    size_t size)
   {
     this->m_entities.resize(size);
   }
@@ -80,15 +86,16 @@ namespace acme
 
   void
   collection::push_back(
-      entity::ptr entity_in)
+    entity::ptr entity_in)
   {
     this->m_entities.push_back(entity_in);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  entity::ptr &collection::operator[](
-      size_t i)
+  entity::ptr &
+  collection::operator[](
+    size_t i)
   {
     return this->m_entities[i];
   };
@@ -97,8 +104,8 @@ namespace acme
 
   entity::ptr const &
   collection::operator[](
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i];
   };
@@ -107,7 +114,7 @@ namespace acme
 
   void
   collection::translate(
-      vec3 const &input)
+    vec3 const &input)
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
       this->m_entities[i]->translate(input);
@@ -117,8 +124,8 @@ namespace acme
 
   void
   collection::rotate(
-      real angle,
-      vec3 const &axis)
+    real        angle,
+    vec3 const &axis)
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
       this->m_entities[i]->rotate(angle, axis);
@@ -128,7 +135,7 @@ namespace acme
 
   void
   collection::transform(
-      affine const &matrix)
+    affine const &matrix)
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
       this->m_entities[i]->transform(matrix);
@@ -138,7 +145,7 @@ namespace acme
 
   bool
   collection::containNone(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -152,7 +159,7 @@ namespace acme
 
   bool
   collection::areNone(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -166,8 +173,8 @@ namespace acme
 
   bool
   collection::isNone(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isNone();
   }
@@ -178,17 +185,17 @@ namespace acme
   collection::removeNone(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isNone(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isNone(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countNone(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -203,7 +210,7 @@ namespace acme
 
   bool
   collection::containPoint(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -217,7 +224,7 @@ namespace acme
 
   bool
   collection::arePoint(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -231,8 +238,8 @@ namespace acme
 
   bool
   collection::isPoint(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isPoint();
   }
@@ -243,17 +250,17 @@ namespace acme
   collection::removePoint(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isPoint(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isPoint(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countPoint(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -268,7 +275,7 @@ namespace acme
 
   bool
   collection::containLine(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -282,7 +289,7 @@ namespace acme
 
   bool
   collection::areLine(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -296,8 +303,8 @@ namespace acme
 
   bool
   collection::isLine(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isLine();
   }
@@ -308,17 +315,17 @@ namespace acme
   collection::removeLine(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isLine(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isLine(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countLine(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -333,7 +340,7 @@ namespace acme
 
   bool
   collection::containRay(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -347,7 +354,7 @@ namespace acme
 
   bool
   collection::areRay(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -361,8 +368,8 @@ namespace acme
 
   bool
   collection::isRay(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isRay();
   }
@@ -373,17 +380,17 @@ namespace acme
   collection::removeRay(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isRay(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isRay(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countRay(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -398,7 +405,7 @@ namespace acme
 
   bool
   collection::containPlane(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -412,7 +419,7 @@ namespace acme
 
   bool
   collection::arePlane(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -426,8 +433,8 @@ namespace acme
 
   bool
   collection::isPlane(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isPlane();
   }
@@ -438,17 +445,17 @@ namespace acme
   collection::removePlane(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isPlane(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isPlane(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countPlane(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -463,7 +470,7 @@ namespace acme
 
   bool
   collection::containSegment(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -477,7 +484,7 @@ namespace acme
 
   bool
   collection::areSegment(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -491,8 +498,8 @@ namespace acme
 
   bool
   collection::isSegment(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isSegment();
   }
@@ -503,17 +510,17 @@ namespace acme
   collection::removeSegment(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isSegment(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isSegment(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countSegment(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -528,7 +535,7 @@ namespace acme
 
   bool
   collection::containTriangle(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -542,7 +549,7 @@ namespace acme
 
   bool
   collection::areTriangle(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -556,8 +563,8 @@ namespace acme
 
   bool
   collection::isTriangle(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isTriangle();
   }
@@ -568,17 +575,17 @@ namespace acme
   collection::removeTriangle(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isTriangle(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isTriangle(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countTriangle(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -593,7 +600,7 @@ namespace acme
 
   bool
   collection::containDisk(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -607,7 +614,7 @@ namespace acme
 
   bool
   collection::areDisk(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -621,8 +628,8 @@ namespace acme
 
   bool
   collection::isDisk(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isDisk();
   }
@@ -633,17 +640,17 @@ namespace acme
   collection::removeDisk(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isDisk(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isDisk(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countDisk(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -658,7 +665,7 @@ namespace acme
 
   bool
   collection::containBall(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -672,7 +679,7 @@ namespace acme
 
   bool
   collection::areBall(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -686,8 +693,8 @@ namespace acme
 
   bool
   collection::isBall(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isBall();
   }
@@ -698,17 +705,17 @@ namespace acme
   collection::removeBall(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isBall(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isBall(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countBall(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -723,8 +730,8 @@ namespace acme
 
   bool
   collection::containDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -738,8 +745,8 @@ namespace acme
 
   bool
   collection::areDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -753,9 +760,9 @@ namespace acme
 
   bool
   collection::isDegenerated(
-      size_t i,
-      real tolerance)
-      const
+    size_t i,
+    real   tolerance)
+    const
   {
     return this->m_entities[i]->isDegenerated(tolerance);
   }
@@ -764,21 +771,21 @@ namespace acme
 
   void
   collection::removeDegenerated(
-      real tolerance)
+    real tolerance)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [tolerance](entity::ptr &entity)
-        { return entity->isDegenerated(tolerance); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [tolerance](entity::ptr &entity)
+      { return entity->isDegenerated(tolerance); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countDegenerated(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -793,7 +800,7 @@ namespace acme
 
   bool
   collection::containClampable(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -807,7 +814,7 @@ namespace acme
 
   bool
   collection::areClampable(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -821,8 +828,8 @@ namespace acme
 
   bool
   collection::isClampable(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isClampable();
   }
@@ -833,17 +840,17 @@ namespace acme
   collection::removeClampable(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isClampable(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isClampable(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countClampable(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -858,7 +865,7 @@ namespace acme
 
   bool
   collection::containNonClampable(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -872,7 +879,7 @@ namespace acme
 
   bool
   collection::areNonClampable(void)
-      const
+    const
   {
     for (size_t i = 0; i < this->m_entities.size(); ++i)
     {
@@ -886,8 +893,8 @@ namespace acme
 
   bool
   collection::isNonClampable(
-      size_t i)
-      const
+    size_t i)
+    const
   {
     return this->m_entities[i]->isNonClampable();
   }
@@ -898,17 +905,17 @@ namespace acme
   collection::removeNonClampable(void)
   {
     remove_if(
-        this->m_entities.begin(),
-        this->m_entities.end(),
-        [](entity::ptr &entity)
-        { return entity->isNonClampable(); });
+      this->m_entities.begin(),
+      this->m_entities.end(),
+      [](entity::ptr &entity)
+      { return entity->isNonClampable(); });
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   integer
   collection::countNonClampable(void)
-      const
+    const
   {
     integer count = 0;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -923,7 +930,7 @@ namespace acme
 
   integer
   collection::size(void)
-      const
+    const
   {
     return integer(this->m_entities.size());
   }
@@ -932,27 +939,16 @@ namespace acme
 
   std::map<std::string, integer>
   collection::count(
-      real tolerance)
-      const
+    real tolerance)
+    const
   {
-    return {{"none", this->countNone()},
-            {"point", this->countPoint()},
-            {"line", this->countLine()},
-            {"ray", this->countRay()},
-            {"plane", this->countPlane()},
-            {"segment", this->countSegment()},
-            {"triangle", this->countTriangle()},
-            {"disk", this->countDisk()},
-            {"ball", this->countBall()},
-            {"degenerated", this->countDegenerated(tolerance)},
-            {"clampable", this->countClampable()},
-            {"non-clampable", this->countNonClampable()}};
+    return {{"none", this->countNone()}, {"point", this->countPoint()}, {"line", this->countLine()}, {"ray", this->countRay()}, {"plane", this->countPlane()}, {"segment", this->countSegment()}, {"triangle", this->countTriangle()}, {"disk", this->countDisk()}, {"ball", this->countBall()}, {"degenerated", this->countDegenerated(tolerance)}, {"clampable", this->countClampable()}, {"non-clampable", this->countNonClampable()}};
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  collection::clamp( aabb::vecptr &boxes ) const
+  collection::clamp(aabb::vecptr &boxes) const
   {
     boxes.clear();
     vec3 min;
@@ -988,9 +984,9 @@ namespace acme
 
   bool
   collection::intersection(
-      collection &entities,
-      collection &candidates)
-      const
+    collection &entities,
+    collection &candidates)
+    const
   {
     candidates.clear();
     aabb::vecpairptr intersection_list;
@@ -1007,9 +1003,9 @@ namespace acme
 
   bool
   collection::intersection(
-      AABBtree::ptr const &ptrAABBtree,
-      collection &candidates)
-      const
+    AABBtree::ptr const &ptrAABBtree,
+    collection          &candidates)
+    const
   {
     candidates.clear();
     aabb::vecpairptr intersection_list;
@@ -1023,9 +1019,9 @@ namespace acme
 
   bool
   collection::intersection(
-      aabb::vecptr const &ptrVecbox,
-      collection &candidates)
-      const
+    aabb::vecptr const &ptrVecbox,
+    collection         &candidates)
+    const
   {
     AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
     ptrAABBtree->build(ptrVecbox);
@@ -1036,9 +1032,9 @@ namespace acme
 
   bool
   collection::intersection(
-      aabb::ptr const ptrbox,
-      collection &candidates)
-      const
+    aabb::ptr const ptrbox,
+    collection     &candidates)
+    const
   {
     aabb::vecptr ptrVecbox;
     ptrVecbox.push_back(ptrbox);
@@ -1049,17 +1045,15 @@ namespace acme
 
   void
   collection::intersection(
-      collection &entities,
-      real tolerance)
-      const
+    collection &entities,
+    real        tolerance)
+    const
   {
     size_t size = this->m_entities.size();
     entities.clear();
     for (size_t i = 0; i < size; ++i)
       for (size_t j = i; j < size; ++j)
-        entities.push_back(entity::ptr(acme::intersection(this->m_entities[i].get(),
-                                                          this->m_entities[j].get(),
-                                                          tolerance)));
+        entities.push_back(entity::ptr(acme::intersection(this->m_entities[i].get(), this->m_entities[j].get(), tolerance)));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
