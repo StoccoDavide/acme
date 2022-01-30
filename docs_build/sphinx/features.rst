@@ -244,7 +244,7 @@ The implemented methods are:
 - `isInside`: check whether the point is inside the ball.
 
 Class `collection`
------------------
+------------------
 
 The class `collection` represents a generic set of geometrical entites.
 It is built out of two members:
