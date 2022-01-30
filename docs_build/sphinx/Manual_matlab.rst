@@ -41,7 +41,7 @@ If you want to compile the Toolbox by yourself
 
 run Matlab and from the comand windows of MATLAB:
 
-.. code-block:: matlab
+.. code-block:: bash
 
   cd toolbox
   setup

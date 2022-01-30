@@ -25,7 +25,7 @@
 (***********************************************************************)
 */
 
-// TEST 11 - SEGMENT/PLANE INTERSECTION
+// TEST 17 - DISK/PLANE INTERSECTION
 
 #include <fstream>
 #include <iostream>
@@ -34,6 +34,7 @@
 #include "acme.hh"
 #include "acme_intersection.hh"
 #include "acme_plane.hh"
+#include "acme_disk.hh"
 #include "acme_segment.hh"
 #include "acme_utils.hh"
 
@@ -43,19 +44,19 @@ using namespace acme;
 int main()
 {
   std::cout
-      << "TEST 16 - SEGMENT/PLANE INTERSECTION" << std::endl;
+      << "TEST 17 - DISK/PLANE INTERSECTION" << std::endl;
 
   // Initialize triangle
-  segment Segment(point(0.0, 1.0, 1.6), vec3(1.0, 0.0, 0));
+  disk Disk(0.3, point(0.0, 0.0, 0.4), vec3(0.0, 1.0, 0.0));
 
   // Initialize triangle
-  plane Plane(vec3(0.0, 0.0, 0.5), vec3(0.0, 0.0, 1.0));
+  plane Plane(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 1.0));
 
   // Initialize intersection point
-  point IntersectionPt;
+  segment IntersectionSeg;
   bool IntersectionPtBool;
 
-  IntersectionPtBool = acme::intersection(Plane, Segment, IntersectionPt);
+  IntersectionPtBool = acme::intersection(Plane, Disk, IntersectionSeg);
 
   // ERROR if no one of the two triangles is hit
   if (!IntersectionPtBool)
@@ -66,9 +67,10 @@ int main()
   std::cout
       << std::endl
       << std::endl
-      << "Intersection point: "
-      << IntersectionPt << std::endl
-      << "TEST 16: Completed" << std::endl;
+      << "Intersection segment: "
+      << IntersectionSeg.vertex(0) << std::endl
+      << IntersectionSeg.vertex(1) << std::endl
+      << "TEST 17: Completed" << std::endl;
 
   // Exit the program
   return 0;
