@@ -83,7 +83,7 @@ Methods
 
 
 Object `point`
--------------
+--------------
 
 The `point` object represents a point the 3D space.
 
@@ -503,7 +503,7 @@ Methods
   P1 = S1.intersection( S2 );
 
 Object `triangle`
-----------------
+-----------------
 
 The `triangle` object represents a triangle the 3D space.
 

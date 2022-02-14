@@ -1,6 +1,6 @@
 BSD 2-Clause License
 
-Copyright (c) 2020-2021, Davide Stocco <davide.stocco@unitn.it> and 
+Copyright (c) 2020, Davide Stocco <davide.stocco@unitn.it> and 
 Enrico Bertolazzi <enrico.bertolazzi@unitn.it>.
 
 Redistribution and use in source and binary forms, with or without
