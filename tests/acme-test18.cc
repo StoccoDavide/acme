@@ -25,7 +25,7 @@
 (***********************************************************************)
 */
 
-// TEST 5 - LINE/TRIANGLE INTERSECTION ON TRIANGLE EDGE
+// TEST 17 - DISK/TRIANGLE INTERSECTION
 
 #include <fstream>
 #include <iostream>
@@ -33,8 +33,9 @@
 
 #include "acme.hh"
 #include "acme_intersection.hh"
-#include "acme_math.hh"
 #include "acme_triangle.hh"
+#include "acme_disk.hh"
+#include "acme_segment.hh"
 #include "acme_utils.hh"
 
 using namespace acme;
@@ -43,77 +44,37 @@ using namespace acme;
 int main()
 {
   std::cout
-      << "TEST 5 - LINE/TRIANGLE INTERSECTION ON TRIANGLE EDGE" << std::endl
-      << "Angle\tIntersections" << std::endl;
-
-  point V1[3];
-  V1[0] = point(1.0, 0.0, 0.0);
-  V1[1] = point(0.0, 1.0, 0.0);
-  V1[2] = point(-1.0, 0.0, 0.0);
-
-  point V2[3];
-  V2[0] = point(-1.0, 0.0, 0.0);
-  V2[1] = point(0.0, -1.0, 0.0);
-  V2[2] = point(1.0, 0.0, 0.0);
+      << "TEST 17 - DISK/TRIANGLE INTERSECTION" << std::endl;
 
   // Initialize triangle
-  triangle Triangle1(V1);
-  triangle Triangle2(V2);
-  triangle tmp_Triangle1(V1);
-  triangle tmp_Triangle2(V2);
+  disk Disk(0.3, point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
 
-  // Initialize rotation matrix
-  affine tmp_affine;
-  tmp_affine = translate(0.0, 0.0, 0.0);
+  plane Plane(point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
+
+  // Initialize triangle
+  triangle Triangle(vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 1.0, 1.0));
 
   // Initialize intersection point
-  point IntersectionPointTri1, IntersectionPointTri2;
-  bool IntersectionBoolTri1, IntersectionBoolTri2;
+  segment IntersectionSeg, IntersectionSeg1;
+  bool IntersectionPtBool;
 
-  // Initialize Ray
-  point LineOrigin(1.0, 0.0, 2.0);
-  vec3 LineDirection(0.0, 0.0, -1.0);
-  line Line(LineOrigin, LineDirection);
+  //IntersectionPtBool = acme::intersection(Triangle, Disk, IntersectionSeg);
+  IntersectionPtBool = acme::intersection(Plane, Triangle, IntersectionSeg1);
+  IntersectionPtBool = acme::intersection(IntersectionSeg1, Disk, IntersectionSeg);
 
-  real step = PI / 360.0;
-  // Perform intersection at 0.5° step
-  for (real angle = -step;
-       angle < PI;
-       angle += step)
+  // ERROR if no one of the two triangles is hit
+  if (!IntersectionPtBool)
   {
-
-    tmp_affine = angleaxis(angle, UNITX_VEC3);
-    angle += step;
-
-    tmp_Triangle1 = Triangle1;
-    tmp_Triangle2 = Triangle2;
-    tmp_Triangle1.transform(tmp_affine);
-    tmp_Triangle2.transform(tmp_affine);
-
-    IntersectionBoolTri1 = intersection(Line, tmp_Triangle1, IntersectionPointTri1, EPSILON_LOW);
-    IntersectionBoolTri2 = intersection(Line, tmp_Triangle2, IntersectionPointTri2, EPSILON_LOW);
-
-    std::cout
-        << angle / PIDIV180 << "°\t"
-        << "T1 -> " << IntersectionBoolTri1 << ", T2 -> " << IntersectionBoolTri2 << std::endl;
-
-    // ERROR if no one of the two triangles is hit
-    if (!IntersectionBoolTri1 && !IntersectionBoolTri2)
-    {
-      std::cout << "Check coplanarity!" << std::endl;
-    }
+    std::cout << "Check coplanarity!" << std::endl;
   }
 
-  // Print triangle normal vector
-  vec3 N1 = Triangle1.normal();
-  vec3 N2 = Triangle2.normal();
   std::cout
       << std::endl
-      << "Triangle 1 face normal = " << N1 << std::endl
-      << "Triangle 2 face normal = " << N2 << std::endl
       << std::endl
-      << std::endl
-      << "TEST 5: Completed" << std::endl;
+      << "Intersection segment: " << real(IntersectionPtBool) << std::endl
+      << IntersectionSeg.vertex(0) 
+      << IntersectionSeg.vertex(1) << std::endl
+      << "TEST 17: Completed" << std::endl;
 
   // Exit the program
   return 0;
