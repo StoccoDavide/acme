@@ -31,12 +31,14 @@
 *.out
 *.app
 *.mexw64
+*.mexmaci64
 
 # Visual Studio Code
 .vscode/*
 
 # Matlab
 *.asv
+*.autosave
 
 # Folders
 build/*
@@ -52,7 +54,6 @@ docs_build/xml-cpp
 license.txt
 
 .DS_Store
-
 
 lib3rd
 docs_build/sphinx/_doxygen
