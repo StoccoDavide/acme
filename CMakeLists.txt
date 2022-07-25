@@ -84,6 +84,7 @@ endforeach (F ${S})
 # Dependencies (try to use already complied submodule on large project)
 set(UPDIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
 set(DEPEND_TARGETS)
+
 find_library(
   UTILS Utils${ARTIFACTS_STATIC_SUFFIX}
   HINTS ${UPDIR}/Utils/lib/lib
