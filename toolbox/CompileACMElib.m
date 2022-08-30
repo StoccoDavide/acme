@@ -23,7 +23,7 @@ lst_cc = dir('./src/*.cc');
 LIB_SRCS = '';
 LIB_OBJS = '';
 
-MEX_CMD  = 'mex -largeArrayDims -I./src ';
+MEX_CMD  = 'mex -largeArrayDims -I./src -I./src/Utils -I./src/Eigen ';
 
 CMD = [ MEX_CMD, ' -c' ];
 if ismac
