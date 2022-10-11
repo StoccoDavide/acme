@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class segment &#8212; ACME v1.0
+    <title>Class segment &#8212; ACME v2.0
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -44,7 +44,7 @@
 <span id="exhale-class-a00173"></span><h1>Class segment<a class="headerlink" href="#class-segment" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_segment.hh.html#file-include-acme-segment-hh"><span class="std std-ref">File acme_segment.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_segment.hxx.html#file-src-acme-segment-hxx"><span class="std std-ref">File segment.hxx</span></a></p></li>
 </ul>
 <div class="section" id="inheritance-relationships">
 <h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
@@ -91,24 +91,6 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentD0Ev">
-<span id="_CPPv3N4acme7segmentD0Ev"></span><span id="_CPPv2N4acme7segmentD0Ev"></span><span id="acme::segment::~segment__void"></span><span class="target" id="a00173_1a3be7d0cc63398b9dea961314fb07dea8"></span><span class="sig-name descname"><span class="n"><span class="pre">~segment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segmentD0Ev" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Segment class destructor. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme7segment7segmentEv">
-<span id="_CPPv3N4acme7segment7segmentEv"></span><span id="_CPPv2N4acme7segment7segmentEv"></span><span id="acme::segment::segment__void"></span><span class="target" id="a00173_1a8288d041dc51b870c8311673de490299"></span><span class="sig-name descname"><span class="n"><span class="pre">segment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segment7segmentEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Segment class constructor. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4acme7segment7segmentERK7segment">
 <span id="_CPPv3N4acme7segment7segmentERK7segment"></span><span id="_CPPv2N4acme7segment7segmentERK7segment"></span><span id="acme::segment::segment__segmentCR"></span><span class="target" id="a00173_1a0f09598fc9e3bc130f470b5e7041cfd1"></span><span class="sig-name descname"><span class="n"><span class="pre">segment</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme7segment7segmentERK7segment" title="acme::segment::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme7segment7segmentERK7segment" title="Permalink to this definition">¶</a><br>
 </dt>
@@ -123,6 +105,42 @@
 </dt>
 <dd>
 <p>Segment move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentaSERK7segment">
+<span id="_CPPv3N4acme7segmentaSERK7segment"></span><span id="_CPPv2N4acme7segmentaSERK7segment"></span><span id="acme::segment::assign-operator__segmentCR"></span><span class="target" id="a00173_1a750725d3c876ed5bb5ccbb8701504783"></span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme7segmentaSERK7segment" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Segment assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentaSERR7segment">
+<span id="_CPPv3N4acme7segmentaSERR7segment"></span><span id="_CPPv2N4acme7segmentaSERR7segment"></span><span id="acme::segment::assign-operator__segmentRR"></span><span class="target" id="a00173_1ae4c7656e41aacd51dd93d13dd35d9219"></span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme7segmentaSERR7segment" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Segment move assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentD0Ev">
+<span id="_CPPv3N4acme7segmentD0Ev"></span><span id="_CPPv2N4acme7segmentD0Ev"></span><span id="acme::segment::~segment__void"></span><span class="target" id="a00173_1ab65d2ef1b0f19e3241fcc8c2804f66ba"></span><span class="sig-name descname"><span class="n"><span class="pre">~segment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme7segmentD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Segment class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme7segment7segmentEv">
+<span id="_CPPv3N4acme7segment7segmentEv"></span><span id="_CPPv2N4acme7segment7segmentEv"></span><span id="acme::segment::segment__void"></span><span class="target" id="a00173_1a8288d041dc51b870c8311673de490299"></span><span class="sig-name descname"><span class="n"><span class="pre">segment</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segment7segmentEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Segment class constructor. </p>
 </dd>
 </dl>
 
@@ -182,21 +200,6 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentaSERK7segment">
-<span id="_CPPv3N4acme7segmentaSERK7segment"></span><span id="_CPPv2N4acme7segmentaSERK7segment"></span><span id="acme::segment::assign-operator__segmentCR"></span><span class="target" id="a00173_1afe2c3250dbb98328b0146b18a6fdcbf6"></span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">segment_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segmentaSERK7segment" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Equality operator. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>segment_in</strong> – Input segment object </p>
-</dd>
-</dl>
-</dd>
-</dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4acme7segment8isApproxERK7segment4real">
 <span id="_CPPv3NK4acme7segment8isApproxERK7segment4real"></span><span id="_CPPv2NK4acme7segment8isApproxERK7segment4real"></span><span id="acme::segment::isApprox__segmentCR.realC"></span><span class="target" id="a00173_1a2823df4e442ee250b50ca88598f3192d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">segment_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segment8isApproxERK7segment4real" title="Permalink to this definition">¶</a><br>
 </dt>
@@ -224,8 +227,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4acme7segment6vertexE6size_t">
-<span id="_CPPv3NK4acme7segment6vertexE6size_t"></span><span id="_CPPv2NK4acme7segment6vertexE6size_t"></span><span id="acme::segment::vertex__sC"></span><span class="target" id="a00173_1a6738a7d2e36d09e9bde0f5a2af8192f3"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segment6vertexE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme7segment6vertexE7integer">
+<span id="_CPPv3NK4acme7segment6vertexE7integer"></span><span id="_CPPv2NK4acme7segment6vertexE7integer"></span><span id="acme::segment::vertex__integerC"></span><span class="target" id="a00173_1a3588e1aeaeb21b1b0a280fd08437ecea"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segment6vertexE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get segment i-th vertex const reference. </p>
@@ -239,8 +242,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme7segment6vertexE6size_t">
-<span id="_CPPv3N4acme7segment6vertexE6size_t"></span><span id="_CPPv2N4acme7segment6vertexE6size_t"></span><span id="acme::segment::vertex__s"></span><span class="target" id="a00173_1aba3b9b562a4a99db977c0e6dd70379a9"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segment6vertexE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme7segment6vertexE7integer">
+<span id="_CPPv3N4acme7segment6vertexE7integer"></span><span id="_CPPv2N4acme7segment6vertexE7integer"></span><span id="acme::segment::vertex__integer"></span><span class="target" id="a00173_1ae9d2ac8d78a16864246842957c205685"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segment6vertexE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get segment i-th vertex reference. </p>
@@ -254,8 +257,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4acme7segmentixE6size_t">
-<span id="_CPPv3NK4acme7segmentixE6size_t"></span><span id="_CPPv2NK4acme7segmentixE6size_t"></span><span id="acme::segment::subscript-operator__sC"></span><span class="target" id="a00173_1a6d8bc69f288f225ecddf24b5caa0568a"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segmentixE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme7segmentixE7integer">
+<span id="_CPPv3NK4acme7segmentixE7integer"></span><span id="_CPPv2NK4acme7segmentixE7integer"></span><span id="acme::segment::subscript-operator__integerC"></span><span class="target" id="a00173_1a5f7105c27551119565b10bd4b5b2976b"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segmentixE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get segment i-th vertex const reference. </p>
@@ -269,8 +272,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentixE6size_t">
-<span id="_CPPv3N4acme7segmentixE6size_t"></span><span id="_CPPv2N4acme7segmentixE6size_t"></span><span id="acme::segment::subscript-operator__s"></span><span class="target" id="a00173_1ae20b199005c0587dbb19a4197c4969b3"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segmentixE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme7segmentixE7integer">
+<span id="_CPPv3N4acme7segmentixE7integer"></span><span id="_CPPv2N4acme7segmentixE7integer"></span><span id="acme::segment::subscript-operator__integer"></span><span class="target" id="a00173_1a72c78b4de49f290fbb800880a7dd6e43"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme7segmentixE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get segment i-th vertex reference. </p>
@@ -558,7 +561,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4acme7segment8isEntityEv">
-<span id="_CPPv3NK4acme7segment8isEntityEv"></span><span id="_CPPv2NK4acme7segment8isEntityEv"></span><span id="acme::segment::isEntity__voidC"></span><span class="target" id="a00149_1a534ab97324296ad976e253051482322f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEntity</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segment8isEntityEv" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4acme7segment8isEntityEv"></span><span id="_CPPv2NK4acme7segment8isEntityEv"></span><span id="acme::segment::isEntity__voidC"></span><span class="target" id="a00149_1a534ab97324296ad976e253051482322f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEntity</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme7segment8isEntityEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is an entity. </p>

@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File intersection.hxx &#8212; ACME v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-intersection-hxx">
+<span id="program-listing-file-src-acme-intersection-hxx"></span><h1>Program Listing for File intersection.hxx<a class="headerlink" href="#program-listing-for-file-intersection-hxx" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_src_acme_intersection.hxx.html#file-src-acme-intersection-hxx"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/acme/intersection.hxx</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * The ACME project                                                    *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * The ACME project and its components are supplied under the terms of *</span>
+<span class="cm"> * the open source BSD 2-Clause License. The contents of the ACME      *</span>
+<span class="cm"> * project and its components may not be copied or disclosed except in *</span>
+<span class="cm"> * accordance with the terms of the BSD 2-Clause License.              *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * URL: https://opensource.org/licenses/BSD-2-Clause                   *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Davide Stocco                                                    *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: davide.stocco@unitn.it                                   *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Enrico Bertolazzi                                                *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: enrico.bertolazzi@unitn.it                               *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#ifndef INCLUDE_ACME_Intersection</span>
+<span class="cp">#define INCLUDE_ACME_Intersection</span>
+
+<span class="cp">#include</span> <span class="cpf">"aabb.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"ball.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"collinear.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"coplanar.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"disk.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"line.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"none.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"plane.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"ray.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"segment.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"triangle.hxx"</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">acme</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   ___       _                          _   _</span>
+<span class="cm">   |  |_ _|_ __ | |_ ___ _ __ ___  ___  ___| |_(_) ___  _ __</span>
+<span class="cm">   |   | || '_ \| __/ _ \ '__/ __|/ _ \/ __| __| |/ _ \| '_ \</span>
+<span class="cm">   |   | || | | | ||  __/ |  \__ \  __/ (__| |_| | (_) | | | |</span>
+<span class="cm">   |  |___|_| |_|\__\___|_|  |___/\___|\___|\__|_|\___/|_| |_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="n">entity</span> <span class="o">*</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span> <span class="n">entity0_in</span><span class="p">,</span>
+    <span class="n">entity</span> <span class="k">const</span> <span class="o">*</span> <span class="n">entity1_in</span><span class="p">,</span>
+    <span class="n">real</span>           <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   ____                   _               _</span>
+<span class="cm">   |  |  _ \ _   _ _ __   ___| |_ _   _  __ _| |</span>
+<span class="cm">   |  | |_) | | | | '_ \ / __| __| | | |/ _` | |</span>
+<span class="cm">   |  |  __/| |_| | | | | (__| |_| |_| | (_| | |</span>
+<span class="cm">   |  |_|    \__,_|_| |_|\___|\__|\__,_|\__,_|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point0_in</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point1_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">point</span>         <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">point</span>          <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+    <span class="n">disk</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |    ____      _ _ _</span>
+<span class="cm">   |   / ___|___ | | (_)_ __   ___  __ _ _ __</span>
+<span class="cm">   |  | |   / _ \| | | | '_ \ / _ \/ _` | '__|</span>
+<span class="cm">   |  | |__| (_) | | | | | | |  __/ (_| | |</span>
+<span class="cm">   |   \____\___/|_|_|_|_| |_|\___|\__,_|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line0_in</span><span class="p">,</span>
+    <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line1_in</span><span class="p">,</span>
+    <span class="n">line</span>       <span class="o">&amp;</span> <span class="n">line_out</span>  <span class="o">=</span> <span class="n">DUMMY_LINE</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray0_in</span><span class="p">,</span>
+    <span class="n">ray</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray1_in</span><span class="p">,</span>
+    <span class="n">ray</span>        <span class="o">&amp;</span> <span class="n">ray_out</span>   <span class="o">=</span> <span class="n">DUMMY_RAY</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray0_in</span><span class="p">,</span>
+    <span class="n">ray</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray1_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment0_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment1_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">ray</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">ray</span>        <span class="o">&amp;</span> <span class="n">ray_out</span>   <span class="o">=</span> <span class="n">DUMMY_RAY</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |    ____                      _</span>
+<span class="cm">   |   / ___| ___ _ __   ___ _ __(_) ___</span>
+<span class="cm">   |  | |  _ / _ \ '_ \ / _ \ '__| |/ __|</span>
+<span class="cm">   |  | |_| |  __/ | | |  __/ |  | | (__</span>
+<span class="cm">   |   \____|\___|_| |_|\___|_|  |_|\___|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line0_in</span><span class="p">,</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line1_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray0_in</span><span class="p">,</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray1_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment0_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment1_in</span><span class="p">,</span>
+    <span class="n">point</span>         <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment</span><span class="p">,</span>
+    <span class="n">point</span>         <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment</span><span class="p">,</span>
+    <span class="n">point</span>         <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |    ____            _</span>
+<span class="cm">   |   / ___|___  _ __ | | __ _ _ __   __ _ _ __</span>
+<span class="cm">   |  | |   / _ \| '_ \| |/ _` | '_ \ / _` | '__|</span>
+<span class="cm">   |  | |__| (_) | |_) | | (_| | | | | (_| | |</span>
+<span class="cm">   |   \____\___/| .__/|_|\__,_|_| |_|\__,_|_|</span>
+<span class="cm">   |             |_|</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane0_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane1_in</span><span class="p">,</span>
+    <span class="n">plane</span>       <span class="o">&amp;</span> <span class="n">plane_out</span> <span class="o">=</span> <span class="n">DUMMY_PLANE</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle0_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle1_in</span><span class="p">,</span>
+    <span class="n">none</span>           <span class="o">&amp;</span> <span class="n">none_out</span>  <span class="o">=</span> <span class="n">DUMMY_NONE</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk0_in</span><span class="p">,</span>
+    <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk1_in</span><span class="p">,</span>
+    <span class="n">none</span>       <span class="o">&amp;</span> <span class="n">none_out</span>  <span class="o">=</span> <span class="n">DUMMY_NONE</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">line</span>        <span class="o">&amp;</span> <span class="n">line_out</span>  <span class="o">=</span> <span class="n">DUMMY_LINE</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">segment</span>        <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">ray</span>         <span class="o">&amp;</span> <span class="n">ray_out</span>   <span class="o">=</span> <span class="n">DUMMY_RAY</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>      <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">segment</span>        <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">triangle</span>       <span class="o">&amp;</span> <span class="n">triangle_out</span> <span class="o">=</span> <span class="n">DUMMY_TRIANGLE</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>    <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">disk</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">disk</span>        <span class="o">&amp;</span> <span class="n">disk_out</span>  <span class="o">=</span> <span class="n">DUMMY_DISK</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">segment</span>        <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">disk</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">none</span>           <span class="o">&amp;</span> <span class="n">none_out</span>  <span class="o">=</span> <span class="n">DUMMY_NONE</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   _   _              ____            _</span>
+<span class="cm">   |  | \ | | ___  _ __  / ___|___  _ __ | | __ _ _ __   __ _ _ __</span>
+<span class="cm">   |  |  \| |/ _ \| '_ \| |   / _ \| '_ \| |/ _` | '_ \ / _` | '__|</span>
+<span class="cm">   |  | |\  | (_) | | | | |__| (_) | |_) | | (_| | | | | (_| | |</span>
+<span class="cm">   |  |_| \_|\___/|_| |_|\____\___/| .__/|_|\__,_|_| |_|\__,_|_|</span>
+<span class="cm">   |                               |_|</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane0_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane1_in</span><span class="p">,</span>
+    <span class="n">line</span>        <span class="o">&amp;</span> <span class="n">line_out</span>  <span class="o">=</span> <span class="n">DUMMY_LINE</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane0_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane1_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane2_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle0_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle1_in</span><span class="p">,</span>
+    <span class="n">segment</span>        <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk0_in</span><span class="p">,</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk1_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball0_in</span><span class="p">,</span>
+    <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball1_in</span><span class="p">,</span>
+    <span class="n">none</span>       <span class="o">&amp;</span> <span class="n">none_out</span>  <span class="o">=</span> <span class="n">DUMMY_NONE</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">point</span>          <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">disk</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">line</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">line_in</span><span class="p">,</span>
+    <span class="n">ball</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>      <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">point</span>          <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">disk</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">point</span>       <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">ray</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ray_in</span><span class="p">,</span>
+    <span class="n">ball</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment</span><span class="p">,</span>
+    <span class="n">point</span>         <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">segment</span>        <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">plane</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">plane_in</span><span class="p">,</span>
+    <span class="n">ball</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball_in</span><span class="p">,</span>
+    <span class="n">disk</span>        <span class="o">&amp;</span> <span class="n">disk_out</span>  <span class="o">=</span> <span class="n">DUMMY_DISK</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span>  <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">point</span>          <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">disk</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">point</span>         <span class="o">&amp;</span> <span class="n">point_out</span> <span class="o">=</span> <span class="n">DUMMY_POINT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+    <span class="n">ball</span>    <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball_in</span><span class="p">,</span>
+    <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">disk</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">segment</span>        <span class="o">&amp;</span> <span class="n">segment_out</span> <span class="o">=</span> <span class="n">DUMMY_SEGMENT</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangle_in</span><span class="p">,</span>
+    <span class="n">ball</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball_in</span><span class="p">,</span>
+    <span class="n">none</span>           <span class="o">&amp;</span> <span class="n">none_out</span>  <span class="o">=</span> <span class="n">DUMMY_NONE</span><span class="p">,</span>
+    <span class="n">real</span>             <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">disk</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">disk_in</span><span class="p">,</span>
+    <span class="n">ball</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ball_in</span><span class="p">,</span>
+    <span class="n">none</span>       <span class="o">&amp;</span> <span class="n">none_out</span>  <span class="o">=</span> <span class="n">DUMMY_NONE</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   __  __ _              _ _</span>
+<span class="cm">   |  |  \/  (_)___  ___ ___| | | __ _ _ __   ___  ___  _   _ ___</span>
+<span class="cm">   |  | |\/| | / __|/ __/ _ \ | |/ _` | '_ \ / _ \/ _ \| | | / __|</span>
+<span class="cm">   |  | |  | | \__ \ (_|  __/ | | (_| | | | |  __/ (_) | |_| \__ \</span>
+<span class="cm">   |  |_|  |_|_|___/\___\___|_|_|\__,_|_| |_|\___|\___/ \__,_|___/</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="kt">bool</span>
+  <span class="nf">Intersection</span><span class="p">(</span>
+    <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">aabb0_in</span><span class="p">,</span>
+    <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">aabb1_in</span><span class="p">,</span>
+    <span class="n">aabb</span>       <span class="o">&amp;</span> <span class="n">aabb_out</span>  <span class="o">=</span> <span class="n">DUMMY_AABB</span><span class="p">,</span>
+    <span class="n">real</span>         <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+  <span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace acme</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">ACME general features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_matlab.html">Matlab Interface Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

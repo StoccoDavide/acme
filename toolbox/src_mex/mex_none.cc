@@ -1,48 +1,37 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ACME project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
-(*                                                                     *)
-(* The ACME project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ACME      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * The ACME project                                                    *
+ *                                                                     *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
+ *                                                                     *
+ * The ACME project and its components are supplied under the terms of *
+ * the open source BSD 2-Clause License. The contents of the ACME      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 2-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-2-Clause                   *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
-#include "acme.hh"
-#include "acme_aabb.hh"
-#include "acme_collinear.hh"
-#include "acme_coplanar.hh"
-#include "acme_disk.hh"
-#include "acme_entity.hh"
-#include "acme_intersection.hh"
-#include "acme_line.hh"
-#include "acme_none.hh"
-#include "acme_orthogonal.hh"
-#include "acme_parallel.hh"
-#include "acme_plane.hh"
-#include "acme_point.hh"
-#include "acme_ray.hh"
-#include "acme_segment.hh"
-#include "acme_ball.hh"
-#include "acme_triangle.hh"
+///
+/// file: mex_none.cc
+///
+
 #include "mex_utils.hh"
+
+#include "acme.hh"
 
 #define ASSERT(COND, MSG)               \
   if (!(COND))                          \
@@ -193,7 +182,7 @@ do_isParallel(int nlhs, mxArray *plhs[],
   else if (type == "ball")
     other = convertMat2Ptr<acme::ball>(arg_in_2);
 
-  setBoolValue(arg_out_0, acme::isParallel(self, other));
+  setBoolValue(arg_out_0, acme::IsParallel(self, other));
 #undef CMD
 }
 
@@ -230,7 +219,7 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
   else if (type == "ball")
     other = convertMat2Ptr<acme::ball>(arg_in_2);
 
-  setBoolValue(arg_out_0, acme::isOrthogonal(self, other));
+  setBoolValue(arg_out_0, acme::IsOrthogonal(self, other));
 #undef CMD
 }
 
@@ -268,7 +257,7 @@ do_isCollinear(int nlhs, mxArray *plhs[],
   else if (type == "ball")
     other = convertMat2Ptr<acme::ball>(arg_in_2);
 
-  setBoolValue(arg_out_0, acme::isCollinear(self, other));
+  setBoolValue(arg_out_0, acme::IsCollinear(self, other));
 #undef CMD
 }
 
@@ -306,7 +295,7 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
   else if (type == "ball")
     other = convertMat2Ptr<acme::ball>(arg_in_2);
 
-  setBoolValue(arg_out_0, acme::isCoplanar(self, other));
+  setBoolValue(arg_out_0, acme::IsCoplanar(self, other));
 #undef CMD
 }
 
@@ -344,7 +333,7 @@ do_intersection(int nlhs, mxArray *plhs[],
   else if (type == "ball")
     other = convertMat2Ptr<acme::ball>(arg_in_2);
 
-  acme::entity *out = acme::intersection(self, other);
+  acme::entity *out = acme::Intersection(self, other);
   string out_type = out->type();
   if (out_type == "none")
     arg_out_0 = convertPtr2Mat<acme::none>(dynamic_cast<acme::none *>(out));
@@ -413,3 +402,7 @@ mexFunction(int nlhs, mxArray *plhs[],
     mexErrMsgTxt("mex_none failed\n");
   }
 }
+
+///
+/// eof: mex_plane.cc
+///

@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File segment.hxx &#8212; ACME v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-segment-hxx">
+<span id="program-listing-file-src-acme-segment-hxx"></span><h1>Program Listing for File segment.hxx<a class="headerlink" href="#program-listing-for-file-segment-hxx" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_src_acme_segment.hxx.html#file-src-acme-segment-hxx"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/acme/segment.hxx</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * The ACME project                                                    *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * The ACME project and its components are supplied under the terms of *</span>
+<span class="cm"> * the open source BSD 2-Clause License. The contents of the ACME      *</span>
+<span class="cm"> * project and its components may not be copied or disclosed except in *</span>
+<span class="cm"> * accordance with the terms of the BSD 2-Clause License.              *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * URL: https://opensource.org/licenses/BSD-2-Clause                   *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Davide Stocco                                                    *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: davide.stocco@unitn.it                                   *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Enrico Bertolazzi                                                *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: enrico.bertolazzi@unitn.it                               *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#ifndef INCLUDE_ACME_SEGMENT</span>
+<span class="cp">#define INCLUDE_ACME_SEGMENT</span>
+
+<span class="cp">#include</span> <span class="cpf">"aabb.hxx"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"point.hxx"</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">acme</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |                                       _</span>
+<span class="cm">   |   ___  ___  __ _ _ __ ___   ___ _ __ | |_</span>
+<span class="cm">   |  / __|/ _ \/ _` | '_ ` _ \ / _ \ '_ \| __|</span>
+<span class="cm">   |  \__ \  __/ (_| | | | | | |  __/ | | | |_</span>
+<span class="cm">   |  |___/\___|\__, |_| |_| |_|\___|_| |_|\__|</span>
+<span class="cm">   |            |___/</span>
+<span class="cm">  \*/</span>
+
+
+  <span class="k">class</span> <span class="nc">segment</span> <span class="o">:</span> <span class="k">public</span> <span class="n">entity</span>
+  <span class="p">{</span>
+  <span class="k">private</span><span class="o">:</span>
+    <span class="n">point</span> <span class="n">m_vertex</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_POINT</span><span class="p">};</span>
+
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">segment</span><span class="p">(</span><span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">segment</span><span class="p">(</span><span class="n">segment</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">segment</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">segment</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">segment</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">segment</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="o">~</span><span class="n">segment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">override</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">segment</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">segment</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">vertex0_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex0_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex0_z</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex1_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex1_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">vertex1_z</span>
+    <span class="p">);</span>
+
+    <span class="n">segment</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">vertex0</span><span class="p">,</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">vertex1</span>
+    <span class="p">);</span>
+
+    <span class="n">segment</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="p">);</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isApprox</span><span class="p">(</span>
+      <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">segment_in</span><span class="p">,</span>
+      <span class="n">real</span>            <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span>
+    <span class="nf">centroid</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">vertex</span><span class="p">(</span>
+      <span class="n">integer</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="nf">vertex</span><span class="p">(</span>
+      <span class="n">integer</span> <span class="n">i</span>
+    <span class="p">);</span>
+
+    <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="k">operator</span><span class="p">[](</span>
+      <span class="n">integer</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">point</span> <span class="o">&amp;</span>
+    <span class="k">operator</span><span class="p">[](</span>
+      <span class="n">integer</span> <span class="n">i</span>
+    <span class="p">);</span>
+
+    <span class="n">vec3</span>
+    <span class="nf">toVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">vec3</span>
+    <span class="nf">toUnitVector</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">swap</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span>
+    <span class="nf">length</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">translate</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">vector_in</span>
+    <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">transform</span><span class="p">(</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">affine_in</span>
+    <span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="c1">// Check whether the point is inside the segment</span>
+    <span class="kt">bool</span>
+    <span class="nf">isInside</span><span class="p">(</span>
+      <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_in</span><span class="p">,</span>
+      <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isDegenerated</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="kr">inline</span>
+    <span class="n">integer</span>
+    <span class="n">level</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nf">integer</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span>
+    <span class="n">type</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="s">"segment"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isNone</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isPoint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isLine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isRay</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isPlane</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isSegment</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isTriangle</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isDisk</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isBall</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">inline</span>
+    <span class="kt">bool</span>
+    <span class="n">isNonClampable</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span> <span class="k">override</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span>
+    <span class="n">clamp</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span> <span class="n">min</span><span class="p">,</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span> <span class="n">max</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">clamp</span><span class="p">(</span>
+      <span class="n">real</span> <span class="o">&amp;</span> <span class="n">min_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="o">&amp;</span> <span class="n">min_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="o">&amp;</span> <span class="n">min_z</span><span class="p">,</span>
+      <span class="n">real</span> <span class="o">&amp;</span> <span class="n">max_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="o">&amp;</span> <span class="n">max_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="o">&amp;</span> <span class="n">max_z</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+  <span class="p">};</span> <span class="c1">// class segment</span>
+
+  <span class="k">static</span> <span class="n">segment</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">NAN_SEGMENT</span>   <span class="o">=</span> <span class="o">*</span> <span class="k">new</span> <span class="n">segment</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_POINT</span><span class="p">);</span>
+  <span class="k">static</span> <span class="n">segment</span>       <span class="o">&amp;</span> <span class="n">DUMMY_SEGMENT</span> <span class="o">=</span> <span class="o">*</span> <span class="k">new</span> <span class="n">segment</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">,</span> <span class="n">NAN_POINT</span><span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace acme</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ACME library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">ACME general features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_matlab.html">Matlab Interface Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

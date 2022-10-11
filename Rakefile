@@ -1,75 +1,45 @@
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#                                                                       #
-#  The ACME project                                                     #
-#                                                                       #
-# Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.              #
-#                                                                       #
-#  The ACME project and its components are supplied under the terms of  #
-#  the open source BSD 2-Clause License. The contents of the ACME       #
-#  project and its components may not be copied or disclosed except in  #
-#  accordance with the terms of the BSD 2-Clause License.               #
-#                                                                       #
-#  URL: https://opensource.org/licenses/BSD-2-Clause                    #
-#                                                                       #
-#     Davide Stocco                                                     #
-#     Department of Industrial Engineering                              #
-#     University of Trento                                              #
-#     e-mail: davide.stocco@unitn.it                                    #
-#                                                                       #
-#     Enrico Bertolazzi                                                 #
-#     Department of Industrial Engineering                              #
-#     University of Trento                                              #
-#     e-mail: enrico.bertolazzi@unitn.it                                #
-#                                                                       #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+require_relative "./cmake_utils/Rakefile_common.rb"
 
-%w(colorize rake fileutils).each do |gem|
-  begin
-    require gem
-  rescue LoadError
-    warn "Install the #{gem} gem:\n $ (sudo) gem install #{gem}".magenta
-    exit 1
+CLEAN.include   ["./**/*.o", "./**/*.obj", "./bin", "./build"]
+CLEAN.clear_exclude.exclude { |fn| fn.pathmap("%f").downcase == "core" }
+CLOBBER.include []
+
+desc "default task --> build"
+task :default => :build
+
+desc "compile for Visual Studio"
+task :build_win do
+  # check architecture
+  case `where cl.exe`.chop
+  when /x64\\cl\.exe/
+    VS_ARCH = 'x64'
+  when /amd64\\cl\.exe/
+    VS_ARCH = 'x64'
+  when /bin\\cl\.exe/
+    VS_ARCH = 'x86'
+  else
+    raise RuntimeError, "Cannot determine architecture for Visual Studio".red
   end
-end
 
-require_relative "./Rakefile_common.rb"
+  FileUtils.rm_rf   "build"
+  FileUtils.mkdir_p "build"
+  FileUtils.cd      "build"
 
-file_base = File.expand_path(File.dirname(__FILE__)).to_s
+  puts "run CMAKE for TIREX".yellow
+  sh "cmake -G Ninja -DBITS:VAR=#{VS_ARCH} " + cmd_cmake_build() + ' ..'
 
-cmd_cmake_build = ""
-if COMPILE_EXECUTABLE then
-  cmd_cmake_build += ' -DBUILD_EXECUTABLE:VAR=true '
-else
-  cmd_cmake_build += ' -DBUILD_EXECUTABLE:VAR=false '
-end
-if COMPILE_DYNAMIC then
-  cmd_cmake_build += ' -DBUILD_SHARED:VAR=true '
-else
-  cmd_cmake_build += ' -DBUILD_SHARED:VAR=false '
-end
-if COMPILE_DEBUG then
-  cmd_cmake_build += ' -DCMAKE_BUILD_TYPE:VAR=Debug --loglevel=STATUS '
-else
-  cmd_cmake_build += ' -DCMAKE_BUILD_TYPE:VAR=Release --loglevel=STATUS '
-end
-cmd_cmake_build += " -DINSTALL_HERE:VAR=true "
-
-task :default => [:build]
-
-TESTS = [
-]
-
-desc "run tests"
-task :run do
-  puts "Run test".yellow
-  Dir.glob('bin/*') do |cmd|
-    next if cmd =~ /.manifest$|.dSYM$/
-    puts "execute: #{cmd}".yellow
-    sh cmd
+  puts "compile with CMAKE for TIREX".yellow
+  if COMPILE_DEBUG then
+    sh 'cmake --build . --config Debug --target install '+PARALLEL
+  else
+    sh 'cmake --build . --config Release --target install '+PARALLEL
   end
+
+  FileUtils.cd '..'
 end
 
-task :build_gen do
+desc "compile for OSX/LINUX/MINGW"
+task :build_osx_linux_mingw do
 
   dir = "build"
 
@@ -77,96 +47,39 @@ task :build_gen do
   FileUtils.mkdir_p dir
   FileUtils.cd      dir
 
-  cmd_cmake = "cmake " + cmd_cmake_build
+  puts "run CMAKE for TIREX".yellow
+  sh "cmake -G Ninja " + cmd_cmake_build + ' ..'
 
-  puts "run CMAKE for ACME".yellow
-  sh cmd_cmake + ' ..'
-  puts "compile with CMAKE for ACME".yellow
+  puts "compile with CMAKE for TIREX".yellow
   if COMPILE_DEBUG then
-    sh 'cmake --build . --config Debug --target install '+PARALLEL+QUIET
+    sh 'cmake --build . --config Debug --target install '+PARALLEL
   else
-    sh 'cmake --build . --config Release --target install '+PARALLEL+QUIET
-  end
-  FileUtils.cd '..'
-end
-
-desc 'compile for OSX'
-task :build_osx => :build_gen do |t, args|
-end
-
-desc 'compile for LINUX'
-task :build_linux => :build_gen do |t, args|
-end
-
-desc "compile for Visual Studio [default year=2017, bits=x64]"
-task :build_win, [:year, :bits] do |t, args|
-
-  args.with_defaults( :year => "2017", :bits => "x64" )
-
-  dir = "vs_#{args.year}_#{args.bits}"
-
-  FileUtils.rm_rf   dir
-  FileUtils.mkdir_p dir
-  FileUtils.cd      dir
-
-  cmd_cmake = win_vs(args.bits,args.year) + cmd_cmake_build
-
-  puts "run CMAKE for ACME".yellow
-  sh cmd_cmake + ' ..'
-  puts "compile with CMAKE for ACME".yellow
-  if COMPILE_DEBUG then
-    sh 'cmake --build . --config Debug --target install '+PARALLEL+QUIET
-  else
-    sh 'cmake  --build . --config Release  --target install '+PARALLEL+QUIET
+    sh 'cmake --build . --config Release --target install '+PARALLEL
   end
 
   FileUtils.cd '..'
 end
 
-desc "build for OSX/LINUX/WINDOWS"
-task :build do
-  if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil then
-    # LINUX
-    Rake::Task["build_linux"].invoke
-  elsif (/darwin/ =~ RUBY_PLATFORM) != nil then
-    # OSX
-    Rake::Task["build_osx"].invoke
-  else
-    # WINDOWS
-    Rake::Task["build_windows"].invoke
-  end
-end
-
-task :clean_gen do
+task :clean_osx_linux_mingw do
+  FileUtils.rm_rf 'build'
   FileUtils.rm_rf 'lib'
   FileUtils.rm_rf 'lib3rd'
 end
 
-desc "clean for OSX"
-task :clean_osx => :clean_gen do
-end
+task :build_osx   => :build_osx_linux_mingw do end
+task :build_linux => :build_osx_linux_mingw do end
+task :build_mingw => :build_osx_linux_mingw do end
 
-desc "clean for LINUX"
-task :clean_linux => :clean_gen do
-end
+task :clean_osx   => :clean_osx_linux_mingw do end
+task :clean_linux => :clean_osx_linux_mingw do end
+task :clean_mingw => :clean_osx_linux_mingw do end
+task :clean_win   => :clean_osx_linux_mingw do end
 
-desc "clean for WINDOWS"
-task :clean_win do
-  FileUtils.rm_rf 'lib'
-  FileUtils.rm_rf 'lib3rd'
-  FileUtils.rm_rf 'vs_*'
-end
-
-desc "clean for OSX/LINUX/WINDOWS"
-task :clean do
-  if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil then
-    #linux
-    Rake::Task["clean_linux"].invoke
-  elsif (/darwin/ =~ RUBY_PLATFORM) != nil then
-    #osx
-    Rake::Task["clean_linux"].invoke
-  else
-    #windows
-    Rake::Task["clean_linux"].invoke
-  end
+desc 'pack for OSX/LINUX/MINGW/WINDOWS'
+task :cpack do
+  FileUtils.cd "build"
+  puts "run CPACK for TIREX".yellow
+  sh 'cpack -C CPackConfig.cmake'
+  sh 'cpack -C CPackSourceConfig.cmake'
+  FileUtils.cd ".."
 end

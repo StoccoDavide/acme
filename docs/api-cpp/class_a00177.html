@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class triangle &#8212; ACME v1.0
+    <title>Class triangle &#8212; ACME v2.0
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -22,7 +22,7 @@
     <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Function acme::angle(vec3 const, vec3 const)" href="function_a00125_1a166956f7dd6f726b7d917c7bd1b2a231.html" />
+    <link rel="next" title="Function acme::Angle" href="function_a00125_1a43f5dd26fad747e0f3cb1958c3346eaf.html" />
     <link rel="prev" title="Class segment" href="class_a00173.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -44,7 +44,7 @@
 <span id="exhale-class-a00177"></span><h1>Class triangle<a class="headerlink" href="#class-triangle" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_acme_triangle.hh.html#file-include-acme-triangle-hh"><span class="std std-ref">File acme_triangle.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_acme_triangle.hxx.html#file-src-acme-triangle-hxx"><span class="std std-ref">File triangle.hxx</span></a></p></li>
 </ul>
 <div class="section" id="inheritance-relationships">
 <h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
@@ -91,24 +91,6 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleD0Ev">
-<span id="_CPPv3N4acme8triangleD0Ev"></span><span id="_CPPv2N4acme8triangleD0Ev"></span><span id="acme::triangle::~triangle__void"></span><span class="target" id="a00177_1a56089bf359242090eb10480af01dff1d"></span><span class="sig-name descname"><span class="n"><span class="pre">~triangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangleD0Ev" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Triangle class destructor. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle8triangleEv">
-<span id="_CPPv3N4acme8triangle8triangleEv"></span><span id="_CPPv2N4acme8triangle8triangleEv"></span><span id="acme::triangle::triangle__void"></span><span class="target" id="a00177_1a586fe5185a850ca0339a969a2d6052e6"></span><span class="sig-name descname"><span class="n"><span class="pre">triangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleEv" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Triangle class constructor. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle8triangleERK8triangle">
 <span id="_CPPv3N4acme8triangle8triangleERK8triangle"></span><span id="_CPPv2N4acme8triangle8triangleERK8triangle"></span><span id="acme::triangle::triangle__triangleCR"></span><span class="target" id="a00177_1a75975f5b2071b1101f29a665aa65f681"></span><span class="sig-name descname"><span class="n"><span class="pre">triangle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangle8triangleERK8triangle" title="acme::triangle::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleERK8triangle" title="Permalink to this definition">¶</a><br>
 </dt>
@@ -123,6 +105,42 @@
 </dt>
 <dd>
 <p>Triangle move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleaSERK8triangle">
+<span id="_CPPv3N4acme8triangleaSERK8triangle"></span><span id="_CPPv2N4acme8triangleaSERK8triangle"></span><span id="acme::triangle::assign-operator__triangleCR"></span><span class="target" id="a00177_1a876c02b10aa0c999e5bd7a9a6fb32c8d"></span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme8triangleaSERK8triangle" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Triangle assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleaSERR8triangle">
+<span id="_CPPv3N4acme8triangleaSERR8triangle"></span><span id="_CPPv2N4acme8triangleaSERR8triangle"></span><span id="acme::triangle::assign-operator__triangleRR"></span><span class="target" id="a00177_1a68ddba1a81e3c58fd7742f8f4375a253"></span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme8triangleaSERR8triangle" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Triangle move assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleD0Ev">
+<span id="_CPPv3N4acme8triangleD0Ev"></span><span id="_CPPv2N4acme8triangleD0Ev"></span><span id="acme::triangle::~triangle__void"></span><span class="target" id="a00177_1a2ff46d316df1d0920e7b8c4898b08881"></span><span class="sig-name descname"><span class="n"><span class="pre">~triangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4acme8triangleD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Triangle class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle8triangleEv">
+<span id="_CPPv3N4acme8triangle8triangleEv"></span><span id="_CPPv2N4acme8triangle8triangleEv"></span><span id="acme::triangle::triangle__void"></span><span class="target" id="a00177_1a586fe5185a850ca0339a969a2d6052e6"></span><span class="sig-name descname"><span class="n"><span class="pre">triangle</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle8triangleEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Triangle class constructor. </p>
 </dd>
 </dl>
 
@@ -186,21 +204,6 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleaSERK8triangle">
-<span id="_CPPv3N4acme8triangleaSERK8triangle"></span><span id="_CPPv2N4acme8triangleaSERK8triangle"></span><span id="acme::triangle::assign-operator__triangleCR"></span><span class="target" id="a00177_1aa5b53101e6c454f34764a1f48e8fe49b"></span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">triangle_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangleaSERK8triangle" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Equality operator. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd">
-<p><strong>triangle_in</strong> – Input triangle object </p>
-</dd>
-</dl>
-</dd>
-</dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangle8isApproxERK8triangle4real">
 <span id="_CPPv3NK4acme8triangle8isApproxERK8triangle4real"></span><span id="_CPPv2NK4acme8triangle8isApproxERK8triangle4real"></span><span id="acme::triangle::isApprox__triangleCR.realC"></span><span class="target" id="a00177_1a1e69b5542afce8c605058115bf7cda82"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4acme8triangleE" title="acme::triangle"><span class="n"><span class="pre">triangle</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">triangle_in</span></span>, <a class="reference internal" href="typedef_a00125_1a91745012989657825bc70313039f90a0.html#_CPPv4N4acme4realE" title="acme::real"><span class="n"><span class="pre">real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="variable_a00125_1a5be47678e6c38184c3795d1ea41c489d.html#_CPPv4N4acme7EPSILONE" title="acme::EPSILON"><span class="n"><span class="pre">EPSILON</span></span></a><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle8isApproxERK8triangle4real" title="Permalink to this definition">¶</a><br>
 </dt>
@@ -219,8 +222,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangle6vertexE6size_t">
-<span id="_CPPv3NK4acme8triangle6vertexE6size_t"></span><span id="_CPPv2NK4acme8triangle6vertexE6size_t"></span><span id="acme::triangle::vertex__sC"></span><span class="target" id="a00177_1a50caa67d79cdd9b8e0a629803ac1deae"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle6vertexE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangle6vertexE7integer">
+<span id="_CPPv3NK4acme8triangle6vertexE7integer"></span><span id="_CPPv2NK4acme8triangle6vertexE7integer"></span><span id="acme::triangle::vertex__integerC"></span><span class="target" id="a00177_1a90c19dafdef519512de0524c34da88c7"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle6vertexE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get i-th triangle vertex const reference. </p>
@@ -234,8 +237,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle6vertexE6size_t">
-<span id="_CPPv3N4acme8triangle6vertexE6size_t"></span><span id="_CPPv2N4acme8triangle6vertexE6size_t"></span><span id="acme::triangle::vertex__s"></span><span class="target" id="a00177_1a35f2528c1e50d5b4d9bd2d95d09b5fb5"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle6vertexE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle6vertexE7integer">
+<span id="_CPPv3N4acme8triangle6vertexE7integer"></span><span id="_CPPv2N4acme8triangle6vertexE7integer"></span><span id="acme::triangle::vertex__integer"></span><span class="target" id="a00177_1a5e2a6eb827ce37d697abae0ab9881fbf"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle6vertexE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get i-th triangle vertex reference. </p>
@@ -249,8 +252,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangleixE6size_t">
-<span id="_CPPv3NK4acme8triangleixE6size_t"></span><span id="_CPPv2NK4acme8triangleixE6size_t"></span><span id="acme::triangle::subscript-operator__sC"></span><span class="target" id="a00177_1adb19f947795a01ef2c9b9615b9bd59e3"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangleixE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangleixE7integer">
+<span id="_CPPv3NK4acme8triangleixE7integer"></span><span id="_CPPv2NK4acme8triangleixE7integer"></span><span id="acme::triangle::subscript-operator__integerC"></span><span class="target" id="a00177_1a341b591227729195b94f2f3b37cb81a2"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangleixE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get i-th triangle vertex const reference. </p>
@@ -264,8 +267,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleixE6size_t">
-<span id="_CPPv3N4acme8triangleixE6size_t"></span><span id="_CPPv2N4acme8triangleixE6size_t"></span><span id="acme::triangle::subscript-operator__s"></span><span class="target" id="a00177_1aa0d5866afd49a82697441f5953832804"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangleixE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangleixE7integer">
+<span id="_CPPv3N4acme8triangleixE7integer"></span><span id="_CPPv2N4acme8triangleixE7integer"></span><span id="acme::triangle::subscript-operator__integer"></span><span class="target" id="a00177_1ad2dc20e6b2cdb81a064dbf583cb85ce0"></span><a class="reference internal" href="class_a00165.html#_CPPv4N4acme5pointE" title="acme::point"><span class="n"><span class="pre">point</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangleixE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get i-th triangle vertex reference. </p>
@@ -288,8 +291,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangle4edgeE6size_t">
-<span id="_CPPv3NK4acme8triangle4edgeE6size_t"></span><span id="_CPPv2NK4acme8triangle4edgeE6size_t"></span><span id="acme::triangle::edge__sC"></span><span class="target" id="a00177_1a5889e9385e27c0a35c902468680fca08"></span><a class="reference internal" href="class_a00173.html#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">edge</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle4edgeE6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangle4edgeE7integer">
+<span id="_CPPv3NK4acme8triangle4edgeE7integer"></span><span id="_CPPv2NK4acme8triangle4edgeE7integer"></span><span id="acme::triangle::edge__integerC"></span><span class="target" id="a00177_1a329432db6077f60a3915fa06310aec68"></span><a class="reference internal" href="class_a00173.html#_CPPv4N4acme7segmentE" title="acme::segment"><span class="n"><span class="pre">segment</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">edge</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle4edgeE7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get triangle edge created by i-th and j-th vertices. </p>
@@ -312,8 +315,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle4swapE6size_t6size_t">
-<span id="_CPPv3N4acme8triangle4swapE6size_t6size_t"></span><span id="_CPPv2N4acme8triangle4swapE6size_t6size_t"></span><span id="acme::triangle::swap__s.s"></span><span class="target" id="a00177_1a595b4c64d0b91b9967293afa2bcfc46b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">swap</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle4swapE6size_t6size_t" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4acme8triangle4swapE7integer7integer">
+<span id="_CPPv3N4acme8triangle4swapE7integer7integer"></span><span id="_CPPv2N4acme8triangle4swapE7integer7integer"></span><span id="acme::triangle::swap__integer.integer"></span><span class="target" id="a00177_1ac47f6c937d8b8b8a55d956d40b19958c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">swap</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <a class="reference internal" href="typedef_a00125_1a9223400d01496dcba963b2f723c89d4a.html#_CPPv4N4acme7integerE" title="acme::integer"><span class="n"><span class="pre">integer</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4acme8triangle4swapE7integer7integer" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Swap triangle vertices. </p>
@@ -616,7 +619,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4acme8triangle8isEntityEv">
-<span id="_CPPv3NK4acme8triangle8isEntityEv"></span><span id="_CPPv2NK4acme8triangle8isEntityEv"></span><span id="acme::triangle::isEntity__voidC"></span><span class="target" id="a00149_1a534ab97324296ad976e253051482322f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEntity</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle8isEntityEv" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4acme8triangle8isEntityEv"></span><span id="_CPPv2NK4acme8triangle8isEntityEv"></span><span id="acme::triangle::isEntity__voidC"></span><span class="target" id="a00149_1a534ab97324296ad976e253051482322f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isEntity</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4acme8triangle8isEntityEv" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check whether the object is an entity. </p>
