@@ -3,7 +3,7 @@
 Class collection
 ================
 
-- Defined in :ref:`file_include_acme_collection.hh`
+- Defined in :ref:`file_src_acme_collection.hxx`
 
 
 Class Documentation

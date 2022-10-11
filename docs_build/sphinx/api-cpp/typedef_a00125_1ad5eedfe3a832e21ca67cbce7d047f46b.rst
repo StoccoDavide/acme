@@ -3,7 +3,7 @@
 Typedef acme::out_stream
 ========================
 
-- Defined in :ref:`file_include_acme.hh`
+- Defined in :ref:`file_src_acme.hh`
 
 
 Typedef Documentation

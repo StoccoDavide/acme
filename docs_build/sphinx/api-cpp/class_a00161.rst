@@ -3,7 +3,7 @@
 Class plane
 ===========
 
-- Defined in :ref:`file_include_acme_plane.hh`
+- Defined in :ref:`file_src_acme_plane.hxx`
 
 
 Inheritance Relationships

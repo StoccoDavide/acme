@@ -3,7 +3,7 @@
 Class line
 ==========
 
-- Defined in :ref:`file_include_acme_line.hh`
+- Defined in :ref:`file_src_acme_line.hxx`
 
 
 Inheritance Relationships

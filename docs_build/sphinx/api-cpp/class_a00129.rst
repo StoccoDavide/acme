@@ -3,7 +3,7 @@
 Class aabb
 ==========
 
-- Defined in :ref:`file_include_acme_aabb.hh`
+- Defined in :ref:`file_src_acme_aabb.hxx`
 
 
 Class Documentation

@@ -7,29 +7,35 @@ Directory src
 
 *Directory path:* ``src``
 
+Subdirectories
+--------------
+
+- :ref:`dir_src_acme`
+
 
 Files
 -----
 
-- :ref:`file_src_acme_aabb.cc`
-- :ref:`file_src_acme_AABBtree.cc`
-- :ref:`file_src_acme_ball.cc`
-- :ref:`file_src_acme_collection.cc`
-- :ref:`file_src_acme_collinear.cc`
-- :ref:`file_src_acme_coplanar.cc`
-- :ref:`file_src_acme_disk.cc`
-- :ref:`file_src_acme_entity.cc`
-- :ref:`file_src_acme_intersection.cc`
-- :ref:`file_src_acme_line.cc`
-- :ref:`file_src_acme_math.cc`
-- :ref:`file_src_acme_none.cc`
-- :ref:`file_src_acme_orthogonal.cc`
-- :ref:`file_src_acme_parallel.cc`
-- :ref:`file_src_acme_plane.cc`
-- :ref:`file_src_acme_point.cc`
-- :ref:`file_src_acme_ray.cc`
-- :ref:`file_src_acme_segment.cc`
-- :ref:`file_src_acme_triangle.cc`
-- :ref:`file_src_acme_utils.cc`
+- :ref:`file_src_aabb.cc`
+- :ref:`file_src_AABBtree.cc`
+- :ref:`file_src_acme.hh`
+- :ref:`file_src_ball.cc`
+- :ref:`file_src_collection.cc`
+- :ref:`file_src_collinear.cc`
+- :ref:`file_src_coplanar.cc`
+- :ref:`file_src_disk.cc`
+- :ref:`file_src_entity.cc`
+- :ref:`file_src_intersection.cc`
+- :ref:`file_src_line.cc`
+- :ref:`file_src_math.cc`
+- :ref:`file_src_none.cc`
+- :ref:`file_src_orthogonal.cc`
+- :ref:`file_src_parallel.cc`
+- :ref:`file_src_plane.cc`
+- :ref:`file_src_point.cc`
+- :ref:`file_src_ray.cc`
+- :ref:`file_src_segment.cc`
+- :ref:`file_src_triangle.cc`
+- :ref:`file_src_utils.cc`
 
 

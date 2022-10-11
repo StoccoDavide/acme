@@ -315,12 +315,12 @@ External functions
 Objects defined by the previous classes can interact between them through external
 functions defined in `acme` namespace. These functions are:
 
-- `intersection`: it allows to *intersect* two elements or just check if two geometric
+- `Intersection`: it allows to *intersect* two elements or just check if two geometric
   entities *collide*;
-- `isParallel`: check if two geometric entities are *parallel*;
-- `isOrthogonal`: check if two geometric entities are *orthogonal*;
-- `isCollinear`: check if two geometric entities are *collinear*;
-- `isCoplanar`: check if two geometric entities are *coplanar*.
+- `IsParallel`: check if two geometric entities are *parallel*;
+- `IsOrthogonal`: check if two geometric entities are *orthogonal*;
+- `IsCollinear`: check if two geometric entities are *collinear*;
+- `IsCoplanar`: check if two geometric entities are *coplanar*.
 
 Each of these functions are overloaded and they can take objects or raw pointers
 to `entity` as input.

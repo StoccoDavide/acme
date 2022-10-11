@@ -3,7 +3,7 @@
 Variable acme::UNITX_VEC4
 =========================
 
-- Defined in :ref:`file_include_acme.hh`
+- Defined in :ref:`file_src_acme.hh`
 
 
 Variable Documentation

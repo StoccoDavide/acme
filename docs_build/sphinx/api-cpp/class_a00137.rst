@@ -3,7 +3,7 @@
 Class ball
 ==========
 
-- Defined in :ref:`file_include_acme_ball.hh`
+- Defined in :ref:`file_src_acme_ball.hxx`
 
 
 Inheritance Relationships

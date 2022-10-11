@@ -3,7 +3,7 @@
 Class point
 ===========
 
-- Defined in :ref:`file_include_acme_point.hh`
+- Defined in :ref:`file_src_acme_point.hxx`
 
 
 Inheritance Relationships

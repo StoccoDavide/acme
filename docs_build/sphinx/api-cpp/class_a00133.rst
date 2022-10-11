@@ -3,7 +3,7 @@
 Class AABBtree
 ==============
 
-- Defined in :ref:`file_include_acme_AABBtree.hh`
+- Defined in :ref:`file_src_acme_AABBtree.hxx`
 
 
 Class Documentation

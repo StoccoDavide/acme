@@ -3,7 +3,7 @@
 Class disk
 ==========
 
-- Defined in :ref:`file_include_acme_disk.hh`
+- Defined in :ref:`file_src_acme_disk.hxx`
 
 
 Inheritance Relationships

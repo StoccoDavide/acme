@@ -3,7 +3,7 @@
 Class triangle
 ==============
 
-- Defined in :ref:`file_include_acme_triangle.hh`
+- Defined in :ref:`file_src_acme_triangle.hxx`
 
 
 Inheritance Relationships

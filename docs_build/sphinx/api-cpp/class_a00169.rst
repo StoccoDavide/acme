@@ -3,7 +3,7 @@
 Class ray
 =========
 
-- Defined in :ref:`file_include_acme_ray.hh`
+- Defined in :ref:`file_src_acme_ray.hxx`
 
 
 Inheritance Relationships

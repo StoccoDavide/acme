@@ -11,12 +11,12 @@ Directories
 .. toctree::
    :maxdepth: 5
 
-   dir_include.rst
+   dir_src.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_src.rst
+   dir_src_acme.rst
 
 Files
 *****
@@ -25,204 +25,204 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme.hh.rst
+   file_src_aabb.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_aabb.cc.rst
+   file_src_acme_aabb.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_aabb.hh.rst
+   file_src_AABBtree.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_AABBtree.cc.rst
+   file_src_acme_AABBtree.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_AABBtree.hh.rst
+   file_src_acme.hh.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_ball.cc.rst
+   file_src_ball.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_ball.hh.rst
+   file_src_acme_ball.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_collection.cc.rst
+   file_src_collection.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_collection.hh.rst
+   file_src_acme_collection.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_collinear.cc.rst
+   file_src_collinear.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_collinear.hh.rst
+   file_src_acme_collinear.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_coplanar.cc.rst
+   file_src_coplanar.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_coplanar.hh.rst
+   file_src_acme_coplanar.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_disk.cc.rst
+   file_src_disk.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_disk.hh.rst
+   file_src_acme_disk.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_entity.cc.rst
+   file_src_entity.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_entity.hh.rst
+   file_src_acme_entity.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_intersection.cc.rst
+   file_src_intersection.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_intersection.hh.rst
+   file_src_acme_intersection.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_line.cc.rst
+   file_src_line.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_line.hh.rst
+   file_src_acme_line.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_math.cc.rst
+   file_src_math.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_math.hh.rst
+   file_src_acme_math.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_none.cc.rst
+   file_src_none.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_none.hh.rst
+   file_src_acme_none.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_orthogonal.cc.rst
+   file_src_orthogonal.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_orthogonal.hh.rst
+   file_src_acme_orthogonal.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_parallel.cc.rst
+   file_src_parallel.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_parallel.hh.rst
+   file_src_acme_parallel.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_plane.cc.rst
+   file_src_plane.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_plane.hh.rst
+   file_src_acme_plane.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_point.cc.rst
+   file_src_point.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_point.hh.rst
+   file_src_acme_point.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_ray.cc.rst
+   file_src_ray.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_ray.hh.rst
+   file_src_acme_ray.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_segment.cc.rst
+   file_src_segment.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_segment.hh.rst
+   file_src_acme_segment.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_triangle.cc.rst
+   file_src_triangle.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_triangle.hh.rst
+   file_src_acme_triangle.hxx.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_utils.cc.rst
+   file_src_utils.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_include_acme_utils.hh.rst
+   file_src_acme_utils.hxx.rst

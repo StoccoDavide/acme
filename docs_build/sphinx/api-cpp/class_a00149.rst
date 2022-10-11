@@ -3,7 +3,7 @@
 Class entity
 ============
 
-- Defined in :ref:`file_include_acme_entity.hh`
+- Defined in :ref:`file_src_acme_entity.hxx`
 
 
 Inheritance Relationships

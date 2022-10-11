@@ -3,7 +3,7 @@
 Class none
 ==========
 
-- Defined in :ref:`file_include_acme_none.hh`
+- Defined in :ref:`file_src_acme_none.hxx`
 
 
 Inheritance Relationships
