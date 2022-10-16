@@ -56,8 +56,7 @@ main(void)
     triangle Triangle1(V1);
 
     // Initialize triangle
-    plane Plane1(vec3(0.0, 0.0, 0.0),
-                vec3(1.0, 0.0, 0.0));
+    plane Plane1(vec3(0.0, 0.0, 0.0), vec3(1.0, 0.0, 0.0));
 
     // Initialize intersection point
     segment IntersectionSeg;
@@ -72,8 +71,6 @@ main(void)
     }
 
     std::cout
-      << std::endl
-      << std::endl
       << IntersectionSeg << std::endl
       << "TEST 11: Completed" << std::endl;
 

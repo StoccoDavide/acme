@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="1050069542" file="/Users/davide/Documents/Git/acme/ACME.prj" location="/Users/davide/Documents/Git/acme" name="ACME" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="1050069542" file="/Users/davide/Documents/Git/enve/submodules/acme/ACME.prj" location="/Users/davide/Documents/Git/enve/submodules/acme" name="ACME" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ACME</param.appname>
     <param.authnamewatermark>Davide Stocco and Enrico Bertolazzi</param.authnamewatermark>
     <param.email>davide.stocco@unitn.it</param.email>
@@ -7,7 +7,7 @@
     <param.summary>A small 3D geometry library</param.summary>
     <param.description />
     <param.screenshot>${PROJECT_ROOT}/docs_build/sphinx/logo.png</param.screenshot>
-    <param.version>2.0</param.version>
+    <param.version>3.0</param.version>
     <param.output>${PROJECT_ROOT}/ACME.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -104,6 +104,7 @@ populate_toolbox.rb</param.exclude.filters>
       <file>${PROJECT_ROOT}/toolbox/lib</file>
       <file>${PROJECT_ROOT}/toolbox/license.txt</file>
       <file>${PROJECT_ROOT}/toolbox/logo.png</file>
+      <file>${PROJECT_ROOT}/toolbox/operator.o</file>
       <file>${PROJECT_ROOT}/toolbox/setup.m</file>
       <file>${PROJECT_ROOT}/toolbox/src</file>
       <file>${PROJECT_ROOT}/toolbox/src_mex</file>
@@ -113,7 +114,7 @@ populate_toolbox.rb</param.exclude.filters>
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="ACME.mltbx" optional="false">/Users/davide/Documents/Git/acme/ACME.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="ACME.mltbx" optional="false">/Users/davide/Documents/Git/enve/submodules/acme/ACME.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>

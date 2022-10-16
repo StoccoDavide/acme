@@ -25,10 +25,10 @@ task :build_win do
   FileUtils.mkdir_p "build"
   FileUtils.cd      "build"
 
-  puts "run CMAKE for TIREX".yellow
+  puts "run CMAKE for ACME".yellow
   sh "cmake -G Ninja -DBITS:VAR=#{VS_ARCH} " + cmd_cmake_build() + ' ..'
 
-  puts "compile with CMAKE for TIREX".yellow
+  puts "compile with CMAKE for ACME".yellow
   if COMPILE_DEBUG then
     sh 'cmake --build . --config Debug --target install '+PARALLEL
   else
@@ -47,10 +47,10 @@ task :build_osx_linux_mingw do
   FileUtils.mkdir_p dir
   FileUtils.cd      dir
 
-  puts "run CMAKE for TIREX".yellow
+  puts "run CMAKE for ACME".yellow
   sh "cmake -G Ninja " + cmd_cmake_build + ' ..'
 
-  puts "compile with CMAKE for TIREX".yellow
+  puts "compile with CMAKE for ACME".yellow
   if COMPILE_DEBUG then
     sh 'cmake --build . --config Debug --target install '+PARALLEL
   else
@@ -70,6 +70,21 @@ task :build_osx   => :build_osx_linux_mingw do end
 task :build_linux => :build_osx_linux_mingw do end
 task :build_mingw => :build_osx_linux_mingw do end
 
+task :build_submodules do
+  FileUtils.cd 'submodules'
+  case OS
+  when :mac
+    sh 'rake build_osx'
+  when :linux
+    sh 'rake build_linux'
+  when :mingw
+    sh 'rake build_mingw'
+  when :win
+    sh 'rake build_win'
+  end
+  FileUtils.cd '..'
+end
+
 task :clean_osx   => :clean_osx_linux_mingw do end
 task :clean_linux => :clean_osx_linux_mingw do end
 task :clean_mingw => :clean_osx_linux_mingw do end
@@ -78,7 +93,7 @@ task :clean_win   => :clean_osx_linux_mingw do end
 desc 'pack for OSX/LINUX/MINGW/WINDOWS'
 task :cpack do
   FileUtils.cd "build"
-  puts "run CPACK for TIREX".yellow
+  puts "run CPACK for ACME".yellow
   sh 'cpack -C CPackConfig.cmake'
   sh 'cpack -C CPackSourceConfig.cmake'
   FileUtils.cd ".."

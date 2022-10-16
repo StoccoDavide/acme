@@ -70,13 +70,16 @@ main(void)
 
     std::cout
       << "Triangle 1 = " << std::endl
-        << Triangle1
+      << Triangle1
+      << std::endl
       << "Triangle 2 = " << std::endl
-        << Triangle2
+      << Triangle2
+      << std::endl
       << "Aabb 1 = " << std::endl
-        << Box1
+      << Box1
+      << std::endl
       << "Aabb 2 = " << std::endl
-        << Box2
+      << Box2 << std::endl
       << std::endl
       << "TEST 9: Completed" << std::endl;
 

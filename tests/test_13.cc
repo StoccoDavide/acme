@@ -61,11 +61,13 @@ main(void)
                 << *segment_ptr0;
     }
 
+    std::cout << std::endl;
+    
     disk *disk0 = new disk(2.0, point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     disk *disk1 = new disk(2.0, point(0.0, 0.0, 0.1), vec3(1.0, -1.0, 0.0));
 
     entity *entity_out1 = Intersection(disk0, disk1);
-    std::cout << "Exit type:" << std::endl
+    std::cout << "Exit type:"
               << entity_out1->type() << std::endl;
 
     if (dynamic_cast<segment *>(entity_out1)) // IF!!!!!
@@ -79,7 +81,6 @@ main(void)
     delete entity_out1;
 
     std::cout
-      << std::endl
       << std::endl
       << "TEST 13: Completed" << std::endl;
 

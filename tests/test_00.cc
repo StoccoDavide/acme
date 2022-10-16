@@ -60,8 +60,7 @@ main(void)
 
     // Not-a-number test
     std::cout << "Not-a-number test" << std::endl
-              << "Quiet NaN (acme)   = " << QUIET_NAN << std::endl
-              << std::endl;
+              << "Quiet NaN (acme)   = " << QUIET_NAN << std::endl;
   
     // End of test
     std::cout

@@ -176,7 +176,7 @@ namespace acme
 #include "acme/ray.hxx"
 #include "acme/segment.hxx"
 #include "acme/triangle.hxx"
-#include "acme/utils.hxx"
+#include "acme/utilities.hxx"
 
 #endif
 

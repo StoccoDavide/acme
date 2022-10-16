@@ -36,6 +36,6 @@ Files
 - :ref:`file_src_ray.cc`
 - :ref:`file_src_segment.cc`
 - :ref:`file_src_triangle.cc`
-- :ref:`file_src_utils.cc`
+- :ref:`file_src_utilities.cc`
 
 

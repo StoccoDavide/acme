@@ -26,7 +26,7 @@
 */
 
 ///
-/// file: utils.cc
+/// file: utilities.cc
 ///
 
 #include "acme.hh"
@@ -225,5 +225,5 @@ namespace acme
 } // namespace acme
 
 ///
-/// eof: utils.cc
+/// eof: utilities.cc
 ///

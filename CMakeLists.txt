@@ -71,10 +71,9 @@ endforeach(F ${S})
 #                                        
 
 set( HEADERS )
-file(
-  GLOB S 
-  ${SOURCE_DIR}/*.h*
-  ${SOURCE_DIR}/*/*.h*
+file( GLOB S 
+  ${SOURCES_DIR}/*.h*
+  ${SOURCES_DIR}/acme/*.h*
 )
 foreach (F ${S})
   # Build relative path respect to include directory
@@ -83,7 +82,7 @@ foreach (F ${S})
 endforeach(F ${S})
 
 # Extra include directory for compilation
-include_directories( ./lib3rd/include )
+include_directories( ${SOURCES_DIR} ./lib3rd/include ) # FIXME: ${SOURCES_DIR}
 
 #   ____                            _                 _           
 #  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___(_) ___  ___ 
@@ -92,27 +91,29 @@ include_directories( ./lib3rd/include )
 #  |____/ \___| .__/ \___|_| |_|\__,_|\___|_| |_|\___|_|\___||___/
 #             |_|                                                 
 
-set( DEPEND_TARGETS )
+set(DEPEND_TARGETS)
 
 # Dependencies (try to use already compiled submodeule in large project)
 set(
   UPDIR ${CMAKE_CURRENT_SOURCE_DIR}/..
 )
+
+# Utils library
 find_library(
   UTILS Utils${ARTIFACTS_STATIC_SUFFIX}
   HINTS ${UPDIR}/Utils/lib/lib
   NO_DEFAULT_PATH
 )
 if( UTILS )
-  message(STATUS "Found Utils${ARTIFACTS_STATIC_SUFFIX}")
+  message( STATUS "Found Utils${ARTIFACTS_STATIC_SUFFIX}" )
   utils_copy_directory(
     "${UPDIR}/Utils/lib"
     "${CMAKE_CURRENT_SOURCE_DIR}/lib3rd"
   )
 else()
   message(STATUS "NOT Found Utils${ARTIFACTS_STATIC_SUFFIX} use submodule")
-  add_subdirectory(./submodules/Utils)
-  include_directories(./submodules/Utils/src)
+  add_subdirectory( ./submodules/Utils )
+  include_directories( ./submodules/Utils/src )
   set( UTILS ${UTILS_NAMESPACE}_Utils_Static )
   set( DEPEND_TARGETS ${DEPEND_TARGETS} ${UTILS} )
 endif()

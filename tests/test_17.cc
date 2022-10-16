@@ -66,8 +66,7 @@ main(void)
     }
 
     std::cout
-      << std::endl
-      << "Intersection point: " << IntersectionPt << std::endl
+      << "Intersection point: " << IntersectionPt
       << std::endl
       << "TEST 16: Completed" << std::endl;
 

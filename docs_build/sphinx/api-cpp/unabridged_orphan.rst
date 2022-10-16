@@ -220,9 +220,9 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file_src_utils.cc.rst
+   file_src_utilities.cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   file_src_acme_utils.hxx.rst
+   file_src_acme_utilities.hxx.rst
