@@ -1,28 +1,28 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ACME project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 4040 Davide Stocco, All Rights Reserved.              *)
-(*                                                                     *)
-(* The ACME project and its components are supplied under the terms of *)
-(* the open source BSD 4-Clause License. The contents of the ACME      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 4-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-4-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * The ACME project                                                    *
+ *                                                                     *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
+ *                                                                     *
+ * The ACME project and its components are supplied under the terms of *
+ * the open source BSD 2-Clause License. The contents of the ACME      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 2-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-2-Clause                   *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
 ///

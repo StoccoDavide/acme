@@ -197,25 +197,25 @@ if ( UTILS_ENABLE_TESTS )
   set(
     # List of tests to be executed
     EXELISTCPP
-    test_00
-    test_01
-    test_02
-    test_03
-    test_04
-    test_05
-    test_06
-    test_07
-    test_08
-    test_09
-    test_10
-    test_11
-    test_12
-    test_13
-    test_14
-    test_15
-    test_16
-    test_17
-    test_18
+    acme_test_00
+    acme_test_01
+    acme_test_02
+    acme_test_03
+    acme_test_04
+    acme_test_05
+    acme_test_06
+    acme_test_07
+    acme_test_08
+    acme_test_09
+    acme_test_10
+    acme_test_11
+    acme_test_12
+    acme_test_13
+    acme_test_14
+    acme_test_15
+    acme_test_16
+    acme_test_17
+    acme_test_18
   )
 
   add_custom_target( "${PROJECT_NAME}_all_tests" ALL )
