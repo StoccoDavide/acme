@@ -29,8 +29,9 @@
 /// file: aabbTree.hxx
 ///
 
-#ifndef INCLUDE_ACME_AABBTREE
-#define INCLUDE_ACME_AABBTREE
+#pragma once
+#ifndef INCLUDE_ACME_AABBTREE_dot_HXX
+#define INCLUDE_ACME_AABBTREE_dot_HXX
 
 #include "aabb.hxx"
 #include "math.hxx"

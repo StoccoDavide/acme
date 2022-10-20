@@ -29,8 +29,9 @@
 /// file: coplanar.hxx
 ///
 
-#ifndef INCLUDE_ACME_COPLANAR
-#define INCLUDE_ACME_COPLANAR
+#pragma once
+#ifndef INCLUDE_ACME_COPLANAR_dot_HXX
+#define INCLUDE_ACME_COPLANAR_dot_HXX
 
 #include "aabb.hxx"
 #include "disk.hxx"

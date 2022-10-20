@@ -29,8 +29,9 @@
 /// file: entity.hxx
 ///
 
-#ifndef INCLUDE_ACME_ENTITY
-#define INCLUDE_ACME_ENTITY
+#pragma once
+#ifndef INCLUDE_ACME_ENTITY_dot_HXX
+#define INCLUDE_ACME_ENTITY_dot_HXX
 
 namespace acme
 {
@@ -60,10 +61,10 @@ namespace acme
     //! Entity move constructor
     entity(entity &&) = default;
 
-    //! Entity assignment operator    
+    //! Entity assignment operator
     entity & operator=(const entity &) = default;
 
-    //! Entity move assignment operator    
+    //! Entity move assignment operator
     entity & operator=(entity &&) = default;
 
     //! Entity class destructor

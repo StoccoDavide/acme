@@ -725,7 +725,7 @@ namespace Utils {
     m_roots.resize( m_intervals.size() );
     Integer n = 0;
     for ( auto & I : m_intervals ) {
-      m_roots.coeffRef(n++) = m_solver.eval( I.a, I.b, m_fun );
+      m_roots.coeffRef(n++) = m_solver.eval( I.a, I.b, &m_fun );
       if ( !m_solver.converged() )
         fmt::print( "Warning: Sturm<Real>::refine_roots failed at interval N.{}\n", n );
     }
