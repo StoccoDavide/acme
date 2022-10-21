@@ -729,7 +729,7 @@ do_intersection(int nlhs, mxArray *plhs[],
 typedef void (*DO_CMD)(int nlhs, mxArray *plhs[],
                        int nrhs, mxArray const *prhs[]);
 
-static std::map<std::string, DO_CMD> cmd_to_fun = {
+static map<string, DO_CMD> cmd_to_fun = {
     {"new", do_new},
     {"delete", do_delete},
     {"getRadius", do_getRadius},
