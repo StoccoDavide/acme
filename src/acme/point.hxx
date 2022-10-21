@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_POINT_dot_HXX
-#define INCLUDE_ACME_POINT_dot_HXX
+#ifndef INCLUDE_ACME_POINT_HXX
+#define INCLUDE_ACME_POINT_HXX
 
 #include "entity.hxx"
 #include "math.hxx"

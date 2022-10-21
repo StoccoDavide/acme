@@ -67,10 +67,10 @@ namespace Utils {
   */
   template <typename Real>
   class HJPatternSearch {
-    typedef Eigen::Matrix<Real,Eigen::Dynamic,1> Vec_t;
-    typedef Eigen::Map<Vec_t>                    MapVec;
-    typedef int                                  integer;
-    typedef std::function<Real(Real const[])>    HJFunc;
+    using Vec_t   = Eigen::Matrix<Real,Eigen::Dynamic,1>;
+    using MapVec  = Eigen::Map<Vec_t>;
+    using integer = int;
+    using HJFunc  = std::function<Real(Real const[])>;
   private:
     string const m_name;
 

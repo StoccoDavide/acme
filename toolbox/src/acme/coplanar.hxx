@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_COPLANAR_dot_HXX
-#define INCLUDE_ACME_COPLANAR_dot_HXX
+#ifndef INCLUDE_ACME_COPLANAR_HXX
+#define INCLUDE_ACME_COPLANAR_HXX
 
 #include "aabb.hxx"
 #include "disk.hxx"

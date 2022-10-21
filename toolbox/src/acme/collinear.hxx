@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_COLLINEAR_dot_HXX
-#define INCLUDE_ACME_COLLINEAR_dot_HXX
+#ifndef INCLUDE_ACME_COLLINEAR_HXX
+#define INCLUDE_ACME_COLLINEAR_HXX
 
 #include "line.hxx"
 #include "parallel.hxx"

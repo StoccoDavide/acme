@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_Intersection_dot_HXX
-#define INCLUDE_ACME_Intersection_dot_HXX
+#ifndef INCLUDE_ACME_Intersection_HXX
+#define INCLUDE_ACME_Intersection_HXX
 
 #include "aabb.hxx"
 #include "ball.hxx"

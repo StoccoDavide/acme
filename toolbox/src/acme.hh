@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_dot_HH
-#define INCLUDE_ACME_dot_HH
+#ifndef INCLUDE_ACME_HH
+#define INCLUDE_ACME_HH
 
 // Print acme errors
 #ifndef ACME_ERROR

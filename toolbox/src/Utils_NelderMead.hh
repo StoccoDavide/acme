@@ -53,13 +53,13 @@ namespace Utils {
   template <typename Real>
   class NelderMead {
 
-    typedef Eigen::Matrix<Real,Eigen::Dynamic,1>              Vec_t;
-    typedef Eigen::Matrix<Real,Eigen::Dynamic,Eigen::Dynamic> Mat_t;
-    typedef Eigen::Map<Vec_t>                                 MapVec;
-    typedef Eigen::Map<Mat_t>                                 MapMat;
-    typedef int                                               integer;
-    typedef std::function<Real(Real const[])>                 NMFunc;
-    typedef enum {
+    using Vec_t   = Eigen::Matrix<Real,Eigen::Dynamic,1>;
+    using Mat_t   = Eigen::Matrix<Real,Eigen::Dynamic,Eigen::Dynamic>;
+    using MapVec  = Eigen::Map<Vec_t>;
+    using MapMat  = Eigen::Map<Mat_t>;
+    using integer = int;
+    using NMFunc  = std::function<Real(Real const[])>;
+    using NMstype = enum {
       NM_INIT=0,
       NM_REFLECT,
       NM_EXPAND_FE,
@@ -69,7 +69,7 @@ namespace Utils {
       NM_SHRINK,
       NM_RESTART,
       NM_WORSE
-    } NMstype;
+    };
 
   private:
 

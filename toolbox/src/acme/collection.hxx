@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_COLLECTION_dot_HXX
-#define INCLUDE_ACME_COLLECTION_dot_HXX
+#ifndef INCLUDE_ACME_COLLECTION_HXX
+#define INCLUDE_ACME_COLLECTION_HXX
 
 #include "AABBtree.hxx"
 #include "entity.hxx"

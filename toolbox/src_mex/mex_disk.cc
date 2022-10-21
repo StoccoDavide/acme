@@ -29,8 +29,7 @@
 /// file: mex_disk.cc
 ///
 
-#include "mex_utils.hh"
-
+#include "Utils_mex.hh"
 #include "acme.hh"
 
 #define ASSERT(COND, MSG)               \

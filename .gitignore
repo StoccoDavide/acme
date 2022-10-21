@@ -44,17 +44,28 @@
 build/*
 bin/*
 lib/*
+lib3rd/*
+toolbox/bin/*
+toolbox/build/*
 vs_2017*
 
 # Project
 docs_build/sphinx/_build
 docs_build/sphinx/api
 docs_build/xml
+docs_build/sphinx_cpp/_build
+docs_build/sphinx_cpp/api-cpp
+docs_build/sphinx_matlab/_build
+docs_build/sphinx_matlab/api-matlab
+docs_build/xml-c
 docs_build/xml-cpp
-license.txt
-
-.DS_Store
-
-lib3rd
+docs_build/xml-matlab
 docs_build/sphinx/_doxygen
 docs_build/sphinx/api-cpp
+docs_build/sphinx/api-matlab
+docs_build/sphinx_matlab/_doxygen
+docs_build/sphinx_matlab/api-cpp
+
+.DS_Store
+license.txt
+src/.vscode

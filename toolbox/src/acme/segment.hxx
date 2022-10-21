@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_SEGMENT_dot_HXX
-#define INCLUDE_ACME_SEGMENT_dot_HXX
+#ifndef INCLUDE_ACME_SEGMENT_HXX
+#define INCLUDE_ACME_SEGMENT_HXX
 
 #include "aabb.hxx"
 #include "point.hxx"

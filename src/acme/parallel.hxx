@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_PARALLEL_dot_HXX
-#define INCLUDE_ACME_PARALLEL_dot_HXX
+#ifndef INCLUDE_ACME_PARALLEL_HXX
+#define INCLUDE_ACME_PARALLEL_HXX
 
 #include "aabb.hxx"
 #include "disk.hxx"

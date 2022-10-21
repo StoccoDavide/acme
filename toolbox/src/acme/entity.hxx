@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_ENTITY_dot_HXX
-#define INCLUDE_ACME_ENTITY_dot_HXX
+#ifndef INCLUDE_ACME_ENTITY_HXX
+#define INCLUDE_ACME_ENTITY_HXX
 
 namespace acme
 {

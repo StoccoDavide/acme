@@ -30,8 +30,8 @@
 ///
 
 #pragma once
-#ifndef INCLUDE_ACME_RAY_dot_HXX
-#define INCLUDE_ACME_RAY_dot_HXX
+#ifndef INCLUDE_ACME_RAY_HXX
+#define INCLUDE_ACME_RAY_HXX
 
 #include "point.hxx"
 
