@@ -37,8 +37,9 @@ endif()
 
 find_package( Matlab REQUIRED )
 
-message( STATUS "Matlab_ROOT_DIR = ${Matlab_ROOT_DIR}" )
-message( STATUS "PROJECT_NAME    = ${PROJECT_NAME}" )
+message( STATUS "PROJECT_NAME        = ${PROJECT_NAME}" )
+message( STATUS "Matlab_ROOT_DIR     = ${Matlab_ROOT_DIR}" )
+message( STATUS "Matlab_INCLUDE_DIRS = ${Matlab_INCLUDE_DIRS}" )
 
 if ( (UNIX OR LINUX) AND NOT APPLE )
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libstdc++ -static-libgcc -Wl,--no-undefined")
@@ -106,22 +107,8 @@ endforeach(F ${S})
 
 list(FILTER PUBLIC_HEADERS EXCLUDE REGEX "\.DS")
 
-set( PRECOMPILED_HEADERS )
-file(
-  GLOB_RECURSE S
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h*
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/*/*.h*
-)
-foreach (F ${S})
-  # build relative path respect to source directory
-  file( RELATIVE_PATH RF "${CMAKE_CURRENT_SOURCE_DIR}" "${F}" )
-  list( APPEND PRECOMPILED_HEADERS ${RF} )
-endforeach(F ${S})
-
-list(FILTER PRECOMPILED_HEADERS EXCLUDE REGEX "\.DS")
-
 # extra include directory for compilation
-include_directories( src src_lib src/Utils )
+include_directories( src src/Utils ${Matlab_INCLUDE_DIRS} )
 
 message( STATUS "SOURCES = ${SOURCES}" )
 
@@ -153,8 +140,8 @@ set(
 message( STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
 if ( CMAKE_BUILD_TYPE MATCHES Debug )
   message( STATUS "DEBUG MODE\n\n")
-  add_compile_definitions(G2LIB_DEBUG)
   add_compile_definitions(DEBUG)
+  add_compile_definitions(ENVE_DEBUG)
 endif()
 
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_CURRENT_SOURCE_DIR}/bin")
@@ -172,5 +159,4 @@ foreach( MEX ${MEX_LIST} )
     "$<TARGET_FILE:mex_${MEX}>"
     "${CMAKE_CURRENT_SOURCE_DIR}/bin"
   )
-  #target_precompile_headers(mex_${MEX} PUBLIC ${PRECOMPILED_HEADERS})
 endforeach()
