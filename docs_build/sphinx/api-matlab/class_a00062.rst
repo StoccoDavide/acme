@@ -21,6 +21,7 @@ Class Documentation
 
 .. doxygenclass:: acme_plane
    :project: doc_matlab
+   :project: doc_matlab
    :members:
    :protected-members:
    :undoc-members:

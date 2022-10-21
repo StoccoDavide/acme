@@ -40,8 +40,10 @@ s1 = acme_segment(p4.get(), p5.get())
 t1 = acme_triangle(p1.get(), p2.get(), p3.get())
 
 % Create aabbs
-b1 = s1.clamp()
-b2 = t1.clamp()
+[b1_min, b1_max] = s1.clamp();
+[b2_min, b2_max] = t1.clamp();
+b1 = acme_aabb(b1_min, b1_max)
+b2 = acme_aabb(b2_min, b2_max)
 
 % Plot output
 out = figure;

@@ -36,6 +36,7 @@ Class Documentation
 
 .. doxygenclass:: acme_entity
    :project: doc_matlab
+   :project: doc_matlab
    :members:
    :protected-members:
    :undoc-members:

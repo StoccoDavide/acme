@@ -113,21 +113,21 @@ DATA_NEW(
     mxArray *&mx_id,
     acme::aabb *ptr)
 {
-  mx_id = convertPtr2Mat<acme::aabb>(ptr);
+  mx_id = Utils::mex_convert_ptr_to_mx<acme::aabb>(ptr);
 }
 
 static inline acme::aabb *
 DATA_GET(
     mxArray const *&mx_id)
 {
-  return convertMat2Ptr<acme::aabb>(mx_id);
+  return Utils::mex_convert_mx_to_ptr<acme::aabb>(mx_id);
 }
 
 static void
 DATA_DELETE(
     mxArray const *&mx_id)
 {
-  destroyObject<acme::aabb>(mx_id);
+  Utils::mex_destroy_object<acme::aabb>(mx_id);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -137,12 +137,12 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 3 || nrhs == 7, CMD "expected 1, 3 or 7 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 3 || nrhs == 7, CMD "expected 1, 3 or 7 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
-  MEX_ASSERT(
+  UTILS_MEX_ASSERT(
       mxIsChar(arg_in_0),
-      CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
+      CMD "first argument must be a string, found ``{}''\n", mxGetClassName(arg_in_0));
 
   real_mex min_x = acme::QUIET_NAN;
   real_mex min_y = acme::QUIET_NAN;
@@ -155,27 +155,27 @@ do_new(int nlhs, mxArray *plhs[],
   {
     real_mex const *matrix1_ptr;
     mwSize rows1, cols1;
-    matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
-    MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
+    matrix1_ptr = Utils::mex_matrix_pointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
+    UTILS_MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows1, cols1);
     real_mex const *matrix2_ptr;
     min_x = matrix1_ptr[0];
     min_y = matrix1_ptr[1];
     min_z = matrix1_ptr[2];
     mwSize rows2, cols2;
-    matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
-    MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
+    matrix2_ptr = Utils::mex_matrix_pointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
+    UTILS_MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows2, cols2);
     max_x = matrix2_ptr[0];
     max_y = matrix2_ptr[1];
     max_z = matrix2_ptr[2];
   }
   else if (nrhs == 7)
   {
-    min_x = getScalarValue(arg_in_1, CMD "Error in reading minimum x value");
-    min_y = getScalarValue(arg_in_2, CMD "Error in reading minimum y value");
-    min_z = getScalarValue(arg_in_3, CMD "Error in reading minimum z value");
-    max_x = getScalarValue(arg_in_4, CMD "Error in reading maximum x value");
-    max_y = getScalarValue(arg_in_5, CMD "Error in reading maximum y value");
-    max_z = getScalarValue(arg_in_6, CMD "Error in reading maximum z value");
+    min_x = Utils::mex_get_scalar_value(arg_in_1, CMD "Error in reading minimum x value");
+    min_y = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading minimum y value");
+    min_z = Utils::mex_get_scalar_value(arg_in_3, CMD "Error in reading minimum z value");
+    max_x = Utils::mex_get_scalar_value(arg_in_4, CMD "Error in reading maximum x value");
+    max_y = Utils::mex_get_scalar_value(arg_in_5, CMD "Error in reading maximum y value");
+    max_z = Utils::mex_get_scalar_value(arg_in_6, CMD "Error in reading maximum z value");
   }
 
   acme::aabb *ptr = new acme::aabb(min_x, min_y, min_z, max_x, max_y, max_z, 0, 0);
@@ -190,8 +190,8 @@ do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'delete', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -204,12 +204,12 @@ do_getMin(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMin', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::point *out = new acme::point(self->min());
-  arg_out_0 = convertPtr2Mat<acme::point>(out);
+  arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::point>(out);
 #undef CMD
 }
 
@@ -220,11 +220,11 @@ do_getMinX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMinX', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->min(0));
+  Utils::mex_set_scalar_value(arg_out_0, self->min(0));
 #undef CMD
 }
 
@@ -235,11 +235,11 @@ do_getMinY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMinY', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->min(1));
+  Utils::mex_set_scalar_value(arg_out_0, self->min(1));
 #undef CMD
 }
 
@@ -250,11 +250,11 @@ do_getMinZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMinZ', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->min(2));
+  Utils::mex_set_scalar_value(arg_out_0, self->min(2));
 #undef CMD
 }
 
@@ -265,12 +265,12 @@ do_getMax(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMax', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::point *out = new acme::point(self->max());
-  arg_out_0 = convertPtr2Mat<acme::point>(out);
+  arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::point>(out);
 #undef CMD
 }
 
@@ -281,11 +281,11 @@ do_getMaxX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMaxX', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->max(0));
+  Utils::mex_set_scalar_value(arg_out_0, self->max(0));
 #undef CMD
 }
 
@@ -296,11 +296,11 @@ do_getMaxY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMaxY', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->max(1));
+  Utils::mex_set_scalar_value(arg_out_0, self->max(1));
 #undef CMD
 }
 
@@ -311,11 +311,11 @@ do_getMaxZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'getMaxZ', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->max(2));
+  Utils::mex_set_scalar_value(arg_out_0, self->max(2));
 #undef CMD
 }
 
@@ -326,11 +326,11 @@ do_setMin(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMin', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
+  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   self->min() = *other;
   self->updateMaxMin();
 #undef CMD
@@ -343,11 +343,11 @@ do_setMinX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMinX', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading input value");
   self->min(0) = other;
   self->updateMaxMin();
 #undef CMD
@@ -360,11 +360,11 @@ do_setMinY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMinY', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading input value");
   self->min(1) = other;
   self->updateMaxMin();
 #undef CMD
@@ -377,11 +377,11 @@ do_setMinZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMinZ', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading input value");
   self->min(2) = other;
   self->updateMaxMin();
 #undef CMD
@@ -394,11 +394,11 @@ do_setMax(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMax', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
+  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   self->max() = *other;
   self->updateMaxMin();
 #undef CMD
@@ -411,11 +411,11 @@ do_setMaxX(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMaxX', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading input value");
   self->max(0) = other;
   self->updateMaxMin();
 #undef CMD
@@ -428,11 +428,11 @@ do_setMaxY(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMaxY', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading input value");
   self->max(1) = other;
   self->updateMaxMin();
 #undef CMD
@@ -445,11 +445,11 @@ do_setMaxZ(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'setMaxZ', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  real_mex other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_mex other = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading input value");
   self->max(2) = other;
   self->updateMaxMin();
 #undef CMD
@@ -462,14 +462,14 @@ do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'translate', OBJ, VECTOR ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   real_mex const *matrix_ptr;
   mwSize rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = Utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
+  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows, cols);
   real_mex x = matrix_ptr[0];
   real_mex y = matrix_ptr[1];
   real_mex z = matrix_ptr[2];
@@ -485,8 +485,8 @@ do_copy(int nlhs, mxArray *plhs[],
 {
 
 #define CMD "mex_aabb( 'copy', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::aabb *other = DATA_GET(arg_in_2);
@@ -501,12 +501,12 @@ do_isInside(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'isInside', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  acme::point *other = convertMat2Ptr<acme::point>(arg_in_2);
-  setBoolValue(arg_out_0, self->isInside(*other));
+  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+  Utils::mex_set_scalar_bool(arg_out_0, self->isInside(*other));
 #undef CMD
 }
 
@@ -517,11 +517,11 @@ do_isDegenerated(int nlhs, mxArray *plhs[],
                  int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'isDegenerated', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setBoolValue(arg_out_0, self->isDegenerated());
+  Utils::mex_set_scalar_bool(arg_out_0, self->isDegenerated());
 #undef CMD
 }
 
@@ -532,12 +532,12 @@ do_isApprox(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'isApprox', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::aabb *other = DATA_GET(arg_in_2);
-  setBoolValue(arg_out_0, self->isApprox(*other));
+  Utils::mex_set_scalar_bool(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
 
@@ -548,11 +548,11 @@ do_id(int nlhs, mxArray *plhs[],
       int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'id', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->id());
+  Utils::mex_set_scalar_value(arg_out_0, self->id());
 #undef CMD
 }
 
@@ -563,11 +563,11 @@ do_pos(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'pos', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->pos());
+  Utils::mex_set_scalar_value(arg_out_0, self->pos());
 #undef CMD
 }
 
@@ -578,12 +578,12 @@ do_intersects(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'intersects', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::aabb *other = DATA_GET(arg_in_2);
-  setBoolValue(arg_out_0, self->intersects(*other));
+  Utils::mex_set_scalar_bool(arg_out_0, self->intersects(*other));
 #undef CMD
 }
 
@@ -594,8 +594,8 @@ do_intersection(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_aabb( 'intersection', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   acme::aabb *self = DATA_GET(arg_in_1);
   acme::aabb *other = DATA_GET(arg_in_2);
@@ -654,7 +654,7 @@ mexFunction(int nlhs, mxArray *plhs[],
 
   try
   {
-    MEX_ASSERT(mxIsChar(arg_in_0), "First argument must be a string");
+    UTILS_MEX_ASSERT0(mxIsChar(arg_in_0), "First argument must be a string");
     string cmd = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);

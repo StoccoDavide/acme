@@ -21,6 +21,7 @@ Class Documentation
 
 .. doxygenclass:: acme_ray
    :project: doc_matlab
+   :project: doc_matlab
    :members:
    :protected-members:
    :undoc-members:

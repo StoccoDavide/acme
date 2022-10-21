@@ -125,16 +125,16 @@ add_library( acme STATIC ${SOURCES} )
 
 set(
   MEX_LIST
-  aabb
-  ball
-  disk
-  line
-  none
-  plane
-  point
-  ray
-  segment
-  triangle
+  mex_aabb
+  mex_ball
+  mex_disk
+  mex_line
+  mex_none
+  mex_plane
+  mex_point
+  mex_ray
+  mex_segment
+  mex_triangle
 )
 
 message( STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
@@ -148,15 +148,15 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E 
 
 foreach( MEX ${MEX_LIST} )
   matlab_add_mex(
-    NAME mex_${MEX}
-    SRC src_mex/mex_${MEX}.cc
+    NAME ${MEX}
+    SRC src_mex/${MEX}.cc
     LINK_TO acme
     OUTPUT_NAME ${MEX}
   )
   add_custom_command(
-    TARGET mex_${MEX}
+    TARGET ${MEX}
     POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy
-    "$<TARGET_FILE:mex_${MEX}>"
+    "$<TARGET_FILE:${MEX}>"
     "${CMAKE_CURRENT_SOURCE_DIR}/bin"
   )
 endforeach()

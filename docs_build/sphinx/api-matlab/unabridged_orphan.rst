@@ -62,3 +62,8 @@ Files
    :maxdepth: 5
 
    file_acme_triangle.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_CompileACMElib_CMake.m.rst

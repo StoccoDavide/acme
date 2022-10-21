@@ -30,5 +30,5 @@ Classes
 -------
 
 
-- :ref:`exhale_class_a00058`
+- :ref:`exhale_class_a00061`
 
