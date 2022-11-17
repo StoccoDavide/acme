@@ -186,7 +186,8 @@ namespace acme
   )
     const
   {
-    return IsApprox((point_in - this->m_origin).normalized().cross(this->m_direction).norm(), real(0.0), tolerance);
+    vec3 p = (point_in - this->m_origin).normalized();
+    return IsApprox(p.cross(this->m_direction).norm(), real(0.0), tolerance) and p.dot(this->m_direction) > 0;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
