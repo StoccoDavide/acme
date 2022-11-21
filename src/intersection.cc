@@ -64,7 +64,7 @@ namespace acme
 
         // - - - - - - - - - - - - - - POINT - - - - - - - - - - - - - -
 
-      case 202:
+      case 101:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
