@@ -29,7 +29,7 @@
 /// file: intersection.cc
 ///
 
-#include <acme/acme.h>
+#include "acme.hh"
 
 namespace acme
 {
