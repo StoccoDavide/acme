@@ -64,7 +64,7 @@ namespace acme
 
         // - - - - - - - - - - - - - - POINT - - - - - - - - - - - - - -
 
-      case 202:
+      case 101:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -73,7 +73,7 @@ namespace acme
           tolerance);
         break;
 
-      case 203:
+      case 103:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -82,7 +82,7 @@ namespace acme
           tolerance);
         break;
 
-      case 204:
+      case 104:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -91,7 +91,7 @@ namespace acme
           tolerance);
         break;
 
-      case 205:
+      case 105:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -100,7 +100,7 @@ namespace acme
           tolerance);
         break;
 
-      case 206:
+      case 106:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -109,7 +109,7 @@ namespace acme
           tolerance);
         break;
 
-      case 207:
+      case 107:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -118,7 +118,7 @@ namespace acme
           tolerance);
         break;
 
-      case 208:
+      case 108:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -127,7 +127,7 @@ namespace acme
           tolerance);
         break;
 
-      case 302:
+      case 301:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -136,7 +136,7 @@ namespace acme
           tolerance);
         break;
 
-      case 402:
+      case 401:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -145,7 +145,7 @@ namespace acme
           tolerance);
         break;
 
-      case 502:
+      case 501:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -154,7 +154,7 @@ namespace acme
           tolerance);
         break;
 
-      case 602:
+      case 601:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -163,7 +163,7 @@ namespace acme
           tolerance);
         break;
 
-      case 702:
+      case 701:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -172,7 +172,7 @@ namespace acme
           tolerance);
         break;
 
-      case 802:
+      case 801:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -256,7 +256,7 @@ namespace acme
         else
           {break;}
 
-        ACME_ERROR(CMD "exception not handled (ray/ray intersection).");
+        ACME_ERROR(CMD "exception not handled (ray/ray intersection).")
         break;
 
       case 406:
