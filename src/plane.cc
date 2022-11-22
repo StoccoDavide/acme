@@ -220,7 +220,7 @@ namespace acme
   )
     const
   {
-    return this->signedDistance(point_in) < tolerance;
+    return this->distance(point_in) < tolerance;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
