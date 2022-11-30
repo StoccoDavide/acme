@@ -304,7 +304,7 @@ namespace acme
     real          tolerance = EPSILON      //!< Tolerance
   );
 
-  //! Intersection triangle with disk \n
+  //! Intersection between triangles \n
   //! WARNING: This function not supported!
   bool
   Intersection(
@@ -314,7 +314,7 @@ namespace acme
     real             tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Intersection triangle with disk \n
+  //! Intersection between disks \n
   //! WARNING: This function not supported!
   bool
   Intersection(
