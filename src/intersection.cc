@@ -1857,9 +1857,12 @@ namespace acme
     if (!IsCoplanar(triangle0_in, triangle1_in, tolerance)) {
       return Intersection(triangle0_in, triangle1_in, DUMMY_SEGMENT, tolerance);
     }
-    return Intersection(triangle1_in.edge(0), triangle0_in, DUMMY_SEGMENT, tolerance) ||
-           Intersection(triangle1_in.edge(1), triangle0_in, DUMMY_SEGMENT, tolerance) ||
-           Intersection(triangle1_in.edge(2), triangle0_in, DUMMY_SEGMENT, tolerance);
+    return triangle0_in.isInside(triangle1_in.vertex(0), tolerance) ||
+           triangle0_in.isInside(triangle1_in.vertex(1), tolerance) ||
+           triangle0_in.isInside(triangle1_in.vertex(2), tolerance) ||
+           triangle1_in.isInside(triangle0_in.vertex(0), tolerance) ||
+           triangle1_in.isInside(triangle0_in.vertex(1), tolerance) ||
+           triangle1_in.isInside(triangle0_in.vertex(2), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
