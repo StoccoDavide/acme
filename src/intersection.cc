@@ -1657,7 +1657,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t0 < real(0.0) || t1 < real(0.0))
+      if (t0 < real(0.0) - tolerance || t1 < real(0.0) - tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1693,7 +1693,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t0 < real(0.0) || t1 < real(0.0) || t0 > real(1.0) || t1 > real(1.0))
+      if (t0 < real(0.0) - tolerance || t1 < real(0.0) - tolerance || t0 > real(1.0) + tolerance || t1 > real(1.0) + tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1729,7 +1729,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t1 < real(0.0))
+      if (t1 < real(0.0) - tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1765,7 +1765,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t1 < real(0.0) || t1 > real(1.0))
+      if (t1 < real(0.0) - tolerance || t1 > real(1.0) + tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1801,7 +1801,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t0 < real(0.0) || t1 < real(0.0) || t1 > real(1.0))
+      if (t0 < real(0.0) - tolerance || t1 < real(0.0) - tolerance || t1 > real(1.0) + tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -2431,11 +2431,11 @@ namespace acme
     f = real(1.0) / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < real(0.0) - tolerance || u > real(1.0) + tolerance)
       {return false;}
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < real(0.0) - tolerance || u + v > real(1.0) + tolerance)
       {return false;}
     real t    = f * edge2.dot(q);
     point_out = origin + t * direction;
@@ -2546,14 +2546,14 @@ namespace acme
     f = real(1.0) / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < real(0.0) - tolerance || u > real(1.0) + tolerance)
       {return false;}
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < real(0.0) - tolerance || u + v > real(1.0) + tolerance)
       {return false;}
     real t = f * edge2.dot(q);
-    if (t >= real(0.0))
+    if (t >= real(0.0) - tolerance)
     {
       point_out = origin + t * direction;
       return true;
@@ -2631,7 +2631,7 @@ namespace acme
     if (std::abs(det) > tolerance)
     {
       real t = -(origin - plane_in.origin()).dot(plane_in.normal()) / det;
-      if (t >= real(0.0) && t <= real(1.0))
+      if (t >= real(0.0) - tolerance && t <= real(1.0) + tolerance)
       {
         point_out = origin + t * direction;
         return true;
@@ -2734,14 +2734,14 @@ namespace acme
     f = real(1.0) / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < real(0.0) - tolerance || u > real(1.0) + tolerance)
       {return false;}
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < real(0.0) - tolerance || u + v > real(1.0) + tolerance)
       {return false;}
     real t = f * edge2.dot(q);
-    if (t >= real(0.0) && t <= real(1.0))
+    if (t >= real(0.0) - tolerance && t <= real(1.0) + tolerance)
     {
       point_out = origin + direction * t;
       return true;
