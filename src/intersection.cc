@@ -1848,17 +1848,18 @@ namespace acme
 
   bool
   Intersection(
-    triangle const & /*triangle0_in*/,
-    triangle const & /*triangle1_in*/,
+    triangle const & triangle0_in,
+    triangle const & triangle1_in,
     none           & /*none_out*/,
-    real             /*tolerance*/
+    real             tolerance
   )
   {
-    #define CMD "acme::Intersection(triangle, triangle): "
-
-    ACME_ERROR(CMD "function not supported.")
-
-    #undef CMD
+    if (!IsCoplanar(triangle0_in, triangle1_in, tolerance)) {
+      return Intersection(triangle0_in, triangle1_in, DUMMY_SEGMENT, tolerance);
+    }
+    return Intersection(triangle1_in.edge(0), triangle0_in, DUMMY_SEGMENT, tolerance) ||
+           Intersection(triangle1_in.edge(1), triangle0_in, DUMMY_SEGMENT, tolerance) ||
+           Intersection(triangle1_in.edge(2), triangle0_in, DUMMY_SEGMENT, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
