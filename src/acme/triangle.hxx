@@ -197,7 +197,7 @@ namespace acme
     bool
     isInside(
       point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      real          tolerance = 0       //!< Tolerance
     ) const;
 
     //! Check if triangle is degenerated to point or segment
