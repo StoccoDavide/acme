@@ -624,7 +624,7 @@ namespace acme
     real          tolerance = EPSILON     //!< Tolerance
   );
 
-  //! Intersection ray with triangle \n
+  //! Intersection segment with triangle \n
   //! WARNING: This function does not support coplanarity!
   bool
   Intersection(
