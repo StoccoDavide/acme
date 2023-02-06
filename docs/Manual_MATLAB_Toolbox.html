@@ -1,0 +1,945 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATLAB Toolbox &#8212; ACME v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MATLAB API" href="api-matlab/root.html" />
+    <link rel="prev" title="General Features" href="Manual_Features.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="emphasize-children html-toggle section" id="matlab-toolbox">
+<h1>MATLAB Toolbox<a class="headerlink" href="#matlab-toolbox" title="Permalink to this headline">¶</a>
+</h1>
+<p>The interface is Object Oriented and you find the following
+objects in the library:</p>
+<ul class="simple">
+<li><p>object <code class="docutils literal notranslate"><span class="pre">none</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">point</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">line</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">ray</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">plane</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">segment</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">triangle</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">disk</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">ball</span></code>;</p></li>
+<li><p>object <code class="docutils literal notranslate"><span class="pre">aabb</span></code>;</p></li>
+</ul>
+<div class="section" id="mex-matlab-interface-installation">
+<h2>Mex/MATLAB Interface Installation<a class="headerlink" href="#mex-matlab-interface-installation" title="Permalink to this headline">¶</a>
+</h2>
+<p>In directory <cite>src_mex</cite> you find the C++ implementation of
+the proposed algorithm with <cite>mex</cite> interface.
+The easy way to build mex/MATLAB interface is to download
+the compiled Toolbox at
+<a class="reference external" href="https://github.com/StoccoDavide/acme/releases">https://github.com/StoccoDavide/acme/releases</a>
+and install it.
+After installation in Matlab run the command <code class="docutils literal notranslate"><span class="pre">CompileACMELib</span></code>.</p>
+<p>If you want to compile the toolbox by yourself</p>
+<div class="highlight-bash notranslate">
+<div class="highlight"><pre><span></span><span class="nb">cd</span> toolbox
+ruby populate_toolbox.rb
+</pre></div>
+</div>
+<p>run Matlab and from the command windows of MATLAB:</p>
+<div class="highlight-bash notranslate">
+<div class="highlight"><pre><span></span><span class="nb">cd</span> toolbox
+setup
+CompileACMELib
+open<span class="o">(</span><span class="s1">'../ACME.prj'</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>then compile toolbox and install.</p>
+</div>
+<div class="section" id="object-none">
+<h2>Object <cite>none</cite><a class="headerlink" href="#object-none" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>none</cite> class is represents nothing than nothing. If the polymorphic behaviour is
+exploited this class will represent the null intersection between objects.</p>
+<div class="section" id="constructors">
+<h3>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build an ACME none objects</span><span class="w"></span>
+<span class="n">N1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_none</span><span class="p">();</span><span class="w"></span>
+<span class="n">N2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_none</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy none object from another none</span><span class="w"></span>
+<span class="n">N1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">N2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">N1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">N1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-point">
+<h2>Object <cite>point</cite><a class="headerlink" href="#object-point" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>point</cite> object represents a point the 3D space.</p>
+<div class="section" id="id1">
+<h3>Constructors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build an ACME point objects in the position `[x,y,z]`</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">P2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_point</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Methods<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy none object from another none</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get point X axis component</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">getX</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get point Y axis component</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">getY</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get point Z axis component</span><span class="w"></span>
+<span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">getZ</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get point axes components</span><span class="w"></span>
+<span class="n">V1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set point X axis component</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">setX</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set point Y axis component</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">setY</span><span class="p">(</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set point Z axis component</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">setZ</span><span class="p">(</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set point axes components `[x,y,z]`</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Translate point by vector `[x,y,z]`</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform point by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if point is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if point is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if point is colrayar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isColrayar</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if point is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect point with an ACME object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P2</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-line">
+<h2>Object <cite>line</cite><a class="headerlink" href="#object-line" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>line</cite> object represents a line the 3D space.</p>
+<div class="section" id="id3">
+<h3>Constructors<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME line objects given origin `[ox,oy,oz]` and direction `[dx,dy,dz]`</span><span class="w"></span>
+<span class="n">L1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_line</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">L2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_line</span><span class="p">(</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Methods<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy none object from another none</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get line origin as ACME point object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get line direction</span><span class="w"></span>
+<span class="n">V1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">getDirection</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set line origin with an ACME point object</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Set line direction as `[x, y, z]`</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Translate line by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform line by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the line</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if lines are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Normalize direction vector</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Transform line to vector</span><span class="w"></span>
+<span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">toVector</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Transform line to normalized vector</span><span class="w"></span>
+<span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Swap line direction</span><span class="w"></span>
+<span class="n">L1</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if line is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is collinear to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isCollinear</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect line with an ACME object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L2</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-ray">
+<h2>Object <cite>ray</cite><a class="headerlink" href="#object-ray" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>ray</cite> object represents a ray the 3D space.</p>
+<div class="section" id="id5">
+<h3>Constructors<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME ray objects given origin `[ox,oy,oz]` and direction `[dx,dy,dz]`</span><span class="w"></span>
+<span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_ray</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_ray</span><span class="p">(</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Methods<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy ray object from another ray</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get ray origin as ACME point object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get ray direction</span><span class="w"></span>
+<span class="n">V1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">getDirection</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set ray origin with an ACME point object</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Set ray direction as `[x, y, z]`</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Translate ray by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform ray by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the ray</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ray is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if rays are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Normalize direction vector</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Transform ray to vector</span><span class="w"></span>
+<span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">toVector</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Transform ray to normalized vector</span><span class="w"></span>
+<span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Swap ray direction</span><span class="w"></span>
+<span class="n">R1</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if ray is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ray is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ray is colrayar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isColrayar</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ray is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect ray with an ACME object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-plane">
+<h2>Object <cite>plane</cite><a class="headerlink" href="#object-plane" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>plane</cite> object represents a plane the 3D space.</p>
+<div class="section" id="id7">
+<h3>Constructors<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME plane objects given origin `[ox,oy,oz]` and normal `[nx,ny,nz]`</span><span class="w"></span>
+<span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_plane</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_plane</span><span class="p">(</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Methods<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy plane object from another plane</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get plane origin as ACME point object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get plane normal</span><span class="w"></span>
+<span class="n">V1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">L1</span><span class="p">.</span><span class="n">getNormal</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set plane origin with an ACME point object</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Set plane normal as `[x, y, z]`</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">setNormal</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Translate plane by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform plane by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the plane</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if plane is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if planes are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Normalize direction vector</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Distance between an ACME point and plane</span><span class="w"></span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">distance</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Squared distance between an ACME point and plane</span><span class="w"></span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">squaredDistance</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Signed distance between an ACME point and plane</span><span class="w"></span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="c">% Transform line to normalized vector</span><span class="w"></span>
+<span class="n">v1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Swap line direction</span><span class="w"></span>
+<span class="n">P1</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if line is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is collinear to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isCollinear</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if line is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect line with an ACME object</span><span class="w"></span>
+<span class="n">L1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-segment">
+<h2>Object <cite>segment</cite><a class="headerlink" href="#object-segment" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>segment</cite> object represents a segment the 3D space.</p>
+<div class="section" id="id9">
+<h3>Constructors<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME segment objects given pointd `[px,py,pz]` and `[dx,dy,dz]`</span><span class="w"></span>
+<span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_segment</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="p">,</span><span class="w"> </span><span class="n">pz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_segment</span><span class="p">(</span><span class="w"> </span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="p">,</span><span class="w"> </span><span class="n">pz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Methods<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy segment object from another segment</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get segment vertex 1 as ACME point object</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">getVertex1</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get segment vertex 2 as ACME point object</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">getVertex2</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set segment vertex 1 with an ACME point object</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">setVertex1</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set segment vertex 2 with an ACME point object</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">setVertex2</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Translate segment by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform segment by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the segment</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if segment is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get segment centroid as ACME point objecty instance</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">centroid</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if segments are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform segment to normalized vector</span><span class="w"></span>
+<span class="n">V1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">toNormalizedVector</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Swap segment vertices</span><span class="w"></span>
+<span class="n">S1</span><span class="p">.</span><span class="n">swap</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get segment minimum and maximum points of object instance</span><span class="w"></span>
+<span class="p">[</span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">clamp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get segment length</span><span class="w"></span>
+<span class="n">L</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if segment is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if segment is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if segment is collinear to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isCollinear</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if segment is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect segment with an ACME object</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-triangle">
+<h2>Object <cite>triangle</cite><a class="headerlink" href="#object-triangle" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>triangle</cite> object represents a triangle the 3D space.</p>
+<div class="section" id="id11">
+<h3>Constructors<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME triangle objects given pointd `[px,py,pz]` and `[dx,dy,dz]`</span><span class="w"></span>
+<span class="n">T1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_triangle</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="p">,</span><span class="w"> </span><span class="n">pz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">T2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_triangle</span><span class="p">(</span><span class="w"> </span><span class="n">px</span><span class="p">,</span><span class="w"> </span><span class="n">py</span><span class="p">,</span><span class="w"> </span><span class="n">pz</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">dz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>Methods<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy triangle object from another triangle</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle vertex 1 as ACME point object</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">getVertex1</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle vertex 2 as ACME point object</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">getVertex2</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle vertex 3 as ACME point object</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">getVertex3</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set triangle vertex 1 with an ACME point object</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">setVertex1</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set triangle vertex 2 with an ACME point object</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">setVertex2</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set triangle vertex 3 with an ACME point object</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">setVertex3</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Translate triangle by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform triangle by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the triangle</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if triangle is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle centroid as ACME point objecty instance</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">centroid</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if triangles are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Get triangle normal</span><span class="w"></span>
+<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">normal</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle laying plane</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% SGet triangle i-th edge</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">edge</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Swap triangle i-th and j-th vertex</span><span class="w"></span>
+<span class="n">T1</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Get triangle minimum and maximum points of object instance</span><span class="w"></span>
+<span class="p">[</span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">clamp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle perimeter</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">perimeter</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get triangle area</span><span class="w"></span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">area</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if triangle is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if triangle is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if triangle is collinear to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isCollinear</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if triangle is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect triangle with an ACME object</span><span class="w"></span>
+<span class="n">L1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-disk">
+<h2>Object <cite>disk</cite><a class="headerlink" href="#object-disk" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>disk</cite> object represents a disk the 3D space.</p>
+<div class="section" id="id13">
+<h3>Constructors<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME disk objects given radius `r`, center `[ox,oy,oz]` and normal `[nx,ny,nz]`</span><span class="w"></span>
+<span class="n">D1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_disk</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">D2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_disk</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>Methods<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy disk object from another disk</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">%&gt; Get disk radius</span><span class="w"></span>
+<span class="n">R</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">getRadius</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">%&gt; Get disk center as ACME point object</span><span class="w"></span>
+<span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">getCenter</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">%&gt; Get disk normal</span><span class="w"></span>
+<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">getNormal</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set disk radius</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">setRadius</span><span class="p">(</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set disk center with an ACME point object</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">setCenter</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set disk normal as `[x, y, z]`</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">setNormal</span><span class="p">(</span><span class="w"> </span>`<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span>`<span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Translate disk by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform disk by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the disk</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if disk is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if disks are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Normalize disk normal vector</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get disk laying plane</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Reverse disk normal direction</span><span class="w"></span>
+<span class="n">D1</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get disk minimum and maximum points of object instance</span><span class="w"></span>
+<span class="p">[</span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">clamp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get disk perimeter</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">perimeter</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get disk area</span><span class="w"></span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">area</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if disk is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if disk is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if disk is collinear to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isCollinear</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if disk is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect disk with an ACME object</span><span class="w"></span>
+<span class="n">S1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">D1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">D2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-ball">
+<h2>Object <cite>ball</cite><a class="headerlink" href="#object-ball" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>ball</cite> object represents a ball the 3D space.</p>
+<div class="section" id="id15">
+<h3>Constructors<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME ball objects given radius `r` and center `[ox,oy,oz]`</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_ball</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">B2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_ball</span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ox</span><span class="p">,</span><span class="w"> </span><span class="n">oy</span><span class="p">,</span><span class="w"> </span><span class="n">oz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>Methods<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy ball object from another ball</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">%&gt; Get ball radius</span><span class="w"></span>
+<span class="n">R</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">getRadius</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">%&gt; Get ball center as ACME point object</span><span class="w"></span>
+<span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">getCenter</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">%&gt; Get ball normal</span><span class="w"></span>
+<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">getNormal</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Set ball radius</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">setRadius</span><span class="p">(</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set ball center with an ACME point object</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">setCenter</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Set ball normal as `[x, y, z]`</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">setNormal</span><span class="p">(</span><span class="w"> </span>`<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span>`<span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Translate ball by vector `[x, y, z]`</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Transform ball by 4x4 affine transformation matrix</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the ball</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ball is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if balls are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Normalize ball normal vector</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">normalize</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get ball laying plane</span><span class="w"></span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">layingPlane</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Reverse ball normal direction</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get ball minimum and maximum points of object instance</span><span class="w"></span>
+<span class="p">[</span><span class="n">out1</span><span class="p">,</span><span class="w"> </span><span class="n">out2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">clamp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get ball perimeter</span><span class="w"></span>
+<span class="n">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">perimeter</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get ball area</span><span class="w"></span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">area</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if ball is parallel to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isParallel</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ball is orthogonal to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isOrthogonal</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ball is collinear to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isCollinear</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if ball is coplanar to an ACME object</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isCoplanar</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Intersect ball with an ACME object</span><span class="w"></span>
+<span class="n">S1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="object-aabb">
+<h2>Object <cite>aabb</cite><a class="headerlink" href="#object-aabb" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>aabb</cite> object represents a aabb the 3D space.</p>
+<div class="section" id="id17">
+<h3>Constructors<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Build ACME aabb objects given maximum `[Mx,My,Mz]` point and minimum point `[mx,my,mz]`</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_aabb</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">Mx</span><span class="p">,</span><span class="w"> </span><span class="n">My</span><span class="p">,</span><span class="w"> </span><span class="n">Mz</span><span class="p">]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">mx</span><span class="p">,</span><span class="w"> </span><span class="n">my</span><span class="p">,</span><span class="w"> </span><span class="n">mz</span><span class="p">]</span><span class="o">'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">B2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">acme_aabb</span><span class="p">(</span><span class="w"> </span><span class="n">Mx</span><span class="p">,</span><span class="w"> </span><span class="n">My</span><span class="p">,</span><span class="w"> </span><span class="n">Mz</span><span class="p">,</span><span class="w"> </span><span class="n">mx</span><span class="p">,</span><span class="w"> </span><span class="n">my</span><span class="p">,</span><span class="w"> </span><span class="n">mz</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>Methods<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Copy aabb object from another aabb</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Display object data</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">disp</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Get object type as string</span><span class="w"></span>
+<span class="n">B1</span><span class="p">.</span><span class="n">type</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if ACME point is inside the aabb</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isInside</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Check if aabb is degenerated</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isDegenerated</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Check if aabbs are approximatively equal</span><span class="w"></span>
+<span class="n">B1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">isApprox</span><span class="p">(</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Return aabb id</span><span class="w"></span>
+<span class="n">ID</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">id</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Return aabb position</span><span class="w"></span>
+<span class="n">POS</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">pos</span><span class="p">();</span><span class="w"></span>
+
+<span class="c">% Perform intersection with another ACME entity and return intersection object</span><span class="w"></span>
+<span class="n">B3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% PCheck if aabb intersects with another ACME entity and return boolean</span><span class="w"></span>
+<span class="n">B3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">B1</span><span class="p">.</span><span class="n">intersects</span><span class="p">(</span><span class="w"> </span><span class="n">B2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="Manual_Index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="Manual_Index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Manual_Readme.html">The Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_Features.html">General Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MATLAB Toolbox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mex-matlab-interface-installation">Mex/MATLAB Interface Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-none">Object <cite>none</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-point">Object <cite>point</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-line">Object <cite>line</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-ray">Object <cite>ray</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-plane">Object <cite>plane</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-segment">Object <cite>segment</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-triangle">Object <cite>triangle</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-disk">Object <cite>disk</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-ball">Object <cite>ball</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-aabb">Object <cite>aabb</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

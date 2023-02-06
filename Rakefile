@@ -9,7 +9,6 @@ task :default => :build
 
 desc "compile for Visual Studio"
 task :build_win do
-  # check architecture
   case `where cl.exe`.chop
   when /x64\\cl\.exe/
     VS_ARCH = 'x64'

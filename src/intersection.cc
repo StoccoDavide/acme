@@ -29,6 +29,8 @@
 /// file: intersection.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -2886,7 +2888,7 @@ namespace acme
 
     for (integer i = 0; i < 3; ++i)
     {
-      if (aabb0_in.max(i) <= aabb1_in.max(i)) 
+      if (aabb0_in.max(i) <= aabb1_in.max(i))
         {aabb_out.max(i) = aabb0_in.max(i);}
       else
         {aabb_out.max(i) = aabb1_in.max(i);}
@@ -2902,6 +2904,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: intersection.cc

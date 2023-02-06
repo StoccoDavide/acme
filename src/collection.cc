@@ -29,6 +29,8 @@
 /// file: collection.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -989,7 +991,7 @@ namespace acme
     const
   {
     #define CMD "acme::collection::clamp(): "
-    
+
     boxes.clear();
     vec3 min, max;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -1115,6 +1117,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: collection.cc

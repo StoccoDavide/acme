@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Small 3D Geometry Library &#8212; ACME v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Library" href="Manual_Readme.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="emphasize-children html-toggle section" id="a-small-3d-geometry-library">
+<h1>A Small 3D Geometry Library<a class="headerlink" href="#a-small-3d-geometry-library" title="Permalink to this headline">¶</a>
+</h1>
+<a class="reference external image-reference" href="https://github.com/stoccodavide/acme"><img alt="https://img.shields.io/badge/Github-acme-0072BD.svg" src="https://img.shields.io/badge/Github-acme-0072BD.svg"></a>
+<a class="reference external image-reference" href="https://github.com/stoccodavide/acme"><img alt="https://img.shields.io/badge/Version-4.0.0-0072BD.svg" src="https://img.shields.io/badge/Version-4.0.0-0072BD.svg"></a>
+<a class="reference external image-reference" href="https://github.com/stoccodavide/acme"><img alt="https://img.shields.io/badge/Release-4.0.0-0072BD.svg" src="https://img.shields.io/badge/Release-4.0.0-0072BD.svg"></a>
+<a class="reference external image-reference" href="https://opensource.org/licenses/BSD-2-Clause"><img alt="https://img.shields.io/badge/License-BSD2-0072BD.svg" src="https://img.shields.io/badge/License-BSD2-0072BD.svg"></a>
+<p>The ACME library is a small 3D geometry library written in C++11. It is designed
+to be a simple and easy to use library for 3D computational geometry. The main
+goal of the library is to provide a minimal and robust to use interface for
+geometry computations.</p>
+<div class="section" id="what-s-inside">
+<h2>What’s inside?<a class="headerlink" href="#what-s-inside" title="Permalink to this headline">¶</a>
+</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_Readme.html">The Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Readme.html#maintenance-and-compatibility">Maintenance and Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Readme.html#third-party-libraries">Third Party Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Readme.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_Features.html">General Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-entity">Class <cite>entity</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-none">Class <cite>none</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-line">Class <cite>line</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-ray">Class <cite>ray</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-plane">Class <cite>plane</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-segment">Class <cite>segment</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-triangle">Class <cite>triangle</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-disk">Class <cite>disk</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-ball">Class <cite>ball</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-collection">Class <cite>collection</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-aabb">Class <cite>aabb</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#class-aabbtree">Class <cite>AABBtree</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_Features.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_MATLAB_Toolbox.html">MATLAB Toolbox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#mex-matlab-interface-installation">Mex/MATLAB Interface Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-none">Object <cite>none</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-point">Object <cite>point</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-line">Object <cite>line</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-ray">Object <cite>ray</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-plane">Object <cite>plane</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-segment">Object <cite>segment</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-triangle">Object <cite>triangle</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-disk">Object <cite>disk</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-ball">Object <cite>ball</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_MATLAB_Toolbox.html#object-aabb">Object <cite>aabb</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="api-matlab/root.html">MATLAB API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-matlab/root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-matlab/root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-matlab/root.html#full-api">Full API</a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="api-cpp/root.html">C++ API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api-cpp/root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-cpp/root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api-cpp/root.html#full-api">Full API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a>
+</h2>
+<div class="line-block">
+<div class="line"><strong>Davide Stocco</strong></div>
+<div class="line">Department of Industrial Engineering</div>
+<div class="line">University of Trento</div>
+<div class="line"><script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:qnivqr\056fgbppb%40havga\056vg\">qnivqr<fcna>\056<\057fcna>fgbppb<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Enrico Bertolazzi</strong></div>
+<div class="line">Department of Industrial Engineering</div>
+<div class="line">University of Trento</div>
+<div class="line"><script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script></div>
+</div>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a>
+</h2>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>BSD 2-Clause License
+
+Copyright (c) 2020, Davide Stocco &lt;davide.stocco@unitn.it&gt; and 
+Enrico Bertolazzi &lt;enrico.bertolazzi@unitn.it&gt;.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</pre></div>
+</div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="#">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Manual_Readme.html">The Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_Features.html">General Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_MATLAB_Toolbox.html">MATLAB Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

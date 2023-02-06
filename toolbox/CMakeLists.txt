@@ -112,6 +112,18 @@ include_directories( src src/Utils ${Matlab_INCLUDE_DIRS} )
 
 message( STATUS "SOURCES = ${SOURCES}" )
 
+#   _____ _
+#  | ____(_) __ _  ___ _ __
+#  |  _| | |/ _` |/ _ \ '_ \
+#  | |___| | (_| |  __/ | | |
+#  |_____|_|\__, |\___|_| |_|
+#           |___/
+
+find_package(Eigen3 REQUIRED)
+include_directories( ${EIGEN3_INCLUDE_DIR} )
+message("Eigen include directories: ${EIGEN3_INCLUDE_DIR}")
+message("Eigen include directories: ${EIGEN3_FOUND}")
+
 #   _____                    _
 #  |_   _|_ _ _ __ __ _  ___| |_ ___
 #    | |/ _` | '__/ _` |/ _ \ __/ __|
