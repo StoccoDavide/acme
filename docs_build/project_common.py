@@ -68,7 +68,7 @@ version   = os.popen('git describe --tags --abbrev=0').read()
 ##release   = '1.0'
 
 # The master toctree document.
-master_doc = 'Manual_Index'
+master_doc = 'index'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = [ '../_templates' ]
