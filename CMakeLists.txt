@@ -34,7 +34,7 @@ project(
   HOMEPAGE_URL "https://StoccoDavide.github.io/acme/"
 )
 
-include(./cmake_utils/CMakeLists-cflags.txt)
+include(./CMakeLists-cflags.txt)
 include(./cmake_utils/CMakeLists-utilities.txt)
 
 # Evaluating the suffix to append to target built by this CMake file
