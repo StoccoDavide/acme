@@ -69,21 +69,6 @@ task :build_osx   => :build_osx_linux_mingw do end
 task :build_linux => :build_osx_linux_mingw do end
 task :build_mingw => :build_osx_linux_mingw do end
 
-task :build_submodules do
-  FileUtils.cd 'submodules'
-  case OS
-  when :mac
-    sh 'rake build_osx'
-  when :linux
-    sh 'rake build_linux'
-  when :mingw
-    sh 'rake build_mingw'
-  when :win
-    sh 'rake build_win'
-  end
-  FileUtils.cd '..'
-end
-
 task :clean_osx   => :clean_osx_linux_mingw do end
 task :clean_linux => :clean_osx_linux_mingw do end
 task :clean_mingw => :clean_osx_linux_mingw do end

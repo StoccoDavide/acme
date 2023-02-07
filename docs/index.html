@@ -50,8 +50,75 @@
 to be a simple and easy to use library for 3D computational geometry. The main
 goal of the library is to provide a minimal and robust to use interface for
 geometry computations.</p>
-<div class="section" id="what-s-inside">
-<h2>What’s inside?<a class="headerlink" href="#what-s-inside" title="Permalink to this headline">¶</a>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="c">
+<h3>C++<a class="headerlink" href="#c" title="Permalink to this headline">¶</a>
+</h3>
+<p>Download the library using git:</p>
+<div class="highlight-sh notranslate">
+<div class="highlight"><pre><span></span>git clone git@github.com:StoccoDavide/acme.git
+</pre></div>
+</div>
+<p>To compile the library you can use <code class="docutils literal notranslate"><span class="pre">cmake</span></code>:</p>
+<div class="highlight-sh notranslate">
+<div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+cmake ..
+make
+</pre></div>
+</div>
+<p>or <code class="docutils literal notranslate"><span class="pre">rake</span></code>:</p>
+<div class="highlight-sh notranslate">
+<div class="highlight"><pre><span></span>rake build_submodules
+rake build <span class="c1"># or simply 'rake'</span>
+</pre></div>
+</div>
+<p>The compiled library and headers are stores as follows:</p>
+<div class="highlight-text notranslate">
+<div class="highlight"><pre><span></span>`-- lib
+    |-- include
+    |   |-- acme.hh
+    |   `-- acme
+    |       |-- aabb.hxx
+    |       |-- AABBtree.hxx
+    |       |-- ball.hxx
+    |       |-- collection.hxx
+    |       |-- collinear.hxx
+    |       |-- coplanar.hxx
+    |       |-- disk.hxx
+    |       |-- entity.hxx
+    |       |-- intersection.hxx
+    |       |-- line.hxx
+    |       |-- math.hxx
+    |       |-- none.hxx
+    |       |-- orthogonal.hxx
+    |       |-- parallel.hxx
+    |       |-- plane.hxx
+    |       |-- point.hxx
+    |       |-- ray.hxx
+    |       |-- segment.hxx
+    |       |-- triangle.hxx
+    |       `-- utilities.hxx
+    |-- lib
+    |   `-- libacme_OSTYPE_static.a
+    `-- dll
+        `-- libacme_OSTYPE.dylib
+</pre></div>
+</div>
+<p>where OSTYPE can be <code class="docutils literal notranslate"><span class="pre">linux</span></code>, <code class="docutils literal notranslate"><span class="pre">osx</span></code>, <code class="docutils literal notranslate"><span class="pre">mingw_x64</span></code>, <code class="docutils literal notranslate"><span class="pre">win_x64</span></code> depending on
+your OS.</p>
+</div>
+<div class="section" id="matlab-mex">
+<h3>MATLAB MEX<a class="headerlink" href="#matlab-mex" title="Permalink to this headline">¶</a>
+</h3>
+<p>Download the toolbox and install the toobox as usual. Run <code class="docutils literal notranslate"><span class="pre">CompileACMElib</span></code> on
+MATLAB Command Window to compile the MATLAB MEX library.</p>
+</div>
+</div>
+<div class="section" id="index">
+<h2>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a>
 </h2>
 <div class="toctree-wrapper compound">
 <ul>
@@ -146,34 +213,6 @@ geometry computations.</p>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a>
 </h2>
-<div class="highlight-none notranslate">
-<div class="highlight"><pre><span></span>BSD 2-Clause License
-
-Copyright (c) 2020, Davide Stocco &lt;davide.stocco@unitn.it&gt; and 
-Enrico Bertolazzi &lt;enrico.bertolazzi@unitn.it&gt;.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-</pre></div>
-</div>
 </div>
 </div>
 

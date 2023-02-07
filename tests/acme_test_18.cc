@@ -37,14 +37,14 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TEST 17 - DISK/TRIANGLE INTERSECTION" << std::endl
+      << "TEST 18 - DISKPLANE//TRIANGLE INTERSECTION" << std::endl
       << std::endl;
 
     disk Disk(0.3, point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
@@ -71,7 +71,8 @@ main(void)
       << std::endl
       << "Intersection segment: " << real(IntersectionPtBool) << std::endl
       << IntersectionSeg
-      << "TEST 17: Completed" << std::endl;
+      << std::endl
+      << "TEST 18: Completed" << std::endl;
 
     // End of test
     std::cout
