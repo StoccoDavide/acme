@@ -91,9 +91,8 @@ your OS.
 MATLAB MEX
 ~~~~~~~~~~
 
-Download the toolbox and install the toobox as usual. Run ``CompileACMElib`` on
-MATLAB Command Window to compile the MATLAB MEX library.
-
+Download the toolbox and install the toobox as usual. Run ``CompileACMElib_CMake``
+on MATLAB Command Window to compile the MATLAB MEX library with ``cmake``.
 Index
 -----
 

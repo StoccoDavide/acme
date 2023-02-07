@@ -46,7 +46,7 @@ if ( (UNIX OR LINUX) AND NOT APPLE )
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -static-libstdc++ -static-libgcc -Wl,--no-undefined")
 endif()
 
-include(./cmake_utils/CMakeLists-cflags.txt)
+include(./../CMakeLists-cflags.txt)
 include(./cmake_utils/CMakeLists-utilities.txt)
 
 # Evaluating the suffix to append to target built by this CMake file
