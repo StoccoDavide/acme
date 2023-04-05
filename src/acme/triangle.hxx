@@ -57,7 +57,12 @@ namespace acme
   class triangle : public entity
   {
   private:
-    point m_vertex[3] = {NAN_POINT, NAN_POINT, NAN_POINT}; //!< Triangle vertices
+    point m_vertex[3]       = {NAN_POINT, NAN_POINT, NAN_POINT}; //!< Triangle vertices
+    vec3 assembled_centroid = NAN_VEC3;
+    vec3 assembled_normal   = NAN_VEC3;
+
+    //! Update assembled triangle properties
+    void update();
 
   public:
     //! Triangle copy constructor
@@ -113,26 +118,14 @@ namespace acme
     //! Get i-th triangle vertex const reference
     point const &
     vertex(
-      integer i //!< New triangle vertex
+      integer i //!< Triangle vertex
     ) const;
-
-    //! Get i-th triangle vertex reference
-    point &
-    vertex(
-      integer i //!< New triangle vertex
-    );
 
     //! Get i-th triangle vertex const reference
     point const &
     operator[](
-      integer i //!< New triangle vertex
+      integer i //!< Triangle vertex
     ) const;
-
-    //! Get i-th triangle vertex reference
-    point &
-    operator[](
-      integer i //!< New triangle vertex
-    );
 
     //! Get triangle centroid
     point

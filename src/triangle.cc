@@ -68,6 +68,7 @@ namespace acme
                point(vertex1_x, vertex1_y, vertex1_z),
                point(vertex2_x, vertex2_y, vertex2_z)}
   {
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -79,6 +80,7 @@ namespace acme
   )
     : m_vertex{vertex0, vertex1, vertex2}
   {
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -88,6 +90,14 @@ namespace acme
   )
     : m_vertex{vertex[0], vertex[1], vertex[2]}
   {
+    this->update();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void triangle::update() {
+    this->assembled_centroid = (this->m_vertex[0] + this->m_vertex[1] + this->m_vertex[2]) / real(3.0);
+    this->assembled_normal = (this->m_vertex[1] - this->m_vertex[0]).cross(this->m_vertex[2] - this->m_vertex[0]).normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -123,22 +133,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  point &
-  triangle::vertex(
-    integer i
-  )
-  {
-    #define CMD "acme::triangle::vertex(): "
-
-    ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].")
-    return this->m_vertex[i];
-
-    #undef CMD
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   point const &
   triangle::operator[](
     integer i
@@ -156,27 +150,11 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  point &
-  triangle::operator[](
-    integer i
-  )
-  {
-    #define CMD "acme::triangle::operator[]: "
-
-    ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].")
-    return this->m_vertex[i];
-
-    #undef CMD
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   point
   triangle::centroid(void)
     const
   {
-    return (this->m_vertex[0] + this->m_vertex[1] + this->m_vertex[2]) / real(3.0);
+    return this->assembled_centroid;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -207,7 +185,7 @@ namespace acme
   triangle::normal(void)
     const
   {
-    return (this->m_vertex[1] - this->m_vertex[0]).cross(this->m_vertex[2] - this->m_vertex[0]).normalized();
+    return this->assembled_normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -222,6 +200,7 @@ namespace acme
     point tmp_vertex_j(this->m_vertex[j]);
     this->m_vertex[i] = tmp_vertex_j;
     this->m_vertex[j] = tmp_vertex_i;
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -288,6 +267,7 @@ namespace acme
     this->m_vertex[0] = vector_in + this->m_vertex[0];
     this->m_vertex[1] = vector_in + this->m_vertex[1];
     this->m_vertex[2] = vector_in + this->m_vertex[2];
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -300,6 +280,7 @@ namespace acme
     this->m_vertex[0].transform(affine_in);
     this->m_vertex[1].transform(affine_in);
     this->m_vertex[2].transform(affine_in);
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

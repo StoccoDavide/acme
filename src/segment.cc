@@ -140,16 +140,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  point &
-  segment::operator[](
-    integer i
-  )
-  {
-    return this->m_vertex[i];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   void segment::updateVertex(const point &vertex0, const point &vertex1) {
     this->m_vertex[0] = vertex0;
     this->m_vertex[1] = vertex1;
