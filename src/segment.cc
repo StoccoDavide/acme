@@ -63,6 +63,7 @@ namespace acme
   )
     : m_vertex{point(vertex0_x, vertex0_y, vertex0_z), point(vertex1_x, vertex1_y, vertex1_z)}
   {
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -73,6 +74,7 @@ namespace acme
   )
     : m_vertex{vertex0, vertex1}
   {
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -82,6 +84,14 @@ namespace acme
   )
     : m_vertex{vertex[0], vertex[1]}
   {
+    this->update();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  void segment::update() {
+    this->assembled_length = (this->m_vertex[0] - this->m_vertex[1]).norm();
+    this->assembled_vector[0] = point(this->m_vertex[1] - this->m_vertex[0]);
+    this->assembled_vector[1] = (this->m_vertex[1] - this->m_vertex[0]).normalized();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -119,16 +129,6 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  point &
-  segment::vertex(
-    integer i
-  )
-  {
-    return this->m_vertex[i];
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
   point const &
   segment::operator[](
     integer i
@@ -150,11 +150,19 @@ namespace acme
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  void segment::updateVertex(const point &vertex0, const point &vertex1) {
+    this->m_vertex[0] = vertex0;
+    this->m_vertex[1] = vertex1;
+    this->update();
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   vec3
   segment::toVector(void)
     const
   {
-    return point(this->m_vertex[1] - this->m_vertex[0]);
+    return this->assembled_vector[0];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -163,7 +171,7 @@ namespace acme
   segment::toUnitVector(void)
     const
   {
-    return (this->m_vertex[1] - this->m_vertex[0]).normalized();
+    return this->assembled_vector[1];
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -174,6 +182,7 @@ namespace acme
     point tmp_point(this->m_vertex[0]);
     this->m_vertex[0] = this->m_vertex[1];
     this->m_vertex[1] = tmp_point;
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -182,7 +191,7 @@ namespace acme
   segment::length(void)
     const
   {
-    return (this->m_vertex[0] - this->m_vertex[1]).norm();
+    return this->assembled_length;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -194,6 +203,7 @@ namespace acme
   {
     this->m_vertex[0] = vector_in + this->m_vertex[0];
     this->m_vertex[1] = vector_in + this->m_vertex[1];
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -205,6 +215,7 @@ namespace acme
   {
     this->m_vertex[0].transform(affine_in);
     this->m_vertex[1].transform(affine_in);
+    this->update();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
