@@ -55,7 +55,12 @@ namespace acme
   class segment : public entity
   {
   private:
-    point m_vertex[2] = {NAN_POINT, NAN_POINT}; //!< Segment extrema points
+    point m_vertex[2]        = {NAN_POINT, NAN_POINT}; //!< Segment extrema points
+    vec3 assembled_vector[2] = {NAN_VEC3, NAN_VEC3}; //!< Vector, unit vector
+    real assembled_length    = 0;
+
+    //! Update assembled segment properties
+    void update();
 
   public:
     //! Segment copy constructor
@@ -112,26 +117,17 @@ namespace acme
     //! Get segment i-th vertex const reference
     point const &
     vertex(
-      integer i //!< Intput segment i-th vertex index
+      integer i //!< Input segment i-th vertex index
     ) const;
-
-    //! Get segment i-th vertex reference
-    point &
-    vertex(
-      integer i //!< Intput segment i-th vertex index
-    );
 
     //! Get segment i-th vertex const reference
     point const &
     operator[](
-      integer i //!< Intput segment i-th vertex index
+      integer i //!< Input segment i-th vertex index
     ) const;
 
-    //! Get segment i-th vertex reference
-    point &
-    operator[](
-      integer i //!< Intput segment i-th vertex index
-    );
+    //! Update vertex
+    void updateVertex(point const & vertex0, point const & vertex1);
 
     //! Convert segment to vector
     vec3
