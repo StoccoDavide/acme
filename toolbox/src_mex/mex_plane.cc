@@ -29,7 +29,7 @@
 /// file: mex_plane.cc
 ///
 
-#include "Utils_mex.hh"
+#include "mex_utils.hh"
 #include "acme.hh"
 
 #define ASSERT(COND, MSG)                \
@@ -107,21 +107,21 @@ DATA_NEW(
     mxArray *&mx_id,
     acme::plane *ptr)
 {
-  mx_id = Utils::mex_convert_ptr_to_mx<acme::plane>(ptr);
+  mx_id = utils::mex_convert_ptr_to_mx<acme::plane>(ptr);
 }
 
 static inline acme::plane *
 DATA_GET(
     mxArray const *&mx_id)
 {
-  return Utils::mex_convert_mx_to_ptr<acme::plane>(mx_id);
+  return utils::mex_convert_mx_to_ptr<acme::plane>(mx_id);
 }
 
 static void
 DATA_DELETE(
     mxArray const *&mx_id)
 {
-  Utils::mex_destroy_object<acme::plane>(mx_id);
+  utils::mex_destroy_object<acme::plane>(mx_id);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -131,12 +131,12 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'new', [, args] ): "
-  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 3 || nrhs == 7, CMD "expected 1, 3 or 7 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 3 || nrhs == 7, CMD "expected 1, 3 or 7 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   UTILS_MEX_ASSERT(
       mxIsChar(arg_in_0),
-      CMD "first argument must be a string, found ``{}''\n", mxGetClassName(arg_in_0));
+      CMD "first argument must be a string, found " << mxGetClassName(arg_in_0) << "\n");
 
   real_mex ox = acme::QUIET_NAN;
   real_mex oy = acme::QUIET_NAN;
@@ -149,27 +149,27 @@ do_new(int nlhs, mxArray *plhs[],
   {
     real_mex const *matrix1_ptr;
     mwSize rows1, cols1;
-    matrix1_ptr = Utils::mex_matrix_pointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
-    UTILS_MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows1, cols1);
+    matrix1_ptr = utils::mex_matrix_pointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
+    UTILS_MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << "\n");
     ox = matrix1_ptr[0];
     oy = matrix1_ptr[1];
     oz = matrix1_ptr[2];
     real_mex const *matrix2_ptr;
     mwSize rows2, cols2;
-    matrix2_ptr = Utils::mex_matrix_pointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
-    UTILS_MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows2, cols2);
+    matrix2_ptr = utils::mex_matrix_pointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
+    UTILS_MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << "\n");
     nx = matrix2_ptr[0];
     ny = matrix2_ptr[1];
     nz = matrix2_ptr[2];
   }
   else if (nrhs == 7)
   {
-    ox = Utils::mex_get_scalar_value(arg_in_1, CMD "Error in reading origin x value");
-    oy = Utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading origin y value");
-    oz = Utils::mex_get_scalar_value(arg_in_3, CMD "Error in reading origin z value");
-    nx = Utils::mex_get_scalar_value(arg_in_4, CMD "Error in reading normal x value");
-    ny = Utils::mex_get_scalar_value(arg_in_5, CMD "Error in reading normal y value");
-    nz = Utils::mex_get_scalar_value(arg_in_6, CMD "Error in reading normal z value");
+    ox = utils::mex_get_scalar_value(arg_in_1, CMD "Error in reading origin x value");
+    oy = utils::mex_get_scalar_value(arg_in_2, CMD "Error in reading origin y value");
+    oz = utils::mex_get_scalar_value(arg_in_3, CMD "Error in reading origin z value");
+    nx = utils::mex_get_scalar_value(arg_in_4, CMD "Error in reading normal x value");
+    ny = utils::mex_get_scalar_value(arg_in_5, CMD "Error in reading normal y value");
+    nz = utils::mex_get_scalar_value(arg_in_6, CMD "Error in reading normal z value");
   }
 
   acme::plane *ptr = new acme::plane(ox, oy, oz, nx, ny, nz);
@@ -184,8 +184,8 @@ do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'delete', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -198,12 +198,12 @@ do_getOrigin(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'getOrigin', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   acme::point *out = new acme::point(self->origin());
-  arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::point>(out);
+  arg_out_0 = utils::mex_convert_ptr_to_mx<acme::point>(out);
 #undef CMD
 }
 
@@ -214,11 +214,11 @@ do_getNormal(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'getNormal', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  real_mex *output = Utils::mex_create_matrix_value(arg_out_0, 3, 1);
+  real_mex *output = utils::mex_create_matrix_value(arg_out_0, 3, 1);
   acme::vec3 outvec(self->normal());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -233,11 +233,11 @@ do_setOrigin(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'setOrigin', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  acme::point *obj = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+  acme::point *obj = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   self->origin() = *obj;
 #undef CMD
 }
@@ -249,14 +249,14 @@ do_setNormal(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'setNormal', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   real_mex const *matrix_ptr;
   mwSize rows, cols;
-  matrix_ptr = Utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
-  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows, cols);
+  matrix_ptr = utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
+  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
   real_mex x = matrix_ptr[0];
   real_mex y = matrix_ptr[1];
   real_mex z = matrix_ptr[2];
@@ -271,14 +271,14 @@ do_translate(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'translate', OBJ, [X; Y; Z] ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   real_mex const *matrix_ptr;
   mwSize rows, cols;
-  matrix_ptr = Utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
-  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows, cols);
+  matrix_ptr = utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
+  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
   real_mex x = matrix_ptr[0];
   real_mex y = matrix_ptr[1];
   real_mex z = matrix_ptr[2];
@@ -293,15 +293,15 @@ do_transform(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'transform', OBJ, MATRIX ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   real_mex const *matrix_ptr;
   mwSize rows, cols;
-  matrix_ptr = Utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
+  matrix_ptr = utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   acme::affine matrix;
-  UTILS_MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = {}, cols = {}\n", rows, cols);
+  UTILS_MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << "\n");
   matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8], matrix_ptr[12],
       matrix_ptr[1], matrix_ptr[5], matrix_ptr[9], matrix_ptr[13],
       matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
@@ -317,8 +317,8 @@ do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'copy', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   acme::plane *other = DATA_GET(arg_in_2);
@@ -333,12 +333,12 @@ do_isInside(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isInside', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
-  Utils::mex_set_scalar_bool(arg_out_0, self->isInside(*other));
+  acme::point *other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+  utils::mex_set_scalar_bool(arg_out_0, self->isInside(*other));
 #undef CMD
 }
 
@@ -349,11 +349,11 @@ do_isDegenerated(int nlhs, mxArray *plhs[],
                  int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isDegenerated', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  Utils::mex_set_scalar_bool(arg_out_0, self->isDegenerated());
+  utils::mex_set_scalar_bool(arg_out_0, self->isDegenerated());
 #undef CMD
 }
 
@@ -364,12 +364,12 @@ do_isApprox(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isApprox', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   acme::plane *other = DATA_GET(arg_in_2);
-  Utils::mex_set_scalar_bool(arg_out_0, self->isApprox(*other));
+  utils::mex_set_scalar_bool(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
 
@@ -380,8 +380,8 @@ do_normalize(int nlhs, mxArray *plhs[],
              int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'normalize', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   self->normalize();
@@ -395,12 +395,12 @@ do_distance(int nlhs, mxArray *plhs[],
             int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'distance', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
-  Utils::mex_set_scalar_value(arg_out_0, self->distance(*other));
+  acme::point *other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+  utils::mex_set_scalar_value(arg_out_0, self->distance(*other));
 #undef CMD
 }
 
@@ -411,12 +411,12 @@ do_squaredDistance(int nlhs, mxArray *plhs[],
                    int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'squaredDistance', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
-  Utils::mex_set_scalar_value(arg_out_0, self->squaredDistance(*other));
+  acme::point *other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+  utils::mex_set_scalar_value(arg_out_0, self->squaredDistance(*other));
 #undef CMD
 }
 
@@ -427,12 +427,12 @@ do_signedDistance(int nlhs, mxArray *plhs[],
                   int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'signedDistance', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
-  acme::point *other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
-  Utils::mex_set_scalar_value(arg_out_0, self->signedDistance(*other));
+  acme::point *other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+  utils::mex_set_scalar_value(arg_out_0, self->signedDistance(*other));
 #undef CMD
 }
 
@@ -443,8 +443,8 @@ do_reverse(int nlhs, mxArray *plhs[],
            int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'reverse', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   self->reverse();
@@ -458,33 +458,33 @@ do_isParallel(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isParallel', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
   acme::entity *other = nullptr;
 
   if (type == "none")
-    other = Utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
   else if (type == "point")
-    other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   else if (type == "line")
-    other = Utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
   else if (type == "ray")
-    other = Utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
-    other = Utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
   else if (type == "segment")
-    other = Utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
-    other = Utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
   else if (type == "disk")
-    other = Utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
   else if (type == "ball")
-    other = Utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
 
-  Utils::mex_set_scalar_bool(arg_out_0, acme::IsParallel(self, other));
+  utils::mex_set_scalar_bool(arg_out_0, acme::IsParallel(self, other));
 #undef CMD
 }
 
@@ -495,33 +495,33 @@ do_isOrthogonal(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isOrthogonal', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
   acme::entity *other = nullptr;
 
   if (type == "none")
-    other = Utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
   else if (type == "point")
-    other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   else if (type == "line")
-    other = Utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
   else if (type == "ray")
-    other = Utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
-    other = Utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
   else if (type == "segment")
-    other = Utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
-    other = Utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
   else if (type == "disk")
-    other = Utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
   else if (type == "ball")
-    other = Utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
 
-  Utils::mex_set_scalar_bool(arg_out_0, acme::IsOrthogonal(self, other));
+  utils::mex_set_scalar_bool(arg_out_0, acme::IsOrthogonal(self, other));
 #undef CMD
 }
 
@@ -532,8 +532,8 @@ do_isCollinear(int nlhs, mxArray *plhs[],
                int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isCollinear', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
@@ -541,25 +541,25 @@ do_isCollinear(int nlhs, mxArray *plhs[],
   acme::entity *other = nullptr;
 
   if (type == "none")
-    other = Utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
   else if (type == "point")
-    other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   else if (type == "line")
-    other = Utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
   else if (type == "ray")
-    other = Utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
-    other = Utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
   else if (type == "segment")
-    other = Utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
-    other = Utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
   else if (type == "disk")
-    other = Utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
   else if (type == "ball")
-    other = Utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
 
-  Utils::mex_set_scalar_bool(arg_out_0, acme::IsCollinear(self, other));
+  utils::mex_set_scalar_bool(arg_out_0, acme::IsCollinear(self, other));
 #undef CMD
 }
 
@@ -570,8 +570,8 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
               int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'isCoplanar', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
@@ -579,25 +579,25 @@ do_isCoplanar(int nlhs, mxArray *plhs[],
   acme::entity *other = nullptr;
 
   if (type == "none")
-    other = Utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
   else if (type == "point")
-    other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   else if (type == "line")
-    other = Utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
   else if (type == "ray")
-    other = Utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
-    other = Utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
   else if (type == "segment")
-    other = Utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
-    other = Utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
   else if (type == "disk")
-    other = Utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
   else if (type == "ball")
-    other = Utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
 
-  Utils::mex_set_scalar_bool(arg_out_0, acme::IsCoplanar(self, other));
+  utils::mex_set_scalar_bool(arg_out_0, acme::IsCoplanar(self, other));
 #undef CMD
 }
 
@@ -608,8 +608,8 @@ do_intersection(int nlhs, mxArray *plhs[],
                 int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_plane( 'intersection', OBJ, OTHER_OBJ, TYPE ): "
-  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << "\n");
 
   acme::plane *self = DATA_GET(arg_in_1);
   string type = mxArrayToString(arg_in_3);
@@ -617,44 +617,44 @@ do_intersection(int nlhs, mxArray *plhs[],
   acme::entity *other = nullptr;
 
   if (type == "none")
-    other = Utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::none>(arg_in_2);
   else if (type == "point")
-    other = Utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::point>(arg_in_2);
   else if (type == "line")
-    other = Utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::line>(arg_in_2);
   else if (type == "ray")
-    other = Utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ray>(arg_in_2);
   else if (type == "plane")
-    other = Utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::plane>(arg_in_2);
   else if (type == "segment")
-    other = Utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::segment>(arg_in_2);
   else if (type == "triangle")
-    other = Utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::triangle>(arg_in_2);
   else if (type == "disk")
-    other = Utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::disk>(arg_in_2);
   else if (type == "ball")
-    other = Utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
+    other = utils::mex_convert_mx_to_ptr<acme::ball>(arg_in_2);
 
   acme::entity *out = acme::Intersection(self, other);
   string out_type = out->type();
   if (out_type == "none")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::none>(dynamic_cast<acme::none *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::none>(dynamic_cast<acme::none *>(out));
   else if (out_type == "point")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::point>(dynamic_cast<acme::point *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::point>(dynamic_cast<acme::point *>(out));
   else if (out_type == "line")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::line>(dynamic_cast<acme::line *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::line>(dynamic_cast<acme::line *>(out));
   else if (out_type == "ray")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::ray>(dynamic_cast<acme::ray *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::ray>(dynamic_cast<acme::ray *>(out));
   else if (out_type == "plane")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::plane>(dynamic_cast<acme::plane *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::plane>(dynamic_cast<acme::plane *>(out));
   else if (out_type == "segment")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::segment>(dynamic_cast<acme::segment *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::segment>(dynamic_cast<acme::segment *>(out));
   else if (out_type == "triangle")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::triangle>(dynamic_cast<acme::triangle *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::triangle>(dynamic_cast<acme::triangle *>(out));
   else if (out_type == "disk")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::disk>(dynamic_cast<acme::disk *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::disk>(dynamic_cast<acme::disk *>(out));
   else if (out_type == "ball")
-    arg_out_0 = Utils::mex_convert_ptr_to_mx<acme::ball>(dynamic_cast<acme::ball *>(out));
+    arg_out_0 = utils::mex_convert_ptr_to_mx<acme::ball>(dynamic_cast<acme::ball *>(out));
 
   arg_out_1 = mxCreateString(out_type.c_str());
 #undef CMD
@@ -704,7 +704,7 @@ mexFunction(int nlhs, mxArray *plhs[],
 
   try
   {
-    UTILS_MEX_ASSERT0(mxIsChar(arg_in_0), "First argument must be a string");
+    UTILS_MEX_ASSERT(mxIsChar(arg_in_0), "First argument must be a string");
     string cmd = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);

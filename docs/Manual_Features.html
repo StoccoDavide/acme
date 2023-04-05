@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Features &#8212; ACME v4.0.0
+</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MATLAB Toolbox" href="Manual_MATLAB_Toolbox.html" />
+    <link rel="prev" title="The Library" href="Manual_Readme.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="general-features">
+<h1>General Features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a>
+</h1>
+<p>For both C++ library and MATLAB mex interface, ACME geometrical entities are
+organised in classes with the following structure:</p>
+<ul class="simple">
+<li><p>virtual class <cite>entity</cite>;</p></li>
+<li><p>class <cite>none</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>point</cite> &lt; <cite>Eigen::Matrix, entity</cite>;</p></li>
+<li><p>class <cite>line</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>ray</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>plane</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>segment</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>triangle</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>disk</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>ball</cite> &lt; <cite>entity</cite>;</p></li>
+<li><p>class <cite>collection</cite>;</p></li>
+<li><p>class <cite>aabb</cite>;</p></li>
+<li><p>class <cite>AABBtree</cite>;</p></li>
+</ul>
+<p>where the symbol &lt; indicates the public inheritance. Let us get a closer and detailed
+look to each of these classes.</p>
+<div class="section" id="class-entity">
+<h2>Class <cite>entity</cite><a class="headerlink" href="#class-entity" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>entity</cite> class is the most basic class. Its aim is to provide a common framework
+from which to develop more specific geometric entities. For this reason it is a <em>pure
+virtual</em> class with no members. The virtual methods aimed to check the nature of
+the geometric entity itself are the following:</p>
+<ul class="simple">
+<li><p>virtual method <cite>type</cite> which returns a <cite>std::string</cite> type;</p></li>
+<li><p>virtual method <cite>isEntity</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isNone</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isPoint</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isLine</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isRay</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isPlane</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isSegment</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isTriangle</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isDisk</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isBall</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>isClampable</cite> which returns a <cite>bool</cite> type;</p></li>
+<li><p>virtual method <cite>clamp</cite> which returns maximum aminimum values alog the three axes.</p></li>
+</ul>
+</div>
+<div class="section" id="class-none">
+<h2>Class <cite>none</cite><a class="headerlink" href="#class-none" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>none</cite> class is a publicly inherited class from <cite>entity</cite>. Its aim is to represent
+nothing than nothing. If the C++ polymorphic behaviour is
+exploited this class will represent the null intersection between objects. The <cite>none</cite>
+class is a non-abstract class with no members. The implemented methods only override
+the virtual ones defined in the base class <cite>entity</cite>.</p>
+</div>
+<div class="section" id="class-line">
+<h2>Class <cite>line</cite><a class="headerlink" href="#class-line" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>line</cite> class publicly inherit from <cite>entity</cite> and it represents a line the 3D space.
+It is built out of two members:</p>
+<ul class="simple">
+<li><p>an <strong>origin</strong> point, represented by a member of type <cite>point</cite>;</p></li>
+<li><p>a <strong>direction</strong> in the space, represented by a member of type <cite>vec3</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if lines are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if line is degenerated (direction vector has zero norm);</p></li>
+<li><p><cite>origin</cite>: return line origin point;</p></li>
+<li><p><cite>origin</cite>: set line origin point;</p></li>
+<li><p><cite>direction</cite>: return line direction vector;</p></li>
+<li><p><cite>direction</cite>: set line direction vector;</p></li>
+<li><p><cite>normalize</cite>: normalise line direction vector;</p></li>
+<li><p><cite>toVector</cite>: convert line to vector;</p></li>
+<li><p><cite>toNormalizedVector</cite>: convert line to normalised vector;</p></li>
+<li><p><cite>reverse</cite>: reverse line direction;</p></li>
+<li><p><cite>translate</cite>: translate line by vector;</p></li>
+<li><p><cite>transform</cite>: transform line with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the line.</p></li>
+</ul>
+</div>
+<div class="section" id="class-ray">
+<h2>Class <cite>ray</cite><a class="headerlink" href="#class-ray" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>ray</cite> class publicly inherit from <cite>entity</cite> and it represents a ray the 3D space.
+It is very similar to the <cite>line</cite> class and it built out of two members:</p>
+<ul class="simple">
+<li><p>an <strong>origin</strong> point, represented by a member of type <cite>point</cite>;</p></li>
+<li><p>a <strong>direction</strong> in the space, represented by a member of type <cite>vec3</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if ray are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if ray is degenerated (direction vector has zero norm);</p></li>
+<li><p><cite>origin</cite>: return ray origin point;</p></li>
+<li><p><cite>origin</cite>: set ray origin point;</p></li>
+<li><p><cite>direction</cite>: return ray direction vector;</p></li>
+<li><p><cite>direction</cite>: set ray direction vector;</p></li>
+<li><p><cite>normalize</cite>: normalise ray direction vector;</p></li>
+<li><p><cite>toVector</cite>: convert ray to vector;</p></li>
+<li><p><cite>toNormalizedVector</cite>: convert ray to normalised vector;</p></li>
+<li><p><cite>reverse</cite>: reverse ray direction;</p></li>
+<li><p><cite>translate</cite>: translate ray by vector;</p></li>
+<li><p><cite>transform</cite>: transform ray with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the ray.</p></li>
+</ul>
+</div>
+<div class="section" id="class-plane">
+<h2>Class <cite>plane</cite><a class="headerlink" href="#class-plane" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>plane</cite> class publicly inherit from <cite>entity</cite> and it represents a generic
+plane the 3D space. It is built out of two members:</p>
+<ul class="simple">
+<li><p>an <strong>origin</strong> point, represented by a member of type <cite>point</cite>;</p></li>
+<li><p>a <strong>normal</strong> vector in the space, represented by a member of type <cite>vec3</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if plane are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if plane is degenerated (normal vector has zero norm);</p></li>
+<li><p><cite>origin</cite>: return plane origin point;</p></li>
+<li><p><cite>origin</cite>: set plane origin point;</p></li>
+<li><p><cite>normal</cite>: return plane normal vector;</p></li>
+<li><p><cite>normal</cite>: set plane normal vector;</p></li>
+<li><p><cite>normalize</cite>: normalise plane direction vector;</p></li>
+<li><p><cite>toVector</cite>: convert plane to vector;</p></li>
+<li><p><cite>toNormalizedVector</cite>: convert plane to normalised vector;</p></li>
+<li><p><cite>reverse</cite>: reverse plane direction;</p></li>
+<li><p><cite>translate</cite>: translate plane by vector;</p></li>
+<li><p><cite>transform</cite>: transform plane with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the plane;</p></li>
+<li><p><cite>d</cite>: return plane equation <em>d</em> value (<em>ax + by + cz + d = 0</em>);</p></li>
+<li><p><cite>distance</cite>: distance between point and plane;</p></li>
+<li><p><cite>squaredDistance</cite>: squared distance between point and plane;</p></li>
+<li><p><cite>signedDistance</cite>: signed distance between point and plane.</p></li>
+</ul>
+</div>
+<div class="section" id="class-segment">
+<h2>Class <cite>segment</cite><a class="headerlink" href="#class-segment" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>segment</cite> class publicly inherit from <cite>entity</cite> and represents a generic
+segment the 3D space. It is built out of two vertices, represented by members
+of type <cite>point</cite>.</p>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if segment are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if segment is degenerated (vertices coincide);</p></li>
+<li><p><cite>vertex</cite>: return segment vertex point;</p></li>
+<li><p><cite>vertex</cite>: set segment vertex point;</p></li>
+<li><p><cite>centroid</cite>: return segment centroid;</p></li>
+<li><p><cite>toVector</cite>: convert segment to vector;</p></li>
+<li><p><cite>toNormalizedVector</cite>: convert segment to normalised vector;</p></li>
+<li><p><cite>swap</cite>: swap segment vertices;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the segment object</p></li>
+<li><p><cite>length</cite>: calculate segment length;</p></li>
+<li><p><cite>translate</cite>: translate segment by vector;</p></li>
+<li><p><cite>transform</cite>: transform segment with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the segment.</p></li>
+</ul>
+</div>
+<div class="section" id="class-triangle">
+<h2>Class <cite>triangle</cite><a class="headerlink" href="#class-triangle" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>triangle</cite> class publicly inherit from <cite>entity</cite> and represents a generic
+triangle the 3D space. It is built out of three vertices, represented by members
+of type <cite>point</cite>.</p>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if triangle are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if triangle is degenerated (two or more vertices coincide);</p></li>
+<li><p><cite>vertex</cite>: return triangle vertex point;</p></li>
+<li><p><cite>vertex</cite>: set triangle vertex point;</p></li>
+<li><p><cite>vertices</cite>: return triangle vertices points;</p></li>
+<li><p><cite>vertices</cite>: set triangle vertices points;</p></li>
+<li><p><cite>centroid</cite>: return triangle centroid;</p></li>
+<li><p><cite>normal</cite>: get triangle face normal (normalized vector);</p></li>
+<li><p><cite>edge</cite>: return triangle edge created by <em>i</em>-th and <em>j</em>-th vertices;</p></li>
+<li><p><cite>swap</cite>: swap triangle <em>i</em>-th and <em>j</em>-th vertices;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the triangle object</p></li>
+<li><p><cite>perimeter</cite>: calculate triangle perimeter;</p></li>
+<li><p><cite>area</cite>: calculate triangle area;</p></li>
+<li><p><cite>barycentric</cite>: calculate barycentric coordinates (u,v,w) for a given point;</p></li>
+<li><p><cite>layingPlane</cite>: get triangle laying plane;</p></li>
+<li><p><cite>translate</cite>: translate triangle by vector;</p></li>
+<li><p><cite>transform</cite>: transform triangle with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the triangle.</p></li>
+</ul>
+</div>
+<div class="section" id="class-disk">
+<h2>Class <cite>disk</cite><a class="headerlink" href="#class-disk" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>disk</cite> class publicly inherit from <cite>entity</cite> and represents a generic
+disk the 3D space. It is built out of three members:</p>
+<ul class="simple">
+<li><p>a <strong>radius</strong>, represented by a member of type <cite>real</cite>;</p></li>
+<li><p>a <strong>center</strong> point, represented by a member of type <cite>point</cite>;</p></li>
+<li><p>a <strong>normal</strong> to the face, represented by a member of type <cite>vec3</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if disk are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
+<li><p><cite>radius</cite>: return disk radius;</p></li>
+<li><p><cite>radius</cite>: set disk radius;</p></li>
+<li><p><cite>center</cite>: return disk center point;</p></li>
+<li><p><cite>center</cite>: set disk center point;</p></li>
+<li><p><cite>normal</cite>: return disk normal vector;</p></li>
+<li><p><cite>normal</cite>: set disk normal vector;</p></li>
+<li><p><cite>normalize</cite>: get normalize disk normal vector;</p></li>
+<li><p><cite>layingPlane</cite>: get disk laying plane;</p></li>
+<li><p><cite>reverse</cite>: reverse disk normal vector;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the disk object</p></li>
+<li><p><cite>perimeter</cite>: calculate disk perimeter;</p></li>
+<li><p><cite>area</cite>: calculate disk area;</p></li>
+<li><p><cite>translate</cite>: translate disk by vector;</p></li>
+<li><p><cite>transform</cite>: transform disk with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the disk.</p></li>
+</ul>
+</div>
+<div class="section" id="class-ball">
+<h2>Class <cite>ball</cite><a class="headerlink" href="#class-ball" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>ball</cite> class publicly inherit from <cite>entity</cite> and represents a generic
+ball the 3D space. It is built out of three members:</p>
+<ul class="simple">
+<li><p>a <strong>radius</strong>, represented by a member of type <cite>real</cite>;</p></li>
+<li><p>a <strong>center</strong> point, represented by a member of type <cite>point</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if ball are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
+<li><p><cite>radius</cite>: return ball radius;</p></li>
+<li><p><cite>radius</cite>: set ball radius;</p></li>
+<li><p><cite>center</cite>: return ball center point;</p></li>
+<li><p><cite>center</cite>: set ball center point;</p></li>
+<li><p><cite>clamp</cite>: resize minimum aabb containing the ball object</p></li>
+<li><p><cite>area</cite>: calculate ball external surface area;</p></li>
+<li><p><cite>volume</cite>: calculate ball volume;</p></li>
+<li><p><cite>translate</cite>: translate ball by vector;</p></li>
+<li><p><cite>transform</cite>: transform ball with affine transformation matrix;</p></li>
+<li><p><cite>isInside</cite>: check whether the point is inside the ball.</p></li>
+</ul>
+</div>
+<div class="section" id="class-collection">
+<h2>Class <cite>collection</cite><a class="headerlink" href="#class-collection" title="Permalink to this headline">¶</a>
+</h2>
+<p>The class <cite>collection</cite> represents a generic set of geometrical entites.
+It is built out of two members:</p>
+<ul class="simple">
+<li><p>a <strong>vector of shared pointers</strong> to entity objects of the type <cite>std::vector&lt;std::shared_ptr&lt;entity&gt;&gt;</cite>.</p></li>
+<li><p>a <strong>bounding volume hierarcy tree</strong> of the type <cite>AABBtree</cite> of the type <cite>std::shared_ptr&lt;AABBtree&gt;</cite>.</p></li>
+</ul>
+<p>The implemented methods are specifically designed to intersect a large number
+numer of eninties with only few commands. thus, it is very useful with large sets
+of heteregeneous objects. Moreover, implemented methods also include sorting,
+counting and removal of specific ojects types. Additional objects can be pushed
+back or subtituted with already exixting ones.</p>
+</div>
+<div class="section" id="class-aabb">
+<h2>Class <cite>aabb</cite><a class="headerlink" href="#class-aabb" title="Permalink to this headline">¶</a>
+</h2>
+<p>The class <cite>aabb</cite> represents a generic axis-aligned bounding box in the 3D space.
+It is built out of two members:</p>
+<ul class="simple">
+<li><p>a <strong>minimum</strong> point, represented by a member of type <cite>point</cite>;</p></li>
+<li><p>a <strong>maximum</strong> point, represented by a member of type <cite>point</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>operator=</cite>: equality operator;</p></li>
+<li><p><cite>isApprox</cite>: check if aabb are (almost) equal;</p></li>
+<li><p><cite>isDegenerated</cite>: check if radius is degenerated (radius is zero and normal vector has zero norm);</p></li>
+<li><p><cite>max</cite>: return aabb maximum point;</p></li>
+<li><p><cite>max</cite>: set aabb maximum point;</p></li>
+<li><p><cite>min</cite>: return aabb minimum point;</p></li>
+<li><p><cite>min</cite>: set aabb minimum point;</p></li>
+<li><p><cite>centerDistance</cite>: return aabb center distance from point;</p></li>
+<li><p><cite>exteriorDistance</cite>: return aabb exterior distance from point;</p></li>
+<li><p><cite>merged</cite>: return aabb merged with another aabb;</p></li>
+<li><p><cite>center</cite>: set aabb center point;</p></li>
+<li><p><cite>normal</cite>: return aabb normal vector;</p></li>
+<li><p><cite>normal</cite>: set aabb normal vector;</p></li>
+<li><p><cite>id</cite>: return aabb identfication number;</p></li>
+<li><p><cite>id</cite>: set aabb identfication number;</p></li>
+<li><p><cite>pos</cite>: return aabb position number;</p></li>
+<li><p><cite>pos</cite>: set aabb position number;</p></li>
+<li><p><cite>intersects</cite>: check if two aabbs intersects.</p></li>
+</ul>
+<p>Notice that <cite>aabb</cite> is bot considered to be a geometrical entity and thus there are
+no external functions implemented for intersections with the other geometrical entities.</p>
+</div>
+<div class="section" id="class-aabbtree">
+<h2>Class <cite>AABBtree</cite><a class="headerlink" href="#class-aabbtree" title="Permalink to this headline">¶</a>
+</h2>
+<p>The <cite>AABBtree</cite> represents a generic axis-aligned bouding box tree class container.
+It is built out of two members:</p>
+<ul class="simple">
+<li><p>a <strong>pointer</strong> to the tree itself, represented by a member of type <cite>aabb::ptr</cite>;</p></li>
+<li><p>a <strong>vector of pointers</strong> to the tree sub-structure, represented by a member of type <cite>std::vector&lt;AABBtree::ptr&gt;</cite>.</p></li>
+</ul>
+<p>The implemented methods are:</p>
+<ul class="simple">
+<li><p><cite>clear</cite>: clear AABB tree data;</p></li>
+<li><p><cite>isEmpty</cite>: check if AABB tree is empty;</p></li>
+<li><p><cite>build</cite>: build AABB tree given a list of boxes;</p></li>
+<li><p><cite>print</cite>: print AABB tree data;</p></li>
+<li><p><cite>collision</cite>: template function to check if two AABB tree collide;</p></li>
+<li><p><cite>intersection</cite>: compute all the intersection leafs of AABB trees.</p></li>
+</ul>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a>
+</h2>
+<p>Objects defined by the previous classes can interact between them through external
+functions defined in <cite>acme</cite> namespace. These functions are:</p>
+<ul class="simple">
+<li><p><cite>Intersection</cite>: it allows to <em>intersect</em> two elements or just check if two geometric
+entities <em>collide</em>;</p></li>
+<li><p><cite>IsParallel</cite>: check if two geometric entities are <em>parallel</em>;</p></li>
+<li><p><cite>IsOrthogonal</cite>: check if two geometric entities are <em>orthogonal</em>;</p></li>
+<li><p><cite>IsCollinear</cite>: check if two geometric entities are <em>collinear</em>;</p></li>
+<li><p><cite>IsCoplanar</cite>: check if two geometric entities are <em>coplanar</em>.</p></li>
+</ul>
+<p>Each of these functions are overloaded and they can take objects or raw pointers
+to <cite>entity</cite> as input.</p>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Manual_Readme.html">The Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">General Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#class-entity">Class <cite>entity</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-none">Class <cite>none</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-line">Class <cite>line</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-ray">Class <cite>ray</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-plane">Class <cite>plane</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-segment">Class <cite>segment</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-triangle">Class <cite>triangle</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-disk">Class <cite>disk</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-ball">Class <cite>ball</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-collection">Class <cite>collection</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-aabb">Class <cite>aabb</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-aabbtree">Class <cite>AABBtree</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_MATLAB_Toolbox.html">MATLAB Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

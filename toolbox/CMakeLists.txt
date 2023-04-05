@@ -46,7 +46,7 @@ if ( (UNIX OR LINUX) AND NOT APPLE )
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -static-libstdc++ -static-libgcc -Wl,--no-undefined")
 endif()
 
-include(./cmake_utils/CMakeLists-cflags.txt)
+include(./../CMakeLists-cflags.txt)
 include(./cmake_utils/CMakeLists-utilities.txt)
 
 # Evaluating the suffix to append to target built by this CMake file
@@ -111,6 +111,18 @@ list(FILTER PUBLIC_HEADERS EXCLUDE REGEX "\.DS")
 include_directories( src src/Utils ${Matlab_INCLUDE_DIRS} )
 
 message( STATUS "SOURCES = ${SOURCES}" )
+
+#   _____ _
+#  | ____(_) __ _  ___ _ __
+#  |  _| | |/ _` |/ _ \ '_ \
+#  | |___| | (_| |  __/ | | |
+#  |_____|_|\__, |\___|_| |_|
+#           |___/
+
+find_package(Eigen3 REQUIRED)
+include_directories( ${EIGEN3_INCLUDE_DIR} )
+message("Eigen include directories: ${EIGEN3_INCLUDE_DIR}")
+message("Eigen include directories: ${EIGEN3_FOUND}")
 
 #   _____                    _
 #  |_   _|_ _ _ __ __ _  ___| |_ ___

@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 import os
+import sys
 from pathlib import Path
 
 
 # -- Project information -----------------------------------------------------
 exec(open("../project_common.py").read())
 
+sys.path.append(os.path.abspath("./_ext"))
+
+rst_prolog = ".. |xml| replace:: %s\n" % (project)
 
 # Setup the breathe extension
 extensions.append('breathe');

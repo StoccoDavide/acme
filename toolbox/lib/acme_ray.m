@@ -205,7 +205,7 @@ classdef acme_ray < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot ray object
-    function plot( this, figure_name, color, limit )
+    function plot( this, figure_name, alpha color, limit )
       figure_name;
       hold on;
       origin = this.getOrigin().get();

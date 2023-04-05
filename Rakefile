@@ -9,7 +9,6 @@ task :default => :build
 
 desc "compile for Visual Studio"
 task :build_win do
-  # check architecture
   case `where cl.exe`.chop
   when /x64\\cl\.exe/
     VS_ARCH = 'x64'
@@ -69,21 +68,6 @@ end
 task :build_osx   => :build_osx_linux_mingw do end
 task :build_linux => :build_osx_linux_mingw do end
 task :build_mingw => :build_osx_linux_mingw do end
-
-task :build_submodules do
-  FileUtils.cd 'submodules'
-  case OS
-  when :mac
-    sh 'rake build_osx'
-  when :linux
-    sh 'rake build_linux'
-  when :mingw
-    sh 'rake build_mingw'
-  when :win
-    sh 'rake build_win'
-  end
-  FileUtils.cd '..'
-end
 
 task :clean_osx   => :clean_osx_linux_mingw do end
 task :clean_linux => :clean_osx_linux_mingw do end

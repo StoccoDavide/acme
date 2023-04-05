@@ -34,7 +34,7 @@ project(
   HOMEPAGE_URL "https://StoccoDavide.github.io/acme/"
 )
 
-include(./cmake_utils/CMakeLists-cflags.txt)
+include(./CMakeLists-cflags.txt)
 include(./cmake_utils/CMakeLists-utilities.txt)
 
 # Evaluating the suffix to append to target built by this CMake file
@@ -46,12 +46,12 @@ endif()
 message( STATUS "Compiler used: ${CMAKE_CXX_COMPILER_ID}" )
 message( STATUS "BASE SUFFIXES = ${ARTIFACTS_STATIC_SUFFIX} ${ARTIFACTS_DYNAMIC_SUFFIX}" )
 
-#   ____                                
-#  / ___|  ___  _   _ _ __ ___ ___  ___ 
+#   ____
+#  / ___|  ___  _   _ _ __ ___ ___  ___
 #  \___ \ / _ \| | | | '__/ __/ _ \/ __|
 #   ___) | (_) | |_| | | | (_|  __/\__ \
 #  |____/ \___/ \__,_|_|  \___\___||___/
-#                                       
+#
 
 set( SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src" )
 
@@ -63,15 +63,15 @@ foreach(F ${S})
   list( APPEND SOURCES ${RF} )
 endforeach(F ${S})
 
-#   _   _                _               
-#  | | | | ___  __ _  __| | ___ _ __ ___ 
+#   _   _                _
+#  | | | | ___  __ _  __| | ___ _ __ ___
 #  | |_| |/ _ \/ _` |/ _` |/ _ \ '__/ __|
 #  |  _  |  __/ (_| | (_| |  __/ |  \__ \
 #  |_| |_|\___|\__,_|\__,_|\___|_|  |___/
-#                                        
+#
 
 set( HEADERS )
-file( GLOB S 
+file( GLOB S
   ${SOURCES_DIR}/*.h*
   ${SOURCES_DIR}/acme/*.h*
 )
@@ -84,46 +84,24 @@ endforeach(F ${S})
 # Extra include directory for compilation
 include_directories( ${SOURCES_DIR} ./lib3rd/include ) # FIXME: ${SOURCES_DIR}
 
-#   ____                            _                 _           
-#  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___(_) ___  ___ 
-#  | | | |/ _ \ '_ \ / _ \ '_ \ / _` |/ _ \ '_ \ / __| |/ _ \/ __|
-#  | |_| |  __/ |_) |  __/ | | | (_| |  __/ | | | (__| |  __/\__ \
-#  |____/ \___| .__/ \___|_| |_|\__,_|\___|_| |_|\___|_|\___||___/
-#             |_|                                                 
+#   _____ _
+#  | ____(_) __ _  ___ _ __
+#  |  _| | |/ _` |/ _ \ '_ \
+#  | |___| | (_| |  __/ | | |
+#  |_____|_|\__, |\___|_| |_|
+#           |___/
 
-set(DEPEND_TARGETS)
+find_package(Eigen3 REQUIRED)
+include_directories( ${EIGEN3_INCLUDE_DIR} )
+message("Eigen include directories: ${EIGEN3_INCLUDE_DIR}")
+message("Eigen include directories: ${EIGEN3_FOUND}")
 
-# Dependencies (try to use already compiled submodeule in large project)
-set(
-  UPDIR ${CMAKE_CURRENT_SOURCE_DIR}/..
-)
-
-# Utils library
-find_library(
-  UTILS Utils${ARTIFACTS_STATIC_SUFFIX}
-  HINTS ${UPDIR}/Utils/lib/lib
-  NO_DEFAULT_PATH
-)
-if( UTILS )
-  message( STATUS "Found Utils${ARTIFACTS_STATIC_SUFFIX}" )
-  utils_copy_directory(
-    "${UPDIR}/Utils/lib"
-    "${CMAKE_CURRENT_SOURCE_DIR}/lib3rd"
-  )
-else()
-  message(STATUS "NOT Found Utils${ARTIFACTS_STATIC_SUFFIX} use submodule")
-  add_subdirectory( ./submodules/Utils )
-  include_directories( ./submodules/Utils/src )
-  set( UTILS ${UTILS_NAMESPACE}_Utils_Static )
-  set( DEPEND_TARGETS ${DEPEND_TARGETS} ${UTILS} )
-endif()
-
-#   _____                    _       
-#  |_   _|_ _ _ __ __ _  ___| |_ ___ 
+#   _____                    _
+#  |_   _|_ _ _ __ __ _  ___| |_ ___
 #    | |/ _` | '__/ _` |/ _ \ __/ __|
 #    | | (_| | | | (_| |  __/ |_\__ \
 #    |_|\__,_|_|  \__, |\___|\__|___/
-#                 |___/              
+#                 |___/
 
 # Define target
 utils_setup_target(
@@ -143,19 +121,19 @@ if ( UTILS_BUILD_SHARED )
     "${SOURCES_DIR}"
     "${HEADERS}"
   )
-  target_link_libraries( ${UTILS_NAMESPACE}_${PROJECT_NAME} ${ROOTS} ${UTILS} )
+  target_link_libraries( ${UTILS_NAMESPACE}_${PROJECT_NAME} ${UTILS} )
 endif()
 
 if ( DEPEND_TARGETS )
   add_dependencies( ${UTILS_NAMESPACE}_${PROJECT_NAME}_Static ${DEPEND_TARGETS} )
 endif()
 
-#   _____         _       
-#  |_   _|__  ___| |_ ___ 
+#   _____         _
+#  |_   _|__  ___| |_ ___
 #    | |/ _ \/ __| __/ __|
 #    | |  __/\__ \ |_\__ \
 #    |_|\___||___/\__|___/
-#                         
+#
 
 if ( UTILS_ENABLE_TESTS )
 
@@ -172,7 +150,7 @@ if ( UTILS_ENABLE_TESTS )
     set( ZLIB_SOURCES_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/lib3rd/zlib/include ")
   endif()
 
-  set( LIBS ${UTILS_NAMESPACE}_${PROJECT_NAME}_Static ${UTILS} ${ROOTS} ${ZLIB_LIBRARIES} ${CMAKE_DL_LIBS} )
+  set( LIBS ${UTILS_NAMESPACE}_${PROJECT_NAME}_Static ${UTILS} ${ZLIB_LIBRARIES} ${CMAKE_DL_LIBS} )
 
   if( UNIX )
     if ( NOT APPLE )
@@ -181,16 +159,9 @@ if ( UTILS_ENABLE_TESTS )
       set( LIBS ${LIBS} Threads::Threads )
     endif()
   else()
-    #libcmt.lib
-    #find_library( WS2 ws2_32 REQUIRED )
-    #find_library( IPH iphlpapi REQUIRED )
-    #find_library( KER kernel32 REQUIRED )
-    #find_library( IPP ippsmt REQUIRED )
-    #find_library( WPTH pthread REQUIRED )
-    #set( LIBS ${LIBS} ${WS2} ${IPH} ${KER} )
     set( LIBS ${LIBS} ws2_32 iphlpapi kernel32 )
     if (UTILS_BUILD_SHARED)
-      target_link_libraries( ${UTILS_NAMESPACE}_${PROJECT_NAME} ${LIBS} ${ZLIB_LIBRARIES} ${CMAKE_DL_LIBS} )
+      target_link_libraries( ${UTILS_NAMESPACE}_${PROJECT_NAME} ${LIBS} Eigen3::Eigen ${ZLIB_LIBRARIES} ${CMAKE_DL_LIBS} )
     endif()
   endif()
 
@@ -234,12 +205,12 @@ if ( UTILS_ENABLE_TESTS )
 
 endif()
 
-#   ___           _        _ _ 
+#   ___           _        _ _
 #  |_ _|_ __  ___| |_ __ _| | |
 #   | || '_ \/ __| __/ _` | | |
 #   | || | | \__ \ || (_| | | |
 #  |___|_| |_|___/\__\__,_|_|_|
-#                              
+#
 
 install(
   TARGETS ${TARGETS_TO_BE_INSTALLED}
@@ -250,13 +221,17 @@ install(
   PUBLIC_HEADER DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION}
 )
 
-#   ____            _                    
-#  |  _ \ __ _  ___| | ____ _  __ _  ___ 
+#   ____            _
+#  |  _ \ __ _  ___| | ____ _  __ _  ___
 #  | |_) / _` |/ __| |/ / _` |/ _` |/ _ \
 #  |  __/ (_| | (__|   < (_| | (_| |  __/
 #  |_|   \__,_|\___|_|\_\__,_|\__, |\___|
-#                             |___/      
+#                             |___/
 
 include( ./cmake_utils/CMakeLists-cpack.txt )
 
 utils_final_messages()
+
+#
+# That's all Folks!
+#

@@ -29,6 +29,8 @@
 /// file: plane.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -265,6 +267,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: plane.cc
