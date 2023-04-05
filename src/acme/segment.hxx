@@ -56,6 +56,8 @@ namespace acme
   {
   private:
     point m_vertex[2] = {NAN_POINT, NAN_POINT}; //!< Segment extrema points
+    vec3 assembled_vector[2] = {NAN_VEC3, NAN_VEC3}; //!< Vector, unit vector
+    real assembled_length = 0;
 
   public:
     //! Segment copy constructor
@@ -97,6 +99,9 @@ namespace acme
       point const vertex[2] //!< Input segment vertices
     );
 
+    //! Update inner values
+    void update();
+
     //! Check if segments are (almost) equal
     bool
     isApprox(
@@ -112,25 +117,25 @@ namespace acme
     //! Get segment i-th vertex const reference
     point const &
     vertex(
-      integer i //!< Intput segment i-th vertex index
+      integer i //!< Input segment i-th vertex index
     ) const;
 
     //! Get segment i-th vertex reference
     point &
     vertex(
-      integer i //!< Intput segment i-th vertex index
+      integer i //!< Input segment i-th vertex index
     );
 
     //! Get segment i-th vertex const reference
     point const &
     operator[](
-      integer i //!< Intput segment i-th vertex index
+      integer i //!< Input segment i-th vertex index
     ) const;
 
     //! Get segment i-th vertex reference
     point &
     operator[](
-      integer i //!< Intput segment i-th vertex index
+      integer i //!< Input segment i-th vertex index
     );
 
     //! Convert segment to vector
@@ -164,7 +169,7 @@ namespace acme
       affine const & affine_in //!< 4x4 affine transformation matrix
     ) override;
 
-    //! Check whether the point is inside the segment
+    // Check whether the point is inside the segment
     bool
     isInside(
       point const & point_in,           //!< Query point

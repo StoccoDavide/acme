@@ -1212,6 +1212,7 @@ namespace acme
       {
         segment_out.vertex(0) = ray0_in.origin();
         segment_out.vertex(1) = ray1_in.origin();
+        segment_out.update();
         return true;
       }
       else
@@ -1262,6 +1263,7 @@ namespace acme
       case 1111: // 1111
         segment_out.vertex(0) = s0_p0;
         segment_out.vertex(1) = s0_p1;
+        segment_out.update();
         return true;
 
       //                       An extrema coincides
@@ -1273,21 +1275,25 @@ namespace acme
       case 111: // 0111
         segment_out.vertex(0) = s1_p0;
         segment_out.vertex(1) = s1_p1;
+        segment_out.update();
         return true;
 
       case 1011: // 1011
         segment_out.vertex(0) = s1_p0;
         segment_out.vertex(1) = s1_p1;
+        segment_out.update();
         return true;
 
       case 1101: // 1101
         segment_out.vertex(0) = s0_p0;
         segment_out.vertex(1) = s0_p1;
+        segment_out.update();
         return true;
 
       case 1110: // 1110
         segment_out.vertex(0) = s0_p0;
         segment_out.vertex(1) = s0_p1;
+        segment_out.update();
         return true;
 
       //                      Partial overlap
@@ -1299,21 +1305,25 @@ namespace acme
       case 101: // 0101
         segment_out.vertex(0) = s0_p1;
         segment_out.vertex(1) = s1_p1;
+        segment_out.update();
         return true;
 
       case 110: // 0110
         segment_out.vertex(0) = s0_p1;
         segment_out.vertex(1) = s1_p0;
+        segment_out.update();
         return true;
 
       case 1001: // 1001
         segment_out.vertex(0) = s0_p0;
         segment_out.vertex(1) = s1_p1;
+        segment_out.update();
         return true;
 
       case 1010: // 1010
         segment_out.vertex(0) = s0_p0;
         segment_out.vertex(1) = s1_p0;
+        segment_out.update();
         return true;
 
       //                 One segment is inside
@@ -1323,11 +1333,13 @@ namespace acme
       case 1100: // 1100
         segment_out.vertex(0) = s0_p0;
         segment_out.vertex(1) = s0_p1;
+        segment_out.update();
         return true;
 
       case 11: // 0011
         segment_out.vertex(0) = s1_p0;
         segment_out.vertex(1) = s1_p1;
+        segment_out.update();
         return true;
 
       //                   No Intersection case
@@ -1419,12 +1431,14 @@ namespace acme
       {
         segment_out.vertex(0) = ray_in.origin();
         segment_out.vertex(1) = point_0;
+        segment_out.update();
         return true;
       }
       else if (!ray_in.isInside(point_0, tolerance) && ray_in.isInside(point_1, tolerance))
       {
         segment_out.vertex(0) = ray_in.origin();
         segment_out.vertex(1) = point_1;
+        segment_out.update();
         return true;
       }
       else
@@ -1943,18 +1957,21 @@ namespace acme
     {
       segment_out.vertex(0) = point0;
       segment_out.vertex(1) = point1;
+      segment_out.update();
       return true;
     }
     else if (!bool0 && bool1 && bool2)
     {
       segment_out.vertex(0) = point1;
       segment_out.vertex(1) = point2;
+      segment_out.update();
       return true;
     }
     else if (bool0 && !bool1 && bool2)
     {
       segment_out.vertex(0) = point2;
       segment_out.vertex(1) = point0;
+      segment_out.update();
       return true;
     }
     else if (bool0 && bool1 && bool2)
@@ -1963,18 +1980,21 @@ namespace acme
       {
         segment_out.vertex(0) = point1;
         segment_out.vertex(1) = point2;
+        segment_out.update();
         return true;
       }
       else if (point1.isApprox(point2, tolerance))
       {
         segment_out.vertex(0) = point0;
         segment_out.vertex(1) = point1;
+        segment_out.update();
         return true;
       }
       else if (point0.isApprox(point2, tolerance))
       {
         segment_out.vertex(0) = point0;
         segment_out.vertex(1) = point1;
+        segment_out.update();
         return true;
       }
       else
@@ -2020,11 +2040,13 @@ namespace acme
       point int_point(line_origin - (a1 * inv) * line_direction);
       segment_out.vertex(0) = int_point;
       segment_out.vertex(1) = int_point;
+      segment_out.update();
       return true;
     }
     real root             = std::sqrt(discriminant);
     segment_out.vertex(0) = line_origin - ((a1 + root) * inv) * line_direction;
     segment_out.vertex(1) = line_origin - ((a1 - root) * inv) * line_direction;
+    segment_out.update();
     return true;
   }
 
@@ -2099,6 +2121,7 @@ namespace acme
       point int_point(ray_origin + t * ray_direction);
       segment_out.vertex(0) = int_point;
       segment_out.vertex(1) = int_point;
+      segment_out.update();
       return true;
     }
     real root = std::sqrt(discriminant);
@@ -2110,6 +2133,7 @@ namespace acme
     t1 = std::max(real(0.0), t1);
     segment_out.vertex(0) = ray_origin + t0 * ray_direction;
     segment_out.vertex(1) = ray_origin + t1 * ray_direction;
+    segment_out.update();
     return true;
   }
 
@@ -2230,6 +2254,7 @@ namespace acme
       point int_point(segment_origin + t * segment_direction);
       segment_out.vertex(0) = int_point;
       segment_out.vertex(1) = int_point;
+      segment_out.update();
       return true;
     }
     real root = std::sqrt(discriminant);
@@ -2241,6 +2266,7 @@ namespace acme
     t1 = std::max(real(0.0), std::min(t1, real(1.0)));
     segment_out.vertex(0) = segment_origin + t0 * segment_direction;
     segment_out.vertex(1) = segment_origin + t1 * segment_direction;
+    segment_out.update();
     return true;
   }
 
@@ -2485,6 +2511,7 @@ namespace acme
       real root             = std::sqrt(discr);
       segment_out.vertex(0) = origin + (-a1 - root) * direction;
       segment_out.vertex(1) = origin + (-a1 + root) * direction;
+      segment_out.update();
       return true;
     }
     else
@@ -2613,6 +2640,7 @@ namespace acme
       t1 = std::max(t1, real(0.0));
       segment_out.vertex(0) = origin + t0 * direction;
       segment_out.vertex(1) = origin + t1 * direction;
+      segment_out.update();
       return true;
     }
     else
@@ -2803,6 +2831,7 @@ namespace acme
       t1 = std::min(t1, real(1.0));
       segment_out.vertex(0) = origin + t0 * direction;
       segment_out.vertex(1) = origin + t1 * direction;
+      segment_out.update();
       return true;
     }
     else
