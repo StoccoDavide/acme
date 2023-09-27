@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -70,23 +70,21 @@ main(void)
 
     std::cout
       << "Triangle 1 = " << std::endl
-      << Triangle1
+      << Triangle1 << std::endl
       << std::endl
       << "Triangle 2 = " << std::endl
-      << Triangle2
+      << Triangle2 << std::endl
       << std::endl
       << "Aabb 1 = " << std::endl
-      << Box1
+      << Box1 << std::endl
       << std::endl
       << "Aabb 2 = " << std::endl
-      << Box2 << std::endl
-      << std::endl
-      << "TEST 9: Completed" << std::endl;
+      << Box2 << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 09: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

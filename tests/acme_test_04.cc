@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -61,7 +61,7 @@ main(void)
     bool PtBordBool = Segment.isInside(PointBorder);
 
     std::cout
-        << Segment
+        << Segment << std::endl
         << std::endl;
 
     // Show results
@@ -72,20 +72,15 @@ main(void)
         << "Point outside   = " << PointOut << " -> Bool = " << PtOutBool << std::endl
         << "Point on border = " << PointBorder << " -> Bool = " << PtBordBool << std::endl
         << std::endl
-        << "TEST 4: Completed" << std::endl;
+        << "TEST 04: Completed" << std::endl
+        << "---------------------------" << std::endl;
     }
     else
     {
       std::cout
-        << "TEST 4: Failed" << std::endl;
+        << "TEST 04: Failed" << std::endl
+        << "---------------------------" << std::endl;
     }
-
-
-    // End of test
-    std::cout
-      << std::endl
-      << "That's all Folks!" << std::endl
-      << "---------------------------" << std::endl;
 
     // Exit the program
     return 0;

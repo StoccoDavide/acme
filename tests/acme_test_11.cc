@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -70,14 +70,11 @@ main(void)
       std::cout << "Check coplanarity!" << std::endl;
     }
 
-    std::cout
-      << IntersectionSeg << std::endl
-      << "TEST 11: Completed" << std::endl;
-
     // End of test
     std::cout
-      << std::endl
-      << "That's all Folks!" << std::endl
+      << IntersectionSeg << std::endl
+       << std::endl
+      << "TEST 11: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

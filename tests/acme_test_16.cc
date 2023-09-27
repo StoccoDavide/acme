@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -68,14 +68,12 @@ main(void)
     std::cout
       << std::endl
       << "Intersection segment: " << std::endl
-      << IntersectionSeg
-      << std::endl
-      << "TEST 17: Completed" << std::endl;
+      << IntersectionSeg << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 16: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

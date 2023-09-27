@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -49,23 +49,24 @@ main(void)
 
     // Epsilon test
     std::cout << "Epsilon test" << std::endl
-              << "Epsilon (machine) = " << EPSILON_MACHINE << std::endl
-              << "Epsilon (acme)    = " << EPSILON << std::endl
+              << "Epsilon machine       = " << EPSILON_MACHINE << std::endl
+              << "sqrt(Epsilon machine) = " << EPSILON_SQRT << std::endl
+              << "cbrt(Epsilon machine) = " << EPSILON_CBRT << std::endl
               << std::endl;
 
     // Infinity test
     std::cout << "Infinity test" << std::endl
-              << "Infinity (acme)   = " << INFTY << std::endl
+              << "Infinity machine = " << INFTY << std::endl
               << std::endl;
 
     // Not-a-number test
     std::cout << "Not-a-number test" << std::endl
-              << "Quiet NaN (acme)   = " << QUIET_NAN << std::endl;
-  
+              << "Quiet NaN machine = " << QUIET_NAN << std::endl;
+
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 00: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

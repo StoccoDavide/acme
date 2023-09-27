@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -52,30 +52,26 @@ main(void)
 
     segment segment_out;
     ray ray_out;
-    bool bool_segment = Intersection(ray0, ray1, segment_out, EPSILON);
-    bool bool_ray     = Intersection(ray0, ray1, ray_out, EPSILON);
+    bool bool_segment = Intersection(ray0, ray1, segment_out, EPSILON_ACME);
+    bool bool_ray     = Intersection(ray0, ray1, ray_out, EPSILON_ACME);
 
     if (bool_segment)
     {
-      std::cout 
+      std::cout
         << "Segment:" << std::endl
-        << segment_out;
+        << segment_out << std::endl;
     }
     else if (bool_ray)
     {
       std::cout
         << "Ray:" << std::endl
-        << ray_out;
+        << ray_out << std::endl;
     }
-
-    std::cout
-      << std::endl
-      << "TEST 12: Completed" << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 12: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

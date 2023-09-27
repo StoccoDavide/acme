@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -68,21 +68,19 @@ main(void)
 
     // Display results
     std::cout
-      << "Point  (ground) = " << point_tmp
-      << "Vector (ground) = " << vector_tmp
+      << "Point  (ground) = " << point_tmp << std::endl
+      << "Vector (ground) = " << vector_tmp << std::endl
       << std::endl
-      << "Point  (moving frame) = " << mov_point
-      << "Vector (moving frame) = " << mov_vector
+      << "Point  (moving frame) = " << mov_point << std::endl
+      << "Vector (moving frame) = " << mov_vector << std::endl
       << std::endl
-      << "Point  (back to ground) = " << ground_point
-      << "Vector (back to ground) = " << ground_vector
-      << std::endl
-      << "TEST 8: Completed" << std::endl;
+      << "Point  (back to ground) = " << ground_point << std::endl
+      << "Vector (back to ground) = " << ground_vector << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 08: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

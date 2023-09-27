@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -107,7 +107,11 @@ main(void)
       // ERROR if no one of the two triangles is hit
       if (!IntersectionBoolTri1 && !IntersectionBoolTri2)
       {
-        std::cout << "Check coplanarity!" << std::endl;
+        std::cout
+          << "Check coplanarity!" << std::endl
+           << std::endl
+          << "TEST 01: Failed" << std::endl
+          << "---------------------------" << std::endl;
       }
     }
 
@@ -116,13 +120,13 @@ main(void)
     vec3 N2 = Triangle2.normal();
     std::cout
         << std::endl
-        << "Triangle 1 face normal = " << N1
-        << "Triangle 2 face normal = " << N2;
+        << "Triangle 1 face normal = " << N1 << std::endl
+        << "Triangle 2 face normal = " << N2 << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 01: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

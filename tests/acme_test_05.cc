@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -94,8 +94,8 @@ main(void)
       tmp_Triangle1.transform(tmp_affine);
       tmp_Triangle2.transform(tmp_affine);
 
-      IntersectionBoolTri1 = Intersection(Line, tmp_Triangle1, IntersectionPointTri1, EPSILON_LOW);
-      IntersectionBoolTri2 = Intersection(Line, tmp_Triangle2, IntersectionPointTri2, EPSILON_LOW);
+      IntersectionBoolTri1 = Intersection(Line, tmp_Triangle1, IntersectionPointTri1, EPSILON_ACME);
+      IntersectionBoolTri2 = Intersection(Line, tmp_Triangle2, IntersectionPointTri2, EPSILON_ACME);
 
       std::cout
           << angle / PIDIV180 << "°\t"
@@ -104,7 +104,11 @@ main(void)
       // ERROR if no one of the two triangles is hit
       if (!IntersectionBoolTri1 && !IntersectionBoolTri2)
       {
-        std::cout << "Check coplanarity!" << std::endl;
+        std::cout
+          << "Check coplanarity!" << std::endl
+          << std::endl
+          << "TEST 05: Failed" << std::endl
+          << "---------------------------" << std::endl;
       }
     }
 
@@ -113,13 +117,13 @@ main(void)
     vec3 N2 = Triangle2.normal();
     std::cout
         << std::endl
-        << "Triangle 1 face normal = " << N1
-        << "Triangle 2 face normal = " << N2;
+        << "Triangle 1 face normal = " << N1 << std::endl
+        << "Triangle 2 face normal = " << N2 << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 05: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

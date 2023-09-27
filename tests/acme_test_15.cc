@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -72,32 +72,30 @@ main(void)
       << std::endl
       << "Segment 1 with two intersections: bool(" << boolIn1 << ") intersection found" << std::endl
       << In1
-      << "Intersection point 0 = " << IntIn1.vertex(0)
-      << "Intersection point 1 = " << IntIn1.vertex(1)
+      << "Intersection point 0 = " << IntIn1.vertex(0) << std::endl
+      << "Intersection point 1 = " << IntIn1.vertex(1) << std::endl
       << std::endl
       << "Segment 2 with two intersections: bool(" << boolIn2 << ") intersection found" << std::endl
       << In2
-      << "Intersection point 0 = " << IntIn2.vertex(0)
-      << "Intersection point 1 = " << IntIn2.vertex(1)
+      << "Intersection point 0 = " << IntIn2.vertex(0) << std::endl
+      << "Intersection point 1 = " << IntIn2.vertex(1) << std::endl
       << std::endl
       << "Segment with no intersections:  bool(" << boolOut << ") intersection found" << std::endl
       << Out
-      << "Intersection point 0 = " << IntOut.vertex(0)
-      << "Intersection point 1 = " << IntOut.vertex(1)
+      << "Intersection point 0 = " << IntOut.vertex(0) << std::endl
+      << "Intersection point 1 = " << IntOut.vertex(1) << std::endl
       << std::endl
       << "Segment with one intersection:  bool(" << boolTan << ") intersection found" << std::endl
       << Tan
-      << "Intersection point 0 = " << IntTan.vertex(0)
-      << "Intersection point 1 = " << IntTan.vertex(1)
+      << "Intersection point 0 = " << IntTan.vertex(0) << std::endl
+      << "Intersection point 1 = " << IntTan.vertex(1) << std::endl
       << std::endl
-      << "Check the results..." << std::endl
-      << std::endl
-      << "TEST 15: Completed" << std::endl;
+      << "Check the results..." << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 15: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -99,28 +99,29 @@ main(void)
       std::cout
           << "Intersection " << i << std::endl
           << "Box 1:" << std::endl
-          << (*intBoxPair[i].first)
+          << (*intBoxPair[i].first) << std::endl
           << "Box 2:" << std::endl
-          << (*intBoxPair[i].second);
+          << (*intBoxPair[i].second) << std::endl;
     }
 
     std::cout
       << std::endl
       << "Triangle 1:" << std::endl
-      << Triangle1
-      << "Triangle 2:" << std::endl
-      << Triangle2
-      << "Box 1:" << std::endl
-      << Box1
-      << "Box 2:" << std::endl
-      << Box2
+      << Triangle1 << std::endl
       << std::endl
-      << "TEST 10: Completed" << std::endl;
+      << "Triangle 2:" << std::endl
+      << Triangle2 << std::endl
+      << std::endl
+      << "Box 1:" << std::endl
+      << Box1 << std::endl
+      << std::endl
+      << "Box 2:" << std::endl
+      << Box2 << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 10: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

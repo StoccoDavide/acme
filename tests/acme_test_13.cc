@@ -37,7 +37,7 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
@@ -58,11 +58,11 @@ main(void)
     {
       segment *segment_ptr0 = dynamic_cast<segment *>(entity_out0);
       std::cout << "Segment:" << std::endl
-                << *segment_ptr0;
+                << *segment_ptr0 << std::endl;
     }
 
     std::cout << std::endl;
-    
+
     disk *disk0 = new disk(2.0, point(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     disk *disk1 = new disk(2.0, point(0.0, 0.0, 0.1), vec3(1.0, -1.0, 0.0));
 
@@ -74,20 +74,16 @@ main(void)
     {
       segment *segment_ptr1 = dynamic_cast<segment *>(entity_out1);
       std::cout << "Segment:" << std::endl
-                << *segment_ptr1;
+                << *segment_ptr1 << std::endl;
     }
 
     delete entity_out0;
     delete entity_out1;
 
-    std::cout
-      << std::endl
-      << "TEST 13: Completed" << std::endl;
-
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 13: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

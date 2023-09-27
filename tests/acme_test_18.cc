@@ -70,14 +70,12 @@ main(void)
     std::cout
       << std::endl
       << "Intersection segment: " << real(IntersectionPtBool) << std::endl
-      << IntersectionSeg
-      << std::endl
-      << "TEST 18: Completed" << std::endl;
+      << IntersectionSeg << std::endl;
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 18: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

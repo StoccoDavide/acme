@@ -37,14 +37,14 @@ using namespace acme;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
 
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TEST 04 - POINT INSIDE DISK" << std::endl
+      << "TEST 03 - POINT INSIDE DISK" << std::endl
       << std::endl;
 
     // Initialize disk
@@ -63,7 +63,7 @@ main(void)
     PtBordBool = Disk.isInside(PointBorder);
 
     std::cout
-        << Disk
+        << Disk << std::endl
         << std::endl;
 
     // Show results
@@ -74,20 +74,19 @@ main(void)
           << "Point outside   = " << PointOut    << " -> Bool = " << PtOutBool  << std::endl
           << "Point on border = " << PointBorder << " -> Bool = " << PtBordBool << std::endl
           << std::endl
-          << "Check the results..." << std::endl
-          << std::endl
-          << "TEST 03: Completed" << std::endl;
+          << "Check the results..." << std::endl;
     }
     else
     {
       std::cout
-        << "TEST 03: Failed" << std::endl;
+        << "TEST 03: Failed" << std::endl
+        << "---------------------------" << std::endl;
     }
 
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 03: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program
